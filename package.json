@@ -1,0 +1,25 @@
+{
+  "name": "demantur",
+  "version": "1.0.0",
+  "description": "Tu banco amigo",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Javithor360/Demanture.git"
+  },
+  "author": "javithor360",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Javithor360/Demanture/issues"
+  },
+  "homepage": "https://github.com/Javithor360/Demanture#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "express": "^4.18.0",
+    "fs": "^0.0.1-security",
+    "nodemon": "^2.0.15"
+  }
+}

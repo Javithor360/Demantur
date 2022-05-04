@@ -1,25 +1,24 @@
 {
-  "name": "demantur",
+  "name": "idle",
   "version": "1.0.0",
-  "description": "Tu banco amigo",
-  "main": "index.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Javithor360/Demanture.git"
-  },
-  "author": "javithor360",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Javithor360/Demanture/issues"
-  },
-  "homepage": "https://github.com/Javithor360/Demanture#readme",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "axios": "^0.27.2",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.0",
     "express": "^4.18.0",
-    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.1",
+    "nodemailer": "^6.7.4"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.15"
   }
 }

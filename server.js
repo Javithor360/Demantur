@@ -22,4 +22,3 @@ process.on('unhandledRejection', (err, promise) => {
     console.log(`Error de loggeo ${err}`);
     server.close(() => process.exit(1));
 })
-

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 // Routing
 import PrivateRoute from './components/routing/PrivateRoute';
@@ -14,13 +14,13 @@ const App = () => {
   return (
     <Router>
       <div className='app'>
-        <Switch>
-          <PrivateRoute exact path="/" component={PrivateScreen} />
-          <Route exact path='/login' component={LoginScreen} />
-          <Route exact path='/register' component={RegisterScreen} />
-          <Route exact path='/forgotpassword' component={ForgotPasswordScreen} />
-          <Route exact path='/passwordreset/:resetToken' component={ResetPasswordScreen} />
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<PrivateScreen />} />
+          <Route exact path='/login' element={<LoginScreen />} />
+          <Route exact path='/register' element={<RegisterScreen />} />
+          <Route exact path='/forgotpassword' element={<ForgotPasswordScreen />} />
+          <Route exact path='/passwordreset/:resetToken' element={<ResetPasswordScreen />} />
+        </Routes>
       </div>
     </Router>
   );

@@ -63,8 +63,7 @@ exports.forgotpassword = async (req, res, next) => {
         const message = `
             <h1>Tienes una solicitud para cambiar tu contraseña</h1>
             <p>Por favor ingrese a este link para cambiar su contraseña</p>
-            <a href=${resetUrl} clicktracking=off>${resetUrl}</a>
-        `
+            <a href=${resetUrl} clicktracking=off>${resetUrl}</a>`
 
         try {
             await sendEmail({

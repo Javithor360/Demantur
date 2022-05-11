@@ -1,9 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./css/RegisterScreen.css";
 
-const RegisterScreen = ({ history }) => {
+const RegisterScreen = () => {
+    let navigate = useNavigate();
+
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -25,23 +27,17 @@ const RegisterScreen = ({ history }) => {
             setTimeout(() => {
                 setError("");
             }, 5000);
-            return setError("Passwords do not match");
+            return setError("Las contraseñas no son iguales");
         }
 
         try {
-            const { data } = await axios.post(
-                "/api/auth/register",
-                {
-                    username,
-                    email,
-                    password,
-                },
-                config
-            );
+            const { data } = await axios.post("/api/auth/register", { username, email, password, }, config);
 
             localStorage.setItem("authToken", data.token);
 
-            history.push("/");
+            console.log(localStorage.getItem('authToken'));
+
+            navigate('/')
         } catch (error) {
             setError(error.response.data.error);
             setTimeout(() => {

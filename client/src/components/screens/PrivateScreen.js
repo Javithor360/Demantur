@@ -1,28 +1,32 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import axios from 'axios';
 
 
-const PrivateScreen = ({ history }) => {
+const PrivateScreen = () => {
+    let navigate = useNavigate();
     const [error, setError] = useState('');
     const [privateData, setPrivateData] = useState('');
 
     useEffect(() => {
         if (!localStorage.getItem('authToken')) {
-            window.history.pushState({}, undefined, "/login");
+            navigate('/login')
         }
 
         const fetchPrivateData = async () => {
             const config = {
-                Headers: {
+                headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${localStorage.getItem('authToken')}`
-                }
-            }
+                    Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+                },
+            };
 
             try {
                 const { data } = await axios.get('/api/private', config);
 
                 setPrivateData(data.data);
+
             } catch (error) {
                 localStorage.removeItem('authToken');
                 setError('Todavia no has iniciado sesion')
@@ -30,11 +34,11 @@ const PrivateScreen = ({ history }) => {
         }
 
         fetchPrivateData()
-    }, [history]);
+    }, [navigate]);
 
     const logoutHandler = () => {
         localStorage.removeItem('authToken');
-        window.history.pushState({}, "/login");
+        navigate('/login')
     }
 
     return (

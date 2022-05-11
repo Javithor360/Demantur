@@ -1,8 +1,8 @@
 import { Navigate } from 'react-router-dom';
 
 const PrivateRoute = ({ children }) => {
-    if (!localStorage.getItem('authToken')) {
-        return <Navigate to='/login' replace />
+    if (localStorage.getItem('authToken')) {
+        return <Navigate to='/' replace />
     }
     return children
 };

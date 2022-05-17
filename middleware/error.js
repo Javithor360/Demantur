@@ -3,23 +3,23 @@ const ErrorResponse = require("../utils/errorResponse")
 const errorHandler = (err, req, res, next) => {
     let error = { ...err };
 
-    // error.message = err.message //mensaje de error en la consola
+    error.message = err.message;
 
     console.log(err)
 
-    if (err.code === 11000) {
+    if (err.code == 11000) {
         const message = `Estos datos ya están registrados`;
         error = new ErrorResponse(message, 400);
     }
 
-    if (err.name === "ValidationError") {
+    if (err.name == "ValidationError") {
         const message = Object.values(err.errors).map((val) => val.message);
         error = new ErrorResponse(message, 400);
     }
 
     res.status(error.statusCode || 500).json({
         succes: false,
-        error: error.message || 'server error'
+        error: error.message || 'hola'
     });
 }
 

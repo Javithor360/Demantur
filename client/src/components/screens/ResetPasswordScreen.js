@@ -26,7 +26,7 @@ const ResetPasswordScreen = async ({ match }) => {
         }
 
         try {
-            const { data } = await axios.put(`/api/auth/passwordreset/${match.params.resetToken}`, { password }, config);
+            const { data } = await axios.put(`http://localhost:3000/api/auth/passwordreset/${match.params.resetToken}`, { password }, config);
             setSuccess(data.data);
         } catch (error) {
             setError(error.response.data.error);

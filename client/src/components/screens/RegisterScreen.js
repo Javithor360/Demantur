@@ -31,11 +31,9 @@ const RegisterScreen = () => {
         }
 
         try {
-            const { data } = await axios.post("/api/auth/register", { username, email, password, }, config);
+            const { data } = await axios.post("http://localhost:3000/api/auth/register", { username, email, password, }, config);
 
             localStorage.setItem("authToken", data.token);
-
-            console.log(localStorage.getItem('authToken'));
 
             navigate('/')
         } catch (error) {
@@ -49,61 +47,27 @@ const RegisterScreen = () => {
     return (
         <div className="register-screen">
             <form onSubmit={registerHandler} className="register-screen__form">
-                <h3 className="register-screen__title">Register</h3>
+                <h3 className="register-screen__title">Registro</h3>
                 {error && <span className="error-message">{error}</span>}
                 <div className="form-group">
-                    <label htmlFor="name">Username:</label>
-                    <input
-                        type="text"
-                        required
-                        id="name"
-                        placeholder="Enter username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
+                    <label htmlFor="name">Nombre de usuario:</label>
+                    <input type="text" required id="name" placeholder="Enter username" value={username} onChange={(e) => setUsername(e.target.value)} />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        type="email"
-                        required
-                        id="email"
-                        placeholder="Email address"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
+                    <label htmlFor="email">Correo Electronico:</label>
+                    <input type="email" required id="email" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="password">Password:</label>
-                    <input
-                        type="password"
-                        required
-                        id="password"
-                        autoComplete="true"
-                        placeholder="Enter password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
+                    <label htmlFor="password">Contraseña:</label>
+                    <input type="password" required id="password" autoComplete="true" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="confirmpassword">Confirm Password:</label>
-                    <input
-                        type="password"
-                        required
-                        id="confirmpassword"
-                        autoComplete="true"
-                        placeholder="Confirm password"
-                        value={confirmpassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                    />
+                    <label htmlFor="confirmpassword">Confirme la contraseña:</label>
+                    <input type="password" required id="confirmpassword" autoComplete="true" placeholder="Confirm password" value={confirmpassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                 </div>
-                <button type="submit" className="btn btn-primary">
-                    Register
-                </button>
+                <button type="submit" className="btn btn-primary">Registrarse</button>
 
-                <span className="register-screen__subtext">
-                    Already have an account? <Link to="/login">Login</Link>
-                </span>
+                <span className="register-screen__subtext">¿Ya tienes una cuenta? <Link to="/login">Iniciar Sesion</Link></span>
             </form>
         </div>
     );

@@ -48,17 +48,23 @@ const LoginScreen = () => {
 
                 <div className="form-group">
                     <label htmlFor="email">Correo Electronico</label>
-                    <input type="email" required id='email' placeholder='Ingrese su correo electronico' value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <input type="email" required id='email' placeholder='Ingrese su correo electronico' value={email} onChange={(e) => setEmail(e.target.value)} tabIndex={1} />
                 </div>
 
                 <div className="form-group">
                     <label htmlFor="password">Contraseña</label>
-                    <input type="password" required id='password' placeholder='Escriba su contraseña' value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input type="password" required id='password' placeholder='Escriba su contraseña' value={password} onChange={(e) => setPassword(e.target.value)} tabIndex={2} />
                 </div>
 
-                <button type='submit' className='btn btn-primary'>Iniciar sesion</button>
+                <button type='submit' className='btn btn-primary' tabIndex={3}>Iniciar sesion</button>
 
                 <span className='login-screen__subtext'>¿No tienes una cuenta? <Link to='/register'>Registrarse</Link></span>
+                <span className='login-screen__subtext'>
+                    ¿Olvidaste tu contraseña?
+                    <Link to='/forgotpassword' className='login-screen__forgotpassword' tabIndex={4}>
+                        Recuperar
+                    </Link>
+                </span>
             </form>
         </div>
     )

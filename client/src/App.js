@@ -19,8 +19,8 @@ const App = () => {
           <Route path="/" element={<PrivateRoute > <PrivateScreen />  </PrivateRoute>} />
           <Route path="/login" element={<PrivateAuthRoute > <LoginScreen />  </PrivateAuthRoute>} />
           <Route path='/register' element={<PrivateAuthRoute ><RegisterScreen /></PrivateAuthRoute>} />
-          <Route path='/forgotpassword' element={<ForgotPasswordScreen />} />
-          <Route path='/passwordreset/:resetToken' element={<ResetPasswordScreen />} />
+          <Route path='/forgotpassword' element={<PrivateAuthRoute ><ForgotPasswordScreen /></PrivateAuthRoute>} />
+          <Route path='/passwordreset/:resetToken' element={<PrivateAuthRoute ><ResetPasswordScreen /></PrivateAuthRoute>} />
         </Routes>
       </div>
     </Router>

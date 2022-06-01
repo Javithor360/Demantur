@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 // Screens
 import PrivateScreen from './components/screens/PrivateScreen';
@@ -8,12 +8,14 @@ import ForgotPasswordScreen from './components/screens/ForgotPasswordScreen';
 import ResetPasswordScreen from './components/screens/ResetPasswordScreen';
 import PrivateRoute from './components/routing/PrivateRoute';
 import PrivateAuthRoute from './components/routing/PrivateAuthRoute';
+import Navbar from './components/Utils/Navbar';
 
 
 const App = () => {
   return (
-    <Router>
-      <div className='app'>
+    <div className='app'>
+      <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="*" element={<p>There's nothing here: 404!</p>} />
           <Route path="/" element={<PrivateRoute > <PrivateScreen />  </PrivateRoute>} />
@@ -22,8 +24,8 @@ const App = () => {
           <Route path='/forgotpassword' element={<PrivateAuthRoute ><ForgotPasswordScreen /></PrivateAuthRoute>} />
           <Route path='/passwordreset/:resetToken' element={<PrivateAuthRoute ><ResetPasswordScreen /></PrivateAuthRoute>} />
         </Routes>
-      </div>
-    </Router>
+      </BrowserRouter>
+    </div>
   );
 }
 

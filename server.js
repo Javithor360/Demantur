@@ -11,9 +11,8 @@ connectDB();
 
 app.use(express.json());
 app.use(cors());
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/private', require('./routes/private'));
-//errorHandler
+app.use('/api/auth', require('./routes/auth.routes'));
+app.use('/api/private', require('./routes/private.routes'));
 app.use(errorHandler)
 
 

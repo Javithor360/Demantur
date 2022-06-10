@@ -1,32 +1,15 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
-// Screens
-import PrivateScreen from './components/screens/PrivateScreen';
-import LoginScreen from './components/screens/LoginScreen';
-import RegisterScreen from './components/screens/RegisterScreen';
-import ForgotPasswordScreen from './components/screens/ForgotPasswordScreen';
-import ResetPasswordScreen from './components/screens/ResetPasswordScreen';
-import PrivateRoute from './components/routing/PrivateRoute';
-import PrivateAuthRoute from './components/routing/PrivateAuthRoute';
-import Navbar from './components/Utils/Navbar';
-
+import { Routes, Route } from 'react-router-dom'
+import { IndexRouter, IndexPage } from './pages/static'
 
 const App = () => {
   return (
-    <div className='app'>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="*" element={<p>There's nothing here: 404!</p>} />
-          <Route path="/" element={<PrivateRoute > <PrivateScreen />  </PrivateRoute>} />
-          <Route path="/login" element={<PrivateAuthRoute > <LoginScreen />  </PrivateAuthRoute>} />
-          <Route path='/register' element={<PrivateAuthRoute ><RegisterScreen /></PrivateAuthRoute>} />
-          <Route path='/forgotpassword' element={<PrivateAuthRoute ><ForgotPasswordScreen /></PrivateAuthRoute>} />
-          <Route path='/passwordreset/:resetToken' element={<PrivateAuthRoute ><ResetPasswordScreen /></PrivateAuthRoute>} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+    <Routes>
+      <Route path='/static/' element={<IndexRouter />} >
+        <Route path='index' element={<IndexPage />} />
+      </Route>
+      <Route path='*' element={<h1>error 404</h1>} />
+    </Routes>
+  )
 }
 
-export default App;
+export default App

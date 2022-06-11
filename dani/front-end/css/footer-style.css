@@ -1,0 +1,125 @@
+footer{
+	bottom: 0;
+	left: 0;
+	height: fit-content;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color: #323643;
+	color: #ffffff;
+}
+.footer-container{
+	height: fit-content;
+	width: 100%;
+	padding: 3rem 6rem;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.footer-logo{
+	width: calc(1vw + 180px);
+}
+.footer-content-container{
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+}
+.footer-menu{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 50%;
+}
+.menu-item-footer{
+	margin: 0 .5rem .5rem 0;
+	color: #ffffff;
+	opacity: 0.8;
+	text-decoration: none;
+}
+.menu-item-footer:hover{
+	opacity: 1;
+	color: #ffffff;
+}
+.social-icons-container{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	height: 1.875rem;
+	width: fit-content;
+	margin-right: 1rem;
+}
+.social-icons{
+	display: flex;
+
+}
+.social-link{
+	font-size: 1.3rem;
+	opacity: 0.8;
+	color: #ffffff;
+}
+.social-link:nth-of-type(2){
+	margin: 0 .5rem 0 .5rem;
+}
+.social-link:hover{
+	opacity: 1;
+	color: #ffffff;
+}
+.lang-footer-select{
+	display: flex;
+	justify-content: center;
+}
+.lang-footer-select select{
+	margin-top: 1rem;
+	border-style: none;
+	outline: none;
+	background-color: transparent;
+	color: #ffffff;
+	opacity: 0.8;
+	cursor: pointer;
+}
+.lang-footer-select select:hover{
+	opacity: 1;
+}
+.select-item{
+	color: #000000;
+}
+.copyright-container{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #4e5364;
+}
+.copyright{
+	font-size: 0.75rem;
+	padding: 0.625rem 0;
+}
+
+@media (max-width: 768px){
+	.footer-container{
+		padding: 2rem;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.footer-logo{
+		margin-bottom: calc(1vh + 10px);
+	}
+	.footer-menu{
+		width: 100%;
+		display: flex;
+		align-items: center;
+	}
+	.footer-menu .footer-content-container{
+		width: 45%;
+		align-items: flex-start;
+	}
+	.lang-footer-select{
+		margin: 0 auto .5rem auto;
+	}
+}

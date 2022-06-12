@@ -1,6 +1,3 @@
-@import url(./footer-style.scss);
-@import url(./footer-style.scss);
-
 body {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
@@ -33,9 +30,11 @@ body {
 }
 
 .section-tittle hr {
+    border: 0;
+    height: .3rem;
+    background: #93DEFF;
     opacity: 100;
     margin: .5rem auto 2rem auto;
-    border: 2px solid #93DEFF;
     width: 15rem;
 }
 
@@ -46,6 +45,7 @@ body {
 .white-uderline {
     opacity: 1;
     border: 1px solid #ffffff;
+    background: #ffffff;
     width: 15rem;
     margin: 1rem auto;
 }
@@ -54,12 +54,14 @@ body {
     opacity: 1;
     width: 90%;
     border: 1px solid #93DEFF;
+    background: #93DEFF;
     margin: .5rem 0 1rem 0;
 }
 
 .blue-underline-2 {
     opacity: 1;
     border: 1px solid #93DEFF;
+    background: #93DEFF;
     width: 15rem;
     margin: 0;
 }
@@ -67,6 +69,7 @@ body {
 .blue-underline-3 {
     opacity: 1;
     border: 1px solid #93DEFF;
+    background: #93DEFF;
     width: 8rem;
     margin: 0;
 }
@@ -88,18 +91,18 @@ body {
     transition: all .5s ease;
 }
 
-.view-more-button:hover i {
+.view-more-button:hover .view-more-icon {
     transform: translateX(5px);
     transition: all .5s ease;
 }
 
 .view-more-icon {
-    margin-left: .5rem;
+    margin-left: .2rem;
     transition: all .3s ease;
 }
 
 .about-button-rg {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     position: absolute;
     right: 1.25rem;
@@ -109,10 +112,9 @@ body {
     text-decoration: none;
     transition: all .5s ease;
 }
-
-.about-button-rg i {
+.about-button-rg .about-button-rg-icon {
     color: #000000;
-    margin-left: .5rem;
+    margin-left: 0rem;
     transition: all .2s ease;
 }
 
@@ -121,7 +123,7 @@ body {
     transition: all .5s ease;
 }
 
-.about-button-rg:hover i {
+.about-button-rg:hover .about-button-rg-icon {
     color: #34b1e7;
     transform: translateX(3px);
     transition: all .3s ease;
@@ -190,8 +192,7 @@ body {
     color: rgba(118, 118, 118, 0.8);
 }
 
-.view-more .view-text,
-.view-more .view-icon {
+.view-more {
     display: inline-flex;
     align-items: center;
 }
@@ -445,5 +446,12 @@ body {
 
     .card img {
         width: calc(1vw + 100px);
+    }
+    .slider-item-text-container{
+        width: 100%;
+        margin: 0;
+        height: 50%;
+        position: absolute;
+        
     }
 }

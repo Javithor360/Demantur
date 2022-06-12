@@ -71,14 +71,15 @@ nav ul li a{
 }
 .access-button{
     display: inline-flex;
+    align-items: center;
     transition: .5s;
     border: 1.5px solid rgba(118, 118, 118, 0.8);
     padding: .4rem .6rem;
     border-radius: 10px;
     color: rgba(118, 118, 118, 0.8);
 }
-.acces-icon{
-    font-size: 1.5rem;
+.access-icon{
+    font-size: 1rem;
 }
 .access-button .access-text,
 .access-button .access-icon{
@@ -86,7 +87,7 @@ nav ul li a{
     align-items: center;
 }
 .access-button .access-icon{
-    margin-left: .5rem;
+    margin-left: .3rem;
 }
 .access-button:hover{
     border-color: #34b1e7;
@@ -101,6 +102,7 @@ nav ul li a{
 .help-button{
     position: relative;
     display: inline-flex;
+    align-items: center;
     /* padding: 1rem .8rem 1rem .8rem; */
     margin-right: 1rem;
     transition: .5s;
@@ -184,6 +186,9 @@ nav ul li a{
         border-color: transparent;
         padding: 0;
         font-size: 1.6rem;
+    }
+    .user-buttons .access-button .access-icon{
+        font-size: 1.5rem;
     }
     .user-buttons .access-button .access-text{
         display: none;

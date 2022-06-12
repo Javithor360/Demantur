@@ -2,7 +2,7 @@ import "./assets/css/main.css";
 import { Navbar } from "../../components/Navbar";
 import { Link } from "react-router-dom";
 
-import {FaAngleRight} from 'react-icons/fa'
+import { FaAngleRight } from 'react-icons/fa'
 
 import SliderImage1 from "./assets/img/index/slider/slider-image-1.jpg";
 import SliderImage2 from "./assets/img/index/slider/slider-image-2.jpg";
@@ -12,6 +12,7 @@ import SliderImage4 from "./assets/img/index/slider/slider-image-4.jpg";
 import Tarjeta1 from "./assets/img/index/card-1.png";
 import Tarjeta2 from "./assets/img/index/card-2.png";
 import Tarjeta3 from "./assets/img/index/card-3.png";
+
 
 export const IndexPage = () => {
   return (
@@ -28,7 +29,7 @@ export const IndexPage = () => {
           <div className="slider-button">
             <Link to="/" className="view-more">
               <span className="view-text">Ver Más</span>
-              <i className="view-icon fa-solid fa-angle-right" />
+              <FaAngleRight />
             </Link>
           </div>
         </div>
@@ -98,7 +99,7 @@ export const IndexPage = () => {
             <div className="boton">
               <Link to="/" className="LinkHover">
                 <span>Conoce Más</span>
-                <FaAngleRight className="view-icon fa-solid fa-angle-right ArrowIcon"/>
+                <FaAngleRight className="view-icon fa-solid fa-angle-right ArrowIcon" />
               </Link>
             </div>
           </div>
@@ -113,7 +114,7 @@ export const IndexPage = () => {
             <div className="boton">
               <Link to="/" className="LinkHover">
                 <span>Conoce Más</span>
-                <FaAngleRight className="view-icon fa-solid fa-angle-right ArrowIcon"/>
+                <FaAngleRight className="view-icon fa-solid fa-angle-right ArrowIcon" />
               </Link>
             </div>
           </div>
@@ -128,7 +129,7 @@ export const IndexPage = () => {
             <div className="boton">
               <Link to="/" className="LinkHover">
                 <span>Conoce Más</span>
-                <FaAngleRight className="view-icon fa-solid fa-angle-right ArrowIcon"/>
+                <FaAngleRight className="view-icon fa-solid fa-angle-right ArrowIcon" />
               </Link>
             </div>
           </div>

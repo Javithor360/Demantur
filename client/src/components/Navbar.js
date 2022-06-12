@@ -1,5 +1,5 @@
 import React from 'react'
-import './assets/css/navbar-style.css'
+import './assets/scss/navbar-style.scss'
 import Logo from './assets/img/Demantur_Imagotype-2.svg'
 import { Link } from 'react-router-dom'
 import { FaBars as BarsIcon, FaRegUser as UserIcon } from 'react-icons/fa'

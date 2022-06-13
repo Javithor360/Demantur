@@ -1,15 +1,18 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
-import { IndexPage } from './pages/static'
+import { Routes, Route, Navigate } from "react-router-dom";
+import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount } from "./pages/static";
 
 const App = () => {
   return (
     <Routes>
-      <Route path='/' element={<Navigate to='/index' replace />} />
-      <Route path='*' element={<h1>error 404</h1>} />
+      <Route path="/" element={<Navigate to="/index" replace />} />
+      <Route path="*" element={<h1>error 404</h1>} />
 
-      <Route path='/index' element={<IndexPage />} />
+      <Route path="/index" element={<IndexPage />} />
+      <Route path="/accounts" element={<AccountsPage />} />
+      <Route path="/accounts/checking" element={<CheckingAccount />} />
+      <Route path="/accounts/savings" element={<SavingsAccount />} />
     </Routes>
-  )
-}
+  );
+};
 
-export default App
+export default App;

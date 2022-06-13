@@ -1,45 +1,54 @@
-nav{
+nav {
     display: flex;
-	justify-content: space-between;
-	align-items: center;
+    justify-content: space-between;
+    align-items: center;
     background-color: #ffffff;
     border-bottom: 1px solid #eeeeee;
     height: 5rem;
     font-size: 1rem;
 }
-a, li{
+
+a,
+li {
     text-decoration: none;
 }
-.menu{
+
+.menu {
     margin: auto;
     z-index: 100;
 }
-.menu a{
+
+.menu a {
     color: #606470;
-	text-decoration: none;
-	font-size: 1rem;
+    text-decoration: none;
+    font-size: 1rem;
     font-family: 'Poppins', sans-serif;
-	margin: 0 1rem;
+    margin: 0 1rem;
 }
-.logo{
+
+.logo {
     flex-direction: row;
     min-height: 100%;
     width: 9rem;
     margin-left: 1rem;
 }
-nav ul li{
-    display: inline-block;    
+
+nav ul li {
+    display: inline-block;
 }
-nav ul li a{
+
+nav ul li a {
     color: rgba(118, 118, 118, 1);
     font-size: 1rem;
 }
-.hover-underline{
+
+.hover-underline {
     display: inline-block;
     position: relative;
     transition: 0.25s ease-out;
 }
-.hover-underline:after{
+
+.hover-underline:after {
     content: '';
     position: absolute;
     width: 100%;
@@ -51,25 +60,31 @@ nav ul li a{
     transform-origin: bottom center;
     transition: transform 0.25s ease-out;
 }
-.hover-underline:hover:after{
+
+.hover-underline:hover:after {
     transform: scaleX(1);
     transform-origin: bottom center;
 }
-.hover-underline:hover{
+
+.hover-underline:hover {
     color: #34b1e7;
     transition: 0.25s ease-out;
 }
-.user-buttons{
+
+.user-buttons {
     display: flex;
     align-items: center;
 }
-.user-buttons a:last-of-type{
+
+.user-buttons a:last-of-type {
     margin-right: 1rem;
 }
-.user-buttons a{
+
+.user-buttons a {
     text-decoration: none;
 }
-.access-button{
+
+.access-button {
     display: inline-flex;
     transition: .5s;
     border: 1.5px solid rgba(118, 118, 118, 0.8);
@@ -77,28 +92,34 @@ nav ul li a{
     border-radius: 10px;
     color: rgba(118, 118, 118, 0.8);
 }
-.acces-icon{
+
+.acces-icon {
     font-size: 1.5rem;
 }
+
 .access-button .access-text,
-.access-button .access-icon{
+.access-button .access-icon {
     display: inline-flex;
     align-items: center;
 }
-.access-button .access-icon{
+
+.access-button .access-icon {
     margin-left: .5rem;
 }
-.access-button:hover{
+
+.access-button:hover {
     border-color: #34b1e7;
     transition: .5s ease-out;
     color: #34b1e7;
     cursor: pointer;
     text-decoration: none;
 }
-.help{
+
+.help {
     margin-right: 3rem;
 }
-.help-button{
+
+.help-button {
     position: relative;
     display: inline-flex;
     /* padding: 1rem .8rem 1rem .8rem; */
@@ -108,21 +129,25 @@ nav ul li a{
     border: none;
     color: rgba(118, 118, 118, 0.8);
 }
+
 .help-button .help-text,
-.help-button .help-icon{
+.help-button .help-icon {
     display: inline-flex;
     align-items: center;
 }
-.help-button .help-icon{
+
+.help-button .help-icon {
     margin-right: .2rem;
     font-size: 1.5rem;
 }
-.help-button:hover{
+
+.help-button:hover {
     transition: .5s ease-out;
     cursor: pointer;
     color: #34b1e7;
 }
-.checkbtn{
+
+.checkbtn {
     font-size: 1.875rem;
     color: black;
     float: right;
@@ -131,21 +156,22 @@ nav ul li a{
     cursor: pointer;
     display: none;
 }
-#check{
+
+#check {
     display: none;
-    
+
 }
 
-@media (max-width: 1030px){
-    .checkbtn{
+@media (max-width: 1030px) {
+    .checkbtn {
         display: block;
         color: rgba(118, 118, 118, 0.8);
         margin-left: .5rem;
     }
-    
-    ul{
+
+    ul {
         position: absolute;
-        width: 90%;
+        width: 100%;
         height: 100vh;
         background: #ffffff;
         top: 5rem;
@@ -153,40 +179,49 @@ nav ul li a{
         text-align: center;
         transition: all .5s;
     }
-    nav ul li{
-        display:block;
+
+    nav ul li {
+        display: block;
         align-items: center;
         margin: 2.5rem 0;
         line-height: 1.875rem;
     }
-    nav ul li a{
+
+    nav ul li a {
         font-size: 1.25rem;
     }
-    li a:hover, li a.active{
+
+    li a:hover,
+    li a.active {
         background: none;
     }
-    
-    
-    #check:checked ~ ul {
-        left:0;
+
+
+    #check:checked~ul {
+        left: 0;
     }
-    nav .enlace .logo{
+
+    nav .enlace .logo {
         margin-left: -1rem;
     }
-    .user-buttons .help-button .help-icon{
+
+    .user-buttons .help-button .help-icon {
         font-size: 2rem;
         margin: -.5rem;
     }
-    .user-buttons .help-button .help-text{
+
+    .user-buttons .help-button .help-text {
         display: none;
     }
-    .user-buttons .access-button{
+
+    .user-buttons .access-button {
         border-color: transparent;
         padding: 0;
         font-size: 1.6rem;
     }
-    .user-buttons .access-button .access-text{
+
+    .user-buttons .access-button .access-text {
         display: none;
-        
+
     }
 }

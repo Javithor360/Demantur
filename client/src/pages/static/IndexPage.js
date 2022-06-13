@@ -1,5 +1,6 @@
 import "./assets/scss/main.scss";
 import { Navbar } from "../../components/Navbar";
+import { Footer } from "../../components/Footer";
 import { Link } from "react-router-dom";
 
 import { FaAngleRight } from 'react-icons/fa'
@@ -13,19 +14,21 @@ import Tarjeta1 from "./assets/img/index/card-1.png";
 import Tarjeta2 from "./assets/img/index/card-2.png";
 import Tarjeta3 from "./assets/img/index/card-3.png";
 
+import Logo_Icon_White from "./assets/img/logos/svg/Logo_Icon-1_White.svg";
 
 export const IndexPage = () => {
   return (
     <>
       <Navbar />
       <div>
-        <div className="container-fluid box ms-0">
+      <div className="container-fluid box ms-0">
           <p className="text">Banca en Línea</p>
           <div className="linea" />
           <p className="parrafo">
             Simplificamos la forma de administrar tus cuentas, abre tu cuenta y
             disfruta de muchos beneficios
           </p>
+
           <div className="slider-button">
             <Link to="/" className="view-more">
               <span className="view-text">Ver Más</span>
@@ -33,6 +36,7 @@ export const IndexPage = () => {
             </Link>
           </div>
         </div>
+
         <div className="slider-container">
           <div
             id="carouselExampleIndicators"
@@ -67,6 +71,7 @@ export const IndexPage = () => {
                 aria-label="Slide 4"
               />
             </div>
+
             <div className="carousel-inner">
               <div className="carousel-item active">
                 <img src={SliderImage1} className="d-block w-100" alt="..." />
@@ -81,6 +86,7 @@ export const IndexPage = () => {
                 <img src={SliderImage4} className="d-block w-100" alt="..." />
               </div>
             </div>
+
           </div>
         </div>
 
@@ -88,6 +94,7 @@ export const IndexPage = () => {
           <p>Soluciones financieras en un solo lugar</p>
           <hr />
         </div>
+
         <div className="cards-container">
           <div className="card">
             <img src={Tarjeta1} alt="" />
@@ -134,7 +141,9 @@ export const IndexPage = () => {
             </div>
           </div>
         </div>
+
         <div className="dual-banner-container">
+
           <div className="dual-banner">
             <div className="dual-banner-image-1" />
             <div className="dual-banner-content">
@@ -145,12 +154,13 @@ export const IndexPage = () => {
                 intereses sobre tus ahorros, controla tu dinero y ten acceso a
                 el en todo momento.
               </p>
-              <a href className="about-button-rg">
+              <Link to="/" className="about-button-rg">
                 <span>Conoce Más</span>
-                <i className="view-icon fa-solid fa-angle-right" />
-              </a>
+                <FaAngleRight className="fa-solid fa-angle-right about-button-rg-icon"/>
+              </Link>
             </div>
           </div>
+
           <div className="dual-banner">
             <div className="dual-banner-content">
               <p>Te ayudamos a cumplir tus sueños</p>
@@ -160,22 +170,26 @@ export const IndexPage = () => {
                 metas, con tramites sencillos y rápidos, además de una baja tasa
                 de intereses
               </p>
-              <a href className="about-button-rg">
+              <Link to="/" className="about-button-rg">
                 <span>Conoce Más</span>
-                <i className="view-icon fa-solid fa-angle-right" />
-              </a>
+                <FaAngleRight className="fa-solid fa-angle-right about-button-rg-icon"/>
+              </Link>
             </div>
             <div className="dual-banner-image-2" />
           </div>
+
         </div>
+
         <div className="section-tittle">
           <p>Facilitamos nuestros servicios</p>
           <hr />
         </div>
+
         <div className="help-center-banner">
+
           <div className="help-center-content">
             <div className="banner-logo">
-              <img src="assets/logos/svg/Logo_Icon-1_White.svg" alt="" />
+              <img src={Logo_Icon_White} alt="" />
             </div>
             <div className="banner-tittle">
               <p> Centro de Ayuda </p>
@@ -190,17 +204,19 @@ export const IndexPage = () => {
               </p>
             </div>
             <div>
-              <a href className="view-more-button">
-                <span>Ver más</span>
-                <i className="view-more-icon fa-solid fa-angle-right" />
-              </a>
+              <Link to="/" className="view-more-button">
+                <span>Ver Más</span>
+                <FaAngleRight className="fa-solid fa-angle-right view-more-icon"/>
+              </Link>
             </div>
           </div>
         </div>
+
         <div className="section-tittle">
           <p>Servicios para empresas</p>
           <hr />
         </div>
+
         <div className="buisness-banner">
           <div className="row-content">
             <p>Cuentas profesionales para tu empresa</p>
@@ -210,17 +226,19 @@ export const IndexPage = () => {
               servicios financieros que brindan facilidad al administrar las
               finanzas de tu negocio
             </p>
-            <a href className="view-more-button">
-              <span>Ver más</span>
-              <i className="view-more-icon fa-solid fa-angle-right" />
-            </a>
+            <Link to="/" className="view-more-button">
+                <span>Ver Más</span>
+                <FaAngleRight className="fa-solid fa-angle-right view-more-icon"/>
+            </Link>
           </div>
           <div className="row-image" />
         </div>
+
         <div className="section-tittle">
           <p>Quienes somos</p>
           <hr className="smallest" />
         </div>
+
         <div className="about-banner">
           <div className="about-banner-content">
             <p>Personas como tú</p>
@@ -229,13 +247,15 @@ export const IndexPage = () => {
               Somos una empresa comprometida con lo que hace, descubre más sobre
               nosotros y como hacemos para brindarte un servicio de calidad
             </p>
-            <a href className="about-button-rg">
-              <span>Conoce más</span>
-              <i className="fa-solid fa-angle-right" />
-            </a>
+            <Link to="/" className="about-button-rg">
+                <span>Conoce Más</span>
+                <FaAngleRight className="fa-solid fa-angle-right about-button-rg-icon"/>
+            </Link>
           </div>
         </div>
       </div>
+      
+      <Footer/>
     </>
   );
 };

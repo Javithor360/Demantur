@@ -26,7 +26,7 @@ export const Navbar = () => {
       </ul>
 
       <div className="user-buttons">
-        <Link to='/' className="help-button">
+        <Link to='/help' className="help-button">
           <QuestionIcon className='help-icon bx bx-help-circle' />
           <span className="help-text">Ayuda</span>
         </Link>

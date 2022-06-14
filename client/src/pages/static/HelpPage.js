@@ -114,12 +114,13 @@ export const HelpPage = () =>{
             </div>
         </div>
     </div>
-    <script src="./pages/assets/help.js"></script>
+    
             <Footer />
         </>
     )
 }
-let i;
+
+var i;
 const accordion=document.getElementsByClassName('contentBx');
 
         for(i=0; i<accordion.length; i++){

@@ -21,7 +21,7 @@ export const IndexPage = () => {
     <>
       <Navbar />
       <div>
-      <div className="container-fluid box ms-0">
+        <div className="container-fluid box ms-0">
           <p className="text">Banca en Línea</p>
           <div className="linea" />
           <p className="parrafo">
@@ -156,7 +156,7 @@ export const IndexPage = () => {
               </p>
               <Link to="/" className="about-button-rg">
                 <span>Conoce Más</span>
-                <FaAngleRight className="fa-solid fa-angle-right about-button-rg-icon"/>
+                <FaAngleRight className="fa-solid fa-angle-right about-button-rg-icon" />
               </Link>
             </div>
           </div>
@@ -172,7 +172,7 @@ export const IndexPage = () => {
               </p>
               <Link to="/" className="about-button-rg">
                 <span>Conoce Más</span>
-                <FaAngleRight className="fa-solid fa-angle-right about-button-rg-icon"/>
+                <FaAngleRight className="fa-solid fa-angle-right about-button-rg-icon" />
               </Link>
             </div>
             <div className="dual-banner-image-2" />
@@ -196,7 +196,7 @@ export const IndexPage = () => {
             </div>
             <hr className="white-uderline" />
             <div className="help-banner-information">
-              <p className>
+              <p>
                 ¿Tienes dudas sobre como realizar ciertos procesos en nuestro
                 banco?, visita nuestro centro de ayuda, ahí encontraras
                 preguntas frecuentes que seguramente te servirán para solventar
@@ -206,7 +206,7 @@ export const IndexPage = () => {
             <div>
               <Link to="/" className="view-more-button">
                 <span>Ver Más</span>
-                <FaAngleRight className="fa-solid fa-angle-right view-more-icon"/>
+                <FaAngleRight className="fa-solid fa-angle-right view-more-icon" />
               </Link>
             </div>
           </div>
@@ -227,8 +227,8 @@ export const IndexPage = () => {
               finanzas de tu negocio
             </p>
             <Link to="/" className="view-more-button">
-                <span>Ver Más</span>
-                <FaAngleRight className="fa-solid fa-angle-right view-more-icon"/>
+              <span>Ver Más</span>
+              <FaAngleRight className="fa-solid fa-angle-right view-more-icon" />
             </Link>
           </div>
           <div className="row-image" />
@@ -248,14 +248,14 @@ export const IndexPage = () => {
               nosotros y como hacemos para brindarte un servicio de calidad
             </p>
             <Link to="/" className="about-button-rg">
-                <span>Conoce Más</span>
-                <FaAngleRight className="fa-solid fa-angle-right about-button-rg-icon"/>
+              <span>Conoce Más</span>
+              <FaAngleRight className="fa-solid fa-angle-right about-button-rg-icon" />
             </Link>
           </div>
         </div>
       </div>
-      
-      <Footer/>
+
+      <Footer />
     </>
   );
 };

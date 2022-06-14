@@ -29,19 +29,21 @@ const registerNormalUser = async (req, res) => {
     // Encriptacion de la Password
     newNormalUser.Password = await encryptPassword(Password);
 
+    // guardar en la DB
     await newNormalUser.save();
 
+    // Creacion del TOKEN
     const payload = {
       user: {
         id: newNormalUser._id,
         name: newNormalUser.FirstName,
       }
     }
-
     jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: 60 }, (err, token) => {
       if (err) throw err
-      res.json({ token });
+      res.json({ auth: true, token });
     })
+
 
   } catch (error) {
     console.error(`ERROR: ${error.message}`)

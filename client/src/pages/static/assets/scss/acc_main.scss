@@ -1,0 +1,73 @@
+// Variables
+$color_white: #fff;
+
+
+// 1rem = 16px
+
+// ----
+
+.hero {
+    background-image: url(../img/acc/acc_main_banner1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 35.93rem;
+    width: 97.25rem;
+    padding: 1.25rem;
+    position: relative;
+}
+
+.hero-cont {
+    position: absolute;
+    background-color: rgba(0, 0, 0, .5);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-cont p {
+    color: $color_white;
+    font-size: 1.5rem;
+}
+
+h1 {
+    color: $color_white;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.product-nav-container {
+    position: relative;
+    margin: -2rem 25rem auto;
+}
+
+.product-nav-list {
+    background-color: $color_white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 1.25rem 0.625rem;
+}
+
+.product-nav-element {
+    display: block;
+    color: #606470;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin: auto 4rem;
+}
+
+.product-nav-element:hover {
+    color: #000;
+}
+
+.acc_main-cards-container {
+    padding: 5rem;
+}

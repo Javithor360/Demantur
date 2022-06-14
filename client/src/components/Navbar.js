@@ -19,14 +19,14 @@ export const Navbar = () => {
 
       <ul className="menu">
         <li><Link to='/' className="hover-underline">Tarjetas</Link></li>
-        <li><Link to='/' className="hover-underline">Cuentas</Link></li>
+        <li><Link to='/accounts' className="hover-underline">Cuentas</Link></li>
         <li><Link to='/' className="hover-underline">Créditos</Link></li>
         <li><Link to='/' className="hover-underline">Empresas</Link></li>
         <li><Link to='/' className="hover-underline">Nosotros</Link></li>
       </ul>
 
       <div className="user-buttons">
-        <Link to='/' className="help-button">
+        <Link to='/help' className="help-button">
           <QuestionIcon className='help-icon bx bx-help-circle' />
           <span className="help-text">Ayuda</span>
         </Link>

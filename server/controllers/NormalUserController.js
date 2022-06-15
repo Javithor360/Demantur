@@ -1,27 +1,37 @@
 const DuiModel = require('../models/DuiModel');
-const NormaUser = require('../models/NormalUser');
-const jwt = require('jsonwebtoken');
 const NormalUser = require('../models/NormalUser');
-const { encryptPassword } = require('../helpers/Functions');
+const ErrorResponse = require('../utils/ErrorMessage')
+const { encryptPassword, sendToken } = require('../helpers/Functions');
 
 // @route POST api/auth/normal-user/register
 // @desc registro de un usuario normal
 // @access public
 
-const registerNormalUser = async (req, res) => {
+const registerNormalUser = async (req, res, next) => {
   try {
     const { FirstName, LastName, Dui, Email, Password } = req.body
 
-    const DuiQuery = await DuiModel.findOne({ Dui });
-    const UserExist = await NormaUser.findOne({ Email });
-
     // validaciones
+    const UserExist = await NormalUser.findOne({ Email });
     if (UserExist) {
-      return res.status(400).json([{ message: 'Este usuario ya está registrado en Demantur', type: 'error' }])
+      return next(new ErrorResponse('Este Email ya está registrado en Demantur', 400, 'error'))
     }
-    if (!DuiQuery) {
-      return res.status(400).json([{ message: 'Este numero de Dui no existe', type: 'error' }])
+
+    const DuiQuery1 = await NormalUser.findOne({ Dui })
+    if (DuiQuery1) {
+      return next(new ErrorResponse('Este Dui ya esta registrado en Demantur', 400, 'error'))
     }
+
+    const DuiQuery2 = await DuiModel.findOne({ DuiNumber: Dui });
+    if (!DuiQuery2) {
+      return next(new ErrorResponse('Este numero de Dui no existe', 400, 'error'))
+    }
+
+    const DUiQuery3 = await DuiModel.findOne({ DuiFirstName: FirstName, DuiLastName: LastName })
+    if (!DUiQuery3) {
+      return next(new ErrorResponse('Los nombres del Dui no coinciden, Respetar mayusculas y minusculas', 400, 'error'))
+    }
+
 
     // Nuevo esquema
     const newNormalUser = await new NormalUser(req.body);
@@ -33,21 +43,10 @@ const registerNormalUser = async (req, res) => {
     await newNormalUser.save();
 
     // Creacion del TOKEN
-    const payload = {
-      user: {
-        id: newNormalUser._id,
-        name: newNormalUser.FirstName,
-      }
-    }
-    jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: 60 }, (err, token) => {
-      if (err) throw err
-      res.json({ auth: true, token });
-    })
-
+    sendToken(newNormalUser, res);
 
   } catch (error) {
-    console.error(`ERROR: ${error.message}`)
-    res.status(500).send('Error del Servidor');
+    res.status(500).json({ success: false, error: error.message })
   }
 }
 
@@ -56,12 +55,35 @@ const registerNormalUser = async (req, res) => {
 // @desc Login del usuario normal
 // @access public
 
-const loginNormalUser = async (req, res) => {
+const loginNormalUser = async (req, res, next) => {
   try {
-    res.send('login para usuario normal');
+    const { Dui, Email, Password } = req.body;
+
+    // Validaciones
+    const DuiQuery = await NormalUser.findOne({ Dui });
+    if (!DuiQuery) {
+      return next(new ErrorResponse('Este numero de Dui no esta registrado en Demantur', 401, 'error'))
+    }
+
+    const EmailQuery = await NormalUser.findOne({ Email });
+    if (!EmailQuery) {
+      return next(new ErrorResponse('Este Email no esta registrado en Demantur', 401, 'error'))
+    }
+
+    // llamar usuario a la base de datos
+    const newNormalUser = await NormalUser.findOne({ Email }).select('+Password');
+
+    // validacion contraseña
+    const isMatch = await newNormalUser.matchPasswords(Password);
+
+    if (!isMatch) {
+      return next(new ErrorResponse('Esta contraseña no coincide con los demás datos', 401, 'error'))
+    }
+
+    // Creacion del TOKEN
+    sendToken(newNormalUser, res);
   } catch (error) {
-    console.error(`ERROR: ${error.message}`)
-    res.status(500).send('Error del Servidor');
+    res.status(500).json({ success: false, error: error.message })
   }
 }
 
@@ -72,10 +94,16 @@ const loginNormalUser = async (req, res) => {
 
 const getNormalUserProfile = async (req, res) => {
   try {
-    res.send('obtener datos del perfil del usuario');
+    const perfil = await NormalUser.findById(req.user.id).select('-password').select('-__v')
+      .select('-createdAt').select('-updatedAt');
+
+    if (!perfil) {
+      return next(new ErrorResponse('El usuario no existe', 401, 'error'))
+    }
+
+    res.json(req.user);
   } catch (error) {
-    console.error(`ERROR: ${error.message}`)
-    res.status(500).send('Error del Servidor');
+    res.status(500).json({ success: false, error: error.message })
   }
 }
 

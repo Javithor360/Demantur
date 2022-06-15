@@ -5,17 +5,30 @@ import { Link } from "react-router-dom";
 
 
 export const HelpPage = () => {
+    var i;
+    const accordion = document.getElementsByClassName('contentBx');
+
+    for (i = 0; i < accordion.length; i++) {
+        accordion[i].addEventListener('click', function () {
+            this.classList.toggle('active')
+        })
+    }
     return (
         <>
             <Navbar />
             <p className="tittle">¿Como podemos ayudarte?</p>
-            <div className=" text">
+
+            <div className="contenedor-text">
                 <p>A continuación, te presentamos algunas de las preguntas frecuentes que realizan nuestros usuarios.</p>
-                <p>Si por alguna razón tu problema es algo mayor puedes ponerte en contacto con nosotros haciendo <Link to='/'>¡Click Aquí!</Link></p>
+                <p>
+                    Si por alguna razón tu problema es algo mayor puedes ponerte en contacto con nosotros haciendo
+                    <Link to="/" className="enlace">¡Click Aquí!</Link>
+                </p>
             </div>
+
             <div className="container-accordion">
                 <div className="accordion">
-                    <div ref="contentBx">
+                    <div className="contentBx">
                         <div className="label">¿Cómo abro una cuenta bancaria?</div>
                         <div className="content">
                             <p>Para Abrir una cuenta bancaria necesitas cumplir con los siguientes requisitos:</p>
@@ -28,13 +41,13 @@ export const HelpPage = () => {
                             </ul>
                         </div>
                     </div>
-                    <div ref="contentBx">
+                    <div className="contentBx">
                         <div className="label">Tarjeta robada o extraviada</div>
                         <div className="content">
                             <p>Si usted fue víctima de robo de su tarjeta de crédito o débito, le aconsejamos reportar inmediatamente, a traves de nuestra página contacto e escribir su n°de tarjeta para resolver el problema lo más pronto posible.</p>
                         </div>
                     </div>
-                    <div ref="contentBx">
+                    <div className="contentBx">
                         <div className="label">Ver estados de cuenta</div>
                         <div className="content">
                             <p>Revisar los estados de cuenta cuenta bancaria es una excelente práctica para tener un excelente control financiero.Esta información, le permite estar informado sobre cómo usa su dinero, ver pagos, depósitos o detectar movimientos que no reconozca.</p>
@@ -46,7 +59,7 @@ export const HelpPage = () => {
                             </ul>
                         </div>
                     </div>
-                    <div ref="contentBx">
+                    <div className="contentBx">
                         <div className="label">¿Cómo pagar mi tarjeta de crédito?</div>
                         <div className="content">
                             <p>Ahorre tiempo y pague sus tarjetas de crédito a través de nuestra Banca en Línea,  puede realizar el pago de sus tarjetas de crédito o las de un tercero.</p>
@@ -64,7 +77,7 @@ export const HelpPage = () => {
                             </ul>
                         </div>
                     </div>
-                    <div ref="contentBx">
+                    <div className="contentBx">
                         <div className="label">¿Como solicitar una tarjeta crédito?</div>
                         <div className="content">
                             <p>A continuación le explicaremos como puede solitar una tarjeta de credtio</p>
@@ -77,7 +90,7 @@ export const HelpPage = () => {
                             </ul>
                         </div>
                     </div>
-                    <div ref="contentBx">
+                    <div className="contentBx">
                         <div className="label">List</div>
 
                         <div className="content">
@@ -90,19 +103,19 @@ export const HelpPage = () => {
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia facilis fugiat cupiditate, doloribus at enim maxime tenetur ipsa autem sed vero nisi beatae reiciendis minus provident ratione eos consequatur rerum.</p>
                         </div>
                     </div>
-                    <div ref="contentBx">
+                    <div className="contentBx">
                         <div className="label">List</div>
                         <div className="content">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia facilis fugiat cupiditate, doloribus at enim maxime tenetur ipsa autem sed vero nisi beatae reiciendis minus provident ratione eos consequatur rerum.</p>
                         </div>
                     </div>
-                    <div ref="contentBx">
+                    <div className="contentBx">
                         <div className="label">List</div>
                         <div className="content">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia facilis fugiat cupiditate, doloribus at enim maxime tenetur ipsa autem sed vero nisi beatae reiciendis minus provident ratione eos consequatur rerum.</p>
                         </div>
                     </div>
-                    <div ref="contentBx">
+                    <div className="contentBx">
                         <div className="label">List</div>
                         <div className="content">
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia facilis fugiat cupiditate, doloribus at enim maxime tenetur ipsa autem sed vero nisi beatae reiciendis minus provident ratione eos consequatur rerum.</p>
@@ -110,7 +123,7 @@ export const HelpPage = () => {
                     </div>
                 </div>
             </div>
-
+            <script src="./pages/assets/help.js"></script>
             <Footer />
         </>
     )

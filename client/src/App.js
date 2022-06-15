@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount } from "./pages/static";
+import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, CardsPage } from "./pages/static";
 
 const App = () => {
   return (
@@ -11,6 +11,7 @@ const App = () => {
       <Route path="/accounts" element={<AccountsPage />} />
       <Route path="/accounts/checking" element={<CheckingAccount />} />
       <Route path="/accounts/savings" element={<SavingsAccount />} />
+      <Route path="/cards" element={<CardsPage />} />
     </Routes>
   );
 };

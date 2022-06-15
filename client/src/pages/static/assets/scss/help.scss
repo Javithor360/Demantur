@@ -1,0 +1,94 @@
+
+.text{
+    text-align: center;
+    font-size: 1rem;
+    font-family: 'Poppins',sans-serif;
+    color: black;
+}
+.enlace{
+    font-weight: bolder;
+}
+
+.tittle{
+    text-align: center;
+    font-family: 'Poppins',sans-serif;
+    font-size: 3rem;
+}
+
+.contenedor-text{
+    display: grid;
+    grid-template-rows: 1fr;
+}
+
+.contenedor-text p{
+    text-align: center;
+}
+
+.container-accordion{
+    margin-left:18rem;
+    margin-bottom: 1rem;
+}
+
+.accordion{
+    max-width: 800px;
+}
+
+.accordion .contentBx{
+    margin: 10px 20px;
+}
+
+.accordion .contentBx .label{
+    padding: 10px;
+    background-color: #93DEFF;
+    color:#413F42;
+    cursor: pointer;
+}
+
+.accordion .contentBx .label::before{
+    content: '+';
+    transform: translateY(-15%);
+    float: right; 
+    font-size: 1.5rem;
+}
+
+.accordion .contentBx.active .label::before{
+    content: '-';
+}
+
+.accordion .contentBx .content{
+    background: #F7F5F2;
+    height: 0;
+    overflow: hidden;
+    transition: 0.5s;
+    overflow-y: auto;
+}
+
+.accordion .contentBx.active .content{
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+}
+
+.content li{
+    margin-left: 2rem;
+    margin-bottom: 1rem;    list-style: none;
+}
+.content ul li p{
+    margin-top:-2rem;
+    margin-left: 1.5rem;
+}
+.content li::before{
+    content: '';
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url(../img/help/correcto.png);
+    background-position: center;
+    background-size: cover;
+}
+
+@media (max-width:650px){
+    .container-accordion{
+        margin-left: 0;
+    }
+}

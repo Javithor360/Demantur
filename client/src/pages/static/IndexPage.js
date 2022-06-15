@@ -22,7 +22,7 @@ export const IndexPage = () => {
       <Navbar />
       <div>
       <div className="container-fluid box ms-0">
-          <p className="text">Banca en Línea</p>
+          <p className="slidertext">Banca en Línea</p>
           <div className="linea" />
           <p className="parrafo">
             Simplificamos la forma de administrar tus cuentas, abre tu cuenta y
@@ -104,7 +104,7 @@ export const IndexPage = () => {
               tus necesidades
             </p>
             <div className="boton">
-              <Link to="/" className="LinkHover">
+              <Link to="/cards" className="LinkHover">
                 <span>Conoce Más</span>
                 <FaAngleRight className="view-icon fa-solid fa-angle-right ArrowIcon" />
               </Link>
@@ -204,7 +204,7 @@ export const IndexPage = () => {
               </p>
             </div>
             <div>
-              <Link to="/" className="view-more-button">
+              <Link to="/help" className="view-more-button">
                 <span>Ver Más</span>
                 <FaAngleRight className="fa-solid fa-angle-right view-more-icon"/>
               </Link>

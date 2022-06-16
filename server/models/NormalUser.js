@@ -42,7 +42,7 @@ const NormalUserSchema = new mongoose.Schema({
 }, { timestamps: true })
 
 
-//metodo para enviar el token LOL
+//metodo para enviar el token
 NormalUserSchema.methods.getSignedToken = function () {
   return jwt.sign({
     user: {

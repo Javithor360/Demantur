@@ -4,6 +4,7 @@ const AuthMiddleware = require('../middlewares/AuthMiddleware')
 
 const { registerNormalUser, loginNormalUser, getNormalUserProfile } = require('../controllers/NormalUserController');
 
+// Rutas para usuario normal
 router.route('/normal-user/register').post(registerNormalUser);
 router.route('/normal-user/login').post(loginNormalUser)
 router.route('/normal-user/profile').get([AuthMiddleware], getNormalUserProfile)

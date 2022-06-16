@@ -26,7 +26,7 @@ export const CardsPage = () =>{
             <Navbar />
             
             <div className='cards-banner-container'>
-                <div className='banner-content'>
+                <div className='cards-banner-content'>
                     <FaRegCreditCard className='ccard-icon'/>
                     <h1>Tarjetas</h1>
                     <p>Encuentra la mejor solución que se adapte a tus necesidades</p>

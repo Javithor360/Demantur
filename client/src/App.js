@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, HelpPage, CardsPage } from "./pages/static";
+import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, HelpPage, CardsPage, ContactPage } from "./pages/static";
+import { DemanturClassic, DemanturGold, DemanturPlatinum } from "./pages/static/CreditCardsPages";
 
 const App = () => {
   return (
@@ -13,6 +14,10 @@ const App = () => {
       <Route path="/accounts/savings" element={<SavingsAccount />} />
       <Route path="/help" element={<HelpPage />} />
       <Route path="/cards" element={<CardsPage />} />
+      <Route path="/cards/classic" element={<DemanturClassic />} />
+      <Route path="/cards/gold" element={<DemanturGold />} />
+      <Route path="/cards/platinum" element={<DemanturPlatinum />} />
+      <Route path="/contact" element={<ContactPage />} />
       
     </Routes>
   );

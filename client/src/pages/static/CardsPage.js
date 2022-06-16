@@ -1,20 +1,24 @@
-import React from 'react'
+//scss
 import "./assets/scss/CardsPage_main.scss";
+
+//components
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
-import { FaRegCreditCard } from 'react-icons/fa'
-import { FaAngleRight } from 'react-icons/fa'
-import { FaRegStar } from 'react-icons/fa';
-import { FaStar } from 'react-icons/fa';
+
+//icons
+import { FaRegCreditCard, FaAngleRight, FaRegStar, FaStar } from 'react-icons/fa'
 import { TbShoppingCartDiscount } from 'react-icons/tb';
 import { BsCardChecklist } from 'react-icons/bs';
 import { MdAttachMoney } from 'react-icons/md';
 import { IoAirplaneOutline } from 'react-icons/io5';
-import { Link } from "react-router-dom";
 
-import classicCard from "./assets/img/creditCards/classicCard.png";
-import goldCard from "./assets/img/creditCards/goldCard.png";
-import platinumCard from "./assets/img/creditCards/platinumCard.png";
+//images
+import classicCard from "./assets/img/credit_cards/classicCard.png";
+import goldCard from "./assets/img/credit_cards/goldCard.png";
+import platinumCard from "./assets/img/credit_cards/platinumCard.png";
+
+//hooks
+import { Link } from "react-router-dom";
 
 export const CardsPage = () =>{
     return(
@@ -68,7 +72,7 @@ export const CardsPage = () =>{
                         </div>
 
                         <div className='card-button'>
-                            <Link to="/" className="more-details-bt">
+                            <Link to="/cards/classic" className="more-details-bt">
                                 <span >Más detalles</span>
                                 <FaAngleRight className='more-details-bt-icon'/>
                             </Link>
@@ -109,7 +113,7 @@ export const CardsPage = () =>{
                         </div>
 
                         <div className='card-button'>
-                            <Link to="/" className="more-details-bt">
+                            <Link to="/cards/platinum" className="more-details-bt">
                                 <span >Más detalles</span>
                                 <FaAngleRight className='more-details-bt-icon'/>
                             </Link>
@@ -154,7 +158,7 @@ export const CardsPage = () =>{
                         </div>
 
                         <div className='card-button'>
-                            <Link to="/" className="more-details-bt">
+                            <Link to="/cards/gold" className="more-details-bt">
                                 <span >Más detalles</span>
                                 <FaAngleRight className='more-details-bt-icon'/>
                             </Link>

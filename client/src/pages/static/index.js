@@ -5,6 +5,4 @@ export { SavingsAccount } from "./accounts/Savings";
 export { HelpPage } from "./HelpPage";
 export { CardsPage } from "./CardsPage";
 export { ContactPage } from "./ContactPage";
-
-
-
+export { SelectAccountPage } from './SelectAccountPage'

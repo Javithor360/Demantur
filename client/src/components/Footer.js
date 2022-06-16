@@ -1,8 +1,13 @@
-import React from 'react'
+// Estilos
 import './assets/scss/footer-style.scss'
-import Logo_Footer_White from './assets/img/Demantur_Imagotype-2_White.svg'
+
+//Hooks
 import { Link } from 'react-router-dom'
-import { FaInstagram as InstagramIcon, FaFacebook as FbIcon, FaRegEnvelope as MailIcon} from "react-icons/fa";
+
+// Assets (Iconos e Imagenes)
+import { FaInstagram as InstagramIcon, FaFacebook as FbIcon, FaRegEnvelope as MailIcon } from "react-icons/fa";
+import Logo_Footer_White from './assets/img/Demantur_Imagotype-2_White.svg'
+
 export const Footer = () => {
   return (
     <footer>
@@ -40,13 +45,13 @@ export const Footer = () => {
           <div className="social-icons-container">
             <div className="social-icons">
               <Link to="/" className="social-link">
-                <InstagramIcon/>
+                <InstagramIcon />
               </Link>
               <Link to="/" className="social-link">
-                <FbIcon/>
+                <FbIcon />
               </Link>
               <Link to="/" className="social-link">
-                <MailIcon/>
+                <MailIcon />
               </Link>
             </div>
             <div className="lang-footer-select">
@@ -67,6 +72,6 @@ export const Footer = () => {
           Todos los derechos reservados. © 2022 Demantur
         </span>
       </div>
-    </footer> 
+    </footer>
   )
 }

@@ -1,8 +1,11 @@
+// Estilos
 import "./assets/scss/help.scss";
-import { Navbar } from "../../components/Navbar";
-import { Footer } from "../../components/Footer";
-import { Link } from "react-router-dom";
 
+// Componentes
+import { Navbar, Footer } from "../../components/";
+
+// Hooks
+import { Link } from "react-router-dom";
 
 export const HelpPage = () => {
     var i;

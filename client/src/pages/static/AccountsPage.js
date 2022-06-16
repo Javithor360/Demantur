@@ -1,7 +1,11 @@
 import "./assets/scss/acc_main.scss";
-import { Navbar } from "../../components/Navbar";
+// componentes
+import { Navbar, Footer } from "../../components/";
+
+// hooks
 import { Link } from "react-router-dom";
 
+// Assets
 import { BsPiggyBank } from "react-icons/bs";
 import { FaAngleRight } from "react-icons/fa";
 
@@ -62,6 +66,7 @@ export const AccountsPage = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 };

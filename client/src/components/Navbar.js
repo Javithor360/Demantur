@@ -1,9 +1,13 @@
-import React from 'react'
+// Estilos
 import './assets/scss/navbar-style.scss'
-import Logo from './assets/img/Demantur_Imagotype-2.svg'
+
+// Hooks
 import { Link } from 'react-router-dom'
+
+// Assets (Iconos e Imagenes)
 import { FaBars as BarsIcon, FaRegUser as UserIcon } from 'react-icons/fa'
 import { AiOutlineQuestionCircle as QuestionIcon } from 'react-icons/ai'
+import Logo from './assets/img/Demantur_Imagotype-2.svg'
 
 export const Navbar = () => {
   return (

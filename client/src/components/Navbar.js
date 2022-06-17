@@ -35,7 +35,7 @@ export const Navbar = () => {
           <span className="help-text">Ayuda</span>
         </Link>
 
-        <Link to='/' className="access-button">
+        <Link to='/auth' className="access-button">
           <span className="access-text">Acceder</span>
           <UserIcon className="access-icon fa-regular fa-user" />
         </Link>

@@ -12,7 +12,7 @@ import { FaAngleRight } from 'react-icons/fa'
 import Logo_Icon_White from "./assets/img/logos/svg/Logo_Icon-1_White.svg";
 
 const SliderImages = require.context('./assets/img/index/slider', true);
-const TarjetasImages = require.context('./assets/img/index', true)
+const TarjetasImages = require.context('./assets/img/index', true);
 
 export const IndexPage = () => {
 

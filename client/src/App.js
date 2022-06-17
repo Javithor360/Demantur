@@ -2,7 +2,7 @@
 import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 
 // Pages
-import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, HelpPage, CardsPage, ContactPage } from "./pages/static";
+import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, HelpPage, CardsPage, ContactPage, SelectAccountPage } from "./pages/static";
 import { DemanturClassic, DemanturGold, DemanturPlatinum } from "./pages/static/CreditCardsPages";
 
 // Componentes
@@ -36,6 +36,17 @@ const App = () => {
         <Route path="/cards/gold" element={<DemanturGold />} />
         <Route path="/cards/platinum" element={<DemanturPlatinum />} />
 
+        {/* Rutas de la autentificacion */}
+        <Route path="/auth" element={<SelectAccountPage />} />
+        <Route path="/auth/login" element={<SelectAccountPage />} />
+        <Route path="/auth/register" element={<SelectAccountPage />} />
+        <Route path="/auth/forgot-password" element={<SelectAccountPage />} />
+        <Route path="/auth/reset-password/:resetToken" element={<SelectAccountPage />} />
+        <Route path="/auth/verify-email" element={<SelectAccountPage />} />
+        <Route path="/auth/waiting" element={<SelectAccountPage />} />
+
+        {/* test dashboard */}
+        <Route path="/dashboard/:usuario/perfil" element={<SelectAccountPage />} />
       </Routes>
     </BrowserRouter>
   );

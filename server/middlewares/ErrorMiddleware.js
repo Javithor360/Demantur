@@ -11,7 +11,8 @@ const MiddlewareError = (err, req, res, next) => {
 
   res.status(error.statusCode || 500).json({
     succes: false,
-    error: error.message
+    error: error.message,
+    type: error.type
   });
 }
 

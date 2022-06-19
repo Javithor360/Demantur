@@ -1,0 +1,108 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+.classic-card-hero-container{
+    position: relative;
+    width: 100%;
+    height: 25.93rem;
+    background-image: url(../../img/credit_cards/classic/classic_card_hero_bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    margin-bottom: 8rem;
+
+    .classic-card-hero-content{
+        width: inherit;
+        height: inherit;
+        position: absolute;
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, .5);
+        
+        .text-content{
+            position: absolute;
+            top: 15%;
+            right: 0;
+            left: 0;
+            margin: auto;
+
+            p:first-of-type{
+                margin: auto;
+                text-align: center;
+                font-size: 3.75rem;
+            }
+            p:last-of-type{
+                margin: auto;
+                text-align: center;  
+            }
+        }
+        .image-content{
+            position: absolute;
+            top: 55%;
+            margin: auto;
+            right: 0;
+            left: 0;
+            width: 25rem;
+            img{
+                width: 100%;
+                filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.6));
+            }
+        }
+    }
+}
+.card-description{
+    width: 80%;
+    margin: auto;
+    border-left: 4px solid #93DEFF;
+    opacity: 100;
+    padding-left: 0.5rem;
+}
+.card-benefits_container{
+    width: 100%;
+    height: fit-content;
+    background-color: #fbfbfb;
+    padding: 3rem 0 3rem 0;
+    margin: 5rem 0  10rem 0;
+
+    .card-benefits_tittle{
+        text-align: center;
+        font-size: 1.375rem;
+        font-weight: 700;
+        margin-bottom: 5rem;
+    }
+    .card-benefits_grid_row{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-left: 10%;
+        width: 90%;
+
+        .grid_item{
+            position: relative;
+
+            img{
+                width: 5rem;
+                margin-bottom: 0.625rem;
+            }
+            p:first-of-type{
+                font-size: 1.6rem;
+                // font-weight: 700;
+            }
+            p:last-of-type{
+                font-size: .8rem;
+                width: 70%;
+            }
+        }
+        .vl{
+            hr{
+                transform: rotate(90deg);
+                width: 10rem;
+                position: absolute;
+                top: 40%;
+                right: 0;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+}

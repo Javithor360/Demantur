@@ -112,6 +112,7 @@ body {
     text-decoration: none;
     transition: all .5s ease;
 }
+
 .about-button-rg .about-button-rg-icon {
     color: #000000;
     margin-left: 0rem;
@@ -447,11 +448,12 @@ body {
     .card img {
         width: calc(1vw + 100px);
     }
-    .slider-item-text-container{
+
+    .slider-item-text-container {
         width: 100%;
         margin: 0;
         height: 50%;
         position: absolute;
-        
+
     }
 }

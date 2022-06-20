@@ -6,3 +6,4 @@ export { HelpPage } from "./HelpPage";
 export { CardsPage } from "./CardsPage";
 export { ContactPage } from "./ContactPage";
 export { SelectAccountPage } from './SelectAccountPage'
+export { RegisterNormalUserPage } from './auth/RegisterNormalUserPage'

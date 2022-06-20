@@ -3,9 +3,10 @@ import "../assets/scss/CreditCards_Styles/demantur_classic_main.scss";
 
 //components
 import { Navbar, Footer } from "../../../components/";
+import TabsClassicCard from "../assets/js/TabsClassicCard";
 
 //images
-const ClassicCardImages = require.context('../assets/img/credit_cards/classic', true)
+const ClassicCardImages = require.context('../assets/img/credit_cards/classic', true);
 
 export const DemanturClassic = () => {
   return (
@@ -51,7 +52,7 @@ export const DemanturClassic = () => {
               <p>
                 Paga en cuotas de hasta 36 
                 meses según tus posibilidades 
-                con una tasa de interés del 30%
+                con una tasa de interés fija
               </p>
 
               <hr />
@@ -69,12 +70,35 @@ export const DemanturClassic = () => {
 
           </div>
         </div>
-        
+        <TabsClassicCard />
 
+        <div className="credit-card-tittle">
+            <p>Beneficios Especiales</p>
+            <hr />
+        </div>
 
-      <Footer />
-    
-    
+        <div className="other-benefits-banner">
+          <div className="otb-content">
+            <div className="otb-icon">
+              <img src={ClassicCardImages('./discount_icon.png')} alt="" />
+            </div>
+            <div className="otb-text">
+              <p>Descuentos en Comercios Seleccionados</p>
+              <p>Obtén muchas ofertas y promociones en productos al pagar con tu tarjeta de crédito</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="card-form-container">
+          <div className="form-header">
+            <p>¿Ya te has decidido?</p>
+            <hr className="blue-underline smallest"></hr>
+            <p>Solicita tu tarjeta ahora</p>
+          </div>
+          <form className="classic-card-form">
+          </form>
+        </div>
+        <Footer />
     </>
   )
 }

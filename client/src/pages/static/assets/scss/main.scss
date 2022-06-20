@@ -230,7 +230,7 @@ body {
     height: 25rem;
     width: 23%;
     padding: 1rem;
-    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.315);
+    // box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.315);
     border-radius: 8px;
     transition: all .5s ease;
 }
@@ -255,8 +255,9 @@ body {
 
 .card:hover {
     transition: all .5s ease;
-    transform: translateY(-10px);
-    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 0px 16px rgba(0, 0, 0, 0.132);
+    border-color: transparent;
 }
 
 .card .LinkHover:hover {
@@ -282,10 +283,12 @@ body {
 
 .dual-banner {
     display: flex;
-    width: 100%;
+    width: 90%;
     height: 15rem;
     background-color: #f7f7f7;
-    margin-bottom: 2rem;
+    margin: 0 auto 2rem auto;
+    // box-shadow: 0 0px 16px rgba(0, 0, 0, 0.132);
+    border: 1px solid #dfdfdf;
 }
 
 .dual-banner .dual-banner-content {

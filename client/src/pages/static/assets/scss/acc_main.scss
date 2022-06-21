@@ -1,9 +1,6 @@
 // Variables
 $color_white: #fff;
 
-
-// 1rem = 16px
-
 // ----
 
 .hero {
@@ -63,9 +60,9 @@ $color_white: #fff;
         box-shadow: 0 0.9375rem 1.875rem 0.0625rem grey;
         background: rgba(255, 255, 255, .90);
         text-align: center;
-        border-radius: 5px;
+        border-radius: 0.3125rem;
         overflow: hidden;
-        margin: 8em auto;
+        margin: 4rem auto 8rem;
         height: 21.875rem;
         width: 68.75rem;
         transition: all .5s ease;

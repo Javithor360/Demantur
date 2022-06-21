@@ -2,8 +2,7 @@
 import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 
 // Pages
-import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, HelpPage, CardsPage, ContactPage, SelectAccountPage } from "./pages/static";
-import { DemanturClassic, DemanturGold, DemanturPlatinum } from "./pages/static/CreditCardsPages";
+import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, HelpPage, CardsPage, ContactPage, SelectAccountPage, DemanturClassic, DemanturGold, DemanturPlatinum } from "./pages/static";
 
 // Componentes
 import { ScrollToTop } from './components/'

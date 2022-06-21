@@ -49,7 +49,7 @@ const registerNormalUser = async (req, res, next) => {
     VeCoEmail(verifyCode, newNormalUser, res, next);
 
     // Creacion del TOKEN
-    sendToken(newNormalUser, res);
+    // sendToken(newNormalUser, res);
   } catch (error) {
     res.status(500).json({ success: false, error: error.message })
   }

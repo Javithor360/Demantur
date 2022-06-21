@@ -9,3 +9,4 @@ export { DemanturGold } from "./credit_cards/DemanturGold";
 export { DemanturPlatinum } from "./credit_cards/DemanturPlatinum";
 export { ContactPage } from "./ContactPage";
 export { SelectAccountPage } from "./SelectAccountPage";
+export { RegisterNormalUserPage } from "./auth/RegisterNormalUserPage";

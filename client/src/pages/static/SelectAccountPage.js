@@ -17,14 +17,14 @@ export const SelectAccountPage = () => {
       <Navbar />
       <div className="baner">
         <div className="baner-content">
-        <Select className="arrow" />
-            <h1 className="title">Seleccion de Usuario</h1>
+          <Select className="arrow" />
+          <h1 className="title">Seleccion de Usuario</h1>
         </div>
-    </div>
-    <div className="title2">
-                <p>Bienvenido nuevamente</p>
-                <hr />
-            </div>
+      </div>
+      <div className="title2">
+        <p>Bienvenido nuevamente</p>
+        <hr />
+      </div>
     <p className="info"> <br />
             Bienvenido a la interfaz de Seleccion de Usuario, porfavor selecciona el tipo de Usuario al cual eres poseedor, asegurate de seleccionar la opcion con tu tipo de cuenta e 
             todos tus datos correctamente

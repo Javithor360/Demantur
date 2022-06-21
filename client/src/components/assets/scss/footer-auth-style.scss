@@ -1,0 +1,54 @@
+@import url(./footer-style.scss);
+$acua: #93DEFF;
+$darkacua: #6092A8;
+
+@mixin br-salto ($display) {
+  display: $display;
+}
+
+
+.Link {
+  color: rgba($darkacua, 0.9);
+  text-decoration: none;
+}
+
+.Link:hover {
+  color: $darkacua;
+  text-decoration: underline;
+}
+
+.copyright-container {
+  height: 4rem;
+
+  .copyright {
+    font-size: 1.03rem;
+    padding: 0;
+    text-align: center;
+
+    br {
+      @include br-salto(none);
+    }
+  }
+
+  .Link {
+    color: rgba($acua, 0.9);
+    text-decoration: none;
+  }
+
+  .Link:hover {
+    color: $acua;
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 768px) {
+  .copyright-container {
+    height: 6rem;
+
+    .copyright {
+      br {
+        @include br-salto(inline);
+      }
+    }
+  }
+}

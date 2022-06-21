@@ -1,0 +1,108 @@
+.information-tabs{
+    height: 650px;
+    width: 100%;
+    margin-bottom: 3rem;
+
+    .information-tabs-flex{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+    
+        .tab-images-container{
+            width: 50%;
+            height: 100%;
+            background-color: #000000;
+            .tab-bg-image{
+                display: none;
+            }
+            .tab-bg-image-active{
+                display: block;
+                height: 100%;
+                width: 100%;
+                // animation: fade_in_slowed 170ms ease-in;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+        .tab-content{
+            width: 50%;
+            height: inherit;
+            color: #ffffff;
+            background-color: #323643;
+            padding: 3rem;
+            position: relative;
+    
+            .tabs-selection{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+    
+                .tab-button{
+                    background-color: transparent;
+                    border-style: none;
+                    font-size: 1.125rem;
+                    color: #ffffff;
+                    margin: 0 1.6rem 3rem 1.6rem;
+                }
+                .tab-selection-active{
+                    border-bottom: 2px solid #93DEFF;
+                }
+            }
+            .content-text{
+                margin: auto;
+                width: 85%;
+                display: none;
+                position: absolute;
+    
+                .individual-text{
+                    display: flex;
+                    align-items: center;
+                    padding: 1rem 0;
+    
+                    p:first-child{
+                        margin-right: 1rem;
+                        font-size: 1.6rem;
+                        color: #93DEFF;
+                    }
+                }
+            }
+            .active-content-text{
+                display: block;
+                animation: fade_in 300ms ease-in;
+            }
+        }   
+    }
+}
+@keyframes fade_in{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+// @keyframes fade_in_slowed{
+//     0%{
+//         opacity: 0;
+//     }
+//     20%{
+//         opacity: .20;
+//     }
+//     40%{
+//         opacity: .40;
+//     }
+//     60%{
+//         opacity: .60;
+//     }
+//     80%{
+//         opacity: .80;
+//     }
+//     100%{
+//         opacity: 1;
+//     }
+// }
+

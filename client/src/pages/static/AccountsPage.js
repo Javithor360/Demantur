@@ -65,7 +65,7 @@ export const AccountsPage = () => {
           </div>
 
           <div className="acc-img">
-            <img src={AccountsImg("./acc_checking_card.jpg")} alt="" />
+            <img src={AccountsImg("./acc_checking.jpg")} alt="" />
           </div>
         </div>
 
@@ -96,7 +96,7 @@ export const AccountsPage = () => {
           </div>
 
           <div className="acc-img">
-            <img src={AccountsImg("./acc_savings_card.jpg")} alt="" />
+            <img src={AccountsImg("./acc_savings.jpg")} alt="" />
           </div>
         </div>
       </section>

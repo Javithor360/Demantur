@@ -6,6 +6,8 @@ import { Navbar, Footer } from "../../components";
 
 // Assets (iconos)
 import { BsFillCursorFill as Select } from "react-icons/bs";
+import { FaUserTie as Empre } from "react-icons/fa";
+import { FaUserAlt as User } from "react-icons/fa";
 import { Link } from "react-router-dom";
 const CuentasImagenes = require.context('./assets/img/banner', true);
 
@@ -27,22 +29,32 @@ export const SelectAccountPage = () => {
             Bienvenido a la interfaz de Seleccion de Usuario, porfavor selecciona el tipo de Usuario al cual eres poseedor, asegurate de seleccionar la opcion con tu tipo de cuenta e 
             todos tus datos correctamente
         </p>
-        <div className="content-cards">
-  <div className="radio-btns" role="radiogroup">
-    <Link to="" className="links">
-    <div className="radio-btns__btn" role="radio" aria-checked="false" tabindex="-1" aria-label="Select image one">
-    <img className="img-card" src={CuentasImagenes('./usuario.jpg')} alt='' /><br/>
-    <h3 className="subtitle">Cuenta cliente</h3>
-    <p className="info2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur, debitis. Dolore voluptatibus facilis ullam voluptas rerum, velit optio, in assumenda, perferendis itaque commodi labore libero magnam modi distinctio impedit consectetur?</p>
+<div className="boxs-wrap">
+  <div className="boxs"><br/>
+  <div className="title2">
+  <Empre className="icons" /><br/>
+    <p className="subtitle">Cuenta Empresarial</p>
+    <hr/>
+  </div>
+  <br/>
+  <p className="info2">si tu empresa aún no tiene una cuenta con nosotros, cotratala de manera segura, ágil y digital sin acudir a una oficina o un banco.</p>
+    <div className="boton-position">
+    <button class="custom-btn btn-15">Iniciar sesion</button>
+    <button class="custom-btn btn-15">Registrarce</button>
     </div>
-    </Link>
-    <Link to="" className="links">
-    <div className="radio-btns__btn" role="radio" aria-checked="false" tabindex="-1" aria-label="Select image two">
-    <img className="img-card" src={CuentasImagenes('./empresario.jpg')} alt='' /><br/>
-    <h3 className="subtitle">Cuenta Empresario</h3>
-    <p className="info2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur, debitis. Dolore voluptatibus facilis ullam voluptas rerum, velit optio, in assumenda, perferendis itaque commodi labore libero magnam modi distinctio impedit consectetur?</p>
+  </div>
+  <div className="boxs"><br/>
+  <div className="title2">
+  <User className="icons" /><br/>
+    <p className="subtitle">Cuenta Normal</p>
+    <hr/>
+  </div>
+  <br/>
+  <p className="info2">La mejor opcion en cuanto a administracion de tu estado bancario, todo desde la comodidad de tu hogar sin tener que ira un banco</p>
+    <div className="boton-position">
+    <button class="custom-btn btn-15">Iniciar sesion</button>
+    <button class="custom-btn btn-15">Registrarce</button>
     </div>
-    </Link>
   </div>
 </div>
 

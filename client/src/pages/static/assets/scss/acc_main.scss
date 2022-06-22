@@ -5,7 +5,7 @@ $font_family: 'Poppins', sans-serif;
 
 // ----
 
-.hero {
+.acc-hero {
     background-image: url(../img/acc/acc_main_banner1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -14,7 +14,7 @@ $font_family: 'Poppins', sans-serif;
     padding: 1.25rem;
     position: relative;
 
-    .hero-cont {
+    .acc-hero-cont {
         position: absolute;
         background-color: rgba(0, 0, 0, .5);
         left: 0;
@@ -94,7 +94,7 @@ $font_family: 'Poppins', sans-serif;
                 padding-left: 2rem;
             }
 
-            .acc-btn {
+            .acc-button {
                 background-color: #455FB9;
                 display: inline-block;
                 padding: 0.5rem;
@@ -106,7 +106,7 @@ $font_family: 'Poppins', sans-serif;
                 }
             }
 
-            .acc-btn:hover {
+            .acc-button:hover {
                 filter: brightness(150%);
                 transition: all .2s ease;
             }

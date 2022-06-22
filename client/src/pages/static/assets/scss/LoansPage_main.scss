@@ -27,12 +27,20 @@ body{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
         .ccard-icon{
-            font-size: 4.125rem;
+            font-size: 4.375rem;
         }
+
         h1{
+			font-size: 3rem;
+			font-weight: bold;
             margin: 1.25rem auto 1.25rem auto ;
         }
+
+		p {
+			font-size: 1.5rem;
+		}
     }
 }
 .loans-type-tittle p {

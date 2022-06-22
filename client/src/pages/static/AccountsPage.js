@@ -25,8 +25,8 @@ export const AccountsPage = () => {
   return (
     <>
       <Navbar />
-      <section className="hero">
-        <div className="hero-cont">
+      <section className="acc-hero">
+        <div className="acc-hero-cont">
           <BsPiggyBank size="4.375rem" color="#fff" />
           <h1>Cuentas</h1>
           <p>Conoce nuestra gama de posibilidades</p>
@@ -57,7 +57,7 @@ export const AccountsPage = () => {
               internacional
             </p>
             <Link to="/accounts/checking">
-              <div className="acc-btn">
+              <div className="acc-button">
                 <span>Más información</span>
                 <FaAngleRight color="#fff" />
               </div>
@@ -88,7 +88,7 @@ export const AccountsPage = () => {
               movimientos 24/7
             </p>
             <Link to="/accounts/savings">
-              <div className="acc-btn">
+              <div className="acc-button">
                 <span>Más información</span>
                 <FaAngleRight color="#fff" />
               </div>

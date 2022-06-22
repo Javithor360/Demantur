@@ -4,19 +4,22 @@ body{
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
 }
+.mgt_1{
+    margin-top: 1rem;
+}
 .smallest{
     width: 8rem;
 }
-.gold-card-hero-container{
+.platinum-card-hero-container{
     position: relative;
     width: 100%;
     height: 25.93rem;
-    background-image: url(../../img/credit_cards/gold/gold_card_hero_bg.jpg);
+    background-image: url(../../img/credit_cards/platinum/platinum_card_hero_bg.jpg);
     background-size: cover;
     background-position: center center;
     margin-bottom: 8rem;
 
-    .gold-card-hero-content{
+    .platinum-card-hero-content{
         width: inherit;
         height: inherit;
         position: absolute;
@@ -114,16 +117,16 @@ body{
         }
     }
 }
-.gold-other-benefits-banner{
+.platinum-other-benefits-banner{
     width: 100%;
     height: 25.93rem;
-    background-image: url(../../img/credit_cards/gold/emergency_cash_bg.jpg);
+    background-image: url(../../img/credit_cards/platinum/fly_bg.jpg);
     background-size: cover;
     background-position: center 70%;
-    margin: 2rem auto 0 auto;
+    margin: 2rem 0 0 0;
     position: relative;
 
-    .gold-otb-content{
+    .platinum-otb-content{
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, .5);
@@ -131,11 +134,11 @@ body{
         display: flex;
         align-items: center;
         justify-content: center;
-        .gold-otb-icon img{
+        .platinum-otb-icon img{
             width: calc(1vw + 130px);
             margin-right: 1.5625rem;
         }
-        .gold-otb-text{
+        .platinum-otb-text{
             display: flex;
             flex-direction: column;
             align-items: center;

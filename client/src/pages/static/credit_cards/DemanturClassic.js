@@ -1,10 +1,7 @@
 //scss
 import "../assets/scss/credit_cards/demantur_classic_main.scss";
 //icons
-import { FaRegUser, FaRegAddressCard } from "react-icons/fa"
-import { MdOutlineEmail } from "react-icons/md"
-import { BsTelephone, BsHouseDoor } from "react-icons/bs"
-
+import { MdOutlineEmail, MdOutlinePhone, MdOutlineHome, MdOutlineBadge, MdPersonOutline } from "react-icons/md"
 //components
 import { Navbar, Footer } from "../../../components";
 import { Tabs } from "../assets/js/BannerTabCreator.js";
@@ -102,105 +99,93 @@ export const DemanturClassic = () => {
 
           <form className="classic-card-form">
             <div className="form-column-1">
-
-              <div className="form-column-content-1">
-
-                <div className="form-individual-element">
-                  
-                  <div className="label-icon"><FaRegUser /></div>
-                  <div className="form-input-container">
-                      <input className="form-input-box" type="text" placeholder="Nombre completo"/>
-                      <label className="form-label-box" htmlFor="">
-                          Nombre completo
-                      </label>
-                  </div>
-
-                </div>
-
-                <div className="form-individual-element">
-                  
-                  <div className="label-icon"><BsTelephone /></div>
-                  <div className="form-input-container">
-                      <input className="form-input-box" type="text" placeholder="Número de contacto"/>
-                      <label className="form-label-box" htmlFor="">
-                          Número de contacto
-                      </label>
-                  </div>
-
-                </div>
-
-                <div className="form-individual-element">
-                  
-                  <div className="label-icon"><BsHouseDoor /></div>
-                  <div className="form-input-container">
-                      <input className="form-input-box" type="text" placeholder="Dirección"/>
-                      <label className="form-label-box" htmlFor="">
-                          Dirección
-                      </label>
-                  </div>
-
-                </div>
-
-              </div>
-              
-              <div className="form-column-content-1">
-                <div className="form-individual-element">
-                    
-                    <div className="label-icon"><FaRegAddressCard /></div>
+                <div className="form-row-content">
+                  <div className="form-individual-element">
+                    <div className="label-icon"><MdPersonOutline /></div>
                     <div className="form-input-container">
-                        <input className="form-input-box" type="number" placeholder="Nombre completo"/>
+                        <input className="form-input-box" type="text" placeholder="Nombre completo"/>
+                        <label className="form-label-box" htmlFor="">
+                            Nombre completo
+                        </label>
+                    </div>
+                  </div>
+                  <div className="form-individual-element">
+                    <div className="label-icon"><MdOutlinePhone /></div>
+                    <div className="form-input-container">
+                        <input className="form-input-box" type="number" placeholder="Número de contacto"/>
+                        <label className="form-label-box" htmlFor="">
+                            Número de contacto
+                        </label>
+                    </div>
+                  </div>
+                  <div className="form-individual-element">
+                    <div className="label-icon"><MdOutlineHome /></div>
+                    <div className="form-input-container">
+                        <input className="form-input-box" type="text" placeholder="Dirección"/>
+                        <label className="form-label-box" htmlFor="">
+                            Dirección
+                        </label>
+                    </div>
+                  </div>
+                </div>
+              
+              <div className="form-row-content">
+                <div className="form-individual-element">
+                    <div className="label-icon"><MdOutlineBadge /></div>
+                    <div className="form-input-container">
+                        <input className="form-input-box" type="number" placeholder="Número de DUI"/>
                         <label className="form-label-box" htmlFor="">
                             Número de DUI
                         </label>
                     </div>
-
                 </div>
                 <div className="form-individual-element">
-                    
                     <div className="label-icon"><MdOutlineEmail /></div>
                     <div className="form-input-container">
-                        <input className="form-input-box" type="number" placeholder="Nombre completo"/>
+                        <input className="form-input-box" type="email" placeholder="Correo Electrónico"/>
                         <label className="form-label-box" htmlFor="">
                             Correo Electrónico
                         </label>
                     </div>
-
                 </div>
-                
-                <div className="individual-element-flexrow">
-                  <select name="" id="">
-                    <option>Rango Salarial</option>
-                    <option>Entre $450 y $499</option>
-                    <option>Entre $500 y $999</option>
-                    <option>Entre $1,000 y $1,999</option>
-                    <option>Entre $2,000 y $3,999</option>
-                    <option>Entre $4,000 y $5,999</option>
-                    <option>Mayor a $6,000</option>
-                  </select>
-                  <div className="form-individual-element">
-                    <div className="form-input-container">
-                        <input className="form-input-box" type="text" placeholder="Escriba su posición laboral"/>
-                        <label className="form-label-box" htmlFor="">
-                            Escriba su posición laboral
-                        </label>
-                    </div>
+                  
+                <div className="form-flex-row">
+                  <div className="card-form-select">
+                    <select name="" id="">
+                        <option>Rango Salarial</option>
+                        <option>Entre $450 y $499</option>
+                        <option>Entre $500 y $999</option>
+                        <option>Entre $1,000 y $1,999</option>
+                        <option>Entre $2,000 y $3,999</option>
+                        <option>Entre $4,000 y $5,999</option>
+                        <option>Mayor a $6,000</option>
+                    </select> 
+                  </div>
+                  <div className="flex-row-input">
+                      <input className="form-input-box" type="text" placeholder="Escriba su posición laboral"/>
+                      <label className="form-label-box" htmlFor="">
+                          Escriba su posición laboral
+                      </label>
                   </div>
                 </div>
-                
               </div>
-            </div>
+            </div>    
+
             <div className="form-column-2">
               <div className="input-files">
                 <p>Fotocopia de DUI (revés y derecho)</p>
-                {/* <input type="file"></input> */}
+                <label htmlFor="file1">Seleccionar Archivo</label>
+                <input type="file" name="" id="file1"></input>
               </div>
               <div className="input-files">
                 <p>Fotocopia de NIT</p>
-                {/* <input type="file"></input> */}
+                <label htmlFor="file2">Seleccionar Archivo</label>
+                <input type="file" name="" id="file2"></input>
               </div>
               <div className="input-files">
                 <p>Adjunta tu constancia de salario</p>
-                {/* <input type="file"></input> */}
+                <label htmlFor="file3">Seleccionar Archivo</label>
+                <input type="file" name="" id="file3"></input>
               </div>
             </div>
           </form>

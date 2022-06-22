@@ -3,7 +3,7 @@ import { useState } from "react";
 //scss
 import "../scss/credit_cards/cards-tabs-style.scss";
 //images
-const ClassicCardImages = require.context("../img/credit_cards/classic", true);
+const ClassicCardImages = require.context("../img/credit_cards/", true);
 const CheckingAccountImages = require.context("../img/acc/", true);
 
 function Tabs(type) {

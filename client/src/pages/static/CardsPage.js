@@ -167,6 +167,54 @@ export const CardsPage = () => {
 
             </div>
 
+            <div className="credit-card-tittle">
+                <p>Tarjetas de débito</p>
+                <hr />
+            </div>
+
+            <div className="cards-flexbox">
+                <div className='individual-card-container'>
+                    <div className='card-information'>
+
+                        <div className='card-image'>
+                            <img src={CreditCardsImages('./debitCard.png')} alt='' />
+                        </div>
+
+                        <div className='card-tittle'>
+                            <p>Débito Clásica {/*<span className='registered-icon'>&reg;</span>*/} </p>
+                            <p>Mastercard &trade;</p>
+                        </div>
+
+                        <div className='card-details'>
+                            <p>
+                                <span><FaRegStar /></span>
+                                Lorem ipsum dolor sit amet, consectetur
+                            </p>
+                            <p>
+                                <span><FaStar /></span>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing
+                            </p>
+                            <p>
+                                <span><BsCardChecklist /></span>
+                                Lorem ipsum dolor sit amet.
+                            </p>
+                            <p>
+                                <span><MdAttachMoney /></span>
+                                Lorem ipsum dolor sit amet, adipiscing
+                            </p>
+                        </div>
+
+                        <div className='card-button'>
+                            <Link to="/" className="more-details-bt">
+                                <span >Más detalles</span>
+                                <FaAngleRight className='more-details-bt-icon' />
+                            </Link>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
             <Footer />
 
         </>

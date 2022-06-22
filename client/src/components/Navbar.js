@@ -34,7 +34,7 @@ export const Navbar = () => {
           <hr />
           <Link to='/accounts'><span className="hover-underline">Cuentas</span><FaAngleRight className='flecha' /></Link>
           <hr />
-          <Link to='/Loans'><span className="hover-underline">Prestamos</span><FaAngleRight className='flecha' /></Link>
+          <Link to='/Loans'><span className="hover-underline">Préstamos</span><FaAngleRight className='flecha' /></Link>
           <hr />
           <Link to='/contact'><span className="hover-underline">Contacto</span><FaAngleRight className='flecha' /></Link>
           <hr />

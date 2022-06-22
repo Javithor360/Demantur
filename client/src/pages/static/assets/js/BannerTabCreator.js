@@ -1,10 +1,11 @@
 //hooks
 import { useState } from "react";
+import { Link } from "react-router-dom";
 //scss
 import "../scss/credit_cards/cards-tabs-style.scss";
 //images
 const ClassicCardImages = require.context("../img/credit_cards/", true);
-const CheckingAccountImages = require.context("../img/acc/", true);
+const AccountsImages = require.context("../img/acc/", true);
 
 function Tabs(type) {
   const [toggleState, setToggleState] = useState(1);
@@ -96,7 +97,7 @@ function Tabs(type) {
             <div className="information-tabs-flex">
                 <div className="tab-images-container">
                     <div className="tab-bg-image tab-bg-image-active">
-                        <img src={CheckingAccountImages("./acc_requirements.jpg")} alt=""></img>
+                        <img src={AccountsImages("./acc_requirements.jpg")} alt=""></img>
                     </div>
                 </div>
 
@@ -120,12 +121,79 @@ function Tabs(type) {
                             <p>&#10003;</p>
                             <p>Apertura mínima desde $200.</p>
                         </div>
+                        <Link to="/accounts/form">
+                            <div className="check_form-button">
+                            <span>Solicitar</span>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>
         </div>
     )
-  } else {
+  } else if(type === "SavingsAccount") {
+    return(
+        <div className="information-tabs">
+            <div className="information-tabs-flex">
+                <div className="tab-images-container">
+                    <div className="tab-bg-image tab-bg-image-active">
+                        <img src={AccountsImages("./acc_conditions.jpg")} alt=""></img>
+                    </div>
+                </div>
+
+                <div className="tab-content">
+                    <div className="tabs-selection">
+                        <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
+                        Requisitos
+                        </button>
+                        <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
+                        Condiciones
+                        </button>
+                    </div>
+
+                    <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Apertura mínima desde US$25.00</p>
+                            </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>DUI, carné de residente ó pasaporte con información actualizada, vigente y en buen estado</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>NIT</p>
+                        </div>
+                        <Link to="/accounts/form">
+                            <div className="check_form-button">
+                            <span>Solicitar</span>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Aplica para persona natural</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Monto mínimo de apertura: $25.00</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Tasa de interés de acuerdo a tabla publicada el 1 de cada mes</p>
+                        </div>
+                        <Link to="/accounts/form">
+                            <div className="check_form-button">
+                            <span>Solicitar</span>
+                            </div>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+  }else {
     return <div>Parámetro no encontrado.</div>;
   }
 }

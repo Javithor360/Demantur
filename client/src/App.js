@@ -2,7 +2,7 @@
 import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 
 // Pages
-import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, HelpPage, CardsPage, DemanturClassic, DemanturGold, DemanturPlatinum, ContactPage, SelectAccountPage, RegisterNormalUserPage, LoansPage, BusinessLoan, PersonalLoan } from "./pages/static";
+import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, AccountsForm, HelpPage, CardsPage, DemanturClassic, DemanturGold, DemanturPlatinum, ContactPage, SelectAccountPage, RegisterNormalUserPage, LoansPage, BusinessLoan, PersonalLoan } from "./pages/static";
 
 //contexts
 import { AuthProvider } from "./context/AuthContext";
@@ -32,6 +32,7 @@ const App = () => {
           <Route path="/accounts" element={<AccountsPage />} />
           <Route path="/accounts/checking" element={<CheckingAccount />} />
           <Route path="/accounts/savings" element={<SavingsAccount />} />
+          <Route path="/accounts/form" element={<AccountsForm />} />
 
           {/* Rutas de "/cards" */}
           <Route path="/cards" element={<CardsPage />} />

@@ -59,6 +59,8 @@ export const CheckingAccount = () => {
 
           {Tabs("CheckingAccount")}
         </div>
+
+        
       </section>
       <Footer />
     </>

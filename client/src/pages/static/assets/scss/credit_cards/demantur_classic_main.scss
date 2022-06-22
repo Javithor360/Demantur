@@ -1,0 +1,274 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+.smallest{
+    width: 8rem;
+}
+.classic-card-hero-container{
+    position: relative;
+    width: 100%;
+    height: 25.93rem;
+    background-image: url(../../img/credit_cards/classic/classic_card_hero_bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    margin-bottom: 8rem;
+
+    .classic-card-hero-content{
+        width: inherit;
+        height: inherit;
+        position: absolute;
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, .5);
+        
+        .text-content{
+            position: absolute;
+            top: 15%;
+            right: 0;
+            left: 0;
+            margin: auto;
+
+            p:first-of-type{
+                margin: auto;
+                text-align: center;
+                font-size: 3.75rem;
+            }
+            p:last-of-type{
+                margin: auto;
+                text-align: center;  
+            }
+        }
+        .image-content{
+            position: absolute;
+            top: 55%;
+            margin: auto;
+            right: 0;
+            left: 0;
+            width: 25rem;
+            img{
+                width: 100%;
+                filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.6));
+            }
+        }
+    }
+}
+.card-description{
+    width: 80%;
+    margin: auto;
+    border-left: 4px solid #93DEFF;
+    opacity: 100;
+    padding-left: 0.5rem;
+}
+.card-benefits_container{
+    width: 100%;
+    height: fit-content;
+    background-color: #fbfbfb;
+    padding: 3rem 0 3rem 0;
+    margin: 5rem 0  0rem 0;
+
+    .card-benefits_tittle{
+        text-align: center;
+        font-size: 1.375rem;
+        font-weight: 700;
+        margin-bottom: 5rem;
+    }
+    .card-benefits_grid_row{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-left: 10%;
+        width: 90%;
+
+        .grid_item{
+            position: relative;
+
+            img{
+                width: 5rem;
+                margin-bottom: 0.625rem;
+            }
+            p:first-of-type{
+                font-size: 1.6rem;
+                // font-weight: 700;
+            }
+            p:last-of-type{
+                font-size: .8rem;
+                width: 70%;
+            }
+        }
+        .vl{
+            hr{
+                transform: rotate(90deg);
+                width: 10rem;
+                position: absolute;
+                top: 40%;
+                right: 0;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+}
+.other-benefits-banner{
+    width: 100%;
+    height: 25.93rem;
+    background-image: url(../../img/credit_cards/classic/discount_bg.jpg);
+    background-size: cover;
+    background-position: center 70%;
+    margin: 2rem 0 0 0;
+    position: relative;
+
+    .otb-content{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .5);
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .otb-icon img{
+            width: calc(1vw + 130px);
+            margin-right: 1.5625rem;
+        }
+        .otb-text{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #ffffff;
+
+            p:first-child{
+                font-size: 2.5rem;
+            }
+            p:last-child{
+                font-size: 1.125rem;
+            }
+            
+        }
+    }
+}
+.card-form-container{
+    width: 100%;
+    height: 50rem;
+    background-color: #fbfbfb;
+    color: #000000;
+    margin: 0 0 0 0;
+
+    .form-header {
+        padding: 4rem 0 1rem 3rem;
+        p:first-child{
+            font-size: 1.875rem;
+        }
+        p:last-child{
+            font-size: 1.2rem;
+        }
+    }
+    .classic-card-form{
+        width: 90%;
+        height: 60%;
+        background-color: #ffffff;
+        margin: auto;
+        border: 1px solid #dfdfdf;
+        display: flex;
+        flex-direction: column;
+        padding: 5rem;
+        box-shadow: 0px 0px 10px rgba(65, 65, 65, 0.404);
+
+        .form-column-1{
+            display: flex;
+            flex-direction: row;
+
+            .form-column-content-1{
+                width: 50%;
+
+                .form-individual-element{
+                    display: flex;
+                    flex-direction: row;
+
+                    .label-icon{
+                        margin-right: .5rem;
+                        font-size: 1.5rem;
+                        color: #31b3e8;
+                    }
+                    .form-input-container{
+                        width: 70%;
+                        height: 100%;
+                        margin-bottom: 3rem;
+
+                        .form-input-box{
+                            background-color: transparent;
+                            outline: none;
+                            border-style: none none solid none;
+                            border-width: 1px;
+                            border-color: #757575;
+                            width: 100%;
+                        }
+                        .form-input-box::placeholder{
+                            color: transparent;
+                        }
+                        .form-input-box:focus{
+                            outline: none;
+                            border-color: #34b1e7;
+                        }
+                        
+                        .form-input-box:focus + .form-label-box{
+                            transform: translateY(-3rem) scale(.9);
+                            color: #34b1e7;
+                        }
+                        .form-input-box:not(:placeholder-shown) + .form-label-box{
+                            transform: translateY(-3rem) scale(.9);
+                        }
+                        .form-label-box{
+                            opacity: 1;
+                            font-size: 1rem;
+                            display: block;
+                            transform: translateY(-1.8rem);
+                            transform-origin:0 0;
+                            transition: all .3s;
+                            pointer-events: none;
+                            color: #757575;
+                        }
+                    }
+                    
+                }
+                .individual-element-flexrow{
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+
+                        select{
+                            color: #757575;
+                            border-style: none;
+                            outline: none;
+                            min-width: 28%;
+                            max-width: 28%;
+                            height: 100%;
+                            background-color: transparent;
+                            margin-right: .8rem;
+
+                            option{
+                                border-style: none;
+                            }
+                        }
+                        .form-individual-element{
+                            width: 90%;
+                        }
+                        
+                    }
+                    
+                }
+            }
+        }
+        .form-column-2{
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .input-files{
+                color: #757575;
+                input[type="file"]{
+                    font-size: .8rem;
+                    background-color: transparent;
+                }
+            }
+        }
+    }

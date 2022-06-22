@@ -2,7 +2,7 @@
 import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 
 // Pages
-import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, HelpPage, CardsPage, ContactPage, SelectAccountPage } from "./pages/static";
+import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, HelpPage, CardsPage, ContactPage, SelectAccountPage, LoansPage, BusinessLoan, PersonalLoan } from "./pages/static";
 import { DemanturClassic, DemanturGold, DemanturPlatinum } from "./pages/static/CreditCardsPages";
 
 // Componentes
@@ -44,6 +44,11 @@ const App = () => {
         <Route path="/auth/reset-password/:resetToken" element={<SelectAccountPage />} />
         <Route path="/auth/verify-email" element={<SelectAccountPage />} />
         <Route path="/auth/waiting" element={<SelectAccountPage />} />
+
+        {/*Rutas de "/loans"*/}
+        <Route path="/loans" element={<LoansPage/>}></Route>
+        <Route path="/loans/BusinessLoan" element={<BusinessLoan/>}></Route>
+        <Route path="/Loans/BersonalLoan" element={<PersonalLoan/>}></Route>
 
         {/* test dashboard */}
         <Route path="/dashboard/:usuario/perfil" element={<SelectAccountPage />} />

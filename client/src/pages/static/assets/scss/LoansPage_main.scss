@@ -1,0 +1,162 @@
+//variables
+$Primary_color: #93DEFF ;
+$font-pricipal: 'Poppins', sans-serif;
+$secondary-color:#323643;
+$button-color: white;
+$black: black;
+$hero-height: 60vh;
+$white: white;
+
+body{
+    font-family: $font-pricipal;
+}
+.loans-banner-container{
+    width: 100%;
+    height: 35.93rem;
+    background-image: url(../img/all_loans/loans__banner.jpg);
+    background-size: cover;
+    background-position: center center;
+
+    .loans-banner-content{
+        width: inherit;
+        height: inherit;
+        position: absolute;
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, .5);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .ccard-icon{
+            font-size: 4.125rem;
+        }
+        h1{
+            margin: 1.25rem auto 1.25rem auto ;
+        }
+    }
+}
+.loans-type-tittle p {
+    text-align: center;
+    margin: 2rem auto 0 auto;
+    font-size: 1.8rem;
+}
+.loans-type-tittle hr {
+    border: 0;
+    height: .3rem;
+    background: #93DEFF;
+    opacity: 100;
+    padding: 0;
+    margin: auto;
+    width: 15rem;
+}
+.acc-btn {
+	background-color: #455FB9;
+	display: inline-block;
+	padding: 0.5rem;
+	margin-top: 2rem;
+	transition: all .2s ease;
+
+	span {
+		color: $button-color;
+	}
+}
+
+.acc-btn:hover {
+	transform: scale(110%);
+	transition: all .2s ease;
+}
+h1 {
+	line-height: 1.3;
+}
+.h1 {
+	line-height: 1.3;
+}
+h2 {
+	line-height: 1.3;
+}
+.h2 {
+	line-height: 1.3;
+}
+h3 {
+	line-height: 1.3;
+}
+.h3 {
+	line-height: 1.3;
+}
+h4 {
+	line-height: 1.3;
+}
+.h4 {
+	line-height: 1.3;
+}
+h5 {
+	line-height: 1.3;
+}
+.h5 {
+	line-height: 1.3;
+}
+h6 {
+	line-height: 1.3;
+}
+.h6 {
+	line-height: 1.3;
+}
+.page-section {
+	position: relative;
+	display: block;
+	padding: 2rem 0;
+}
+.page-section2 {
+	position: relative;
+	display: block;
+	padding: 0.2rem 0;
+}
+.subhead {
+	display: block;
+	text-transform: capitalize;
+	color: #AFB7C1;
+	font-weight: 500;
+	margin-bottom: 8px;
+}
+.title-section {
+	display: block;
+	max-width: 450px;
+	color: #2d2f38;
+	font-weight: 600;
+	margin-bottom: 32px;
+}
+.about-img {
+	position: relative;
+	margin: 0.9rem auto;
+	width: auto;
+	max-width: 31.25rem;
+	border-radius: 0.75rem;
+	overflow: hidden;
+	transform: skewX(-3deg) rotateX(20deg);
+	img {
+		width: 100%;
+	}
+}
+.btn-primary {
+    color: $secondary-color;
+    background-color: $Primary_color;
+    border-color: transparent;
+}
+
+
+.hero {
+	width: 100%;
+	height: 29.2rem;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
+						 url(../img/all_loans/more_Info.jpg);
+    background-position: bottom;
+    align-self: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    align-items: center;
+    justify-content: center;
+}
+

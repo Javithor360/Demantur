@@ -2,30 +2,17 @@
 import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 
 // Pages
-import {
-  AccountsPage,
-  CheckingAccount,
-  IndexPage,
-  SavingsAccount,
-  HelpPage,
-  CardsPage,
-  DemanturClassic,
-  DemanturGold,
-  DemanturPlatinum,
-  ContactPage,
-  SelectAccountPage,
-  RegisterNormalUserPage,
-} from "./pages/static";
+import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, HelpPage, CardsPage, DemanturClassic, DemanturGold, DemanturPlatinum, ContactPage, SelectAccountPage, RegisterNormalUserPage } from "./pages/static";
 
 //contexts
 import { AuthProvider } from "./context/AuthContext";
 
 // Componentes
-import { ScrollToTop } from "./components/";
+import { ScrollToTop } from './components/'
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter >
       <AuthProvider>
         {/* Funciones */}
         <ScrollToTop />
@@ -55,26 +42,14 @@ const App = () => {
           {/* Rutas de la autentificacion */}
           <Route path="/auth" element={<SelectAccountPage />} />
           <Route path="/auth/normal-user/" element={<SelectAccountPage />} />
-          <Route
-            path="/auth/normal-user/login"
-            element={<SelectAccountPage />}
-          />
-          <Route
-            path="/auth/normal-user/register"
-            element={<RegisterNormalUserPage />}
-          />
+          <Route path="/auth/normal-user/login" element={<SelectAccountPage />} />
+          <Route path="/auth/normal-user/register" element={<RegisterNormalUserPage />} />
           <Route path="/auth/forgot-password" element={<SelectAccountPage />} />
-          <Route
-            path="/auth/reset-password/:resetToken"
-            element={<SelectAccountPage />}
-          />
+          <Route path="/auth/reset-password/:resetToken" element={<SelectAccountPage />} />
           <Route path="/auth/waiting" element={<SelectAccountPage />} />
 
           {/* test dashboard */}
-          <Route
-            path="/dashboard/:usuario/perfil"
-            element={<SelectAccountPage />}
-          />
+          <Route path="/dashboard/:usuario/perfil" element={<SelectAccountPage />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

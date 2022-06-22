@@ -56,12 +56,12 @@ export const AccountsPage = () => {
               <FaRegCreditCard color="#455FB9" /> Tarjeta de débito
               internacional
             </p>
-            <div className="acc-btn">
-              <Link to="/accounts/checking">
+            <Link to="/accounts/checking">
+              <div className="acc-btn">
                 <span>Más información</span>
                 <FaAngleRight color="#fff" />
-              </Link>
-            </div>
+              </div>
+            </Link>
           </div>
 
           <div className="acc-img">
@@ -87,12 +87,12 @@ export const AccountsPage = () => {
               <BsArrowUpRightCircleFill color="#455FB9" /> Controla tus
               movimientos 24/7
             </p>
-            <div className="acc-btn">
-              <Link to="/accounts/savings">
+            <Link to="/accounts/savings">
+              <div className="acc-btn">
                 <span>Más información</span>
                 <FaAngleRight color="#fff" />
-              </Link>
-            </div>
+              </div>
+            </Link>
           </div>
 
           <div className="acc-img">

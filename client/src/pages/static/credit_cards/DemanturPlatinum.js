@@ -1,5 +1,6 @@
 //scss
-import "../assets/scss/credit_cards/demantur_platinum_main.scss";
+import "../assets/scss/credit_cards/individual_cards_pages_main.scss";
+
 //icons
 import { MdOutlineEmail, MdOutlinePhone, MdOutlineHome, MdOutlineBadge, MdPersonOutline } from "react-icons/md"
 //components
@@ -7,13 +8,12 @@ import { Navbar, Footer } from "../../../components";
 import { Tabs } from "../assets/js/BannerTabCreator.js";
 
 //images
-const PlatinumCardImages = require.context('../assets/img/credit_cards/platinum', true);
+const CreditCardsImages = require.context('../assets/img/credit_cards', true)
 
 export const DemanturPlatinum = () => {
   return (
     <>
       <Navbar />
-
         <div className="platinum-card-hero-container">
           <div className="platinum-card-hero-content">
             <div className="text-content">
@@ -21,7 +21,7 @@ export const DemanturPlatinum = () => {
               <p>Llega lejos, donde apuntan tus sueños</p>
             </div>
             <div className="image-content">
-              <img src={PlatinumCardImages('./platinumCard.png')} alt='' ></img>
+              <img src={CreditCardsImages('./bank_cards_images/platinumCard.png')} alt='' ></img>
             </div>
           </div>
         </div>
@@ -33,65 +33,68 @@ export const DemanturPlatinum = () => {
         </div>
 
         <div className="card-benefits_container">
-          <p className="card-benefits_tittle">Disfruta de los mejores beneficios que te ofrece esta tarjeta</p>
-
+          <p className="card-benefits_tittle">
+            Disfruta de los mejores beneficios que te ofrece esta tarjeta
+          </p>
           <div className="card-benefits_grid_row">
-
-            <div className="grid_item vl">
-              <img src={PlatinumCardImages('./points_icon.png')} alt=""></img>
+            <div className="grid_item">
+              <img src={CreditCardsImages('./icons/points_icon.png')} alt=""></img>
               <p>Puntos Acumulables</p>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum, sem malesuada fermentum mollis, lacus tellus.
               </p>
+            </div>
+            <div className="vl">
               <hr />
             </div>
-            
-            <div className="grid_item vl">
-              <img src={PlatinumCardImages('./single_point_icon.png')} alt=""></img>
+            <div className="grid_item">
+              <img src={CreditCardsImages('./icons/single_point_icon.png')} alt=""></img>
               <p>Gana puntos</p>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum, sem malesuada fermentum mollis, lacus tellus.
               </p>
-
+            </div>
+            <div className="vl">
               <hr />
             </div>
-
             <div className="grid_item">
-              <img src={PlatinumCardImages('./cash_bag_icon.png')} alt=""></img>
+              <img src={CreditCardsImages('./icons/cash_bag_icon.png')} alt=""></img>
               <p>Canjea por efectivo</p>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum, sem malesuada fermentum mollis, lacus tellus.
               </p>
             </div>
           </div>
-          <div className="card-benefits_grid_row">
+          <div className="card-benefits_grid_row__2">
             <div className="hl"><hr /></div>
+            <div></div>
             <div className="hl"><hr /></div>
+            <div></div>
             <div className="hl"><hr /></div>
           </div>
           <div className="card-benefits_grid_row">
-            <div className="grid_item vl mgt_1">
-                
-                <img src={PlatinumCardImages('./fee_payment_icon.png')} alt=""></img>
+            <div className="grid_item mgt_1">
+                <img src={CreditCardsImages('./icons/fee_payment_icon.png')} alt=""></img>
                 <p>Pagos en cuotas</p>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pretium erat turpis, sed convallis purus facilisis.
                 </p>
+              </div>
+              <div className="vl">
                 <hr />
               </div>
-              
-              <div className="grid_item vl mgt_1">
-                <img src={PlatinumCardImages('./money_security_icon.png')} alt=""></img>
+              <div className="grid_item mgt_1">
+                <img src={CreditCardsImages('./icons/money_security_icon.png')} alt=""></img>
                 <p>Seguro de compras</p>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pretium erat turpis, sed convallis purus facilisis.
                 </p>
-
+              </div>
+              <div className="vl">
                 <hr />
               </div>
-
               <div className="grid_item mgt_1">
-                <img src={PlatinumCardImages('./shop_bag_icon.png')} alt=""></img>
+                <img src={CreditCardsImages('./icons/shop_bag_icon.png')} alt=""></img>
                 <p>Precios Especiales</p>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pretium erat turpis, sed convallis purus facilisis.
@@ -99,17 +102,18 @@ export const DemanturPlatinum = () => {
               </div>
           </div>
         </div>
-        {Tabs("ClassicCard")}
+
+        {Tabs("PlatinumCard")}
 
         <div className="credit-card-tittle">
-            <p>Beneficios Especiales</p>
-            <hr />
+          <p>Beneficios Especiales</p>
+          <hr />
         </div>
 
         <div className="platinum-other-benefits-banner">
           <div className="platinum-otb-content">
             <div className="platinum-otb-icon">
-              <img src={PlatinumCardImages('./airplane_icon.png')} alt="" />
+              <img src={CreditCardsImages('./icons/airplane_icon.png')} alt="" />
             </div>
             <div className="platinum-otb-text">
               <p>Utiliza tus puntos para viajar</p>
@@ -124,59 +128,56 @@ export const DemanturPlatinum = () => {
             <hr className="blue-underline smallest"></hr>
             <p>Solicita tu tarjeta ahora</p>
           </div>
-
-          <form className="classic-card-form">
+          <form className="main-card-form">
             <div className="form-column-1">
-                <div className="form-row-content">
-                  <div className="form-individual-element">
-                    <div className="label-icon"><MdPersonOutline /></div>
-                    <div className="form-input-container">
-                        <input className="form-input-box" type="text" placeholder="Nombre completo"/>
-                        <label className="form-label-box" htmlFor="">
-                            Nombre completo
-                        </label>
-                    </div>
-                  </div>
-                  <div className="form-individual-element">
-                    <div className="label-icon"><MdOutlinePhone /></div>
-                    <div className="form-input-container">
-                        <input className="form-input-box" type="number" placeholder="Número de contacto"/>
-                        <label className="form-label-box" htmlFor="">
-                            Número de contacto
-                        </label>
-                    </div>
-                  </div>
-                  <div className="form-individual-element">
-                    <div className="label-icon"><MdOutlineHome /></div>
-                    <div className="form-input-container">
-                        <input className="form-input-box" type="text" placeholder="Dirección"/>
-                        <label className="form-label-box" htmlFor="">
-                            Dirección
-                        </label>
-                    </div>
+              <div className="form-row-content">
+                <div className="form-individual-element">
+                  <div className="label-icon"><MdPersonOutline /></div>
+                  <div className="form-input-container">
+                      <input className="form-input-box" type="text" placeholder="Nombre completo"/>
+                      <label className="form-label-box" htmlFor="">
+                          Nombre completo
+                      </label>
                   </div>
                 </div>
-              
+                <div className="form-individual-element">
+                  <div className="label-icon"><MdOutlinePhone /></div>
+                  <div className="form-input-container">
+                      <input className="form-input-box" type="number" placeholder="Número de contacto"/>
+                      <label className="form-label-box" htmlFor="">
+                          Número de contacto
+                      </label>
+                  </div>
+                </div>
+                <div className="form-individual-element">
+                  <div className="label-icon"><MdOutlineHome /></div>
+                  <div className="form-input-container">
+                      <input className="form-input-box" type="text" placeholder="Dirección"/>
+                      <label className="form-label-box" htmlFor="">
+                          Dirección
+                      </label>
+                  </div>
+                </div>
+              </div>
               <div className="form-row-content">
                 <div className="form-individual-element">
                     <div className="label-icon"><MdOutlineBadge /></div>
                     <div className="form-input-container">
                         <input className="form-input-box" type="number" placeholder="Número de DUI"/>
                         <label className="form-label-box" htmlFor="">
-                            Número de DUI
+                          Número de DUI
                         </label>
-                    </div>
+                      </div>
                 </div>
                 <div className="form-individual-element">
                     <div className="label-icon"><MdOutlineEmail /></div>
                     <div className="form-input-container">
                         <input className="form-input-box" type="email" placeholder="Correo Electrónico"/>
                         <label className="form-label-box" htmlFor="">
-                            Correo Electrónico
+                          Correo Electrónico
                         </label>
                     </div>
-                </div>
-                  
+                </div> 
                 <div className="form-flex-row">
                   <div className="card-form-select">
                     <select name="" id="">
@@ -198,7 +199,6 @@ export const DemanturPlatinum = () => {
                 </div>
               </div>
             </div>    
-
             <div className="form-column-2">
               <div className="input-files">
                 <p>Fotocopia de DUI (revés y derecho)</p>

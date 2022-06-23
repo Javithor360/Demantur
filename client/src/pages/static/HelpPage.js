@@ -26,6 +26,7 @@ export const HelpPage = () => {
                     </div>
                 </div>         
             </div>
+            <div className="">hola</div>
             <img src={ HelpImg(`./imgHelp.jpg`) } className="imagen" /> 
             <div className="accordion-menu">
                 <div className="acc">

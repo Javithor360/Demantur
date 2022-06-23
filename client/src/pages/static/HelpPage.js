@@ -1,4 +1,6 @@
+// Estilos
 import "./assets/scss/help.scss";
+<<<<<<< HEAD
 
 import {BsSearch, BsCheck2Circle} from "react-icons/bs";
 
@@ -9,6 +11,14 @@ import { Footer } from "../../components/Footer";
 // import { Link } from "react-router-dom"; 
 
 const HelpImg = require.context('./assets/img/help', true);
+=======
+
+// Componentes
+import { Navbar, Footer } from "../../components/";
+
+// Hooks
+import { Link } from "react-router-dom";
+>>>>>>> a2379e7bd6d779759a668387bff7bd056f9ab409
 
 export const HelpPage = () => {
     return (

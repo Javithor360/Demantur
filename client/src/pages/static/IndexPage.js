@@ -1,22 +1,21 @@
+// Estilos
 import "./assets/scss/main.scss";
-import { Navbar } from "../../components/Navbar";
-import { Footer } from "../../components/Footer";
+
+// Componentes
+import { Navbar, Footer } from "../../components/";
+
+// Hooks
 import { Link } from "react-router-dom";
 
+// Asstes (Iconos e Imagenes)
 import { FaAngleRight } from 'react-icons/fa'
-
-import SliderImage1 from "./assets/img/index/slider/slider-image-1.jpg";
-import SliderImage2 from "./assets/img/index/slider/slider-image-2.jpg";
-import SliderImage3 from "./assets/img/index/slider/slider-image-3.jpg";
-import SliderImage4 from "./assets/img/index/slider/slider-image-4.jpg";
-
-import Tarjeta1 from "./assets/img/index/card-1.png";
-import Tarjeta2 from "./assets/img/index/card-2.png";
-import Tarjeta3 from "./assets/img/index/card-3.png";
-
 import Logo_Icon_White from "./assets/img/logos/svg/Logo_Icon-1_White.svg";
 
+const SliderImages = require.context('./assets/img/index/slider', true);
+const TarjetasImages = require.context('./assets/img/index', true);
+
 export const IndexPage = () => {
+
   return (
     <>
       <Navbar />
@@ -74,16 +73,16 @@ export const IndexPage = () => {
 
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img src={SliderImage1} className="d-block w-100" alt="..." />
+                <img src={SliderImages('./slider-image-1.jpg')} className="d-block w-100" alt="..." />
               </div>
               <div className="carousel-item">
-                <img src={SliderImage2} className="d-block w-100" alt="..." />
+                <img src={SliderImages('./slider-image-2.jpg')} className="d-block w-100" alt="..." />
               </div>
               <div className="carousel-item">
-                <img src={SliderImage3} className="d-block w-100" alt="..." />
+                <img src={SliderImages('./slider-image-3.jpg')} className="d-block w-100" alt="..." />
               </div>
               <div className="carousel-item">
-                <img src={SliderImage4} className="d-block w-100" alt="..." />
+                <img src={SliderImages('./slider-image-4.jpg')} className="d-block w-100" alt="..." />
               </div>
             </div>
 
@@ -97,7 +96,7 @@ export const IndexPage = () => {
 
         <div className="cards-container">
           <div className="card">
-            <img src={Tarjeta1} alt="" />
+            <img src={TarjetasImages('./card-1.png')} alt="" />
             <h4>Tarjetas</h4>
             <p>
               Con nuestras tarjetas recibes los mejores beneficios adaptados a
@@ -112,7 +111,7 @@ export const IndexPage = () => {
           </div>
 
           <div className="card">
-            <img src={Tarjeta2} alt="" />
+            <img src={TarjetasImages('./card-2.png')} alt="" />
             <h4>Solicitud de prestamos</h4>
             <p>
               Obtén tu préstamo fácil, seguro y rápido, para que puedas cumplir
@@ -127,7 +126,7 @@ export const IndexPage = () => {
           </div>
 
           <div className="card">
-            <img src={Tarjeta3} alt="" />
+            <img src={TarjetasImages('./card-3.png')} alt="" />
             <h4>Cobro de remesas</h4>
             <p>
               Retira tu remesa directamente desde tu cuenta fácil, rápido y

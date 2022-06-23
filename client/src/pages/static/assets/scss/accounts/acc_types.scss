@@ -1,0 +1,103 @@
+.accT_hero {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left center;
+    height: 25.93rem;
+    width: 100%;
+    padding: 1.25rem;
+    position: relative;
+    margin-bottom: 4rem;
+
+    .accT_hero-cont {
+        position: absolute;
+        background-color: rgba(0, 0, 0, .5);
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        p {
+            font-size: 1.5rem;
+        }
+        
+        h1 {
+            font-size: 3.75rem;
+            font-weight: bold;
+        }
+
+        p, h1 {
+            color: #fff;
+        }
+    }
+}
+
+.checking_hero {
+    background-image: url(../../img/acc/acc_checking.jpg);
+}
+
+.savings_hero {
+    background-image: url(../../img/acc/acc_savings.jpg);
+}
+
+.accT_post-hero-container {
+    
+
+    .accT_main-title {
+        text-align: center;
+        font-size: 1.8rem;
+        margin: auto 6rem auto;
+    }
+
+    hr {
+        border: 0;
+        height: .3rem;
+        background: #93DEFF;
+        opacity: 100;
+        padding: 0;
+        margin: auto;
+        width: 25rem;
+    }
+
+    .accT_benefits-container {
+        .accT_benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            align-items: center;
+            margin: 3rem 6rem 4rem;
+
+            .accT_benefits-card-cont {
+                
+                text-align: center;
+                overflow: hidden;
+                height: 100%;
+                padding: 2rem;
+                border-radius: 0.3125rem;
+                margin: 0 1rem 0 1rem;
+                box-shadow: 0 0 0.3125rem 0 rgba(0, 0, 0, 0.315);
+
+                .accT_benefits-icon {
+                    color: #455FB9;
+                    font-size: 3rem;
+                }
+
+                .accT_benefits-title {
+                    color: #455FB9;
+                    font-size: 1.375rem;
+                }
+
+                .accT_benefits-desc {
+                    color: #7c7c7c;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .marg {
+        margin-bottom: 2rem;
+    }
+}

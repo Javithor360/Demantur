@@ -1,12 +1,11 @@
 // Variables
 $color_white: #fff;
+$font_family: 'Poppins', sans-serif;
 
-
-// 1rem = 16px
 
 // ----
 
-.hero {
+.acc-hero {
     background-image: url(../img/acc/acc_main_banner1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -14,60 +13,122 @@ $color_white: #fff;
     width: 100%;
     padding: 1.25rem;
     position: relative;
+
+    .acc-hero-cont {
+        position: absolute;
+        background-color: rgba(0, 0, 0, .5);
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        p {
+            color: $color_white;
+            font-size: 1.5rem;
+        }
+
+        h1 {
+            color: $color_white;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+    }
 }
 
-.hero-cont {
-    position: absolute;
-    background-color: rgba(0, 0, 0, .5);
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+.post-hero-container {
+    .post-hero-info {
+        p:first-child {
+            text-align: center;
+            font-size: 1.8rem;
+            margin: 2rem auto 0 auto;
+        }
 
-.hero-cont p {
-    color: $color_white;
-    font-size: 1.5rem;
-}
+        hr {
+            border: 0;
+            height: .3rem;
+            background: #93DEFF;
+            opacity: 100;
+            padding: 0;
+            margin: auto;
+            width: 10rem;
+        }
+    }
 
-h1 {
-    color: $color_white;
-    font-size: 3rem;
-    font-weight: bold;
-}
+    .acc-container {
+        background: rgba(255, 255, 255, .90);
+        border: 0.0625rem solid rgba(0,0,0,.125);
+        border-radius: 0.3125rem;
+        margin: 3rem auto 4rem;
+        text-align: center;
+        overflow: hidden;
+        height: 21.875rem;
+        width: 68.75rem;
+        transition: all .5s ease;
 
-.product-nav-container {
-    position: relative;
-    margin: -2rem 25rem auto;
-}
+        .acc-details {
+            position: relative;
+            text-align: left;
+            overflow: hidden;
+            padding: 1.875rem;
+            height: 100%;
+            float: left;
+            width: 40%;
 
-.product-nav-list {
-    background-color: $color_white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    list-style: none;
-    margin: 0 auto;
-    overflow: auto;
-    padding: 1.25rem 0.625rem;
-}
+            h1 {
+                display: inline-block;
+                position: relative;
+                font-size: 1.875rem;
+                margin: 0;
+            }
 
-.product-nav-element {
-    display: block;
-    color: #606470;
-    text-decoration: none;
-    font-size: 1.2rem;
-    margin: auto 4rem;
-}
+            .acc-desc {
+                font-size: 1.125rem;
+                color: #989398;
+            }
 
-.product-nav-element:hover {
-    color: #000;
-}
+            .acc-feature {
+                padding-left: 2rem;
+            }
 
-.acc_main-cards-container {
-    padding: 5rem;
+            .acc-button {
+                background-color: #455FB9;
+                display: inline-block;
+                padding: 0.5rem;
+                margin-top: 2rem;
+                transition: all .2s ease;
+
+                span {
+                    color: $color_white;
+                }
+            }
+
+            .acc-button:hover {
+                filter: brightness(150%);
+                transition: all .2s ease;
+            }
+        }
+
+        .acc-img {
+            background-size: cover;
+            width: 60%;
+            height: 100%;
+            display: inline-block;
+            transition: all .3s ease-out;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    .acc-container:hover {
+        box-shadow: 0 .5rem 1.5rem 1rem grey;
+        transform: translateY(-0.3125rem);
+        transition: all .5s ease-in-out;
+    }
 }

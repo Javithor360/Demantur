@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const MiddlewareError = require('./middlewares/ErrorMiddleware')
 
+// app configuraciones
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
@@ -11,6 +12,5 @@ app.use('/api/admin/', require('./routes/admin.routes'));
 
 // Error Middleware
 app.use(MiddlewareError);
-
 
 module.exports = app;

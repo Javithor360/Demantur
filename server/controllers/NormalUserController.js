@@ -1,7 +1,7 @@
 const DuiModel = require('../models/DuiModel');
 const NormalUser = require('../models/NormalUser');
-const ErrorResponse = require('../utils/ErrorMessage')
-const { encryptPassword, sendToken } = require('../helpers/Functions');
+const ErrorResponse = require('../utils/ErrorMessage');
+const { encryptPassword, sendToken, createCode, VeCoEmail } = require('../helpers/Functions');
 
 // @route POST api/auth/normal-user/register
 // @desc registro de un usuario normal
@@ -9,6 +9,7 @@ const { encryptPassword, sendToken } = require('../helpers/Functions');
 
 const registerNormalUser = async (req, res, next) => {
   try {
+
     const { FirstName, LastName, Dui, Email, Password } = req.body
 
     // validaciones
@@ -32,9 +33,11 @@ const registerNormalUser = async (req, res, next) => {
       return next(new ErrorResponse('Los nombres del Dui no coinciden, Respetar mayusculas y minusculas', 400, 'error'))
     }
 
+    // crear el codigo de verificacion
+    const verifyCode = createCode();
 
     // Nuevo esquema
-    const newNormalUser = await new NormalUser(req.body);
+    const newNormalUser = await new NormalUser({ FirstName, LastName, Dui, Email, Password, verifyCode, ActivedAccount: false });
 
     // Encriptacion de la Password
     newNormalUser.Password = await encryptPassword(Password);
@@ -42,9 +45,11 @@ const registerNormalUser = async (req, res, next) => {
     // guardar en la DB
     await newNormalUser.save();
 
-    // Creacion del TOKEN
-    sendToken(newNormalUser, res);
+    // enviar correo de verificacion
+    VeCoEmail(verifyCode, newNormalUser, res, next);
 
+    // Creacion del TOKEN
+    // sendToken(newNormalUser, res);
   } catch (error) {
     res.status(500).json({ success: false, error: error.message })
   }
@@ -68,6 +73,17 @@ const loginNormalUser = async (req, res, next) => {
     const EmailQuery = await NormalUser.findOne({ Email });
     if (!EmailQuery) {
       return next(new ErrorResponse('Este Email no esta registrado en Demantur', 401, 'error'))
+    }
+
+    const isVerifyEmail = await NormalUser.findOne({ Email, verifyCode: undefined })
+    if (!isVerifyEmail) {
+      return next(new ErrorResponse('Su Email no esta verificado, por favor revise su Correo e ingrese el codigo en la siguiente pagina', 401, 'error'))
+    }
+
+    // Validacion para ver si la cuenta está activada
+    const isActivedAcc = await NormalUser.findOne({ Email, ActivedAccount: true })
+    if (!isActivedAcc) {
+      return next(new ErrorResponse('Su cuenta no está Activada todavia, espere a que nuestros empleados acepten su solicitud', 401, 'error'))
     }
 
     // llamar usuario a la base de datos
@@ -101,7 +117,7 @@ const getNormalUserProfile = async (req, res) => {
       return next(new ErrorResponse('El usuario no existe', 401, 'error'))
     }
 
-    res.json(req.user);
+    res.json(perfil);
   } catch (error) {
     res.status(500).json({ success: false, error: error.message })
   }

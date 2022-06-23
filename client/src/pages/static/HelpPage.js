@@ -23,7 +23,7 @@ export const HelpPage = () => {
                        <BsSearch className="icon-input"/>                    </div>
                 </div>         
             </div>
-            <img src={ HelpImg(`./imgHelp.jpg`) } className="imagen" /> 
+            <img src={ HelpImg(`./imgHelp.jpg`) } alt="" className="imagen" /> 
             <div className="accordion-menu">
                 <div className="acc">
                     <input type='checkbox' id='section1'></input>
@@ -36,19 +36,19 @@ export const HelpPage = () => {
                          <br />
                          <div className="content1">    
                             <div className="sub-content1">
-                                <img src={ HelpImg(`./carnet-identidad.png`) } /> 
+                                <img src={ HelpImg(`./carnet-identidad.png`)  } alt="" /> 
                                 <p>Presentar tu DUI</p>  
                             </div>
                             <div className="sub-content1">
-                                <img src={ HelpImg(`./pasaporte.png`) } /> 
+                                <img src={ HelpImg(`./pasaporte.png`) } alt="" /> 
                                 <p>Si eres extranjero debes presentar tu pasaporte</p>  
                             </div>
                             <div className="sub-content1">
-                                <img src={ HelpImg(`./dolar.png`) } /> 
+                                <img src={ HelpImg(`./dolar.png`) } alt=""  /> 
                                 <p>Monto minimo de $...</p>  
                             </div>
                             <div className="sub-content1">
-                                <img src={ HelpImg(`./chico.png`) } /> 
+                                <img src={ HelpImg(`./chico.png`) } alt="" /> 
                                 <p>Ser mayor de edad</p>  
                             </div>
                             
@@ -64,7 +64,7 @@ export const HelpPage = () => {
                          <br />
                          <div className="content2">
                             <div className="sub-content2">
-                                <img src={ HelpImg(`./crimen.png`) }/>
+                                <img src={ HelpImg(`./crimen.png`) } alt="" />
                                 <p>Si usted fue víctima de robo de su tarjeta de crédito o débito, le aconsejamos reportar inmediatamente, a traves de nuestra página contacto llenar todos los datos que se le piede, además digite el n°de su tarjeta para resolver el problema lo más pronto posible.</p>
                             </div>
                          </div>
@@ -80,19 +80,19 @@ export const HelpPage = () => {
                          <p>A continuación te presentamos unos consejos que te pueden ayudar cuando realices transacciones en línea:</p>
                          <div className="content3">
                             <div className="sub-content3">
-                                <img src={ HelpImg(`./sitio-web.png`) } />
+                                <img src={ HelpImg(`./sitio-web.png`) } alt="" />
                                 <p>Debes de verificar que el sitio que estas visitando sea seguro.</p>
                             </div>
                             <div className="sub-content3">
-                                <img src={ HelpImg(`./dispositivo.png`) } />
+                                <img src={ HelpImg(`./dispositivo.png`) } alt="" />
                                 <p>No realices transacciones en dispotivos que no sean tuyos o dispositivos públicos.</p>
                             </div>
                             <div className="sub-content3">
-                                <img src={ HelpImg(`./expediente.png`) } />
+                                <img src={ HelpImg(`./expediente.png`) } alt="" />
                                 <p>	Nunca ingreses información personal a los sitios que son inseguros.</p>
                             </div>
                             <div className="sub-content3">
-                                <img src={ HelpImg(`./antivirus.png`) } />
+                                <img src={ HelpImg(`./antivirus.png`) } alt="" />
                                 <p>Utilizarantivirus para detectar y bloquear amenazas, para evitar que las vulnerabilidades de diseño no sean aprovechadas por algún código malicioso.</p>
                             </div>
                             

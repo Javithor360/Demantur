@@ -1,94 +1,278 @@
-
-.text{
-    text-align: center;
-    font-size: 1rem;
-    font-family: 'Poppins',sans-serif;
-    color: black;
+.container{
+    height: 80vh;
+    display: flex;
+    max-width: 100%;
+    font-family:'Poppins',sans-serif;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.4);
+    
 }
-.enlace{
+
+.imagen{
+    display: flex;
+    width: 100%;
+    height: 80vh;
+    margin-bottom: 5rem;
+}
+
+.text-container{
+    margin-top: 5rem;
+    margin-left: 2rem;
+    color: #fff;
+    text-align: center;
+}
+
+.text-container .text-title{
+    margin-top: -10rem;
+    font-size: 4rem;
+}
+
+.text-container .text-content{
+    font-size: 1rem;
+}
+
+.container-input input{
+     position: relative;
+     width: 40rem;
+     height: 2.5rem;
+     border-radius: 1rem;
+     border: white;
+     border-left: 50rem;
+     background-color: #eeeeee;
+     transition: border .3s ease;
+ }
+
+ .icon-input{ 
+     z-index: 99;
+     position: absolute;
+     color: #4c4f59;
+     margin-top: 0.8rem;
+     transform: translateX(-2rem);
+     cursor: pointer;
+ }
+
+ @media screen and (max-width:680px) {
+
+    .container{
+        height: 67vh;
+    }
+
+    .text-container{
+        margin-top: 7rem;
+    }
+
+    .imagen{
+        height: 30rem;
+    }
+
+    .text-container .text-title{
+        font-size: 2rem;
+        text-align: center;
+        transform: translate(-2%);
+    }
+
+    .text-container .text-content{
+        display: flex;
+        width: 60%;
+        transform: translate(30%);
+    }
+
+    .container-input input{
+        max-width: 75%;
+        transform: translate(-3%);
+    }
+
+    .container-input input::placeholder{
+        font-size: 0.75rem;
+    }
+
+    .icon-input{
+        margin-left: -0.5rem;
+    }
+ }
+ 
+
+/*===Accordion menu===*/ 
+ .accordion-menu{
+    display: grid;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+.acc{
+    max-width: 60rem;
+    box-sizing: 0.12rem 0.12rem 0.25rem rgba(0,0,0,0.2);
+}
+
+.acc label{
+    border-radius: 0.6rem;
+    background-color: #606470;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 0.8rem;
+    
+}
+
+.acc label p{
+    font-size: 1.2rem;
+    margin-top: 0.8rem;
+}
+
+.acc label::after{
+    content: '+';
+    cursor: pointer;
+    margin-right: 0.5rem;
+    margin-top: 0.3rem;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 800;
+    transition: 0.5s ease;
+}
+.content{
+    padding: 0 0.8rem;
+    background: #DDDDDD;
+    max-height: 0;
+    overflow: hidden;
+    border-radius:1rem;
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
+    transition: all 1.5s ease;
+}
+
+.acc input:checked ~ .content{
+    max-height: 100vh;
+}
+
+.acc input{
+    display: none;
+}
+.acc input:checked ~::after{
+    transform: rotate(45deg);   
+}
+
+.acc label:hover{
+    background-color: rgba(0,0,0,0.8);
+}
+
+.acc input:checked~label{
+    background-color: rgba(0,0,0,0.8);
+}
+
+@media screen and (max-width:680px) {
+    .acc label p{
+        font-size: 1rem;
+    }
+
+    .acc input:checked ~::after{
+        
+        transform: rotate(-45deg);   
+    }
+
+    .acc label::after{
+        margin-right: -.2rem;
+    }
+
+    .content{
+        height: 500rem;
+    }
+}
+
+/*==Contenido-del-menu*/
+/*content1*/
+.content1{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.sub-content1{
+    width: 25%;
+    
+}
+
+.sub-content1 img{
+    margin: auto;
+    display: block;
+    width: 5rem;
+}
+
+.sub-content1 p{
+    text-align: center;
+}
+
+/*content2*/
+.sub-content2{
+    display: flex;
+    justify-content: space-between;
+}
+
+.sub-content2 img{
+    width: 6.5rem;
+    height: auto;
+    display: flex;
+    margin-top: -1rem;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.sub-content2 p{
+    text-align: justify;
+}
+
+@media screen and (max-width:680px) {
+    .sub-content2 img{
+        width: 6rem;
+        height: 6rem;
+        margin-left: -.5rem;
+        transform: translateY(30%);
+    }
+}
+
+/*content3*/
+.sub-content3{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 2rem;
+    margin-bottom: .5em;
+}
+
+.sub-content3 img{
+    width: 5.5rem;
+    height: auto;
+    display: flex;
+}
+
+.sub-content3 p{
+    margin-top:2rem;
+    width: 100%;
+    transform: translate(2%);
+}
+
+
+/*content4*/
+
+.icon-content4{
+    font-size: 1.5rem;
+    margin: .2rem;
+    margin-left: -.2rem;
+}
+
+.content4 span{
     font-weight: bolder;
 }
 
-.tittle{
-    text-align: center;
-    font-family: 'Poppins',sans-serif;
-    font-size: 3rem;
-}
+@media screen and (max-width:680px) {
+    .content4{
+        
+        font-size: .95rem;
+    }
 
-.contenedor-text{
-    display: grid;
-    grid-template-rows: 1fr;
-}
-
-.contenedor-text p{
-    text-align: center;
-}
-
-.container-accordion{
-    margin-left:18rem;
-    margin-bottom: 1rem;
-}
-
-.accordion{
-    max-width: 800px;
-}
-
-.accordion .contentBx{
-    margin: 10px 20px;
-}
-
-.accordion .contentBx .label{
-    padding: 10px;
-    background-color: #93DEFF;
-    color:#413F42;
-    cursor: pointer;
-}
-
-.accordion .contentBx .label::before{
-    content: '+';
-    transform: translateY(-15%);
-    float: right; 
-    font-size: 1.5rem;
-}
-
-.accordion .contentBx.active .label::before{
-    content: '-';
-}
-
-.accordion .contentBx .content{
-    background: #F7F5F2;
-    height: 0;
-    overflow: hidden;
-    transition: 0.5s;
-    overflow-y: auto;
-}
-
-.accordion .contentBx.active .content{
-    width: 100%;
-    height: 150px;
-    padding: 10px;
-}
-
-.content li{
-    margin-left: 2rem;
-    margin-bottom: 1rem;    list-style: none;
-}
-.content ul li p{
-    margin-top:-2rem;
-    margin-left: 1.5rem;
-}
-.content li::before{
-    content: '';
-    display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
-    background-image: url(../img/help/correcto.png);
-    background-position: center;
-    background-size: cover;
-}
-
-@media (max-width:650px){
-    .container-accordion{
-        margin-left: 0;
+    .icon-content4{
+        font-size: 1rem;
     }
 }
+

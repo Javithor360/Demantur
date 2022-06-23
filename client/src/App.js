@@ -2,8 +2,7 @@
 import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 
 // Pages
-import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, HelpPage, CardsPage, ContactPage, SelectAccountPage, RegisterNormalUserPage } from "./pages/static";
-import { DemanturClassic, DemanturGold, DemanturPlatinum } from "./pages/static/CreditCardsPages";
+import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, AccountsForm, HelpPage, CardsPage, DemanturClassic, DemanturGold, DemanturPlatinum, DebitCard, ContactPage, SelectAccountPage, RegisterNormalUserPage, LoansPage, BusinessLoan, PersonalLoan } from "./pages/static";
 
 //contexts
 import { AuthProvider } from "./context/AuthContext";
@@ -33,12 +32,14 @@ const App = () => {
           <Route path="/accounts" element={<AccountsPage />} />
           <Route path="/accounts/checking" element={<CheckingAccount />} />
           <Route path="/accounts/savings" element={<SavingsAccount />} />
+          <Route path="/accounts/form" element={<AccountsForm />} />
 
           {/* Rutas de "/cards" */}
           <Route path="/cards" element={<CardsPage />} />
           <Route path="/cards/classic" element={<DemanturClassic />} />
           <Route path="/cards/gold" element={<DemanturGold />} />
           <Route path="/cards/platinum" element={<DemanturPlatinum />} />
+          <Route path="/cards/debito" element={<DebitCard />} />
 
           {/* Rutas de la autentificacion */}
           <Route path="/auth" element={<SelectAccountPage />} />
@@ -48,6 +49,11 @@ const App = () => {
           <Route path="/auth/forgot-password" element={<SelectAccountPage />} />
           <Route path="/auth/reset-password/:resetToken" element={<SelectAccountPage />} />
           <Route path="/auth/waiting" element={<SelectAccountPage />} />
+
+          {/*Rutas de "/loans"*/}
+          <Route path="/loans" element={<LoansPage/>}></Route>
+          <Route path="/loans/BusinessLoan" element={<BusinessLoan/>}></Route>
+          <Route path="/Loans/BersonalLoan" element={<PersonalLoan/>}></Route>
 
           {/* test dashboard */}
           <Route path="/dashboard/:usuario/perfil" element={<SelectAccountPage />} />

@@ -22,7 +22,6 @@ export const CardsPage = () => {
     return (
         <>
             <Navbar />
-
             <div className='cards-banner-container'>
                 <div className='cards-banner-content'>
                     <FaRegCreditCard className='ccard-icon' />
@@ -37,19 +36,15 @@ export const CardsPage = () => {
             </div>
 
             <div className='cards-flexbox'>
-
                 <div className='individual-card-container'>
                     <div className='card-information'>
-
                         <div className='card-image'>
-                            <img src={CreditCardsImages('./classicCard.png')} alt='' />
+                            <img src={CreditCardsImages('./bank_cards_images/classicCard.png')} alt='' />
                         </div>
-
                         <div className='card-tittle'>
                             <p>Demantur Classic  <span className='registered-icon'>&reg;</span> </p>
                             <p>Visa &reg;</p>
                         </div>
-
                         <div className='card-details'>
                             <p>
                                 <span><FaRegStar /></span>
@@ -68,29 +63,24 @@ export const CardsPage = () => {
                                 Tasa de interes de hasta un 30%
                             </p>
                         </div>
-
                         <div className='card-button'>
                             <Link to="/cards/classic" className="more-details-bt">
                                 <span >Más detalles</span>
                                 <FaAngleRight className='more-details-bt-icon' />
                             </Link>
                         </div>
-
                     </div>
                 </div>
                 <hr />
                 <div className='individual-card-container'>
                     <div className='card-information'>
-
                         <div className='card-image'>
-                            <img src={CreditCardsImages('./platinumCard.png')} alt='' />
+                            <img src={CreditCardsImages('./bank_cards_images/platinumCard.png')} alt='' />
                         </div>
-
                         <div className='card-tittle'>
                             <p>Demantur Platinum <span className='registered-icon'>&reg;</span> </p>
                             <p>Visa &reg;</p>
                         </div>
-
                         <div className='card-details'>
                             <p>
                                 <span><FaRegStar /></span>
@@ -109,7 +99,6 @@ export const CardsPage = () => {
                                 Descuentos y beneficios especiales en comercios seleccionados
                             </p>
                         </div>
-
                         <div className='card-button'>
                             <Link to="/cards/platinum" className="more-details-bt">
                                 <span >Más detalles</span>
@@ -122,16 +111,13 @@ export const CardsPage = () => {
                 <hr />
                 <div className='individual-card-container'>
                     <div className='card-information'>
-
                         <div className='card-image'>
-                            <img src={CreditCardsImages('./goldCard.png')} alt='' />
+                            <img src={CreditCardsImages('./bank_cards_images/goldCard.png')} alt='' />
                         </div>
-
                         <div className='card-tittle'>
                             <p>Demantur Gold  <span className='registered-icon'>&reg;</span> </p>
                             <p>Visa &reg;</p>
                         </div>
-
                         <div className='card-details'>
                             <p>
                                 <span><FaRegStar /></span>
@@ -154,21 +140,59 @@ export const CardsPage = () => {
                                 Canjea tus puntos por viajes aereos
                             </p>
                         </div>
-
                         <div className='card-button'>
                             <Link to="/cards/gold" className="more-details-bt">
                                 <span >Más detalles</span>
                                 <FaAngleRight className='more-details-bt-icon' />
                             </Link>
                         </div>
-
                     </div>
                 </div>
-
             </div>
 
-            <Footer />
+            <div className="credit-card-tittle">
+                <p>Tarjetas de débito</p>
+                <hr />
+            </div>
 
+            <div className="cards-flexbox">
+                <div className='individual-card-container'>
+                    <div className='card-information'>
+                        <div className='card-image'>
+                            <img src={CreditCardsImages('./bank_cards_images/debitCard.png')} alt='' />
+                        </div>
+                        <div className='card-tittle'>
+                            <p>Débito Clásica {/*<span className='registered-icon'>&reg;</span>*/} </p>
+                            <p>Mastercard &trade;</p>
+                        </div>
+                        <div className='card-details'>
+                            <p>
+                                <span><FaRegStar /></span>
+                                Lorem ipsum dolor sit amet, consectetur
+                            </p>
+                            <p>
+                                <span><FaStar /></span>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing
+                            </p>
+                            <p>
+                                <span><BsCardChecklist /></span>
+                                Lorem ipsum dolor sit amet.
+                            </p>
+                            <p>
+                                <span><MdAttachMoney /></span>
+                                Lorem ipsum dolor sit amet, adipiscing
+                            </p>
+                        </div>
+                        <div className='card-button'>
+                            <Link to="/cards/debito" className="more-details-bt">
+                                <span >Más detalles</span>
+                                <FaAngleRight className='more-details-bt-icon' />
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <Footer />
         </>
     );
 };

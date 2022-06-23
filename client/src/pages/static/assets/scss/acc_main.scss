@@ -1,12 +1,11 @@
 // Variables
 $color_white: #fff;
+$font_family: 'Poppins', sans-serif;
 
-
-// 1rem = 16px
 
 // ----
 
-.hero {
+.acc-hero {
     background-image: url(../img/acc/acc_main_banner1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,7 +14,7 @@ $color_white: #fff;
     padding: 1.25rem;
     position: relative;
 
-    .hero-cont {
+    .acc-hero-cont {
         position: absolute;
         background-color: rgba(0, 0, 0, .5);
         left: 0;
@@ -60,12 +59,12 @@ $color_white: #fff;
     }
 
     .acc-container {
-        box-shadow: 0 0.9375rem 1.875rem 0.0625rem grey;
         background: rgba(255, 255, 255, .90);
+        border: 0.0625rem solid rgba(0,0,0,.125);
+        border-radius: 0.3125rem;
+        margin: 3rem auto 4rem;
         text-align: center;
-        border-radius: 5px;
         overflow: hidden;
-        margin: 8em auto;
         height: 21.875rem;
         width: 68.75rem;
         transition: all .5s ease;
@@ -95,7 +94,7 @@ $color_white: #fff;
                 padding-left: 2rem;
             }
 
-            .acc-btn {
+            .acc-button {
                 background-color: #455FB9;
                 display: inline-block;
                 padding: 0.5rem;
@@ -107,8 +106,8 @@ $color_white: #fff;
                 }
             }
 
-            .acc-btn:hover {
-                transform: scale(110%);
+            .acc-button:hover {
+                filter: brightness(150%);
                 transition: all .2s ease;
             }
         }
@@ -128,8 +127,8 @@ $color_white: #fff;
     }
 
     .acc-container:hover {
-        box-shadow: 0 1rem 2rem 1rem grey;
-        transform: scale(110%);
+        box-shadow: 0 .5rem 1.5rem 1rem grey;
+        transform: translateY(-0.3125rem);
         transition: all .5s ease-in-out;
     }
 }

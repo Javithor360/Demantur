@@ -25,8 +25,8 @@ export const AccountsPage = () => {
   return (
     <>
       <Navbar />
-      <section className="hero">
-        <div className="hero-cont">
+      <section className="acc-hero">
+        <div className="acc-hero-cont">
           <BsPiggyBank size="4.375rem" color="#fff" />
           <h1>Cuentas</h1>
           <p>Conoce nuestra gama de posibilidades</p>
@@ -56,16 +56,16 @@ export const AccountsPage = () => {
               <FaRegCreditCard color="#455FB9" /> Tarjeta de débito
               internacional
             </p>
-            <div className="acc-btn">
-              <Link to="/accounts/checking">
+            <Link to="/accounts/checking">
+              <div className="acc-button">
                 <span>Más información</span>
                 <FaAngleRight color="#fff" />
-              </Link>
-            </div>
+              </div>
+            </Link>
           </div>
 
           <div className="acc-img">
-            <img src={AccountsImg("./acc_checking_card.jpg")} alt="" />
+            <img src={AccountsImg("./acc_checking.jpg")} alt="" />
           </div>
         </div>
 
@@ -87,16 +87,16 @@ export const AccountsPage = () => {
               <BsArrowUpRightCircleFill color="#455FB9" /> Controla tus
               movimientos 24/7
             </p>
-            <div className="acc-btn">
-              <Link to="/accounts/savings">
+            <Link to="/accounts/savings">
+              <div className="acc-button">
                 <span>Más información</span>
                 <FaAngleRight color="#fff" />
-              </Link>
-            </div>
+              </div>
+            </Link>
           </div>
 
           <div className="acc-img">
-            <img src={AccountsImg("./acc_savings_card.jpg")} alt="" />
+            <img src={AccountsImg("./acc_savings.jpg")} alt="" />
           </div>
         </div>
       </section>

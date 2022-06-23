@@ -6,7 +6,7 @@ body{
 }
 .credit-card-tittle p {
     text-align: center;
-    margin: 2rem auto 0 auto;
+    margin: 4rem auto 0 auto;
     font-size: 1.8rem;
 }
 .credit-card-tittle hr {
@@ -35,10 +35,17 @@ body{
         justify-content: center;
         align-items: center;
         .ccard-icon{
-            font-size: 3.125rem;
+            font-size: 3.375rem;
         }
+
         h1{
+            font-size: 3rem;
+            font-weight: bold;
             margin: 1.25rem auto 1.25rem auto ;
+        }
+
+        p {
+            font-size: 1.5rem;
         }
     }
 }
@@ -49,7 +56,7 @@ body{
     flex-direction: column;
     width: 100%;
     align-items: center;
-    margin: 2rem 0 10rem 0;
+    margin: 2rem 0 5rem 0;
 
     hr{
         border: 0;
@@ -134,5 +141,8 @@ body{
             }
         }
     }
+}
+.cards-flexbox:last-of-type{
+    margin-bottom: 15rem;
 }
 

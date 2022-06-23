@@ -1,4 +1,4 @@
-.container{
+.container-help{
     height: 80vh;
     display: flex;
     max-width: 100%;
@@ -6,8 +6,7 @@
     position: absolute;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,0,0,0.4);
-    
+    background-color: rgba(0,0,0,0.4); 
 }
 
 .imagen{
@@ -55,7 +54,7 @@
 
  @media screen and (max-width:680px) {
 
-    .container{
+    .container-help{
         height: 67vh;
     }
 

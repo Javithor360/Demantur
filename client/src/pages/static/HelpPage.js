@@ -1,29 +1,26 @@
 // Estilos
 import "./assets/scss/help.scss";
 
+//Icons
 import {BsSearch, BsCheck2Circle} from "react-icons/bs";
 
+// Componentes
 import { Navbar, Footer} from "../../components/";
 
-
 const HelpImg = require.context('./assets/img/help', true);
-
-// Componentes
-
+    
 
 export const HelpPage = () => {
     return (
         <> 
             <Navbar />  
-             <div className="container">
+             <div className="container-help">
                 <div className="text-container">
                     <p className="text-title"> ¿Cómo podemos ayudarte?</p>
                     <p className="text-content"> A continuación, te presentamos algunas de las preguntas frecuentes que realizan nuestros usuarios.</p>    
                     <div className="container-input">
                        <input type="text" placeholder=" Tambien puedes realizar una búsqueda rápida sobre tu duda a consultar" maxLength={55}/>
-                       <BsSearch className="icon-input"/>
-
-                    </div>
+                       <BsSearch className="icon-input"/>                    </div>
                 </div>         
             </div>
             <img src={ HelpImg(`./imgHelp.jpg`) } alt="" className="imagen" /> 

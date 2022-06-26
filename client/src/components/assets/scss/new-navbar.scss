@@ -9,12 +9,17 @@ $acua: #34b1e7;
   height: 5rem;
   font-size: 1rem;
   box-shadow: 1px 1px 5px .1px rgba(0, 0, 0, 0.438);
+  position: relative;
+  z-index: 100;
 
   .hamburger {
     display: none;
   }
 
   .items-navbar {
+    margin: auto;
+    z-index: 1000;
+
     .menu {
       margin: auto;
       z-index: 1000;
@@ -80,6 +85,8 @@ $acua: #34b1e7;
   }
 
   .buttons-container {
+    z-index: 1000;
+
     .user-buttons {
       display: flex;
       align-items: center;
@@ -104,7 +111,7 @@ $acua: #34b1e7;
         }
 
         .access-icon {
-          margin-left: .3rem;
+          margin-left: 0;
         }
 
       }
@@ -126,7 +133,7 @@ $acua: #34b1e7;
         position: relative;
         display: inline-flex;
         align-items: center;
-        margin-right: 2rem;
+        margin-right: .3rem;
         transition: .5s;
         font-weight: 500;
         border: none;
@@ -279,7 +286,7 @@ $acua: #34b1e7;
       right: 0;
       //APARECER
       width: 0vw;
-
+      box-shadow: 2px 2px 3px 1px rgba(128, 128, 128, 0.571);
 
       .user-buttons {
         width: 100%;
@@ -297,7 +304,7 @@ $acua: #34b1e7;
           margin: 0 !important;
           display: flex;
           justify-content: center;
-          color: $acua;
+          color: #606470;
 
         }
 
@@ -315,7 +322,7 @@ $acua: #34b1e7;
           display: flex;
           justify-content: center;
           margin: 0 !important;
-          color: $acua;
+          color: #606470;
         }
 
         .line {

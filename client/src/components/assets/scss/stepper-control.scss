@@ -1,0 +1,135 @@
+$unfocus-color: #707070;
+$focus-color: #212529;
+$complete-color: #00C900;
+$error-color: #C90000;
+
+.stepper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .stepper-container-line {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 90%;
+    margin: 0 auto;
+
+    .stepper-line {
+      width: .12rem;
+      height: 90%;
+      margin-right: 2em;
+      background-color: $unfocus-color;
+    }
+  }
+
+  .stepper-ball {
+    height: 5rem;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+
+    .ball-icon {
+      background-color: transparent;
+      border: .13rem solid $unfocus-color;
+      height: 4rem;
+      width: 4rem;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        height: 2rem;
+        width: 2rem;
+        color: $unfocus-color;
+      }
+    }
+
+    .ball-description {
+      font-size: 1.1rem;
+      margin-right: 1rem;
+      color: $unfocus-color;
+    }
+
+  }
+
+
+}
+
+//unfocus classes
+.ball-icon-unfocus {
+  border: .13rem solid $unfocus-color  !important;
+
+  svg {
+    color: $unfocus-color  !important;
+  }
+}
+
+.stepper-line-unfocus {
+  background-color: $unfocus-color  !important;
+}
+
+.ball-description-unfocus {
+  color: $unfocus-color  !important;
+}
+
+
+//focus classes
+.ball-icon-focus {
+  background-color: $focus-color  !important;
+  border: .13rem solid $focus-color  !important;
+
+  svg {
+    color: white !important;
+  }
+}
+
+.stepper-line-focus {
+  background-color: $focus-color  !important;
+}
+
+.ball-description-focus {
+  color: $focus-color  !important;
+}
+
+
+//complete classes
+.ball-icon-complete {
+  background-color: $complete-color  !important;
+  border: .13rem solid $complete-color  !important;
+
+  svg {
+    color: white !important;
+  }
+}
+
+.stepper-line-complete {
+  background-color: $complete-color  !important;
+}
+
+.ball-description-complete {
+  color: $complete-color  !important;
+}
+
+//error classes
+.ball-icon-error {
+  background-color: $error-color  !important;
+  border: .13rem solid $error-color  !important;
+
+  svg {
+    color: white !important;
+  }
+}
+
+.stepper-line-error {
+  background-color: $error-color  !important;
+}
+
+.ball-description-error {
+  color: $error-color  !important;
+}

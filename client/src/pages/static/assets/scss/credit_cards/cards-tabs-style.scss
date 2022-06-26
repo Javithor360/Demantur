@@ -1,7 +1,7 @@
 .information-tabs{
     height: 650px;
     width: 100%;
-    margin-bottom: 3rem;
+    margin: 0 auto 3rem auto;
 
     .information-tabs-flex{
         display: flex;
@@ -85,6 +85,26 @@
         opacity: 1;
     }
 }
+
+.check_form-button {
+    padding: 1rem;
+    margin: 9rem auto;
+    font-size: 1.125rem;
+    font-weight: bold;
+    background-color: #455FB9;
+    display: inline-block;
+    transition: all .2s ease;
+
+    span {
+        color: #fff;
+    }
+}
+
+.check_form-button:hover {
+    filter: brightness(150%);
+    transition: all .2s ease;
+}
+
 // @keyframes fade_in_slowed{
 //     0%{
 //         opacity: 0;

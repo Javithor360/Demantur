@@ -1,11 +1,17 @@
 //hooks
 import { useState } from "react";
+import { Link } from "react-router-dom";
 //scss
 import "../scss/credit_cards/cards-tabs-style.scss";
 //images
+<<<<<<< HEAD
 const ClassicCardImages = require.context("../img/credit_cards/classic", true);
 const CheckingAccountImages = require.context("../img/acc/", true);
 const Infoimagenes = require.context("../img/banner", true);
+=======
+const ClassicCardImages = require.context("../img/credit_cards/", true);
+const AccountsImages = require.context("../img/acc/", true);
+>>>>>>> 754706d885afd1243934d933eafa8d4ea27517c4
 
 function Tabs(type) {
   const [toggleState, setToggleState] = useState(1);
@@ -91,17 +97,17 @@ function Tabs(type) {
             </div>
         </div>
     );
-  } else if (type === "CheckingAccount") {
-    return(
+  } else if (type === "PlatinumCard"){
+     return (
         <div className="information-tabs">
             <div className="information-tabs-flex">
                 <div className="tab-images-container">
                     <div className={toggleState === 1 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(1)}>
-                        <img src={CheckingAccountImages("./acc_requirements.jpg")} alt=""></img>
+                        <img src={ClassicCardImages("./requirements_bg.jpg")} alt=""></img>
                     </div>
 
                     <div className={toggleState === 2 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(2)}>
-                        <img src={CheckingAccountImages("./acc_conditions.jpg")} alt=""></img>
+                        <img src={ClassicCardImages("./limitations_bg.jpg")} alt=""></img>
                     </div>
                 </div>
 
@@ -118,8 +124,155 @@ function Tabs(type) {
                     <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>NIT en buen estado</p>
+                            <p>Lorem ipsum dolor sit amet.</p>
                             </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Lorem ipsum dolor sit amet consectetur.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Solicitud llena, ya sea físico o formulario web</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Fotocopia de DUI y NIT (revés y derecho)</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>
+                                Constancia de ingresos vigente firmada por la empresa copia de
+                                boletas de pago o constancia de AFP de los últimos 6 meses
+                            </p>
+                        </div>
+                    </div>
+                    <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, in.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident pariatur natus labore?</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     );
+  } else if (type === "GoldCard"){
+    return (
+        <div className="information-tabs">
+            <div className="information-tabs-flex">
+                <div className="tab-images-container">
+                    <div className={toggleState === 1 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(1)}>
+                        <img src={ClassicCardImages("./requirements_bg.jpg")} alt=""></img>
+                    </div>
+
+                    <div className={toggleState === 2 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(2)}>
+                        <img src={ClassicCardImages("./limitations_bg.jpg")} alt=""></img>
+                    </div>
+                </div>
+
+                <div className="tab-content">
+                    <div className="tabs-selection">
+                        <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
+                        Requisitos
+                        </button>
+                        <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
+                        Condiciones
+                        </button>
+                    </div>
+
+                    <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Lorem ipsum dolor sit amet consectetur.</p>
+                            </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Solicitud llena, ya sea físico o formulario web</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Fotocopia de DUI y NIT (revés y derecho)</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>
+                                Constancia de ingresos vigente firmada por la empresa copia de
+                                boletas de pago o constancia de AFP de los últimos 6 meses
+                            </p>
+                        </div>
+                    </div>
+                    <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, ducimus vitae.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi suscipit atque dignissimos autem.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quisquam.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+  } else if (type === "CheckingAccount") {
+    return(
+        <div className="information-tabs">
+            <div className="information-tabs-flex">
+                <div className="tab-images-container">
+                    <div className="tab-bg-image tab-bg-image-active">
+                        <img src={AccountsImages("./acc_requirements.jpg")} alt=""></img>
+                    </div>
+                </div>
+
+                <div className="tab-content">
+                    <div className="tabs-selection">
+                        <button className="tab-button tab-selection-active">
+                        Requisitos
+                        </button>
+                    </div>
+
+                    <div className="content-text  active-content-text">
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>NIT en buen estado</p>
+                        </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
                             <p>DUI, carné de residente ó pasaporte con información actualizada, vigente y en buen estado.</p>
@@ -128,17 +281,79 @@ function Tabs(type) {
                             <p>&#10003;</p>
                             <p>Apertura mínima desde $200.</p>
                         </div>
-                    </div>
-                    <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
-                        <div className="individual-text">
-                            <p>&#10003;</p>
-                            <p>El monto inicial de saldo debe ser al menos de $200.00 dólares</p>
-                        </div>
+                        <Link to="/accounts/form">
+                            <div className="check_form-button">
+                            <span>Solicitar</span>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>
         </div>
     )
+  } else if(type === "SavingsAccount") {
+    return(
+        <div className="information-tabs">
+            <div className="information-tabs-flex">
+                <div className="tab-images-container">
+                    <div className="tab-bg-image tab-bg-image-active">
+                        <img src={AccountsImages("./acc_conditions.jpg")} alt=""></img>
+                    </div>
+                </div>
+
+                <div className="tab-content">
+                    <div className="tabs-selection">
+                        <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
+                        Requisitos
+                        </button>
+                        <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
+                        Condiciones
+                        </button>
+                    </div>
+
+                    <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Apertura mínima desde US$25.00</p>
+                            </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>DUI, carné de residente ó pasaporte con información actualizada, vigente y en buen estado</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>NIT</p>
+                        </div>
+                        <Link to="/accounts/form">
+                            <div className="check_form-button">
+                            <span>Solicitar</span>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Aplica para persona natural</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Monto mínimo de apertura: $25.00</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Tasa de interés de acuerdo a tabla publicada el 1 de cada mes</p>
+                        </div>
+                        <Link to="/accounts/form">
+                            <div className="check_form-button">
+                            <span>Solicitar</span>
+                            </div>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+<<<<<<< HEAD
 } else if (type === "InfoEmpre") {
     return(
         <div className="information-tabs">
@@ -196,6 +411,9 @@ function Tabs(type) {
         </div>
     )
   } else {
+=======
+  }else {
+>>>>>>> 754706d885afd1243934d933eafa8d4ea27517c4
     return <div>Parámetro no encontrado.</div>;
   }
 }

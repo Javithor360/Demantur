@@ -15,6 +15,7 @@ import {
   ContactPage,
   SelectAccountPage,
   RegisterNormalUserPage,
+  InfoEmpre,
 } from "./pages/static";
 
 //contexts
@@ -40,6 +41,8 @@ const App = () => {
           {/* Single Routes */}
           <Route path="/help" element={<HelpPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/info" element={<InfoEmpre />} />
+         
 
           {/* Rutas de "/accounts" */}
           <Route path="/accounts" element={<AccountsPage />} />

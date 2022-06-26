@@ -8,8 +8,6 @@ import { Navbar, Footer } from "../../components";
 import { BsFillCursorFill as Select } from "react-icons/bs";
 import { FaUserTie as Empre } from "react-icons/fa";
 import { FaUserAlt as User } from "react-icons/fa";
-import { Link } from "react-router-dom";
-const CuentasImagenes = require.context('./assets/img/banner', true);
 
 export const SelectAccountPage = () => {
   return (

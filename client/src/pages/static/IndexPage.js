@@ -225,7 +225,7 @@ export const IndexPage = () => {
               servicios financieros que brindan facilidad al administrar las
               finanzas de tu negocio
             </p>
-            <Link to="/" className="view-more-button">
+            <Link to="/info" className="view-more-button">
               <span>Ver Más</span>
               <FaAngleRight className="fa-solid fa-angle-right view-more-icon" />
             </Link>

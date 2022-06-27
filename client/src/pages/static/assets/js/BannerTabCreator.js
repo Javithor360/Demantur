@@ -4,14 +4,9 @@ import { Link } from "react-router-dom";
 //scss
 import "../scss/credit_cards/cards-tabs-style.scss";
 //images
-<<<<<<< HEAD
 const ClassicCardImages = require.context("../img/credit_cards/classic", true);
-const CheckingAccountImages = require.context("../img/acc/", true);
 const Infoimagenes = require.context("../img/banner", true);
-=======
-const ClassicCardImages = require.context("../img/credit_cards/", true);
 const AccountsImages = require.context("../img/acc/", true);
->>>>>>> 754706d885afd1243934d933eafa8d4ea27517c4
 
 function Tabs(type) {
   const [toggleState, setToggleState] = useState(1);
@@ -363,7 +358,7 @@ function Tabs(type) {
                     </div>
 
                     <div className={toggleState === 2 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(2)}>
-                        <img src={CheckingAccountImages("./acc_conditions.jpg")} alt=""></img>
+                        <img src={AccountsImages("./acc_conditions.jpg")} alt=""></img>
                     </div>
                 </div>
 

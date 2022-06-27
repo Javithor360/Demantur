@@ -11,8 +11,8 @@ export { DemanturPlatinum } from "./credit_cards/DemanturPlatinum";
 export { DebitCard } from "./credit_cards/DebitCard";
 export { ContactPage } from "./ContactPage";
 export { SelectAccountPage } from "./SelectAccountPage";
-export {LoansPage} from "./LoansPage";
-export {BusinessLoan} from "./loans/BusinessLoan";
-export {PersonalLoan} from "./loans/PersonalLoan"
+export { LoansPage } from "./LoansPage";
+export { BusinessLoan } from "./loans/BusinessLoan";
+export { PersonalLoan } from "./loans/PersonalLoan";
 export { RegisterNormalUserPage } from "./auth/RegisterNormalUserPage";
 export { InfoEmpre } from "./InfoEmpre";

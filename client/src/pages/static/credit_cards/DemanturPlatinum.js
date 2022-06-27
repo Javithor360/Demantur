@@ -28,7 +28,7 @@ export const DemanturPlatinum = () => {
 
         <div className="card-description">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod augue lacus, sed sollicitudin dui auctor non. Vivamus sed ligula sit amet ex ullamcorper elementum id at dui. Proin pharetra mi facilisis, pharetra felis convallis, aliquet magna. Nullam a fermentum lacus. Aenean condimentum neque sed risus mollis, nec vulputate leo interdum. Maecenas fringilla, dolor in aliquam vulputate, odio tortor laoreet sapien, sed mattis nisl sem malesuada dui. Morbi interdum sed.
+            ¿Estás en busca de una tarjeta que te permita disfrutar de grandes beneficios en cualquier lugar y en todo momento?, pues si es así, La tarjeta Demantur Platinum es para ti, obtén numerosos beneficios que se adaptan a tus necesidades con una gran flexibilidad. Puedes viajar, comprar lo que quieras y tener la seguridad que necesitas por cada una de tus compras, revisa muchos más beneficios a continuación 
           </p>
         </div>
 
@@ -41,7 +41,7 @@ export const DemanturPlatinum = () => {
               <img src={CreditCardsImages('./icons/points_icon.png')} alt=""></img>
               <p>Puntos Acumulables</p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum, sem malesuada fermentum mollis, lacus tellus.
+                Recibe 5,000 puntos de bienvenida después de usar por primera vez tu tarjeta sin importar el monto. 
               </p>
             </div>
             <div className="vl">
@@ -51,7 +51,7 @@ export const DemanturPlatinum = () => {
               <img src={CreditCardsImages('./icons/single_point_icon.png')} alt=""></img>
               <p>Gana puntos</p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum, sem malesuada fermentum mollis, lacus tellus.
+                Acumula puntos por cada dolár que gastes, 1 dolár equivale a 1 punto más acumulado.
               </p>
             </div>
             <div className="vl">
@@ -61,7 +61,7 @@ export const DemanturPlatinum = () => {
               <img src={CreditCardsImages('./icons/cash_bag_icon.png')} alt=""></img>
               <p>Canjea por efectivo</p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum, sem malesuada fermentum mollis, lacus tellus.
+                Puedes canjear por efectivo tus puntos en cualquier momento.
               </p>
             </div>
           </div>
@@ -77,7 +77,7 @@ export const DemanturPlatinum = () => {
                 <img src={CreditCardsImages('./icons/fee_payment_icon.png')} alt=""></img>
                 <p>Pagos en cuotas</p>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pretium erat turpis, sed convallis purus facilisis.
+                  Obtén cuotas de hasta 48 meses sin intereses, puedes elegir el plazo que más te convenga.
                 </p>
               </div>
               <div className="vl">
@@ -87,7 +87,7 @@ export const DemanturPlatinum = () => {
                 <img src={CreditCardsImages('./icons/money_security_icon.png')} alt=""></img>
                 <p>Seguro de compras</p>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pretium erat turpis, sed convallis purus facilisis.
+                  Obtén un reembolso en caso de que el articulo esté dañado, ya sea para cambiarlo o repararlo. 
                 </p>
               </div>
               <div className="vl">
@@ -97,7 +97,7 @@ export const DemanturPlatinum = () => {
                 <img src={CreditCardsImages('./icons/shop_bag_icon.png')} alt=""></img>
                 <p>Precios Especiales</p>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pretium erat turpis, sed convallis purus facilisis.
+                  Disfruta de precios especiales en productos de tiendas selecionadas al pagar con tu tarjeta. 
                 </p>
               </div>
           </div>
@@ -129,7 +129,7 @@ export const DemanturPlatinum = () => {
             <p>Solicita tu tarjeta ahora</p>
           </div>
           <form className="main-card-form">
-            <div className="form-column-1">
+            <div className="form-row-1">
               <div className="form-row-content">
                 <div className="form-individual-element">
                   <div className="label-icon"><MdPersonOutline /></div>
@@ -182,8 +182,6 @@ export const DemanturPlatinum = () => {
                   <div className="card-form-select">
                     <select name="" id="">
                         <option>Rango Salarial</option>
-                        <option>Entre $450 y $499</option>
-                        <option>Entre $500 y $999</option>
                         <option>Entre $1,000 y $1,999</option>
                         <option>Entre $2,000 y $3,999</option>
                         <option>Entre $4,000 y $5,999</option>
@@ -199,7 +197,7 @@ export const DemanturPlatinum = () => {
                 </div>
               </div>
             </div>    
-            <div className="form-column-2">
+            <div className="form-row-2">
               <div className="input-files">
                 <p>Fotocopia de DUI (revés y derecho)</p>
                 <label htmlFor="file1">Seleccionar Archivo</label>
@@ -215,6 +213,9 @@ export const DemanturPlatinum = () => {
                 <label htmlFor="file3">Seleccionar Archivo</label>
                 <input type="file" name="" id="file3"></input>
               </div>
+            </div>
+            <div className="form-row-3">
+              <button className="card-submit-button" type="submit">Solicitar</button>
             </div>
           </form>
         </div>

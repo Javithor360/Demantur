@@ -96,7 +96,7 @@ export const DemanturClassic = () => {
             <p>Solicita tu tarjeta ahora</p>
           </div>
           <form className="main-card-form">
-            <div className="form-column-1">
+            <div className="form-row-1">
               <div className="form-row-content">
                 <div className="form-individual-element">
                   <div className="label-icon"><MdPersonOutline /></div>
@@ -166,7 +166,7 @@ export const DemanturClassic = () => {
                 </div>
               </div>
             </div>    
-            <div className="form-column-2">
+            <div className="form-row-2">
               <div className="input-files">
                 <p>Fotocopia de DUI (revés y derecho)</p>
                 <label htmlFor="file1">Seleccionar Archivo</label>
@@ -182,6 +182,9 @@ export const DemanturClassic = () => {
                 <label htmlFor="file3">Seleccionar Archivo</label>
                 <input type="file" name="" id="file3"></input>
               </div>
+            </div>
+            <div className="form-row-3">
+              <button className="card-submit-button" type="submit">Solicitar</button>
             </div>
           </form>
         </div>

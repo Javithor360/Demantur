@@ -124,11 +124,11 @@ function Tabs(type) {
                     <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Lorem ipsum dolor sit amet.</p>
+                            <p>Ingresos mínimos de $1,000 mensuales</p>
                             </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Lorem ipsum dolor sit amet consectetur.</p>
+                            <p>Estabilidad laboral de 6 meses con experiencia en tarjeta o 12 meses sin experiencia en tarjeta</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
@@ -149,24 +149,24 @@ function Tabs(type) {
                     <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, in.</p>
+                            <p>El límite de puntos acumulables es de 100,000</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident pariatur natus labore?</p>
+                            <p>El reeembolso que te ofrece el seguro de compras será igual al monto que originalmente el producto tiene</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <p>Las cuotas sin intereses estarán sujetas a las condiciones del lugar donde obtengas tu crédito, y en ocaciones no estarán disponibles</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita.</p>
+                            <p>Para utilizar tus puntos por viajes no deberás tener ningun pago atrasado en los últimos 6 meses.</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                La cantidad máxima de efectivo que puedes canjear por tus puntos es de $7,500
                             </p>
                         </div>
                     </div>
@@ -353,7 +353,6 @@ function Tabs(type) {
             </div>
         </div>
     )
-<<<<<<< HEAD
 } else if (type === "InfoEmpre") {
     return(
         <div className="information-tabs">
@@ -411,9 +410,6 @@ function Tabs(type) {
         </div>
     )
   } else {
-=======
-  }else {
->>>>>>> 754706d885afd1243934d933eafa8d4ea27517c4
     return <div>Parámetro no encontrado.</div>;
   }
 }

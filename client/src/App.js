@@ -2,25 +2,7 @@
 import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 
 // Pages
-<<<<<<< HEAD
-import {
-  AccountsPage,
-  CheckingAccount,
-  IndexPage,
-  SavingsAccount,
-  HelpPage,
-  CardsPage,
-  DemanturClassic,
-  DemanturGold,
-  DemanturPlatinum,
-  ContactPage,
-  SelectAccountPage,
-  RegisterNormalUserPage,
-  InfoEmpre,
-} from "./pages/static";
-=======
-import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, AccountsForm, HelpPage, CardsPage, DemanturClassic, DemanturGold, DemanturPlatinum, DebitCard, ContactPage, SelectAccountPage, RegisterNormalUserPage, LoansPage, BusinessLoan, PersonalLoan } from "./pages/static";
->>>>>>> 754706d885afd1243934d933eafa8d4ea27517c4
+import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, AccountsForm, HelpPage, CardsPage, DemanturClassic, DemanturGold, DemanturPlatinum, DebitCard, ContactPage, SelectAccountPage, RegisterNormalUserPage, LoansPage, BusinessLoan, PersonalLoan, InfoEmpre } from "./pages/static";
 
 //contexts
 import { AuthProvider } from "./context/AuthContext";

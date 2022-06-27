@@ -368,16 +368,17 @@ body{
     }
     .main-card-form{
         width: 90%;
-        height: 60%;
+        height: 70%;
         background-color: #ffffff;
         margin: 0 auto 10rem auto;
         border: 1px solid #dfdfdf;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         padding: 5rem;
         box-shadow: 0px 0px 10px rgba(65, 65, 65, 0.404);
 
-        .form-column-1{
+        .form-row-1{
             display: flex;
             flex-direction: row;
 
@@ -458,7 +459,7 @@ body{
             }
         }
     }
-    .form-column-2{
+    .form-row-2{
         width: 90%;
         display: flex;
         flex-direction: row;
@@ -478,6 +479,25 @@ body{
                 padding: 0.125rem 0.3125rem;
                 cursor: pointer;
             }
+        }
+    }
+    .form-row-3{
+        display: flex;
+        justify-content: center;
+        height: fit-content;
+        margin-top: 2.5rem;
+
+        .card-submit-button{
+            border: none;
+            padding: 1rem 2rem;
+            background-color: #93DEFF;
+            color: #606470;
+            cursor: pointer;
+            display: block;
+            transition: all .2s;
+        }
+        .card-submit-button:hover{
+            background-color: #75d6ff;
         }
     }
 }

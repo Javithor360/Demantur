@@ -12,33 +12,65 @@ const NormalUserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  Dui: {
+  DateBirth: {
     type: String,
     required: true
   },
-  // Nit: {
-  //   type: String,
-  //   required: true
-  // },
+  Adress: {
+    type: String,
+    required: true
+  },
+  Dui: {
+    type: String,
+    required: true,
+  },
   Email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
-  // DateBird: {
-  //   type: String,
-  //   required: true
-  // },
-  // Adress: {
-  //   type: String,
-  //   required: true
-  // },
   Password: {
     type: String,
     required: true,
-    select: false
+    select: false,
   },
-  // RecuKey: String,
+  Number: {
+    type: String,
+    required: true,
+  },
+  LaboralSituation: {
+    type: String,
+    required: true
+  },
+  WorkPlace: {
+    type: String,
+    required: true,
+  },
+  Salary: {
+    type: String,
+    require: true,
+  },
+  // ImageOFConstancia:{
+  //
+  // },
+  DatosBeneficiario: {
+    Nombres: {
+      type: String,
+      require: true
+    },
+    Apellidos: {
+      type: String,
+      require: true
+    },
+    Dui: {
+      type: String,
+      require: true
+    },
+    Number: {
+      type: String,
+      require: true,
+    }
+  },
   verifyCode: String,
   resetPasswordToken: String,
   resetPasswordExpire: Date,

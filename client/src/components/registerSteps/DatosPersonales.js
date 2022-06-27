@@ -1,29 +1,46 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { StepperButtons } from '../StepperButtons'
+import axios from 'axios'
 
 import { useAuth } from '../../context/AuthContext';
 
 export const DatosPersonales = () => {
-  const { nextButton, setstateOfStep1, setstateOfStep2, page, } = useAuth()
+  const { nextButton, setstateOfStep1, setstateOfStep2, page, configPublic,
+    setError, Nombres, setNombres, Apellidos, setApellidos, DateBirth, setDateBirth, Direccion, setDireccion
+  } = useAuth()
 
   useEffect(() => {
     if (page === 1) {
       setstateOfStep1('focus')
       setstateOfStep2('unfocus')
+      setError('');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const [Nombres, setNombres] = useState('');
-  const [Apellidos, setApellidos] = useState('');
-  const [DateBirth, setDateBirth] = useState('');
-  const [Direccion, setDireccion] = useState('');
-
-  const handleForm = (e) => {
+  const handleForm = async (e) => {
     e.preventDefault()
-    console.log(Nombres);
-    setstateOfStep1('complete')
-    nextButton()
+
+    try {
+
+      const { data } = await axios.post('http://localhost:4000/api/auth/normal-user/register-part-1', { FirstName: Nombres.toLowerCase(), LastName: Apellidos.toLowerCase(), DateBirth, Adress: Direccion }, configPublic)
+
+      // para obtener esto se necesita JSON.pase()
+      localStorage.setItem('FirstPartForm', JSON.stringify(data.data))
+
+      if (data) {
+        setstateOfStep1('complete')
+        nextButton()
+        setError("");
+      }
+
+    } catch (error) {
+      setError(error.response.data.error);
+      if (error.response.data.error) {
+        setstateOfStep1('error')
+      }
+    }
+
   }
 
   return (
@@ -36,7 +53,7 @@ export const DatosPersonales = () => {
           </div>
           <div className="input-class">
             <input type='text' id='Apellidos' name='Apellidos' placeholder=' ' onChange={(e) => setApellidos(e.target.value)} value={Apellidos} autoComplete='off' className='input-form' />
-            <label htmlFor="Nombres" className='label-form'>Apellidos</label>
+            <label htmlFor="Apellidos" className='label-form'>Apellidos</label>
           </div>
           <div className="input-class">
             <input type='date' id='date' name='date' placeholder=' ' onChange={(e) => setDateBirth(e.target.value)} value={DateBirth} autoComplete='off' className='input-form' />

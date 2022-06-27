@@ -3,13 +3,13 @@ import '../assets/scss/register_page.scss'
 
 // components
 import { FooterAuth, RegisterStepper, Navbar, StepsInfo, RegisterCard } from '../../../components'
-import { DatosPersonales, Identificacion, DatosMonetarios, Beneficiario } from '../../../components/registerSteps'
+import { DatosPersonales, Identificacion, DatosMonetarios, Beneficiario, CodeVerify, SuccessAccount } from '../../../components/registerSteps'
 
 //context hook
 import { useAuth } from '../../../context/AuthContext'
 
 export const RegisterNormalUserPage = () => {
-  const { page } = useAuth()
+  const { page, Error, Success } = useAuth()
 
   const displayPages = () => {
     switch (page) {
@@ -17,6 +17,8 @@ export const RegisterNormalUserPage = () => {
       case 2: return <Identificacion />;
       case 3: return <DatosMonetarios />;
       case 4: return <Beneficiario />;
+      case 5: return <CodeVerify />;
+      case 6: return <SuccessAccount />;
       default: return <DatosPersonales />;
     }
   }
@@ -31,17 +33,24 @@ export const RegisterNormalUserPage = () => {
         <div className='Container-div'>
           <div className='FormDiv'>
             {/* Stepper */}
-            <RegisterStepper />
-            <div className='line'></div>
+            {page < 6 ?
+              <>
+                <RegisterStepper />
+                <div className='line'></div>
+                <div className='steps-render'>
+                  {StepsInfo()}
 
-            <div className='steps-render'>
-
-              {StepsInfo()}
-
-              <div className='line-x'></div>
-
-              {displayPages()}
-            </div>
+                  {Error && <span className='ball-description-error'>{Error}</span>}
+                  {Success && <span className='ball-description-complete'>{Success}</span>}
+                  <div className='line-x'></div>
+                  {displayPages()}
+                </div>
+              </>
+              :
+              <>
+                {displayPages()}
+              </>
+            }
           </div>
 
           {RegisterCard()}

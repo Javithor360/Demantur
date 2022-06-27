@@ -1,28 +1,25 @@
 const mongoose = require('mongoose');
 
 const DuiSchema = new mongoose.Schema({
-  DuiFirstName: {
+  DuiFirstNames: {
     type: String,
     required: true,
     trim: true,
-    unique: true,
   },
-  DuiLastName: {
+  DuiLastNames: {
     type: String,
     required: true,
     trim: true,
-    unique: true,
   },
   DuiNumber: {
     type: String,
     required: true,
     trim: true,
-    unique: true,
   },
-  // DuiDateBirth:{
-  //   type: String,
-  //   required: true
-  // }
+  DuiDateBirth: {
+    type: Date,
+    required: true
+  }
 })
 
 module.exports = mongoose.model('DuiModel', DuiSchema);

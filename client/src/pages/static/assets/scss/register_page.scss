@@ -103,6 +103,17 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
           width: 100%;
           // background-color: #323643;
 
+          .step-inputs-identify {
+            flex-direction: column !important;
+            justify-content: space-around !important;
+
+            .part-1 {
+              .input-class {
+                width: 32%;
+              }
+            }
+          }
+
           .step-inputs {
             height: 70%;
             // background-color: #00C900;
@@ -111,6 +122,12 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
+
+            .parts-form {
+              display: flex;
+              width: 100%;
+              justify-content: space-around;
+            }
 
             .input-class {
               position: relative;
@@ -447,6 +464,7 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
           }
         }
 
+
       }
 
       .TarjetDiv {
@@ -549,4 +567,97 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
 #date-label {
   top: -0.8rem !important;
 
+}
+
+.step-code-input {
+  height: 40% !important;
+  justify-content: space-evenly !important;
+}
+
+.code-form {
+  justify-content: space-evenly !important;
+}
+
+.input-code {
+  width: 53% !important;
+  height: 4rem !important;
+
+  label {
+    font-size: 1.6rem !important;
+  }
+}
+
+.successMessage {
+  color: $dark-blue;
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  height: 70%;
+  align-items: center;
+  background-color: red;
+  justify-content: center;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    background-color: beige;
+  }
+
+  div:nth-child(1) {
+    align-items: center;
+    justify-content: space-evenly;
+    height: 60%;
+
+    h1 {
+      padding-top: 0 !important;
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+
+  div:nth-child(2) {
+    height: 50%;
+    align-items: center;
+    justify-content: space-between;
+
+
+    span {
+      text-align: justify;
+    }
+
+    svg {
+      color: $black-purple;
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+}
+
+.lineaX {
+  background-color: $white-gray  !important;
+  width: 92% !important;
+  height: .12rem !important;
+  margin: 1rem 0;
+}
+
+.CharginIcon {
+  animation-name: girar;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  color: #00C900;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }

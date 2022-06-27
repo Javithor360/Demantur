@@ -3,19 +3,54 @@ const NormalUser = require('../models/NormalUser');
 const ErrorResponse = require('../utils/ErrorMessage');
 const { encryptPassword, sendToken, createCode, VeCoEmail } = require('../helpers/Functions');
 
-// @route POST api/auth/normal-user/register
-// @desc registro de un usuario normal
+// @route POST api/auth/normal-user/register-part-1
+// @desc formulario multi pasos, parte 1
 // @access public
 
-const registerNormalUser = async (req, res, next) => {
+const registerPart1 = async (req, res, next) => {
   try {
+    const { FirstName, LastName, DateBirth, Adress } = req.body
 
-    const { FirstName, LastName, Dui, Email, Password } = req.body
+    //validaciones
+    if (!FirstName || !LastName || !DateBirth || !Adress) {
+      return next(new ErrorResponse('Por favor rellene todos los campos', 400, 'error'));
+    }
+
+    const Existvalidation = await NormalUser.findOne({ FirstName: FirstName })
+    if (Existvalidation) {
+      return next(new ErrorResponse('Este usuario ya está registrado en Demantur', 400, 'error'));
+    }
+
+    const NamesValidation = await DuiModel.findOne({ DuiFirstNames: FirstName, DuiLastNames: LastName.toLowerCase() })
+    if (!NamesValidation) {
+      return next(new ErrorResponse('Por favor ingrese nombres validos', 400, 'error'))
+    }
+
+    const DateBirthValidation = await DuiModel.findOne({ DuiDateBirth: DateBirth });
+    if (!DateBirthValidation) {
+      return next(new ErrorResponse('La fecha no coincide', 400, 'error'));
+    }
+
+    if (Adress.length < 12) {
+      return next(new ErrorResponse('La direccion no es valida', 400, 'error'));
+    }
+
+    res.status(200).json({ success: true, data: { FirstName, LastName, DateBirth, Adress } })
+
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message })
+  }
+}
+
+const registerPart2 = async (req, res, next) => {
+  try {
+    const { Dui, Email, Number, Password, FirstPartForm } = req.body
+
+    const { FirstName, LastName, DateBirth } = JSON.parse(FirstPartForm)
 
     // validaciones
-    const UserExist = await NormalUser.findOne({ Email });
-    if (UserExist) {
-      return next(new ErrorResponse('Este Email ya está registrado en Demantur', 400, 'error'))
+    if (!Dui || !Email || !Number || !Password) {
+      return next(new ErrorResponse('Por favor rellene todos los campos', 400, 'error'));
     }
 
     const DuiQuery1 = await NormalUser.findOne({ Dui })
@@ -28,16 +63,113 @@ const registerNormalUser = async (req, res, next) => {
       return next(new ErrorResponse('Este numero de Dui no existe', 400, 'error'))
     }
 
-    const DUiQuery3 = await DuiModel.findOne({ DuiFirstName: FirstName, DuiLastName: LastName })
-    if (!DUiQuery3) {
-      return next(new ErrorResponse('Los nombres del Dui no coinciden, Respetar mayusculas y minusculas', 400, 'error'))
+
+    if (DuiQuery2) {
+      if (DuiQuery2.DuiFirstNames !== FirstName || DuiQuery2.DuiLastNames !== LastName) {
+        return next(new ErrorResponse('Los nombres no coinciden con el Dui', 400, 'error'))
+
+      }
     }
+
+    if (!/\D*\(?(\d{3})?\)?\D*(\d{4})\D*(\d{4})/.test(Number)) {
+      return next(new ErrorResponse('Por favor ingrese un numero valido', 400, 'error'))
+    }
+
+    if (!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(Email)) {
+      return next(new ErrorResponse('Por favor ingrese un Email valido', 400, 'error'))
+    }
+
+    const EmailQuery1 = await NormalUser.findOne({ Email })
+    if (EmailQuery1) {
+      return next(new ErrorResponse('Este Email ya esta registrado en Demantur', 400, 'error'))
+    }
+
+    // CAMBIAR
+    if (!/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/.test(Password)) {
+      return next(new ErrorResponse('La contraseña no es valida', 400, 'error'))
+    }
+
+    res.status(200).json({ success: true, data: { Dui, Email, Number, Password } })
+
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message })
+  }
+}
+
+const registerPart3 = async (req, res, next) => {
+  try {
+    const { LaboralSituation, WorkPlace, Salary } = req.body
+
+    // aquí va a ir la validacion de la foto jaja
+
+
+    if (!LaboralSituation || !WorkPlace || !Salary) {
+      return next(new ErrorResponse('Por favor rellene todos los campos', 400, 'error'));
+    }
+
+    if (WorkPlace.length < 10) {
+      return next(new ErrorResponse('El lugar de trabajo no es valido', 400, 'error'));
+    }
+
+
+    res.status(200).json({ success: true, data: { LaboralSituation, WorkPlace, Salary } })
+
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message })
+  }
+}
+
+const registerPart4 = async (req, res, next) => {
+  try {
+    const { BNombres, BApellidos, BDui, BNumber, FirstPartForm, SecondPartForm, ThirdPartForm } = req.body
+
+    const { FirstName, LastName, DateBirth, Adress } = JSON.parse(FirstPartForm);
+    const { Dui, Email, Number, Password } = JSON.parse(SecondPartForm);
+    const { LaboralSituation, WorkPlace, Salary } = JSON.parse(ThirdPartForm);
+
+    // Validaciones
+    if (!BNombres, !BApellidos, !BDui, !BNumber) {
+      return next(new ErrorResponse('Por favor rellene todos los campos', 400, 'error'));
+    }
+
+    if (FirstName === BNombres || LastName === BApellidos) {
+      return next(new ErrorResponse('Los Nombres del Beneficiado no pueden ser iguales a los suyos', 400, 'error'))
+    }
+
+    const NamesValidation = await DuiModel.findOne({ DuiFirstName: BNombres, DuiLastName: BApellidos })
+    if (!NamesValidation) {
+      return next(new ErrorResponse('Los nombres no son validos', 400, 'error'))
+    }
+
+    const DuiValidation = await DuiModel.findOne({ DuiNumber: BDui })
+    if (!DuiValidation) {
+      return next(new ErrorResponse('El numero de Dui no es valido', 400, 'error'))
+    }
+
+    if (DuiValidation) {
+      if (DuiValidation.DuiFirstNames !== BNombres || DuiValidation.DuiLastNames !== BApellidos) {
+        return next(new ErrorResponse('Los nombres no coinciden con el Dui', 400, 'error'))
+
+      }
+    }
+
+    if (!/\D*\(?(\d{3})?\)?\D*(\d{4})\D*(\d{4})/.test(BNumber)) {
+      return next(new ErrorResponse('Por favor ingrese un numero de teléfono valido', 400, 'error'))
+    }
+
+    const DatosBeneficiario = {
+      Nombres: BNombres,
+      Apellidos: BApellidos,
+      Dui: BDui,
+      Number: BNumber
+    }
+
 
     // crear el codigo de verificacion
     const verifyCode = createCode();
 
     // Nuevo esquema
-    const newNormalUser = await new NormalUser({ FirstName, LastName, Dui, Email, Password, verifyCode, ActivedAccount: false });
+    const newNormalUser = await new NormalUser({ FirstName: FirstName, LastName: LastName, DateBirth, Password, Number, Adress, Dui, Email: Email, LaboralSituation, WorkPlace, Salary, DatosBeneficiario, verifyCode, ActivedAccount: false });
 
     // Encriptacion de la Password
     newNormalUser.Password = await encryptPassword(Password);
@@ -45,11 +177,11 @@ const registerNormalUser = async (req, res, next) => {
     // guardar en la DB
     await newNormalUser.save();
 
-    // enviar correo de verificacion
+    // Envio codigo de verificación
     VeCoEmail(verifyCode, newNormalUser, res, next);
 
-    // Creacion del TOKEN
-    // sendToken(newNormalUser, res);
+    res.status(200).json({ success: true, data: true })
+
   } catch (error) {
     res.status(500).json({ success: false, error: error.message })
   }
@@ -125,7 +257,10 @@ const getNormalUserProfile = async (req, res) => {
 
 
 module.exports = {
-  registerNormalUser,
   loginNormalUser,
-  getNormalUserProfile
+  getNormalUserProfile,
+  registerPart1,
+  registerPart2,
+  registerPart3,
+  registerPart4
 }

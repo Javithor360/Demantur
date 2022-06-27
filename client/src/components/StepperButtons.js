@@ -1,8 +1,9 @@
 import { useAuth } from '../context/AuthContext'
 import { FiArrowRight as Arrrow, FiArrowLeft } from 'react-icons/fi'
+import { VscLoading } from 'react-icons/vsc'
 
 export const StepperButtons = () => {
-  const { page, setPage } = useAuth()
+  const { page, setPage, Chargin } = useAuth()
 
   const backButton = () => {
     let value;
@@ -18,16 +19,23 @@ export const StepperButtons = () => {
     <>
       {/* navigation control */}
       <div className='step-buttons'>
-        <span className={page !== 1 ? 'boton-anterior botones-steps' : 'boton-anterior-desactivado botones-steps'} onClick={backButton} >
+        {page !== 5 && <span className={page !== 1 ? 'boton-anterior botones-steps' : 'boton-anterior-desactivado botones-steps'} onClick={backButton} >
           <FiArrowLeft className='arrow-ico-re' />
           <div className='divisor'></div>
           <span>ANTERIOR</span>
-        </span>
+        </span>}
 
-        <button className={page !== 4 ? 'boton-siguiente botones-steps' : 'boton-siguiente boton-siguiente-terminar botones-steps'} type='submit' >
-          <span>{page !== 4 ? 'Siguente' : 'Terminar'}</span>
-          <div className='divisor'></div>
-          <Arrrow className='arrow-ico-re' />
+        <button className={page < 4 ? 'boton-siguiente botones-steps' : 'boton-siguiente boton-siguiente-terminar botones-steps '} type='submit' disabled={Chargin === true && true} >
+          {
+            Chargin === true ?
+              <><VscLoading className='CharginIcon' /></>
+              :
+              <>
+                <span>{page === 5 && 'Enviar'}{page < 4 && 'Siguente'}{page === 4 && 'Terminar'}</span>
+                <div className='divisor'></div>
+                <Arrrow className='arrow-ico-re' />
+              </>
+          }
         </button>
       </div>
     </>

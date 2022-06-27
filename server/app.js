@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const MiddlewareError = require('./middlewares/ErrorMiddleware')
 
 // app configuraciones
 app.use(express.json())
+app.use(cors())
 app.use(express.urlencoded({ extended: false }))
 
 // routes

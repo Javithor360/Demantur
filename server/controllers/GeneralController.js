@@ -100,11 +100,15 @@ const resetPassword = async (req, res, next) => {
 
 const VerifyEmailCode = async (req, res, next) => {
   try {
-    const { verifyCode } = req.body;
+    const { verifyCode, Email } = req.body;
 
-    const QueryCode = await NormalUser.findOne({ verifyCode })
-    if (!QueryCode) {
-      return next(new ErrorResponse('El codigo es incorrecto', 400, 'error'))
+    const QueryCode = await NormalUser.findOne({ Email })
+
+    if (QueryCode.verifyCode === undefined) {
+      return next(new ErrorResponse('El Email es incorrecto', 400, 'error'));
+    }
+    if (QueryCode.verifyCode !== verifyCode) {
+      return next(new ErrorResponse('El codigo es incorrecto', 400, 'error'));
     }
 
     // aqui irian las validaciones del business user
@@ -115,7 +119,7 @@ const VerifyEmailCode = async (req, res, next) => {
 
     await QueryCode.save()
 
-    res.status(201).json({ success: true, message: 'Validacion Exitosa (REDIRECCION)' })
+    res.status(201).json({ success: true, message: '¡Validacion Exitosa!' })
   } catch (error) {
     res.status(500).json({ success: false, error: error.message })
   }

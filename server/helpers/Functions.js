@@ -72,4 +72,4 @@ exports.VeCoEmail = async (verifyCode, isNormalUser, next) => {
   } catch (error) {
     return next(new ErrorResponse("El EMAIL NO SE PUDO ENVIAR", 500, 'error'));
   }
-} 
+}

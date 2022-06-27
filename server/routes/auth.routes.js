@@ -3,12 +3,21 @@ const router = express.Router();
 const AuthMiddleware = require('../middlewares/AuthMiddleware');
 const resetMiddleware = require('../middlewares/resetMiddleware')
 
-const { registerNormalUser, loginNormalUser, getNormalUserProfile } = require('../controllers/NormalUserController');
+const { loginNormalUser, getNormalUserProfile, registerPart1, registerPart2, registerPart3, registerPart4 } = require('../controllers/NormalUserController');
 
 const { ForgotPassword, resetPassword, VerifyEmailCode } = require('../controllers/GeneralController');
 
+// main route /api/auth
+
 // Rutas para usuario normal
-router.route('/normal-user/register').post(registerNormalUser);
+
+// Formulario Multi pasos
+
+router.route('/normal-user/register-part-1').post(registerPart1);
+router.route('/normal-user/register-part-2').post(registerPart2);
+router.route('/normal-user/register-part-3').post(registerPart3);
+router.route('/normal-user/register-part-4').post(registerPart4);
+
 router.route('/normal-user/login').post(loginNormalUser);
 router.route('/normal-user/profile').get([AuthMiddleware], getNormalUserProfile);
 

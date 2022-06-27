@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 //scss
 import "../scss/credit_cards/cards-tabs-style.scss";
 //images
-const ClassicCardImages = require.context("../img/credit_cards/classic", true);
+const IndividualCardImages = require.context("../img/credit_cards/", true);
 const Infoimagenes = require.context("../img/banner", true);
 const AccountsImages = require.context("../img/acc/", true);
 
@@ -21,11 +21,11 @@ function Tabs(type) {
             <div className="information-tabs-flex">
                 <div className="tab-images-container">
                     <div className={toggleState === 1 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(1)}>
-                        <img src={ClassicCardImages("./requirements_bg.jpg")} alt=""></img>
+                        <img src={IndividualCardImages("./requirements_bg.jpg")} alt=""></img>
                     </div>
 
                     <div className={toggleState === 2 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(2)}>
-                        <img src={ClassicCardImages("./limitations_bg.jpg")} alt=""></img>
+                        <img src={IndividualCardImages("./limitations_bg.jpg")} alt=""></img>
                     </div>
                 </div>
 
@@ -98,11 +98,11 @@ function Tabs(type) {
             <div className="information-tabs-flex">
                 <div className="tab-images-container">
                     <div className={toggleState === 1 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(1)}>
-                        <img src={ClassicCardImages("./requirements_bg.jpg")} alt=""></img>
+                        <img src={IndividualCardImages("./requirements_bg.jpg")} alt=""></img>
                     </div>
 
                     <div className={toggleState === 2 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(2)}>
-                        <img src={ClassicCardImages("./limitations_bg.jpg")} alt=""></img>
+                        <img src={IndividualCardImages("./limitations_bg.jpg")} alt=""></img>
                     </div>
                 </div>
 
@@ -175,11 +175,11 @@ function Tabs(type) {
             <div className="information-tabs-flex">
                 <div className="tab-images-container">
                     <div className={toggleState === 1 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(1)}>
-                        <img src={ClassicCardImages("./requirements_bg.jpg")} alt=""></img>
+                        <img src={IndividualCardImages("./requirements_bg.jpg")} alt=""></img>
                     </div>
 
                     <div className={toggleState === 2 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(2)}>
-                        <img src={ClassicCardImages("./limitations_bg.jpg")} alt=""></img>
+                        <img src={IndividualCardImages("./limitations_bg.jpg")} alt=""></img>
                     </div>
                 </div>
 

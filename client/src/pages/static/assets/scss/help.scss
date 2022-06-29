@@ -41,6 +41,11 @@
      border-left: 50rem;
      background-color: #eeeeee;
      transition: border .3s ease;
+
+ }
+
+ .container-input input:focus{
+    outline: none;
  }
 
  .icon-input{ 
@@ -52,7 +57,7 @@
      cursor: pointer;
  }
 
- @media screen and (max-width:680px) {
+ @media screen and (max-width:680px){
 
     .help-container{
         height: 67.2vh;

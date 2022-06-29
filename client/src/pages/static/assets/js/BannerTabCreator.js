@@ -200,7 +200,7 @@ function Tabs(type) {
                             </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Estabilidad laboral de </p>
+                            <p>Estabilidad laboral comprobable; 12 meses de experiencia con tarjeta</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
@@ -221,11 +221,11 @@ function Tabs(type) {
                     <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, ducimus vitae.</p>
+                            <p>El límite de puntos acumulables es de 600,000</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi suscipit atque dignissimos autem.</p>
+                            <p>La protección le reembolsará los gastos para que el artículo cubierto sea reparado o lo compensará por el valor del artículo hasta el máximo de su valor</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>

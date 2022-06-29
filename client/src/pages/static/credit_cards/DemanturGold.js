@@ -29,7 +29,7 @@ export const DemanturGold = () => {
 
         <div className="card-description">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tempor sem at sem tincidunt, sed maximus velit dignissim. Maecenas venenatis laoreet orci, ut cursus purus consectetur et. Proin non mauris pharetra, condimentum dui et, finibus turpis. Phasellus vel justo ante. Integer id risus porta, feugiat lorem eu, posuere dui.
+            Obtén muchas más posibilidades, beneficios superiores y un mayor nivel de compra y efectivo con la tarjeta Demantur Gold, con ella siempre tendrás ese respaldo de calidad y una mayor seguridad, confianza y ese respaldo que mereces. La Demantur Gold está pensada para aquellas personas como tú, que siempre buscan esa exigencia y buen nivel en una tarjeta de crédito, descubre más beneficios a continuación.
           </p>
         </div>
 
@@ -42,7 +42,7 @@ export const DemanturGold = () => {
               <img src={CreditCardsImages('./icons/money_security_icon.png')} alt=""></img>
               <p>Seguro de compras</p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum feugiat eros     mauris, a imperdiet sapien tristique.
+                Recibe un reembolso de protección contra daños, robos o accidentes por cada producto que compres con la tarjeta. 
               </p>
             </div>
             <div className="vl">
@@ -52,7 +52,7 @@ export const DemanturGold = () => {
               <img src={CreditCardsImages('./icons/single_point_icon.png')} alt=""></img>
               <p>Gana puntos</p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum feugiat eros mauris, a imperdiet sapien tristique.
+                Obtén 10,000 puntos acumulables de bienvenida  después de usar tu tarjeta por primera vez sin importar el moto que gastes. 
               </p>
             </div>
             <div className="vl">
@@ -62,7 +62,7 @@ export const DemanturGold = () => {
               <img src={CreditCardsImages('./icons/airplane_black_icon.png')} alt=""></img>
               <p>Canjea por viajes</p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum feugiat eros mauris, a imperdiet sapien tristique.
+                Puedes canjear tus puntos acumulados por boletos aéreos a destinos seleccionados y disfruta de explorar el mundo.
               </p>
             </div>
           </div>
@@ -78,7 +78,7 @@ export const DemanturGold = () => {
                 <img src={CreditCardsImages('./icons/guarantee_icon.png')} alt=""></img>
                 <p>Garantia Extendida</p>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu erat felis. Suspendisse viverra sapien velit.
+                  Recibe una protección adicional que extenderá el tiempo de garantia hasta un año más adicional a la garantia que ofrece el fabricante.
                 </p>
               </div>
               <div className="vl">
@@ -88,7 +88,7 @@ export const DemanturGold = () => {
                 <img src={CreditCardsImages('./icons/fee_payment_icon.png')} alt=""></img>
                 <p>Cuotas Adaptables</p>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non erat quis quam gravida eleifend. Curabitur.
+                  Podrás solicitar plazos de cuotas según tus posibilidades para que se adapten mejor a tu bolsillo y presupuestos.
                 </p>
               </div>
               <div className="vl">
@@ -98,7 +98,7 @@ export const DemanturGold = () => {
                 <img src={CreditCardsImages('./icons/max_money_icon.png')} alt=""></img>
                 <p>Cobertura máxima</p>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non erat quis quam gravida eleifend. Curabitur.
+                  Dispondrás de una cobertura de efectivo hasta de $100,000 en retiro inmediato para que lo puedas usar.
                 </p>
               </div>
           </div>

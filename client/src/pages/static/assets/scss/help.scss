@@ -1,7 +1,7 @@
-.container-help{
+.help-container{
     height: 80vh;
     display: flex;
-    max-width: 100%;
+    width: 100%;
     font-family:'Poppins',sans-serif;
     position: absolute;
     justify-content: center;
@@ -41,6 +41,11 @@
      border-left: 50rem;
      background-color: #eeeeee;
      transition: border .3s ease;
+
+ }
+
+ .container-input input:focus{
+    outline: none;
  }
 
  .icon-input{ 
@@ -52,10 +57,10 @@
      cursor: pointer;
  }
 
- @media screen and (max-width:680px) {
+ @media screen and (max-width:680px){
 
-    .container-help{
-        height: 67vh;
+    .help-container{
+        height: 67.2vh;
     }
 
     .text-container{
@@ -92,13 +97,21 @@
     }
  }
  
+ @media screen and (max-width:670px){
+    .help-container{
+        height: 73vh;
+    }
+
+    .text-container{
+        margin-top: 9rem;
+    }
+ }
 
 /*===Accordion menu===*/ 
  .accordion-menu{
     display: grid;
-    
     justify-content: center;
-    align-items: center;
+    transform: translate(1.5%);
 }
 
 .acc{
@@ -113,7 +126,6 @@
     display: flex;
     justify-content: space-between;
     padding: 0.6rem 0.8rem;
-    
 }
 
 .acc label p{
@@ -163,20 +175,23 @@
 
 @media screen and (max-width:680px) {
     .acc label p{
-        font-size: 1rem;
-    }
-
-    .acc input:checked ~::after{
-        
-        transform: rotate(-45deg);   
+        font-size: .9rem;
     }
 
     .acc label::after{
-        margin-right: -.2rem;
+        margin-right: .1rem;
+    }
+}
+
+@media screen and (max-width:670px) {
+    .acc{
+        max-width: 30rem;
+        transform: translate(-1.5%);
+        box-sizing: 0.12rem 0.12rem 0.25rem rgba(0,0,0,0.2);
     }
 
-    .content{
-        height: 500rem;
+    .acc label p {
+        font-size: .7rem;
     }
 }
 
@@ -201,6 +216,18 @@
 
 .sub-content1 p{
     text-align: center;
+}
+
+@media screen and (max-width:680px) {
+    .content1{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sub-content1{
+        width: 90%;
+        margin-bottom: 1rem;  
+    }
 }
 
 /*content2*/
@@ -235,20 +262,25 @@
 .sub-content3{
     display: flex;
     justify-content: space-between;
-    margin-left: 2rem;
+    margin-left: -.1rem;
     margin-bottom: .5em;
 }
 
 .sub-content3 img{
-    width: 5.5rem;
-    height: auto;
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: .5rem;
     display: flex;
 }
 
 .sub-content3 p{
-    margin-top:2rem;
+    margin-top:.5rem;
     width: 100%;
     transform: translate(2%);
+}
+
+.sub-content3 .sub-parrafo{
+    text-align: justify;
 }
 
 

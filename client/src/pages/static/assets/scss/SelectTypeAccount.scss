@@ -114,6 +114,8 @@
   border: none;
   font-family: 'Lato', sans-serif;
   font-weight: 500;
+  margin-right: 5rem;
+  margin-left: 2.5rem;
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -154,4 +156,9 @@
 
 .boton-position {
   margin-left: 3.5rem;
+}
+.iconst{
+  font-size: 6rem;
+  display: block;
+  margin: auto;
 }

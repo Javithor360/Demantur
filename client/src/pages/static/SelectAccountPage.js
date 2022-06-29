@@ -36,7 +36,7 @@ export const SelectAccountPage = () => {
         <div className="boxs">
           <br />
           <div className="title2">
-            <Empre className="icons" />
+            <Empre className="iconst" />
             <br />
             <p className="subtitle">Cuenta Empresarial</p>
             <hr />
@@ -54,7 +54,7 @@ export const SelectAccountPage = () => {
         <div className="boxs">
           <br />
           <div className="title2">
-            <User className="icons" />
+            <User className="iconst" />
             <br />
             <p className="subtitle">Cuenta Normal</p>
             <hr />

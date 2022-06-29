@@ -19,13 +19,13 @@ export const HelpPage = () => {
                     <p className="text-title">¿Cómo podemos ayudarte?</p>
                     <p className="text-content"> A continuación, te presentamos algunas de las preguntas frecuentes que realizan nuestros usuarios.</p>    
                     <div className="container-input">
-                       <input type="text" placeholder=" Tambien puedes realizar una búsqueda rápida sobre tu duda a consultar" maxLength={55}/>
+                       <input type="Search" placeholder=" Tambien puedes realizar una búsqueda rápida sobre tu duda a consultar" maxLength={55}/>
                        <BsSearch className="icon-input"/>                    </div>
                 </div>         
             </div>
             <img src={ HelpImg(`./imgHelp.jpg`) } alt="" className="imagen" /> 
             <div className="accordion-menu">
-                <div className="acc">
+                <div className="acc"> 
                     <input type='checkbox' id='section1'></input>
                     <label for='section1'>
                         <p>¿Cuáles son los requisitos para abrir una cuenta bancaria?  </p>

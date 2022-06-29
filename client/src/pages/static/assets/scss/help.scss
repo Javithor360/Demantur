@@ -97,6 +97,15 @@
     }
  }
  
+ @media screen and (max-width:670px){
+    .help-container{
+        height: 73vh;
+    }
+
+    .text-container{
+        margin-top: 9rem;
+    }
+ }
 
 /*===Accordion menu===*/ 
  .accordion-menu{
@@ -170,7 +179,19 @@
     }
 
     .acc label::after{
-        margin-right: -.2rem;
+        margin-right: .1rem;
+    }
+}
+
+@media screen and (max-width:670px) {
+    .acc{
+        max-width: 30rem;
+        transform: translate(-1.5%);
+        box-sizing: 0.12rem 0.12rem 0.25rem rgba(0,0,0,0.2);
+    }
+
+    .acc label p {
+        font-size: .7rem;
     }
 }
 

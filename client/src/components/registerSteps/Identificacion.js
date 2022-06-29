@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { StepperButtons } from '../StepperButtons'
 import axios from 'axios'
-
+import Cleave from 'cleave.js/react';
+import 'cleave.js/dist/addons/cleave-phone.sv'
 
 import { useAuth } from '../../context/AuthContext';
 
@@ -59,11 +60,11 @@ export const Identificacion = () => {
         <div className='step-inputs step-inputs-identify'>
           <div className='parts-form part-1'>
             <div className="input-class">
-              <input type='text' id='Dui' name='Dui' placeholder=' ' onChange={(e) => setDui(e.target.value)} value={Dui} autoComplete='off' className='input-form' />
+              <Cleave id='Dui' name='Dui' placeholder=' ' options={{ blocks: [6, 1], delimiter: "-", numericOnly: true }} onChange={(e) => setDui(e.target.value)} value={Dui} autoComplete='off' className='input-form' />
               <label htmlFor="Dui" className='label-form'>DUI</label>
             </div>
             <div className="input-class">
-              <input type='tel' id='Telefono' name='Telefono' placeholder=' ' onChange={(e) => setNumber(e.target.value)} value={Number} autoComplete='off' className='input-form' />
+              <Cleave id='Telefono' name='Telefono' placeholder=' ' options={{ blocks: [4, 4], numericOnly: true }} onChange={(e) => setNumber(e.target.value)} value={Number} autoComplete='off' className='input-form' />
               <label htmlFor="Telefono" className='label-form'>Teléfono</label>
             </div>
             <div className="input-class">

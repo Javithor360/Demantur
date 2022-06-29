@@ -27,7 +27,7 @@ export const Beneficiario = () => {
 
     try {
 
-      const { data } = await axios.post('http://localhost:4000/api/auth/normal-user/register-part-4', { BNombres: BNombres.toLowerCase(), BApellidos: BApellidos.toLowerCase(), BDui, BNumber, FirstPartForm, SecondPartForm, ThirdPartForm }, configPublic);
+      const { data } = await axios.post('http://localhost:4000/api/auth/normal-user/register-part-4', { BNombres: BNombres.toLowerCase().trim(), BApellidos: BApellidos.toLowerCase().trim(), BDui, BNumber, FirstPartForm, SecondPartForm, ThirdPartForm }, configPublic);
 
       if (data) {
         setChargin(true);

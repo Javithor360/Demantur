@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { StepperButtons } from '../StepperButtons'
 import axios from 'axios'
+import { Dropdown } from '../Dropdown';
 
 import { useAuth } from '../../context/AuthContext';
 
@@ -10,6 +11,8 @@ export const DatosMonetarios = () => {
   } = useAuth()
 
   const [Image, setImage] = useState('')
+  const [SelectDrop, setSelectDrop] = useState('');
+  const elements = ['Asalariado', 'Desempleado', 'Estudiante', 'Emprendedor',]
 
   useEffect(() => {
     if (page === 3) {
@@ -49,11 +52,12 @@ export const DatosMonetarios = () => {
       <form onSubmit={handleForm} className='steps-form'>
         <div className='step-inputs'>
           <div className="input-class">
-            <input type='text' id='Laboral' name='Laboral' placeholder=' ' onChange={(e) => setLaboralSituation(e.target.value)} value={LaboralSituation} autoComplete='off' className='input-form' />
-            <label htmlFor="Laboral" className='label-form'>Situación Laboral</label>
+            {/* <input placeholder=' ' id='Laboral' name='Laboral' onChange={(e) => setLaboralSituation(e.target.value)} value={LaboralSituation} autoComplete='off' className='input-form' /> */}
+            {/* <label htmlFor="Laboral" className='label-form'>Situación Laboral</label> */}
+            <Dropdown setSelectDrop={setSelectDrop} elements={elements} setLaboralSituation={setLaboralSituation} SelectDrop={SelectDrop} />
           </div>
           <div className="input-class">
-            <input type='text' id='Salario' name='Salario' placeholder=' ' onChange={(e) => setSalary(e.target.value)} value={Salary} autoComplete='off' className='input-form' />
+            <input placeholder=' ' id='Salario' name='Salario' onChange={(e) => setSalary(e.target.value)} value={Salary} autoComplete='off' className='input-form' />
             <label htmlFor="Salario" className='label-form'>Salario</label>
           </div>
           <div className="input-class">

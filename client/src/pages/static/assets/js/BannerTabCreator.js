@@ -123,7 +123,7 @@ function Tabs(type) {
                             </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Estabilidad laboral de 6 meses con experiencia en tarjeta o 12 meses sin experiencia en tarjeta</p>
+                            <p>Estabilidad laboral; 6 meses con experiencia en tarjeta o 12 meses sin experiencia en tarjeta</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
@@ -196,11 +196,11 @@ function Tabs(type) {
                     <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Lorem ipsum dolor sit amet consectetur.</p>
+                            <p>Ingresos minimos mensuales de $2,800</p>
                             </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                            <p>Estabilidad laboral de </p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>

@@ -2,7 +2,7 @@ import { Navbar, Footer } from "../../components";
 import "./assets/scss/HelpAccount.scss"
 import { AiFillPieChart as Empre } from "react-icons/ai";
 import { Tabs } from "./assets/js/BannerTabCreator.js";
-import { BiLock } from "react-icons/bi"
+import { BiLock,BiWallet } from "react-icons/bi"
 export const InfoEmpre = () => {
   return (
     <>
@@ -32,12 +32,12 @@ export const InfoEmpre = () => {
         </p>
       </div>
       <div className="content-icon">
-      <p className="list"><BiLock className="ico" /><br/>
+      <p className="list"><BiWallet className="ico" /><br/>
       Realizar el pago de nóminas
         </p>
       </div>
       <div className="content-icon">
-      <p className="list"><BiLock className="ico" /><br/>
+      <p className="list"><BiWallet className="ico" /><br/>
       Posibilidad de contar con chequera
         </p>
       </div>

@@ -38,7 +38,7 @@ export const Navbar = () => {
           <hr />
           <Link to='/contact'><span className="hover-underline">Contacto</span><FaAngleRight className='flecha' /></Link>
           <hr />
-          <Link to='/'><span className="hover-underline">Empresas</span><FaAngleRight className='flecha' /></Link>
+          <Link to='/info'><span className="hover-underline">Empresas</span><FaAngleRight className='flecha' /></Link>
           <hr />
           <Link to='/'><span className="hover-underline">Nosotros</span><FaAngleRight className='flecha' /></Link>
         </ul>

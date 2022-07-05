@@ -2,7 +2,11 @@
 import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 
 // Pages
-import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, AccountsForm, HelpPage, CardsPage, DemanturClassic, DemanturGold, DemanturPlatinum, DebitCard, ContactPage, SelectAccountPage, RegisterNormalUserPage, LoansPage, BusinessLoan, PersonalLoan, InfoEmpre } from "./pages/static";
+import {
+  AccountsPage, CheckingAccount, IndexPage, SavingsAccount, AccountsForm, HelpPage, CardsPage, DemanturClassic, DemanturGold, DemanturPlatinum,
+  DebitCard, ContactPage, SelectAccountPage, RegisterNormalUserPage, LoansPage, BusinessLoan, PersonalLoan, InfoEmpre, LoginNormalUserPage, VerifyEmailPage,
+  ForgotPasswordPage, ResetPasswordPage
+} from "./pages/static";
 
 //contexts
 import { AuthProvider } from "./context/AuthContext";
@@ -28,7 +32,7 @@ const App = () => {
           <Route path="/help" element={<HelpPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/info" element={<InfoEmpre />} />
-         
+
 
           {/* Rutas de "/accounts" */}
           <Route path="/accounts" element={<AccountsPage />} />
@@ -46,16 +50,16 @@ const App = () => {
           {/* Rutas de la autentificacion */}
           <Route path="/auth" element={<SelectAccountPage />} />
           <Route path="/auth/normal-user/" element={<SelectAccountPage />} />
-          <Route path="/auth/normal-user/login" element={<SelectAccountPage />} />
+          <Route path="/auth/normal-user/login" element={<LoginNormalUserPage />} />
           <Route path="/auth/normal-user/register" element={<RegisterNormalUserPage />} />
-          <Route path="/auth/forgot-password" element={<SelectAccountPage />} />
-          <Route path="/auth/reset-password/:resetToken" element={<SelectAccountPage />} />
-          <Route path="/auth/waiting" element={<SelectAccountPage />} />
+          <Route path="/auth/verify-email" element={<VerifyEmailPage />} />
+          <Route path="/auth/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="/auth/reset-password/:resetToken" element={<ResetPasswordPage />} />
 
           {/*Rutas de "/loans"*/}
-          <Route path="/loans" element={<LoansPage/>}></Route>
-          <Route path="/loans/BusinessLoan" element={<BusinessLoan/>}></Route>
-          <Route path="/Loans/BersonalLoan" element={<PersonalLoan/>}></Route>
+          <Route path="/loans" element={<LoansPage />}></Route>
+          <Route path="/loans/BusinessLoan" element={<BusinessLoan />}></Route>
+          <Route path="/Loans/BersonalLoan" element={<PersonalLoan />}></Route>
 
           {/* test dashboard */}
           <Route path="/dashboard/:usuario/perfil" element={<SelectAccountPage />} />

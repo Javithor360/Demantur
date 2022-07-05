@@ -26,8 +26,8 @@ export const Navbar = () => {
   return (
     <nav className='navbar'>
       <Link to='/'>
-        <img src={PrideLogo} alt="" className="logo" />
-        {/* <img src={Logo} alt="" className="logo" /> */}
+        {/* <img src={PrideLogo} alt="" className="logo" /> */}
+        <img src={Logo} alt="" className="logo" />
       </Link>
 
       <div className={isActive ? "items-navbar" : "items-navbar active-items"} >

@@ -15,4 +15,8 @@ export { LoansPage } from "./LoansPage";
 export { BusinessLoan } from "./loans/BusinessLoan";
 export { PersonalLoan } from "./loans/PersonalLoan";
 export { RegisterNormalUserPage } from "./auth/RegisterNormalUserPage";
+export { LoginNormalUserPage } from './auth/LoginNormalUserPage';
+export { VerifyEmailPage } from './auth/VerifyEmailPage';
 export { InfoEmpre } from "./InfoEmpre";
+export { ForgotPasswordPage } from './auth/ForgotPasswordPage'
+export { ResetPasswordPage } from './auth/ResetPasswordPage'

@@ -2,6 +2,8 @@ const DuiModel = require('../models/DuiModel');
 const NormalUser = require('../models/NormalUser');
 const ErrorResponse = require('../utils/ErrorMessage');
 const { encryptPassword, sendToken, createCode, VeCoEmail } = require('../helpers/Functions');
+const { uploadRegisterImage } = require('../libs/cloudinary');
+const fs = require('fs-extra');
 
 // @route POST api/auth/normal-user/register-part-1
 // @desc formulario multi pasos, parte 1
@@ -41,6 +43,10 @@ const registerPart1 = async (req, res, next) => {
     res.status(500).json({ success: false, error: error.message })
   }
 }
+
+// @route POST api/auth/normal-user/register-part-2
+// @desc formulario multi pasos, parte 2
+// @access public
 
 const registerPart2 = async (req, res, next) => {
   try {
@@ -96,28 +102,35 @@ const registerPart2 = async (req, res, next) => {
   }
 }
 
+// @route POST api/auth/normal-user/register-part-3
+// @desc formulario multi pasos, parte 3
+// @access public
+
+
 const registerPart3 = async (req, res, next) => {
   try {
     const { LaboralSituation, WorkPlace, Salary } = req.body
-
-    // aquí va a ir la validacion de la foto jaja
-
 
     if (!LaboralSituation || !WorkPlace || !Salary) {
       return next(new ErrorResponse('Por favor rellene todos los campos', 400, 'error'));
     }
 
-    if (WorkPlace.length < 10) {
-      return next(new ErrorResponse('El lugar de trabajo no es valido', 400, 'error'));
+    if (req.files?.Image) {
+      ImageOFConstancia = req.files.Image;
+    } else {
+      return next(new ErrorResponse('Por favor suba la imagen de su constancia de trabajo', 400, 'error'));
     }
 
-
-    res.status(200).json({ success: true, data: { LaboralSituation, WorkPlace, Salary } })
+    res.status(200).json({ success: true, data: { LaboralSituation, WorkPlace, Salary, ImageOFConstancia } })
 
   } catch (error) {
     res.status(500).json({ success: false, error: error.message })
   }
 }
+
+// @route POST api/auth/normal-user/register-part-4
+// @desc formulario multi pasos, envio y parte final
+// @access public
 
 const registerPart4 = async (req, res, next) => {
   try {
@@ -125,7 +138,8 @@ const registerPart4 = async (req, res, next) => {
 
     const { FirstName, LastName, DateBirth, Adress } = JSON.parse(FirstPartForm);
     const { Dui, Email, Number, Password } = JSON.parse(SecondPartForm);
-    const { LaboralSituation, WorkPlace, Salary } = JSON.parse(ThirdPartForm);
+    const { LaboralSituation, WorkPlace, Salary, ImageOFConstancia } = JSON.parse(ThirdPartForm);
+    let ImageConstancia
 
     // Validaciones
     if (!BNombres, !BApellidos, !BDui, !BNumber) {
@@ -157,6 +171,16 @@ const registerPart4 = async (req, res, next) => {
       return next(new ErrorResponse('Por favor ingrese un numero de teléfono valido', 400, 'error'))
     }
 
+    if (ImageOFConstancia) {
+      const result = await uploadRegisterImage(ImageOFConstancia.tempFilePath);
+      await fs.remove('./upload');
+
+      ImageConstancia = {
+        url: result.secure_url,
+        public_id: result.public_id
+      }
+    }
+
     const DatosBeneficiario = {
       Nombres: BNombres,
       Apellidos: BApellidos,
@@ -169,10 +193,7 @@ const registerPart4 = async (req, res, next) => {
     const verifyCode = createCode();
 
     // Nuevo esquema
-    const newNormalUser = await new NormalUser({ FirstName: FirstName, LastName: LastName, DateBirth, Password, Number, Adress, Dui, Email: Email, LaboralSituation, WorkPlace, Salary, DatosBeneficiario, verifyCode, ActivedAccount: false });
-
-    // Encriptacion de la Password
-    newNormalUser.Password = await encryptPassword(Password);
+    const newNormalUser = await new NormalUser({ FirstName: FirstName, LastName: LastName, DateBirth, Password, Number, Adress, Dui, Email: Email, LaboralSituation, WorkPlace, Salary, ImageOFConstancia: ImageConstancia, DatosBeneficiario, verifyCode, ActivedAccount: false });
 
     // guardar en la DB
     await newNormalUser.save();
@@ -197,6 +218,11 @@ const loginNormalUser = async (req, res, next) => {
     const { Dui, Email, Password } = req.body;
 
     // Validaciones
+
+    if (!Dui || !Email || !Password) {
+      return next(new ErrorResponse('Por favor rellene todos los campos', 400, 'error'))
+    }
+
     const DuiQuery = await NormalUser.findOne({ Dui });
     if (!DuiQuery) {
       return next(new ErrorResponse('Este numero de Dui no esta registrado en Demantur', 401, 'error'))
@@ -207,29 +233,36 @@ const loginNormalUser = async (req, res, next) => {
       return next(new ErrorResponse('Este Email no esta registrado en Demantur', 401, 'error'))
     }
 
+    if (DuiQuery.Email !== Email) {
+      return next(new ErrorResponse('El Dui no coincide con el Email', 401, 'error'))
+    }
+
     const isVerifyEmail = await NormalUser.findOne({ Email, verifyCode: undefined })
     if (!isVerifyEmail) {
-      return next(new ErrorResponse('Su Email no esta verificado, por favor revise su Correo e ingrese el codigo en la siguiente pagina', 401, 'error'))
+      return next(new ErrorResponse('Su Email no esta verificado', 401, 'error'))
+    }
+
+    // llamar usuario a la base de datos
+    const selectedUser = await NormalUser.findOne({ Email }).select('+Password');
+
+
+    // validacion contraseña
+    const isMatch = await selectedUser.matchPasswords(Password);
+    console.log(isMatch);
+
+    if (!isMatch) {
+      return next(new ErrorResponse('La contraseña no es valida', 401, 'error'))
     }
 
     // Validacion para ver si la cuenta está activada
     const isActivedAcc = await NormalUser.findOne({ Email, ActivedAccount: true })
     if (!isActivedAcc) {
-      return next(new ErrorResponse('Su cuenta no está Activada todavia, espere a que nuestros empleados acepten su solicitud', 401, 'error'))
+      return next(new ErrorResponse('Su cuenta no está Activada todavia, espere un plazo de 24 horas para ser notificado', 401, 'error'))
     }
 
-    // llamar usuario a la base de datos
-    const newNormalUser = await NormalUser.findOne({ Email }).select('+Password');
-
-    // validacion contraseña
-    const isMatch = await newNormalUser.matchPasswords(Password);
-
-    if (!isMatch) {
-      return next(new ErrorResponse('Esta contraseña no coincide con los demás datos', 401, 'error'))
-    }
 
     // Creacion del TOKEN
-    sendToken(newNormalUser, res);
+    sendToken(selectedUser, res);
   } catch (error) {
     res.status(500).json({ success: false, error: error.message })
   }

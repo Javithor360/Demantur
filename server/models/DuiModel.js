@@ -17,7 +17,7 @@ const DuiSchema = new mongoose.Schema({
     trim: true,
   },
   DuiDateBirth: {
-    type: Date,
+    type: String,
     required: true
   }
 })

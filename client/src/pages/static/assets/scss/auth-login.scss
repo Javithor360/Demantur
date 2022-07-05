@@ -1,0 +1,105 @@
+@import url(../../assets/scss/auth-register.scss);
+$black-purple: #4E5364;
+$white-gray: #707070;
+$white-gray-transparent: #70707065;
+$gray: #6D6E71;
+$dark-blue: #323643;
+
+
+$speed: "0.25s";
+$transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
+
+.container-div-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.FormDivLogin {
+  flex-direction: column !important;
+
+  .Form-Login {
+    height: 40% !important;
+    width: 70% !important;
+
+    .steps-form {
+      // background-color: black;
+      height: 100% !important;
+      width: 95% !important;
+
+      .step-inputs {
+        justify-content: space-evenly !important;
+        height: 100% !important;
+        width: 100% !important;
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+
+  .info-login {
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 45rem;
+    text-align: center;
+    margin: 0 !important;
+
+    h1 {
+      padding: 0;
+      font-weight: bolder;
+    }
+
+    p {
+      font-size: 1.2rem;
+
+    }
+  }
+
+  .links-div {
+    width: 30rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .line-x {
+    width: 70%;
+    padding: 0;
+    margin-bottom: -1.3rem;
+    margin-top: -1.3rem;
+  }
+}
+
+.unique-button {
+
+
+  .botones-steps {
+    width: 12rem !important;
+
+  }
+
+  .boton-siguiente {
+    .divisor {
+      left: 8.8rem !important;
+    }
+
+  }
+}
+
+.boton-siguiente:hover {
+  .divisor {
+    left: -1rem !important;
+  }
+
+
+}
+
+.CharginIcon-Login {
+  color: white;
+}
+
+.messages-login {
+  margin-top: -1.6rem;
+  margin-bottom: -1rem;
+}

@@ -6,9 +6,6 @@ $gray: #6D6E71;
 $dark-blue: #323643;
 $verde: #00C900;
 
-
-$div-test: gold;
-
 $color: #c0392b;
 $color-dark: #a53125;
 $speed: "0.25s";
@@ -65,7 +62,8 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
         height: 80%;
       }
 
-      .steps-render {
+      .steps-render,
+      .Form-Login {
         // background-color: $div-test;
         width: 62%;
         height: 80%;
@@ -129,13 +127,30 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
               justify-content: space-around;
             }
 
+            .input-file {
+              cursor: pointer !important;
+
+              label {
+                user-select: none;
+                cursor: pointer;
+              }
+            }
+
             .input-class {
               position: relative;
               width: 43%;
               // background-color: beige;
               height: 3rem;
 
-              input {
+              input[type="file"] {
+                display: none;
+                cursor: pointer !important;
+                z-index: 100 !important;
+              }
+
+
+              input,
+              .input-form {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -158,6 +173,41 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
                   border-color: $dark-blue;
                 }
               }
+
+              .CloudIcon {
+                position: absolute;
+                right: 1rem;
+                top: 0.8rem;
+                color: $white-gray;
+                height: 1.3rem;
+                width: 1.3rem;
+
+              }
+
+              .EyesButton {
+                position: absolute;
+                right: 0.9rem;
+                top: 0.7rem;
+                cursor: pointer;
+                z-index: 100;
+                border: none;
+                background-color: transparent;
+                outline: none;
+
+                .EyesPass {
+
+                  color: $white-gray;
+                  height: 1.3rem;
+                  width: 1.3rem;
+                }
+
+                .EyesPass:hover {
+                  color: $dark-blue  !important;
+
+                }
+              }
+
+
 
               label {
                 position: absolute;
@@ -587,21 +637,18 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
   display: flex;
   flex-direction: column;
   width: 85%;
-  height: 70%;
+  height: 60%;
   align-items: center;
-  background-color: red;
   justify-content: center;
 
-  div {
-    display: flex;
-    flex-direction: column;
-    background-color: beige;
-  }
+
 
   div:nth-child(1) {
     align-items: center;
     justify-content: space-evenly;
-    height: 60%;
+    height: 2.5rem;
+
+    margin: 0;
 
     h1 {
       padding-top: 0 !important;
@@ -613,20 +660,23 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
     }
   }
 
-  div:nth-child(2) {
-    height: 50%;
+  .Text-Box {
+    display: flex;
+    height: 20%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    margin-top: 1rem;
 
 
     span {
-      text-align: justify;
+      text-align: center;
+      width: 70%;
     }
 
     svg {
       color: $black-purple;
-      height: 4rem;
-      width: 4rem;
+      height: 5rem;
+      width: 5rem;
     }
   }
 }

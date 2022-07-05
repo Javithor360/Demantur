@@ -26,7 +26,6 @@ export const DatosPersonales = () => {
 
       const { data } = await axios.post('http://localhost:4000/api/auth/normal-user/register-part-1', { FirstName: Nombres.toLowerCase().trim(), LastName: Apellidos.toLowerCase().trim(), DateBirth, Adress: Direccion }, configPublic)
 
-      // para obtener esto se necesita JSON.pase()
       localStorage.setItem('FirstPartForm', JSON.stringify(data.data))
 
       if (data) {
@@ -57,8 +56,7 @@ export const DatosPersonales = () => {
             <label htmlFor="Apellidos" className='label-form'>Apellidos</label>
           </div>
           <div className="input-class">
-            {/* <input type='date' id='date' name='date' placeholder=' ' onChange={(e) => setDateBirth(e.target.value)} value={DateBirth} autoComplete='off' className='input-form' /> */}
-            <Cleave id='date' name='date' placeholder=' ' options={{ date: true, timePattern: ['Y', 'm', 'd'] }} onChange={(e) => setDateBirth(e.target.value)} autoComplete='off' className='input-form' />
+            <Cleave id='date' name='date' placeholder=' ' options={{ date: true, timePattern: ['Y', 'm', 'd'] }} onChange={(e) => setDateBirth(e.target.value)} autoComplete='off' className='input-form' value={DateBirth} />
             <label htmlFor="date" className='label-form' id='date-label'>Fecha de Nacimiento</label>
           </div>
           <div className="input-class">

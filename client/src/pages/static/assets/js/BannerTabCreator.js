@@ -59,7 +59,7 @@ function Tabs(type) {
                         <div className="individual-text">
                             <p>&#10003;</p>
                             <p>
-                                Constancia de ingresos vigente firmada por la empresa copia de
+                                Constancia de ingresos vigente firmada por la empresa, copia de
                                 boletas de pago o constancia de AFP de los últimos 6 meses
                             </p>
                         </div>
@@ -67,7 +67,7 @@ function Tabs(type) {
                     <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Los 500 puntos de bienvenida se otorgarán despues de gastar un minimo $30 con la tarjeta</p>
+                            <p>Los 500 puntos de bienvenida se otorgarán despues de gastar un mínimo $30 con la tarjeta</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
@@ -148,15 +148,15 @@ function Tabs(type) {
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>El reeembolso que te ofrece el seguro de compras será igual al monto que originalmente el producto tiene</p>
+                            <p>El reembolso que te ofrece el seguro de compras será igual al monto que originalmente el producto tiene</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Las cuotas sin intereses estarán sujetas a las condiciones del lugar donde obtengas tu crédito, y en ocaciones no estarán disponibles</p>
+                            <p>Las cuotas sin intereses estarán sujetas a las condiciones del lugar donde obtengas tu crédito, y en ocasiones no estarán disponibles</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Para utilizar tus puntos por viajes no deberás tener ningun pago atrasado en los últimos 6 meses.</p>
+                            <p>Para utilizar tus puntos por viajes no deberás tener ningún pago atrasado en los últimos 6 meses</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
@@ -225,21 +225,92 @@ function Tabs(type) {
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>La protección le reembolsará los gastos para que el artículo cubierto sea reparado o lo compensará por el valor del artículo hasta el máximo de su valor</p>
+                            <p>La protección de compra le reembolsará los gastos para que el artículo cubierto sea reparado o compensará el valor original del artículo</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas.</p>
+                            <p>Las cuotas se adaptarán según el producto y el lugar donde se adquiera, estas podrán tener un máximo de 86 meses y un mínimo de 6 meses</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                            <p>El artículo cubierto por la garantía deberá tener una garantía original del fabricante mínima de 3 meses hasta tres años</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quisquam.
+                                La cobertura máxima de efectivo podrá solicitarse siempre y cuando no tengas más de 2 pagos atrasados con tu tarjeta
                             </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+  } else if (type === "DebitCard"){
+    return(
+        <div className="information-tabs">
+            <div className="information-tabs-flex">
+                <div className="tab-images-container">
+                    <div className={toggleState === 1 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(1)}>
+                        <img src={IndividualCardImages("./requirements_bg.jpg")} alt=""></img>
+                    </div>
+
+                    <div className={toggleState === 2 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(2)}>
+                        <img src={IndividualCardImages("./limitations_bg.jpg")} alt=""></img>
+                    </div>
+                </div>
+
+                <div className="tab-content">
+                    <div className="tabs-selection">
+                        <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
+                        Requisitos
+                        </button>
+                        <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
+                        Condiciones
+                        </button>
+                    </div>
+
+                    <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Lorem ipsum dolor sit amet.</p>
+                            </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Lorem ipsum dolor sit amet consectetur.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Fotocopia de DUI y NIT (revés y derecho)</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>
+                                Constancia de ingresos vigente firmada por la empresa, copia de
+                                boletas de pago o constancia de AFP de los últimos 6 meses
+                            </p>
+                        </div>
+                    </div>
+                    <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero inventore eligendi vero?</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate?</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, earum.</p>
                         </div>
                     </div>
                 </div>

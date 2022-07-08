@@ -18,7 +18,6 @@ export const Identificacion = () => {
   const toggleShowPass = () => setShowPass(prevState => !prevState);
   const toggleShowConfPass = () => setShowConfPass(prevState => !prevState);
 
-
   useEffect(() => {
     if (page === 2) {
       setstateOfStep2('focus');

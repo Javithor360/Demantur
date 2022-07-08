@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import { FaRegUser as UserIcon } from 'react-icons/fa'
 import { AiOutlineQuestionCircle as QuestionIcon } from 'react-icons/ai'
 import { FaAngleRight } from 'react-icons/fa'
-import PrideLogo from './assets/img/DemanturPride2022.png'
 
 import Logo from './assets/img/Demantur_Imagotype-2.svg'
 import { useState } from 'react'
@@ -26,7 +25,6 @@ export const Navbar = () => {
   return (
     <nav className='navbar'>
       <Link to='/'>
-        {/* <img src={PrideLogo} alt="" className="logo" /> */}
         <img src={Logo} alt="" className="logo" />
       </Link>
 
@@ -40,7 +38,7 @@ export const Navbar = () => {
           <hr />
           <Link to='/contact'><span className="hover-underline">Contacto</span><FaAngleRight className='flecha' /></Link>
           <hr />
-          <Link to='/'><span className="hover-underline">Empresas</span><FaAngleRight className='flecha' /></Link>
+          <Link to='/info'><span className="hover-underline">Empresas</span><FaAngleRight className='flecha' /></Link>
           <hr />
           <Link to='/'><span className="hover-underline">Nosotros</span><FaAngleRight className='flecha' /></Link>
         </ul>

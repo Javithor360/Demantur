@@ -52,7 +52,7 @@ export const DemanturGold = () => {
               <img src={CreditCardsImages('./icons/single_point_icon.png')} alt=""></img>
               <p>Gana puntos</p>
               <p>
-                Obtén 10,000 puntos acumulables de bienvenida  después de usar tu tarjeta por primera vez sin importar el moto que gastes. 
+                Obtén 10,000 puntos acumulables de bienvenida después de usar tu tarjeta por primera vez sin importar el monto que gastes. 
               </p>
             </div>
             <div className="vl">
@@ -78,7 +78,7 @@ export const DemanturGold = () => {
                 <img src={CreditCardsImages('./icons/guarantee_icon.png')} alt=""></img>
                 <p>Garantia Extendida</p>
                 <p>
-                  Recibe una protección adicional que extenderá el tiempo de garantia hasta un año más adicional a la garantia que ofrece el fabricante.
+                  Recibe una protección adicional que extenderá el tiempo de garantía hasta un año más adicional a la garantía que ofrece el fabricante.
                 </p>
               </div>
               <div className="vl">

@@ -118,7 +118,7 @@ export const IndexPage = () => {
               tus metas
             </p>
             <div className="boton">
-              <Link to="/" className="LinkHover">
+              <Link to="/Loans" className="LinkHover">
                 <span>Conoce Más</span>
                 <FaAngleRight className="view-icon fa-solid fa-angle-right ArrowIcon" />
               </Link>
@@ -127,10 +127,9 @@ export const IndexPage = () => {
 
           <div className="card">
             <img src={TarjetasImages('./card-3.png')} alt="" />
-            <h4>Cobro de remesas</h4>
+            <h4>Cuentas bancarias</h4>
             <p>
-              Retira tu remesa directamente desde tu cuenta fácil, rápido y
-              seguro
+              Elige la mejor cuenta que se adapte a tus necesidades con los mejores beneficios
             </p>
             <div className="boton">
               <Link to="/" className="LinkHover">
@@ -153,7 +152,7 @@ export const IndexPage = () => {
                 intereses sobre tus ahorros, controla tu dinero y ten acceso a
                 el en todo momento.
               </p>
-              <Link to="/" className="about-button-rg">
+              <Link to="/accounts/savings" className="about-button-rg">
                 <span>Conoce Más</span>
                 <FaAngleRight className="fa-solid fa-angle-right about-button-rg-icon" />
               </Link>
@@ -165,11 +164,11 @@ export const IndexPage = () => {
               <p>Te ayudamos a cumplir tus sueños</p>
               <hr className="blue-underline" />
               <p>
-                Conoce nuestros créditos y elige el mejor para cumplir tus
-                metas, con tramites sencillos y rápidos, además de una baja tasa
-                de intereses
+                Conoce nuestros préstamos y elige el mejor para cumplir tus
+                metas, con tramites sencillos y rápidos, además de una tasa
+                de intereses justa
               </p>
-              <Link to="/" className="about-button-rg">
+              <Link to="/Loans" className="about-button-rg">
                 <span>Conoce Más</span>
                 <FaAngleRight className="fa-solid fa-angle-right about-button-rg-icon" />
               </Link>

@@ -11,25 +11,25 @@ import { Tabs } from "../assets/js/BannerTabCreator.js";
 //images
 const CreditCardsImages = require.context('../assets/img/credit_cards', true)
 
-export const DemanturGold = () => {
+export const BlackCard = () => {
   return (
     <>
       <Navbar />
-        <div className="gold-card-hero-container">
-          <div className="gold-card-hero-content">
+        <div className="black-card-hero-container">
+          <div className="black-card-hero-content">
             <div className="text-content">
-              <p>Gold</p>
-              <p>Vive al máximo, no te limites y cumple tus objetivos</p>
+              <p>Mastercard Black</p>
+              <p>Disfruta el mundo como solo tú lo mereces</p>
             </div>
             <div className="image-content">
-              <img src={CreditCardsImages('./bank_cards_images/goldCard.png')} alt='' ></img>
+              <img src={CreditCardsImages('./bank_cards_images/blackCard.png')} alt='' ></img>
             </div>
           </div>
         </div>
 
         <div className="card-description">
           <p>
-            Obtén muchas más posibilidades, beneficios superiores y un mayor nivel de compra y efectivo con la tarjeta Demantur Gold, con ella siempre tendrás ese respaldo de calidad y una mayor seguridad, confianza y ese respaldo que mereces. La Demantur Gold está pensada para aquellas personas como tú, que siempre buscan esa exigencia y buen nivel en una tarjeta de crédito, descubre más beneficios a continuación.
+            Cuando hablamos de la tarjeta Mastercard Black estamos concientes que es algo superior, obtén ese prestigio, reconocimiento, exclusividad y obviamente unos maravillosos beneficios que solo esta tarjeta es capaz de darte, vive un mundo lleno de posibilidades y sueños, viajes, extrafinanciameitos, protecciones, asistencias, salas VIP, entre otras muchas cosas con las que disfrutar de la vida al máximo, revisa a continuacion más información.
           </p>
         </div>
 
@@ -38,32 +38,32 @@ export const DemanturGold = () => {
             Disfruta de los mejores beneficios que te ofrece esta tarjeta
           </p>
           <div className="card-benefits_grid_row">
-            <div className="grid_item">
-              <img src={CreditCardsImages('./icons/money_security_icon.png')} alt=""></img>
-              <p>Seguro de compras</p>
+          <div className="grid_item">
+              <img src={CreditCardsImages('./icons/lounge_access_icon.png')} alt=""></img>
+              <p>Acceso a Salas VIP</p>
               <p>
-                Recibe un reembolso de protección contra daños, robos o accidentes por cada producto que compres con la tarjeta. 
+                Disfruta de acceso a las salas Lounge Key y obten ofertas adaptadas a tus necesidades en restaurantes, spas y tiendas en los aeropuertos
               </p>
             </div>
             <div className="vl">
               <hr />
             </div>
             <div className="grid_item">
-              <img src={CreditCardsImages('./icons/single_point_icon.png')} alt=""></img>
-              <p>Gana puntos</p>
-              <p>
-                Obtén 10,000 puntos acumulables de bienvenida después de usar tu tarjeta por primera vez sin importar el monto que gastes. 
-              </p>
-            </div>
+                <img src={CreditCardsImages('./icons/extra_financing_icon.png')} alt=""></img>
+                <p>Extrafinanciamiento</p>
+                <p>
+                 Puedes obtener esa línea extra de financiamiento a tu tarjeta de crédito y disponer de efectivo de una forma rapida y sencilla
+                </p>
+              </div>
             <div className="vl">
               <hr />
             </div>
             <div className="grid_item">
-              <img src={CreditCardsImages('./icons/airplane_black_icon.png')} alt=""></img>
-              <p>Canjea por viajes</p>
-              <p>
-                Puedes canjear tus puntos acumulados por boletos aéreos a destinos seleccionados y disfruta de explorar el mundo.
-              </p>
+                <img src={CreditCardsImages('./icons/travel_assist_icon.png')} alt=""></img>
+                <p>Asistencia de Viajes</p>
+                <p>
+                    Proporcionamos ayuda de viaje cuando estés fuera, puedes obtener información acerca del destino, emergencias, identificaciones, etc
+                </p>
             </div>
           </div>
           <div className="card-benefits_grid_row__2">
@@ -74,50 +74,51 @@ export const DemanturGold = () => {
             <div className="hl"><hr /></div>
           </div>
           <div className="card-benefits_grid_row">
-            <div className="grid_item mgt_1">
+            <div className="grid_item">
                 <img src={CreditCardsImages('./icons/guarantee_icon.png')} alt=""></img>
                 <p>Garantia Extendida</p>
                 <p>
-                  Recibe una protección adicional que extenderá el tiempo de garantía hasta un año más adicional a la garantía que ofrece el fabricante.
+                    Recibe una protección adicional que extenderá el tiempo de garantía hasta un año más adicional a la garantía que ofrece el fabricante.
                 </p>
-              </div>
-              <div className="vl">
+            </div>
+            <div className="vl">
                 <hr />
-              </div>
-              <div className="grid_item mgt_1">
-                <img src={CreditCardsImages('./icons/fee_payment_icon.png')} alt=""></img>
-                <p>Tasas de interés bajas</p>
+            </div>
+            <div className="grid_item">
+                <img src={CreditCardsImages('./icons/single_point_icon.png')} alt=""></img>
+                <p>Gana puntos</p>
                 <p>
-                 Tus cuotas tendrán un tasa de interés del 8%, e incluso puede bajar según tu historial crediticio o el plazo
+                    Obtén 80,000 puntos acumulables de bienvenida después de usar tu tarjeta por primera vez sin importar el monto que gastes. 
                 </p>
-              </div>
-              <div className="vl">
+            </div>
+            <div className="vl">
                 <hr />
-              </div>
-              <div className="grid_item mgt_1">
-                <img src={CreditCardsImages('./icons/max_money_icon.png')} alt=""></img>
-                <p>Cobertura máxima</p>
-                <p>
-                  Dispondrás de una cobertura de efectivo hasta de $50,000 en retiro inmediato para que lo puedas usar.
-                </p>
-              </div>
+            </div>
+            <div className="grid_item">
+              <img src={CreditCardsImages('./icons/money_security_icon.png')} alt=""></img>
+              <p>Seguro de compras</p>
+              <p>
+                Recibe un reembolso de protección contra daños, robos o accidentes por cada producto que compres con la tarjeta. 
+              </p>
+            </div>
           </div>
         </div>
-        {Tabs("GoldCard")}
+
+        {Tabs("BlackCard")}
 
         <div className="credit-card-tittle">
           <p>Beneficios Especiales</p>
           <hr />
         </div>
 
-        <div className="gold-other-benefits-banner">
-          <div className="gold-otb-content">
-            <div className="gold-otb-icon">
-              <img src={CreditCardsImages('./icons/emergency_cash_icon.png')} alt="" />
+        <div className="black-other-benefits-banner">
+          <div className="black-otb-content">
+            <div className="black-otb-icon">
+              <img src={CreditCardsImages('./icons/baggage_icon.png')} alt="" />
             </div>
-            <div className="gold-otb-text">
-              <p>Desembolso de efectivo de emergencia</p>
-              <p>Este beneficio te ayudará a obtener efectivo en caso de que tu tarjeta se pierda o la roben</p>
+            <div className="black-otb-text">
+              <p>Protección de equipaje en el aeropuerto</p>
+              <p>Este beneficio te reembolsará en dado caso pierdas tu equipaje registrado para viajar</p>
             </div>
           </div>
         </div>
@@ -182,12 +183,8 @@ export const DemanturGold = () => {
                   <div className="card-form-select">
                     <select name="" id="">
                         <option>Rango Salarial</option>
-                        <option>Entre $450 y $499</option>
-                        <option>Entre $500 y $999</option>
-                        <option>Entre $1,000 y $1,999</option>
-                        <option>Entre $2,000 y $3,999</option>
-                        <option>Entre $4,000 y $5,999</option>
-                        <option>Mayor a $6,000</option>
+                        <option>Entre $4,800 y $6,999</option>
+                        <option>Mayor a $7,000</option>
                     </select> 
                   </div>
                   <div className="flex-row-input">

@@ -2,7 +2,7 @@
 import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 
 // Pages
-import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, AccountsForm, HelpPage, CardsPage, DemanturClassic, DemanturGold, DemanturPlatinum, DebitCard, ContactPage, SelectAccountPage, RegisterNormalUserPage, LoansPage, BusinessLoan, PersonalLoan, InfoEmpre } from "./pages/static";
+import { AccountsPage, CheckingAccount, IndexPage, SavingsAccount, AccountsForm, HelpPage, CardsPage, DemanturClassic, DemanturGold, DemanturPlatinum, DebitCard, ContactPage, SelectAccountPage, RegisterNormalUserPage, LoansPage, BusinessLoan, PersonalLoan, InfoEmpre, BlackCard } from "./pages/static";
 
 //contexts
 import { AuthProvider } from "./context/AuthContext";
@@ -42,6 +42,7 @@ const App = () => {
           <Route path="/cards/gold" element={<DemanturGold />} />
           <Route path="/cards/platinum" element={<DemanturPlatinum />} />
           <Route path="/cards/debito" element={<DebitCard />} />
+          <Route path="/cards/black" element={<BlackCard />} />
 
           {/* Rutas de la autentificacion */}
           <Route path="/auth" element={<SelectAccountPage />} />

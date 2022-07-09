@@ -156,6 +156,54 @@ body{
         }
     }
 }
+//black_hero
+.black-card-hero-container{
+    position: relative;
+    width: 100%;
+    height: 25.93rem;
+    background-image: url(../../img/credit_cards/black/black_card_hero_bg.jpg);
+    background-size: cover;
+    background-position: center 90%;
+    margin-bottom: 8rem;
+
+    .black-card-hero-content{
+        width: inherit;
+        height: inherit;
+        position: absolute;
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, .5);
+        
+        .text-content{
+            position: absolute;
+            top: 15%;
+            right: 0;
+            left: 0;
+            margin: auto;
+
+            p:first-of-type{
+                margin: auto;
+                text-align: center;
+                font-size: 3.75rem;
+            }
+            p:last-of-type{
+                margin: auto;
+                text-align: center;  
+            }
+        }
+        .image-content{
+            position: absolute;
+            top: 55%;
+            margin: auto;
+            right: 0;
+            left: 0;
+            width: 25rem;
+            img{
+                width: 100%;
+                filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.6));
+            }
+        }
+    }
+}
 //debito_hero
 .debit-card-hero-container{
     position: relative;
@@ -385,6 +433,44 @@ body{
             margin-right: 1.5625rem;
         }
         .gold-otb-text{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #ffffff;
+
+            p:first-child{
+                font-size: 2.5rem;
+            }
+            p:last-child{
+                font-size: 1.125rem;
+            }
+            
+        }
+    }
+}
+//black_hero__2
+.black-other-benefits-banner{
+    width: 100%;
+    height: 25.93rem;
+    background-image: url(../../img/credit_cards/black/baggage_bg.jpg);
+    background-size: cover;
+    background-position: center 80%;
+    margin: 2rem auto 0 auto;
+    position: relative;
+
+    .black-otb-content{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .5);
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .black-otb-icon img{
+            width: calc(1vw + 130px);
+            margin-right: 1.5625rem;
+        }
+        .black-otb-text{
             display: flex;
             flex-direction: column;
             align-items: center;

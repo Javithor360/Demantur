@@ -132,7 +132,7 @@ export const IndexPage = () => {
               Elige la mejor cuenta que se adapte a tus necesidades con los mejores beneficios
             </p>
             <div className="boton">
-              <Link to="/" className="LinkHover">
+              <Link to="/accounts" className="LinkHover">
                 <span>Conoce Más</span>
                 <FaAngleRight className="view-icon fa-solid fa-angle-right ArrowIcon" />
               </Link>

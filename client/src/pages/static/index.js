@@ -9,6 +9,7 @@ export { DemanturClassic } from "./credit_cards/DemanturClassic";
 export { DemanturGold } from "./credit_cards/DemanturGold";
 export { DemanturPlatinum } from "./credit_cards/DemanturPlatinum";
 export { DebitCard } from "./credit_cards/DebitCard";
+export { BlackCard } from "./credit_cards/BlackCard";
 export { ContactPage } from "./ContactPage";
 export { SelectAccountPage } from "./SelectAccountPage";
 export { LoansPage } from "./LoansPage";

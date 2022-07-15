@@ -86,7 +86,7 @@ export const Identificacion = () => {
             </div>
             <div className="input-class">
               <input type={ShowConfPass ? 'text' : 'password'} id='confirmpassword' name='confirmpassword' placeholder=' ' onChange={(e) => setConfPassword(e.target.value)} value={ConfPassword} autoComplete='off' className='input-form' />
-              <label htmlFor="confirmpassword" className='label-form'>Confirmar Contraseña</label>
+              <label htmlFor="confirmpassword" className='label-form'>Confirmar Contras... </label>
               <button type='button' onClick={toggleShowConfPass} className='EyesButton' >{ShowConfPass ? <Eye1 className='EyesPass EyePass1' /> : <Eye2 className='EyesPass EyePass2' />}</button>
             </div>
           </div>

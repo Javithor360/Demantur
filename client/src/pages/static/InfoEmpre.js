@@ -11,6 +11,7 @@ export const InfoEmpre = () => {
         <div className="baners-content">
         <Empre className="arrow" />
           <h1 className="title">Cuenta Empresarial</h1>
+          <p className="subtitles">Encuentra la mejor solución que se adapte a tus necesidades</p>
         </div>
       </div>
       <div className="title2">
@@ -29,50 +30,26 @@ export const InfoEmpre = () => {
       <div className="accT_benefits-containers">
           <div className="accT_benefits-grids">
             <div className="accT_benefits-card-conts">
-             
+            <BiLock className="ico" />
               <p className="accT_benefits-titles">
-                Disponibilidad inmediata
-              </p>
-              <p className="accT_benefits-descs">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                imperdiet.
+              Un lugar seguro para guardar tu dinero
               </p>
             </div>
 
             <div className="accT_benefits-card-conts">
-             
-              <p className="accT_benefits-titles">Tarjeta de débito Demantur</p>
-              <p className="accT_benefits-descs">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                imperdiet.
-              </p>
+            <BiWallet className="ico" />
+              <p className="accT_benefits-titles">Realizar el pago de nóminas</p>
             </div>
 
             <div className="accT_benefits-card-conts">
-              
+            <BiWallet className="ico" />
               <p className="accT_benefits-titles  ">
-                Controla tus movimientos 24/7
+              Posibilidad de contar con chequera
               </p>
             </div>
           </div>
         </div>
-      <br/><br/>
-      <div className="content-icon">
-      <p className="list"><BiLock className="ico" /><br/>
-        Un lugar seguro para guardar tu dinero
-        </p>
-      </div>
-      <div className="content-icon">
-      <p className="list"><BiWallet className="ico" /><br/>
-      Realizar el pago de nóminas
-        </p>
-      </div>
-      <div className="content-icon">
-      <p className="list"><BiWallet className="ico" /><br/>
-      Posibilidad de contar con chequera
-        </p>
-      </div>
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <br/><br/><br/><br/><br/><br/>
        
       {Tabs("InfoEmpre")}
       

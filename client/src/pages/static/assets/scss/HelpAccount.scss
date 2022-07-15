@@ -6,6 +6,10 @@
     position: relative;
 
 }
+.subtitles{
+    text-align: center;
+    margin: 1rem auto 0 auto;
+    font-size: 1.8rem;}
 
 .baners-content {
     position: absolute;
@@ -17,6 +21,11 @@
     justify-content: center;
     color: #ffffff;
 }
+.title{
+    font-size: 3rem;
+            font-weight: bold;
+            margin: 1.25rem auto 1.25rem auto ;
+}
 .title2 hr{
     border: 0;
     height: .3rem;
@@ -25,6 +34,7 @@
     padding: 0;
     margin: auto;
     width: 15rem;
+    font-weight: bold;
 }
 
 .title2 p{
@@ -35,7 +45,7 @@
 .arrow{
     display: block;
     margin: 0 auto;
-    font-size: 3.125rem;
+    font-size: 3.375rem;
 }
 
 .infor{

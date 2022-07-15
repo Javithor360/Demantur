@@ -19,10 +19,7 @@ export { RegisterNormalUserPage } from "./auth/RegisterNormalUserPage";
 export { LoginNormalUserPage } from './auth/LoginNormalUserPage';
 export { VerifyEmailPage } from './auth/VerifyEmailPage';
 export { InfoEmpre } from "./InfoEmpre";
-<<<<<<< HEAD
 export { ForgotPasswordPage } from './auth/ForgotPasswordPage'
 export { ResetPasswordPage } from './auth/ResetPasswordPage'
-=======
 export { AboutUs } from "./AboutUs";
 export { TermsandConditions } from "./TermsAndConditions";
->>>>>>> 43a349aaab7b71992bcbf1b4cec2e6648b4a2ade

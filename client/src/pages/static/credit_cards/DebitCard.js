@@ -2,7 +2,7 @@
 import "../assets/scss/credit_cards/individual_cards_pages_main.scss";
 
 //icons
-import { MdOutlineEmail, MdOutlinePhone, MdOutlineHome, MdOutlineBadge, MdPersonOutline } from "react-icons/md"
+import { MdOutlineEmail, MdOutlinePhone, MdOutlineHome, MdOutlineBadge, MdPersonOutline, MdOutlineTag, MdOutlineHomeWork, MdOutlineEngineering } from "react-icons/md"
 
 //components
 import { Navbar, Footer } from "../../../components";
@@ -29,7 +29,7 @@ export const DebitCard = () => {
 
         <div className="card-description">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium explicabo amet enim praesentium inventore, eius doloribus cumque ratione ad asperiores vero unde excepturi suscipit. Voluptates id corrupti neque tenetur veritatis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat quasi dolore temporibus facilis facere sint! Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet.
+            Con la tarjeta de Débito Clásica de Demantur obtienes el control de gastos que necesitas, podrás pagar en los diferentes servicios y comercios sin necesidad de cargar efectivo, pero además, también podrás acceder por medio de los cajeros automáticos al efectivo si es que lo necesitas. Por otro lado, no dudes en tener siempre los beneficios especiales que te ofrece Demantur, te invitamos a seguir viendo los demás detalles a continuación.
           </p>
         </div>
 
@@ -44,7 +44,7 @@ export const DebitCard = () => {
                 <div>
                   <p>Paga fácil y rapido</p>
                   <hr />
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo incidunt esse facere doloremque perspiciatis culpa. Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                  <p>La tarjeta Débito Clásica te brinda esa facilidad de pagar siempre aunque no lleves efectivo contigo, es más práctico si prefieres cargar siempre la tarjeta en vez de grandes cantidades de efectivo</p>
                 </div>
               </div>
             </div>
@@ -54,7 +54,7 @@ export const DebitCard = () => {
                 <div>
                   <p>Seguridad y control</p>
                   <hr />
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo incidunt esse facere doloremque perspiciatis culpa. Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                  <p>Al no cargar efectivo tienes la seguridad de no perderlo, y si en caso extravíes la tarjeta, puedes cancelarla y evitar la pérdida de los fondos que tienes almacenados en ella</p>
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@ export const DebitCard = () => {
                 <div>
                   <p>Ahorro y eficiencia</p>
                   <hr />
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo incidunt esse facere doloremque perspiciatis culpa. Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                  <p>Al hacer uso de tus propios fondos no debes pagar intereses ni cuotas mes a mes y en ningún momento acumulas deuda con ella, ahorras más y mantén la eficiencia de tu dinero en todo momento cuando la uses</p>
                 </div>
               </div>
             </div>
@@ -88,7 +88,7 @@ export const DebitCard = () => {
             <div className="debit-otb-text">
               <p>Obtén puntos por cada una de tus compras</p>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga officia saepe nihil.
+                Obtén 1 punto por cada $2.00 que gastes con tu tarjeta de débito
               </p>
             </div>
           </div>
@@ -130,6 +130,15 @@ export const DebitCard = () => {
                       </label>
                   </div>
                 </div>
+                <div className="form-individual-element">
+                  <div className="label-icon"><MdOutlineTag /></div>
+                  <div className="form-input-container">
+                      <input className="form-input-box" type="text" placeholder="Dirección"/>
+                      <label className="form-label-box" htmlFor="">
+                        Número de cuenta a la que vinculará la tarjeta
+                      </label>
+                  </div>
+                </div>
               </div>
               <div className="form-row-content">
                 <div className="form-individual-element">
@@ -149,25 +158,24 @@ export const DebitCard = () => {
                           Correo Electrónico
                         </label>
                     </div>
-                </div> 
-                <div className="form-flex-row">
-                  <div className="card-form-select">
-                    <select name="" id="">
-                        <option>Rango Salarial</option>
-                        <option>Entre $450 y $499</option>
-                        <option>Entre $500 y $999</option>
-                        <option>Entre $1,000 y $1,999</option>
-                        <option>Entre $2,000 y $3,999</option>
-                        <option>Entre $4,000 y $5,999</option>
-                        <option>Mayor a $6,000</option>
-                    </select> 
-                  </div>
-                  <div className="flex-row-input">
-                      <input className="form-input-box" type="text" placeholder="Escriba su posición laboral"/>
-                      <label className="form-label-box" htmlFor="">
+                </div>
+                <div className="form-individual-element">
+                    <div className="label-icon"><MdOutlineHomeWork /></div>
+                    <div className="form-input-container">
+                        <input className="form-input-box" type="email" placeholder="Correo Electrónico"/>
+                        <label className="form-label-box" htmlFor="">
+                          Dirección de entrega de la tarjeta
+                        </label>
+                    </div>
+                </div>
+                <div className="form-individual-element">
+                    <div className="label-icon"><MdOutlineEngineering /></div>
+                    <div className="form-input-container">
+                        <input className="form-input-box" type="email" placeholder="Correo Electrónico"/>
+                        <label className="form-label-box" htmlFor="">
                           Escriba su posición laboral
-                      </label>
-                  </div>
+                        </label>
+                    </div>
                 </div>
               </div>
             </div>    
@@ -183,7 +191,7 @@ export const DebitCard = () => {
                 <input type="file" name="" id="file2"></input>
               </div>
               <div className="input-files">
-                <p>Adjunta tu constancia de salario</p>
+                <p>Constancia de lugar de residencia</p>
                 <label htmlFor="file3">Seleccionar Archivo</label>
                 <input type="file" name="" id="file3"></input>
               </div>

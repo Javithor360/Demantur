@@ -6,11 +6,13 @@ import { Navbar, Footer } from "../../components/";
 
 
 //icons
-import { FaRegCreditCard, FaAngleRight, FaRegStar, FaStar } from 'react-icons/fa'
+import { FaRegCreditCard, FaAngleRight, FaRegStar, FaStar, FaRegMoneyBillAlt } from 'react-icons/fa'
 import { TbShoppingCartDiscount } from 'react-icons/tb';
 import { BsCardChecklist } from 'react-icons/bs';
 import { MdAttachMoney } from 'react-icons/md';
 import { IoAirplaneOutline } from 'react-icons/io5';
+import { AiOutlineLock } from 'react-icons/ai'
+import { GrAtm } from 'react-icons/gr';
 
 //hooks
 import { Link } from "react-router-dom";
@@ -60,7 +62,7 @@ export const CardsPage = () => {
                             </p>
                             <p>
                                 <span><MdAttachMoney /></span>
-                                Tasa de interes de hasta un 30%
+                                Tasa de interes inicial de hasta un 48%
                             </p>
                         </div>
                         <div className='card-button'>
@@ -92,7 +94,7 @@ export const CardsPage = () => {
                             </p>
                             <p>
                                 <span><BsCardChecklist /></span>
-                                Obten cuotas de hasta 48 meses sin intereses
+                                Cuotas con una tasa de interés del 32%
                             </p>
                             <p>
                                 <span><TbShoppingCartDiscount /></span>
@@ -129,7 +131,7 @@ export const CardsPage = () => {
                             </p>
                             <p>
                                 <span><BsCardChecklist /></span>
-                                Obten cuotas ajustables sin intereses
+                                Cuotas con una tasa de interés desde el 26%
                             </p>
                             <p>
                                 <span><MdAttachMoney /></span>
@@ -137,11 +139,51 @@ export const CardsPage = () => {
                             </p>
                             <p>
                                 <span><IoAirplaneOutline /></span>
-                                Canjea tus puntos por viajes aereos
+                                Canjea tus puntos por viajes aéreos
                             </p>
                         </div>
                         <div className='card-button'>
                             <Link to="/cards/gold" className="more-details-bt">
+                                <span >Más detalles</span>
+                                <FaAngleRight className='more-details-bt-icon' />
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div className='individual-card-container'>
+                    <div className='card-information'>
+                        <div className='card-image'>
+                            <img src={CreditCardsImages('./bank_cards_images/blackCard.png')} alt='' />
+                        </div>
+                        <div className='card-tittle'>
+                            <p>Mastercard Black  <span className='registered-icon'>&reg;</span> </p>
+                            <p>Mastercard &trade;</p>
+                        </div>
+                        <div className='card-details'>
+                            <p>
+                                <span><FaRegStar /></span>
+                                Recibe 80,000 puntos de bienvenida acumulables
+                            </p>
+                            <p>
+                                <span><FaStar /></span>
+                                Gana 2 puntos por cada dolar gastado en compras
+                            </p>
+                            <p>
+                                <span><BsCardChecklist /></span>
+                                Cuotas con una tasa de interés desde el 12%
+                            </p>
+                            <p>
+                                <span><MdAttachMoney /></span>
+                                Extrafinanciamiento y cobertura de hasta $230,000
+                            </p>
+                            <p>
+                                <span><IoAirplaneOutline /></span>
+                                Canjea tus puntos por viajes aéreos
+                            </p>
+                        </div>
+                        <div className='card-button'>
+                            <Link to="/cards/black" className="more-details-bt">
                                 <span >Más detalles</span>
                                 <FaAngleRight className='more-details-bt-icon' />
                             </Link>
@@ -168,19 +210,19 @@ export const CardsPage = () => {
                         <div className='card-details'>
                             <p>
                                 <span><FaRegStar /></span>
-                                Lorem ipsum dolor sit amet, consectetur
+                                Obtén puntos por tus compras
                             </p>
                             <p>
-                                <span><FaStar /></span>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing
+                                <span><FaRegMoneyBillAlt /></span>
+                                Retira efectivo cuando quieras
                             </p>
                             <p>
-                                <span><BsCardChecklist /></span>
-                                Lorem ipsum dolor sit amet.
+                                <span><AiOutlineLock /></span>
+                                Seguridad con tus compras
                             </p>
                             <p>
-                                <span><MdAttachMoney /></span>
-                                Lorem ipsum dolor sit amet, adipiscing
+                                <span><GrAtm /></span>
+                                Utiliza los kioskos para pagar tus recibos
                             </p>
                         </div>
                         <div className='card-button'>

@@ -25,7 +25,38 @@ export const InfoEmpre = () => {
         <div className="title2">
         <p>¿Cuales son los beneficios?</p>
         <hr />
-      </div><br/><br/>
+      </div>
+      <div className="accT_benefits-containers">
+          <div className="accT_benefits-grids">
+            <div className="accT_benefits-card-conts">
+             
+              <p className="accT_benefits-titles">
+                Disponibilidad inmediata
+              </p>
+              <p className="accT_benefits-descs">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                imperdiet.
+              </p>
+            </div>
+
+            <div className="accT_benefits-card-conts">
+             
+              <p className="accT_benefits-titles">Tarjeta de débito Demantur</p>
+              <p className="accT_benefits-descs">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                imperdiet.
+              </p>
+            </div>
+
+            <div className="accT_benefits-card-conts">
+              
+              <p className="accT_benefits-titles  ">
+                Controla tus movimientos 24/7
+              </p>
+            </div>
+          </div>
+        </div>
+      <br/><br/>
       <div className="content-icon">
       <p className="list"><BiLock className="ico" /><br/>
         Un lugar seguro para guardar tu dinero

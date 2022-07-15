@@ -3,20 +3,38 @@ import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 
 // Pages
 import {
-  AccountsPage, CheckingAccount, IndexPage, SavingsAccount, AccountsForm, HelpPage, CardsPage, DemanturClassic, DemanturGold, DemanturPlatinum,
-  DebitCard, ContactPage, SelectAccountPage, RegisterNormalUserPage, LoansPage, BusinessLoan, PersonalLoan, InfoEmpre, LoginNormalUserPage, VerifyEmailPage,
-  ForgotPasswordPage, ResetPasswordPage
+  AccountsPage,
+  CheckingAccount,
+  IndexPage,
+  SavingsAccount,
+  AccountsForm,
+  HelpPage,
+  CardsPage,
+  DemanturClassic,
+  DemanturGold,
+  DemanturPlatinum,
+  DebitCard,
+  ContactPage,
+  SelectAccountPage,
+  RegisterNormalUserPage,
+  LoansPage,
+  BusinessLoan,
+  PersonalLoan,
+  InfoEmpre,
+  BlackCard,
+  AboutUs,
+  TermsandConditions,
 } from "./pages/static";
 
 //contexts
 import { AuthProvider } from "./context/AuthContext";
 
 // Componentes
-import { ScrollToTop } from './components/'
+import { ScrollToTop } from "./components/";
 
 const App = () => {
   return (
-    <BrowserRouter >
+    <BrowserRouter>
       <AuthProvider>
         {/* Funciones */}
         <ScrollToTop />
@@ -28,11 +46,16 @@ const App = () => {
           {/* Ruta Index */}
           <Route path="/index" element={<IndexPage />} />
 
+          {/* AboutUs */}
+          <Route path="/about" element={<AboutUs />} />
+
+          {/* Términos y condiciones */}
+          <Route path="/terms" element={<TermsandConditions />} />
+
           {/* Single Routes */}
           <Route path="/help" element={<HelpPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/info" element={<InfoEmpre />} />
-
 
           {/* Rutas de "/accounts" */}
           <Route path="/accounts" element={<AccountsPage />} />
@@ -46,15 +69,25 @@ const App = () => {
           <Route path="/cards/gold" element={<DemanturGold />} />
           <Route path="/cards/platinum" element={<DemanturPlatinum />} />
           <Route path="/cards/debito" element={<DebitCard />} />
+          <Route path="/cards/black" element={<BlackCard />} />
 
           {/* Rutas de la autentificacion */}
           <Route path="/auth" element={<SelectAccountPage />} />
           <Route path="/auth/normal-user/" element={<SelectAccountPage />} />
-          <Route path="/auth/normal-user/login" element={<LoginNormalUserPage />} />
-          <Route path="/auth/normal-user/register" element={<RegisterNormalUserPage />} />
-          <Route path="/auth/verify-email" element={<VerifyEmailPage />} />
-          <Route path="/auth/forgot-password" element={<ForgotPasswordPage />} />
-          <Route path="/auth/reset-password/:resetToken" element={<ResetPasswordPage />} />
+          <Route
+            path="/auth/normal-user/login"
+            element={<SelectAccountPage />}
+          />
+          <Route
+            path="/auth/normal-user/register"
+            element={<RegisterNormalUserPage />}
+          />
+          <Route path="/auth/forgot-password" element={<SelectAccountPage />} />
+          <Route
+            path="/auth/reset-password/:resetToken"
+            element={<SelectAccountPage />}
+          />
+          <Route path="/auth/waiting" element={<SelectAccountPage />} />
 
           {/*Rutas de "/loans"*/}
           <Route path="/loans" element={<LoansPage />}></Route>
@@ -62,7 +95,10 @@ const App = () => {
           <Route path="/Loans/BersonalLoan" element={<PersonalLoan />}></Route>
 
           {/* test dashboard */}
-          <Route path="/dashboard/:usuario/perfil" element={<SelectAccountPage />} />
+          <Route
+            path="/dashboard/:usuario/perfil"
+            element={<SelectAccountPage />}
+          />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

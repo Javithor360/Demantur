@@ -86,9 +86,9 @@ export const DemanturGold = () => {
               </div>
               <div className="grid_item mgt_1">
                 <img src={CreditCardsImages('./icons/fee_payment_icon.png')} alt=""></img>
-                <p>Cuotas Adaptables</p>
+                <p>Tasas de interés bajas</p>
                 <p>
-                  Podrás solicitar plazos de cuotas según tus posibilidades para que se adapten mejor a tu bolsillo y presupuestos.
+                 Tus cuotas tendrán un tasa de interés del 8%, e incluso puede bajar según tu historial crediticio o el plazo
                 </p>
               </div>
               <div className="vl">
@@ -98,7 +98,7 @@ export const DemanturGold = () => {
                 <img src={CreditCardsImages('./icons/max_money_icon.png')} alt=""></img>
                 <p>Cobertura máxima</p>
                 <p>
-                  Dispondrás de una cobertura de efectivo hasta de $100,000 en retiro inmediato para que lo puedas usar.
+                  Dispondrás de una cobertura de efectivo hasta de $50,000 en retiro inmediato para que lo puedas usar.
                 </p>
               </div>
           </div>

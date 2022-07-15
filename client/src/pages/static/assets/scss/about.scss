@@ -1,0 +1,153 @@
+.about-hero {
+    background-image: url(../img/about-hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 35.93rem;
+    width: 100%;
+    padding: 1.25rem;
+    position: relative;
+
+    .about-hero-cont {
+        position: absolute;
+        background-color: rgba(0, 0, 0, .5);
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        
+        p, h2 {
+            color: #ffffff;
+            margin: 1rem auto 1rem 5rem;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 1.5;
+            width: 30%;
+        }
+
+    }
+}
+
+.about-history-container {
+    margin: 5rem 12rem;
+    display: flex;
+    .about-history-text {
+        margin-right: 4rem;
+        text-align: justify ;
+
+        h2 {
+            font-size: 4rem;
+        }
+
+        hr {
+            border: 0;
+            height: .3rem;
+            background: #93DEFF;
+            opacity: 100;
+            padding: 0;
+            width: 31.5rem;
+            margin-top: -.5rem;
+        }
+
+        p {
+            margin-top: 2rem;
+            font-size: 1rem;
+        }
+    }
+
+    img {
+        margin-top: 2.8rem;
+        height: 30rem;
+        width: 25rem;
+        align-items: center;
+    }
+}
+
+.about-impact-container {
+    background-image: url(../img/about-hero.jpg);
+    height: 24.5rem;
+    width: 100%;
+    margin-top: 15rem;
+    
+    .about-impact-bg {
+        width: inherit;
+        height: inherit;
+        position: relative;
+    }
+    .about-impact-text {
+        position: absolute;
+        background-color: rgb(68, 71, 85);
+        left: 20rem;
+        bottom: 50%;
+        width: 35rem;
+        text-align: justify;
+        padding: 2rem;
+        border-radius: .5rem;
+        color: #ffffff;
+
+        h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    }
+}
+
+.about-valors-container {
+    .about-valors-main-title {
+        text-align: center;
+        font-size: 2rem;
+        margin: 4rem 6rem auto;
+    }
+
+    hr {
+        border: 0;
+        height: .3rem;
+        background: #93DEFF;
+        opacity: 100;
+        padding: 0;
+        margin: auto;
+        width: 17rem;
+    }
+
+    .about-valors-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        margin: 3rem 6rem 4rem;
+
+        .about-valors-card-cont {
+            text-align: center;
+            overflow: hidden;
+            height: 100%;
+            padding: 2rem;
+            border-radius: 0.3125rem;
+            margin: 0 1rem;
+            box-shadow: 0 0 0.3125rem 0 rgba(0, 0, 0, 0.315);
+
+            .about-valors-icon {
+                color: #455FB9;
+                font-size: 3rem;
+            }
+
+            .about-valors-title {
+                color: #455FB9;
+                font-size: 1.375rem;
+            }
+
+            .about-valors-desc {
+                color: #7c7c7c;
+                font-size: 0.875rem;
+            }
+        }
+    }
+}

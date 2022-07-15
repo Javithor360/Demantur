@@ -17,3 +17,5 @@ export { BusinessLoan } from "./loans/BusinessLoan";
 export { PersonalLoan } from "./loans/PersonalLoan";
 export { RegisterNormalUserPage } from "./auth/RegisterNormalUserPage";
 export { InfoEmpre } from "./InfoEmpre";
+export { AboutUs } from "./AboutUs";
+export { TermsandConditions } from "./TermsAndConditions";

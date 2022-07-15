@@ -1,0 +1,112 @@
+.buss-banner-container{
+    width: 100%;
+    height: 35.93rem;
+    background-image: url(../../img/all_loans/business_loan.jpg);
+    background-size: cover;
+    background-position: center center;
+
+    .buss-banner-content{
+        width: inherit;
+        height: inherit;
+        position: absolute;
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, .5);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .Build-icon{
+            font-size: 4.375rem;
+        }
+
+        h1{
+			font-size: 3rem;
+			font-weight: bold;
+            margin: 1.25rem auto 1.25rem auto ;
+        }
+
+		p {
+			font-size: 1.5rem;
+		}
+    }
+}
+
+.loansB-type-tittle p {
+    text-align: center;
+    margin: 2rem auto 0 auto;
+    font-size: 1.8rem;
+}
+.loansB-type-tittle hr {
+    border: 0;
+    height: .2rem;
+    background: #93DEFF;
+    opacity: 100;
+    padding: 0;
+    margin: auto;
+    width: 10rem;
+}
+.Bpage-section {
+	position: relative;
+	display: block;
+	padding: 0.5rem 0;
+    text-align: justify;
+}
+.description_empresarial{
+    width: 80%;
+    margin: auto;
+    border-left: 4px solid #93DEFF;
+    opacity: 100;
+    padding-left: 0.5rem;
+}
+.business-other-interest-banner{
+    width: 100%;
+    height: 25.93rem;
+    background-image: url(../../img/all_loans/Business/Client_atention.jpg);
+    background-size: cover;
+    background-position: center 95%;
+    margin: 2rem 0 0 0;
+    position: relative;
+
+    .business-otb-content{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .5);
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .loan-otb-icon img{
+            width: calc(1vw + 130px);
+            margin-right: 1.5625rem;
+            color: #ffffff;
+        }
+        .classic-otb-text{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #ffffff;
+
+            p:first-child{
+                font-size: 2.5rem;
+            }
+            p:last-child{
+                font-size: 1.125rem;
+            }
+            
+        }
+    }
+}
+
+.about_businnes_image {
+	position: relative;
+	margin: 0.4rem auto;
+	width: auto;
+	max-width: 31.60rem;
+	border-radius: 0.75rem;
+	overflow: hidden;
+	transform: skewX(-3deg) rotateX(20deg);
+	img {
+		width: 100%;
+	}
+}

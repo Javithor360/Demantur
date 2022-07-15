@@ -55,7 +55,7 @@ const App = () => {
           {/*Rutas de "/loans"*/}
           <Route path="/loans" element={<LoansPage/>}></Route>
           <Route path="/loans/BusinessLoan" element={<BusinessLoan/>}></Route>
-          <Route path="/Loans/BersonalLoan" element={<PersonalLoan/>}></Route>
+          <Route path="/Loans/PersonalLoan" element={<PersonalLoan/>}></Route>
 
           {/* test dashboard */}
           <Route path="/dashboard/:usuario/perfil" element={<SelectAccountPage />} />

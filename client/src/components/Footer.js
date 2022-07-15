@@ -1,44 +1,44 @@
 // Estilos
-import './assets/scss/footer-style.scss'
+import "./assets/scss/footer-style.scss";
 
 //Hooks
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 // Assets (Iconos e Imagenes)
-import { FaInstagram as InstagramIcon, FaFacebook as FbIcon, FaRegEnvelope as MailIcon } from "react-icons/fa";
-import Logo_Footer_White from './assets/img/Demantur_Imagotype-2_White.svg'
+import {
+  FaInstagram as InstagramIcon,
+  FaFacebook as FbIcon,
+  FaRegEnvelope as MailIcon,
+} from "react-icons/fa";
+import Logo_Footer_White from "./assets/img/Demantur_Imagotype-2_White.svg";
 
 export const Footer = () => {
   return (
     <footer>
       <div className="footer-container">
         <div className="footer-content-container">
-          <img
-            src={Logo_Footer_White}
-            alt=""
-            className="footer-logo"
-          />
+          <img src={Logo_Footer_White} alt="" className="footer-logo" />
         </div>
         <div className="footer-menu">
           <div className="footer-content-container">
-            <Link to="/" className="menu-item-footer">
+            <Link to="/terms" className="menu-item-footer">
               Términos y condiciones
             </Link>
             <Link to="/" className="menu-item-footer">
               Política de privacidad
             </Link>
-            <Link to="/" className="menu-item-footer">
+            <Link to="/help" className="menu-item-footer">
               Ayuda
             </Link>
           </div>
           <div className="footer-content-container">
-            <Link to="/" className="menu-item-footer">
+            <Link to="/about" className="menu-item-footer">
               Nuestra empresa
             </Link>
-            <Link to="/" className="menu-item-footer">
+            <Link to="/contact" className="menu-item-footer">
               Contacto
             </Link>
-            <Link to="/" className="menu-item-footer">
+            <Link to="/auth" className="menu-item-footer">
               Acceder
             </Link>
           </div>
@@ -73,5 +73,5 @@ export const Footer = () => {
         </span>
       </div>
     </footer>
-  )
-}
+  );
+};

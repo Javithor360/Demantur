@@ -12,10 +12,19 @@ const ForgotPassword = async (req, res, next) => {
   try {
     const { Dui, Email } = req.body;
 
+    if (!Dui || !Email) {
+      return next(new ErrorResponse('Por favor rellene todos los campos', 401, 'error'))
+    }
+
+    const ValidateEmail = await NormalUser.findOne({ Email });
+    if (ValidateEmail.Dui !== Dui) {
+      return next(new ErrorResponse('El Email y el Dui no coinciden', 401, 'error'))
+    }
+
     // validacion de la verificacion del email
     const isVerifyEmail = await NormalUser.findOne({ Email, verifyCode: undefined })
     if (!isVerifyEmail) {
-      return next(new ErrorResponse('Su Email no esta verificado, por favor revise su Correo e ingrese el codigo en la siguiente pagina', 401, 'error'))
+      return next(new ErrorResponse('Su Email no esta verificado, por favor verifiquelo', 401, 'error'))
     }
 
     // Validacion para ver si la cuenta está activada
@@ -30,10 +39,17 @@ const ForgotPassword = async (req, res, next) => {
       return next(new ErrorResponse('Este Dui No está Registrado', 400, 'error'));
     }
 
+
+    if (isActivedAcc.Dui !== Dui) {
+      return next(new ErrorResponse('El Dui y el Email no coinciden', 400, 'error'));
+    }
+
     const Query2_NormalUser = NormalUser.findOne({ Email });
     if (!Query2_NormalUser) {
       return next(new ErrorResponse('Este Email No está Registrado', 400, 'error'));
     }
+
+
 
     // Aqui irian los Querys del Business user
     // ---
@@ -54,6 +70,25 @@ const ForgotPassword = async (req, res, next) => {
   }
 }
 
+const resetPasswordVerify = async (req, res, next) => {
+  try {
+    if (!req.resetToken) {
+      return next(new ErrorResponse('Esta ruta es protegida, no puede acceder sin autorizacion', 404, 'error'))
+    }
+    const resetPasswordToken = crypto.createHash("sha256").update(req.params.resetToken).digest("hex");
+
+    const isNormalUser = await NormalUser.findOne({ resetPasswordToken, resetPasswordExpire: { $gt: Date.now() } }).select('+Password')
+    if (!isNormalUser) {
+      return next(new ErrorResponse("Esta ruta es protegida, no puede acceder sin autorizacion", 400, 'error'));
+    }
+
+    res.status(200).json({ success: true, data: isNormalUser });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message })
+  }
+}
+
+
 
 // @route PUT api/auth/general-users/reset-password
 // @desc Reestablecer la contraseña
@@ -61,19 +96,21 @@ const ForgotPassword = async (req, res, next) => {
 
 const resetPassword = async (req, res, next) => {
   try {
-    // validacion del middleware
-    if (!req.resetToken) {
-      return next(new ErrorResponse('La ruta es protegida, tiene que verificar su correo para poder cambiar su contraseña', 404, 'error'))
-    }
 
-    const { Password } = req.body
-    // validacion del token en el backend
+    if (!req.resetToken) {
+      return next(new ErrorResponse('Esta ruta es protegida, no puede acceder sin autorizacion', 404, 'error'))
+    }
     const resetPasswordToken = crypto.createHash("sha256").update(req.params.resetToken).digest("hex");
 
-    // querys
     const isNormalUser = await NormalUser.findOne({ resetPasswordToken, resetPasswordExpire: { $gt: Date.now() } }).select('+Password')
     if (!isNormalUser) {
-      return next(new ErrorResponse("El tiempo para reestablecer su contraseña caduco, porfavor vuelva a ingresar sus datos", 400, 'error'));
+      return next(new ErrorResponse("Esta ruta es protegida, no puede acceder sin autorizacion", 400, 'error'));
+    }
+
+    const { Password } = req.body;
+    // validacion del token en el backend
+    if (!Password) {
+      return next(new ErrorResponse('Por favor rellene todos los campos', 401, 'error'));
     }
 
     const isMatch = await isNormalUser.matchPasswords(Password)
@@ -104,16 +141,20 @@ const VerifyEmailCode = async (req, res, next) => {
 
     const QueryCode = await NormalUser.findOne({ Email })
 
+    if (!verifyCode || !Email) {
+      return next(new ErrorResponse('Por favor rellene todos los campos', 400, 'error'));
+    }
+
     if (QueryCode.verifyCode === undefined) {
-      return next(new ErrorResponse('El Email es incorrecto', 400, 'error'));
+      return next(new ErrorResponse('El Email es ya está verificado', 400, 'error'));
     }
     if (QueryCode.verifyCode !== verifyCode) {
       return next(new ErrorResponse('El codigo es incorrecto', 400, 'error'));
     }
 
     // aqui irian las validaciones del business user
-    // --
-    // --
+    // -
+    // -
 
     QueryCode.verifyCode = undefined;
 
@@ -125,4 +166,4 @@ const VerifyEmailCode = async (req, res, next) => {
   }
 }
 
-module.exports = { ForgotPassword, resetPassword, VerifyEmailCode }
+module.exports = { ForgotPassword, resetPassword, VerifyEmailCode, resetPasswordVerify }

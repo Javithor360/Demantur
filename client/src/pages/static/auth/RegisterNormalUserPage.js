@@ -1,5 +1,5 @@
 //styles
-import '../assets/scss/register_page.scss'
+import '../assets/scss/auth-register.scss'
 
 // components
 import { FooterAuth, RegisterStepper, Navbar, StepsInfo, RegisterCard } from '../../../components'

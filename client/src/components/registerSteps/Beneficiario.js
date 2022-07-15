@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { StepperButtons } from '../StepperButtons'
+import Cleave from 'cleave.js/react';
 
 import { useAuth } from '../../context/AuthContext';
 import axios from 'axios';
@@ -27,7 +28,7 @@ export const Beneficiario = () => {
 
     try {
 
-      const { data } = await axios.post('http://localhost:4000/api/auth/normal-user/register-part-4', { BNombres: BNombres.toLowerCase(), BApellidos: BApellidos.toLowerCase(), BDui, BNumber, FirstPartForm, SecondPartForm, ThirdPartForm }, configPublic);
+      const { data } = await axios.post('http://localhost:4000/api/auth/normal-user/register-part-4', { BNombres: BNombres.toLowerCase().trim(), BApellidos: BApellidos.toLowerCase().trim(), BDui, BNumber, FirstPartForm, SecondPartForm, ThirdPartForm }, configPublic);
 
       if (data) {
         setChargin(true);
@@ -62,11 +63,11 @@ export const Beneficiario = () => {
             <label htmlFor="Apellidos" className='label-form'>Apellidos</label>
           </div>
           <div className="input-class">
-            <input type='text' id='DUI' name='DUI' placeholder=' ' onChange={(e) => setBDui(e.target.value)} value={BDui} autoComplete='off' className='input-form' />
+            <Cleave type='text' id='DUI' name='DUI' placeholder=' ' options={{ blocks: [6, 1], delimiter: "-", numericOnly: true }} onChange={(e) => setBDui(e.target.value)} value={BDui} autoComplete='off' className='input-form' />
             <label htmlFor="DUI" className='label-form'>DUI</label>
           </div>
           <div className="input-class">
-            <input type='text' id='Telefono' name='Telefono' placeholder=' ' onChange={(e) => setBNumber(e.target.value)} value={BNumber} autoComplete='off' className='input-form' />
+            <Cleave type='text' id='Telefono' name='Telefono' placeholder=' ' options={{ blocks: [4, 4], numericOnly: true }} onChange={(e) => setBNumber(e.target.value)} value={BNumber} autoComplete='off' className='input-form' />
             <label htmlFor="Telefono" className='label-form'>Teléfono</label>
           </div>
         </div>

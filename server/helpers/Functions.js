@@ -2,11 +2,6 @@ const bcrypt = require('bcryptjs');
 const sendEmail = require('../utils/SendMail')
 const ErrorResponse = require('../utils/ErrorMessage');
 
-// Funcion para encryptar la password
-exports.encryptPassword = async (password) => {
-  let salt = await bcrypt.genSalt(12);
-  return bcrypt.hash(password, salt)
-}
 
 // Funcion para crear y enviar el token al usuairo
 exports.sendToken = (NewNormalUser, res) => {
@@ -19,7 +14,7 @@ exports.sendToken = (NewNormalUser, res) => {
 exports.FoPaEmail = async (resetToken, isNormalUser, next, res) => {
   await isNormalUser.save();
 
-  const resetUrl = `http://localhost:3000/passwordreset/${resetToken}`
+  const resetUrl = `http://localhost:3000/auth/reset-password/${resetToken}`
 
   const message = `
     <h1>Tienes una solicitud para cambiar tu contraseña</h1>
@@ -41,7 +36,7 @@ exports.FoPaEmail = async (resetToken, isNormalUser, next, res) => {
 
     await isNormalUser.save();
 
-    return next(new ErrorResponse("El EMAIL NO SE PUDO ENVIAR", 500, 'error'));
+    return next(new ErrorResponse("El email no se pudo enviar", 500, 'error'));
   }
 }
 

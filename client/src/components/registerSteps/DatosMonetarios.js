@@ -1,15 +1,21 @@
 import { useEffect, useState } from 'react'
 import { StepperButtons } from '../StepperButtons'
 import axios from 'axios'
+import { Dropdown } from '../Dropdown';
 
 import { useAuth } from '../../context/AuthContext';
 
+import { AiOutlineCloudUpload as CloudIcon, AiOutlineCloud as SuccesClud } from 'react-icons/ai'
+
 export const DatosMonetarios = () => {
-  const { nextButton, setstateOfStep3, setstateOfStep4, page, configPublic, setError,
+  const { nextButton, setstateOfStep3, setstateOfStep4, page, setError,
     LaboralSituation, setLaboralSituation, WorkPlace, setWorkPlace, Salary, setSalary,
   } = useAuth()
 
-  const [Image, setImage] = useState('')
+  const [Image, setImage] = useState();
+  const [ImageName, setImageName] = useState('');
+  const elementsLaboralStatus = ['Asalariado', 'Desempleado', 'Estudiante', 'Emprendedor',]
+  const elementsSalary = ['0 - 300', '300 - 700', '700 - 1200', '1200 en adelante',]
 
   useEffect(() => {
     if (page === 3) {
@@ -20,12 +26,52 @@ export const DatosMonetarios = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  useEffect(() => {
+    if (ImageName !== '') {
+      let NameFinal = ImageName
+
+      function file_extension(filename) {
+        return (/[.]/.exec(filename)) ? /[^.]+$/.exec(filename)[0] : undefined;
+      }
+      let fileExtension = file_extension(ImageName);
+      NameFinal = ImageName.trim()
+
+      if (NameFinal.includes('.' + fileExtension)) {
+        NameFinal = NameFinal.replace(`.${fileExtension}`, '')
+      }
+
+      if (NameFinal.length >= 12) {
+        NameFinal = NameFinal.substring(0, 12)
+      }
+
+      setImageName(NameFinal + (NameFinal.length >= 12 ? '...' : '.') + fileExtension);
+    }
+
+  }, [ImageName])
+
+  const handleChangeFile = (e) => {
+    if (e.target.files.length !== 0) {
+      setImageName(e.target.files[0].name);
+      setImage(e.target.files[0])
+    } else {
+      setImageName('');
+    }
+  }
+
+
   const handleForm = async (e) => {
     e.preventDefault()
 
     try {
+      const DatosForm = { LaboralSituation, WorkPlace, Salary, Image: Image }
 
-      const { data } = await axios.post('http://localhost:4000/api/auth/normal-user/register-part-3', { LaboralSituation, WorkPlace, Salary }, configPublic)
+      const form = new FormData();
+
+      for (let key in DatosForm) {
+        form.append(key, DatosForm[key])
+      }
+
+      const { data } = await axios.post('http://localhost:4000/api/auth/normal-user/register-part-3', form, { headers: { 'Content-Type': 'multipart/form-data' } })
 
       localStorage.setItem('ThirdPartForm', JSON.stringify(data.data));
 
@@ -49,20 +95,21 @@ export const DatosMonetarios = () => {
       <form onSubmit={handleForm} className='steps-form'>
         <div className='step-inputs'>
           <div className="input-class">
-            <input type='text' id='Laboral' name='Laboral' placeholder=' ' onChange={(e) => setLaboralSituation(e.target.value)} value={LaboralSituation} autoComplete='off' className='input-form' />
-            <label htmlFor="Laboral" className='label-form'>Situación Laboral</label>
+            <Dropdown setElement={setLaboralSituation} elements={elementsLaboralStatus} Elemento={LaboralSituation} />
           </div>
           <div className="input-class">
-            <input type='text' id='Salario' name='Salario' placeholder=' ' onChange={(e) => setSalary(e.target.value)} value={Salary} autoComplete='off' className='input-form' />
-            <label htmlFor="Salario" className='label-form'>Salario</label>
+            <Dropdown setElement={setSalary} elements={elementsSalary} Elemento={Salary} />
           </div>
           <div className="input-class">
             <input type='text' id='LugarTrabajo' name='LugarTrabajo' placeholder=' ' onChange={(e) => setWorkPlace(e.target.value)} value={WorkPlace} autoComplete='off' className='input-form' />
             <label htmlFor="LugarTrabajo" className='label-form'>Lugar de Trabajo</label>
           </div>
-          <div className="input-class">
-            <input type='file' id='Constancia' name='Constancia' placeholder=' ' onChange={(e) => setImage(e.target.value)} value={Image} autoComplete='off' className='input-form' />
-            <label htmlFor="Constancia" className='label-form'>Constancia Laboral</label>
+          <div className="input-class ">
+            <div className="input-form input-file">
+              <input type='file' accept='image/*' id='Constancia' name='Constancia' placeholder=' ' onChange={handleChangeFile} autoComplete='off' />
+              <label htmlFor="Constancia" className='label-form'>{ImageName === '' ? 'Constancia Laboral' : ImageName}</label>
+              {ImageName === '' ? <CloudIcon className='CloudIcon' /> : <SuccesClud className='CloudIcon' />}
+            </div>
           </div>
         </div>
         <div className='line-x'></div>

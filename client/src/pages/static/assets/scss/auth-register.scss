@@ -1,0 +1,708 @@
+$acua: #93DEFF;
+$black-purple: #4E5364;
+$white-gray: #707070;
+$white-gray-transparent: #70707065;
+$gray: #6D6E71;
+$dark-blue: #323643;
+$verde: #00C900;
+
+$color: #c0392b;
+$color-dark: #a53125;
+$speed: "0.25s";
+$transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
+
+@mixin hr-line ($heigth, $width) {
+  border: 0;
+  height: $heigth;
+  background: $acua;
+  opacity: 100;
+  margin: .5rem auto 2rem auto;
+  width: $width;
+}
+
+.main-div {
+  height: calc(100vh - (5rem + 4rem));
+
+  h1 {
+    text-align: center;
+    padding-top: 2rem;
+  }
+
+  .main-hr {
+    @include hr-line(.5rem, 34rem)
+  }
+
+  .Container-div {
+    height: 85%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+
+    // FORMULARIO
+    .FormDiv {
+      box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.438);
+      width: 55%;
+      height: 77%;
+      margin-top: 2%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      //line style
+      .line {
+        width: .12rem;
+        height: 5rem;
+        background-color: $white-gray;
+        height: 73%;
+      }
+
+      .stepper {
+        // background-color: $div-test;
+        width: 28%;
+        height: 80%;
+      }
+
+      .steps-render,
+      .Form-Login {
+        // background-color: $div-test;
+        width: 62%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        .step-info {
+
+          height: 25%;
+          text-align: center;
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+          color: #323643;
+
+          p {
+            font-size: 1.1rem;
+            width: 90%;
+            margin: 0 auto;
+          }
+
+          h3 {
+            font-weight: bolder;
+          }
+        }
+
+        .steps-form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          height: 70%;
+          width: 100%;
+          // background-color: #323643;
+
+          .step-inputs-identify {
+            flex-direction: column !important;
+            justify-content: space-around !important;
+
+            .part-1 {
+              .input-class {
+                width: 32%;
+              }
+            }
+          }
+
+          .step-inputs {
+            height: 70%;
+            // background-color: #00C900;
+            width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+
+            .parts-form {
+              display: flex;
+              width: 100%;
+              justify-content: space-around;
+            }
+
+            .input-file {
+              cursor: pointer !important;
+
+              label {
+                user-select: none;
+                cursor: pointer;
+              }
+            }
+
+            .input-class {
+              position: relative;
+              width: 43%;
+              // background-color: beige;
+              height: 3rem;
+
+              input[type="file"] {
+                display: none;
+                cursor: pointer !important;
+                z-index: 100 !important;
+              }
+
+
+              input,
+              .input-form {
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: none;
+                width: 100%;
+                height: 100%;
+                border: .15rem solid $white-gray;
+                border-radius: 0.25rem;
+                color: $black-purple;
+                outline: none;
+                padding: 1rem;
+                z-index: 10;
+
+                &:hover {
+                  border-color: $dark-blue;
+
+                }
+
+                &:focus {
+                  border-color: $dark-blue;
+                }
+              }
+
+              .CloudIcon {
+                position: absolute;
+                right: 1rem;
+                top: 0.8rem;
+                color: $white-gray;
+                height: 1.3rem;
+                width: 1.3rem;
+
+              }
+
+              .EyesButton {
+                position: absolute;
+                right: 0.9rem;
+                top: 0.7rem;
+                cursor: pointer;
+                z-index: 100;
+                border: none;
+                background-color: transparent;
+                outline: none;
+
+                .EyesPass {
+
+                  color: $white-gray;
+                  height: 1.3rem;
+                  width: 1.3rem;
+                }
+
+                .EyesPass:hover {
+                  color: $dark-blue  !important;
+
+                }
+              }
+
+
+
+              label {
+                position: absolute;
+                left: 1rem;
+                top: 0.7rem;
+                padding: 0 0.1rem;
+                color: $dark-blue;
+                cursor: text;
+                transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+                background-color: white;
+                font-size: 1.1rem;
+                color: $white-gray;
+              }
+
+            }
+          }
+
+          .div-buttons-in-step {
+            width: 100%;
+            display: flex;
+            // background: #000;
+            justify-content: space-evenly;
+          }
+        }
+
+        .step-buttons {
+          display: flex;
+          justify-content: space-evenly;
+          width: 100%;
+
+          @mixin span-botuns ($left) {
+            transition: $transition;
+            text-transform: uppercase;
+            position: absolute;
+            left: $left;
+          }
+
+          @mixin divisor-butons($left) {
+            height: 1.6rem;
+            width: .1rem;
+            background-color: white;
+            transition: $transition;
+            position: absolute;
+            left: $left;
+          }
+
+          @mixin arrow-butons ($right) {
+            font-size: 1.5rem;
+            transition: $transition;
+            position: absolute;
+            right: $right;
+
+          }
+
+          .botones-steps {
+            border: none;
+            width: 9.6rem;
+            height: 2.6rem;
+            border-radius: 3px;
+            box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, .3);
+            transition: $transition;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: $black-purple;
+            color: white;
+          }
+
+          .boton-siguiente {
+            position: relative;
+
+            span {
+              @include span-botuns(1rem)
+            }
+
+            .divisor {
+              @include divisor-butons(6.5rem)
+            }
+
+            .arrow-ico-re {
+              @include arrow-butons(1rem)
+            }
+          }
+
+          .boton-anterior {
+            background-color: $white-gray;
+            position: relative;
+            cursor: pointer;
+
+            span {
+              @include span-botuns(4rem)
+            }
+
+            .divisor {
+              @include divisor-butons(3.4rem)
+            }
+
+            .arrow-ico-re {
+              @include arrow-butons(7rem)
+            }
+          }
+
+          .boton-siguiente:hover {
+            span {
+              left: -5%;
+              opacity: 0;
+            }
+
+            .divisor {
+              left: -5%;
+              opacity: 0;
+
+
+            }
+
+            .arrow-ico-re {
+              width: 75%;
+              font-size: 2.5rem;
+
+
+            }
+          }
+
+          .boton-anterior:hover {
+            span {
+              left: 60%;
+              opacity: 0;
+            }
+
+            .divisor {
+              left: 60%;
+              opacity: 0;
+            }
+
+            .arrow-ico-re {
+              width: 75%;
+              font-size: 2.5rem;
+              right: 10%;
+            }
+          }
+        }
+
+
+      }
+
+      //stepper style
+
+    }
+
+    // CARD
+    .TarjetDiv {
+      box-shadow: 2px 2px 10px .1px rgba(0, 0, 0, 0.438);
+      width: 25%;
+      height: 71%;
+      margin-top: 3.5rem;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      hr {
+        width: 80%;
+        margin: auto;
+        background-color: $white-gray;
+        height: .1 rem;
+      }
+
+      p {
+        color: $gray;
+        text-align: center;
+        font-size: 1.23rem;
+        padding-top: .3em;
+      }
+
+      .links-div {
+        display: flex;
+        padding-top: .3rem;
+        justify-content: space-evenly;
+      }
+
+      .small-div-container {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        height: 60%;
+
+        .Link-container {
+          margin-bottom: 4%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          width: 82%;
+          height: 28%;
+
+          .small-div {
+            margin-bottom: 4%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            border: 1px solid rgba($white-gray, .20);
+            width: 100%;
+            height: 100%;
+            transition: all 0.5s ease-in-out;
+
+            p {
+              color: $dark-blue;
+              text-align: left;
+              font-size: 1rem;
+              margin-left: 1em;
+              padding-top: 1rem;
+            }
+
+            .icons {
+              margin-left: 1em;
+              width: 3.5rem;
+              height: 3.5rem;
+              color: $dark-blue;
+            }
+
+            .icon-3 {
+              margin-left: 1.3rem;
+            }
+          }
+
+          .small-div:hover {
+            background-color: $black-purple;
+            transition: all 0.5s ease-in-out;
+
+            p {
+              color: white;
+              transition: all 0.5s ease-in-out;
+
+            }
+
+            .icons {
+              color: white;
+              transition: all 0.5s ease-in-out;
+
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .main-div {
+    height: calc(170vh);
+
+    h1 {
+      font-size: 1.4rem;
+    }
+
+    .main-hr {
+      @include hr-line(.3rem, 15rem)
+    }
+
+    .Container-div {
+      height: 90%;
+      flex-flow: column nowrap;
+      align-items: center;
+
+      .FormDiv {
+        width: 90%;
+        margin-top: 0;
+        background-color: $black-purple;
+        height: 50%;
+        flex-direction: column;
+
+        .line {
+          display: none;
+        }
+
+        .stepper {
+          width: 100%;
+          height: 15%;
+        }
+
+        .steps-render {
+          width: 100%;
+          height: 85%;
+
+
+          .step-buttons {
+            width: 100%;
+
+            .botones-steps {
+              position: static;
+
+              span {
+                position: static !important;
+              }
+
+              .divisor {
+                position: static !important;
+              }
+
+              .arrow-ico-re {
+                position: static;
+              }
+            }
+          }
+        }
+
+
+      }
+
+      .TarjetDiv {
+        width: 90%;
+        height: 40%;
+
+        h1 {
+          font-size: 1.5rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+
+        .links-div {
+          font-size: .8rem;
+        }
+
+        .small-div-container {
+          .Link-container {
+            .small-div {
+              p {
+                font-size: .7rem;
+              }
+            }
+
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+.boton-anterior-desactivado {
+  position: relative;
+  cursor: default;
+  pointer-events: none;
+  background-color: #707070bc !important;
+
+
+  span {
+    color: #ffffff6c !important;
+  }
+
+  .divisor {
+    background-color: #ffffff6c !important;
+    height: 1.6rem;
+    width: .1rem;
+  }
+
+  .arrow-ico-re {
+    color: #ffffff6c !important;
+
+  }
+}
+
+
+
+.boton-siguiente-terminar {
+  background-color: transparent !important;
+  color: $verde;
+  border: .1rem solid $verde  !important;
+
+  span {
+    color: $verde  !important;
+  }
+
+  .divisor {
+    background-color: $verde  !important;
+    height: 1.6rem;
+    width: .1rem;
+  }
+
+  .arrow-ico-re {
+    color: $verde  !important;
+
+  }
+}
+
+
+// line x 
+.line-x {
+  background-color: $white-gray;
+  width: 92%;
+  height: .12rem;
+}
+
+//animation input
+.input-form:focus+.label-form,
+.input-form:not(:placeholder-shown).input-form:not(:focus)+.label-form {
+  top: -0.5rem !important;
+  font-size: 1rem !important;
+  left: 0.8rem !important;
+  z-index: 11;
+  color: $dark-blue  !important;
+}
+
+.step-code-input {
+  height: 40% !important;
+  justify-content: space-evenly !important;
+}
+
+.code-form {
+  justify-content: space-evenly !important;
+}
+
+.input-code {
+  width: 53% !important;
+  height: 4rem !important;
+
+  label {
+    font-size: 1.6rem !important;
+  }
+}
+
+.successMessage {
+  color: $dark-blue;
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  height: 60%;
+  align-items: center;
+  justify-content: center;
+
+
+
+  div:nth-child(1) {
+    align-items: center;
+    justify-content: space-evenly;
+    height: 2.5rem;
+
+    margin: 0;
+
+    h1 {
+      padding-top: 0 !important;
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .Text-Box {
+    display: flex;
+    height: 20%;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+
+
+    span {
+      text-align: center;
+      width: 70%;
+    }
+
+    svg {
+      color: $black-purple;
+      height: 5rem;
+      width: 5rem;
+    }
+  }
+}
+
+.lineaX {
+  background-color: $white-gray  !important;
+  width: 92% !important;
+  height: .12rem !important;
+  margin: 1rem 0;
+}
+
+.CharginIcon {
+  animation-name: girar;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  color: #00C900;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

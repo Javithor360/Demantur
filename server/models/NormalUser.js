@@ -50,9 +50,10 @@ const NormalUserSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  // ImageOFConstancia:{
-  //
-  // },
+  ImageOFConstancia: {
+    url: String,
+    public_id: String,
+  },
   DatosBeneficiario: {
     Nombres: {
       type: String,
@@ -92,9 +93,9 @@ NormalUserSchema.methods.getSignedToken = function () {
   return jwt.sign({
     user: {
       id: this._id,
-      name: this.FirstName,
+      Dui: this.Dui,
     }
-  }, process.env.JWT_SECRET, { expiresIn: 60 * 10 })
+  }, process.env.JWT_SECRET, { expiresIn: '1y' })
 }
 
 NormalUserSchema.methods.matchPasswords = async function (Password) {

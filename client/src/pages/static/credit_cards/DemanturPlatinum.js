@@ -28,7 +28,7 @@ export const DemanturPlatinum = () => {
 
         <div className="card-description">
           <p>
-            ¿Estás en busca de una tarjeta que te permita disfrutar de grandes beneficios en cualquier lugar y en todo momento?, pues si es así, La tarjeta Demantur Platinum es para ti, obtén numerosos beneficios que se adaptan a tus necesidades con una gran flexibilidad. Puedes viajar, comprar lo que quieras y tener la seguridad que necesitas por cada una de tus compras, revisa muchos más beneficios a continuación 
+            ¿Estás en busca de una tarjeta que te permita disfrutar de grandes beneficios en cualquier lugar y en todo momento?, pues si es así, La tarjeta Demantur Platinum es para ti, obtén numerosos beneficios que se adaptan a tus necesidades con una gran flexibilidad. Puedes viajar, comprar lo que quieras y tener la seguridad que necesitas por cada una de tus compras, revisa muchos más beneficios a continuación. 
           </p>
         </div>
 
@@ -87,7 +87,7 @@ export const DemanturPlatinum = () => {
                 <img src={CreditCardsImages('./icons/money_security_icon.png')} alt=""></img>
                 <p>Seguro de compras</p>
                 <p>
-                  Obtén un reembolso en caso de que el articulo esté dañado, ya sea para cambiarlo o repararlo. 
+                  Obtén un reembolso en caso de que el artículo esté dañado, ya sea para cambiarlo o repararlo. 
                 </p>
               </div>
               <div className="vl">
@@ -97,7 +97,7 @@ export const DemanturPlatinum = () => {
                 <img src={CreditCardsImages('./icons/shop_bag_icon.png')} alt=""></img>
                 <p>Precios Especiales</p>
                 <p>
-                  Disfruta de precios especiales en productos de tiendas selecionadas al pagar con tu tarjeta. 
+                  Disfruta de precios especiales en productos de tiendas seleccionadas al pagar con tu tarjeta. 
                 </p>
               </div>
           </div>

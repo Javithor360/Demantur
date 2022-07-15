@@ -1,0 +1,51 @@
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.conditions-tittle p {
+    text-align: center;
+    margin: 2rem auto 0 auto;
+    font-size: 1.8rem;
+}
+.conditions-tittle hr {
+    border: 0;
+    height: .3rem;
+    background: #93DEFF;
+    opacity: 100;
+    padding: 0;
+    margin: auto;
+    width: 22.5rem;
+}
+
+.Tittle{
+    text-align: center;
+    margin: auto;
+    width: 80%;
+    padding-left: 0.2rem;
+    h1{
+        font-weight: bold;
+      }
+}
+.Conditions-description{
+    width: 80%;
+    margin: auto;
+    border-left: 3.5px solid #93DEFF;
+    opacity: 100;
+    padding-left: 0.1rem;
+    text-align: justify;
+    align-content: center;
+}
+.Responsabilidades{
+    margin-top: 1.8rem;
+    text-align: center;
+    font-weight: bold;
+}
+.list-cookies{
+    width: 75%;
+    margin: auto;
+    padding-left: 0.1rem;
+    text-align: justify;
+    align-content: center;
+}
+
+

@@ -6,3 +6,4 @@ export { RegisterStepper } from './RegisterStepper'
 export { StepperButtons } from './StepperButtons'
 export { StepsInfo } from './StepsInfo'
 export { RegisterCard } from './RegisterCard'
+export { useCountDown } from './useCountDown';

@@ -8,14 +8,13 @@ import { Navbar, Footer } from "../../components/";
 import { Link } from "react-router-dom";
 
 // Asstes (Iconos e Imagenes)
-import { FaAngleRight } from 'react-icons/fa'
+import { FaAngleRight } from "react-icons/fa";
 import Logo_Icon_White from "./assets/img/logos/svg/Logo_Icon-1_White.svg";
 
-const SliderImages = require.context('./assets/img/index/slider', true);
-const TarjetasImages = require.context('./assets/img/index', true);
+const SliderImages = require.context("./assets/img/index/slider", true);
+const TarjetasImages = require.context("./assets/img/index", true);
 
 export const IndexPage = () => {
-
   return (
     <>
       <Navbar />
@@ -29,7 +28,7 @@ export const IndexPage = () => {
           </p>
 
           <div className="slider-button">
-            <Link to="/" className="view-more">
+            <Link to="/accounts" className="view-more">
               <span className="view-text">Ver Más</span>
               <FaAngleRight />
             </Link>
@@ -73,19 +72,34 @@ export const IndexPage = () => {
 
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img src={SliderImages('./slider-image-1.jpg')} className="d-block w-100" alt="..." />
+                <img
+                  src={SliderImages("./slider-image-1.jpg")}
+                  className="d-block w-100"
+                  alt="..."
+                />
               </div>
               <div className="carousel-item">
-                <img src={SliderImages('./slider-image-2.jpg')} className="d-block w-100" alt="..." />
+                <img
+                  src={SliderImages("./slider-image-2.jpg")}
+                  className="d-block w-100"
+                  alt="..."
+                />
               </div>
               <div className="carousel-item">
-                <img src={SliderImages('./slider-image-3.jpg')} className="d-block w-100" alt="..." />
+                <img
+                  src={SliderImages("./slider-image-3.jpg")}
+                  className="d-block w-100"
+                  alt="..."
+                />
               </div>
               <div className="carousel-item">
-                <img src={SliderImages('./slider-image-4.jpg')} className="d-block w-100" alt="..." />
+                <img
+                  src={SliderImages("./slider-image-4.jpg")}
+                  className="d-block w-100"
+                  alt="..."
+                />
               </div>
             </div>
-
           </div>
         </div>
 
@@ -96,7 +110,7 @@ export const IndexPage = () => {
 
         <div className="cards-container">
           <div className="card">
-            <img src={TarjetasImages('./card-1.png')} alt="" />
+            <img src={TarjetasImages("./card-1.png")} alt="" />
             <h4>Tarjetas</h4>
             <p>
               Con nuestras tarjetas recibes los mejores beneficios adaptados a
@@ -111,14 +125,14 @@ export const IndexPage = () => {
           </div>
 
           <div className="card">
-            <img src={TarjetasImages('./card-2.png')} alt="" />
+            <img src={TarjetasImages("./card-2.png")} alt="" />
             <h4>Solicitud de prestamos</h4>
             <p>
               Obtén tu préstamo fácil, seguro y rápido, para que puedas cumplir
               tus metas
             </p>
             <div className="boton">
-              <Link to="/" className="LinkHover">
+              <Link to="/Loans" className="LinkHover">
                 <span>Conoce Más</span>
                 <FaAngleRight className="view-icon fa-solid fa-angle-right ArrowIcon" />
               </Link>
@@ -126,14 +140,14 @@ export const IndexPage = () => {
           </div>
 
           <div className="card">
-            <img src={TarjetasImages('./card-3.png')} alt="" />
-            <h4>Cobro de remesas</h4>
+            <img src={TarjetasImages("./card-3.png")} alt="" />
+            <h4>Cuentas bancarias</h4>
             <p>
-              Retira tu remesa directamente desde tu cuenta fácil, rápido y
-              seguro
+              Elige la mejor cuenta que se adapte a tus necesidades con los
+              mejores beneficios
             </p>
             <div className="boton">
-              <Link to="/" className="LinkHover">
+              <Link to="/accounts" className="LinkHover">
                 <span>Conoce Más</span>
                 <FaAngleRight className="view-icon fa-solid fa-angle-right ArrowIcon" />
               </Link>
@@ -142,7 +156,6 @@ export const IndexPage = () => {
         </div>
 
         <div className="dual-banner-container">
-
           <div className="dual-banner">
             <div className="dual-banner-image-1" />
             <div className="dual-banner-content">
@@ -153,7 +166,7 @@ export const IndexPage = () => {
                 intereses sobre tus ahorros, controla tu dinero y ten acceso a
                 el en todo momento.
               </p>
-              <Link to="/" className="about-button-rg">
+              <Link to="/accounts/savings" className="about-button-rg">
                 <span>Conoce Más</span>
                 <FaAngleRight className="fa-solid fa-angle-right about-button-rg-icon" />
               </Link>
@@ -165,18 +178,17 @@ export const IndexPage = () => {
               <p>Te ayudamos a cumplir tus sueños</p>
               <hr className="blue-underline" />
               <p>
-                Conoce nuestros créditos y elige el mejor para cumplir tus
-                metas, con tramites sencillos y rápidos, además de una baja tasa
-                de intereses
+                Conoce nuestros préstamos y elige el mejor para cumplir tus
+                metas, con tramites sencillos y rápidos, además de una tasa de
+                intereses justa
               </p>
-              <Link to="/" className="about-button-rg">
+              <Link to="/Loans" className="about-button-rg">
                 <span>Conoce Más</span>
                 <FaAngleRight className="fa-solid fa-angle-right about-button-rg-icon" />
               </Link>
             </div>
             <div className="dual-banner-image-2" />
           </div>
-
         </div>
 
         <div className="section-tittle">
@@ -185,7 +197,6 @@ export const IndexPage = () => {
         </div>
 
         <div className="help-center-banner">
-
           <div className="help-center-content">
             <div className="banner-logo">
               <img src={Logo_Icon_White} alt="" />

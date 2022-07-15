@@ -30,11 +30,10 @@ export const AuthProvider = ({ children }) => {
 
   const [page, setPage] = useState(1);
 
-
-
   const [Error, setError] = useState('');
   const [Success, setSuccess] = useState('');
   const [Chargin, setChargin] = useState(false);
+
 
   // CLASS STATES
   const [stateOfStep1, setstateOfStep1] = useState('unfocus');

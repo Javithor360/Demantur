@@ -61,7 +61,7 @@ function Tabs(type) {
                         <div className="individual-text">
                             <p>&#10003;</p>
                             <p>
-                                Constancia de ingresos vigente firmada por la empresa copia de
+                                Constancia de ingresos vigente firmada por la empresa, copia de
                                 boletas de pago o constancia de AFP de los últimos 6 meses
                             </p>
                         </div>
@@ -69,7 +69,7 @@ function Tabs(type) {
                     <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Los 500 puntos de bienvenida se otorgarán despues de gastar un minimo $30 con la tarjeta</p>
+                            <p>Los 500 puntos de bienvenida se otorgarán despues de gastar un mínimo $30 con la tarjeta</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
@@ -125,7 +125,7 @@ function Tabs(type) {
                             </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Estabilidad laboral de 6 meses con experiencia en tarjeta o 12 meses sin experiencia en tarjeta</p>
+                            <p>Estabilidad laboral; 6 meses con experiencia en tarjeta o 12 meses sin experiencia en tarjeta</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
@@ -150,15 +150,15 @@ function Tabs(type) {
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>El reeembolso que te ofrece el seguro de compras será igual al monto que originalmente el producto tiene</p>
+                            <p>El reembolso que te ofrece el seguro de compras será igual al monto que originalmente el producto tiene</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Las cuotas sin intereses estarán sujetas a las condiciones del lugar donde obtengas tu crédito, y en ocaciones no estarán disponibles</p>
+                            <p>Las cuotas sin intereses estarán sujetas a las condiciones del lugar donde obtengas tu crédito, y en ocasiones no estarán disponibles</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Para utilizar tus puntos por viajes no deberás tener ningun pago atrasado en los últimos 6 meses.</p>
+                            <p>Para utilizar tus puntos por viajes no deberás tener ningún pago atrasado en los últimos 6 meses</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
@@ -198,11 +198,11 @@ function Tabs(type) {
                     <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Lorem ipsum dolor sit amet consectetur.</p>
+                            <p>Ingresos minimos mensuales de $2,800</p>
                             </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+                            <p>Estabilidad laboral comprobable; 12 meses de experiencia con tarjeta</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
@@ -223,25 +223,158 @@ function Tabs(type) {
                     <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima, ducimus vitae.</p>
+                            <p>El límite de puntos acumulables es de 600,000</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi suscipit atque dignissimos autem.</p>
+                            <p>La protección de compra le reembolsará los gastos para que el artículo cubierto sea reparado o compensará el valor original del artículo</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas.</p>
-                        </div>
-                        <div className="individual-text">
-                            <p>&#10003;</p>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                            <p>El artículo cubierto por la garantía deberá tener una garantía original del fabricante mínima de 3 meses hasta tres años</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quisquam.
+                                La cobertura máxima de efectivo podrá solicitarse siempre y cuando no tengas más de 2 pagos atrasados con tu tarjeta
                             </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+  } else if (type === "BlackCard"){
+    return(
+        <div className="information-tabs">
+            <div className="information-tabs-flex">
+                <div className="tab-images-container">
+                    <div className={toggleState === 1 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(1)}>
+                        <img src={IndividualCardImages("./requirements_bg.jpg")} alt=""></img>
+                    </div>
+
+                    <div className={toggleState === 2 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(2)}>
+                        <img src={IndividualCardImages("./limitations_bg.jpg")} alt=""></img>
+                    </div>
+                </div>
+
+                <div className="tab-content">
+                    <div className="tabs-selection">
+                        <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
+                        Requisitos
+                        </button>
+                        <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
+                        Condiciones
+                        </button>
+                    </div>
+
+                    <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Ingresos minimos mensuales de $4,800</p>
+                            </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Estabilidad laboral comprobable; 12 meses de experiencia con tarjeta</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Solicitud llena, ya sea físico o formulario web</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Fotocopia de DUI y NIT (revés y derecho)</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>
+                                Constancia de ingresos vigente firmada por la empresa copia de
+                                boletas de pago o constancia de AFP de los últimos 6 meses
+                            </p>
+                        </div>
+                    </div>
+                    <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>El límite de puntos acumulables es de 1 000,000,000</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>La protección de equipaje le reembolsará hasta $3000 por equipaje perdido definitivamente y hasta $600 por demoras de más de 4 horas.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>El artículo cubierto por la garantía deberá tener una garantía original y en este caso el tiempo brindado se duplicará pagando un beneficio de hasta US$2,500 por ocurrencia y un total anual de US$5,000</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>
+                                El banco ofrece el extrafianciamiento para esta tarjeta, pero la oferta puede variar dependiendo el historial crediticio, además el plazo se aplica dependiendo de lo anteriormente dicho
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+  }else if (type === "DebitCard"){
+    return(
+        <div className="information-tabs">
+            <div className="information-tabs-flex">
+                <div className="tab-images-container">
+                    <div className={toggleState === 1 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(1)}>
+                        <img src={IndividualCardImages("./requirements_bg.jpg")} alt=""></img>
+                    </div>
+
+                    <div className={toggleState === 2 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(2)}>
+                        <img src={IndividualCardImages("./limitations_bg.jpg")} alt=""></img>
+                    </div>
+                </div>
+
+                <div className="tab-content">
+                    <div className="tabs-selection">
+                        <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
+                        Requisitos
+                        </button>
+                        <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
+                        Condiciones
+                        </button>
+                    </div>
+
+                    <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Fotocopia de DUI y NIT (revés y derecho)</p>
+                            </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Tener una cuenta de ahorros o una cuenta corriente en Demantur</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Documento o constancia para la verificación de lugar de residencia</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Llenar el formulario web y firmar el contrato en físico</p>
+                        </div>
+                    </div>
+                    <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Para contar con el servicio de alerta de compra con tu tarjeta deberás contratarlo posteriormente con un cargo extra una única vez</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>El costo de reposisión de tarjeta en caso de robo o extravío es de $4.85 + IVA</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>La comisión por retiro de efectivo en cajeros a partir de la sexta transacción es de $0.65 + IVA</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>La comisión por retiro de efectivo en cajeros de otra red local es de $2.65 + IVA por transacción</p>
                         </div>
                     </div>
                 </div>

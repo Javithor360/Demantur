@@ -2,7 +2,7 @@ import { Navbar, Footer } from "../../components";
 import "./assets/scss/HelpAccount.scss"
 import { AiFillPieChart as Empre } from "react-icons/ai";
 import { Tabs } from "./assets/js/BannerTabCreator.js";
-import { BiLock } from "react-icons/bi"
+import { BiLock,BiWallet } from "react-icons/bi"
 export const InfoEmpre = () => {
   return (
     <>
@@ -11,6 +11,7 @@ export const InfoEmpre = () => {
         <div className="baners-content">
         <Empre className="arrow" />
           <h1 className="title">Cuenta Empresarial</h1>
+          <p className="subtitles">Encuentra la mejor solución que se adapte a tus necesidades</p>
         </div>
       </div>
       <div className="title2">
@@ -25,23 +26,30 @@ export const InfoEmpre = () => {
         <div className="title2">
         <p>¿Cuales son los beneficios?</p>
         <hr />
-      </div><br/><br/>
-      <div className="content-icon">
-      <p className="list"><BiLock className="ico" /><br/>
-        Un lugar seguro para guardar tu dinero
-        </p>
       </div>
-      <div className="content-icon">
-      <p className="list"><BiLock className="ico" /><br/>
-      Realizar el pago de nóminas
-        </p>
-      </div>
-      <div className="content-icon">
-      <p className="list"><BiLock className="ico" /><br/>
-      Posibilidad de contar con chequera
-        </p>
-      </div>
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <div className="accT_benefits-containers">
+          <div className="accT_benefits-grids">
+            <div className="accT_benefits-card-conts">
+            <BiLock className="ico" />
+              <p className="accT_benefits-titles">
+              Un lugar seguro para guardar tu dinero
+              </p>
+            </div>
+
+            <div className="accT_benefits-card-conts">
+            <BiWallet className="ico" />
+              <p className="accT_benefits-titles">Realizar el pago de nóminas</p>
+            </div>
+
+            <div className="accT_benefits-card-conts">
+            <BiWallet className="ico" />
+              <p className="accT_benefits-titles  ">
+              Posibilidad de contar con chequera
+              </p>
+            </div>
+          </div>
+        </div>
+      <br/><br/><br/><br/><br/><br/>
        
       {Tabs("InfoEmpre")}
       

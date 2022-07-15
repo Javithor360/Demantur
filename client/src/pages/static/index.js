@@ -9,10 +9,17 @@ export { DemanturClassic } from "./credit_cards/DemanturClassic";
 export { DemanturGold } from "./credit_cards/DemanturGold";
 export { DemanturPlatinum } from "./credit_cards/DemanturPlatinum";
 export { DebitCard } from "./credit_cards/DebitCard";
+export { BlackCard } from "./credit_cards/BlackCard";
 export { ContactPage } from "./ContactPage";
 export { SelectAccountPage } from "./SelectAccountPage";
 export { LoansPage } from "./LoansPage";
 export { BusinessLoan } from "./loans/BusinessLoan";
 export { PersonalLoan } from "./loans/PersonalLoan";
 export { RegisterNormalUserPage } from "./auth/RegisterNormalUserPage";
+export { LoginNormalUserPage } from './auth/LoginNormalUserPage';
+export { VerifyEmailPage } from './auth/VerifyEmailPage';
 export { InfoEmpre } from "./InfoEmpre";
+export { ForgotPasswordPage } from './auth/ForgotPasswordPage'
+export { ResetPasswordPage } from './auth/ResetPasswordPage'
+export { AboutUs } from "./AboutUs";
+export { TermsandConditions } from "./TermsAndConditions";

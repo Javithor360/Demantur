@@ -5,26 +5,24 @@ import './assets/scss/RegisterCard.scss'
 import { Link } from 'react-router-dom'
 
 //assets (icons)
-import { FaPiggyBank, FaMoneyBillWave } from 'react-icons/fa'
-import { BiCreditCard } from 'react-icons/bi'
+import { MdOutlinePublishedWithChanges as Change } from 'react-icons/md'
+import { HiOutlineMail } from 'react-icons/hi'
+
+import { FiLogIn } from 'react-icons/fi'
 
 
 export const RegisterCard = () => {
   return (
     <div className='TarjetDiv'>
-      <h1>¿Qué Ofrecemos?</h1>
+      <h1>Otras Opciones</h1>
       <hr />
-      <p>Conoce nuestros servicios</p>
+      <p>¿Qué Necesitas hacer?</p>
       <div className="small-div-container">
-        <Link to='/' className='Link-container'><div className='small-div'><FaPiggyBank className='icons' /><p>Cuentas financieras para su necesidad</p></div></Link>
-        <Link to='/' className='Link-container'><div className='small-div'><BiCreditCard className='icons' /><p>Distintos tipos de tarjetas</p></div></Link>
-        <Link to='/' className='Link-container'><div className='small-div'><FaMoneyBillWave className='icons icon-3' /><p>Sistema amigable con distintas funcionalidades</p></div></Link>
+        <Link to='/auth/normal-user/login' className='Link-container'><div className='small-div'><FiLogIn className='icons' /><p>Iniciar Sesion</p></div></Link>
+        <Link to='/auth/forgot-password' className='Link-container'><div className='small-div'><Change className='icons' /><p>Cambiar Contraseña</p></div></Link>
+        <Link to='/auth/verify-email' className='Link-container'><div className='small-div'><HiOutlineMail className='icons icon-3' /><p>Verificar Correo Electronico</p></div></Link>
       </div>
       <hr />
-      <div className='links-div'>
-        <Link to='/' className='Link'>¿Olvidó su contraseña?</Link>
-        <Link to='/' className='Link'>Iniciar Sesión</Link>
-      </div>
     </div>
   )
 }

@@ -1,0 +1,9 @@
+@import url(../../assets/scss/auth-register.scss);
+
+.step-inputs-code {
+  flex-direction: column !important;
+
+  .input-class-code:nth-child(1) {
+    margin-bottom: 1rem;
+  }
+}

@@ -156,6 +156,102 @@ body{
         }
     }
 }
+//black_hero
+.black-card-hero-container{
+    position: relative;
+    width: 100%;
+    height: 25.93rem;
+    background-image: url(../../img/credit_cards/black/black_card_hero_bg.jpg);
+    background-size: cover;
+    background-position: center 90%;
+    margin-bottom: 8rem;
+
+    .black-card-hero-content{
+        width: inherit;
+        height: inherit;
+        position: absolute;
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, .5);
+        
+        .text-content{
+            position: absolute;
+            top: 15%;
+            right: 0;
+            left: 0;
+            margin: auto;
+
+            p:first-of-type{
+                margin: auto;
+                text-align: center;
+                font-size: 3.75rem;
+            }
+            p:last-of-type{
+                margin: auto;
+                text-align: center;  
+            }
+        }
+        .image-content{
+            position: absolute;
+            top: 55%;
+            margin: auto;
+            right: 0;
+            left: 0;
+            width: 25rem;
+            img{
+                width: 100%;
+                filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.6));
+            }
+        }
+    }
+}
+//debito_hero
+.debit-card-hero-container{
+    position: relative;
+    width: 100%;
+    height: 25.93rem;
+    background-image: url(../../img/credit_cards/debito/debit_card_hero_bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    margin-bottom: 8rem;
+
+    .debit-card-hero-content{
+        width: inherit;
+        height: inherit;
+        position: absolute;
+        color: #ffffff;
+        background-color: rgba(0, 0, 0, .5);
+        
+        .text-content{
+            position: absolute;
+            top: 15%;
+            right: 0;
+            left: 0;
+            margin: auto;
+
+            p:first-of-type{
+                margin: auto;
+                text-align: center;
+                font-size: 3.75rem;
+            }
+            p:last-of-type{
+                margin: auto;
+                text-align: center;  
+            }
+        }
+        .image-content{
+            position: absolute;
+            top: 55%;
+            margin: auto;
+            right: 0;
+            left: 0;
+            width: 25rem;
+            img{
+                width: 100%;
+                filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.6));
+            }
+        }
+    }
+}
 //main
 .card-description{
     width: 80%;
@@ -163,6 +259,15 @@ body{
     border-left: 4px solid #93DEFF;
     opacity: 100;
     padding-left: 0.5rem;
+}
+.card-benefits_tittle{
+    text-align: center;
+    font-size: 1.375rem;
+    font-weight: 700;
+    margin-bottom: 5rem;
+}
+.mgb-1{
+    margin-bottom: 1rem;
 }
 //main_grid_structure
 .card-benefits_container{
@@ -176,12 +281,6 @@ body{
     justify-content: center;
     align-items: center;
 
-    .card-benefits_tittle{
-        text-align: center;
-        font-size: 1.375rem;
-        font-weight: 700;
-        margin-bottom: 5rem;
-    }
     .card-benefits_grid_row{
         width: 90%;
         height: 100%;
@@ -349,6 +448,82 @@ body{
         }
     }
 }
+//black_hero__2
+.black-other-benefits-banner{
+    width: 100%;
+    height: 25.93rem;
+    background-image: url(../../img/credit_cards/black/baggage_bg.jpg);
+    background-size: cover;
+    background-position: center 80%;
+    margin: 2rem auto 0 auto;
+    position: relative;
+
+    .black-otb-content{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .5);
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .black-otb-icon img{
+            width: calc(1vw + 130px);
+            margin-right: 1.5625rem;
+        }
+        .black-otb-text{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #ffffff;
+
+            p:first-child{
+                font-size: 2.5rem;
+            }
+            p:last-child{
+                font-size: 1.125rem;
+            }
+            
+        }
+    }
+}
+//debit_hero__2
+.debit-other-benefits-banner{
+    width: 100%;
+    height: 25.93rem;
+    background-image: url(../../img/credit_cards/debito/points_bg.jpg);
+    background-size: cover;
+    background-position: center 70%;
+    margin: 2rem auto 0 auto;
+    position: relative;
+
+    .debit-otb-content{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .5);
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .debit-otb-icon img{
+            width: calc(1vw + 130px);
+            margin-right: 1.5625rem;
+        }
+        .debit-otb-text{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #ffffff;
+
+            p:first-child{
+                font-size: 2.5rem;
+            }
+            p:last-child{
+                font-size: 1.125rem;
+            }
+            
+        }
+    }
+}
 //main_cards_form
 .card-form-container{
     width: 100%;
@@ -498,6 +673,75 @@ body{
         }
         .card-submit-button:hover{
             background-color: #75d6ff;
+        }
+    }
+}
+//debit_card_page
+.debit-card-benefits-bg{
+    background-color: #fbfbfb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50rem;
+    .debit-benefits-container{
+        margin: 5rem auto;
+        display: flex;
+        justify-content: space-between;
+        height: 30rem;
+        width: 90%;
+        .debit-benefit{
+            width: 30%;
+            height: 100%;
+            border: 1px solid #dfdfdf;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0px 15px rgba(0, 0, 0, 0.071);
+    
+            .debit-benefit-image-1{
+                background-image: url(../../img/credit_cards/debito/benefit_1.jpg);
+                background-size: cover;
+                background-position: center center;
+                height: 50%;
+            }
+            .debit-benefit-image-2{
+                background-image: url(../../img/credit_cards/debito/benefit_2.jpg);
+                background-size: cover;
+                background-position: center center;
+                height: 50%;
+            }
+            .debit-benefit-image-3{
+                background-image: url(../../img/credit_cards/debito/benefit_3.jpg);
+                background-size: cover;
+                background-position: center center;
+                height: 50%;
+            }
+    
+            .debit-benefit-content{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0 1rem 0 1rem;
+                height: 40%;
+                text-align: center;
+                div{
+                    p:first-child{
+                        font-size: 1.6rem;
+                        margin: .5rem auto .5rem auto;
+                    }
+                    hr{
+                        border: 0;
+                        height: .2rem;
+                        width: 70%;
+                        background: #93DEFF;
+                        opacity: 100;
+                        margin: auto;
+                    }
+                    p:last-child{
+                        font-size: 0.875rem;
+                        margin: .5rem auto .5rem auto;
+                    }
+                }
+            }
         }
     }
 }

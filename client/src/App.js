@@ -32,6 +32,9 @@ import { AuthProvider } from "./context/AuthContext";
 // Componentes
 import { ScrollToTop } from "./components/";
 
+//dashboard
+import { DashboardNormalUser } from "./pages/private";
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -90,6 +93,10 @@ const App = () => {
           <Route
             path="/dashboard/:usuario/perfil"
             element={<SelectAccountPage />}
+          />
+          <Route
+            path="/dashboard"
+            element={<DashboardNormalUser />}
           />
         </Routes>
       </AuthProvider>

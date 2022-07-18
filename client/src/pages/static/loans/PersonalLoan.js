@@ -24,7 +24,7 @@ export const PersonalLoan = () => {
       </div>
 
       <div className="loansP-type-tittle">
-        <p>Prestamo Personal </p>
+        <p>Crédito Personal </p>
         <hr />
       </div>
       <div className="page-section">

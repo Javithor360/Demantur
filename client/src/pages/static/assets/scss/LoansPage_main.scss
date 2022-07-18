@@ -164,6 +164,32 @@ h6 {
 		width: 100%;
 	}
 }
+
+.about-img2{
+	position: relative;
+	margin: 0.8rem auto;
+	width: auto;
+	max-width: 32.25rem;
+	border-radius: 0.75rem;
+	overflow: hidden;
+	transform: skewX(-3deg) rotateX(20deg);
+	img {
+		width: 100%;
+	}
+}
+
+.about-img3{
+	position: relative;
+	margin: 0.8rem auto;
+	width: auto;
+	max-width: 33.25rem;
+	border-radius: 0.75rem;
+	overflow: hidden;
+	transform: skewX(-3deg) rotateX(20deg);
+	img {
+		width: 100%;
+	}
+}
 .btn-primary {
     color: $secondary-color;
     background-color: $Primary_color;

@@ -20,7 +20,7 @@ export const LoansPage = () => {
       <Navbar />
       <div className="loans-banner-container">
         <div className="loans-banner-content">
-          <FaHandshake className="ccard-icon" />
+          <FaHandshake className="hands-icon" />
           <h1>Préstamos</h1>
           <p>Encuentra una solución para financiar tus futuros proyectos</p>
         </div>
@@ -41,13 +41,14 @@ export const LoansPage = () => {
                 <span className="fg-primary"> préstamos Personales?</span>
               </h2>
               <p>
-                Estos préstamos son aquiridos para financiar tus necesidades
-                concretas en un momento determinado.
+                Disfruta tu nueva vida con las mejores condiciones. Facilitamos
+                los trámites para que consolides tus deudas o realices tu
+                proyectos con nuestro Crédito Personal.
               </p>
 
               {/*boton para mas info de las paginas"*/}
-              <div className="acc-btn">
-                <Link to="/loans/businessLoan">
+              <div className="Btn-info">
+                <Link to="/loans/PersonalLoan">
                   <span>Más información</span>
                   <FaAngleRight color="#fff" />
                 </Link>
@@ -75,12 +76,15 @@ export const LoansPage = () => {
                 <span className="fg-primary"> préstamos para Empresas?</span>
               </h2>
               <p>
-                Te apoyamos con créditos a mediano y largo plazo para la
-                adquisición del equipo que sea de interés para la gestión de
-                negocios de tu empresa.
+                Nuestros préstamos empresariales representa una excelente
+                alternativa para potenciar el crecimiento, actividades y lograr
+                un mayor crecimiento en el mercado. La posibilidad de adquirir
+                nuevos equipos, maquinaria o abrir una nueva sucursal son
+                algunas de las opciones que entregamos en este instrumento
+                financiero.
               </p>
               {/*boton para mas info de las paginas"*/}
-              <div className="acc-btn">
+              <div className="Btn-info">
                 <Link to="/loans/businessLoan">
                   <span>Más información</span>
                   <FaAngleRight color="#fff" />
@@ -104,7 +108,7 @@ export const LoansPage = () => {
       <div className="hero">
         <div className="text">
           <h1>¿Tienes alguna duda?</h1>
-          <div className="acc-btn">
+          <div className="Btn-contac">
             <Link to="/contact">
               <span>Contáctanos</span>
               <FaAngleRight color="#fff" />

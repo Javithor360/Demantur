@@ -1,34 +1,19 @@
-import React from 'react'
-import axios from 'axios';
-
+import "./assets/scss/dashboardStyle.scss"
+import "./components/assets/scss/SideBar_Main.scss"
+import { SideBar } from "./components/SideBar"
 export const DashboardNormalUser = () => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-      'x-auth-token': localStorage.getItem("authToken")
-    },
-  };
-
-  const VerifyAccountStatus = async (e) => {
-    e.preventDefault()
-    // try {
-    //   const res = await axios.post('http://localhost:4000/api/dashboard/test-db-relation', { yes: true }, config);
-    //   console.log(res)
-    // } catch (error) {
-    //   console.log(error);
-    // }
-  }
-
   return (
-    <>
-      <div>
-        <form onSubmit={VerifyAccountStatus}>
-          <h1>CAMBIAR STATUS DE LA CUENTA</h1>
-          <button type='submit'>Cambiar</button>
-        </form>
-        <br />
+    <div className="w-screen h-screen bg-[#F1F1F1] relative">
+      <div className="w-full h-2/5 bg-[#323643] absolute"></div>
+      <div className="w-full h-full absolute flex items-center justify-center">
+        <div className="w-[98%] h-[95%] flex">
+          {/* sidebar */}
+          <SideBar />
+          <div className="h-full w-[80%]">
+            {/* Aqui iría el contenido de cada apartado */}
+          </div>
+        </div>
       </div>
-      <span onClick={alert('wtf')} type='button'>logout</span>
-    </>
+    </div>
   )
 }

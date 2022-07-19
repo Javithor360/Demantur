@@ -38,6 +38,8 @@ import { AuthProvider } from "./context/AuthContext";
 // Componentes
 import { ScrollToTop } from "./components/";
 
+
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -80,29 +82,25 @@ const App = () => {
           {/* Rutas de la autentificacion */}
           <Route path="/auth" element={<SelectAccountPage />} />
           <Route path="/auth/normal-user/" element={<SelectAccountPage />} />
-          <Route
-            path="/auth/normal-user/login"
-            element={<LoginNormalUserPage />}
-          />
-          <Route
-            path="/auth/normal-user/register"
-            element={<RegisterNormalUserPage />}
+          <Route path="/auth/normal-user/login" element={<LoginNormalUserPage />} />
+          <Route path="/auth/normal-user/register" element={<RegisterNormalUserPage />}
           />
           <Route path="/auth/forgot-password" element={<ForgotPasswordPage />} />
-          <Route
-            path="/auth/reset-password/:resetToken"
-            element={<ResetPasswordPage />}
-          />
+          <Route path="/auth/reset-password/:resetToken" element={<ResetPasswordPage />} />
 
           {/*Rutas de "/loans"*/}
           <Route path="/loans" element={<LoansPage />}></Route>
           <Route path="/loans/BusinessLoan" element={<BusinessLoan />}></Route>
-          <Route path="/Loans/BersonalLoan" element={<PersonalLoan />}></Route>
+          <Route path="/Loans/PersonalLoan" element={<PersonalLoan />}></Route>
 
           {/* test dashboard */}
           <Route
             path="/dashboard/"
             element={<AuthValidate><DashboardNormalUser /></AuthValidate>}
+          />
+          <Route
+            path="/dashboard"
+            element={<DashboardNormalUser />}
           />
         </Routes>
       </AuthProvider>

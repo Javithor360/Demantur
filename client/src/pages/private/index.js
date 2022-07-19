@@ -1,1 +1,2 @@
-export { DashboardNormalUser } from './DashboardNormalUser'
+export { SideBar } from "./components/SideBar.js"
+export { DashboardNormalUser } from "./DashboardNormalUser"

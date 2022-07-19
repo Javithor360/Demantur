@@ -16,6 +16,7 @@ app.use(fileUpload({
 // routes
 app.use('/api/auth/', require('./routes/auth.routes'));
 app.use('/api/admin/', require('./routes/admin.routes'));
+app.use('/api/dashboard/', require('./routes/dashboard.routes'));
 
 // Error Middleware
 app.use(MiddlewareError);

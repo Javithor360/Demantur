@@ -1,12 +1,14 @@
 //hooks
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 //scss
 import "../scss/credit_cards/cards-tabs-style.scss";
 //images
 const IndividualCardImages = require.context("../img/credit_cards/", true);
 const Infoimagenes = require.context("../img/banner", true);
 const AccountsImages = require.context("../img/acc/", true);
+const LoansImages = require.context("../img/all_loans/", true);
 
 function Tabs(type) {
   const [toggleState, setToggleState] = useState(1);
@@ -537,8 +539,157 @@ function Tabs(type) {
             </div>
         </div>
     )
-  } else {
-    return <div>Parámetro no encontrado.</div>;
+  }  else if(type === "rqrBusiness") {
+    return (
+        <div className="information-tabs">
+            <div className="information-tabs-flex">
+                <div className="tab-images-container">
+                    <div className={toggleState === 1 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(1)}>
+                        <img src={LoansImages("./requirements_loans.jpg")} alt=""></img>
+                    </div>
+
+                    <div className={toggleState === 2 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(2)}>
+                        <img src={LoansImages("./Benefits_loans.jpg")} alt=""></img>
+                    </div>
+                </div>
+
+                <div className="tab-content">
+                    <div className="tabs-selection">
+                        <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
+                        Requisitos
+                        </button>
+                        <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
+                        Comisiones
+                        </button>
+                    </div>
+
+                    <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p> Autorización para investigación dentro del sistema financiero</p>
+                            </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Nómina de accionistas actuales de la empresa</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Estados financieros auditados de los tres últimos años</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Estados financieros de comprobación a la fecha más reciente con su comparativo del mismo mes del año anterior</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>
+                            Flujo de caja proyectado a un año de forma mensual
+                            </p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>
+                            Declaraciones de renta de los últimos dos años
+                            </p>
+                        </div>
+                        
+                    </div>
+                    <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Comisión de estudio</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Comisión de estudio</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Comisión de administración</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Comisión de descubierto en cuenta corriente</p>
+                        </div>
+                        <Link to="/accounts/form">
+                            <div className="check_form-button">
+                            <span>Solicitar</span>
+                            </div>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+  }else if(type === "rqrpersonal") {
+    return (
+        <div className="information-tabs">
+            <div className="information-tabs-flex">
+                <div className="tab-images-container">
+                    <div className={toggleState === 1 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(1)}>
+                        <img src={LoansImages("./RequerimentsP.jpg")} alt=""></img>
+                    </div>
+
+                    <div className={toggleState === 2 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(2)}>
+                        <img src={LoansImages("./comisionP.jpg")} alt=""></img>
+                    </div>
+                </div>
+
+                <div className="tab-content">
+                    <div className="tabs-selection">
+                        <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
+                        Requisitos
+                        </button>
+                        <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
+                        Comisiones
+                        </button>
+                    </div>
+
+                    <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Ser mayor de 21 años y menor de 65 años.</p>
+                            </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>	Presentar DUI y NIT.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>	Solicitud Firmada.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>	Ingresos (según perfil):<br></br>Asalariados: $400.00</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>
+                            Comprobantes de constancia de ingresos, y en el caso de comerciantes independientes presentar declaración de impuesto de renta e IVA y estados financieros.</p>
+                        </div>
+                        
+                    </div>
+                    <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Comisión por servicios en la estructuración de créditos mínima de $99.00 dólares de los Estados Unidos de América + IVA, y máxima 2.50% sobre el monto otorgado + IVA. Comisión por prórroga y/o modificaciones al crédito del 0.25% sobre el saldo del crédito otorgado + IVA.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>Recargo por incumplimiento de pago automático de cuota de préstamos por insuficiencia de fondos: $6.50 + IVA por cada pago (sin cobro los 2 primeros intentos). Recargo aplicable únicamente al producto de Tasa Fija: Hasta 3% sobre el monto pagado en exceso de la amortización normal, mayor a $100.00, con un monto mínimo de recargo de $10.00.</p>
+                        </div>
+                        <Link to="/accounts/form">
+                            <div className="check_form-button">
+                            <span>Solicitar</span>
+                            </div>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+  }else{
+    <div><b>Elemento requerido no encontrado</b></div>
   }
 }
 

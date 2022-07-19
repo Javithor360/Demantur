@@ -1,7 +1,7 @@
 const NormalUser = require('../models/NormalUser');
 const ErrorResponse = require('../utils/ErrorMessage');
 const { FoPaEmail } = require('../helpers/Functions');
-const crypto = require('crypto')
+const crypto = require('crypto');
 
 
 // @route POST api/auth/general-users/forgot-password

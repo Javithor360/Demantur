@@ -23,7 +23,7 @@ export const BusinessLoan = () => {
       </div>
 
       <div className="loans-type-tittle">
-        <p>Prestamo Empresarial </p>
+        <p>Crédito Empresarial </p>
         <hr />
       </div>
       <div className="Bpage-section">

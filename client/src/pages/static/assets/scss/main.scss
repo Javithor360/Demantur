@@ -131,9 +131,17 @@ body {
 }
 
 /*===Slider====*/
+.slider-container{
+    display: flex;
+    max-width: 70rem;
+    margin: 4rem auto;
+    overflow: hidden;
+}
+
+
 .box {
     border-top: 35rem solid #323643;
-    border-left: 28.125rem solid #323643;
+    border-left: 30rem solid #323643;
     border-right: 21.875rem solid transparent;
     width: 0;
     height: 6.25rem;
@@ -209,6 +217,48 @@ body {
     margin-left: 474px;
     position: absolute;
     z-index: -1;
+}
+
+@media screen and (max-width:680px) {
+    .slider-container{
+        transform: translateY(10rem);
+        margin-left: 5rem;
+        width: 48rem;  
+    }
+
+    .box{
+        border-top: 25rem solid #323643;
+        border-left: 8rem solid #323643;
+        border-right: 16rem solid transparent;
+    }
+
+    .slidertext{
+        font-size: 1.5rem;
+        margin-left: -7.62rem;
+        transform: translateY(5.5rem);
+    }
+
+    .linea{
+        width: 5rem;
+        height: .1rem;
+        margin-top: 6rem;
+        margin-left: -7.5rem;
+    }
+
+    .parrafo{
+        font-size: .8rem;
+        margin-left: -7.5rem;
+    }
+
+    .slider-button{
+        width: 6rem;
+        height: 2rem;
+        margin-left: -7.5rem;
+    }
+
+    .view-text{
+        font-size: .65rem;
+    }
 }
 
 /* ====Main==== */

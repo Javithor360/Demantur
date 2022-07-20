@@ -688,8 +688,93 @@ function Tabs(type) {
             </div>
         </div>
     );
+  }else if(type === "rqrHouse") {
+    return (
+        <div className="information-tabs">
+            <div className="information-tabs-flex">
+                <div className="tab-images-container">
+                    <div className={toggleState === 1 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(1)}>
+                        <img src={LoansImages("./RequerimentsH.jpg")} alt=""></img>
+                    </div>
+
+                    <div className={toggleState === 2 ? "tab-bg-image tab-bg-image-active" : "tab-bg-image"} onClick={() => toggleTab(2)}>
+                        <img src={LoansImages("./ConditionsH.jpg")} alt=""></img>
+                    </div>
+                </div>
+
+                <div className="tab-content">
+                    <div className="tabs-selection">
+                        <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
+                        Requisitos
+                        </button>
+                        <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
+                        Condiciones
+                        </button>
+                    </div>
+
+                    <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p> Ingresos mayores a US$700.</p>
+                            </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>	Estabilidad laboral mínima de 1 año.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>	Edades entre 24 y 60 años.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>	Buen manejo de récord crediticio.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>
+                            Constancia laboral o boleta de pago si es asalariado.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>
+                            Buen manejo de su récord crediticio.</p>
+                        </div>
+                        
+                    </div>
+                    <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p><b>Plazo máximo:</b>
+                                <br></br>Vivienda nueva hasta 30 años</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p><b>Garantía Hipotecaria:</b>
+                            <br></br>Valor mínimo desde US$50,000 hasta US$350,000 establecido por peritos autorizados por la SSF</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p><b>Seguros:</b>
+                            <br></br>Comisiones:
+                            <br></br>Consultar tarifas preferenciales de gastos según el destino del crédito.</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p><b>Comisiones:</b>
+                            <br></br>Seguro de vida según monto del crédito y seguro de daños sobre la construcción.</p>
+                        </div>
+                        <Link to="/accounts/form">
+                            <div className="check_form-button">
+                            <span>Solicitar</span>
+                            </div>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
   }else{
-    <div><b>Elemento requerido no encontrado</b></div>
+    <div><h1>El elemento que solicitaste no existe</h1></div>
   }
 }
 

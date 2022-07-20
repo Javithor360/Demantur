@@ -37,7 +37,7 @@ export const LoansPage = () => {
             <div className="col-lg-6 py-3">
               <div className="subhead">Préstamos personales</div>
               <h2 className="title-section">
-                ¿Qué son los
+                ¿Qué es un
                 <span className="fg-primary"> préstamos Personales?</span>
               </h2>
               <p>
@@ -70,18 +70,16 @@ export const LoansPage = () => {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6 py-3">
-              <div className="subhead">Préstamos para Empresas</div>
+              <div className="subhead">Préstamos Empresarial</div>
               <h2 className="title-section">
-                ¿Qué son los
-                <span className="fg-primary"> préstamos para Empresas?</span>
+                ¿Qué es un 
+                <span className="fg-primary"> préstamos Empresarial?</span>
               </h2>
               <p>
-                Nuestros préstamos empresariales representa una excelente
-                alternativa para potenciar el crecimiento, actividades y lograr
-                un mayor crecimiento en el mercado. La posibilidad de adquirir
-                nuevos equipos, maquinaria o abrir una nueva sucursal son
-                algunas de las opciones que entregamos en este instrumento
-                financiero.
+                Si trabajas en tu propio negocio, este este préstamo es para
+                ti, te lo facilitamos con condiciones especiales para que
+                consolides tus deudas o realices tus nuevos proyectos o mejores 
+                las condiciones de tu empresa o emprendimiento.
               </p>
               {/*boton para mas info de las paginas"*/}
               <div className="Btn-info">
@@ -92,7 +90,7 @@ export const LoansPage = () => {
               </div>
             </div>
             <div className="col-lg-6 py-3">
-              <div className="about-img">
+              <div className="about-img2">
                 <img
                   src={LoansImage("./business_loan.jpg")}
                   alt="Prestamo Empresa"
@@ -102,6 +100,37 @@ export const LoansPage = () => {
           </div>
         </div>
       </div>
+
+      <div className="page-section2">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-6 py-3">
+              <div className="subhead">Vivienda Demantur</div>
+              <h2 className="title-section">
+                ¿Qué es la
+                <span className="fg-primary"> vivienda Demantur?</span>
+              </h2>
+              <p>
+              Aprovecha condiciones preferenciales para solicitar los creditos que necesites
+                para poder realizar la compra de tu vivienda nueva o usada en El Salvador.
+              </p>
+              {/*boton para mas info de las paginas"*/}
+              <div className="Btn-info">
+                <Link to="/loans/HouseLoan">
+                  <span>Más información</span>
+                  <FaAngleRight color="#fff" />
+                </Link>
+              </div>
+            </div>
+            <div className="col-lg-6 py-3">
+              <div className="about-img3">
+                <img src={LoansImage("./House.jpg")} alt="Prestamo Vivienda" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br></br>
 
       {/*Hero banner contact*/}
 

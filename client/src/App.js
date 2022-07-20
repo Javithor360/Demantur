@@ -20,6 +20,7 @@ import {
   LoansPage,
   BusinessLoan,
   PersonalLoan,
+  HouseLoan,
   InfoEmpre,
   BlackCard,
   AboutUs,
@@ -31,6 +32,9 @@ import { AuthProvider } from "./context/AuthContext";
 
 // Componentes
 import { ScrollToTop } from "./components/";
+
+//dashboard
+import { DashboardNormalUser } from "./pages/private";
 
 const App = () => {
   return (
@@ -85,11 +89,16 @@ const App = () => {
           <Route path="/loans" element={<LoansPage />}></Route>
           <Route path="/loans/BusinessLoan" element={<BusinessLoan />}></Route>
           <Route path="/Loans/PersonalLoan" element={<PersonalLoan />}></Route>
+          <Route path="/Loans/HouseLoan" element={<HouseLoan/>}> </Route>
 
           {/* test dashboard */}
           <Route
             path="/dashboard/:usuario/perfil"
             element={<SelectAccountPage />}
+          />
+          <Route
+            path="/dashboard"
+            element={<DashboardNormalUser />}
           />
         </Routes>
       </AuthProvider>

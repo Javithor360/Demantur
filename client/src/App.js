@@ -32,6 +32,9 @@ import { AuthProvider } from "./context/AuthContext";
 // Componentes
 import { ScrollToTop } from "./components/";
 
+// Translator
+import "./libs/i18n";
+
 //dashboard
 import { DashboardNormalUser } from "./pages/private";
 
@@ -77,11 +80,19 @@ const App = () => {
           {/* Rutas de la autentificacion */}
           <Route path="/auth" element={<SelectAccountPage />} />
           <Route path="/auth/normal-user/" element={<SelectAccountPage />} />
-          <Route path="/auth/normal-user/login" element={<SelectAccountPage />}/>
-          <Route path="/auth/normal-user/register" element={<RegisterNormalUserPage />}
+          <Route
+            path="/auth/normal-user/login"
+            element={<SelectAccountPage />}
+          />
+          <Route
+            path="/auth/normal-user/register"
+            element={<RegisterNormalUserPage />}
           />
           <Route path="/auth/forgot-password" element={<SelectAccountPage />} />
-          <Route path="/auth/reset-password/:resetToken" element={<SelectAccountPage />}/>
+          <Route
+            path="/auth/reset-password/:resetToken"
+            element={<SelectAccountPage />}
+          />
           <Route path="/auth/waiting" element={<SelectAccountPage />} />
 
           {/*Rutas de "/loans"*/}
@@ -94,10 +105,7 @@ const App = () => {
             path="/dashboard/:usuario/perfil"
             element={<SelectAccountPage />}
           />
-          <Route
-            path="/dashboard"
-            element={<DashboardNormalUser />}
-          />
+          <Route path="/dashboard" element={<DashboardNormalUser />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

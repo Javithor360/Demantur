@@ -12,7 +12,13 @@ import {
 } from "react-icons/fa";
 import Logo_Footer_White from "./assets/img/Demantur_Imagotype-2_White.svg";
 
+// Translation as well -.-
+import { useTranslation } from "react-i18next";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+
 export const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer>
       <div className="footer-container">
@@ -22,24 +28,24 @@ export const Footer = () => {
         <div className="footer-menu">
           <div className="footer-content-container">
             <Link to="/terms" className="menu-item-footer">
-              Términos y condiciones
+              {t("main_footer.terms")}
             </Link>
             <Link to="/" className="menu-item-footer">
-              Política de privacidad
+              {t("main_footer.policy")}
             </Link>
             <Link to="/help" className="menu-item-footer">
-              Ayuda
+              {t("main_footer.help")}
             </Link>
           </div>
           <div className="footer-content-container">
             <Link to="/about" className="menu-item-footer">
-              Nuestra empresa
+              {t("main_footer.about")}
             </Link>
             <Link to="/contact" className="menu-item-footer">
-              Contacto
+              {t("main_footer.contact")}
             </Link>
             <Link to="/auth" className="menu-item-footer">
-              Acceder
+              {t("main_footer.access")}
             </Link>
           </div>
           <div className="social-icons-container">
@@ -55,22 +61,13 @@ export const Footer = () => {
               </Link>
             </div>
             <div className="lang-footer-select">
-              <select name="" id="">
-                <option className="select-item" value="">
-                  ES
-                </option>
-                <option className="select-item" value="">
-                  EN
-                </option>
-              </select>
+              <LanguageSwitcher />
             </div>
           </div>
         </div>
       </div>
       <div className="copyright-container">
-        <span className="copyright">
-          Todos los derechos reservados. © 2022 Demantur
-        </span>
+        <span className="copyright">{t("main_footer.copyright")}</span>
       </div>
     </footer>
   );

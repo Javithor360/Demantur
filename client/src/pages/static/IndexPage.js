@@ -7,6 +7,9 @@ import { Navbar, Footer } from "../../components/";
 // Hooks
 import { Link } from "react-router-dom";
 
+// Translation
+import { useTranslation } from "react-i18next";
+
 // Asstes (Iconos e Imagenes)
 import { FaAngleRight } from "react-icons/fa";
 import Logo_Icon_White from "./assets/img/logos/svg/Logo_Icon-1_White.svg";
@@ -15,21 +18,20 @@ const SliderImages = require.context("./assets/img/index/slider", true);
 const TarjetasImages = require.context("./assets/img/index", true);
 
 export const IndexPage = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Navbar />
       <div>
         <div className="container-fluid box ms-0">
-          <p className="slidertext">Banca en Línea</p>
+          <p className="slidertext">{t("index.slider.title")}</p>
           <div className="linea" />
-          <p className="parrafo">
-            Simplificamos la forma de administrar tus cuentas, abre tu cuenta y
-            disfruta de muchos beneficios
-          </p>
+          <p className="parrafo">{t("index.slider.desc")}</p>
 
           <div className="slider-button">
             <Link to="/accounts" className="view-more">
-              <span className="view-text">Ver Más</span>
+              <span className="view-text">{t("index.read_more")}</span>
               <FaAngleRight />
             </Link>
           </div>
@@ -104,21 +106,18 @@ export const IndexPage = () => {
         </div>
 
         <div className="section-tittle">
-          <p>Soluciones financieras en un solo lugar</p>
+          <p>{t("index.financial_solutions")}</p>
           <hr />
         </div>
 
         <div className="cards-container">
           <div className="card">
             <img src={TarjetasImages("./card-1.png")} alt="" />
-            <h4>Tarjetas</h4>
-            <p>
-              Con nuestras tarjetas recibes los mejores beneficios adaptados a
-              tus necesidades
-            </p>
+            <h4>{t("index.cards_grid.1.title")}</h4>
+            <p>{t("index.cards_grid.1.desc")}</p>
             <div className="boton">
               <Link to="/cards" className="LinkHover">
-                <span>Conoce Más</span>
+                <span>{t("index.read_more2")}</span>
                 <FaAngleRight className="view-icon fa-solid fa-angle-right ArrowIcon" />
               </Link>
             </div>
@@ -126,14 +125,11 @@ export const IndexPage = () => {
 
           <div className="card">
             <img src={TarjetasImages("./card-2.png")} alt="" />
-            <h4>Solicitud de prestamos</h4>
-            <p>
-              Obtén tu préstamo fácil, seguro y rápido, para que puedas cumplir
-              tus metas
-            </p>
+            <h4>{t("index.cards_grid.2.title")}</h4>
+            <p>{t("index.cards_grid.2.desc")}</p>
             <div className="boton">
               <Link to="/Loans" className="LinkHover">
-                <span>Conoce Más</span>
+                <span>{t("index.read_more2")}</span>
                 <FaAngleRight className="view-icon fa-solid fa-angle-right ArrowIcon" />
               </Link>
             </div>
@@ -141,14 +137,11 @@ export const IndexPage = () => {
 
           <div className="card">
             <img src={TarjetasImages("./card-3.png")} alt="" />
-            <h4>Cuentas bancarias</h4>
-            <p>
-              Elige la mejor cuenta que se adapte a tus necesidades con los
-              mejores beneficios
-            </p>
+            <h4>{t("index.cards_grid.3.title")}</h4>
+            <p>{t("index.cards_grid.3.desc")}</p>
             <div className="boton">
               <Link to="/accounts" className="LinkHover">
-                <span>Conoce Más</span>
+                <span>{t("index.read_more2")}</span>
                 <FaAngleRight className="view-icon fa-solid fa-angle-right ArrowIcon" />
               </Link>
             </div>
@@ -159,15 +152,11 @@ export const IndexPage = () => {
           <div className="dual-banner">
             <div className="dual-banner-image-1" />
             <div className="dual-banner-content">
-              <p>Ahorrar te trae muchas oportunidades a futuro</p>
+              <p>{t("index.dual_banner.1.title")}</p>
               <hr className="blue-underline" />
-              <p>
-                Abre tu cuenta de ahorros y disfruta de muchos beneficios, ganas
-                intereses sobre tus ahorros, controla tu dinero y ten acceso a
-                el en todo momento.
-              </p>
+              <p>{t("index.dual_banner.1.desc")}</p>
               <Link to="/accounts/savings" className="about-button-rg">
-                <span>Conoce Más</span>
+                <span>{t("index.read_more2")}</span>
                 <FaAngleRight className="fa-solid fa-angle-right about-button-rg-icon" />
               </Link>
             </div>
@@ -175,15 +164,11 @@ export const IndexPage = () => {
 
           <div className="dual-banner">
             <div className="dual-banner-content">
-              <p>Te ayudamos a cumplir tus sueños</p>
+              <p>{t("index.dual_banner.2.title")}</p>
               <hr className="blue-underline" />
-              <p>
-                Conoce nuestros préstamos y elige el mejor para cumplir tus
-                metas, con tramites sencillos y rápidos, además de una tasa de
-                intereses justa
-              </p>
+              <p>{t("index.dual_banner.2.desc")}</p>
               <Link to="/Loans" className="about-button-rg">
-                <span>Conoce Más</span>
+                <span>{t("index.read_more2")}</span>
                 <FaAngleRight className="fa-solid fa-angle-right about-button-rg-icon" />
               </Link>
             </div>
@@ -192,7 +177,7 @@ export const IndexPage = () => {
         </div>
 
         <div className="section-tittle">
-          <p>Facilitamos nuestros servicios</p>
+          <p>{t("index.help_center.main_title")}</p>
           <hr />
         </div>
 
@@ -202,20 +187,15 @@ export const IndexPage = () => {
               <img src={Logo_Icon_White} alt="" />
             </div>
             <div className="banner-tittle">
-              <p> Centro de Ayuda </p>
+              <p> {t("index.help_center.title")} </p>
             </div>
             <hr className="white-uderline" />
             <div className="help-banner-information">
-              <p>
-                ¿Tienes dudas sobre como realizar ciertos procesos en nuestro
-                banco?, visita nuestro centro de ayuda, ahí encontraras
-                preguntas frecuentes que seguramente te servirán para solventar
-                tu duda.
-              </p>
+              <p>{t("index.help_center.desc")}</p>
             </div>
             <div>
               <Link to="/help" className="view-more-button">
-                <span>Ver Más</span>
+                <span>{t("index.read_more")}</span>
                 <FaAngleRight className="fa-solid fa-angle-right view-more-icon" />
               </Link>
             </div>
@@ -223,21 +203,17 @@ export const IndexPage = () => {
         </div>
 
         <div className="section-tittle">
-          <p>Servicios para empresas</p>
+          <p>{t("index.business_info.main_title")}</p>
           <hr />
         </div>
 
         <div className="buisness-banner">
           <div className="row-content">
-            <p>Cuentas profesionales para tu empresa</p>
+            <p>{t("index.business_info.title")}</p>
             <hr className="blue-underline-2" />
-            <p>
-              Aumenta el potencial de tu empresa y hazla crecer con nuestros
-              servicios financieros que brindan facilidad al administrar las
-              finanzas de tu negocio
-            </p>
+            <p>{t("index.business_info.desc")}</p>
             <Link to="/info" className="view-more-button">
-              <span>Ver Más</span>
+              <span>{t("index.read_more")}</span>
               <FaAngleRight className="fa-solid fa-angle-right view-more-icon" />
             </Link>
           </div>
@@ -245,20 +221,17 @@ export const IndexPage = () => {
         </div>
 
         <div className="section-tittle">
-          <p>Quienes somos</p>
+          <p>{t("index.about_extended.main_title")}</p>
           <hr className="smallest" />
         </div>
 
         <div className="about-banner">
           <div className="about-banner-content">
-            <p>Personas como tú</p>
+            <p>{t("index.about_extended.title")}</p>
             <hr className="blue-underline-3" />
-            <p>
-              Somos una empresa comprometida con lo que hace, descubre más sobre
-              nosotros y como hacemos para brindarte un servicio de calidad
-            </p>
+            <p>{t("index.about_extended.desc")}</p>
             <Link to="/" className="about-button-rg">
-              <span>Conoce Más</span>
+              <span>{t("index.read_more2")}</span>
               <FaAngleRight className="fa-solid fa-angle-right about-button-rg-icon" />
             </Link>
           </div>

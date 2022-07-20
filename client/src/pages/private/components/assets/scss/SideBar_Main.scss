@@ -1,14 +1,16 @@
-.black-line{
+.black-line {
     border: 0;
     height: .4rem;
-    width: 80%;
+    width: 75%;
     background: #323643;
     opacity: 100;
     padding: 0;
     margin: .7rem auto 1.3rem auto;
 }
-.menu-items{
-    .menu-item{
+
+.menu-items {
+
+    .menu-item {
         color: #868786;
         transition: .2s;
         .menu-icon{
@@ -21,18 +23,20 @@
         transition: .2s;
     }
 }
-.logout-button{
+
+.logout-button {
     border-style: none;
     background-color: #323643;
     color: #ffffff;
     height: 3rem;
     transition: .2s;
 
-    .logout-icon{
+    .logout-icon {
         font-size: 2rem;
     }
 }
-.logout-button:hover{
+
+.logout-button:hover {
     background-color: #474d60;
     transition: .2s;
 }

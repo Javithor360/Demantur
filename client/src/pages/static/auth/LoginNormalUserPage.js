@@ -40,7 +40,7 @@ export const LoginNormalUserPage = () => {
         setTimeout(() => {
           setSuccess('Sesión Iniciada Correctamente');
           setTimeout(() => {
-            navigate('/auth')
+            navigate('/dashboard')
           }, 3000)
         }, 3000)
       }

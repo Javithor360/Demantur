@@ -25,7 +25,13 @@ import {
   BlackCard,
   AboutUs,
   TermsandConditions,
+  LoginNormalUserPage,
+  ForgotPasswordPage,
+  ResetPasswordPage,
 } from "./pages/static";
+
+import { DashboardNormalUser } from './pages/private/index';
+import { AuthValidate } from "./pages/private/routers/AuthValidate";
 
 //contexts
 import { AuthProvider } from "./context/AuthContext";
@@ -33,8 +39,7 @@ import { AuthProvider } from "./context/AuthContext";
 // Componentes
 import { ScrollToTop } from "./components/";
 
-//dashboard
-import { DashboardNormalUser } from "./pages/private";
+
 
 const App = () => {
   return (
@@ -78,12 +83,11 @@ const App = () => {
           {/* Rutas de la autentificacion */}
           <Route path="/auth" element={<SelectAccountPage />} />
           <Route path="/auth/normal-user/" element={<SelectAccountPage />} />
-          <Route path="/auth/normal-user/login" element={<SelectAccountPage />}/>
+          <Route path="/auth/normal-user/login" element={<LoginNormalUserPage />} />
           <Route path="/auth/normal-user/register" element={<RegisterNormalUserPage />}
           />
-          <Route path="/auth/forgot-password" element={<SelectAccountPage />} />
-          <Route path="/auth/reset-password/:resetToken" element={<SelectAccountPage />}/>
-          <Route path="/auth/waiting" element={<SelectAccountPage />} />
+          <Route path="/auth/forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="/auth/reset-password/:resetToken" element={<ResetPasswordPage />} />
 
           {/*Rutas de "/loans"*/}
           <Route path="/loans" element={<LoansPage />}></Route>
@@ -93,8 +97,8 @@ const App = () => {
 
           {/* test dashboard */}
           <Route
-            path="/dashboard/:usuario/perfil"
-            element={<SelectAccountPage />}
+            path="/dashboard/"
+            element={<AuthValidate><DashboardNormalUser /></AuthValidate>}
           />
           <Route
             path="/dashboard"

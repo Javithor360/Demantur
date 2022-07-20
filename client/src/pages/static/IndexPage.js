@@ -25,9 +25,7 @@ export const IndexPage = () => {
     <>
       <Navbar />
       <div>
-
         <Slide1 />
-
         <div className="section-tittle">
           <p>{t("index.financial_solutions")}</p>
           <hr />

@@ -17,38 +17,40 @@ const Slide1= () => {
 	const {t} = useTranslation();
 	return (
 		<>
-			<div className='box'>
-				<p className='slidertext'>{t('index.slider.title')}</p>
-				<div className='linea'/>
-				<p className='parrafo'>
-					{t('index.slider.desc')}
-				</p>
-				<div className='slider-button'>
-					<Link to='/accounts' className='slider-link'>
-						<span className='view-text'>
-						{t('index.read_more')}
-						</span>
-						<FaAngleRight className='slider-icon'/>
-					</Link>
+			<div className='Contenedor-Slider'>
+				<div className='box'>
+						<p className='slidertext'>{t('index.slider.title')}</p>
+						<div className='linea'/>
+						<p className='parrafo'>
+							{t('index.slider.desc')}
+						</p>
+					<div className='slider-button'>
+						<Link to='/accounts' className='slider-link'>
+							<span className='view-text'>
+							{t('index.read_more')}
+							</span>
+							<FaAngleRight className='slider-icon'/>
+						</Link>
+					</div>
 				</div>
-			</div>
 			
-			<main className='slider-container'>
-				<Slideshow controles={true} autoplay={true} velocidad="600" intervalo="8000">
-					<Slide>
-							<img src={ImgSlider(`./slider-image-1.jpg`)} alt=""/>
-					</Slide>
-					<Slide>
-							<img src={ImgSlider(`./slider-image-2.jpg`)} alt=""/>
-					</Slide>
-					<Slide>
-							<img src={ImgSlider(`./slider-image-3.jpg`)} alt=""/>
-					</Slide>
-					<Slide>
-							<img src={ImgSlider(`./slider-image-4.jpg`)} alt=""/>
-					</Slide>
-				</Slideshow>	
-			</main>
+				<main className='slider-container'>
+					<Slideshow controles={true} autoplay={true} velocidad="600" intervalo="8000">
+						<Slide>
+								<img src={ImgSlider(`./slider-image-1.jpg`)} alt=""/>
+						</Slide>
+						<Slide>
+								<img src={ImgSlider(`./slider-image-2.jpg`)} alt=""/>
+						</Slide>
+						<Slide>
+								<img src={ImgSlider(`./slider-image-3.jpg`)} alt=""/>
+						</Slide>
+						<Slide>
+								<img src={ImgSlider(`./slider-image-4.jpg`)} alt=""/>
+						</Slide>
+					</Slideshow>	
+				</main>
+			</div>
 		</>
 	);
 }

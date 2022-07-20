@@ -1,6 +1,13 @@
 const mongoose = require("mongoose");
 
 const StringReq = { type: String, require: true };
+const TransfersHistoryElements = {
+  Date: DateReq,
+  Subject: StringReq,
+  Amount: NumberReq,
+  AccountN: NumberReq,
+  Type: StringReq,
+};
 
 const GlobalDataSchema = new mongoose.Schema({
   DataOwner: {
@@ -28,6 +35,10 @@ const GlobalDataSchema = new mongoose.Schema({
       Accept: Boolean,
     },
   ],
+  TransfersHistory: {
+    Made: [TransfersHistoryElements],
+    Received: [TransfersHistoryElements],
+  },
 });
 
 module.exports = mongoose.model("GlobalData", GlobalDataSchema);

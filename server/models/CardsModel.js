@@ -1,24 +1,24 @@
 const mongoose = require('mongoose');
 
+const NumberReq = { type: Number, require: true };
+const StringReq = { type: String, require: true };
+const DateReq = { type: Date, require: true };
+
 const CardsModel = new mongoose.Schema({
-  DataOwner: {
+  CardOwner: {
     type: mongoose.Types.ObjectId,
     require: true,
   },
-  Notifications: [{
-    Title: { type: String, require: true },
-    Icon: { type: String, require: true },
-    Url: { type: String, require: true },
-  }],
-  Contacts: [{
-    Name: { type: String, require: true },
-    Dui: { type: String, require: true },
-    Photo: { type: String, require: true },
-  }],
-  PerfilPhoto: {
-    Url: { type: String, require: true },
-    public_id: { type: String, require: true },
-  }
+  CardType:StringReq,
+  CardAmount: NumberReq,
+  PaymentDate: DateReq,
+  PayAmount: NumberReq,
+  PaymentHistory:[{
+    RealizationDate: DateReq,
+    Amount: NumberReq,
+    
+  }]
+
 })
 
 module.exports = mongoose.model('CardsModel', CardsModel);

@@ -110,14 +110,14 @@ const App = () => {
           </Route>
 
           {/* test dashboard */}
-          <Route
+          {/* <Route
             path="/dashboard/"
             element={
               <AuthValidate>
                 <DashboardNormalUser />
               </AuthValidate>
             }
-          />
+          /> */}
           <Route path="/dashboard" element={<DashboardNormalUser />} />
         </Routes>
       </AuthProvider>

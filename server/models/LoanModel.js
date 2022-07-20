@@ -34,8 +34,6 @@ const LoanSchema = new mongoose.Schema({
     mora: NumberReq, // Si tiene mora/cargo por atraso en pago
   },
   annexes: {},
-  // something like payments?
-  // ??
 });
 
 module.exports = mongoose.model('Loan', LoanSchema);

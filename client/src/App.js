@@ -42,9 +42,6 @@ import { ScrollToTop } from "./components/";
 // Translator
 import "./libs/i18n";
 
-//dashboard
-import { DashboardNormalUser } from "./pages/private";
-
 const App = () => {
   return (
     <BrowserRouter>

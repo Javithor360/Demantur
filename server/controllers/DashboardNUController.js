@@ -1,6 +1,6 @@
 const NormalUser = require('../models/NormalUser');
 const ErrorResponse = require('../utils/ErrorMessage');
-const GlobalDataNU = require('../models/GlobalDataNU');
+const GlobalData = require('../models/GlobalData');
 
 const testDB = async (req, res, next) => {
   try {
@@ -18,9 +18,9 @@ const testDB = async (req, res, next) => {
 
     queryUser.save();
 
-    const newGlobalDataNU = await new GlobalDataNU({ Notifications: [{ Titulo: 'hola', Icono: 'Icono', Url: 'http://hola.com' }], Contacts: [{ Name: 'Alvin Josue Melendez Serrano', Dui: '123456-7', Photo: 'URLDEFOTO...' }], Prestamo: { Tipo: 'Tipo1', Monto: 1060, Pagos: [{}] }, Cards: [{}], UserOwner: queryUser._id })
+    const newGlobalData = await new GlobalData({ Notifications: [{ Titulo: 'hola', Icono: 'Icono', Url: 'http://hola.com' }], Contacts: [{ Name: 'Alvin Josue Melendez Serrano', Dui: '123456-7', Photo: 'URLDEFOTO...' }], Prestamo: { Tipo: 'Tipo1', Monto: 1060, Pagos: [{}] }, Cards: [{}], UserOwner: queryUser._id })
 
-    const response = await newGlobalDataNU.save();
+    const response = await newGlobalData.save();
 
     console.log(response);
 

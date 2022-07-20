@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 
 export const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
-
+    
   return (
     <select
       id="language"

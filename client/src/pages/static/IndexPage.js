@@ -25,86 +25,7 @@ export const IndexPage = () => {
     <>
       <Navbar />
       <div>
-        <div className="container-fluid box ms-0">
-          <p className="slidertext">{t("index.slider.title")}</p>
-          <div className="linea" />
-          <p className="parrafo">{t("index.slider.desc")}</p>
 
-          <div className="slider-button">
-            <Link to="/accounts" className="view-more">
-              <span className="view-text">{t("index.read_more")}</span>
-              <FaAngleRight />
-            </Link>
-          </div>
-        </div>
-
-        <div className="slider-container">
-          <div
-            id="carouselExampleIndicators"
-            className="carousel slide"
-            data-bs-ride="carousel"
-          >
-            <div className="carousel-indicators">
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to={0}
-                className="active"
-                aria-current="true"
-                aria-label="Slide 1"
-              />
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to={1}
-                aria-label="Slide 2"
-              />
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to={2}
-                aria-label="Slide 3"
-              />
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to={3}
-                aria-label="Slide 4"
-              />
-            </div>
-
-            <div className="carousel-inner">
-              <div className="carousel-item active">
-                <img
-                  src={SliderImages("./slider-image-1.jpg")}
-                  className="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div className="carousel-item">
-                <img
-                  src={SliderImages("./slider-image-2.jpg")}
-                  className="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div className="carousel-item">
-                <img
-                  src={SliderImages("./slider-image-3.jpg")}
-                  className="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div className="carousel-item">
-                <img
-                  src={SliderImages("./slider-image-4.jpg")}
-                  className="d-block w-100"
-                  alt="..."
-                />
-              </div>
-            </div>
-          </div>
-        </div>
         <Slide1 />
 
         <div className="section-tittle">
@@ -124,29 +45,27 @@ export const IndexPage = () => {
               </Link>
             </div>
           </div>
-        </div>
-
-        <div className="card">
-          <img src={TarjetasImages("./card-2.png")} alt="" />
-          <h4>{t("index.cards_grid.2.title")}</h4>
-          <p>{t("index.cards_grid.2.desc")}</p>
-          <div className="boton">
-            <Link to="/Loans" className="LinkHover">
-              <span>{t("index.read_more2")}</span>
-              <FaAngleRight className="view-icon fa-solid fa-angle-right ArrowIcon" />
-            </Link>
+          <div className="card">
+            <img src={TarjetasImages("./card-2.png")} alt="" />
+            <h4>{t("index.cards_grid.2.title")}</h4>
+            <p>{t("index.cards_grid.2.desc")}</p>
+            <div className="boton">
+              <Link to="/Loans" className="LinkHover">
+                <span>{t("index.read_more2")}</span>
+                <FaAngleRight className="view-icon fa-solid fa-angle-right ArrowIcon" />
+              </Link>
+            </div>
           </div>
-        </div>
-
-        <div className="card">
-          <img src={TarjetasImages("./card-3.png")} alt="" />
-          <h4>{t("index.cards_grid.3.title")}</h4>
-          <p>{t("index.cards_grid.3.desc")}</p>
-          <div className="boton">
-            <Link to="/accounts" className="LinkHover">
-              <span>{t("index.read_more2")}</span>
-              <FaAngleRight className="view-icon fa-solid fa-angle-right ArrowIcon" />
-            </Link>
+          <div className="card">
+            <img src={TarjetasImages("./card-3.png")} alt="" />
+            <h4>{t("index.cards_grid.3.title")}</h4>
+            <p>{t("index.cards_grid.3.desc")}</p>
+            <div className="boton">
+              <Link to="/accounts" className="LinkHover">
+                <span>{t("index.read_more2")}</span>
+                <FaAngleRight className="view-icon fa-solid fa-angle-right ArrowIcon" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

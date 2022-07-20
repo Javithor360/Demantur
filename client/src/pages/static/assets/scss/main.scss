@@ -161,7 +161,6 @@ body {
 }
 
 .slidertext {
-    font-family: 'Poppins', sans-serif;
     font-size: 2.5rem;
     color: $primary_white;
     margin-top: -25rem;
@@ -169,7 +168,6 @@ body {
 }
 
 .parrafo {
-    font-family: 'Poppins', sans-serif;
     font-size: 0.9375rem;
     margin-left: -24.6875rem;
     margin-right: -5.625rem;
@@ -177,40 +175,33 @@ body {
 }
 
 .slider-button {
-    width: 120px;
-    display: flex;
-    align-items: center;
+    width: 9rem;
     background-color: $primary_skyblue;
-    margin-top: 3.125rem;
-    margin-left: -3.125rem;
-}
-
-.slider-button a:last-of-type {
-    margin-right: .3rem;
-    color: $black;
-}
-
-.slider-button a {
-    text-decoration: none;
-}
-
-.slider-button {
-    display: inline-flex;
-    transition: .5s;
     border: 1.5px solid rgba(118, 118, 118, 0.8);
-    padding: 0;
-    padding: .3rem .8rem;
-    color: rgba(118, 118, 118, 0.8);
+    padding: .3rem .5rem;   
+    transition: .5s;
+    margin-top: 3.125rem;
+    margin-left: -5rem;
+    display: flex;
+    justify-content: center;
+
+    .slider-link{
+        width: 95%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        .view-text{
+            color: $primary_dark;
+        }
+        .slider-icon{
+            color: $primary_dark;
+            margin-left: 0.5rem;
+        }
+
+
+    }
 }
 
-.view-more {
-    display: inline-flex;
-    align-items: center;
-}
-
-.view-more .view-icon {
-    margin-left: .5rem;
-}
 
 .slider-container {
     width: 1050px;

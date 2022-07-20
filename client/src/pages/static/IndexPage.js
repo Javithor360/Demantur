@@ -3,6 +3,7 @@ import "./assets/scss/main.scss";
 
 // Componentes
 import { Navbar, Footer } from "../../components/";
+import Slide1 from "../../Slide"
 
 // Hooks
 import { Link } from "react-router-dom";
@@ -18,90 +19,9 @@ export const IndexPage = () => {
   return (
     <>
       <Navbar />
-      <div>
-        <div className="container-fluid box ms-0">
-          <p className="slidertext">Banca en Línea</p>
-          <div className="linea" />
-          <p className="parrafo">
-            Simplificamos la forma de administrar tus cuentas, abre tu cuenta y
-            disfruta de muchos beneficios
-          </p>
+      <Slide1 />
 
-          <div className="slider-button">
-            <Link to="/accounts" className="view-more">
-              <span className="view-text">Ver Más</span>
-              <FaAngleRight />
-            </Link>
-          </div>
-        </div>
-
-        <div className="slider-container">
-          <div
-            id="carouselExampleIndicators"
-            className="carousel slide"
-            data-bs-ride="carousel"
-          >
-            <div className="carousel-indicators">
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to={0}
-                className="active"
-                aria-current="true"
-                aria-label="Slide 1"
-              />
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to={1}
-                aria-label="Slide 2"
-              />
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to={2}
-                aria-label="Slide 3"
-              />
-              <button
-                type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to={3}
-                aria-label="Slide 4"
-              />
-            </div>
-
-            <div className="carousel-inner">
-              <div className="carousel-item active">
-                <img
-                  src={SliderImages("./slider-image-1.jpg")}
-                  className="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div className="carousel-item">
-                <img
-                  src={SliderImages("./slider-image-2.jpg")}
-                  className="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div className="carousel-item">
-                <img
-                  src={SliderImages("./slider-image-3.jpg")}
-                  className="d-block w-100"
-                  alt="..."
-                />
-              </div>
-              <div className="carousel-item">
-                <img
-                  src={SliderImages("./slider-image-4.jpg")}
-                  className="d-block w-100"
-                  alt="..."
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+      
 
         <div className="section-tittle">
           <p>Soluciones financieras en un solo lugar</p>
@@ -263,7 +183,7 @@ export const IndexPage = () => {
             </Link>
           </div>
         </div>
-      </div>
+
 
       <Footer />
     </>

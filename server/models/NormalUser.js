@@ -76,6 +76,7 @@ const NormalUserSchema = new mongoose.Schema({
   resetPasswordToken: String,
   resetPasswordExpire: Date,
   ActivedAccount: Boolean,
+  AccountRuning: Boolean,
 }, { timestamps: true })
 
 // Actualizar contraseña

@@ -1,0 +1,1 @@
+export { AuthValidate } from './AuthValidate'

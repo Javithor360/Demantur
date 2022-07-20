@@ -15,6 +15,7 @@ export { SelectAccountPage } from "./SelectAccountPage";
 export { LoansPage } from "./LoansPage";
 export { BusinessLoan } from "./loans/BusinessLoan";
 export { PersonalLoan } from "./loans/PersonalLoan";
+export { HouseLoan } from "./loans/HouseLoan";
 export { RegisterNormalUserPage } from "./auth/RegisterNormalUserPage";
 export { LoginNormalUserPage } from './auth/LoginNormalUserPage';
 export { VerifyEmailPage } from './auth/VerifyEmailPage';

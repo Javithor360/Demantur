@@ -20,11 +20,18 @@ import {
   LoansPage,
   BusinessLoan,
   PersonalLoan,
+  HouseLoan,
   InfoEmpre,
   BlackCard,
   AboutUs,
   TermsandConditions,
+  LoginNormalUserPage,
+  ForgotPasswordPage,
+  ResetPasswordPage,
 } from "./pages/static";
+
+import { DashboardNormalUser } from "./pages/private/index";
+import { AuthValidate } from "./pages/private/routers/AuthValidate";
 
 //contexts
 import { AuthProvider } from "./context/AuthContext";
@@ -82,28 +89,37 @@ const App = () => {
           <Route path="/auth/normal-user/" element={<SelectAccountPage />} />
           <Route
             path="/auth/normal-user/login"
-            element={<SelectAccountPage />}
+            element={<LoginNormalUserPage />}
           />
           <Route
             path="/auth/normal-user/register"
             element={<RegisterNormalUserPage />}
           />
-          <Route path="/auth/forgot-password" element={<SelectAccountPage />} />
+          <Route
+            path="/auth/forgot-password"
+            element={<ForgotPasswordPage />}
+          />
           <Route
             path="/auth/reset-password/:resetToken"
-            element={<SelectAccountPage />}
+            element={<ResetPasswordPage />}
           />
-          <Route path="/auth/waiting" element={<SelectAccountPage />} />
 
           {/*Rutas de "/loans"*/}
           <Route path="/loans" element={<LoansPage />}></Route>
           <Route path="/loans/BusinessLoan" element={<BusinessLoan />}></Route>
           <Route path="/Loans/PersonalLoan" element={<PersonalLoan />}></Route>
+          <Route path="/Loans/HouseLoan" element={<HouseLoan />}>
+            {" "}
+          </Route>
 
           {/* test dashboard */}
           <Route
-            path="/dashboard/:usuario/perfil"
-            element={<SelectAccountPage />}
+            path="/dashboard/"
+            element={
+              <AuthValidate>
+                <DashboardNormalUser />
+              </AuthValidate>
+            }
           />
           <Route path="/dashboard" element={<DashboardNormalUser />} />
         </Routes>

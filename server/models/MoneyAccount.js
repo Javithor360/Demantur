@@ -3,12 +3,6 @@ const mongoose = require('mongoose');
 const NumberReq = { type: Number, require: true };
 const StringReq = { type: String, require: true };
 const DateReq = { type: Date, require: true };
-const TransfersHistoryElements = {
-  Date: DateReq,
-  Person: StringReq,
-  Amount: NumberReq,
-  AccountN: NumberReq,
-};
 
 const MoneyAccountSchema = new mongoose.Schema({
   AccountOwner: {
@@ -26,10 +20,6 @@ const MoneyAccountSchema = new mongoose.Schema({
       Dui: StringReq,
     }
   }],
-  TransfersHistory: {
-    Made: [TransfersHistoryElements],
-    Received: [TransfersHistoryElements],
-  },
   // remesas (ya vamos a ver que pasa)
   // -
 
@@ -40,6 +30,6 @@ const MoneyAccountSchema = new mongoose.Schema({
     ExpirationDate: DateReq,
     ccv: NumberReq,
   }
-})
+}, { timestamps: true })
 
 module.exports = mongoose.model('MoneyAccount', MoneyAccountSchema);

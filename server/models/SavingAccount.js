@@ -4,7 +4,7 @@ const NumberReq = { type: Number, require: true };
 const StringReq = { type: String, require: true };
 const DateReq = { type: Date, require: true };
 
-const SavingAccount = new mongoose.Schema(
+const SavingAccountSchema = new mongoose.Schema(
   {
     AccountOwner: {
       type: mongoose.Types.ObjectId,
@@ -27,4 +27,4 @@ const SavingAccount = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model('SavingAccount', SavingAccount);
+module.exports = mongoose.model('SavingAccount', SavingAccountSchema);

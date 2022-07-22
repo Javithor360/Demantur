@@ -93,7 +93,7 @@ const App = () => {
           <Route path="/loans" element={<LoansPage />}></Route>
           <Route path="/loans/BusinessLoan" element={<BusinessLoan />}></Route>
           <Route path="/Loans/PersonalLoan" element={<PersonalLoan />}></Route>
-          <Route path="/Loans/HouseLoan" element={<HouseLoan/>}> </Route>
+          <Route path="/Loans/HouseLoan" element={<HouseLoan />}> </Route>
 
           {/* test dashboard */}
           <Route

@@ -20,7 +20,7 @@ export { RegisterNormalUserPage } from "./auth/RegisterNormalUserPage";
 export { LoginNormalUserPage } from './auth/LoginNormalUserPage';
 export { VerifyEmailPage } from './auth/VerifyEmailPage';
 export { InfoEmpre } from "./InfoEmpre";
-export { ForgotPasswordPage } from './auth/ForgotPasswordPage'
-export { ResetPasswordPage } from './auth/ResetPasswordPage'
+export { ForgotPasswordPage } from './auth/ForgotPasswordPage';
+export { ResetPasswordPage } from './auth/ResetPasswordPage';
 export { AboutUs } from "./AboutUs";
-export { TermsandConditions } from "./TermsAndConditions";
+export { TermsandConditions } from "./TermsAndConditions"; 

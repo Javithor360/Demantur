@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 
 //scss
 import "../scss/credit_cards/cards-tabs-style.scss";
+
+//translate
+import { useTranslation } from "react-i18next";
 //images
 const IndividualCardImages = require.context("../img/credit_cards/", true);
 const Infoimagenes = require.context("../img/banner", true);
@@ -12,7 +15,7 @@ const LoansImages = require.context("../img/all_loans/", true);
 
 function Tabs(type) {
   const [toggleState, setToggleState] = useState(1);
-
+  const { t } = useTranslation();
   const toggleTab = (index) => {
     setToggleState(index);
   };
@@ -541,6 +544,7 @@ function Tabs(type) {
     )
   }  else if(type === "rqrBusiness") {
     return (
+
         <div className="information-tabs">
             <div className="information-tabs-flex">
                 <div className="tab-images-container">
@@ -556,40 +560,40 @@ function Tabs(type) {
                 <div className="tab-content">
                     <div className="tabs-selection">
                         <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
-                        Requisitos
+                        {t("loans_pages.business_loan_page.business_tab.1.requeriments")}
                         </button>
                         <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
-                        Comisiones
+                        {t("loans_pages.business_loan_page.business_tab.2.commissions")}
                         </button>
                     </div>
 
                     <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p> Autorización para investigación dentro del sistema financiero</p>
+                            <p> {t("loans_pages.business_loan_page.business_tab.1.authorization")}</p>
                             </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Nómina de accionistas actuales de la empresa</p>
+                            <p>{t("loans_pages.business_loan_page.business_tab.1.payroll")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Estados financieros auditados de los tres últimos años</p>
+                            <p>{t("loans_pages.business_loan_page.business_tab.1.state")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Estados financieros de comprobación a la fecha más reciente con su comparativo del mismo mes del año anterior</p>
+                            <p>{t("loans_pages.business_loan_page.business_tab.1.state2")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
                             <p>
-                            Flujo de caja proyectado a un año de forma mensual
+                            {t("loans_pages.business_loan_page.business_tab.1.flow")}
                             </p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
                             <p>
-                            Declaraciones de renta de los últimos dos años
+                            {t("loans_pages.business_loan_page.business_tab.1.rent")}
                             </p>
                         </div>
                         
@@ -597,23 +601,20 @@ function Tabs(type) {
                     <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Comisión de estudio</p>
+                            <p>{t("loans_pages.business_loan_page.business_tab.2.study")}</p>
+                        </div>
+                    
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>{t("loans_pages.business_loan_page.business_tab.2.management")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Comisión de estudio</p>
-                        </div>
-                        <div className="individual-text">
-                            <p>&#10003;</p>
-                            <p>Comisión de administración</p>
-                        </div>
-                        <div className="individual-text">
-                            <p>&#10003;</p>
-                            <p>Comisión de descubierto en cuenta corriente</p>
+                            <p>{t("loans_pages.business_loan_page.business_tab.2.discovery")}</p>
                         </div>
                         <Link to="/accounts/form">
                             <div className="check_form-button">
-                            <span>Solicitar</span>
+                            <span>{t("loans_pages.personal_loan_page.apply_for")}</span>
                             </div>
                         </Link>
                     </div>
@@ -638,49 +639,59 @@ function Tabs(type) {
                 <div className="tab-content">
                     <div className="tabs-selection">
                         <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
-                        Requisitos
+                        {t("loans_pages.personal_loan_page.personal_tab.1.requeriments")}
                         </button>
                         <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
-                        Comisiones
+                        {t("loans_pages.personal_loan_page.personal_tab.2.conditions")}
                         </button>
                     </div>
 
                     <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Ser mayor de 21 años y menor de 65 años.</p>
+                            <p>{t("loans_pages.personal_loan_page.personal_tab.1.elderly")}</p>
                             </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>	Presentar DUI y NIT.</p>
+                            <p>{t("loans_pages.personal_loan_page.personal_tab.1.dui")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>	Solicitud Firmada.</p>
+                            <p>	{t("loans_pages.personal_loan_page.personal_tab.1.request")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>	Ingresos (según perfil):<br></br>Asalariados: $400.00</p>
+                            <p>	{t("loans_pages.personal_loan_page.personal_tab.1.income")}<br/>
+                                {t("loans_pages.personal_loan_page.personal_tab.1.income2")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
                             <p>
-                            Comprobantes de constancia de ingresos, y en el caso de comerciantes independientes presentar declaración de impuesto de renta e IVA y estados financieros.</p>
+                            {t("loans_pages.personal_loan_page.personal_tab.1.receipts")}</p>
                         </div>
                         
                     </div>
                     <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Comisión por servicios en la estructuración de créditos mínima de $99.00 dólares de los Estados Unidos de América + IVA, y máxima 2.50% sobre el monto otorgado + IVA. Comisión por prórroga y/o modificaciones al crédito del 0.25% sobre el saldo del crédito otorgado + IVA.</p>
+                            <p>{t("loans_pages.personal_loan_page.personal_tab.2.bills")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Recargo por incumplimiento de pago automático de cuota de préstamos por insuficiencia de fondos: $6.50 + IVA por cada pago (sin cobro los 2 primeros intentos). Recargo aplicable únicamente al producto de Tasa Fija: Hasta 3% sobre el monto pagado en exceso de la amortización normal, mayor a $100.00, con un monto mínimo de recargo de $10.00.</p>
+                            <p>{t("loans_pages.personal_loan_page.personal_tab.2.amount")}<br/>
+                            {t("loans_pages.personal_loan_page.personal_tab.2.up_to")}</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>{t("loans_pages.personal_loan_page.personal_tab.2.sure")}</p>
+                        </div>
+                        <div className="individual-text">
+                            <p>&#10003;</p>
+                            <p>{t("loans_pages.personal_loan_page.personal_tab.2.commission")}</p>
                         </div>
                         <Link to="/accounts/form">
                             <div className="check_form-button">
-                            <span>Solicitar</span>
+                            <span>{t("loans_pages.personal_loan_page.apply_for")}</span>
                             </div>
                         </Link>
                     </div>
@@ -705,67 +716,62 @@ function Tabs(type) {
                 <div className="tab-content">
                     <div className="tabs-selection">
                         <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
-                        Requisitos
+                        {t("loans_pages.housing_page.housing_tab.1.requeriments")}
                         </button>
                         <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
-                        Condiciones
+                        {t("loans_pages.housing_page.housing_tab.2.conditions")}
                         </button>
                     </div>
 
                     <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p> Ingresos mayores a US$700.</p>
+                            <p> {t("loans_pages.housing_page.housing_tab.1.income")}</p>
                             </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>	Estabilidad laboral mínima de 1 año.</p>
+                            <p>{t("loans_pages.housing_page.housing_tab.1.stability")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>	Edades entre 24 y 60 años.</p>
+                            <p>	{t("loans_pages.housing_page.housing_tab.1.ages")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>	Buen manejo de récord crediticio.</p>
-                        </div>
-                        <div className="individual-text">
-                            <p>&#10003;</p>
-                            <p>
-                            Constancia laboral o boleta de pago si es asalariado.</p>
+                            <p>{t("loans_pages.housing_page.housing_tab.1.record")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
                             <p>
-                            Buen manejo de su récord crediticio.</p>
+                            {t("loans_pages.housing_page.housing_tab.1.constancy")}</p>
+                            
                         </div>
-                        
+                       
                     </div>
                     <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p><b>Plazo máximo:</b>
-                                <br></br>Vivienda nueva hasta 30 años</p>
+                            <p><b>{t("loans_pages.housing_page.housing_tab.2.term")}</b>
+                                <br/>{t("loans_pages.housing_page.housing_tab.2.living_place")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p><b>Garantía Hipotecaria:</b>
-                            <br></br>Valor mínimo desde US$50,000 hasta US$350,000 establecido por peritos autorizados por la SSF</p>
+                            <p><b>{t("loans_pages.housing_page.housing_tab.2.warranty")}</b>
+                            <br/>{t("loans_pages.housing_page.housing_tab.2.value")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p><b>Seguros:</b>
-                            <br></br>Comisiones:
-                            <br></br>Consultar tarifas preferenciales de gastos según el destino del crédito.</p>
+                            <p><b>{t("loans_pages.housing_page.housing_tab.2.insurance")}</b>
+                            <br/>{t("loans_pages.housing_page.housing_tab.2.bills")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p><b>Comisiones:</b>
-                            <br></br>Seguro de vida según monto del crédito y seguro de daños sobre la construcción.</p>
+                            <p><b>{t("loans_pages.housing_page.housing_tab.2.commission")}</b>
+                            <br/>{t("loans_pages.housing_page.housing_tab.2.amount")}</p>
                         </div>
                         <Link to="/accounts/form">
                             <div className="check_form-button">
-                            <span>Solicitar</span>
+                            <span>{t("loans_pages.personal_loan_page.apply_for")}</span>
                             </div>
                         </Link>
                     </div>

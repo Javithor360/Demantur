@@ -8,23 +8,27 @@ import { Tabs } from "../assets/js/BannerTabCreator.js";
 //icon
 import { GiHouse } from "react-icons/gi";
 
+//translate
+import { useTranslation } from "react-i18next";
+
 //imgs
 const LoanH = require.context("../assets/img/all_loans/House", true);
 
 export const HouseLoan = () => {
+  const { t } = useTranslation();
   return (
     <>
       <Navbar />
       <div className="House-banner-container">
         <div className="House-banner-content">
           <GiHouse className="Home-icon" />
-          <h1>Crédito de Vivienda</h1>
-          <p>Te ofrecemos un crédito hecho a tu medida para tu nuevo hogar</p>
+          <h1>{t("loans_pages.housing_page.title")}</h1>
+          <p>{t("loans_pages.housing_page.subtitle")}</p>
         </div>
       </div>
 
       <div className="loansH-type-tittle">
-        <p>Vivienda Demantur </p>
+        <p>{t("loans_pages.housing_page.what's_it")}</p>
         <hr />
       </div>
       <div className="page-section">
@@ -33,19 +37,12 @@ export const HouseLoan = () => {
             <div className="col-lg-6 py-3">
               <div className="House_description">
                 <p>
-                  Este tipó de préstamo se hace a largo plazo y que estará
-                  respaldado por el inmueble que se compra. Este préstamos
-                  pueden estar financiados a un plazo determinado y a una tasa
-                  de interés que dependerá y la cantidad que solicites para
-                  obtener lo que necesitas.
+                {t("loans_pages.housing_page.housing_info")}
                 </p>
               </div>
               <div className="House_description">
                 <p>
-                  Es importante que tengas claro que el hecho de que sea el
-                  inmueble la garantía del préstamo, eso no quiere decir nos 
-                  quedaremos con tu casa o que no vas a poder usarla hasta que termines de
-                  pagar la deuda.
+                {t("loans_pages.housing_page.housing_info2")}
                 </p>
               </div>
             </div>
@@ -66,7 +63,7 @@ export const HouseLoan = () => {
       {Tabs("rqrHouse")}
 
       <div className="loans-type-tittle">
-        <p>Beneficios</p>
+        <p>{t("loans_pages.housing_page.benefits")}</p>
         <hr />
       </div>
 
@@ -76,9 +73,9 @@ export const HouseLoan = () => {
             <img src={LoanH("./BenefitsIcon.png")} alt="icon" />
           </div>
           <div className="classic-otb-text">
-            <p>Hasta 90% de financiamiento</p>
+            <p>{t("loans_pages.housing_page.benefits_bannerh")}</p>
             <p>
-            Te financiamos hasta un valor del 90% del valúo.
+            {t("loans_pages.housing_page.benefits_bannerh2")}
             </p>
           </div>
         </div>

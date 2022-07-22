@@ -1,3 +1,5 @@
+@use '../../../../../utilities/_colors.scss' as *;
+
 .black-line {
     border: 0;
     height: .4rem;
@@ -11,23 +13,36 @@
 .menu-items {
 
     .menu-item {
-        color: #868786;
+        color: $primary_gray;
         transition: .2s;
         .menu-icon{
             font-size: 2.2rem;
-            color: #868786;
+            color: $primary_gray;
+            transition: .2s;
         }
     }
     .menu-item:hover{
         box-shadow: 0px 0px 10px .5px rgba(0, 0, 0, 0.246);
-        transition: .2s;
+        transition: .2s ease-in-out;
+        color: $primary_dark;
+
+         .menu-icon-container{
+            color: $primary_white;
+            transition: .1s ease-in-out;
+
+             .menu-icon{
+                background-color: $primary_dark;
+                transition: .1s ease-in-out;
+                color: $primary_white;
+             }
+         }
     }
 }
 
 .logout-button {
     border-style: none;
-    background-color: #323643;
-    color: #ffffff;
+    background-color: $primary_dark;
+    color: $primary_white;
     height: 3rem;
     transition: .2s;
 

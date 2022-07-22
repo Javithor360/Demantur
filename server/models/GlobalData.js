@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
 const StringReq = { type: String, require: true };
+const NumberReq = { type: Number, require: true };
+const DateReq = { type: Date, require: true };
 const TransfersHistoryElements = {
   Date: DateReq,
   Subject: StringReq,

@@ -1,0 +1,70 @@
+{
+  "main_navbar": {
+    "cards": "Tarjetas",
+    "accounts": "Cuentas",
+    "loans": "Préstamos",
+    "contact": "Contacto",
+    "business": "Empresas",
+    "about": "Nosotros",
+    "help": "Ayuda",
+    "access": "Acceder"
+  },
+  "main_footer": {
+    "terms": "Términos y condiciones",
+    "policy": "Política de privacidad",
+    "help": "Ayuda",
+    "about": "Nuestra empresa",
+    "contact": "Contacto",
+    "access": "Acceder",
+    "copyright": "Todos los derechos reservados. © 2022 Demantur"
+  },
+
+  "index": {
+    "slider": {
+      "title": "Banca en línea",
+      "desc": "Simplificamos la forma de administrar cuentas abre tu cuenta y disfruta de muchos beneficios"
+    },
+    "read_more": "Ver más",
+    "read_more2": "Conoce más",
+    "financial_solutions": "Soluciones financieras en un solo lugar",
+    "cards_grid": {
+      "1": {
+        "title": "Tarjetas",
+        "desc": "Con nuestras tarjetas recibes los beneficios adaptados a tus necesidades"
+      },
+      "2": {
+        "title": "Solicitud de prestamos",
+        "desc": "Obtén tu préstamo fácil, seguro y rápido, para que puedas cumplir tus metas"
+      },
+      "3": {
+        "title": "Cuentas bancarias",
+        "desc": "Elige la mejor cuenta que se adapte a tus necesidades con los mejores beneficios"
+      }
+    },
+    "dual_banner": {
+      "1": {
+        "title": "Ahorrar te trae muchas oportunidades a futuro",
+        "desc": "Abre tu cuenta de ahorros y disfruta de muchos beneficios ganas intereses sobre tus ahorros, controla tu dinero y ten acceso a el en todo momento."
+      },
+      "2": {
+        "title": "Te ayudamos a cumplir tus sueños",
+        "desc": "Conoce nuestros préstamos y elige el mejor para cumplir tus metas, con tramites sencillos y rápidos, además de una tasa de intereses justa"
+      }
+    },
+    "help_center": {
+      "main_title": "Facilitamos nuestros servicios",
+      "title": "Centro de Ayuda",
+      "desc": "¿Tienes dudas sobre como realizar ciertos procesos en nuestro banco?, visita nuestro centro de ayuda, ahí encontraras preguntas frecuentes que seguramente te servirán para solventar tu duda."
+    },
+    "business_info": {
+      "main_title": "Servicios para empresas",
+      "title": "Cuentas profesionales para tu empresa",
+      "desc": "Aumenta el potencial de tu empresa y hazla crecer con nuestros servicios financieros que brindan facilidad al administrar las finanzas de tu negocio"
+    },
+    "about_extended": {
+      "main_title": "Quiénes somos",
+      "title": "Personas como tú",
+      "desc": "Somos una empresa comprometida con lo que hace, descubre más sobre nosotros y como hacemos para brindarte un servicio de calidad"
+    }
+  }
+}

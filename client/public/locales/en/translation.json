@@ -1,0 +1,70 @@
+{
+  "main_navbar": {
+    "cards": "Cards",
+    "accounts": "Accounts",
+    "loans": "Loans",
+    "contact": "Contact",
+    "business": "Business",
+    "about": "About Us",
+    "help": "Help",
+    "access": "Access"
+  },
+  "main_footer": {
+    "terms": "Terms and Conditions",
+    "policy": "Privacy Policy",
+    "help": "Help",
+    "about": "About us",
+    "contact": "Contact",
+    "access": "Access",
+    "copyright": "All rights reserved. © 2022 Demantur"
+  },
+
+  "index": {
+    "slider": {
+      "title": "Online Banking",
+      "desc": "We simplify the way of administrating your accounts, open an account and enjoy its benefits"
+    },
+    "read_more": "Read more",
+    "read_more2": "See more",
+    "financial_solutions": "Financial solutions in just one place",
+    "cards_grid": {
+      "1": {
+        "title": "Cards",
+        "desc": "With our cards you get the bests benefits tailored to your needs"
+      },
+      "2": {
+        "title": "Loan requests",
+        "desc": "Get your loan fast, safe and easy so that you can reach your goals"
+      },
+      "3": {
+        "title": "Banking accounts",
+        "desc": "Choose the best account that suits your needs with the best benefits"
+      }
+    },
+    "dual_banner": {
+      "1": {
+        "title": "Saving brings many future opportunities",
+        "desc": "Open your savings account and enjoys many benefits, earn interest on your savings, manage your money easily and get access in any moment"
+      },
+      "2": {
+        "title": "We help you to reach your dreams",
+        "desc": "Find out our loans and choose the most convenient to reach your goals, with fast & easy transactions, in addition to a fair interest rate"
+      }
+    },
+    "help_center": {
+      "main_title": "We provide our services",
+      "title": "Help Center",
+      "desc": "Need help? Check out our magic help center, there you will find frequently asked questions that might fix your doubt."
+    },
+    "business_info": {
+      "main_title": "Advanced offer",
+      "title": "Business accounts for your enterprise",
+      "desc": "Increase your business' capabilities and make it grow with our financial services that brings you facilities to manage the finances of your business"
+    },
+    "about_extended": {
+      "main_title": "Who are we?",
+      "title": "People like you",
+      "desc": "We are a compromised enterprise on what it does, learn more about us and how we provide quality service"
+    }
+  }
+}

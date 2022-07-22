@@ -1,3 +1,5 @@
+@use '../../../../utilities' as *;
+
 body {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
@@ -32,7 +34,7 @@ body {
 .section-tittle hr {
     border: 0;
     height: .3rem;
-    background: #93DEFF;
+    background: $primary_skyblue;
     opacity: 100;
     margin: .5rem auto 2rem auto;
     width: 15rem;
@@ -44,8 +46,8 @@ body {
 
 .white-uderline {
     opacity: 1;
-    border: 1px solid #ffffff;
-    background: #ffffff;
+    border: 1px solid $primary_white;
+    background: $primary_white;
     width: 15rem;
     margin: 1rem auto;
 }
@@ -53,23 +55,23 @@ body {
 .blue-underline {
     opacity: 1;
     width: 90%;
-    border: 1px solid #93DEFF;
-    background: #93DEFF;
+    border: 1px solid $primary_skyblue;
+    background: $primary_skyblue;
     margin: .5rem 0 1rem 0;
 }
 
 .blue-underline-2 {
     opacity: 1;
-    border: 1px solid #93DEFF;
-    background: #93DEFF;
+    border: 1px solid $primary_skyblue;
+    background: $primary_skyblue;
     width: 15rem;
     margin: 0;
 }
 
 .blue-underline-3 {
     opacity: 1;
-    border: 1px solid #93DEFF;
-    background: #93DEFF;
+    border: 1px solid $primary_skyblue;
+    background: $primary_skyblue;
     width: 8rem;
     margin: 0;
 }
@@ -80,13 +82,13 @@ body {
     text-decoration: none;
     margin: .5rem auto;
     padding: .5rem 1rem;
-    color: #ffffff;
-    border: 1px solid #ffffff;
+    color: $primary_white;
+    border: 1px solid $primary_white;
     transition: all .5s ease;
 }
 
 .view-more-button:hover {
-    color: #ffffff;
+    color: $primary_white;
     background: rgba(0, 0, 0, 0.689);
     transition: all .5s ease;
 }
@@ -107,50 +109,55 @@ body {
     position: absolute;
     right: 1.25rem;
     bottom: 1.25rem;
-    color: #000000;
+    color: $black;
     font-size: 0.938rem;
     text-decoration: none;
     transition: all .5s ease;
 }
 
 .about-button-rg .about-button-rg-icon {
-    color: #000000;
+    color: $black;
     margin-left: 0rem;
     transition: all .2s ease;
 }
 
 .about-button-rg:hover {
-    color: #34b1e7;
+    color: $secondary_skyblue;
     transition: all .5s ease;
 }
 
 .about-button-rg:hover .about-button-rg-icon {
-    color: #34b1e7;
+    color: $secondary_skyblue;
     transform: translateX(3px);
     transition: all .3s ease;
 }
 
 /*===Slider====*/
+
+.Contenedor-Slider{
+    width: 100%;
+    transform: translateY(-5rem);
+}
+
 .slider-container{
     display: flex;
-    max-width: 70rem;
+    width: 100%;
     margin: 4rem auto;
     overflow: hidden;
 }
 
-
 .box {
-    border-top: 35rem solid #323643;
-    border-left: 30rem solid #323643;
+    border-top: 35rem solid $primary_dark;
+    border-left: 30rem solid $primary_dark;
     border-right: 21.875rem solid transparent;
     width: 0;
     height: 6.25rem;
-    position: relative;
-
+    position: absolute;
+    z-index: 99;
 }
 
 .linea {
-    background-color: #93DEFF;
+    background-color: $primary_skyblue;
     width: 5rem;
     height: 0.0625rem;
     margin-top: -0.9375rem;
@@ -159,64 +166,45 @@ body {
 }
 
 .slidertext {
-    font-family: 'Poppins', sans-serif;
     font-size: 2.5rem;
-    color: #fff;
+    color: $primary_white;
     margin-top: -25rem;
     margin-left: -25rem;
 }
 
 .parrafo {
-    font-family: 'Poppins', sans-serif;
     font-size: 0.9375rem;
     margin-left: -24.6875rem;
     margin-right: -5.625rem;
-    color: #fff;
+    color: $primary_white;
 }
 
 .slider-button {
-    width: 120px;
-    display: flex;
-    align-items: center;
-    background-color: #93DEFF;
-    margin-top: 3.125rem;
-    margin-left: -3.125rem;
-}
-
-.slider-button a:last-of-type {
-    margin-right: .3rem;
-    color: black;
-}
-
-.slider-button a {
-    text-decoration: none;
-}
-
-.slider-button {
-    display: inline-flex;
-    transition: .5s;
+    width: 9rem;
+    background-color: $primary_skyblue;
     border: 1.5px solid rgba(118, 118, 118, 0.8);
-    padding: 0;
-    padding: .3rem .8rem;
-    color: rgba(118, 118, 118, 0.8);
-}
+    padding: .3rem .5rem;   
+    transition: .5s;
+    margin-top: 3.125rem;
+    margin-left: -5rem;
+    display: flex;
+    justify-content: center;
 
-.view-more {
-    display: inline-flex;
-    align-items: center;
-}
+    .slider-link{
+        width: 95%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        .view-text{
+            color: $primary_dark;
+        }
+        .slider-icon{
+            color: $primary_dark;
+            margin-left: 0.5rem;
+        }
 
-.view-more .view-icon {
-    margin-left: .5rem;
-}
 
-.slider-container {
-    width: 1050px;
-    height: 1000px;
-    margin-top: -591px;
-    margin-left: 474px;
-    position: absolute;
-    z-index: -1;
+    }
 }
 
 @media screen and (max-width:680px) {
@@ -227,8 +215,8 @@ body {
     }
 
     .box{
-        border-top: 25rem solid #323643;
-        border-left: 8rem solid #323643;
+        border-top: 25rem solid $primary_dark;
+        border-left: 8rem solid $primary_dark;
         border-right: 16rem solid transparent;
     }
 
@@ -280,9 +268,9 @@ body {
     height: 25rem;
     width: 23%;
     padding: 1rem;
-    // box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.315);
     border-radius: 8px;
     transition: all .5s ease;
+    border: 1px solid #dfdfdf;
 }
 
 .card h4 {
@@ -294,12 +282,12 @@ body {
 }
 
 .card .LinkHover {
-    color: #000000;
+    color: $black;
     transition: color .5s ease;
 }
 
 .card .LinkHover .ArrowIcon {
-    color: #000000;
+    color: $black;
     transition: all .3s ease;
 }
 
@@ -311,12 +299,12 @@ body {
 }
 
 .card .LinkHover:hover {
-    color: #34b1e7;
+    color: $secondary_skyblue;
     transition: all .5s ease;
 }
 
 .card .LinkHover:hover .ArrowIcon {
-    color: #34b1e7;
+    color: $secondary_skyblue;
     transform: translateX(3px);
     transition: all .3s ease;
 }
@@ -402,7 +390,7 @@ body {
 
 .banner-tittle {
     font-size: 2.5rem;
-    color: #ffffff;
+    color: $primary_white;
 }
 
 .banner-tittle p {
@@ -412,7 +400,7 @@ body {
 .help-banner-information {
     width: 70%;
     text-align: center;
-    color: #ffffff;
+    color: $primary_white;
 }
 
 .buisness-banner {
@@ -430,11 +418,11 @@ body {
     align-items: center;
     height: 100%;
     width: 50%;
-    background-color: #323643;
+    background-color: $primary_dark;
 }
 
 .buisness-banner .row-content p:first-of-type {
-    color: #ffffff;
+    color: $primary_white;
     font-size: 1.375rem;
 }
 

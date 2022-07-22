@@ -97,15 +97,13 @@ const Slideshow = ({
 }
 
 const ContenedorPrincipal = styled.div`
-	position: relative;	
-	
-	
+	position: relative;		
 `;
 
 const ContenedorSlideshow = styled.div`
 	display: flex;
 	flex-wrap: nowrap;
-	
+	position: relative;
 `;
 
 const Slide = styled.div`
@@ -114,22 +112,20 @@ const Slide = styled.div`
 	transition: .3s ease all;
 	z-index: 10;
 	position: relative;
-
 	img {
-		width: 100%;
-		
+		width: 100vw;
+		height: 35rem;
+		object-fit: cover; 
+		object-position: center 10%;
+		transform: translateX(calc(-2vw + 20%))
 	}
-
-	
 `;
 
 const Controles = styled.div`
 	position: absolute;
-	
 	top: 0;
 	z-index: 20;
 	width: 100%;
-	height: 100%;
 	pointer-events: none;
 `;
 

@@ -38,6 +38,15 @@
     }
   },
 
+  "bannertab": {
+    "tittle": "Requirements",
+    "1": "Photocopy of DUI and NIT of the Legal Representative of the Company; in the case of a foreign person, valid passport and resident card.",
+    "2": "Photocopy of the Deed of Incorporation registered in the Registry of Commerce.",
+    "3": "Photocopy of the Certification of the Point of Record, when approval of the Board of Directors is required for the opening or contracting.",
+    "4": "Photocopy of NIT of the Company.",
+    "5": "Photocopy of the Legal Representative Credential registered in the Registry of Commerce."
+  },
+
   "index": {
     "slider": {
       "title": "Online Banking",

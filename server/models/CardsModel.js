@@ -4,7 +4,7 @@ const NumberReq = { type: Number, require: true };
 const StringReq = { type: String, require: true };
 const DateReq = { type: Date, require: true };
 
-const CardsModel = new mongoose.Schema({
+const CardsModelSchema = new mongoose.Schema({
   CardOwner: {
     type: mongoose.Types.ObjectId,
     require: true,
@@ -22,4 +22,4 @@ const CardsModel = new mongoose.Schema({
 
 })
 
-module.exports = mongoose.model('CardsModel', CardsModel);
+module.exports = mongoose.model('CardsModel', CardsModelSchema);

@@ -37,6 +37,14 @@
     }
 
   },
+  "bannertab":{
+    "tittle":"Requisitos",
+    "1":"Fotocopia de DUI y NIT del Representante Legal de la Empresa; en el caso de persona extranjera, pasaporte vigente y carnet de residente.",
+    "2":"Fotocopia de la Escritura de Constitución inscrita en el Registro de Comercio.",
+    "3":"Fotocopia de la Certificación del Punto de Acta, cuando se requiera aprobación de Junta Directiva para la apertura o contratación",
+    "4":"Fotocopia de NIT de la Empresa.",
+    "5":"Fotocopia de la Credencial de Representante Legal inscrita en el Registro de Comercio."
+  },
 
   "index": {
     "slider": {

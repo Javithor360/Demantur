@@ -19,6 +19,26 @@
     "copyright": "All rights reserved. © 2022 Demantur"
   },
 
+  "bussinesPage":{
+    "hero":{
+      "tittle":"business account",
+      "desc":"Find the best solution that suits your needs"
+    },
+    "body":{
+      "tittle":"What is a business account?",
+      "text":"A contract between a company and our bank, by means of which the holder deposits an amount of money and the bank acquires a commitment to safeguard it, with this service we seek to provide a faster and more dynamic way to manage your money",
+      "subtittle": "What are the benefits?"
+    },
+    "benefits":{
+      "content":{
+        "1":"A safe place to keep your money",
+        "2":"Make payroll",
+        "3":"Possibility of having a checkbook"
+      }
+    }
+
+  },
+
   "index": {
     "slider": {
       "title": "Online Banking",

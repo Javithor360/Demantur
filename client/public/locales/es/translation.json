@@ -18,6 +18,25 @@
     "access": "Acceder",
     "copyright": "Todos los derechos reservados. © 2022 Demantur"
   },
+  "bussinesPage":{
+    "hero":{
+      "tittle":"Cuenta empresarial",
+      "desc":"Encuentre la mejor solución que se adapte a sus necesidades"
+    },
+    "body":{
+      "tittle":"¿Que es una cuenta empresarial?",
+      "text":"Un contrato entre una empresa y nuestro banco , por medio del cual el titular deposita una cantidad de dinero y el banco adquiere un compromiso para custodiarlo, con este servicio busacamos brindar una manera más rapida y dinamica para la administracion de su dinero,",
+      "subtittle": "¿Cuales son los beneficios?"
+    },
+    "benefits":{
+      "content":{
+        "1":"Un lugar seguro para guardar tu dinero",
+        "2":"Realizar el pago de nóminas",
+        "3":"Posibilidad de contar con chequera"
+      }
+    }
+
+  },
 
   "index": {
     "slider": {

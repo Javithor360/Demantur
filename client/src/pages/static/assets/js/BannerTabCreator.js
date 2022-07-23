@@ -502,9 +502,6 @@ function Tabs(type) {
                         <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
                         Requisitos
                         </button>
-                        <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
-                        Condiciones
-                        </button>
                     </div>
 
                     <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>

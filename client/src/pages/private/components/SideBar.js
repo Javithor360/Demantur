@@ -6,10 +6,10 @@ import { BiTransfer } from 'react-icons/bi'
 import { FaListAlt } from 'react-icons/fa'
 import { BsCreditCardFill } from 'react-icons/bs'
 
-const NavLinkStyles = 'group menu-item mb-2 p-1 flex flex-row w-full rounded items-center'
-const DivNavLinkStyles = 'menu-icon ml-5 mr-4 h-full'
-const IconNavLinkStyles = 'group-hover:text-white group-hover:bg-[#323643] ease-in-out duration-200 p-1 rounded'
-const SpanNavLinkStyles = 'group-hover:text-[#323643] ease-in-out duration-200 mt-2'
+const NavLinkStyles = 'menu-item mb-2 h-14 flex flex-row w-full rounded items-center'
+const DivNavLinkStyles = 'menu-icon-container ml-5 mr-4 h-full flex items-center'
+const IconNavLinkStyles = 'menu-icon p-1 rounded'
+const SpanNavLinkStyles = 'menu-span-navlink'
 
 //images
 const SideBarImages = require.context('./assets/img/', true)

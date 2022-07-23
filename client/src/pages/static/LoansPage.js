@@ -11,23 +11,27 @@ import { FaAngleRight } from "react-icons/fa";
 //hooks
 import { Link } from "react-router-dom";
 
+//translation
+import { useTranslation } from "react-i18next";
+
 //Imagenes
 const LoansImage = require.context("./assets/img/all_loans", true);
 
 export const LoansPage = () => {
+  const { t } = useTranslation();
   return (
     <>
       <Navbar />
       <div className="loans-banner-container">
         <div className="loans-banner-content">
           <FaHandshake className="hands-icon" />
-          <h1>Préstamos</h1>
-          <p>Encuentra una solución para financiar tus futuros proyectos</p>
+          <p>{t("loans_main_page.title_loans")}</p>
+          <p>{t("loans_main_page.subtitle_loans")}</p>
         </div>
       </div>
 
       <div className="loans-type-tittle">
-        <p>Tipos de Préstamos</p>
+      <p>{t("loans_main_page.type_loans")}</p>
         <hr />
       </div>
 
@@ -35,21 +39,19 @@ export const LoansPage = () => {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6 py-3">
-              <div className="subhead">Préstamos personales</div>
+              <div className="subhead">{t("loans_main_page.personal_loan")}</div>
               <h2 className="title-section">
-                ¿Qué es un
-                <span className="fg-primary"> préstamos Personales?</span>
+              {t("loans_main_page.what's_personal_loan")}
+                <span className="fg-primary"> {t("loans_main_page.what's_personal_loan2")}</span>
               </h2>
               <p>
-                Disfruta tu nueva vida con las mejores condiciones. Facilitamos
-                los trámites para que consolides tus deudas o realices tu
-                proyectos con nuestro Crédito Personal.
+              {t("loans_main_page.info_personal_loan")}
               </p>
 
               {/*boton para mas info de las paginas"*/}
               <div className="Btn-info">
                 <Link to="/loans/PersonalLoan">
-                  <span>Más información</span>
+                  <span>{t("loans_main_page.loans_buttons.more_info")}</span>
                   <FaAngleRight color="#fff" />
                 </Link>
               </div>
@@ -70,21 +72,18 @@ export const LoansPage = () => {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6 py-3">
-              <div className="subhead">Préstamos Empresarial</div>
+              <div className="subhead">{t("loans_main_page.business_loan")}</div>
               <h2 className="title-section">
-                ¿Qué es un 
-                <span className="fg-primary"> préstamos Empresarial?</span>
+              {t("loans_main_page.what's_personal_loan")}
+                <span className="fg-primary"> {t("loans_main_page.what's_business_loan2")}</span>
               </h2>
               <p>
-                Si trabajas en tu propio negocio, este este préstamo es para
-                ti, te lo facilitamos con condiciones especiales para que
-                consolides tus deudas o realices tus nuevos proyectos o mejores 
-                las condiciones de tu empresa o emprendimiento.
+              {t("loans_main_page.info_business_loan")}
               </p>
               {/*boton para mas info de las paginas"*/}
               <div className="Btn-info">
                 <Link to="/loans/businessLoan">
-                  <span>Más información</span>
+                  <span>{t("loans_main_page.loans_buttons.more_info")}</span>
                   <FaAngleRight color="#fff" />
                 </Link>
               </div>
@@ -105,19 +104,18 @@ export const LoansPage = () => {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6 py-3">
-              <div className="subhead">Vivienda Demantur</div>
+              <div className="subhead">{t("loans_main_page.housing_demantur")}</div>
               <h2 className="title-section">
-                ¿Qué es la
-                <span className="fg-primary"> vivienda Demantur?</span>
+              {t("loans_main_page.what's_home_demantur")}
+                <span className="fg-primary"> {t("loans_main_page.what's_home_demantur2")}</span>
               </h2>
               <p>
-              Aprovecha condiciones preferenciales para solicitar los creditos que necesites
-                para poder realizar la compra de tu vivienda nueva o usada en El Salvador.
+              {t("loans_main_page.info_home_demantur")}
               </p>
               {/*boton para mas info de las paginas"*/}
               <div className="Btn-info">
                 <Link to="/loans/HouseLoan">
-                  <span>Más información</span>
+                  <span>{t("loans_main_page.loans_buttons.more_info")}</span>
                   <FaAngleRight color="#fff" />
                 </Link>
               </div>
@@ -136,10 +134,10 @@ export const LoansPage = () => {
 
       <div className="hero">
         <div className="text">
-          <h1>¿Tienes alguna duda?</h1>
+          <h1>{t("loans_main_page.Doubts")}</h1>
           <div className="Btn-contac">
             <Link to="/contact">
-              <span>Contáctanos</span>
+              <span>{t("loans_main_page.loans_buttons.contact_us")}</span>
               <FaAngleRight color="#fff" />
             </Link>
           </div>

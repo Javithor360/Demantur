@@ -84,6 +84,120 @@
       "main_title": "Quiénes somos",
       "title": "Personas como tú",
       "desc": "Somos una empresa comprometida con lo que hace, descubre más sobre nosotros y como hacemos para brindarte un servicio de calidad"
+    }  
+ },
+ "loans_main_page":{
+  "title_loans":"Préstamos",
+  "subtitle_loans":"Encuentra una solución para financiar tus futuros proyectos",
+  "type_loans":"Tipos de Préstamos",
+  "personal_loan":"Préstamos Personales",
+  "what's_personal_loan":"¿Qué es un ",
+  "what's_personal_loan2":"Préstamo Personal?",
+  "info_personal_loan":"Disfruta tu nueva vida con las mejores condiciones. Facilitamos los trámites para que consolides tus deudas o realices tu proyectos con nuestro Crédito Personal.",
+  "business_loan":"Préstamos Empresarial",
+  "what's_business_loan":"¿Qué es un",
+  "what's_business_loan2":"préstamos Empresarial?",
+  "info_business_loan":"Si trabajas en tu propio negocio, este este préstamo es para ti, te lo facilitamos con condiciones especiales para que consolides tus deudas o realices tus nuevos proyectos o mejores las condiciones de tu empresa o emprendimiento.",
+  "housing_demantur":"Vivienda Demantur",
+  "what's_home_demantur":"¿Qué es la ",
+  "what's_home_demantur2":"vivienda Demantur?",
+  "info_home_demantur":"Aprovecha condiciones preferenciales para solicitar los creditos que necesites para poder realizar la compra de tu vivienda nueva o usada en El Salvador.",
+  "Doubts":"¿Tienes alguna duda?",
+  "loans_buttons":{
+    "more_info":"Más información",
+    "contact_us":"Contactanos"
+  }
+ }, 
+ "loans_pages":{
+ "personal_loan_page":{
+  "title":"Creditos Personales",
+  "subtitle":"Para alcanzar tus metas, realizar tus proyectos o para lo que necesites.",
+  "what's_it":"Crédito Personal",
+  "personal_info": "Un crédito personal es la operación en la que una entidad financiera entrega una cantidad monetaria específicamente a un cliente, quien deberá devolver los prestado en un tiempo pactado más los intereses generados.",
+  "personal_info2":" Este tipo de crédito se diferencia de otros porque se entrega sin avales o garantías adicionales, como suele suceder, por ejemplo, con el crédito hipotecario, donde además de la responsabilidad personal del cliente es necesario acreditar una garantía (la vivienda).",
+  "Benefits":"Beneficios",
+  "benefits_banner":"Hasta 120 Meses de Plazo",
+  "benefits_banner2":"Disfruta de plazos que se ajustan a tus necesidades. Restricciones aplican.",
+  "apply_for":"Solicitar",
+  "personal_tab":{
+    "1":{
+      "requeriments":"Requerimietos",
+      "elderly":"Ser mayor de 21 años y menor de 65 años.",
+      "dui":"Presentar DUI y NIT.",
+      "request":"Solicitud Firmada.",
+      "income":"Ingresos (según perfil):",
+      "income2":"salariados: $400.00",
+      "receipts":" Comprobantes de constancia de ingresos, y en el caso de comerciantes independientes presentar declaración de impuesto de renta e IVA y estados financieros."
+    },
+    "2":{
+      "conditions":"Condiciones",
+      "bills":"Gastos personales, consolidación de deudas, viajes y estudios.",
+      "amount":"Monto máximo:",
+      "amount2":"Hasta $40,000.00",
+      "sure":"Seguro de Vida y asistencia funeraria",
+      "commission":"Aplica comisión de 0.5% sobre el monto del crédito si el plazo es de 10 años. Cero comisión si el plazo es de 9 años o menos"
     }
   }
+},
+ "business_loan_page":{
+  "title":"Creditos Empresariales",
+  "subtitle":"Dale un nuevo potencial a tu empresa/emprendimiento",
+  "what's_it":"Crédito Empresarial",
+  "business_info":"Te apoyamos con créditos a mediano y largo plazo para la adquisición del equipo que sea de interés para la gestión de negocios de tu empresa.",
+  "business_info2":"Para que <b>tu compañía</b> pueda mantenerse competitiva, rentable y crecer de manera sostenida, es fundamental contar con los activos que sean necesarios, desde maquinaria hasta el inmueble en el que se desarrollan las operaciones cotidianas.",
+  "benefits":"Beneficios",
+  "benefitsb_banner":"Atención y asesoría personalizada",
+  "benefitsb_banner2":"Obtén un acesoramiento para poder administar mejor nuestro financiamiento",
+  "business_tab":{
+    "1":{
+      "requeriments":"Requerimietos",
+      "authorization":"Autorización para investigación dentro del sistema financiero.",
+      "payroll":"Nómina de accionistas actuales de la empresa.",
+      "state":"Estados financieros auditados de los tres últimos años",
+      "state2":"Estados financieros de comprobación a la fecha más reciente con su comparativo del mismo mes del año anterior.",
+      "flow":"Flujo de caja proyectado a un año de forma mensual",
+      "rent":"Declaraciones de renta de los últimos dos años"
+  },
+    "2":{
+      "commissions":"Comisiones",
+      "study":"Comisión de estudio",
+      "management":"Comisión de administración",
+      "discovery":"Comisión de descubierto en cuenta corriente"
+    }
+
+  }
+  },
+  "housing_page":{
+    "title":"Crédito de Vivienda",
+    "subtitle":"Te ofrecemos un crédito hecho a tu medida para tu nuevo hogar",
+    "what's_it":"Vivienda Demantur",
+    "housing_info":"Este tipó de préstamo se hace a largo plazo y que estará respaldado por el inmueble que se compra. Este préstamos pueden estar financiados a un plazo determinado y a una tasa de interés que dependerá y la cantidad que solicites para obtener lo que necesitas.",
+    "housing_info2":" Es importante que tengas claro que el hecho de que sea el inmueble la garantía del préstamo, eso no quiere decir nos quedaremos con tu casa o que no vas a poder usarla hasta que termines de pagar la deuda.",
+    "benefits":"Beneficios",
+    "benefits_bannerh":"Hasta 90% de financiamiento",
+    "benefits_bannerh2":"Te financiamos hasta un valor del 90% del valúo.",
+    "housing_tab":{
+      "1":{
+        "requeriments":"Requerimietos",
+        "income":"Ingresos mayores a US$700",
+        "stability":"Estabilidad laboral mínima de 1 año.",
+        "ages":"Edades entre 24 y 60 años.",
+        "record":"Buen manejo de récord crediticio.",
+        "constancy":" Constancia laboral o boleta de pago si es asalariado."
+      },
+      "2":{
+        "conditions":"Condiciones",
+        "term":"Plazo máximo:",
+        "living_place":"Vivienda nueva hasta 30 años.",
+        "warranty":"Garantía Hipotecaria:",
+        "value":"Valor mínimo desde US$50,000 hasta US$350,000 establecido por peritos autorizados por la SSF.",
+        "insurance":"Seguros:",
+        "bills":"Consultar tarifas preferenciales de gastos según el destino del crédito.",
+        "commission":"Comisiones",
+        "amount":"Seguro de vida según monto del crédito y seguro de daños sobre la construcción."
+      }
+    }
+
+    }
+ }
 }

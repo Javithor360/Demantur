@@ -8,23 +8,27 @@ import { Tabs } from "../assets/js/BannerTabCreator.js";
 //icon
 import { TbReportMoney } from "react-icons/tb";
 
+//translate
+import { useTranslation } from "react-i18next";
+
 //imgs
 const LoanP = require.context("../assets/img/all_loans/Personal", true);
 
 export const PersonalLoan = () => {
+  const { t } = useTranslation();
   return (
     <>
       <Navbar />
       <div className="Personal-banner-container">
         <div className="Personal-banner-content">
           <TbReportMoney className="Money-icon" />
-          <h1>Creditos Personales</h1>
-          <p>Para alcanzar tus metas, realizar tus proyectos o para lo que necesites.</p>
+          <h1>{t("loans_pages.personal_loan_page.title")}</h1>
+          <p>{t("loans_pages.personal_loan_page.subtitle")}</p>
         </div>
       </div>
 
       <div className="loansP-type-tittle">
-        <p>Crédito Personal </p>
+        <p>{t("loans_pages.personal_loan_page.what's_it")} </p>
         <hr />
       </div>
       <div className="page-section">
@@ -33,19 +37,12 @@ export const PersonalLoan = () => {
             <div className="col-lg-6 py-3">
               <div className="description_empresarial">
                 <p>
-                  Un crédito personal es la operación en la que una entidad
-                  financiera entrega una cantidad monetaria específicamente a un
-                  cliente, quien deberá devolver los prestado en un tiempo
-                  pactado más los intereses generados.
+                {t("loans_pages.personal_loan_page.personal_info")}
                 </p>
               </div>
               <div className="description_personal">
                 <p>
-                  Este tipo de crédito se diferencia de otros porque se entrega
-                  sin avales o garantías adicionales, como suele suceder, por
-                  ejemplo, con el crédito hipotecario, donde además de la
-                  responsabilidad personal del cliente es necesario acreditar
-                  una garantía (la vivienda).
+                {t("loans_pages.personal_loan_page.personal_info2")}
                 </p>
               </div>
             </div>
@@ -66,7 +63,7 @@ export const PersonalLoan = () => {
       {Tabs("rqrpersonal")}
 
       <div className="loans-type-tittle">
-        <p>Beneficios</p>
+        <p>{t("loans_pages.personal_loan_page.Benefits")}</p>
         <hr />
       </div>
 
@@ -76,9 +73,9 @@ export const PersonalLoan = () => {
             <img src={LoanP("./Calendar_icon.jpg")} alt="icon" />
           </div>
           <div className="classic-otb-text">
-            <p>Hasta 120 Meses Plazo</p>
+            <p>{t("loans_pages.personal_loan_page.benefits_banner")}</p>
             <p>
-            Disfruta de plazos que se ajustan a tus necesidades. Restricciones aplican.
+            {t("loans_pages.personal_loan_page.benefits_banner2")}
             </p>
           </div>
         </div>

@@ -6,24 +6,27 @@ import { Tabs } from "../assets/js/BannerTabCreator.js";
 
 //icons
 import { BiBuildings } from "react-icons/bi";
+//translate
+import { useTranslation } from "react-i18next";
 //images
 const BusinessI = require.context("../assets/img/all_loans/Business", true);
 
 
 export const BusinessLoan = () => {
+  const { t } = useTranslation();
   return (
     <>
       <Navbar />
       <div className="buss-banner-container">
         <div className="buss-banner-content">
           <BiBuildings className="Build-icon" />
-          <h1>Creditos Empresariales</h1>
-          <p>Dale un nuevo potencial a tu empresa/emprendimiento</p>
+          <h1>{t("loans_pages.business_loan_page.title")}</h1>
+          <p>{t("loans_pages.business_loan_page.subtitle")}</p>
         </div>
       </div>
 
       <div className="loans-type-tittle">
-        <p>Crédito Empresarial </p>
+        <p>{t("loans_pages.business_loan_page.what's_it")} </p>
         <hr />
       </div>
       <div className="Bpage-section">
@@ -32,18 +35,12 @@ export const BusinessLoan = () => {
             <div className="col-lg-6 py-3">
               <div className="description_empresarial">
                 <p>
-                Te apoyamos con créditos a mediano y largo plazo para la
-                adquisición del equipo que sea de interés para la gestión de
-                negocios de tu empresa.
+                {t("loans_pages.business_loan_page.business_info")}
                 </p>
               </div>
               <div className="description_empresarial">
                 <p>
-                  Para que <b>tu compañía</b> pueda mantenerse competitiva, rentable y
-                  crecer de manera sostenida, es fundamental contar con los
-                  activos que sean necesarios, desde maquinaria hasta el
-                  inmueble en el que se desarrollan las operaciones cotidianas.
-                 
+                {t("loans_pages.business_loan_page.business_info2")}
                 </p>
               </div>
             </div>
@@ -64,7 +61,7 @@ export const BusinessLoan = () => {
       {Tabs("rqrBusiness")}
 
       <div className="loans-type-tittle">
-        <p>Beneficios</p>
+        <p>{t("loans_pages.business_loan_page.benefits")}</p>
         <hr />
       </div>
 
@@ -74,9 +71,9 @@ export const BusinessLoan = () => {
               <img src={BusinessI("./Client_.png")} alt="icon" />
             </div>
             <div className="classic-otb-text">
-              <p>Atención y asesoría personalizada</p>
+              <p>{t("loans_pages.business_loan_page.benefitsb_banner")}</p>
               <p>
-                Obtén un acesoramiento para poder administar mejor nuestro financiamiento
+              {t("loans_pages.business_loan_page.benefitsb_banner2")}
               </p>
             </div>
           </div>

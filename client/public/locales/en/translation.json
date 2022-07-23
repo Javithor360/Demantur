@@ -19,24 +19,23 @@
     "copyright": "All rights reserved. © 2022 Demantur"
   },
 
-  "bussinesPage":{
-    "hero":{
-      "tittle":"business account",
-      "desc":"Find the best solution that suits your needs"
+  "bussinesPage": {
+    "hero": {
+      "tittle": "business account",
+      "desc": "Find the best solution that suits your needs"
     },
-    "body":{
-      "tittle":"What is a business account?",
-      "text":"A contract between a company and our bank, by means of which the holder deposits an amount of money and the bank acquires a commitment to safeguard it, with this service we seek to provide a faster and more dynamic way to manage your money",
+    "body": {
+      "tittle": "What is a business account?",
+      "text": "A contract between a company and our bank, by means of which the holder deposits an amount of money and the bank acquires a commitment to safeguard it, with this service we seek to provide a faster and more dynamic way to manage your money",
       "subtittle": "What are the benefits?"
     },
-    "benefits":{
-      "content":{
-        "1":"A safe place to keep your money",
-        "2":"Make payroll",
-        "3":"Possibility of having a checkbook"
+    "benefits": {
+      "content": {
+        "1": "A safe place to keep your money",
+        "2": "Make payroll",
+        "3": "Possibility of having a checkbook"
       }
     }
-
   },
 
   "index": {
@@ -87,118 +86,116 @@
       "desc": "We are a compromised enterprise on what it does, learn more about us and how we provide quality service"
     }
   },
-    "loans_main_page":{
-    "title_loans":"Loans",
-    "subtitle_loans":"Find a solution to finance your future projects",
-    "type_loans":"Types of Loans",
-    "personal_loan":"Personal loans",
-    "what's_personal_loan":"What is a",
-    "what's_personal_loan2":"Personal Loan?",
-    "info_personal_loan":"Enjoy your new life with the best conditions. We facilitate the procedures for you to consolidate your debts or carry out your projects with our Personal Credit.",
-    "business_loan":"Business Loans",
-    "what's_business_loan":"What is a ",
-    "what's_business_loan2":"business loan?",
-    "info_business_loan":"If you work in your own business, this loan is for you, we provide it with special conditions so that you can consolidate your debts or carry out your new projects or improve the conditions of your company or enterprise.",
-    "housing_demantur":"demantur housing",
-    "what's_home_demantur":"What is ",
-    "what's_home_demantur2":"Demantur housing?",
-    "info_home_demantur":"Take advantage of preferential conditions to request the credits you need to be able to purchase your new or used home in El Salvador.",
-    "Doubts":"Do you have any doubt?",
-    "loans_buttons":{
-      "more_info":"More information",
-      "contact_us":"Contact us"
+  "loans_main_page": {
+    "title_loans": "Loans",
+    "subtitle_loans": "Find a solution to finance your future projects",
+    "type_loans": "Types of Loans",
+    "personal_loan": "Personal loans",
+    "what's_personal_loan": "What is a",
+    "what's_personal_loan2": "Personal Loan?",
+    "info_personal_loan": "Enjoy your new life with the best conditions. We facilitate the procedures for you to consolidate your debts or carry out your projects with our Personal Credit.",
+    "business_loan": "Business Loans",
+    "what's_business_loan": "What is a ",
+    "what's_business_loan2": "business loan?",
+    "info_business_loan": "If you work in your own business, this loan is for you, we provide it with special conditions so that you can consolidate your debts or carry out your new projects or improve the conditions of your company or enterprise.",
+    "housing_demantur": "demantur housing",
+    "what's_home_demantur": "What is ",
+    "what's_home_demantur2": "Demantur housing?",
+    "info_home_demantur": "Take advantage of preferential conditions to request the credits you need to be able to purchase your new or used home in El Salvador.",
+    "Doubts": "Do you have any doubt?",
+    "loans_buttons": {
+      "more_info": "More information",
+      "contact_us": "Contact us"
     }
-  }, 
-  "loans_pages":{
-    "personal_loan_page":{
-     "title":"Personal Credits",
-     "subtitle":"To achieve your goals, carry out your projects or for whatever you need.",
-     "what's_it":"Personal credit",
-     "personal_info": "A personal credit is the operation in which a financial institution delivers a monetary amount specifically to a client, who must repay the loan in an agreed time plus the interest generated.",
-     "personal_info2":"This type of credit differs from others because it is delivered without endorsements or additional guarantees, as is often the case, for example, with mortgage credit, where in addition to the personal responsibility of the client, it is necessary to prove a guarantee (the home).",
-     "Benefits":"Benefits",
-     "benefits_banner":"Up to 120 Month Term",
-     "benefits_banner2":"Enjoy terms that fit your needs. Restrictions apply.",
-     "apply_for":"Apply for",
-     "personal_tab":{
-       "1":{
-         "requeriments":"Requeriments",
-         "elderly":"Be over 21 years old and under 65 years old.",
-         "dui":"Present DUI and NIT.",
-         "request":"Signed Application.",
-         "income":"Income (according to profile):",
-         "income2":"Salaried: $400.00",
-         "receipts":"Proof of proof of income, and in the case of independent merchants, present income tax and VAT declaration and financial statements."
-       },
-       "2":{
-         "conditions":"Conditions",
-         "bills":"Personal expenses, debt consolidation, travel and studies.",
-         "amount":"Maximum amount:",
-         "up_to":"Up to $40,000.00",
-         "sure":"Life insurance and funeral assistance.",
-         "commission":"A commission of 0.5% applies to the amount of the credit if the term is 10 years. Zero commission if the term is 9 years or less."
-       }
-     }
-   },
-    "business_loan_page":{
-     "title":"Business Credits",
-     "subtitle":"Give new potential to your company/venture.",
-     "what's_it":"Business Credit",
-     "business_info":"We support you with medium and long-term credits for the acquisition of the equipment that is of interest for the business management of your company.",
-     "business_info2":"In order for your company to remain competitive, profitable and grow steadily, it is essential to have the necessary assets, from machinery to the property where daily operations are carried out.",
-     "benefits":"Benefits",
-     "benefitsb_banner":"Personalized attention and advice",
-     "benefitsb_banner2":"Get advice to better manage our financing",
-     "business_tab":{
-       "1":{
-         "requeriments":"Requeriments",
-         "authorization":"Authorization for research within the financial system.",
-         "payroll":"List of current shareholders of the company.",
-         "state":"Audited financial statements for the last three years",
-         "state2":"Verification financial statements to the most recent date with its comparison of the same month of the previous year.",
-         "flow":"Projected cash flow for one year on a monthly basis",
-         "rent":"Income tax returns for the last two years"
-     },
-       "2":{
-         "commissions":"Commissions",
-         "study":"study commission",
-         "management":"Administration fee",
-         "discovery":"Current account overdraft fee"
-       }
-   
-     }
-     },
-     "housing_page":{
-      "title":"Housing Credit",
-      "subtitle":"We offer you a loan tailored to your needs for your new home",
-      "what's_it":"Vivienda Demantur",
-      "housing_info":"This type of loan is made in the long term and will be backed by the property that is purchased. These loans can be financed for a certain term and at an interest rate that will depend on the amount you request to obtain what you need.",
-      "housing_info2":" It is important that you are clear that the fact that the property is the guarantee of the loan, that does not mean that we will keep your house or that you will not be able to use it until you finish paying the debt.",
-      "benefits":"Benefits",
-      "benefits_bannerh":"Up to 90% financing",
-      "benefits_bannerh2":"Te financiamos hasta un valor del 90% del valúo.",
-      "housing_tab":{
-        "1":{
-          "requeriments":"Requeriments",
-          "income":"Income greater than US$700",
-          "stability":"Minimum job stability of 1 year.",
-          "ages":"Ages between 24 and 60 years.",
-          "record":"Good management of credit record.",
-          "constancy":" Work certificate or pay slip if you are salaried."
+  },
+  "loans_pages": {
+    "personal_loan_page": {
+      "title": "Personal Credits",
+      "subtitle": "To achieve your goals, carry out your projects or for whatever you need.",
+      "what's_it": "Personal credit",
+      "personal_info": "A personal credit is the operation in which a financial institution delivers a monetary amount specifically to a client, who must repay the loan in an agreed time plus the interest generated.",
+      "personal_info2": "This type of credit differs from others because it is delivered without endorsements or additional guarantees, as is often the case, for example, with mortgage credit, where in addition to the personal responsibility of the client, it is necessary to prove a guarantee (the home).",
+      "Benefits": "Benefits",
+      "benefits_banner": "Up to 120 Month Term",
+      "benefits_banner2": "Enjoy terms that fit your needs. Restrictions apply.",
+      "apply_for": "Apply for",
+      "personal_tab": {
+        "1": {
+          "requeriments": "Requeriments",
+          "elderly": "Be over 21 years old and under 65 years old.",
+          "dui": "Present DUI and NIT.",
+          "request": "Signed Application.",
+          "income": "Income (according to profile):",
+          "income2": "Salaried: $400.00",
+          "receipts": "Proof of proof of income, and in the case of independent merchants, present income tax and VAT declaration and financial statements."
         },
-        "2":{
-          "conditions":"Conditions",
-          "term":"Deadline:",
-          "living_place":"New housing up to 30 years.",
-          "warranty":"Mortgage:",
-          "value":"Minimum value from US$50,000 to US$350,000 established by experts authorized by the SSF.",
-          "insurance":"Insurance:",
-          "bills":"Consultar tarifas preferenciales de gastos según el destino del crédito.",
-          "commission":"commissions",
-          "amount":"Life insurance according to credit amount and construction damage insurance."
+        "2": {
+          "conditions": "Conditions",
+          "bills": "Personal expenses, debt consolidation, travel and studies.",
+          "amount": "Maximum amount:",
+          "up_to": "Up to $40,000.00",
+          "sure": "Life insurance and funeral assistance.",
+          "commission": "A commission of 0.5% applies to the amount of the credit if the term is 10 years. Zero commission if the term is 9 years or less."
         }
       }
+    },
+    "business_loan_page": {
+      "title": "Business Credits",
+      "subtitle": "Give new potential to your company/venture.",
+      "what's_it": "Business Credit",
+      "business_info": "We support you with medium and long-term credits for the acquisition of the equipment that is of interest for the business management of your company.",
+      "business_info2": "In order for your company to remain competitive, profitable and grow steadily, it is essential to have the necessary assets, from machinery to the property where daily operations are carried out.",
+      "benefits": "Benefits",
+      "benefitsb_banner": "Personalized attention and advice",
+      "benefitsb_banner2": "Get advice to better manage our financing",
+      "business_tab": {
+        "1": {
+          "requeriments": "Requeriments",
+          "authorization": "Authorization for research within the financial system.",
+          "payroll": "List of current shareholders of the company.",
+          "state": "Audited financial statements for the last three years",
+          "state2": "Verification financial statements to the most recent date with its comparison of the same month of the previous year.",
+          "flow": "Projected cash flow for one year on a monthly basis",
+          "rent": "Income tax returns for the last two years"
+        },
+        "2": {
+          "commissions": "Commissions",
+          "study": "study commission",
+          "management": "Administration fee",
+          "discovery": "Current account overdraft fee"
+        }
+      }
+    },
+    "housing_page": {
+      "title": "Housing Credit",
+      "subtitle": "We offer you a loan tailored to your needs for your new home",
+      "what's_it": "Vivienda Demantur",
+      "housing_info": "This type of loan is made in the long term and will be backed by the property that is purchased. These loans can be financed for a certain term and at an interest rate that will depend on the amount you request to obtain what you need.",
+      "housing_info2": " It is important that you are clear that the fact that the property is the guarantee of the loan, that does not mean that we will keep your house or that you will not be able to use it until you finish paying the debt.",
+      "benefits": "Benefits",
+      "benefits_bannerh": "Up to 90% financing",
+      "benefits_bannerh2": "Te financiamos hasta un valor del 90% del valúo.",
+      "housing_tab": {
+        "1": {
+          "requeriments": "Requeriments",
+          "income": "Income greater than US$700",
+          "stability": "Minimum job stability of 1 year.",
+          "ages": "Ages between 24 and 60 years.",
+          "record": "Good management of credit record.",
+          "constancy": " Work certificate or pay slip if you are salaried."
+        },
+        "2": {
+          "conditions": "Conditions",
+          "term": "Deadline:",
+          "living_place": "New housing up to 30 years.",
+          "warranty": "Mortgage:",
+          "value": "Minimum value from US$50,000 to US$350,000 established by experts authorized by the SSF.",
+          "insurance": "Insurance:",
+          "bills": "Consultar tarifas preferenciales de gastos según el destino del crédito.",
+          "commission": "commissions",
+          "amount": "Life insurance according to credit amount and construction damage insurance."
+        }
       }
     }
-   }
-   
+  }
+}

@@ -30,7 +30,7 @@ import {
   ResetPasswordPage,
 } from "./pages/static";
 
-import { DashboardNormalUser } from "./pages/private/index";
+import { DashboardNormalUser, HomePage } from "./pages/private/index";
 import { AuthValidate } from "./pages/private/routers/AuthValidate";
 
 //contexts
@@ -119,6 +119,7 @@ const App = () => {
             }
           /> */}
           <Route path="/dashboard" element={<DashboardNormalUser />} />
+          <Route path="/dashboard/home" element={<HomePage />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

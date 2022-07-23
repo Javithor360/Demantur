@@ -67,6 +67,107 @@
       "desc": "Somos una empresa comprometida con lo que hace, descubre más sobre nosotros y como hacemos para brindarte un servicio de calidad"
     }  
  },
+
+ "help_page":{
+   "help":{
+    "help_tittle":"¿Cómo podemos ayudarte?",
+    "help_desc": "A continuación, te presentamos algunas de las preguntas frecuentes que realizan nuestros usuarios.",
+    "help_search": "Tambien puedes realizar una búsqueda rápida sobre tu duda a consultar"
+   },
+   "accordion":{
+    "1":{
+      "tittle":"¿Cuáles son los requisitos para abrir una cuenta bancaria?",
+      "desc": "Para Abrir una cuenta bancaria necesitas cumplir con los siguientes requisitos:",
+      "sub_desc1": "Presentar tu DUI",
+      "sub_desc2": "Si eres extranjero debes presentar tu pasaporte",
+      "sub_desc3": "Monto mínimo de $25",
+      "sub_desc4": "Ser mayor de edad"
+    },
+      "2":{
+        "tittle":"Tarjeta robada o extraviada",
+        "desc": "Si usted fue víctima de robo de su tarjeta de crédito o débito, le aconsejamos reportar inmediatamente, a través de nuestra página contacto llenar todos los datos que se le pide, además digite el n°de su tarjeta para resolver el problema lo más pronto posible."
+      },
+      "3":{
+        "tittle": "Consejos para realizar transacciones seguras en línea",
+        "desc": "A continuación te presentamos unos consejos que te pueden ayudar cuando realices transacciones en línea:",
+        "sub_desc1": "Debes de verificar que el sitio que estas visitando sea seguro.",
+        "sub_desc2": "No realices transacciones en dispositivos que no sean tuyos o dispositivos públicos.",
+        "sub_desc3": "Nunca ingreses información personal a los sitios que son inseguros.",
+        "sub_desc4": "Utilizar antivirus para detectar y bloquear amenazas, para evitar que las vulnerabilidades de diseño no sean aprovechadas por algún código malicioso."
+      },
+      "4":{
+        "tittle": "Consejos sobre seguridad financiera",
+        "desc": "Te dejamos algunos consejos para mejorar tus finanzas y evitar gastos innecesarios:",
+        "sub_tittle1":"Define metas financieras:",
+        "sub_tittle2": "Haz una lista con todos tus gastos:",
+        "sub_tittle3": "Plantéate cómo reducir:",
+        "sub_tittle4": "No te endeudes para cubrir otras deudas:",
+        "sub_tittle5":"Compra sólo lo necesario:",
+        "sub_tittle6": "Ahorra:",
+        "sub_desc1": "El primer paso para dar un buen manejo a tu dinero es saber qué es lo que quieres lograr con él.",
+        "sub_desc2": "Hacer una lista de todos tus gastos es los más importantes, te ayuda a darte cuenta en qué estás gastando tu dinero y cuánto estás gastando.",
+        "sub_desc3": "Por ejemplo, renta, luz, agua, etc. Gastar menos en los gastos fijos es posible, pues sólo debes hacerte consciente del uso que les das e identificar si puedes ahorrar un poco en ellos.",
+        "sub_desc4": "Si ya tienes deudas, adquirir nuevas para pagar las viejas no es lo ideal. Existen métodos de refinanciación, pero deben ser las últimas opciones, además de tener en cuenta sus implicaciones.",
+        "sub_desc5": "Para evitar gastar de más y salirse del presupuesto lo recomendado es comprar solo lo necesario y planificar las compras.",
+        "sub_desc6": "Probablemente uno de los consejos más importantes. Para que puedas alcanzar tus metas, debes contar con el respaldo de un buen ahorro que te permita disfrutar en el futuro." 
+      },
+      "5":{
+        "tittle": "¿Cómo puede ver mi estado de cuenta?",
+        "desc": "¿Necesitas ver tu estado de cuenta?, a continuación, te explicamos de un manera fácil y sencilla como poder visualizarlo:",
+        "sub_desc1": "Como primer paso debes dirigirte a nuestra barra de navegación, y ubicarte donde dice Acceder.",
+        "sub_desc2": "Luego deberás iniciar sesión con tu correo electrónico y contraseña.",
+        "sub_desc3": "Una vez iniciado sesión debes dirigirte al apartado de Cuentas.",
+        "sub_desc4": "Ya estando ahi tienes que dar click en Estado de cuenta digital.",
+        "sub_desc5": "Ahora ya podrás ver tu estado de cuenta y todas tus transacciones realizadas."
+      },
+      "6":{
+        "tittle": "¿Cuáles son los requisitos para adquirir una cuenta de ahorro?",
+        "desc": "Los requisitos para poder abrir una cuenta de ahorro son:",
+        "sub_desc1": "Apertura mínima desde US$25.00.",
+        "sub_desc2": "Presentar su DUI, en caso de ser extranjero deberá presentar carné de residente ó pasaporte con información actualizada, vigente y en buen estado.",
+        "sub_desc3": "Prentar su NIT"
+      },
+      "7":{
+        "tittle": "¿Cómo solicitar una tarjeta crédito o débito?",
+        "desc": "Para poder solicitar un tarjeta de credito o débito a continuación te explicamos como hacerlo:",
+        "sub_desc1": "Como primer paso debes dirigirte a nuestra barra de navegación, y ubicarte donde dice Tarjetas.",
+        "sub_desc2": "Esta le ve a transladar a otra página que te muestra las tarjetas que posee nuestro banco.",
+        "sub_desc3": "Estando en esa página deberás escoger la tarjeta que quieres, recuerda cada una tiene diferentes requisitos, elija la que mejor le puede favorecer.",
+        "sub_desc4": "Luego de haber elegido la tarjeta debera llenar un formulario para poder solicitar dicha tarjeta.",
+        "sub_desc5": "Luego de haber llenado el formulario y haberlo enviado, nos comunicaremos con usted para notificarle si su tarjeta fue aceptada o denegada."
+      },
+      "8":{
+        "tittle": "¿Cómo abrir una cuenta de ahorro para un menor de edad?",
+        "desc": "Un menor de edad entre 16 y 18 años, puede abrir una cuenta de ahorro particular como titular con un monto mínimo de $25.00, además debera presentar su carnet de minoridad en buen estado."
+      },
+      "9":{
+       "tittle": "¿Cuáles son los requisitos para un prestamo personal?",
+       "desc": "Para poder solicitar un presentamo personal deberás cumplir con los siguientes requisitos:",
+       "sub_desc1": "Ser mayor de 21 años y menor de 70 años.",
+       "sub_desc2": "Presentar DUI y NIT.",
+       "sub_desc3": "Comprobantes de constancia de ingresos.",
+       "sub_desc4": "Contar con un margen de al menos $300."
+      },
+      "10":{
+        "tittle": "¿Cuáles son los requisitos para un prestamo empresarial?",
+        "desc": "Para poder solicitar un presentamo personal deberás cumplir con los siguientes requisitos:",
+        "sub_desc1": "Ser una empresa formal o persona física con actividad empresarial.",
+        "sub_desc2": "Contar con antecedentes favorables en el buró de crédito.",
+        "sub_desc3": "Al menos dos años de antigüedad.",
+        "sub_desc4": "Comprobar la suficiente generación de flujos para hacer frente al financiamiento.",
+        "sub_desc5": "Presentar toda la documentación solicitada por el banco."
+      },
+      "11":{
+        "tittle": "¿Puede otra persona depositar en una cuenta, sin ser el titular de la misma?",
+        "desc": "Sí, otra persona que no es titular de la cuenta puede depositar en la misma al presentar su DUI y el número de la cuenta a la que desea realizar el depósito."
+      },
+      "12":{
+        "tittle": "¿Puede un extranjero optar por un crédito personal?",
+        "desc": "Si, pueden realizarlo aquellos que cuenten con residencia permanente en el país. Para lo cual deben presentar pasaporte vigente, carnet de residente permanente, NIT, recibos de colectores y comprobar ingresos en el país."
+      }
+    }
+  },
+
  "loans_main_page":{
   "title_loans":"Préstamos",
   "subtitle_loans":"Encuentra una solución para financiar tus futuros proyectos",

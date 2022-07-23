@@ -67,6 +67,106 @@
       "desc": "We are a compromised enterprise on what it does, learn more about us and how we provide quality service"
     }
   },
+
+  "help_page":{
+    "help":{
+      "help_tittle": "¿How can we help you?",
+      "help_desc": "Here are some of the questions frequently asked by our users.",
+      "help_search": "You can also perform a quick search on your question to be consulted"
+    },
+    "accordion":{
+      "1":{
+        "tittle": "¿What are the requirements to open a bank account?",
+        "desc": "To open a bank account you need to meet the following requirements:",
+        "sub_desc1": "Present your DUI",
+        "sub_desc2": "If you are a foreigner you must present your passport",
+        "sub_desc3": "Minimum amount of $25",
+        "sub_desc4": "Be of legal age"
+      },
+      "2":{
+        "tittle":"Stolen or lost card",
+        "desc": "If you were a victim of credit or debit card theft, we advise you to report it immediately, through our contact page, fill in all the information requested and enter your card number in order to solve the problem as soon as possible."
+      },
+      "3":{
+        "tittle": "Tips for secure online transactions",
+        "desc": "Here are a few tips that can help you when making online transactions:",
+        "sub_desc1": "You should verify that the site you are visiting is secure.",
+        "sub_desc2": "Do not perform transactions on devices that are not yours or public devices.",
+        "Sub_desc3": "Never enter personal information to sites that are insecure.",
+        "sub_desc4": "Use antivirus to detect and block threats, to prevent design vulnerabilities from being exploited by malicious code."
+      },
+      "4":{
+        "tittle": "Financial security tips",
+        "desc": "Here are some tips to improve your finances and avoid unnecessary expenses.",
+        "sub_tittle1":"Define financial goals:",
+        "sub_tittle2": "Make a list of all your expenses:",
+        "sub_tittle3": "Think about how to reduce:",
+        "sub_tittle4": "Don't go into debt to cover other debts:",
+        "sub_tittle5":"Buy only what is necessary:",
+        "sub_tittle6": "Save:",
+        "sub_desc1": "The first step to manage your money well is to know what you want to achieve with it.",
+        "sub_desc2": "Making a list of all your expenses is the most important, it helps you realize what you are spending your money on and how much you are spending.",
+        "sub_desc3": "For example, rent, electricity, water, etc. Spending less on fixed expenses is possible, you just have to be aware of how you use them and identify if you can save a little on them.",
+        "Sub_desc4": "If you already have debts, acquiring new ones to pay the old ones is not ideal. There are refinancing methods, but they should be the last options, as well as taking into account their implications.",
+        "sub_desc5": "To avoid overspending and going over budget, it is recommended to buy only what is necessary and to plan your purchases.",
+        "sub_desc6": "Probably one of the most important tips. In order to achieve your goals, you must have the support of a good savings that will allow you to enjoy in the future." 
+      },
+      "5":{
+        "tittle": "¿How can you view my account statement?",
+        "desc": "¿If you need to view your account statement?, here is a simple and easy way to do it:",
+        "sub_desc1": "As a first step you must go to our navigation bar, and go to where it says Sign In.",
+        "sub_desc2": "Then you must log in with your email and password.",
+        "sub_desc3": "Once logged in you must go to the Accounts section.",
+        "sub_desc4": "Once you are there, click on Digital Account Status.",
+        "sub_desc5": "Now you will be able to see your account statement and all your transactions."
+      },
+      "6":{
+        "tittle": "¿What are the requirements to acquire a savings account?",
+        "desc": "The requirements to open a savings account are:",
+        "sub_desc1": "Minimum opening from US$25.00.",
+        "sub_desc2": "Present your DUI, in case you are a foreigner you must present your resident card or passport with updated information, current and in good condition.",
+        "sub_desc3": "Present your NIT."
+      },
+      "7":{
+        "tittle": "¿How to apply for a credit or debit card?",
+        "desc": "In order to apply for a credit or debit card, here's how to do it:",
+        "sub_desc1": "As a first step you must go to our navigation bar, and go to the Cards page.",
+        "sub_desc2": "This will take you to another page that shows you the cards that our bank has.",
+        "sub_desc3": "Once you are on that page you must choose the card you want, remember that each one has different requirements, choose the one that best suits you.",
+        "sub_desc4": "After you have chosen the card, you must fill out a form to apply for the card.",
+        "sub_desc5": "After you have filled out the form and submitted it, we will contact you to notify you if your card was accepted or denied."
+      },
+      "8":{
+        "tittle": "¿How to open a savings account for a young minor?",
+        "desc": "A minor between 16 and 18 years of age can open a private savings account as account holder with a minimum amount of $25.00, and must present a valid minor's identification card."
+      },
+      "9":{
+       "tittle": "¿What are the requirements for a personal loan?",
+       "desc": "In order to apply for a personal loan you must meet the following requirements:",
+       "sub_desc1": "Be over 21 years old and under 70 years old.",
+       "sub_desc2": "Present DUI and NIT.",
+       "sub_desc3": "Proof of income.",
+       "sub_desc4": "Have a margin of at least $300."
+      },
+      "10":{
+        "tittle": "¿What are the requirements for a business loan?",
+        "desc": "In order to apply for a personal loan you must meet the following requirements:",
+        "sub_desc1": "Be a formal company or individual with business activity.",
+        "sub_desc2": "Have a favorable credit bureau record.",
+        "sub_desc3": "At least two years of antiquity.",
+        "sub_desc4": "Prove sufficient cash flow generation to meet the financing.",
+        "sub_desc5": "Present all the documentation requested by the bank."
+      },
+      "11":{
+        "tittle": "¿Can another person deposit into an account, without being the account holder?",
+        "desc": "Yes, another person who is not the account holder can deposit into the account by presenting their DUI and the account number to which they wish to make the deposit."
+      },
+      "12":{
+        "tittle": "¿Can a foreigner apply for a personal loan?",
+        "desc": "Yes, those who have permanent residence in the country can apply for a personal loan. For which they must present a valid passport, permanent resident card, NIT, receipts of collectors and prove income in the country."
+      }
+    }
+  },
     "loans_main_page":{
     "title_loans":"Loans",
     "subtitle_loans":"Find a solution to finance your future projects",

@@ -1,0 +1,40 @@
+@use '../../../../../utilities/_colors.scss' as *;
+
+.header-icons-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1% auto 1% auto;
+
+    .user-info{
+        .profile-img{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            overflow: hidden;
+
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
+.header-icon{
+    color: $primary_white;
+    transition: .2s;
+}
+.hi-hover-1:hover{
+    color: $secondary_white;
+    transition: .2s;
+}
+.hi-hover-2:hover{
+    transform: rotate(55deg);
+    color: $secondary_white;
+    transition: .2s;
+}
+.separate hr{
+    border-style: none;
+    height: 70%;
+    background-color: $primary_white;
+    width: 1px;
+    opacity: 100;
+}

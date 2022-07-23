@@ -28,7 +28,7 @@ export const SideBar = () => {
           </div>
           <div className="menu-items w-full content-column-2">
 
-            <div onClick={() => { setOption(1); setOptionElement('Home Page') }} className={NavLinkStyles}>
+            <div onClick={() => { setOption(1); setOptionElement('Home Page') }} className={Option === 1 ? `${NavLinkStyles} menu-item menu-item-selected` : `${NavLinkStyles} menu-item`}>
               <div className={DivNavLinkStyles}>
                 <AiFillHome className={IconNavLinkStyles} />
               </div>
@@ -37,7 +37,7 @@ export const SideBar = () => {
               </span>
             </div>
 
-            <div onClick={() => { setOption(2); setOptionElement('Cuentas') }} className={NavLinkStyles}>
+            <div onClick={() => { setOption(2); setOptionElement('Cuentas') }} className={Option === 2 ? `${NavLinkStyles} menu-item menu-item-selected` : `${NavLinkStyles} menu-item`}>
               <div className={DivNavLinkStyles}>
                 <MdAccountBalanceWallet className={IconNavLinkStyles} />
               </div>
@@ -46,7 +46,7 @@ export const SideBar = () => {
               </span>
             </div>
 
-            <div onClick={() => { setOption(3); setOptionElement('Transferencias') }} className={NavLinkStyles}>
+            <div onClick={() => { setOption(3); setOptionElement('Transferencias') }} className={Option === 3 ? `${NavLinkStyles} menu-item menu-item-selected` : `${NavLinkStyles} menu-item`}>
               <div className={DivNavLinkStyles}>
                 <BiTransfer className={IconNavLinkStyles} />
               </div>
@@ -55,7 +55,7 @@ export const SideBar = () => {
               </span>
             </div>
 
-            <div onClick={() => { setOption(4); setOptionElement('Préstamos') }} className={NavLinkStyles}>
+            <div onClick={() => { setOption(4); setOptionElement('Préstamos') }} className={Option === 4 ? `${NavLinkStyles} menu-item menu-item-selected` : `${NavLinkStyles} menu-item`}>
               <div className={DivNavLinkStyles}>
                 <FaListAlt className={IconNavLinkStyles} />
               </div>
@@ -64,7 +64,7 @@ export const SideBar = () => {
               </span>
             </div>
 
-            <div onClick={() => { setOption(5); setOptionElement('Contactos') }} className={NavLinkStyles}>
+            <div onClick={() => { setOption(5); setOptionElement('Contactos') }} className={Option === 5 ? `${NavLinkStyles} menu-item menu-item-selected` : `${NavLinkStyles} menu-item`}>
               <div className={DivNavLinkStyles}>
                 <MdPermContactCalendar className={IconNavLinkStyles} />
               </div>
@@ -73,7 +73,7 @@ export const SideBar = () => {
               </span>
             </div>
 
-            <div onClick={() => { setOption(6); setOptionElement('Tarjetas') }} className={NavLinkStyles}>
+            <div onClick={() => { setOption(6); setOptionElement('Tarjetas') }} className={Option === 6 ? `${NavLinkStyles} menu-item menu-item-selected` : `${NavLinkStyles} menu-item`}>
               <div className={DivNavLinkStyles}>
                 <BsCreditCardFill className={IconNavLinkStyles} />
               </div>

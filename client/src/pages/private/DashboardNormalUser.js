@@ -27,7 +27,7 @@ export const DashboardNormalUser = () => {
           {/* sidebar */}
           <SideBar />
 
-          <div className="h-full w-[80%] bg-purple-700 mx-auto">
+          <div className="h-full w-[80%]  mx-auto">
             <Header />
             <div className="mx-3">
               {DisplayElement()}

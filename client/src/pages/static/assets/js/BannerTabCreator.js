@@ -503,41 +503,34 @@ function Tabs(type) {
                 <div className="tab-content">
                     <div className="tabs-selection">
                         <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
-                        Requisitos
-                        </button>
-                        <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
-                        Condiciones
+                        {t("bannertab.tittle")}
                         </button>
                     </div>
 
                     <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Fotocopia de DUI y NIT del Representante Legal de la Empresa; en el caso de persona extranjera, pasaporte vigente y carnet de residente.</p>
+                            <p>{t("bannertab.1")}</p>
                             </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Fotocopia de la Escritura de Constitución inscrita en el Registro de Comercio.</p>
+                            <p>{t("bannertab.2")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Fotocopia de la Certificación del Punto de Acta, cuando se requiera aprobación de Junta Directiva para la apertura o contratación.</p>
+                            <p>{t("bannertab.3")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Fotocopia de NIT de la Empresa.</p>
+                            <p>{t("bannertab.4")}</p>
                         </div><div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Fotocopia de la Credencial de Representante Legal inscrita en el Registro de Comercio.</p>
+                            <p>{t("bannertab.5")}</p>
                         </div>
                     </div>
-                    <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
-                        <div className="individual-text">
-                            <p>&#10003;</p>
-                            <p>El monto inicial de saldo debe ser al menos de $200.00 dólares</p>
-                        </div>
+                    
                         
-                    </div>
+                    
                 </div>
             </div>
         </div>

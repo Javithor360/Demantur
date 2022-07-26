@@ -126,6 +126,7 @@ const App = () => {
                 </AuthValidate>
               }
             />
+            <Route path="/dashboard/home" element={<HomePage />} />
           </Routes>
         </DashProvider>
       </AuthProvider>

@@ -1,6 +1,7 @@
 import "./assets/scss/dashboardStyle.scss";
 import "./components/assets/scss/SideBar_Main.scss";
-import { SideBar, Header } from "./components/indexComp";
+import { SideBar, Header} from "./components/indexComp";
+
 export const DashboardNormalUser = () => {
   return (
     <div className="w-screen h-screen bg-[#F1F1F1] relative">
@@ -9,8 +10,8 @@ export const DashboardNormalUser = () => {
         <div className="w-[98%] h-[95%] flex">
           {/* sidebar */}
           <SideBar />
-
           <div className="h-full w-[80%]">
+            {/* Header */}
             <Header />  
           </div>
         </div>

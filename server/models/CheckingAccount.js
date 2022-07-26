@@ -1,10 +1,35 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const CheckingAccount = new mongoose.Schema(
-  {
-    owner: ObjectId,
-    accountNumber: Number,
-    balance: Number,
+const NumberReq = { type: Number, require: true };
+const StringReq = { type: String, require: true };
+const DateReq = { type: Date, require: true };
+
+const CheckingAccountSchema = new mongoose.Schema({
+  AccountOwner: {
+    type: mongoose.Types.ObjectId,
+    require: true,
   },
-  { timestamps: true }
-);
+  AccountNumber: NumberReq,
+  AccountType: StringReq,
+  TotalBalance: NumberReq,
+  deposits: [{
+    amount: NumberReq,
+    Date: DateReq,
+    depositor: {
+      Name: StringReq,
+      Dui: StringReq,
+    }
+  }],
+  // remesas (ya vamos a ver que pasa)
+  // -
+
+  // Cuenta Nominal
+  PlaceOfWork: String,
+  DebidCard: {
+    CardNumber: NumberReq,
+    ExpirationDate: DateReq,
+    ccv: NumberReq,
+  }
+}, { timestamps: true })
+
+module.exports = mongoose.model('CheckingAccount', CheckingAccountSchema);

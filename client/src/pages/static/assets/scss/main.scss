@@ -202,16 +202,66 @@ body {
             color: $primary_dark;
             margin-left: 0.5rem;
         }
+        
 
 
     }
 }
 
+@media screen and (max-width:970px){
+    .Contenedor-Slider{
+        width: 100%;
+    }
+
+    .box{
+        border-top: 30rem solid $primary_dark;
+        border-left: 12rem solid $primary_dark;
+        border-right: 13rem solid transparent;
+    }
+
+    .slider-container{
+        transform: translateY(-1rem);
+        margin-left: 1rem;
+        max-width: 100%;
+        height: 31rem; 
+    }
+    .slidertext{
+        font-size: 1.5rem;
+        margin-left: -11.5rem;
+        transform: translateY(4.5rem);
+    }
+
+    .linea{
+        width: 5rem;
+        height: .1rem;
+        margin-top: 5rem;
+        margin-left: -11.5rem;
+    }
+
+    .parrafo{
+        font-size: .8rem;
+        margin-left: -11.5rem;
+    }
+
+    .slider-button{
+        width: 6rem;
+        height: 2rem;
+        margin-left: -11.5rem;
+    }
+
+    .view-text{
+        font-size: .65rem;
+        margin-left: -0.7rem;
+    }
+
+}
+
 @media screen and (max-width:680px) {
     .slider-container{
-        transform: translateY(10rem);
-        margin-left: 5rem;
-        width: 48rem;  
+        transform: translateY(-1rem);
+        margin-left: 1rem;
+        max-width: 100%;
+        height: 26rem; 
     }
 
     .box{

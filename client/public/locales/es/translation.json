@@ -196,5 +196,397 @@
         }
       }
     }
-  }
+  },
+  "help_page":{
+    "help":{
+     "help_tittle":"¿Cómo podemos ayudarte?",
+     "help_desc": "A continuación, te presentamos algunas de las preguntas frecuentes que realizan nuestros usuarios.",
+     "help_search": "Tambien puedes realizar una búsqueda rápida sobre tu duda a consultar"
+    },
+    "accordion":{
+     "1":{
+       "tittle":"¿Cuáles son los requisitos para abrir una cuenta bancaria?",
+       "desc": "Para Abrir una cuenta bancaria necesitas cumplir con los siguientes requisitos:",
+       "sub_desc1": "Presentar tu DUI",
+       "sub_desc2": "Si eres extranjero debes presentar tu pasaporte",
+       "sub_desc3": "Monto mínimo de $25",
+       "sub_desc4": "Ser mayor de edad"
+     },
+       "2":{
+         "tittle":"Tarjeta robada o extraviada",
+         "desc": "Si usted fue víctima de robo de su tarjeta de crédito o débito, le aconsejamos reportar inmediatamente, a través de nuestra página contacto llenar todos los datos que se le pide, además digite el n°de su tarjeta para resolver el problema lo más pronto posible."
+       },
+       "3":{
+         "tittle": "Consejos para realizar transacciones seguras en línea",
+         "desc": "A continuación te presentamos unos consejos que te pueden ayudar cuando realices transacciones en línea:",
+         "sub_desc1": "Debes de verificar que el sitio que estas visitando sea seguro.",
+         "sub_desc2": "No realices transacciones en dispositivos que no sean tuyos o dispositivos públicos.",
+         "sub_desc3": "Nunca ingreses información personal a los sitios que son inseguros.",
+         "sub_desc4": "Utilizar antivirus para detectar y bloquear amenazas, para evitar que las vulnerabilidades de diseño no sean aprovechadas por algún código malicioso."
+       },
+       "4":{
+         "tittle": "Consejos sobre seguridad financiera",
+         "desc": "Te dejamos algunos consejos para mejorar tus finanzas y evitar gastos innecesarios:",
+         "sub_tittle1":"Define metas financieras:",
+         "sub_tittle2": "Haz una lista con todos tus gastos:",
+         "sub_tittle3": "Plantéate cómo reducir:",
+         "sub_tittle4": "No te endeudes para cubrir otras deudas:",
+         "sub_tittle5":"Compra sólo lo necesario:",
+         "sub_tittle6": "Ahorra:",
+         "sub_desc1": "El primer paso para dar un buen manejo a tu dinero es saber qué es lo que quieres lograr con él.",
+         "sub_desc2": "Hacer una lista de todos tus gastos es los más importantes, te ayuda a darte cuenta en qué estás gastando tu dinero y cuánto estás gastando.",
+         "sub_desc3": "Por ejemplo, renta, luz, agua, etc. Gastar menos en los gastos fijos es posible, pues sólo debes hacerte consciente del uso que les das e identificar si puedes ahorrar un poco en ellos.",
+         "sub_desc4": "Si ya tienes deudas, adquirir nuevas para pagar las viejas no es lo ideal. Existen métodos de refinanciación, pero deben ser las últimas opciones, además de tener en cuenta sus implicaciones.",
+         "sub_desc5": "Para evitar gastar de más y salirse del presupuesto lo recomendado es comprar solo lo necesario y planificar las compras.",
+         "sub_desc6": "Probablemente uno de los consejos más importantes. Para que puedas alcanzar tus metas, debes contar con el respaldo de un buen ahorro que te permita disfrutar en el futuro." 
+       },
+       "5":{
+         "tittle": "¿Cómo puede ver mi estado de cuenta?",
+         "desc": "¿Necesitas ver tu estado de cuenta?, a continuación, te explicamos de un manera fácil y sencilla como poder visualizarlo:",
+         "sub_desc1": "Como primer paso debes dirigirte a nuestra barra de navegación, y ubicarte donde dice Acceder.",
+         "sub_desc2": "Luego deberás iniciar sesión con tu correo electrónico y contraseña.",
+         "sub_desc3": "Una vez iniciado sesión debes dirigirte al apartado de Cuentas.",
+         "sub_desc4": "Ya estando ahi tienes que dar click en Estado de cuenta digital.",
+         "sub_desc5": "Ahora ya podrás ver tu estado de cuenta y todas tus transacciones realizadas."
+       },
+       "6":{
+         "tittle": "¿Cuáles son los requisitos para adquirir una cuenta de ahorro?",
+         "desc": "Los requisitos para poder abrir una cuenta de ahorro son:",
+         "sub_desc1": "Apertura mínima desde US$25.00.",
+         "sub_desc2": "Presentar su DUI, en caso de ser extranjero deberá presentar carné de residente ó pasaporte con información actualizada, vigente y en buen estado.",
+         "sub_desc3": "Prentar su NIT"
+       },
+       "7":{
+         "tittle": "¿Cómo solicitar una tarjeta crédito o débito?",
+         "desc": "Para poder solicitar un tarjeta de credito o débito a continuación te explicamos como hacerlo:",
+         "sub_desc1": "Como primer paso debes dirigirte a nuestra barra de navegación, y ubicarte donde dice Tarjetas.",
+         "sub_desc2": "Esta le ve a transladar a otra página que te muestra las tarjetas que posee nuestro banco.",
+         "sub_desc3": "Estando en esa página deberás escoger la tarjeta que quieres, recuerda cada una tiene diferentes requisitos, elija la que mejor le puede favorecer.",
+         "sub_desc4": "Luego de haber elegido la tarjeta debera llenar un formulario para poder solicitar dicha tarjeta.",
+         "sub_desc5": "Luego de haber llenado el formulario y haberlo enviado, nos comunicaremos con usted para notificarle si su tarjeta fue aceptada o denegada."
+       },
+       "8":{
+         "tittle": "¿Cómo abrir una cuenta de ahorro para un menor de edad?",
+         "desc": "Un menor de edad entre 16 y 18 años, puede abrir una cuenta de ahorro particular como titular con un monto mínimo de $25.00, además debera presentar su carnet de minoridad en buen estado."
+       },
+       "9":{
+        "tittle": "¿Cuáles son los requisitos para un prestamo personal?",
+        "desc": "Para poder solicitar un presentamo personal deberás cumplir con los siguientes requisitos:",
+        "sub_desc1": "Ser mayor de 21 años y menor de 70 años.",
+        "sub_desc2": "Presentar DUI y NIT.",
+        "sub_desc3": "Comprobantes de constancia de ingresos.",
+        "sub_desc4": "Contar con un margen de al menos $300."
+       },
+       "10":{
+         "tittle": "¿Cuáles son los requisitos para un prestamo empresarial?",
+         "desc": "Para poder solicitar un presentamo personal deberás cumplir con los siguientes requisitos:",
+         "sub_desc1": "Ser una empresa formal o persona física con actividad empresarial.",
+         "sub_desc2": "Contar con antecedentes favorables en el buró de crédito.",
+         "sub_desc3": "Al menos dos años de antigüedad.",
+         "sub_desc4": "Comprobar la suficiente generación de flujos para hacer frente al financiamiento.",
+         "sub_desc5": "Presentar toda la documentación solicitada por el banco."
+       },
+       "11":{
+         "tittle": "¿Puede otra persona depositar en una cuenta, sin ser el titular de la misma?",
+         "desc": "Sí, otra persona que no es titular de la cuenta puede depositar en la misma al presentar su DUI y el número de la cuenta a la que desea realizar el depósito."
+       },
+       "12":{
+         "tittle": "¿Puede un extranjero optar por un crédito personal?",
+         "desc": "Si, pueden realizarlo aquellos que cuenten con residencia permanente en el país. Para lo cual deben presentar pasaporte vigente, carnet de residente permanente, NIT, recibos de colectores y comprobar ingresos en el país."
+       }
+     }
+   },
+   "cards_page":{
+     "tittle": "Tarjetas",
+     "sub-tittle": "Encuentra la mejor solución que se adapte a tus necesidades",
+     "tittle2": "Tarjetas de Crédito",
+     "tittle3": "Tarjetas de Débito",
+     "tittle4": "Débito Clásica",
+     "button": "Más detalles",
+     "1":{
+       "desc1":"Recibe 500 puntos de bienvenida acumulables",
+       "desc2": "Obten cuotas de hasta 36 meses",
+       "desc3": "Descuentos en comercios seleccionados",
+       "desc4": "Tasa de interes inicial de hasta un 48%"
+     },
+     "2":{
+       "desc1":"Recibe 5,000 puntos de bienvenida acumulables",
+       "desc2": "Gana 1 punto por cada dolar gastado en compras",
+       "desc3": "Cuotas con una tasa de interés del 32%",
+       "desc4": "Descuentos y beneficios especiales en comercios seleccionados"
+     },
+     "3":{
+       "desc1":"Recibe 10,000 puntos de bienvenida acumulables",
+       "desc2": "Gana 1 punto por cada dolar gastado en compras",
+       "desc3": "Cuotas con una tasa de interés desde el 26%",
+       "desc4": "Cobertura de hasta 100,000 dólares",
+       "desc5": "Canjea tus puntos por viajes aéreos"
+     },
+     "4":{
+       "desc1": "Recibe 80,000 puntos de bienvenida acumulables",
+       "desc2": "Gana 2 puntos por cada dolar gastado en compras",
+       "desc3": "Cuotas con una tasa de interés desde el 12%",
+       "desc4": "Extrafinanciamiento y cobertura de hasta $230,000",
+       "desc5": "Canjea tus puntos por viajes aéreos"
+     },
+     "5":{
+       "desc1": "Obtén puntos por tus compras",
+       "desc2": "Retira efectivo cuando quieras",
+       "desc3": "Seguridad con tus compras",
+       "desc4": "Utiliza los kioskos para pagar tus recibos"
+     }
+   },
+   "CardsPage-Form":{
+       "tittle": "¿Ya te has decidido?",
+       "desc": "Solicita tu tarjeta ahora",
+       "name": "Nombre completo",
+       "dui": "Número de DUI",
+       "account": "Número de cuenta a la que vinculará la tarjeta",
+       "contact": "Número de contacto",
+       "email": "Correo Electrónico",
+       "address": "Dirección",
+       "address2": "Dirección de entrega de la tarjeta",
+       "option": "Rango Salarial",
+       "button": "Seleccionar Archivo",
+       "button2": "Solicitar",
+       "desc1": "Fotocopia de DUI (revés y derecho)",
+       "desc2": "Fotocopia de NIT",
+       "desc3": "Adjunta tu constancia de salario",
+       "desc4": "Entre",
+       "desc5": "Mayor a ",
+       "desc6": "Escriba su posición laboral"
+   },
+   "ClassicPage": {
+     "sub-tittle":"Todo lo que necesitas a tu alcance",
+     "desc": "La tarjeta de crédito Demantur Classic te brinda los beneficios necesarios para tu día a día, con ella dispones de un medio de pago seguro para usarlo en comercios, compras en línea, etc. Además, dispones de retiro inmediato de efectivo en cajeros nacionales, encuentra información más detallada a continuación.",
+     "benefit": {
+       "tittle": "Disfruta de los mejores beneficios que te ofrece esta tarjeta",
+       "1":{
+         "tittle": "Puntos Acumulables",
+         "desc": "Recibe 500 puntos por tu primera compra, luego acumula 1 punto cada 5 dólares que gastes"
+       },
+       "2":{
+         "tittle": "Pagos en cuotas",
+         "desc": "Paga en cuotas de hasta 36 meses según tus posibilidades con una tasa de interés fija"
+       },
+       "3":{
+         "tittle":"Retiro de efectivo",
+         "desc": "Retira efectivo con tu tarjeta cuando lo necesites en todos nuestros cajeros a nivel nacional"
+       }
+     },
+     "requirements":{
+       "tittle":"Requesitos",
+       "1":"Estabilidad laboral",
+       "2":"Ingresos mínimos de $400 mensuales",
+       "3":"Solicitud llena, ya sea físico o formulario web",
+       "4": "Fotocopia de DUI y NIT (revés y derecho)",
+       "5": "Constancia de ingresos vigente firmada por la empresa, copia de boletas de pago o constancia de AFP de los últimos 6 meses"
+     },
+     "conditions":{
+       "tittle": "Condiciones",
+         "1":"Los 500 puntos de bienvenida se otorgarán despues de gastar un mínimo $30 con la tarjeta",
+         "2":"El límite de puntos acumulables es de 20,000",
+         "3":"El plazo de financiamiento no debe ser mayor a 60 meses",
+         "4": "Las tasas de interés se establecerán de acuerdo a la cantidad del finaciamiento, pero no serán menores a un 15%",
+         "5": "Cuota de cargo del 4% del límite de la tarjeta ($7,500)"
+     },
+     "benefit-banner":{
+       "tittle": "Beneficios Especiales",
+       "sub-tittle": "Descuentos en Comercios Seleccionados",
+       "desc": "Obtén muchas ofertas y promociones en productos al pagar con tu tarjeta de crédito"
+     }
+   },
+   "PlatinumPage": {
+     "sub-tittle":"Llega lejos, donde apuntan tus sueños",
+     "desc": "¿Estás en busca de una tarjeta que te permita disfrutar de grandes beneficios en cualquier lugar y en todo momento?, pues si es así, La tarjeta Demantur Platinum es para ti, obtén numerosos beneficios que se adaptan a tus necesidades con una gran flexibilidad. Puedes viajar, comprar lo que quieras y tener la seguridad que necesitas por cada una de tus compras, revisa muchos más beneficios a continuación.",
+     "benefit": {
+       "tittle": "Disfruta de los mejores beneficios que te ofrece esta tarjeta",
+       "1":{
+         "tittle": "Puntos Acumulables",
+         "desc": "Recibe 5,000 puntos de bienvenida después de usar por primera vez tu tarjeta sin importar el monto."
+       },
+       "2":{
+         "tittle": "Gana puntos",
+         "desc": "Acumula puntos por cada dolár que gastes, 1 dolár equivale a 1 punto más acumulado."
+       },
+       "3":{
+         "tittle":"Canjea por efectivo",
+         "desc": "Puedes canjear por efectivo tus puntos en cualquier momento."
+       },
+       "4":{
+         "tittle": "Pagos en cuotas",
+         "desc": "Obtén cuotas de hasta 48 meses sin intereses, puedes elegir el plazo que más te convenga."
+       },
+       "5":{
+         "tittle": "Seguro de compras",
+         "desc": "Obtén un reembolso en caso de que el artículo esté dañado, ya sea para cambiarlo o repararlo."
+       },
+       "6":{
+         "tittle": "Precios Especiales",
+         "desc": "Disfruta de precios especiales en productos de tiendas seleccionadas al pagar con tu tarjeta."
+       }
+     },
+     "requirements":{
+       "tittle":"Requesitos",
+       "1":"Estabilidad laboral",
+       "2":"Ingresos mínimos de $1,000 mensuales",
+       "3":"Solicitud llena, ya sea físico o formulario web",
+       "4": "Fotocopia de DUI y NIT (revés y derecho)",
+       "5": "Constancia de ingresos vigente firmada por la empresa copia de boletas de pago o constancia de AFP de los últimos 6 meses"
+     },
+     "conditions":{
+       "tittle": "Condiciones",
+         "1":"El límite de puntos acumulables es de 100,000",
+         "2":"El reembolso que te ofrece el seguro de compras será igual al monto que originalmente el producto tiene",
+         "3":"Las cuotas sin intereses estarán sujetas a las condiciones del lugar donde obtengas tu crédito, y en ocasiones no estarán disponibles",
+         "4": "Para utilizar tus puntos por viajes no deberás tener ningún pago atrasado en los últimos 6 meses",
+         "5": "La cantidad máxima de efectivo que puedes canjear por tus puntos es de $7,500"
+     },
+     "benefit-banner":{
+       "tittle": "Beneficios Especiales",
+       "sub-tittle": "Utiliza tus puntos para viajar",
+       "desc": "Puedes canjear tus puntos acumulados por boletos aéreos a destinos seleccionados"
+     }
+   },
+   "GoldPage": {
+     "sub-tittle":"Vive al máximo, no te limites y cumple tus objetivos",
+     "desc": "Obtén muchas más posibilidades, beneficios superiores y un mayor nivel de compra y efectivo con la tarjeta Demantur Gold, con ella siempre tendrás ese respaldo de calidad y una mayor seguridad, confianza y ese respaldo que mereces. La Demantur Gold está pensada para aquellas personas como tú, que siempre buscan esa exigencia y buen nivel en una tarjeta de crédito, descubre más beneficios a continuación.",
+     "benefit": {
+       "tittle": "Disfruta de los mejores beneficios que te ofrece esta tarjeta",
+       "1":{
+         "tittle": "Seguro de compras",
+         "desc": "Recibe un reembolso de protección contra daños, robos o accidentes por cada producto que compres con la tarjeta."
+       },
+       "2":{
+         "tittle": "Gana puntos",
+         "desc": "Obtén 10,000 puntos acumulables de bienvenida después de usar tu tarjeta por primera vez sin importar el monto que gastes."
+       },
+       "3":{
+         "tittle":"Canjea por viajes",
+         "desc": "Puedes canjear tus puntos acumulados por boletos aéreos a destinos seleccionados y disfruta de explorar el mundo."
+       },
+       "4":{
+         "tittle": "Garantia Extendida",
+         "desc": "Recibe una protección adicional que extenderá el tiempo de garantía hasta un año más adicional a la garantía que ofrece el fabricante."
+       },
+       "5":{
+         "tittle": "Tasas de interés bajas",
+         "desc": "Tus cuotas tendrán un tasa de interés del 8%, e incluso puede bajar según tu historial crediticio o el plazo."
+       },
+       "6":{
+         "tittle": "Cobertura máxima",
+         "desc": "Dispondrás de una cobertura de efectivo hasta de $50,000 en retiro inmediato para que lo puedas usar."
+       }
+     },
+     "requirements":{
+       "tittle":"Requesitos",
+       "1":"Ingresos minimos mensuales de $2,800",
+       "2":"Estabilidad laboral comprobable; 12 meses de experiencia con tarjeta",
+       "3":"SSolicitud llena, ya sea físico o formulario web",
+       "4": "Fotocopia de DUI y NIT (revés y derecho)",
+       "5": "Constancia de ingresos vigente firmada por la empresa copia de boletas de pago o constancia de AFP de los últimos 6 meses"
+     },
+     "conditions":{
+       "tittle": "Condiciones",
+         "1":"El límite de puntos acumulables es de 600,000",
+         "2":"La protección de compra le reembolsará los gastos para que el artículo cubierto sea reparado o compensará el valor original del artículo",
+         "3":"El artículo cubierto por la garantía deberá tener una garantía original del fabricante mínima de 3 meses hasta tres años",
+         "4": "La cobertura máxima de efectivo podrá solicitarse siempre y cuando no tengas más de 2 pagos atrasados con tu tarjeta"
+     },
+     "benefit-banner":{
+       "tittle": "Beneficios Especiales",
+       "sub-tittle": "Desembolso de efectivo de emergencia",
+       "desc": "Este beneficio te ayudará a obtener efectivo en caso de que tu tarjeta se pierda o la roben"
+     }
+   },
+   "BlackCard": {
+     "sub-tittle":"Disfruta el mundo como solo tú lo mereces",
+     "desc": "Cuando hablamos de la tarjeta Mastercard Black estamos concientes que es algo superior, obtén ese prestigio, reconocimiento, exclusividad y obviamente unos maravillosos beneficios que solo esta tarjeta es capaz de darte, vive un mundo lleno de posibilidades y sueños, viajes, extrafinanciameitos, protecciones, asistencias, salas VIP, entre otras muchas cosas con las que disfrutar de la vida al máximo, revisa a continuacion más información.",
+     "benefit": {
+       "tittle": "Disfruta de los mejores beneficios que te ofrece esta tarjeta",
+       "1":{
+         "tittle": "Extrafinanciamiento",
+         "desc": "Puedes obtener esa línea extra de financiamiento a tu tarjeta de crédito y disponer de efectivo de una forma rapida y sencilla."
+       },
+       "2":{
+         "tittle": "Asistencia de Viajes",
+         "desc": "Proporcionamos ayuda de viaje cuando estés fuera, puedes obtener información acerca del destino, emergencias, identificaciones, etc."
+       },
+       "3":{
+         "tittle":"Canjea por viajes",
+         "desc": "Puedes canjear tus puntos acumulados por boletos aéreos a destinos seleccionados y disfruta de explorar el mundo."
+       },
+       "4":{
+         "tittle": "Garantia Extendida",
+         "desc": "Recibe una protección adicional que extenderá el tiempo de garantía hasta un año más adicional a la garantía que ofrece el fabricante."
+       },
+       "5":{
+         "tittle": "Gana puntos",
+         "desc": "Obtén 80,000 puntos acumulables de bienvenida después de usar tu tarjeta por primera vez sin importar el monto que gastes."
+       },
+       "6":{
+         "tittle": "Seguro de compras",
+         "desc": "Recibe un reembolso de protección contra daños, robos o accidentes por cada producto que compres con la tarjeta."
+       }
+     },
+     "requirements":{
+       "tittle":"Requesitos",
+       "1":"Ingresos minimos mensuales de $4,800",
+       "2":"Estabilidad laboral comprobable; 12 meses de experiencia con tarjeta",
+       "3":"SSolicitud llena, ya sea físico o formulario web",
+       "4": "Fotocopia de DUI y NIT (revés y derecho)",
+       "5": "Constancia de ingresos vigente firmada por la empresa copia de boletas de pago o constancia de AFP de los últimos 6 meses"
+     },
+     "conditions":{
+       "tittle": "Condiciones",
+         "1":"El límite de puntos acumulables es de 1 000,000,000",
+         "2":"La protección de equipaje le reembolsará hasta $3000 por equipaje perdido definitivamente y hasta $600 por demoras de más de 4 horas",
+         "3":"El artículo cubierto por la garantía deberá tener una garantía original y en este caso el tiempo brindado se duplicará pagando un beneficio de hasta US$2,500 por ocurrencia y un total anual de US$5,000",
+         "4": "El banco ofrece el extrafianciamiento para esta tarjeta, pero la oferta puede variar dependiendo el historial crediticio, además el plazo se aplica dependiendo de lo anteriormente dicho"
+     },
+     "benefit-banner":{
+       "tittle": "Beneficios Especiales",
+       "sub-tittle": "Protección de equipaje en el aeropuerto",
+       "desc": "Este beneficio te reembolsará en dado caso pierdas tu equipaje registrado para viajar"
+     }
+   },
+   "DebitCard": {
+     "tittle": "Débito Clásica",
+     "sub-tittle":"Mantén el control de tu dinero y ahorra",
+     "desc": "Con la tarjeta de Débito Clásica de Demantur obtienes el control de gastos que necesitas, podrás pagar en los diferentes servicios y comercios sin necesidad de cargar efectivo, pero además, también podrás acceder por medio de los cajeros automáticos al efectivo si es que lo necesitas. Por otro lado, no dudes en tener siempre los beneficios especiales que te ofrece Demantur, te invitamos a seguir viendo los demás detalles a continuación.",
+     "benefit": {
+       "tittle": "Disfruta de los mejores beneficios que te ofrece esta tarjeta",
+       "1":{
+         "tittle": "Paga fácil y rapido",
+         "desc": "La tarjeta Débito Clásica te brinda esa facilidad de pagar siempre aunque no lleves efectivo contigo, es más práctico si prefieres cargar siempre la tarjeta en vez de grandes cantidades de efectivo"
+       },
+       "2":{
+         "tittle": "Seguridad y control",
+         "desc": "Al no cargar efectivo tienes la seguridad de no perderlo, y si en caso extravíes la tarjeta, puedes cancelarla y evitar la pérdida de los fondos que tienes almacenados en ella"
+       },
+       "3":{
+         "tittle":"Ahorro y eficiencia",
+         "desc": "Al hacer uso de tus propios fondos no debes pagar intereses ni cuotas mes a mes y en ningún momento acumulas deuda con ella, ahorras más y mantén la eficiencia de tu dinero en todo momento cuando la uses"
+       }
+     },
+     "requirements":{
+       "tittle":"Requesitos",
+       "1":"Estabilidad laboral",
+       "2":"Ingresos mínimos de $400 mensuales",
+       "3":"Solicitud llena, ya sea físico o formulario web",
+       "4": "Fotocopia de DUI y NIT (revés y derecho)"
+     },
+     "conditions":{
+       "tittle": "Condiciones",
+         "1":"Para contar con el servicio de alerta de compra con tu tarjeta deberás contratarlo posteriormente con un cargo extra una única vez",
+         "2":"El costo de reposisión de tarjeta en caso de robo o extravío es de $4.85 + IVA",
+         "3":"La comisión por retiro de efectivo en cajeros a partir de la sexta transacción es de $0.65 + IVA",
+         "4": "La comisión por retiro de efectivo en cajeros de otra red local es de $2.65 + IVA por transacción"
+     },
+     "benefit-banner":{
+       "tittle": "Beneficios Especiales",
+       "sub-tittle": "Obtén puntos por cada una de tus compras",
+       "desc": "Obtén 1 punto por cada $2.00 que gastes con tu tarjeta de débito"
+     }
+   }
 }

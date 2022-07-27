@@ -13,10 +13,10 @@ export const HomePage = () => {
           <SideBar />
           <div className="h-full w-[80%] mx-auto">
             <Header />
-            <div className="mx-3">
-              <div className="flex gap-3 my-1">
+            <div className="mx-3 w-full"> { /* Aquí abajo se agregan cosas */}
                 {/* Saldo e información personal */}
-                <div className="h-[10.125rem] bg-white basis-[619px] rounded-[2rem]">
+              <div className="flex gap-3 my-1">
+                <div className="h-[10.125rem] bg-white basis-[40%] rounded-[2rem]">
                   <div className="m-[2rem] flex justify-between">
                     <div>
                       <h2 className="text-gray-500 text-[1.5625rem]">
@@ -29,7 +29,7 @@ export const HomePage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="h-[10.125rem] bg-white basis-[734px] rounded-[2rem]">
+                <div className="h-[10.125rem] bg-white basis-[60%] rounded-[2rem]">
                   <div className="mx-[2rem] my-[1rem]">
                     <h2 className="text-gray-500 text-[1.5625rem]">
                       Datos personales
@@ -60,7 +60,7 @@ export const HomePage = () => {
 
               {/* Historial de transferencias y contactos */}
               <div className="flex gap-4 my-1">
-                <div className="h-[350.1px] basis-[916px] bg-white rounded-[2rem]">
+                <div className="h-[350.1px] basis-[70%] bg-white rounded-[2rem]">
                   <div className="m-[2rem] flex justify-between">
                     <div>
                       <h2 className="text-gray-500 text-[1.5625rem]">
@@ -69,7 +69,7 @@ export const HomePage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="h-[350.1px] basis-[420px] bg-white rounded-[2rem]">
+                <div className="h-[350.1px] basis-[30%] bg-white rounded-[2rem]">
                   <div className="m-[2rem] flex justify-between">
                     <div>
                       <h2 className="text-gray-500 text-[1.5625rem]">
@@ -82,7 +82,7 @@ export const HomePage = () => {
 
               {/* Tarjetas y préstamos */}
               <div className="flex gap-2 my-1">
-                <div className="h-[236px] basis-[800px] bg-red-400">
+                <div className="h-[236px] basis-[65%] bg-red-400">
                 <div className="m-[2rem] flex justify-between">
                     <div>
                       <h2 className="text-gray-500 text-[1.5625rem]">
@@ -91,7 +91,7 @@ export const HomePage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="h-[236px] basis-[568px] bg-slate-400 rounded-[2rem]">
+                <div className="h-[236px] basis-[35%] bg-slate-400 rounded-[2rem]">
                 <div className="m-[2rem] flex justify-between">
                     <div>
                       <h2 className="text-gray-500 text-[1.5625rem]">

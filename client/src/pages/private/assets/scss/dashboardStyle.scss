@@ -1,0 +1,64 @@
+@use '../../../../utilities/_colors.scss' as *;
+
+.div-settings-modal {
+  transition: transform 0.25s ease-out;
+}
+
+.settings-div {
+  background: #fff;
+  width: 20rem;
+  box-shadow: 0px 0px 10px .5px rgba(0, 0, 0, 0.246);
+
+
+  .MainDiv-settings {
+    text-align: center;
+    padding-top: 2rem;
+  }
+
+  .X-Settings {
+    cursor: pointer;
+    height: 2rem;
+    width: 2rem;
+    margin-right: 0.4rem;
+    margin-top: 0.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    transition: all 100ms ease;
+
+    svg {
+      height: 1.7rem;
+      width: 1.7rem;
+      color: black;
+    }
+
+    &:hover {
+      color: $primary_dark;
+      background-color: rgba(210, 210, 210, 0.206);
+
+    }
+  }
+
+  span {
+    font-size: 24px;
+  }
+}
+
+
+.fade-enter{
+  opacity: 0;
+}
+.fade-exit{
+  opacity: 1;
+}
+.fade-enter-active{
+  opacity: 1;
+}
+.fade-exit-active{
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-exit-active{
+  transition: opacity 100ms;
+}

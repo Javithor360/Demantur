@@ -33,7 +33,7 @@ import {
 import {
   DashboardNormalUser,
   HomePage,
-  HomePage2,
+  CreateSavingAcc,
 } from "./pages/private/index";
 import { AuthValidate } from "./pages/private/routers/AuthValidate";
 
@@ -121,6 +121,11 @@ const App = () => {
               {" "}
             </Route>
 
+            <Route
+              path="/normal-user/create-saving-account"
+              element={<CreateSavingAcc />}
+            ></Route>
+
             {/* test dashboard */}
             <Route
               path="/dashboard"
@@ -131,7 +136,6 @@ const App = () => {
               }
             />
             <Route path="/dashboard/home" element={<HomePage />} />
-            <Route path="/dashboard/home2" element={<HomePage2 />} />
           </Routes>
         </DashProvider>
       </AuthProvider>

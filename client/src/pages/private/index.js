@@ -1,4 +1,4 @@
-export { SideBar } from "./components/SideBar.js";
-export { DashboardNormalUser } from "./DashboardNormalUser";
+export { SideBar } from "./components/SideBar.js"
+export { DashboardNormalUser } from "./DashboardNormalUser"
+export { CreateSavingAcc } from "./CreateSavingAcc"
 export { HomePage } from "./HomePage";
-export { HomePage2 } from "./HomePage2";

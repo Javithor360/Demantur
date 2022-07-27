@@ -11,11 +11,12 @@ export const DashProvider = ({ children }) => {
 
   const [Option, setOption] = useState(1);
   const [OptionElement, setOptionElement] = useState('Home Page');
+  const [SettingsOption, setSettingsOption] = useState(false);
 
 
   return (
     <dashContext.Provider value={{
-      Option, setOption, OptionElement, setOptionElement
+      Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption
     }}>
       {children}
     </dashContext.Provider>

@@ -8,10 +8,14 @@ import { MdOutlineEmail, MdOutlinePhone, MdOutlineHome, MdOutlineBadge, MdPerson
 import { Navbar, Footer } from "../../../components";
 import { Tabs } from "../assets/js/BannerTabCreator.js";
 
+// Translation
+import { useTranslation } from "react-i18next";
+
 //images
 const CreditCardsImages = require.context('../assets/img/credit_cards', true)
 
 export const DemanturGold = () => {
+  const {t}=useTranslation();
   return (
     <>
       <Navbar />
@@ -19,7 +23,7 @@ export const DemanturGold = () => {
           <div className="gold-card-hero-content">
             <div className="text-content">
               <p>Gold</p>
-              <p>Vive al máximo, no te limites y cumple tus objetivos</p>
+              <p>{t("GoldPage.sub-tittle")}</p>
             </div>
             <div className="image-content">
               <img src={CreditCardsImages('./bank_cards_images/goldCard.png')} alt='' ></img>
@@ -29,20 +33,20 @@ export const DemanturGold = () => {
 
         <div className="card-description">
           <p>
-            Obtén muchas más posibilidades, beneficios superiores y un mayor nivel de compra y efectivo con la tarjeta Demantur Gold, con ella siempre tendrás ese respaldo de calidad y una mayor seguridad, confianza y ese respaldo que mereces. La Demantur Gold está pensada para aquellas personas como tú, que siempre buscan esa exigencia y buen nivel en una tarjeta de crédito, descubre más beneficios a continuación.
+          {t("GoldPage.desc")}
           </p>
         </div>
 
         <div className="card-benefits_container">
           <p className="card-benefits_tittle">
-            Disfruta de los mejores beneficios que te ofrece esta tarjeta
+          {t("GoldPage.benefit.tittle")}
           </p>
           <div className="card-benefits_grid_row">
             <div className="grid_item">
               <img src={CreditCardsImages('./icons/money_security_icon.png')} alt=""></img>
-              <p>Seguro de compras</p>
+              <p>{t("GoldPage.benefit.1.tittle")}</p>
               <p>
-                Recibe un reembolso de protección contra daños, robos o accidentes por cada producto que compres con la tarjeta. 
+              {t("GoldPage.benefit.1.desc")} 
               </p>
             </div>
             <div className="vl">
@@ -50,9 +54,9 @@ export const DemanturGold = () => {
             </div>
             <div className="grid_item">
               <img src={CreditCardsImages('./icons/single_point_icon.png')} alt=""></img>
-              <p>Gana puntos</p>
+              <p>{t("GoldPage.benefit.2.tittle")}</p>
               <p>
-                Obtén 10,000 puntos acumulables de bienvenida después de usar tu tarjeta por primera vez sin importar el monto que gastes. 
+                {t("GoldPage.benefit.2.desc")} 
               </p>
             </div>
             <div className="vl">
@@ -60,9 +64,9 @@ export const DemanturGold = () => {
             </div>
             <div className="grid_item">
               <img src={CreditCardsImages('./icons/airplane_black_icon.png')} alt=""></img>
-              <p>Canjea por viajes</p>
+              <p>{t("GoldPage.benefit.3.tittle")}</p>
               <p>
-                Puedes canjear tus puntos acumulados por boletos aéreos a destinos seleccionados y disfruta de explorar el mundo.
+                {t("GoldPage.benefit.3.desc")} 
               </p>
             </div>
           </div>
@@ -76,9 +80,9 @@ export const DemanturGold = () => {
           <div className="card-benefits_grid_row">
             <div className="grid_item mgt_1">
                 <img src={CreditCardsImages('./icons/guarantee_icon.png')} alt=""></img>
-                <p>Garantia Extendida</p>
+                <p>{t("GoldPage.benefit.4.tittle")}</p>
                 <p>
-                  Recibe una protección adicional que extenderá el tiempo de garantía hasta un año más adicional a la garantía que ofrece el fabricante.
+                  {t("GoldPage.benefit.4.desc")}
                 </p>
               </div>
               <div className="vl">
@@ -86,9 +90,9 @@ export const DemanturGold = () => {
               </div>
               <div className="grid_item mgt_1">
                 <img src={CreditCardsImages('./icons/fee_payment_icon.png')} alt=""></img>
-                <p>Tasas de interés bajas</p>
+                <p>{t("GoldPage.benefit.5.tittle")}</p>
                 <p>
-                 Tus cuotas tendrán un tasa de interés del 8%, e incluso puede bajar según tu historial crediticio o el plazo
+                  {t("GoldPage.benefit.5.desc")}
                 </p>
               </div>
               <div className="vl">
@@ -96,9 +100,9 @@ export const DemanturGold = () => {
               </div>
               <div className="grid_item mgt_1">
                 <img src={CreditCardsImages('./icons/max_money_icon.png')} alt=""></img>
-                <p>Cobertura máxima</p>
+                <p>{t("GoldPage.benefit.6.tittle")}</p>
                 <p>
-                  Dispondrás de una cobertura de efectivo hasta de $50,000 en retiro inmediato para que lo puedas usar.
+                {t("GoldPage.benefit.6.desc")}
                 </p>
               </div>
           </div>
@@ -106,7 +110,7 @@ export const DemanturGold = () => {
         {Tabs("GoldCard")}
 
         <div className="credit-card-tittle">
-          <p>Beneficios Especiales</p>
+          <p>{t("GoldPage.benefit-banner.tittle")}</p>
           <hr />
         </div>
 
@@ -116,17 +120,17 @@ export const DemanturGold = () => {
               <img src={CreditCardsImages('./icons/emergency_cash_icon.png')} alt="" />
             </div>
             <div className="gold-otb-text">
-              <p>Desembolso de efectivo de emergencia</p>
-              <p>Este beneficio te ayudará a obtener efectivo en caso de que tu tarjeta se pierda o la roben</p>
+              <p>{t("GoldPage.benefit-banner.sub-tittle")}</p>
+              <p>{t("GoldPage.benefit-banner.desc")}</p>
             </div>
           </div>
         </div>
 
         <div className="card-form-container">
           <div className="form-header">
-            <p>¿Ya te has decidido?</p>
+            <p>{t("CardsPage-Form.tittle")}</p>
             <hr className="blue-underline smallest"></hr>
-            <p>Solicita tu tarjeta ahora</p>
+            <p>{t("CardsPage-Form.desc")}</p>
           </div>
           <form className="main-card-form">
             <div className="form-row-1">
@@ -136,7 +140,7 @@ export const DemanturGold = () => {
                   <div className="form-input-container">
                       <input className="form-input-box" type="text" placeholder="Nombre completo"/>
                       <label className="form-label-box" htmlFor="">
-                          Nombre completo
+                        {t("CardsPage-Form.name")}
                       </label>
                   </div>
                 </div>
@@ -145,7 +149,7 @@ export const DemanturGold = () => {
                   <div className="form-input-container">
                       <input className="form-input-box" type="number" placeholder="Número de contacto"/>
                       <label className="form-label-box" htmlFor="">
-                          Número de contacto
+                        {t("CardsPage-Form.contact")}
                       </label>
                   </div>
                 </div>
@@ -154,7 +158,7 @@ export const DemanturGold = () => {
                   <div className="form-input-container">
                       <input className="form-input-box" type="text" placeholder="Dirección"/>
                       <label className="form-label-box" htmlFor="">
-                          Dirección
+                        {t("CardsPage-Form.address")}
                       </label>
                   </div>
                 </div>
@@ -165,7 +169,7 @@ export const DemanturGold = () => {
                     <div className="form-input-container">
                         <input className="form-input-box" type="number" placeholder="Número de DUI"/>
                         <label className="form-label-box" htmlFor="">
-                          Número de DUI
+                          {t("CardsPage-Form.dui")}
                         </label>
                       </div>
                 </div>
@@ -174,26 +178,26 @@ export const DemanturGold = () => {
                     <div className="form-input-container">
                         <input className="form-input-box" type="email" placeholder="Correo Electrónico"/>
                         <label className="form-label-box" htmlFor="">
-                          Correo Electrónico
+                          {t("CardsPage-Form.email")}
                         </label>
                     </div>
                 </div> 
                 <div className="form-flex-row">
                   <div className="card-form-select">
                     <select name="" id="">
-                        <option>Rango Salarial</option>
-                        <option>Entre $450 y $499</option>
-                        <option>Entre $500 y $999</option>
-                        <option>Entre $1,000 y $1,999</option>
-                        <option>Entre $2,000 y $3,999</option>
-                        <option>Entre $4,000 y $5,999</option>
-                        <option>Mayor a $6,000</option>
+                        <option>{t("CardsPage-Form.option")}</option>
+                        <option>{t("CardsPage-Form.desc4")} $450 y $499</option>
+                        <option>{t("CardsPage-Form.desc4")} $500 y $999</option>
+                        <option>{t("CardsPage-Form.desc4")} $1,000 y $1,999</option>
+                        <option>{t("CardsPage-Form.desc4")}$2,000 y $3,999</option>
+                        <option>{t("CardsPage-Form.desc4")} $4,000 y $5,999</option>
+                        <option>{t("CardsPage-Form.desc5")}$6,000</option>
                     </select> 
                   </div>
                   <div className="flex-row-input">
                       <input className="form-input-box" type="text" placeholder="Escriba su posición laboral"/>
                       <label className="form-label-box" htmlFor="">
-                          Escriba su posición laboral
+                        {t("CardsPage-Form.desc6")}
                       </label>
                   </div>
                 </div>
@@ -201,23 +205,23 @@ export const DemanturGold = () => {
             </div>    
             <div className="form-row-2">
               <div className="input-files">
-                <p>Fotocopia de DUI (revés y derecho)</p>
-                <label htmlFor="file1">Seleccionar Archivo</label>
+                <p>{t("CardsPage-Form.desc1")}</p>
+                <label htmlFor="file1">{t("CardsPage-Form.button")}</label>
                 <input type="file" name="" id="file1"></input>
               </div>
               <div className="input-files">
-                <p>Fotocopia de NIT</p>
-                <label htmlFor="file2">Seleccionar Archivo</label>
+                <p>{t("CardsPage-Form.desc2")}</p>
+                <label htmlFor="file2">{t("CardsPage-Form.button")}</label>
                 <input type="file" name="" id="file2"></input>
               </div>
               <div className="input-files">
-                <p>Adjunta tu constancia de salario</p>
-                <label htmlFor="file3">Seleccionar Archivo</label>
+                <p>{t("CardsPage-Form.desc3")}</p>
+                <label htmlFor="file3">{t("CardsPage-Form.button")}</label>
                 <input type="file" name="" id="file3"></input>
               </div>
             </div>
             <div className="form-row-3">
-              <button className="card-submit-button" type="submit">Solicitar</button>
+              <button className="card-submit-button" type="submit">{t("CardsPage-Form.button2")}</button>
             </div>
           </form>
         </div>

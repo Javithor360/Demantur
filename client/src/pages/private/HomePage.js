@@ -14,7 +14,7 @@ export const HomePage = () => {
           <div className="h-full w-[80%]">
             <Header />
             <div className="flex m-[1rem]">
-              <div className="mb-[1rem] mx-[1rem] h-[10.125rem] bg-white basis-3/6 rounded-[2rem]">
+              <div className="mb-[1rem] mx-[1rem] h-[10.125rem] bg-white basis-3/6 rounded-[2rem] flex-1 w-16">
                 <div className="m-[2rem] flex">
                   <div>
                     <h2 className="text-gray-500 text-[1.5625rem]">
@@ -27,7 +27,7 @@ export const HomePage = () => {
                   </div>
                 </div>
               </div>
-              <div className="mb-[1rem] mx-[1rem] h-[10.125rem] bg-white basis-3/6 rounded-[2rem] w-[700px]">
+              <div className="mb-[1rem] mx-[1rem] h-[10.125rem] bg-white basis-3/6 rounded-[2rem] flex-2 w-64">
                 <div className="mx-[2rem] my-[1rem]">
                   <h2 className="text-gray-500 text-[1.5625rem]">
                     Datos personales

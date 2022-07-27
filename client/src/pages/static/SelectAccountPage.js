@@ -26,7 +26,6 @@ export const SelectAccountPage = () => {
         <hr />
       </div>
       <p className="info">
-        {" "}
         <br />
         Bienvenido a la interfaz de Seleccion de Usuario, porfavor selecciona el
         tipo de Usuario al cual eres poseedor, asegurate de seleccionar la

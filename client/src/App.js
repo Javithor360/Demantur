@@ -30,7 +30,7 @@ import {
   ResetPasswordPage,
 } from "./pages/static";
 
-import { DashboardNormalUser } from "./pages/private/index";
+import { DashboardNormalUser, CreateSavingAcc } from "./pages/private/index";
 import { AuthValidate } from "./pages/private/routers/AuthValidate";
 
 //contexts
@@ -110,6 +110,8 @@ const App = () => {
             <Route path="/Loans/HouseLoan" element={<HouseLoan />}>
               {" "}
             </Route>
+
+            <Route path="/normal-user/create-saving-account" element={<CreateSavingAcc/>}></Route> 
 
             {/* test dashboard */}
             <Route path="/dashboard" element={<AuthValidate><DashboardNormalUser /></AuthValidate>} />

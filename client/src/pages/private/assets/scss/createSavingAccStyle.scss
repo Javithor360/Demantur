@@ -1,0 +1,38 @@
+@use '../../../../utilities/_colors.scss' as *;
+.black-line-2{
+    border: 0rem;
+    width: 35%;
+    background: #323643;
+    opacity: 100;
+    padding: 0;
+    margin: 2rem auto 2rem auto;
+}
+.circle-container{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+}
+.create-account-tittle{
+    font-size: 1.8rem;
+    color: $primary_dark;
+    text-align: center;
+    font-weight: 600;
+    margin: 1.8rem auto 2rem auto;
+}
+.create-acc-bg{
+    background-image: url(../img/bg/create-acc-bg.jpg);
+    background-size: cover;
+    background-position: center center;
+
+}
+.create-btn{
+    border-style: none;
+    background-color: $primary_dark;
+    color: $primary_white;
+    height: 3rem;
+    width: 15rem;
+    transition: .2s;
+    border-radius: 5px;
+    margin: 3rem auto 3rem auto;
+    display: block;
+}

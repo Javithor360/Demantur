@@ -279,7 +279,299 @@
         "amount":"Seguro de vida según monto del crédito y seguro de daños sobre la construcción."
       }
     }
-
     }
- }
+  },
+  "cards_page":{
+    "tittle": "Tarjetas",
+    "sub-tittle": "Encuentra la mejor solución que se adapte a tus necesidades",
+    "tittle2": "Tarjetas de Crédito",
+    "tittle3": "Tarjetas de Débito",
+    "tittle4": "Débito Clásica",
+    "button": "Más detalles",
+    "1":{
+      "desc1":"Recibe 500 puntos de bienvenida acumulables",
+      "desc2": "Obten cuotas de hasta 36 meses",
+      "desc3": "Descuentos en comercios seleccionados",
+      "desc4": "Tasa de interes inicial de hasta un 48%"
+    },
+    "2":{
+      "desc1":"Recibe 5,000 puntos de bienvenida acumulables",
+      "desc2": "Gana 1 punto por cada dolar gastado en compras",
+      "desc3": "Cuotas con una tasa de interés del 32%",
+      "desc4": "Descuentos y beneficios especiales en comercios seleccionados"
+    },
+    "3":{
+      "desc1":"Recibe 10,000 puntos de bienvenida acumulables",
+      "desc2": "Gana 1 punto por cada dolar gastado en compras",
+      "desc3": "Cuotas con una tasa de interés desde el 26%",
+      "desc4": "Cobertura de hasta 100,000 dólares",
+      "desc5": "Canjea tus puntos por viajes aéreos"
+    },
+    "4":{
+      "desc1": "Recibe 80,000 puntos de bienvenida acumulables",
+      "desc2": "Gana 2 puntos por cada dolar gastado en compras",
+      "desc3": "Cuotas con una tasa de interés desde el 12%",
+      "desc4": "Extrafinanciamiento y cobertura de hasta $230,000",
+      "desc5": "Canjea tus puntos por viajes aéreos"
+    },
+    "5":{
+      "desc1": "Obtén puntos por tus compras",
+      "desc2": "Retira efectivo cuando quieras",
+      "desc3": "Seguridad con tus compras",
+      "desc4": "Utiliza los kioskos para pagar tus recibos"
+    }
+  },
+  "CardsPage-Form":{
+      "tittle": "¿Ya te has decidido?",
+      "desc": "Solicita tu tarjeta ahora",
+      "name": "Nombre completo",
+      "dui": "Número de DUI",
+      "account": "Número de cuenta a la que vinculará la tarjeta",
+      "contact": "Número de contacto",
+      "email": "Correo Electrónico",
+      "address": "Dirección",
+      "address2": "Dirección de entrega de la tarjeta",
+      "option": "Rango Salarial",
+      "button": "Seleccionar Archivo",
+      "button2": "Solicitar",
+      "desc1": "Fotocopia de DUI (revés y derecho)",
+      "desc2": "Fotocopia de NIT",
+      "desc3": "Adjunta tu constancia de salario",
+      "desc4": "Entre",
+      "desc5": "Mayor a ",
+      "desc6": "Escriba su posición laboral"
+  },
+  "ClassicPage": {
+    "sub-tittle":"Todo lo que necesitas a tu alcance",
+    "desc": "La tarjeta de crédito Demantur Classic te brinda los beneficios necesarios para tu día a día, con ella dispones de un medio de pago seguro para usarlo en comercios, compras en línea, etc. Además, dispones de retiro inmediato de efectivo en cajeros nacionales, encuentra información más detallada a continuación.",
+    "benefit": {
+      "tittle": "Disfruta de los mejores beneficios que te ofrece esta tarjeta",
+      "1":{
+        "tittle": "Puntos Acumulables",
+        "desc": "Recibe 500 puntos por tu primera compra, luego acumula 1 punto cada 5 dólares que gastes"
+      },
+      "2":{
+        "tittle": "Pagos en cuotas",
+        "desc": "Paga en cuotas de hasta 36 meses según tus posibilidades con una tasa de interés fija"
+      },
+      "3":{
+        "tittle":"Retiro de efectivo",
+        "desc": "Retira efectivo con tu tarjeta cuando lo necesites en todos nuestros cajeros a nivel nacional"
+      }
+    },
+    "requirements":{
+      "tittle":"Requesitos",
+      "1":"Estabilidad laboral",
+      "2":"Ingresos mínimos de $400 mensuales",
+      "3":"Solicitud llena, ya sea físico o formulario web",
+      "4": "Fotocopia de DUI y NIT (revés y derecho)",
+      "5": "Constancia de ingresos vigente firmada por la empresa, copia de boletas de pago o constancia de AFP de los últimos 6 meses"
+    },
+    "conditions":{
+      "tittle": "Condiciones",
+        "1":"Los 500 puntos de bienvenida se otorgarán despues de gastar un mínimo $30 con la tarjeta",
+        "2":"El límite de puntos acumulables es de 20,000",
+        "3":"El plazo de financiamiento no debe ser mayor a 60 meses",
+        "4": "Las tasas de interés se establecerán de acuerdo a la cantidad del finaciamiento, pero no serán menores a un 15%",
+        "5": "Cuota de cargo del 4% del límite de la tarjeta ($7,500)"
+    },
+    "benefit-banner":{
+      "tittle": "Beneficios Especiales",
+      "sub-tittle": "Descuentos en Comercios Seleccionados",
+      "desc": "Obtén muchas ofertas y promociones en productos al pagar con tu tarjeta de crédito"
+    }
+  },
+  "PlatinumPage": {
+    "sub-tittle":"Llega lejos, donde apuntan tus sueños",
+    "desc": "¿Estás en busca de una tarjeta que te permita disfrutar de grandes beneficios en cualquier lugar y en todo momento?, pues si es así, La tarjeta Demantur Platinum es para ti, obtén numerosos beneficios que se adaptan a tus necesidades con una gran flexibilidad. Puedes viajar, comprar lo que quieras y tener la seguridad que necesitas por cada una de tus compras, revisa muchos más beneficios a continuación.",
+    "benefit": {
+      "tittle": "Disfruta de los mejores beneficios que te ofrece esta tarjeta",
+      "1":{
+        "tittle": "Puntos Acumulables",
+        "desc": "Recibe 5,000 puntos de bienvenida después de usar por primera vez tu tarjeta sin importar el monto."
+      },
+      "2":{
+        "tittle": "Gana puntos",
+        "desc": "Acumula puntos por cada dolár que gastes, 1 dolár equivale a 1 punto más acumulado."
+      },
+      "3":{
+        "tittle":"Canjea por efectivo",
+        "desc": "Puedes canjear por efectivo tus puntos en cualquier momento."
+      },
+      "4":{
+        "tittle": "Pagos en cuotas",
+        "desc": "Obtén cuotas de hasta 48 meses sin intereses, puedes elegir el plazo que más te convenga."
+      },
+      "5":{
+        "tittle": "Seguro de compras",
+        "desc": "Obtén un reembolso en caso de que el artículo esté dañado, ya sea para cambiarlo o repararlo."
+      },
+      "6":{
+        "tittle": "Precios Especiales",
+        "desc": "Disfruta de precios especiales en productos de tiendas seleccionadas al pagar con tu tarjeta."
+      }
+    },
+    "requirements":{
+      "tittle":"Requesitos",
+      "1":"Estabilidad laboral",
+      "2":"Ingresos mínimos de $1,000 mensuales",
+      "3":"Solicitud llena, ya sea físico o formulario web",
+      "4": "Fotocopia de DUI y NIT (revés y derecho)",
+      "5": "Constancia de ingresos vigente firmada por la empresa copia de boletas de pago o constancia de AFP de los últimos 6 meses"
+    },
+    "conditions":{
+      "tittle": "Condiciones",
+        "1":"El límite de puntos acumulables es de 100,000",
+        "2":"El reembolso que te ofrece el seguro de compras será igual al monto que originalmente el producto tiene",
+        "3":"Las cuotas sin intereses estarán sujetas a las condiciones del lugar donde obtengas tu crédito, y en ocasiones no estarán disponibles",
+        "4": "Para utilizar tus puntos por viajes no deberás tener ningún pago atrasado en los últimos 6 meses",
+        "5": "La cantidad máxima de efectivo que puedes canjear por tus puntos es de $7,500"
+    },
+    "benefit-banner":{
+      "tittle": "Beneficios Especiales",
+      "sub-tittle": "Utiliza tus puntos para viajar",
+      "desc": "Puedes canjear tus puntos acumulados por boletos aéreos a destinos seleccionados"
+    }
+  },
+  "GoldPage": {
+    "sub-tittle":"Vive al máximo, no te limites y cumple tus objetivos",
+    "desc": "Obtén muchas más posibilidades, beneficios superiores y un mayor nivel de compra y efectivo con la tarjeta Demantur Gold, con ella siempre tendrás ese respaldo de calidad y una mayor seguridad, confianza y ese respaldo que mereces. La Demantur Gold está pensada para aquellas personas como tú, que siempre buscan esa exigencia y buen nivel en una tarjeta de crédito, descubre más beneficios a continuación.",
+    "benefit": {
+      "tittle": "Disfruta de los mejores beneficios que te ofrece esta tarjeta",
+      "1":{
+        "tittle": "Seguro de compras",
+        "desc": "Recibe un reembolso de protección contra daños, robos o accidentes por cada producto que compres con la tarjeta."
+      },
+      "2":{
+        "tittle": "Gana puntos",
+        "desc": "Obtén 10,000 puntos acumulables de bienvenida después de usar tu tarjeta por primera vez sin importar el monto que gastes."
+      },
+      "3":{
+        "tittle":"Canjea por viajes",
+        "desc": "Puedes canjear tus puntos acumulados por boletos aéreos a destinos seleccionados y disfruta de explorar el mundo."
+      },
+      "4":{
+        "tittle": "Garantia Extendida",
+        "desc": "Recibe una protección adicional que extenderá el tiempo de garantía hasta un año más adicional a la garantía que ofrece el fabricante."
+      },
+      "5":{
+        "tittle": "Tasas de interés bajas",
+        "desc": "Tus cuotas tendrán un tasa de interés del 8%, e incluso puede bajar según tu historial crediticio o el plazo."
+      },
+      "6":{
+        "tittle": "Cobertura máxima",
+        "desc": "Dispondrás de una cobertura de efectivo hasta de $50,000 en retiro inmediato para que lo puedas usar."
+      }
+    },
+    "requirements":{
+      "tittle":"Requesitos",
+      "1":"Ingresos minimos mensuales de $2,800",
+      "2":"Estabilidad laboral comprobable; 12 meses de experiencia con tarjeta",
+      "3":"SSolicitud llena, ya sea físico o formulario web",
+      "4": "Fotocopia de DUI y NIT (revés y derecho)",
+      "5": "Constancia de ingresos vigente firmada por la empresa copia de boletas de pago o constancia de AFP de los últimos 6 meses"
+    },
+    "conditions":{
+      "tittle": "Condiciones",
+        "1":"El límite de puntos acumulables es de 600,000",
+        "2":"La protección de compra le reembolsará los gastos para que el artículo cubierto sea reparado o compensará el valor original del artículo",
+        "3":"El artículo cubierto por la garantía deberá tener una garantía original del fabricante mínima de 3 meses hasta tres años",
+        "4": "La cobertura máxima de efectivo podrá solicitarse siempre y cuando no tengas más de 2 pagos atrasados con tu tarjeta"
+    },
+    "benefit-banner":{
+      "tittle": "Beneficios Especiales",
+      "sub-tittle": "Desembolso de efectivo de emergencia",
+      "desc": "Este beneficio te ayudará a obtener efectivo en caso de que tu tarjeta se pierda o la roben"
+    }
+  },
+  "BlackCard": {
+    "sub-tittle":"Disfruta el mundo como solo tú lo mereces",
+    "desc": "Cuando hablamos de la tarjeta Mastercard Black estamos concientes que es algo superior, obtén ese prestigio, reconocimiento, exclusividad y obviamente unos maravillosos beneficios que solo esta tarjeta es capaz de darte, vive un mundo lleno de posibilidades y sueños, viajes, extrafinanciameitos, protecciones, asistencias, salas VIP, entre otras muchas cosas con las que disfrutar de la vida al máximo, revisa a continuacion más información.",
+    "benefit": {
+      "tittle": "Disfruta de los mejores beneficios que te ofrece esta tarjeta",
+      "1":{
+        "tittle": "Extrafinanciamiento",
+        "desc": "Puedes obtener esa línea extra de financiamiento a tu tarjeta de crédito y disponer de efectivo de una forma rapida y sencilla."
+      },
+      "2":{
+        "tittle": "Asistencia de Viajes",
+        "desc": "Proporcionamos ayuda de viaje cuando estés fuera, puedes obtener información acerca del destino, emergencias, identificaciones, etc."
+      },
+      "3":{
+        "tittle":"Canjea por viajes",
+        "desc": "Puedes canjear tus puntos acumulados por boletos aéreos a destinos seleccionados y disfruta de explorar el mundo."
+      },
+      "4":{
+        "tittle": "Garantia Extendida",
+        "desc": "Recibe una protección adicional que extenderá el tiempo de garantía hasta un año más adicional a la garantía que ofrece el fabricante."
+      },
+      "5":{
+        "tittle": "Gana puntos",
+        "desc": "Obtén 80,000 puntos acumulables de bienvenida después de usar tu tarjeta por primera vez sin importar el monto que gastes."
+      },
+      "6":{
+        "tittle": "Seguro de compras",
+        "desc": "Recibe un reembolso de protección contra daños, robos o accidentes por cada producto que compres con la tarjeta."
+      }
+    },
+    "requirements":{
+      "tittle":"Requesitos",
+      "1":"Ingresos minimos mensuales de $4,800",
+      "2":"Estabilidad laboral comprobable; 12 meses de experiencia con tarjeta",
+      "3":"SSolicitud llena, ya sea físico o formulario web",
+      "4": "Fotocopia de DUI y NIT (revés y derecho)",
+      "5": "Constancia de ingresos vigente firmada por la empresa copia de boletas de pago o constancia de AFP de los últimos 6 meses"
+    },
+    "conditions":{
+      "tittle": "Condiciones",
+        "1":"El límite de puntos acumulables es de 1 000,000,000",
+        "2":"La protección de equipaje le reembolsará hasta $3000 por equipaje perdido definitivamente y hasta $600 por demoras de más de 4 horas",
+        "3":"El artículo cubierto por la garantía deberá tener una garantía original y en este caso el tiempo brindado se duplicará pagando un beneficio de hasta US$2,500 por ocurrencia y un total anual de US$5,000",
+        "4": "El banco ofrece el extrafianciamiento para esta tarjeta, pero la oferta puede variar dependiendo el historial crediticio, además el plazo se aplica dependiendo de lo anteriormente dicho"
+    },
+    "benefit-banner":{
+      "tittle": "Beneficios Especiales",
+      "sub-tittle": "Protección de equipaje en el aeropuerto",
+      "desc": "Este beneficio te reembolsará en dado caso pierdas tu equipaje registrado para viajar"
+    }
+  },
+  "DebitCard": {
+    "tittle": "Débito Clásica",
+    "sub-tittle":"Mantén el control de tu dinero y ahorra",
+    "desc": "Con la tarjeta de Débito Clásica de Demantur obtienes el control de gastos que necesitas, podrás pagar en los diferentes servicios y comercios sin necesidad de cargar efectivo, pero además, también podrás acceder por medio de los cajeros automáticos al efectivo si es que lo necesitas. Por otro lado, no dudes en tener siempre los beneficios especiales que te ofrece Demantur, te invitamos a seguir viendo los demás detalles a continuación.",
+    "benefit": {
+      "tittle": "Disfruta de los mejores beneficios que te ofrece esta tarjeta",
+      "1":{
+        "tittle": "Paga fácil y rapido",
+        "desc": "La tarjeta Débito Clásica te brinda esa facilidad de pagar siempre aunque no lleves efectivo contigo, es más práctico si prefieres cargar siempre la tarjeta en vez de grandes cantidades de efectivo"
+      },
+      "2":{
+        "tittle": "Seguridad y control",
+        "desc": "Al no cargar efectivo tienes la seguridad de no perderlo, y si en caso extravíes la tarjeta, puedes cancelarla y evitar la pérdida de los fondos que tienes almacenados en ella"
+      },
+      "3":{
+        "tittle":"Ahorro y eficiencia",
+        "desc": "Al hacer uso de tus propios fondos no debes pagar intereses ni cuotas mes a mes y en ningún momento acumulas deuda con ella, ahorras más y mantén la eficiencia de tu dinero en todo momento cuando la uses"
+      }
+    },
+    "requirements":{
+      "tittle":"Requesitos",
+      "1":"Estabilidad laboral",
+      "2":"Ingresos mínimos de $400 mensuales",
+      "3":"Solicitud llena, ya sea físico o formulario web",
+      "4": "Fotocopia de DUI y NIT (revés y derecho)"
+    },
+    "conditions":{
+      "tittle": "Condiciones",
+        "1":"Para contar con el servicio de alerta de compra con tu tarjeta deberás contratarlo posteriormente con un cargo extra una única vez",
+        "2":"El costo de reposisión de tarjeta en caso de robo o extravío es de $4.85 + IVA",
+        "3":"La comisión por retiro de efectivo en cajeros a partir de la sexta transacción es de $0.65 + IVA",
+        "4": "La comisión por retiro de efectivo en cajeros de otra red local es de $2.65 + IVA por transacción"
+    },
+    "benefit-banner":{
+      "tittle": "Beneficios Especiales",
+      "sub-tittle": "Obtén puntos por cada una de tus compras",
+      "desc": "Obtén 1 punto por cada $2.00 que gastes con tu tarjeta de débito"
+    }
+  }
 }

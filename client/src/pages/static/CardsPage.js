@@ -17,23 +17,28 @@ import { GrAtm } from 'react-icons/gr';
 //hooks
 import { Link } from "react-router-dom";
 
+// Translation
+import { useTranslation } from "react-i18next";
+
 //images
 const CreditCardsImages = require.context('./assets/img/credit_cards', true)
 
+
 export const CardsPage = () => {
+    const {t}= useTranslation();
     return (
         <>
             <Navbar />
             <div className='cards-banner-container'>
                 <div className='cards-banner-content'>
                     <FaRegCreditCard className='ccard-icon' />
-                    <h1>Tarjetas</h1>
-                    <p>Encuentra la mejor solución que se adapte a tus necesidades</p>
+                    <h1>{t("cards_page.tittle")}</h1>
+                    <p>{t("cards_page.sub-tittle")}</p>
                 </div>
             </div>
 
             <div className="credit-card-tittle">
-                <p>Tarjetas de crédito</p>
+                <p>{t("cards_page.tittle2")}</p>
                 <hr />
             </div>
 
@@ -50,24 +55,24 @@ export const CardsPage = () => {
                         <div className='card-details'>
                             <p>
                                 <span><FaRegStar /></span>
-                                Recibe 500 puntos de bienvenida acumulables
+                                {t("cards_page.1.desc1")}
                             </p>
                             <p>
                                 <span><BsCardChecklist /></span>
-                                Obten cuotas de hasta 36 meses
+                                {t("cards_page.1.desc2")}
                             </p>
                             <p>
                                 <span><TbShoppingCartDiscount /></span>
-                                Descuentos en comercios seleccionados
+                                {t("cards_page.1.desc3")}
                             </p>
                             <p>
                                 <span><MdAttachMoney /></span>
-                                Tasa de interes inicial de hasta un 48%
+                                {t("cards_page.1.desc4")}
                             </p>
                         </div>
                         <div className='card-button'>
                             <Link to="/cards/classic" className="more-details-bt">
-                                <span >Más detalles</span>
+                                <span >{t("cards_page.button")}</span>
                                 <FaAngleRight className='more-details-bt-icon' />
                             </Link>
                         </div>
@@ -86,24 +91,24 @@ export const CardsPage = () => {
                         <div className='card-details'>
                             <p>
                                 <span><FaRegStar /></span>
-                                Recibe 5,000 puntos de bienvenida acumulables
+                                {t("cards_page.2.desc1")}
                             </p>
                             <p>
                                 <span><FaStar /></span>
-                                Gana 1 punto por cada dolar gastado en compras
+                                {t("cards_page.2.desc2")}
                             </p>
                             <p>
                                 <span><BsCardChecklist /></span>
-                                Cuotas con una tasa de interés del 32%
+                                {t("cards_page.2.desc3")}
                             </p>
                             <p>
                                 <span><TbShoppingCartDiscount /></span>
-                                Descuentos y beneficios especiales en comercios seleccionados
+                                {t("cards_page.2.desc4")}
                             </p>
                         </div>
                         <div className='card-button'>
                             <Link to="/cards/platinum" className="more-details-bt">
-                                <span >Más detalles</span>
+                                <span >{t("cards_page.button")}</span>
                                 <FaAngleRight className='more-details-bt-icon' />
                             </Link>
                         </div>
@@ -123,28 +128,28 @@ export const CardsPage = () => {
                         <div className='card-details'>
                             <p>
                                 <span><FaRegStar /></span>
-                                Recibe 10,000 puntos de bienvenida acumulables
+                                {t("cards_page.3.desc1")}
                             </p>
                             <p>
                                 <span><FaStar /></span>
-                                Gana 1 punto por cada dolar gastado en compras
+                                {t("cards_page.3.desc2")}
                             </p>
                             <p>
                                 <span><BsCardChecklist /></span>
-                                Cuotas con una tasa de interés desde el 26%
+                                {t("cards_page.3.desc3")}
                             </p>
                             <p>
                                 <span><MdAttachMoney /></span>
-                                Cobertura de hasta 100,000 dólares
+                                {t("cards_page.3.desc4")}
                             </p>
                             <p>
                                 <span><IoAirplaneOutline /></span>
-                                Canjea tus puntos por viajes aéreos
+                                {t("cards_page.3.desc5")}
                             </p>
                         </div>
                         <div className='card-button'>
                             <Link to="/cards/gold" className="more-details-bt">
-                                <span >Más detalles</span>
+                                <span >{t("cards_page.button")}</span>
                                 <FaAngleRight className='more-details-bt-icon' />
                             </Link>
                         </div>
@@ -163,28 +168,28 @@ export const CardsPage = () => {
                         <div className='card-details'>
                             <p>
                                 <span><FaRegStar /></span>
-                                Recibe 80,000 puntos de bienvenida acumulables
+                                {t("cards_page.4.desc1")}
                             </p>
                             <p>
                                 <span><FaStar /></span>
-                                Gana 2 puntos por cada dolar gastado en compras
+                                {t("cards_page.4.desc1")}
                             </p>
                             <p>
                                 <span><BsCardChecklist /></span>
-                                Cuotas con una tasa de interés desde el 12%
+                                {t("cards_page.4.desc2")}
                             </p>
                             <p>
                                 <span><MdAttachMoney /></span>
-                                Extrafinanciamiento y cobertura de hasta $230,000
+                                {t("cards_page.4.desc3")}
                             </p>
                             <p>
                                 <span><IoAirplaneOutline /></span>
-                                Canjea tus puntos por viajes aéreos
+                                {t("cards_page.4.desc4")}
                             </p>
                         </div>
                         <div className='card-button'>
                             <Link to="/cards/black" className="more-details-bt">
-                                <span >Más detalles</span>
+                                <span >{t("cards_page.button")}</span>
                                 <FaAngleRight className='more-details-bt-icon' />
                             </Link>
                         </div>
@@ -193,7 +198,7 @@ export const CardsPage = () => {
             </div>
 
             <div className="credit-card-tittle">
-                <p>Tarjetas de débito</p>
+                <p>{t("cards_page.tittle3")}</p>
                 <hr />
             </div>
 
@@ -204,30 +209,30 @@ export const CardsPage = () => {
                             <img src={CreditCardsImages('./bank_cards_images/debitCard.png')} alt='' />
                         </div>
                         <div className='card-tittle'>
-                            <p>Débito Clásica {/*<span className='registered-icon'>&reg;</span>*/} </p>
+                            <p>{t("cards_page.tittle4")} {/*<span className='registered-icon'>&reg;</span>*/} </p>
                             <p>Mastercard &trade;</p>
                         </div>
                         <div className='card-details'>
                             <p>
                                 <span><FaRegStar /></span>
-                                Obtén puntos por tus compras
+                                {t("cards_page.5.desc1")}
                             </p>
                             <p>
                                 <span><FaRegMoneyBillAlt /></span>
-                                Retira efectivo cuando quieras
+                                {t("cards_page.5.desc2")}
                             </p>
                             <p>
                                 <span><AiOutlineLock /></span>
-                                Seguridad con tus compras
+                                {t("cards_page.5.desc3")}
                             </p>
                             <p>
                                 <span><GrAtm /></span>
-                                Utiliza los kioskos para pagar tus recibos
+                                {t("cards_page.5.desc4")}
                             </p>
                         </div>
                         <div className='card-button'>
                             <Link to="/cards/debito" className="more-details-bt">
-                                <span >Más detalles</span>
+                                <span >{t("cards_page.button")}</span>
                                 <FaAngleRight className='more-details-bt-icon' />
                             </Link>
                         </div>

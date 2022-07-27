@@ -7,10 +7,14 @@ import { MdOutlineEmail, MdOutlinePhone, MdOutlineHome, MdOutlineBadge, MdPerson
 import { Navbar, Footer } from "../../../components";
 import { Tabs } from "../assets/js/BannerTabCreator.js";
 
+// Translation
+import { useTranslation } from "react-i18next";
+
 //images
 const CreditCardsImages = require.context('../assets/img/credit_cards', true)
 
 export const DemanturPlatinum = () => {
+  const {t}=useTranslation();
   return (
     <>
       <Navbar />
@@ -18,7 +22,7 @@ export const DemanturPlatinum = () => {
           <div className="platinum-card-hero-content">
             <div className="text-content">
               <p>Platinum</p>
-              <p>Llega lejos, donde apuntan tus sueños</p>
+              <p>{t("PlatinumPage.sub-tittle")}</p>
             </div>
             <div className="image-content">
               <img src={CreditCardsImages('./bank_cards_images/platinumCard.png')} alt='' ></img>
@@ -28,20 +32,20 @@ export const DemanturPlatinum = () => {
 
         <div className="card-description">
           <p>
-            ¿Estás en busca de una tarjeta que te permita disfrutar de grandes beneficios en cualquier lugar y en todo momento?, pues si es así, La tarjeta Demantur Platinum es para ti, obtén numerosos beneficios que se adaptan a tus necesidades con una gran flexibilidad. Puedes viajar, comprar lo que quieras y tener la seguridad que necesitas por cada una de tus compras, revisa muchos más beneficios a continuación. 
+            {t("PlatinumPage.desc")} 
           </p>
         </div>
 
         <div className="card-benefits_container">
           <p className="card-benefits_tittle">
-            Disfruta de los mejores beneficios que te ofrece esta tarjeta
+           {t("PlatinumPage.benefit.tittle")}
           </p>
           <div className="card-benefits_grid_row">
             <div className="grid_item">
               <img src={CreditCardsImages('./icons/points_icon.png')} alt=""></img>
-              <p>Puntos Acumulables</p>
+              <p>{t("PlatinumPage.benefit.1.tittle")}</p>
               <p>
-                Recibe 5,000 puntos de bienvenida después de usar por primera vez tu tarjeta sin importar el monto. 
+              {t("PlatinumPage.benefit.1.desc")} 
               </p>
             </div>
             <div className="vl">
@@ -49,9 +53,9 @@ export const DemanturPlatinum = () => {
             </div>
             <div className="grid_item">
               <img src={CreditCardsImages('./icons/single_point_icon.png')} alt=""></img>
-              <p>Gana puntos</p>
+              <p>{t("PlatinumPage.benefit.2.tittle")}</p>
               <p>
-                Acumula puntos por cada dolár que gastes, 1 dolár equivale a 1 punto más acumulado.
+              {t("PlatinumPage.benefit.2.desc")} 
               </p>
             </div>
             <div className="vl">
@@ -59,9 +63,9 @@ export const DemanturPlatinum = () => {
             </div>
             <div className="grid_item">
               <img src={CreditCardsImages('./icons/cash_bag_icon.png')} alt=""></img>
-              <p>Canjea por efectivo</p>
+              <p>{t("PlatinumPage.benefit.3.tittle")}</p>
               <p>
-                Puedes canjear por efectivo tus puntos en cualquier momento.
+                {t("PlatinumPage.benefit.3.desc")} 
               </p>
             </div>
           </div>
@@ -75,9 +79,9 @@ export const DemanturPlatinum = () => {
           <div className="card-benefits_grid_row">
             <div className="grid_item mgt_1">
                 <img src={CreditCardsImages('./icons/fee_payment_icon.png')} alt=""></img>
-                <p>Pagos en cuotas</p>
+                <p>{t("PlatinumPage.benefit.4.tittle")}</p>
                 <p>
-                  Obtén cuotas de hasta 48 meses sin intereses, puedes elegir el plazo que más te convenga.
+                  {t("PlatinumPage.benefit.4.desc")} 
                 </p>
               </div>
               <div className="vl">
@@ -85,9 +89,9 @@ export const DemanturPlatinum = () => {
               </div>
               <div className="grid_item mgt_1">
                 <img src={CreditCardsImages('./icons/money_security_icon.png')} alt=""></img>
-                <p>Seguro de compras</p>
+                <p>{t("PlatinumPage.benefit.5.tittle")}</p>
                 <p>
-                  Obtén un reembolso en caso de que el artículo esté dañado, ya sea para cambiarlo o repararlo. 
+                  {t("PlatinumPage.benefit.5.desc")} 
                 </p>
               </div>
               <div className="vl">
@@ -95,9 +99,9 @@ export const DemanturPlatinum = () => {
               </div>
               <div className="grid_item mgt_1">
                 <img src={CreditCardsImages('./icons/shop_bag_icon.png')} alt=""></img>
-                <p>Precios Especiales</p>
+                <p>{t("PlatinumPage.benefit.6.tittle")}</p>
                 <p>
-                  Disfruta de precios especiales en productos de tiendas seleccionadas al pagar con tu tarjeta. 
+                  {t("PlatinumPage.benefit.6.desc")}
                 </p>
               </div>
           </div>
@@ -106,7 +110,7 @@ export const DemanturPlatinum = () => {
         {Tabs("PlatinumCard")}
 
         <div className="credit-card-tittle">
-          <p>Beneficios Especiales</p>
+          <p>{t("PlatinumPage.benefit-banner.tittle")}</p>
           <hr />
         </div>
 
@@ -116,17 +120,17 @@ export const DemanturPlatinum = () => {
               <img src={CreditCardsImages('./icons/airplane_icon.png')} alt="" />
             </div>
             <div className="platinum-otb-text">
-              <p>Utiliza tus puntos para viajar</p>
-              <p>Puedes canjear tus puntos acumulados por boletos aéreos a destinos seleccionados</p>
+              <p>{t("PlatinumPage.benefit-banner.sub-tittle")}</p>
+              <p>{t("PlatinumPage.benefit-banner.desc")}</p>
             </div>
           </div>
         </div>
 
         <div className="card-form-container">
           <div className="form-header">
-            <p>¿Ya te has decidido?</p>
+            <p>{t("CardsPage-Form.tittle")}</p>
             <hr className="blue-underline smallest"></hr>
-            <p>Solicita tu tarjeta ahora</p>
+            <p>{t("CardsPage-Form.desc")}</p>
           </div>
           <form className="main-card-form">
             <div className="form-row-1">
@@ -136,7 +140,7 @@ export const DemanturPlatinum = () => {
                   <div className="form-input-container">
                       <input className="form-input-box" type="text" placeholder="Nombre completo"/>
                       <label className="form-label-box" htmlFor="">
-                          Nombre completo
+                        {t("CardsPage-Form.name")}
                       </label>
                   </div>
                 </div>
@@ -145,7 +149,7 @@ export const DemanturPlatinum = () => {
                   <div className="form-input-container">
                       <input className="form-input-box" type="number" placeholder="Número de contacto"/>
                       <label className="form-label-box" htmlFor="">
-                          Número de contacto
+                       {t("CardsPage-Form.contact")}
                       </label>
                   </div>
                 </div>
@@ -154,7 +158,7 @@ export const DemanturPlatinum = () => {
                   <div className="form-input-container">
                       <input className="form-input-box" type="text" placeholder="Dirección"/>
                       <label className="form-label-box" htmlFor="">
-                          Dirección
+                        {t("CardsPage-Form.address")}
                       </label>
                   </div>
                 </div>
@@ -165,7 +169,7 @@ export const DemanturPlatinum = () => {
                     <div className="form-input-container">
                         <input className="form-input-box" type="number" placeholder="Número de DUI"/>
                         <label className="form-label-box" htmlFor="">
-                          Número de DUI
+                          {t("CardsPage-Form.dui")}
                         </label>
                       </div>
                 </div>
@@ -174,24 +178,24 @@ export const DemanturPlatinum = () => {
                     <div className="form-input-container">
                         <input className="form-input-box" type="email" placeholder="Correo Electrónico"/>
                         <label className="form-label-box" htmlFor="">
-                          Correo Electrónico
+                          {t("CardsPage-Form.email")}
                         </label>
                     </div>
                 </div> 
                 <div className="form-flex-row">
                   <div className="card-form-select">
                     <select name="" id="">
-                        <option>Rango Salarial</option>
-                        <option>Entre $1,000 y $1,999</option>
-                        <option>Entre $2,000 y $3,999</option>
-                        <option>Entre $4,000 y $5,999</option>
-                        <option>Mayor a $6,000</option>
+                        <option>{t("CardsPage-Form.option")}</option>
+                        <option>{t("CardsPage-Form.desc4")} $1,000 y $1,999</option>
+                        <option>{t("CardsPage-Form.desc4")} $2,000 y $3,999</option>
+                        <option>{t("CardsPage-Form.desc4")} $4,000 y $5,999</option>
+                        <option>{t("CardsPage-Form.desc5")} $6,000</option>
                     </select> 
                   </div>
                   <div className="flex-row-input">
                       <input className="form-input-box" type="text" placeholder="Escriba su posición laboral"/>
                       <label className="form-label-box" htmlFor="">
-                          Escriba su posición laboral
+                      {t("CardsPage-Form.desc6")}
                       </label>
                   </div>
                 </div>
@@ -199,23 +203,23 @@ export const DemanturPlatinum = () => {
             </div>    
             <div className="form-row-2">
               <div className="input-files">
-                <p>Fotocopia de DUI (revés y derecho)</p>
-                <label htmlFor="file1">Seleccionar Archivo</label>
+                <p>{t("CardsPage-Form.desc1")}</p>
+                <label htmlFor="file1">{t("CardsPage-Form.button")}</label>
                 <input type="file" name="" id="file1"></input>
               </div>
               <div className="input-files">
-                <p>Fotocopia de NIT</p>
-                <label htmlFor="file2">Seleccionar Archivo</label>
+                <p>{t("CardsPage-Form.desc2")}</p>
+                <label htmlFor="file2">{t("CardsPage-Form.button")}</label>
                 <input type="file" name="" id="file2"></input>
               </div>
               <div className="input-files">
-                <p>Adjunta tu constancia de salario</p>
-                <label htmlFor="file3">Seleccionar Archivo</label>
+                <p>{t("CardsPage-Form.desc3")}</p>
+                <label htmlFor="file3">{t("CardsPage-Form.button")}</label>
                 <input type="file" name="" id="file3"></input>
               </div>
             </div>
             <div className="form-row-3">
-              <button className="card-submit-button" type="submit">Solicitar</button>
+              <button className="card-submit-button" type="submit">{t("CardsPage-Form.button2")}</button>
             </div>
           </form>
         </div>

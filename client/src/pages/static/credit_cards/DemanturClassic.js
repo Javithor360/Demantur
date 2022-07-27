@@ -8,10 +8,14 @@ import { MdOutlineEmail, MdOutlinePhone, MdOutlineHome, MdOutlineBadge, MdPerson
 import { Navbar, Footer } from "../../../components";
 import { Tabs } from "../assets/js/BannerTabCreator.js";
 
+// Translation
+import { useTranslation } from "react-i18next";
+
 //images
 const CreditCardsImages = require.context('../assets/img/credit_cards', true)
 
 export const DemanturClassic = () => {
+  const {t}= useTranslation();
   return (
     <>
       <Navbar />
@@ -19,7 +23,7 @@ export const DemanturClassic = () => {
           <div className="classic-card-hero-content">
             <div className="text-content">
               <p>Classic</p>
-              <p>Todo lo que necesitas a tu alcance</p>
+              <p>{t("ClassicPage.sub-tittle")}</p>
             </div>
             <div className="image-content">
               <img src={CreditCardsImages('./bank_cards_images/classicCard.png')} alt='' ></img>
@@ -29,20 +33,20 @@ export const DemanturClassic = () => {
 
         <div className="card-description">
           <p>
-            La tarjeta de crédito Demantur Classic te brinda los beneficios necesarios para tu día a día, con ella dispones de un medio de pago seguro para usarlo en comercios, compras en línea, etc. Además, dispones de retiro inmediato de efectivo en cajeros nacionales, encuentra información más detallada a continuación.
+            {t("ClassicPage.desc")}
           </p>
         </div>
 
         <div className="card-benefits_container">
           <p className="card-benefits_tittle">
-            Disfruta de los mejores beneficios que te ofrece esta tarjeta
+            {t("ClassicPage.benefit.tittle")}
           </p>
           <div className="card-benefits_grid_row">
             <div className="grid_item">
               <img src={CreditCardsImages('./icons/points_icon.png')} alt=""></img>
-              <p>Puntos Acumulables</p>
+              <p>{t("ClassicPage.benefit.1.tittle")}</p>
               <p>
-                Recibe 500 puntos por tu primera compra, luego acumula 1 punto cada 5 dólares que gastes
+              {t("ClassicPage.benefit.1.desc")}
               </p>
             </div>
             <div className="vl">
@@ -50,9 +54,9 @@ export const DemanturClassic = () => {
             </div>
             <div className="grid_item">
               <img src={CreditCardsImages('./icons/fee_payment_icon.png')} alt=""></img>
-              <p>Pagos en cuotas</p>
+              <p>{t("ClassicPage.benefit.2.tittle")}</p>
               <p>
-                Paga en cuotas de hasta 36 meses según tus posibilidades con una tasa de interés fija
+              {t("ClassicPage.benefit.2.desc")}
               </p>
             </div>
             <div className="vl">
@@ -60,9 +64,9 @@ export const DemanturClassic = () => {
             </div>
             <div className="grid_item">
               <img src={CreditCardsImages('./icons/cash_icon.png')} alt=""></img>
-              <p>Retiro de efectivo</p>
+              <p>{t("ClassicPage.benefit.3.tittle")}</p>
               <p>
-                Retira efectivo con tu tarjeta cuando lo necesites en todos nuestros cajeros a nivel nacional
+              {t("ClassicPage.benefit.3.desc")}
               </p>
             </div>
           </div>
@@ -71,7 +75,7 @@ export const DemanturClassic = () => {
         {Tabs("ClassicCard")}
 
         <div className="credit-card-tittle">
-          <p>Beneficios Especiales</p>
+          <p>{t("ClassicPage.benefit-banner.tittle")}</p>
           <hr />
         </div>
         
@@ -81,9 +85,9 @@ export const DemanturClassic = () => {
               <img src={CreditCardsImages('./icons/discount_icon.png')} alt="" />
             </div>
             <div className="classic-otb-text">
-              <p>Descuentos en Comercios Seleccionados</p>
+              <p>{t("ClassicPage.benefit-banner.sub-tittle")}</p>
               <p>
-                Obtén muchas ofertas y promociones en productos al pagar con tu tarjeta de crédito
+                {t("ClassicPage.benefit-banner.desc")}
               </p>
             </div>
           </div>
@@ -91,9 +95,9 @@ export const DemanturClassic = () => {
 
         <div className="card-form-container">
           <div className="form-header">
-            <p>¿Ya te has decidido?</p>
+            <p>{t("CardsPage-Form.tittle")}</p>
             <hr className="blue-underline smallest"></hr>
-            <p>Solicita tu tarjeta ahora</p>
+            <p>{t("CardsPage-Form.desc")}</p>
           </div>
           <form className="main-card-form">
             <div className="form-row-1">
@@ -103,7 +107,7 @@ export const DemanturClassic = () => {
                   <div className="form-input-container">
                       <input className="form-input-box" type="text" placeholder="Nombre completo"/>
                       <label className="form-label-box" htmlFor="">
-                          Nombre completo
+                      {t("CardsPage-Form.name")}
                       </label>
                   </div>
                 </div>
@@ -112,7 +116,7 @@ export const DemanturClassic = () => {
                   <div className="form-input-container">
                       <input className="form-input-box" type="number" placeholder="Número de contacto"/>
                       <label className="form-label-box" htmlFor="">
-                          Número de contacto
+                      {t("CardsPage-Form.contact")}
                       </label>
                   </div>
                 </div>
@@ -121,7 +125,7 @@ export const DemanturClassic = () => {
                   <div className="form-input-container">
                       <input className="form-input-box" type="text" placeholder="Dirección"/>
                       <label className="form-label-box" htmlFor="">
-                          Dirección
+                      {t("CardsPage-Form.address")}
                       </label>
                   </div>
                 </div>
@@ -132,7 +136,7 @@ export const DemanturClassic = () => {
                     <div className="form-input-container">
                         <input className="form-input-box" type="number" placeholder="Número de DUI"/>
                         <label className="form-label-box" htmlFor="">
-                          Número de DUI
+                        {t("CardsPage-Form.dui")}
                         </label>
                       </div>
                 </div>
@@ -141,26 +145,26 @@ export const DemanturClassic = () => {
                     <div className="form-input-container">
                         <input className="form-input-box" type="email" placeholder="Correo Electrónico"/>
                         <label className="form-label-box" htmlFor="">
-                          Correo Electrónico
+                        {t("CardsPage-Form.email")}
                         </label>
                     </div>
                 </div> 
                 <div className="form-flex-row">
                   <div className="card-form-select">
                     <select name="" id="">
-                        <option>Rango Salarial</option>
-                        <option>Entre $450 y $499</option>
-                        <option>Entre $500 y $999</option>
-                        <option>Entre $1,000 y $1,999</option>
-                        <option>Entre $2,000 y $3,999</option>
-                        <option>Entre $4,000 y $5,999</option>
-                        <option>Mayor a $6,000</option>
+                        <option>{t("CardsPage-Form.option")}</option>
+                        <option>{t("CardsPage-Form.desc4")} $450 y $499</option>
+                        <option>{t("CardsPage-Form.desc4")} $500 y $999</option>
+                        <option>{t("CardsPage-Form.desc4")} $1,000 y $1,999</option>
+                        <option>{t("CardsPage-Form.desc4")} $2,000 y $3,999</option>
+                        <option>{t("CardsPage-Form.desc4")} $4,000 y $5,999</option>
+                        <option>{t("CardsPage-Form.desc4")} $6,000</option>
                     </select> 
                   </div>
                   <div className="flex-row-input">
                       <input className="form-input-box" type="text" placeholder="Escriba su posición laboral"/>
                       <label className="form-label-box" htmlFor="">
-                          Escriba su posición laboral
+                      {t("CardsPage-Form.desc6")}
                       </label>
                   </div>
                 </div>
@@ -168,23 +172,23 @@ export const DemanturClassic = () => {
             </div>    
             <div className="form-row-2">
               <div className="input-files">
-                <p>Fotocopia de DUI (revés y derecho)</p>
-                <label htmlFor="file1">Seleccionar Archivo</label>
+                <p>{t("CardsPage-Form.desc1")}</p>
+                <label htmlFor="file1">{t("CardsPage-Form.button")}</label>
                 <input type="file" name="" id="file1"></input>
               </div>
               <div className="input-files">
-                <p>Fotocopia de NIT</p>
-                <label htmlFor="file2">Seleccionar Archivo</label>
+                <p>{t("CardsPage-Form.desc2")}</p>
+                <label htmlFor="file2">{t("CardsPage-Form.button")}</label>
                 <input type="file" name="" id="file2"></input>
               </div>
               <div className="input-files">
-                <p>Adjunta tu constancia de salario</p>
-                <label htmlFor="file3">Seleccionar Archivo</label>
+                <p>{t("CardsPage-Form.desc3")}</p>
+                <label htmlFor="file3">{t("CardsPage-Form.button")}</label>
                 <input type="file" name="" id="file3"></input>
               </div>
             </div>
             <div className="form-row-3">
-              <button className="card-submit-button" type="submit">Solicitar</button>
+              <button className="card-submit-button" type="submit">{t("CardsPage-Form.button2")}</button>
             </div>
           </form>
         </div>

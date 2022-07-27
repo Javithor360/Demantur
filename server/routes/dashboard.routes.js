@@ -3,8 +3,9 @@ const router = express.Router();
 const AuthMiddleware = require('../middlewares/AuthMiddleware');
 
 
-const { testDB } = require('../controllers/DashboardNUController');
+const { testDB, getUserId } = require('../controllers/DashboardNUController');
 
 router.route('/test-db-relation').post([AuthMiddleware], testDB);
+router.route('/get-user-token').get([AuthMiddleware], getUserId);
 
 module.exports = router;

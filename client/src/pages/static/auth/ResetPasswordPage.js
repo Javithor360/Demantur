@@ -37,7 +37,7 @@ export const ResetPasswordPage = () => {
 
   const validacionResetToken = async () => {
     try {
-      const data = await axios.get(`http://localhost:4000/api/auth/general-users/reset-password-verify/${Params.resetToken}`, configPublic)
+      const data = await axios.get(`http://localhost:4000/api/auth/general-users/reset-password-verify/${Params.resetToken}`, configPublic) 
 
       if (data.data.success === true) {
         setRender(true);

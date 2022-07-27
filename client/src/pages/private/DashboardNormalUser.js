@@ -3,14 +3,20 @@ import "./components/assets/scss/SideBar_Main.scss";
 import { SideBar, Header, Settings } from "./components/indexComp";
 import { useDash } from "../../context/DashboardContext";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
+import { HomePage } from "./components/DashElements/HomePage";
+import { useEffect } from "react";
 
 export const DashboardNormalUser = () => {
-  const { Option, SettingsOption } = useDash();
+  const { Option, SettingsOption, Query } = useDash();
+
+  useEffect(() => {
+    Query();
+  }, []);
 
   const DisplayElement = () => {
     switch (Option) {
       case 1:
-        return <h1>Home Page</h1>;
+        return <HomePage />;
       case 2:
         return <h1>Cuentas</h1>;
       case 3:
@@ -35,25 +41,25 @@ export const DashboardNormalUser = () => {
           <SideBar />
           <div className="h-full w-[80%]  mx-auto">
             <Header />
-            <div className="mx-3">{DisplayElement()}</div>
-              <SwitchTransition>
-                <CSSTransition
-                  classNames="fade"
-                  key={SettingsOption === false ? 1 : 2}
-                  // timeout={0}
-                  addEndListener={(node, done) =>
-                    node.addEventListener("transitionend", done, false)
-                  }
-                >
-                  <div>
-                    {SettingsOption === true ? (
-                      <Settings />
-                    ) : (
-                      <Settings hidden={"hidden"} />
-                    )}
-                  </div>
-                </CSSTransition>
-              </SwitchTransition>
+            <div className="mx-3 w-full">{DisplayElement()}</div>
+            <SwitchTransition>
+              <CSSTransition
+                classNames="fade"
+                key={SettingsOption === false ? 1 : 2}
+                // timeout={0}
+                addEndListener={(node, done) =>
+                  node.addEventListener("transitionend", done, false)
+                }
+              >
+                <div>
+                  {SettingsOption === true ? (
+                    <Settings />
+                  ) : (
+                    <Settings hidden={"hidden"} />
+                  )}
+                </div>
+              </CSSTransition>
+            </SwitchTransition>
           </div>
         </div>
       </div>

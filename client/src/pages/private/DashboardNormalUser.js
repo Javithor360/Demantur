@@ -1,10 +1,10 @@
 import "./assets/scss/dashboardStyle.scss";
 import "./components/assets/scss/SideBar_Main.scss";
-import { SideBar, Header } from "./components/indexComp";
+import { SideBar, Header, Settings } from "./components/indexComp";
 import { useDash } from "../../context/DashboardContext";
 
 export const DashboardNormalUser = () => {
-  const { Option } = useDash()
+  const { Option, SettingsOption } = useDash()
 
   const DisplayElement = () => {
     switch (Option) {
@@ -26,12 +26,13 @@ export const DashboardNormalUser = () => {
         <div className="w-[98%] h-[95%] flex">
           {/* sidebar */}
           <SideBar />
-
           <div className="h-full w-[80%]  mx-auto">
             <Header />
             <div className="mx-3">
               {DisplayElement()}
             </div>
+            {SettingsOption === true ? <Settings /> : <Settings hidden={'hidden'} />}
+
           </div>
         </div>
       </div>

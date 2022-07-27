@@ -35,7 +35,7 @@ export const SelectAccountPage = () => {
       <div className="cards-container">
           <div className="card">
             <div className="title2">  
-            <img src={TarjetasImages("./card-2.png")} alt="" />
+            <User className="iconst" />
             <p className="subtitle">Cuenta Normal</p>
             <hr />
           </div>
@@ -44,7 +44,7 @@ export const SelectAccountPage = () => {
           </p>
             <div className="boton-position">
             <button class="custom-btn btn-15">Iniciar sesion</button>
-            <button class="custom-btn btn-15">Registrarce</button>
+            <button class="custom-btn btn-15">Registrarse</button>
           </div>
             <div className="boton">
              
@@ -52,7 +52,7 @@ export const SelectAccountPage = () => {
           </div>
           <div className="card">
             <div className="title2">
-            <img src={TarjetasImages("./card-3.png")} alt="" />
+            <Empre className="iconst" />
             <p className="subtitle">Cuenta Empresarial</p>
             <hr />
           </div>
@@ -60,13 +60,64 @@ export const SelectAccountPage = () => {
             todo desde la comodidad de tu hogar sin tener que ira un banco</p>
             <div className="boton-position">
             <button class="custom-btn btn-15">Iniciar sesion</button>
-            <button class="custom-btn btn-15">Registrarce</button>
+            <button class="custom-btn btn-15">Registrarse</button>
           </div>
             <div className="boton">
               
             </div>
           </div>
         </div>
+        <div className="title2">
+        <p>Otras opciones</p>
+        <hr />
+      </div>
+      <p className="info">
+        <br />
+        tenemos otras opciones en caso de que ya poseas una cuenta, tenemos las siguientes herramientas que te podrian servir
+      </p>
+      <br/><br/><br/>
+      <div className="cards-container">
+          <div className="card">
+            <div className="title2">  
+            <User className="iconst" />
+            <p className="subtitle">Cuenta Normal</p>
+            <hr />
+          </div>
+            <p>si tu empresa aún no tiene una cuenta con nosotros, cotratala de
+            manera segura, ágil y digital sin acudir a una oficina o un banco.
+          </p>
+            <div className="boton-position">
+            <button class="custom-btn btn-15">Iniciar sesion</button>
+            <button class="custom-btn btn-15">Registrarse</button>
+          </div>
+          </div>
+          <div className="card">
+            <div className="title2">
+            <Empre className="iconst" />
+            <p className="subtitle">Cuenta Empresarial</p>
+            <hr />
+          </div>
+            <p>La mejor opcion en cuanto a administracion de tu estado bancario,
+            todo desde la comodidad de tu hogar sin tener que ira un banco</p>
+            <div className="boton-position"> 
+            <button class="custom-btn btn-15">Ir </button>
+          </div>
+          </div>
+          <div className="card">
+            <div className="title2">
+            <Empre className="iconst" />
+            <p className="subtitle">Cuenta Empresarial</p>
+            <hr />
+          </div>
+            <p>La mejor opcion en cuanto a administracion de tu estado bancario,
+            todo desde la comodidad de tu hogar sin tener que ira un banco</p>
+            <div className="boton-position">
+            <button class="custom-btn btn-15">Ir </button>
+          </div>
+          </div>
+        </div>
+        
+        
 
       <Footer />
     </>

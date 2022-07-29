@@ -6,7 +6,7 @@ export const HomePage = () => {
   return (
     <>
       <div className="flex gap-3 my-1">
-        <div className="h-[10.125rem] bg-white basis-[40%] rounded-[2rem]">
+        <div className="h-[10.125rem] bg-white basis-[40%] rounded-[0.75rem]">
           <div className="m-[2rem] flex justify-between">
             <div>
               <h2 className="text-gray-500 text-[1.5625rem]">Saldo Neto:</h2>
@@ -17,7 +17,7 @@ export const HomePage = () => {
             </div>
           </div>
         </div>
-        <div className="h-[10.125rem] bg-white basis-[60%] rounded-[2rem]">
+        <div className="h-[10.125rem] bg-white basis-[60%] rounded-[0.75rem]">
           <div className="mx-[2rem] my-[1rem]">
             <h2 className="text-gray-500 text-[1.5625rem]">Datos personales</h2>
             <div className="grid grid-cols-3 gap-1">
@@ -39,8 +39,8 @@ export const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="flex gap-4 my-1">
-        <div className="h-[350.1px] basis-[70%] bg-white rounded-[2rem]">
+      <div className="flex gap-3 my-1">
+        <div className="h-[350.1px] basis-[70%] bg-white rounded-[0.75rem]">
           <div className="m-[2rem] flex justify-between">
             <div>
               <h2 className="text-gray-500 text-[1.5625rem]">
@@ -49,7 +49,7 @@ export const HomePage = () => {
             </div>
           </div>
         </div>
-        <div className="h-[350.1px] basis-[30%] bg-white rounded-[2rem]">
+        <div className="h-[350.1px] basis-[30%] bg-white rounded-[0.75rem]">
           <div className="m-[2rem] flex justify-between">
             <div>
               <h2 className="text-gray-500 text-[1.5625rem]">
@@ -60,15 +60,15 @@ export const HomePage = () => {
         </div>
       </div>
 
-      <div className="flex gap-2 my-1">
-        <div className="h-[236px] basis-[65%] bg-red-400">
+      <div className="flex gap-3 my-1">
+        <div className="h-[236px] basis-[65%] bg-red-400 rounded-[0.75rem]">
           <div className="m-[2rem] flex justify-between">
             <div>
               <h2 className="text-gray-500 text-[1.5625rem]">Tarjetas</h2>
             </div>
           </div>
         </div>
-        <div className="h-[236px] basis-[35%] bg-slate-400 rounded-[2rem]">
+        <div className="h-[236px] basis-[35%] bg-slate-400 rounded-[0.75rem]">
           <div className="m-[2rem] flex justify-between">
             <div>
               <h2 className="text-gray-500 text-[1.5625rem]">Préstamo</h2>
@@ -77,5 +77,6 @@ export const HomePage = () => {
         </div>
       </div>
     </>
+
   );
 };

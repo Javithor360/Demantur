@@ -13,6 +13,7 @@ const Infoimagenes = require.context("../img/banner", true);
 const AccountsImages = require.context("../img/acc/", true);
 const LoansImages = require.context("../img/all_loans/", true);
 
+
 function Tabs(type) {
   const [toggleState, setToggleState] = useState(1);
   const { t } = useTranslation();
@@ -21,6 +22,7 @@ function Tabs(type) {
   };
 
   if (type === "ClassicCard") {
+    
     return (
         <div className="information-tabs">
             <div className="information-tabs-flex">
@@ -37,59 +39,58 @@ function Tabs(type) {
                 <div className="tab-content">
                     <div className="tabs-selection">
                         <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
-                        Requisitos
+                        {t("ClassicPage.requirements.tittle")}
                         </button>
                         <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
-                        Condiciones
+                        {t("ClassicPage.conditions.tittle")}
                         </button>
                     </div>
 
                     <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Estabilidad laboral</p>
+                            <p>{t("ClassicPage.requirements.1")}</p>
                             </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Ingresos mínimos de $400 mensuales</p>
+                            <p>{t("ClassicPage.requirements.2")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Solicitud llena, ya sea físico o formulario web</p>
+                            <p>{t("ClassicPage.requirements.3")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Fotocopia de DUI y NIT (revés y derecho)</p>
+                            <p>{t("ClassicPage.requirements.4")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
                             <p>
-                                Constancia de ingresos vigente firmada por la empresa, copia de
-                                boletas de pago o constancia de AFP de los últimos 6 meses
+                            {t("ClassicPage.requirements.5")}
                             </p>
                         </div>
                     </div>
                     <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Los 500 puntos de bienvenida se otorgarán despues de gastar un mínimo $30 con la tarjeta</p>
+                            <p>{t("ClassicPage.conditions.1")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>El límite de puntos acumulables es de 20,000</p>
+                            <p>{t("ClassicPage.conditions.2")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>El plazo de financiamiento no debe ser mayor a 60 meses</p>
+                            <p>{t("ClassicPage.conditions.3")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Las tasas de interés se establecerán de acuerdo a la cantidad del finaciamiento, pero no serán menores a un 15%</p>
+                            <p>{t("ClassicPage.conditions.4")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
                             <p>
-                                Cuota de cargo del 4% del límite de la tarjeta ($7,500)
+                            {t("ClassicPage.conditions.5")}
                             </p>
                         </div>
                     </div>
@@ -114,59 +115,58 @@ function Tabs(type) {
                 <div className="tab-content">
                     <div className="tabs-selection">
                         <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
-                        Requisitos
+                        {t("PlatinumPage.requirements.tittle")}
                         </button>
                         <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
-                        Condiciones
+                        {t("PlatinumPage.conditions.tittle")}
                         </button>
                     </div>
 
                     <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Ingresos mínimos de $1,000 mensuales</p>
+                            <p>{t("PlatinumPage.requirements.1")}</p>
                             </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Estabilidad laboral; 6 meses con experiencia en tarjeta o 12 meses sin experiencia en tarjeta</p>
+                            <p>{t("PlatinumPage.requirements.2")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Solicitud llena, ya sea físico o formulario web</p>
+                            <p>{t("PlatinumPage.requirements.3")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Fotocopia de DUI y NIT (revés y derecho)</p>
+                            <p>{t("PlatinumPage.requirements.4")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
                             <p>
-                                Constancia de ingresos vigente firmada por la empresa copia de
-                                boletas de pago o constancia de AFP de los últimos 6 meses
+                            {t("PlatinumPage.requirements.5")}
                             </p>
                         </div>
                     </div>
                     <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>El límite de puntos acumulables es de 100,000</p>
+                            <p>{t("PlatinumPage.conditions.1")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>El reembolso que te ofrece el seguro de compras será igual al monto que originalmente el producto tiene</p>
+                            <p>{t("PlatinumPage.conditions.2")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Las cuotas sin intereses estarán sujetas a las condiciones del lugar donde obtengas tu crédito, y en ocasiones no estarán disponibles</p>
+                            <p>{t("PlatinumPage.conditions.3")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Para utilizar tus puntos por viajes no deberás tener ningún pago atrasado en los últimos 6 meses</p>
+                            <p>{t("PlatinumPage.conditions.4")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
                             <p>
-                                La cantidad máxima de efectivo que puedes canjear por tus puntos es de $7,500
+                            {t("PlatinumPage.conditions.5")}
                             </p>
                         </div>
                     </div>
@@ -191,55 +191,54 @@ function Tabs(type) {
                 <div className="tab-content">
                     <div className="tabs-selection">
                         <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
-                        Requisitos
+                        {t("GoldPage.requirements.tittle")}
                         </button>
                         <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
-                        Condiciones
+                        {t("GoldPage.conditions.tittle")}
                         </button>
                     </div>
 
                     <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Ingresos minimos mensuales de $2,800</p>
+                            <p> {t("GoldPage.requirements.1")}</p>
                             </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Estabilidad laboral comprobable; 12 meses de experiencia con tarjeta</p>
+                            <p>{t("GoldPage.requirements.2")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Solicitud llena, ya sea físico o formulario web</p>
+                            <p>{t("GoldPage.requirements.3")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Fotocopia de DUI y NIT (revés y derecho)</p>
+                            <p>{t("GoldPage.requirements.4")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
                             <p>
-                                Constancia de ingresos vigente firmada por la empresa copia de
-                                boletas de pago o constancia de AFP de los últimos 6 meses
+                            {t("GoldPage.requirements.5")}
                             </p>
                         </div>
                     </div>
                     <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>El límite de puntos acumulables es de 600,000</p>
+                            <p>{t("GoldPage.conditions.1")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>La protección de compra le reembolsará los gastos para que el artículo cubierto sea reparado o compensará el valor original del artículo</p>
+                            <p>{t("GoldPage.conditions.2")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>El artículo cubierto por la garantía deberá tener una garantía original del fabricante mínima de 3 meses hasta tres años</p>
+                            <p>{t("GoldPage.conditions.3")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
                             <p>
-                                La cobertura máxima de efectivo podrá solicitarse siempre y cuando no tengas más de 2 pagos atrasados con tu tarjeta
+                            {t("GoldPage.conditions.4")}
                             </p>
                         </div>
                     </div>
@@ -264,55 +263,54 @@ function Tabs(type) {
                 <div className="tab-content">
                     <div className="tabs-selection">
                         <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
-                        Requisitos
+                        {t("GoldPage.requirements.tittle")}
                         </button>
                         <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
-                        Condiciones
+                        {t("GoldPage.conditions.tittle")}
                         </button>
                     </div>
 
                     <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Ingresos minimos mensuales de $4,800</p>
+                            <p>{t("GoldPage.requirements.1")}</p>
                             </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Estabilidad laboral comprobable; 12 meses de experiencia con tarjeta</p>
+                            <p>{t("GoldPage.requirements.2")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Solicitud llena, ya sea físico o formulario web</p>
+                            <p>{t("GoldPage.requirements.3")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Fotocopia de DUI y NIT (revés y derecho)</p>
+                            <p>{t("GoldPage.requirements.4")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
                             <p>
-                                Constancia de ingresos vigente firmada por la empresa copia de
-                                boletas de pago o constancia de AFP de los últimos 6 meses
+                            {t("GoldPage.requirements.desc5")}
                             </p>
                         </div>
                     </div>
                     <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>El límite de puntos acumulables es de 1 000,000,000</p>
+                            <p>{t("GoldPage.conditions.1")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>La protección de equipaje le reembolsará hasta $3000 por equipaje perdido definitivamente y hasta $600 por demoras de más de 4 horas.</p>
+                            <p>{t("GoldPage.conditions.2")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>El artículo cubierto por la garantía deberá tener una garantía original y en este caso el tiempo brindado se duplicará pagando un beneficio de hasta US$2,500 por ocurrencia y un total anual de US$5,000</p>
+                            <p>{t("GoldPage.conditions.3")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
                             <p>
-                                El banco ofrece el extrafianciamiento para esta tarjeta, pero la oferta puede variar dependiendo el historial crediticio, además el plazo se aplica dependiendo de lo anteriormente dicho
+                            {t("GoldPage.conditions.4")}
                             </p>
                         </div>
                     </div>
@@ -337,47 +335,47 @@ function Tabs(type) {
                 <div className="tab-content">
                     <div className="tabs-selection">
                         <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
-                        Requisitos
+                        {t("DebitCard.requirements.tittle")}
                         </button>
                         <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
-                        Condiciones
+                        {t("GoldPage.conditions.tittle")}
                         </button>
                     </div>
 
                     <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Fotocopia de DUI y NIT (revés y derecho)</p>
+                            <p>{t("DebitCard.requirements.1")}</p>
                             </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Tener una cuenta de ahorros o una cuenta corriente en Demantur</p>
+                            <p>{t("DebitCard.requirements.2")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Documento o constancia para la verificación de lugar de residencia</p>
+                            <p>{t("DebitCard.requirements.3")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Llenar el formulario web y firmar el contrato en físico</p>
+                            <p>{t("DebitCard.requirements.4")}</p>
                         </div>
                     </div>
                     <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Para contar con el servicio de alerta de compra con tu tarjeta deberás contratarlo posteriormente con un cargo extra una única vez</p>
+                            <p>{t("DebitCard.conditions.1")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>El costo de reposisión de tarjeta en caso de robo o extravío es de $4.85 + IVA</p>
+                            <p>{t("DebitCard.conditions.2")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>La comisión por retiro de efectivo en cajeros a partir de la sexta transacción es de $0.65 + IVA</p>
+                            <p>{t("DebitCard.conditions.3")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>La comisión por retiro de efectivo en cajeros de otra red local es de $2.65 + IVA por transacción</p>
+                            <p>{t("DebitCard.conditions.4")}</p>
                         </div>
                     </div>
                 </div>

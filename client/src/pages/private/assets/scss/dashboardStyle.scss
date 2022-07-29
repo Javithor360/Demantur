@@ -46,19 +46,27 @@
 }
 
 
-.fade-enter{
+.fade-enter {
   opacity: 0;
 }
-.fade-exit{
+
+.fade-exit {
   opacity: 1;
 }
-.fade-enter-active{
+
+.fade-enter-active {
   opacity: 1;
 }
-.fade-exit-active{
+
+.fade-exit-active {
   opacity: 0;
 }
+
 .fade-enter-active,
-.fade-exit-active{
+.fade-exit-active {
   transition: opacity 100ms;
+}
+
+.Display-dash-div {
+  height: 92%;
 }

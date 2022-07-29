@@ -3,7 +3,7 @@ import "./components/assets/scss/SideBar_Main.scss";
 import { SideBar, Header, Settings } from "./components/indexComp";
 import { useDash } from "../../context/DashboardContext";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
-import { HomePage } from "./components/DashElements/HomePage";
+import { Contacts, HomePage } from "./components/DashElements/indexDashElement";
 import { useEffect } from "react";
 
 export const DashboardNormalUser = () => {
@@ -11,6 +11,7 @@ export const DashboardNormalUser = () => {
 
   useEffect(() => {
     Query();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const DisplayElement = () => {
@@ -24,7 +25,7 @@ export const DashboardNormalUser = () => {
       case 4:
         return <h1>Préstamos</h1>;
       case 5:
-        return <h1>Contactos</h1>;
+        return <Contacts />;
       case 6:
         return <h1>Tarjetas</h1>;
       default:
@@ -41,7 +42,13 @@ export const DashboardNormalUser = () => {
           <SideBar />
           <div className="h-full w-[80%]  mx-auto">
             <Header />
-            <div className="mx-3 w-full">{DisplayElement()}</div>
+            <div className="Display-dash-div pl-4">
+              <div className="h-100">
+                <div className="flex justify-between py-3 w-100 flex-col h-100">
+                  {DisplayElement()}
+                </div>
+              </div>
+            </div>
             <SwitchTransition>
               <CSSTransition
                 classNames="fade"

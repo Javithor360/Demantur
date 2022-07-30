@@ -209,13 +209,13 @@
   },
   "help_page":{
     "help":{
-      "help_tittle": "¿How can we help you?",
+      "help_tittle": "How can we help you?",
       "help_desc": "Here are some of the questions frequently asked by our users.",
       "help_search": "You can also perform a quick search on your question to be consulted"
     },
     "accordion":{
       "1":{
-        "tittle": "¿What are the requirements to open a bank account?",
+        "tittle": "What are the requirements to open a bank account?",
         "desc": "To open a bank account you need to meet the following requirements:",
         "sub_desc1": "Present your DUI",
         "sub_desc2": "If you are a foreigner you must present your passport",
@@ -251,8 +251,8 @@
         "sub_desc6": "Probably one of the most important tips. In order to achieve your goals, you must have the support of a good savings that will allow you to enjoy in the future." 
       },
       "5":{
-        "tittle": "¿How can you view my account statement?",
-        "desc": "¿If you need to view your account statement?, here is a simple and easy way to do it:",
+        "tittle": "How can you view my account statement?",
+        "desc": "If you need to view your account statement?, here is a simple and easy way to do it:",
         "sub_desc1": "As a first step you must go to our navigation bar, and go to where it says Sign In.",
         "sub_desc2": "Then you must log in with your email and password.",
         "sub_desc3": "Once logged in you must go to the Accounts section.",
@@ -260,14 +260,14 @@
         "sub_desc5": "Now you will be able to see your account statement and all your transactions."
       },
       "6":{
-        "tittle": "¿What are the requirements to acquire a savings account?",
+        "tittle": "What are the requirements to acquire a savings account?",
         "desc": "The requirements to open a savings account are:",
         "sub_desc1": "Minimum opening from US$25.00.",
         "sub_desc2": "Present your DUI, in case you are a foreigner you must present your resident card or passport with updated information, current and in good condition.",
         "sub_desc3": "Present your NIT."
       },
       "7":{
-        "tittle": "¿How to apply for a credit or debit card?",
+        "tittle": "How to apply for a credit or debit card?",
         "desc": "In order to apply for a credit or debit card, here's how to do it:",
         "sub_desc1": "As a first step you must go to our navigation bar, and go to the Cards page.",
         "sub_desc2": "This will take you to another page that shows you the cards that our bank has.",
@@ -276,11 +276,11 @@
         "sub_desc5": "After you have filled out the form and submitted it, we will contact you to notify you if your card was accepted or denied."
       },
       "8":{
-        "tittle": "¿How to open a savings account for a young minor?",
+        "tittle": "How to open a savings account for a young minor?",
         "desc": "A minor between 16 and 18 years of age can open a private savings account as account holder with a minimum amount of $25.00, and must present a valid minor's identification card."
       },
       "9":{
-       "tittle": "¿What are the requirements for a personal loan?",
+       "tittle": "What are the requirements for a personal loan?",
        "desc": "In order to apply for a personal loan you must meet the following requirements:",
        "sub_desc1": "Be over 21 years old and under 70 years old.",
        "sub_desc2": "Present DUI and NIT.",
@@ -288,7 +288,7 @@
        "sub_desc4": "Have a margin of at least $300."
       },
       "10":{
-        "tittle": "¿What are the requirements for a business loan?",
+        "tittle": "What are the requirements for a business loan?",
         "desc": "In order to apply for a personal loan you must meet the following requirements:",
         "sub_desc1": "Be a formal company or individual with business activity.",
         "sub_desc2": "Have a favorable credit bureau record.",
@@ -297,11 +297,11 @@
         "sub_desc5": "Present all the documentation requested by the bank."
       },
       "11":{
-        "tittle": "¿Can another person deposit into an account, without being the account holder?",
+        "tittle": "Can another person deposit into an account, without being the account holder?",
         "desc": "Yes, another person who is not the account holder can deposit into the account by presenting their DUI and the account number to which they wish to make the deposit."
       },
       "12":{
-        "tittle": "¿Can a foreigner apply for a personal loan?",
+        "tittle": "Can a foreigner apply for a personal loan?",
         "desc": "Yes, those who have permanent residence in the country can apply for a personal loan. For which they must present a valid passport, permanent resident card, NIT, receipts of collectors and prove income in the country."
       }
     }
@@ -421,8 +421,8 @@
         "desc": "Accumulate points for every dollar you spend, 1 dollar equals 1 more point accumulated."
       },
       "3":{
-        "tittle": "Canjea por efectivo",
-        "desc": "Puedes canjear por efectivo tus puntos en cualquier momento."
+        "tittle": "Redeem for cash",
+        "desc": "You can redeem for cash your points at any time."
       },
       "4":{
         "tittle": "Installment payments",
@@ -599,6 +599,22 @@
       "sub-tittle": "Earn points for each of your purchases",
       "desc": "Get 1 point for every $2.00 you spend with your debit card"
     }
-
+  },
+  "ContactPage":{
+   "banner":{
+     "tittle": "Do you want to contact us?",
+     "desc":"Leave your question, comment or suggestion, we are ready to help you"
+   },
+   "tittle": "Write to us at",
+   "desc": "We will receive your query, comment etc., we will evaluate it and then we will solve it, then we will notify you by phone or email giving you the solution. If in any case you are not satisfied with the answer you can contact us again giving us your management number that was given to you previously in the notification in order to continue with your particular case.",
+   "form":{
+     "name": "Full name",
+     "dui":"Number of DUI",
+     "contact":"Contact Number",
+     "email":"Email Address",
+     "management": "Management number (if available)",
+     "desc": "How can we help you?",
+     "button": "Send"
+   }
   }
 }

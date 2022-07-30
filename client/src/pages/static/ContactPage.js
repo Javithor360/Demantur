@@ -8,35 +8,34 @@ import { Footer } from "../../components/Footer";
 //images
 import ContactIconBg from './assets/img/contact/contact_bg_icon.png'
 
+// Translation
+import { useTranslation } from "react-i18next";
+
 //hooks
 //Aqui van los hooks
 
 export const ContactPage = () => {
+    const {t}= useTranslation();
     return (
         <>
             <Navbar />
             <div className="banner-container">
                 <div className="banner-content">
                     <img src={ContactIconBg} alt='' />
-                    <h1>¿Quieres comunicarte con nosotros?</h1>
+                    <h1>{t("ContactPage.banner.tittle")}</h1>
                     <p>
-                        Deja tu duda, comentario o sugerencia, estamos dispuestos a ayudarte
+                        {t("ContactPage.banner.desc")}                   
                     </p>
                 </div>
             </div>
             <main>
-                <p className="tittle">Escríbenos</p>
+                <p className="tittle">{t("ContactPage.tittle")} </p>
                 <div className="underline">
                     <hr />
                 </div>
 
                 <p className="contact-information">
-                    Recibiremos tu consulta, comentario etc., lo evaluaremos y posteriormente
-                    lo resolveremos, luego te notificaremos mediante teléfono o correo
-                    electrónico brindándote la solución. Si en dado caso no estas satisfecho
-                    con la respuesta puedes volver a contactarte con nosotros brindándonos tu
-                    numero de gestión que se te dio anteriormente en la notificación para
-                    poder seguir con tu caso en particular.
+                    {t("ContactPage.desc")} 
                 </p>
                 <div className="contact-form-container">
                     <form className="" action="">
@@ -49,7 +48,7 @@ export const ContactPage = () => {
                                     placeholder="Nombre completo"
                                 />
                                 <label className="form-label" htmlFor="">
-                                    Nombre completo
+                                    {t("ContactPage.form.name")} 
                                 </label>
                             </div>
                         </div>
@@ -62,7 +61,7 @@ export const ContactPage = () => {
                                     placeholder="Número de DUI"
                                 />
                                 <label className="form-label" htmlFor="">
-                                    Número de DUI
+                                    {t("ContactPage.form.dui")} 
                                 </label>
                             </div>
                         </div>
@@ -75,7 +74,7 @@ export const ContactPage = () => {
                                     placeholder="Correo electrónico"
                                 />
                                 <label className="form-label" htmlFor="">
-                                    Correo electrónico
+                                    {t("ContactPage.form.email")} 
                                 </label>
                             </div>
                         </div>
@@ -88,7 +87,7 @@ export const ContactPage = () => {
                                     placeholder="Telefono de contacto"
                                 />
                                 <label className="form-label" htmlFor="">
-                                    Telefono de contacto
+                                    {t("ContactPage.form.contact")} 
                                 </label>
                             </div>
                         </div>
@@ -101,13 +100,13 @@ export const ContactPage = () => {
                                     placeholder="Número de gestión (Si tienes)"
                                 />
                                 <label className="form-label" htmlFor="">
-                                    Número de gestión (Si tienes)
+                                    {t("ContactPage.form.management")} 
                                 </label>
                             </div>
                         </div>
                         <textarea
                             className="contact-textarea"
-                            placeholder="¿En que te podemos ayudar?"
+                            placeholder={t("ContactPage.form.desc")}
                             name=""
                             id=""
                             cols={30}
@@ -115,7 +114,7 @@ export const ContactPage = () => {
                             defaultValue={""}
                         />
                         <button className="contact-submit-button" type="submit">
-                            Enviar
+                            {t("ContactPage.form.button")}
                         </button>
                     </form>
                 </div>

@@ -598,5 +598,22 @@
        "sub-tittle": "Obtén puntos por cada una de tus compras",
        "desc": "Obtén 1 punto por cada $2.00 que gastes con tu tarjeta de débito"
      }
+   },
+   "ContactPage":{
+    "banner":{
+      "tittle": "¿Quieres comunicarte con nosotros?",
+      "desc":"Deja tu duda, comentario o sugerencia, estamos dispuestos a ayudarte"
+    },
+    "tittle": "Escríbenos",
+    "desc": "Recibiremos tu consulta, comentario etc., lo evaluaremos y posteriormente lo resolveremos, luego te notificaremos mediante teléfono o correo electrónico brindándote la solución. Si en dado caso no estas satisfecho con la respuesta puedes volver a contactarte con nosotros brindándonos tu numero de gestión que se te dio anteriormente en la notificación para poder seguir con tu caso en particular.",
+    "form":{
+      "name": "Nombre completo",
+      "dui":"Número de DUI",
+      "contact":"Número de contacto",
+      "email":"Correo Electrónico",
+      "management": "Número de gestión (Si tienes)",
+      "desc": "¿En que te podemos ayudar?",
+      "button": "Enviar"
+    }
    }
 }

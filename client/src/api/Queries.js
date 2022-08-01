@@ -10,3 +10,8 @@ const PrivateConfig = {
 export const getInfo = async () => {
   return await axios.get("http://localhost:4000/api/dashboard/get-user-token", PrivateConfig);
 };
+
+export const getContacts = async () => {
+  return await axios.get('http://localhost:4000/api/dashboard/', PrivateConfig)
+}
+

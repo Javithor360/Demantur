@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react"
-import { getInfo } from "../api/Queries";
+import { getInfo, getContacts } from "../api/Queries";
 
 const dashContext = createContext();
 
@@ -25,17 +25,22 @@ export const DashProvider = ({ children }) => {
     }
   };
 
+  const ContactsQuery = async () => {
+    try {
+      const Res = await getContacts()
+      return Res;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 
   return (
     <dashContext.Provider value={{
       Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
-      Query, Info, setInfo
+      Query, Info, ContactsQuery
     }}>
       {children}
     </dashContext.Provider>
   )
-}
-
-export const DatabaseQuery = ({}) => {
-
 }

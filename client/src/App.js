@@ -28,6 +28,7 @@ import {
   LoginNormalUserPage,
   ForgotPasswordPage,
   ResetPasswordPage,
+  VerifyEmailPage,
 } from "./pages/static";
 
 import { DashboardNormalUser, CreateSavingAcc } from "./pages/private/index";
@@ -102,6 +103,8 @@ const App = () => {
               path="/auth/reset-password/:resetToken"
               element={<ResetPasswordPage />}
             />
+
+            <Route path="auth/verify-email" element={<VerifyEmailPage />} />
 
             {/*Rutas de "/loans"*/}
             <Route path="/loans" element={<LoansPage />}></Route>

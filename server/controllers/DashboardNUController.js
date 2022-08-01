@@ -4,8 +4,6 @@ const GlobalData = require("../models/GlobalData");
 
 const testDB = async (req, res, next) => {
   try {
-    const { yes } = req.body;
-
     Token = req.resetToken;
 
     if (!Token) {
@@ -25,18 +23,10 @@ const testDB = async (req, res, next) => {
     queryUser.save();
 
     const newGlobalData = await new GlobalData({
-      Notifications: [
-        { Titulo: "hola", Icono: "Icono", Url: "http://hola.com" },
-      ],
-      Contacts: [
-        {
-          Name: "Alvin Josue Melendez Serrano",
-          Dui: "123456-7",
-          Photo: "URLDEFOTO...",
-        },
-      ],
-      Prestamo: { Tipo: "Tipo1", Monto: 1060, Pagos: [{}] },
-      Cards: [{}],
+      Notifications: [],
+      Contacts: [],
+      Prestamo: {},
+      Cards: [],
       UserOwner: queryUser._id,
     });
 

@@ -15,114 +15,113 @@ exports.FoPaEmail = async (resetToken, isNormalUser, next, res) => {
   const resetUrl = `http://localhost:3000/auth/reset-password/${resetToken}`;
 
   const message = `
-    <head>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <style>
-            body{
-                font-family: 'Poppins', sans-serif;
-            }
-            .fondo{
-                margin: 0 auto;
-                height: 70rem;
-                width: 60rem;
-            }
-            .icon{
-                width: 15rem;
-                margin-top: 2rem;
-                margin-left: 2rem;
-            }
-        .baners {
-        background-image: url(https://img.freepik.com/foto-gratis/casarse-finanzas-hogar-pareja-asiatica-revisando-sus-cuentas-bancarias-usando-computadora-portatil-calculadora-sala-estarpareja-asiatica-sentada-sofa-computadora-portatil-emocion-estresante-casa_609648-8.jpg?w=1380&t=st=1658290429~exp=1658291029~hmac=45c5a63d80e66cce23df79b437c8383f6a2cdaf09e517e16f66c0749be13656f);
-        background-size: cover;
-        width: 100%;
-        height: 22rem;
-        position: relative;
+  <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <style>
+      body{
+          font-family: 'Poppins', sans-serif;
+      }
+      .fondo{
+          margin: 0 auto;
+          height: 70rem;
+          width: 60rem;
+          border: solid;
+          border-color: rgba(0, 0, 0, 0.068);
+          border-radius: 1.5rem;
+      }
+      .icon{
+          width: 15rem;
+          margin-top: 2rem;
+          margin-left: 2rem;
+          margin-bottom: 2rem;
+      }
+  .baners {
+  background-image: url(https://img.freepik.com/foto-gratis/casarse-finanzas-hogar-pareja-asiatica-revisando-sus-cuentas-bancarias-usando-computadora-portatil-calculadora-sala-estarpareja-asiatica-sentada-sofa-computadora-portatil-emocion-estresante-casa_609648-8.jpg?w=1380&t=st=1658290429~exp=1658291029~hmac=45c5a63d80e66cce23df79b437c8383f6a2cdaf09e517e16f66c0749be13656f);
+  background-size: cover;
+  width: 100%;
+  height: 22rem;
+  position: relative;
 
-    }
+}
 
-    .baners-content {
-        position: absolute;
-        width: inherit;
-        height: inherit;
-        background-color: rgba(0, 0, 0, 0.342);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        color: #ffffff;
-    }
-    .subtitles{
-        text-align: center;
-        margin: 1rem auto 0 auto;
-        font-size: 1.8rem;
-    }
-    .title{
-        font-size: 3rem;
-                font-weight: bold;
-                margin: 1.25rem auto 1.25rem auto ;
-    }
-    .title2 hr{
-        border: 0;
-        height: .3rem;
-        background: #93DEFF;
-        opacity: 100;
-        padding: 0;
-        margin: auto;
-        width: 15rem;
-        font-weight: bold;
-    }
+.baners-content {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-color: rgba(0, 0, 0, 0.342);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+}
+.title{
+  font-size: 3rem;
+          font-weight: bold;
+          margin: 1.25rem auto 1.25rem auto ;
+}
+.title2 hr{
+  border: 0;
+  height: .3rem;
+  background: #93DEFF;
+  opacity: 100;
+  padding: 0;
+  margin: auto;
+  width: 15rem;
+  font-weight: bold;
+}
 
-    .title2 p{
-        text-align: center;
-        margin: 2rem auto 0 auto;
-        font-size: 2.5rem;
-    }
-    .subs{
-        text-align: center;
-        font-size: 2rem;
-        margin-left: 5rem;
-        margin-right: 5rem;
-    }
-    .copyright{
-        font-size: 1.5rem;
-      padding: 0.625rem 0;
-        color: #ffffff;
-    }
-    .a{
-        text-align: center;
-        font-size: 2rem;
-    }
-    footer{
-        background-color: rgb(78, 78, 78);
-        margin-top: 14rem;
-        height: 3rem;
-        text-align: center;
-    }
-        </style>
-        <div class="fondo"><img class="icon" src="https://media.discordapp.net/attachments/825146450232213505/999324633478205560/Demantur_Imagotype-3.png?width=1025&height=414" alt="">
-            <div class="baners">
-                <div class="baners-content">
-                  <h1 class="title">Cambio de contraseña</h1>
-                  <p class="subtitles">Asegurate de no compartir datos con nadie</p>
-                </div>
-              </div>
-              <div class="title2" style="color:red;">
-                <p>Solicitud para cambio</p>
-                <hr />
-              </div>
-              <p class="subs">tienes una solicitud para cambiar tu contraseña por favor ingrese a este link para cambiar su contraseña:</p>
-              <a href="${resetUrl}"><p class="a">${resetUrl}</p></a>
-              <footer>
-                <span class="copyright">
-                    Todos los derechos reservados. © 2022 Demantur
-                </span>
-              </footer>
-        </div>
-        
-    </body>
+.title2 p{
+  text-align: center;
+  margin: 2rem auto 0 auto;
+  font-size: 2.5rem;
+}
+.subs{
+  text-align: center;
+  font-size: 2rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+.copyright{
+  font-size: 1.5rem;
+padding: 0.625rem 0;
+  color: #ffffff;
+}
+.a{
+  text-align: center;
+  font-size: 2rem;
+}
+footer{
+  background-color: rgb(78, 78, 78);
+  margin-top: 14rem;
+  height: 3rem;
+  text-align: center;
+}
+  </style>
+</head>
+<body>
+    
+    <div class="fondo"><img class="icon" src="https://media.discordapp.net/attachments/825146450232213505/999324633478205560/Demantur_Imagotype-3.png?width=1025&height=414" alt="">
+        <div class="baners">
+            <div class="baners-content">
+              <h1 class="title">Cambio de contraseña</h1><br>
+            </div>
+          </div>
+          <div class="title2">
+            <p>Solicitud para cambio</p>
+            <hr />
+          </div>
+          <p class="subs">tienes una solicitud para cambiar tu contraseña por favor ingrese a este link para cambiar su contraseña:</p>
+          <a href="${resetUrl}"><p class="a">${resetUrl}</p></a>
+          <footer>
+            <span class="copyright">
+                Todos los derechos reservados. © 2022 Demantur
+            </span>
+          </footer>
+    </div>
+    
+</body>
   `;
 
   try {

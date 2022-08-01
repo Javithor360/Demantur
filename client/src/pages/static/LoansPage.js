@@ -29,12 +29,10 @@ export const LoansPage = () => {
           <p>{t("loans_main_page.subtitle_loans")}</p>
         </div>
       </div>
-
       <div className="loans-type-tittle">
       <p>{t("loans_main_page.type_loans")}</p>
         <hr />
       </div>
-
       <div className="page-section">
         <div className="container">
           <div className="row align-items-center">
@@ -47,7 +45,6 @@ export const LoansPage = () => {
               <p>
               {t("loans_main_page.info_personal_loan")}
               </p>
-
               {/*boton para mas info de las paginas"*/}
               <div className="Btn-info">
                 <Link to="/loans/PersonalLoan">
@@ -67,7 +64,6 @@ export const LoansPage = () => {
           </div>
         </div>
       </div>
-
       <div className="page-section2">
         <div className="container">
           <div className="row align-items-center">
@@ -99,7 +95,6 @@ export const LoansPage = () => {
           </div>
         </div>
       </div>
-
       <div className="page-section2">
         <div className="container">
           <div className="row align-items-center">

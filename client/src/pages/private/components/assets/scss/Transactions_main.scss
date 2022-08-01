@@ -1,0 +1,94 @@
+@use '../../../../../utilities/_colors.scss' as *;
+
+.sbx-input::-webkit-search-decoration, .sbx-input::-webkit-search-cancel-button, .sbx-input::-webkit-search-results-button, .sbx-input::-webkit-search-results-decoration {
+  display: none;
+}
+
+.contacts-area{
+    border-right: 1px solid $gray_borders;
+
+    .contacts-search-container{
+        margin-top: 1.5rem;
+        
+        .searchbox-wrapper{
+            height: 2.5rem;
+            border: 1px solid $gray_borders;
+            transition: .4s ease;
+            position: relative;
+            
+            .sbx-submit-btn{
+                background-color: $secondary_gray_300;
+                border: none;
+                border-right: 1px solid $gray_borders;
+                outline: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                width: 20%;
+            
+                .sbx-submit-btn-icon {
+                    font-size: 1.5rem;
+                }
+            }
+            .sbx-input{
+                width: 80%;
+                outline: none;
+                border: none;
+                padding: 0 2rem 0 .5rem;
+            }
+            .sbx-reset-btn{
+                display: none;
+            }
+            
+            .sbx-input:not(:placeholder-shown) + .sbx-reset-btn{
+                display: block;
+                position: absolute;
+                top: 0.3125rem;
+                right: 0.125rem;
+                background: none;
+                border: none;
+                outline: none;
+                appearance: none;
+                animation-name: sbx-reset-in;
+                animation-duration: .15s;
+                
+            }
+            @keyframes sbx-reset-in {
+                0% {
+                    -webkit-transform: translate3d(-20%, 0, 0);
+                    transform: translate3d(-20%, 0, 0);
+                    opacity: 0;
+                }
+                100% {
+                    -webkit-transform: none;
+                    transform: none;
+                    opacity: 1;
+                }
+            }
+        }
+        .searchbox-wrapper:focus-within{
+            border: 1px solid $primary_dark;
+            transition: .4s ease;
+        }
+    }
+}
+.header-contact-name{
+    border-bottom: 1px solid $gray_borders;
+
+    .header-contact-name-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+        }
+    }
+    .contact-username{
+        font-size: 1.2rem;
+    }
+}
+.bottom-tools-bar{
+    border-top: 1px solid $gray_borders;
+}

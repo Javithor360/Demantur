@@ -5,6 +5,7 @@ import { BiTransfer } from 'react-icons/bi'
 import { FaListAlt } from 'react-icons/fa'
 import { BsCreditCardFill } from 'react-icons/bs'
 import { useDash } from '../../../context/DashboardContext'
+import { useNavigate } from 'react-router-dom'
 
 
 const NavLinkStyles = 'menu-item mb-2 h-14 flex flex-row w-full rounded items-center'
@@ -17,6 +18,7 @@ const SideBarImages = require.context('./assets/img/', true)
 
 export const SideBar = () => {
   const { Option, setOption, setOptionElement } = useDash()
+  const navigate = useNavigate()
 
   return (
     <>
@@ -87,7 +89,10 @@ export const SideBar = () => {
         <div className="w-full flex justify-center pb-4">
           <button className="logout-button flex items-center justify-center rounded w-[85%]">
             <div className="logout-icon mr-2"><MdOutlineLogout /></div>
-            <span onClick={() => { localStorage.removeItem('authToken') }}>Cerrar Sesion</span>
+            <span onClick={() => {
+              localStorage.removeItem('authToken')
+              navigate('/auth/normal-user/login')
+            }}>Cerrar Sesion</span>
           </button>
         </div>
       </div>

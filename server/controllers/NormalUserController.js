@@ -193,7 +193,7 @@ const registerPart4 = async (req, res, next) => {
     const verifyCode = createCode();
 
     // Nuevo esquema
-    const newNormalUser = await new NormalUser({ FirstName: FirstName, LastName: LastName, DateBirth, Password, Number, Adress, Dui, Email: Email, LaboralSituation, WorkPlace, Salary, ImageOFConstancia: ImageConstancia, DatosBeneficiario, verifyCode, ActivedAccount: false });
+    const newNormalUser = await new NormalUser({ FirstName: FirstName, LastName: LastName, DateBirth, Password, Number, Adress, Dui, Email: Email, LaboralSituation, WorkPlace, Salary, ImageOFConstancia: ImageConstancia, DatosBeneficiario, verifyCode, ActivedAccount: false, AccountRuning: false });
 
     // guardar en la DB
     await newNormalUser.save();

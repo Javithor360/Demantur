@@ -1,14 +1,11 @@
 const mongoose = require("mongoose");
 
-const StringReq = { type: String, require: true };
-const NumberReq = { type: Number, require: true };
-const DateReq = { type: Date, require: true };
 const TransfersHistoryElements = {
-  Date: DateReq,
-  Subject: StringReq,
-  Amount: NumberReq,
-  AccountN: NumberReq,
-  Type: StringReq,
+  Date: Date,
+  Subject: String,
+  Amount: Number,
+  AccountN: Number,
+  Type: String,
 };
 
 const GlobalDataSchema = new mongoose.Schema({
@@ -18,22 +15,22 @@ const GlobalDataSchema = new mongoose.Schema({
   },
   Notifications: [
     {
-      Title: StringReq,
-      Icon: StringReq,
-      Url: StringReq,
+      Title: String,
+      Icon: String,
+      Url: String,
     },
   ],
   Contacts: [
     {
-      Name: StringReq,
-      Dui: StringReq,
-      Photo: StringReq,
+      Name: String,
+      Dui: String,
+      Photo: String,
     },
   ],
   FriendRequests: [
     {
-      Name: StringReq,
-      Dui: StringReq,
+      Name: String,
+      Dui: String,
       Accept: Boolean,
     },
   ],

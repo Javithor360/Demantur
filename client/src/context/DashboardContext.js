@@ -22,6 +22,7 @@ export const DashProvider = ({ children }) => {
       setInfo(Res.data.data);
     } catch (error) {
       console.log(error);
+
     }
   };
 

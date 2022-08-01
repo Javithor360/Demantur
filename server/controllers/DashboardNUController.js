@@ -32,7 +32,6 @@ const testDB = async (req, res, next) => {
 
     const response = await newGlobalData.save();
 
-    console.log(response);
 
     res.json({ success: true, message: "STATUS UPDATED" });
   } catch (error) {

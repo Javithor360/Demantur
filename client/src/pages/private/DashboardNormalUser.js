@@ -17,7 +17,6 @@ export const DashboardNormalUser = () => {
     setTimeout(() => {
       setCharginPage(false)
     }, 1000);
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -46,7 +45,7 @@ export const DashboardNormalUser = () => {
       {
         CharginPage === true &&
         <div className="container-texts">
-          <span class="loader"></span>
+          <span className="loader"></span>
         </div>
       }
 

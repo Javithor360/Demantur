@@ -22,7 +22,7 @@ export const CreateSavingAcc = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="w-screen h-screen bg-[#F1F1F1] relative">
         <div className="w-full h-2/5 bg-[#323643] absolute"></div>
         <div className='w-screen h-screen flex items-center justify-center'>
@@ -46,14 +46,14 @@ export const CreateSavingAcc = () => {
             </div>
             <div className='create-acc-bg h-[100%] w-[40%]'></div>
           </div>
-            { toggle &&
-              <Modal active={active} toggle={toggle} onRequestClose={toggle}>
-                  <CreateSavingAccForm />
-              </Modal>
-            }
+          {toggle &&
+            <Modal active={active} toggle={toggle} onRequestClose={toggle}>
+              <CreateSavingAccForm />
+            </Modal>
+          }
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

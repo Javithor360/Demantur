@@ -34,7 +34,6 @@ export const LoginNormalUserPage = () => {
 
       if (data) {
         localStorage.setItem('authToken', data.data.token);
-        console.log(localStorage.getItem('authToken'));
         setChargin(true)
         setError('')
         setTimeout(() => {

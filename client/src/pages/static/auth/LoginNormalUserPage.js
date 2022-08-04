@@ -38,6 +38,7 @@ export const LoginNormalUserPage = () => {
         setError('')
         setTimeout(() => {
           setSuccess('Sesión Iniciada Correctamente');
+          localStorage.removeItem('SecondPartForm');
           setTimeout(() => {
             navigate('/dashboard')
           }, 3000)

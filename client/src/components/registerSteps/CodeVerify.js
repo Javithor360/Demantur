@@ -32,6 +32,7 @@ export const CodeVerify = () => {
         setTimeout(() => {
           setstateOfStep5('chargin')
           setSuccess('Email verificado correctamente');
+          localStorage.removeItem('SecondPartForm')
           setTimeout(() => {
             setChargin(false);
             nextButton();

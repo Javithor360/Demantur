@@ -7,16 +7,15 @@ import { Contacts, HomePage, Transactions } from "./components/DashElements/inde
 import { useEffect, useState } from "react";
 
 export const DashboardNormalUser = () => {
-  const { Option, SettingsOption, Query } = useDash();
+  const { Option, SettingsOption, GeneralInfoQuery } = useDash();
 
-  const [CharginPage, setCharginPage] = useState(true);
-
+  const [Chargin, setChargin] = useState(true)
 
   useEffect(() => {
-    Query();
+    GeneralInfoQuery(localStorage.getItem("authToken"));
     setTimeout(() => {
-      setCharginPage(false)
-    }, 1000);
+      setChargin(false)
+    }, 1500)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -40,15 +39,12 @@ export const DashboardNormalUser = () => {
   };
 
   return (
-
     <>
-      {
-        CharginPage === true &&
+      {Chargin === true &&
         <div className="container-texts">
           <span className="loader"></span>
         </div>
       }
-
       <div className="w-screen h-screen bg-[#F1F1F1] relative">
         <div className="w-full h-2/5 bg-[#323643] absolute"></div>
         <div className="w-full h-full absolute flex items-center justify-center">
@@ -87,6 +83,5 @@ export const DashboardNormalUser = () => {
         </div>
       </div>
     </>
-
   );
 };

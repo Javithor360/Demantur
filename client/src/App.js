@@ -32,7 +32,8 @@ import {
 } from "./pages/static";
 
 import { DashboardNormalUser, CreateSavingAcc } from "./pages/private/index";
-import { AuthValidate, OutAuthValidate } from "./routers/indexRoutesDash";
+// routers
+import { AuthValidate, OutAuthValidate, FirstLogVal, StartingValidate } from "./routers/indexRoutesDash";
 
 //contexts
 import { AuthProvider } from "./context/AuthContext";
@@ -101,8 +102,8 @@ const App = () => {
 
 
             {/* test dashboard */}
-            <Route path="/dashboard" element={<AuthValidate><DashboardNormalUser /></AuthValidate>} />
-            <Route path="/normal-user/starting" element={<CreateSavingAcc />} />
+            <Route path="/dashboard" element={<AuthValidate><FirstLogVal><DashboardNormalUser /></FirstLogVal></AuthValidate>} />
+            <Route path="/normal-user/starting" element={<AuthValidate><StartingValidate><CreateSavingAcc /></StartingValidate></AuthValidate>} />
 
           </Routes>
         </DashProvider>

@@ -4,6 +4,8 @@ const ErrorResponse = require('../utils/ErrorMessage');
 const { encryptPassword, sendToken, createCode, VeCoEmail } = require('../helpers/Functions');
 const { uploadRegisterImage } = require('../libs/cloudinary');
 const fs = require('fs-extra');
+const ExtraInfoNormalUser = require('../models/ExtraInfoNormalUser');
+
 
 // @route POST api/auth/normal-user/register-part-1
 // @desc formulario multi pasos, parte 1
@@ -192,11 +194,16 @@ const registerPart4 = async (req, res, next) => {
     // crear el codigo de verificacion
     const verifyCode = createCode();
 
-    // Nuevo esquema
-    const newNormalUser = await new NormalUser({ FirstName: FirstName, LastName: LastName, DateBirth, Password, Number, Adress, Dui, Email: Email, LaboralSituation, WorkPlace, Salary, ImageOFConstancia: ImageConstancia, DatosBeneficiario, verifyCode, ActivedAccount: false, AccountRuning: false });
+    // Nuevos esquemas
+    const newNormalUser = await new NormalUser({ FirstName: FirstName, LastName: LastName, Password, Dui, Email: Email, verifyCode, ActivedAccount: false, AccountRuning: false });
 
     // guardar en la DB
-    await newNormalUser.save();
+    const Response1 = await newNormalUser.save();
+
+
+    const newExtraInfoNU = await ExtraInfoNormalUser({ UserOwner: Response1._id, DateBirth, Adress, Number, LaboralSituation, WorkPlace, Salary, ImageOFConstancia: ImageConstancia, DatosBeneficiario });
+
+    await newExtraInfoNU.save();
 
     // Envio codigo de verificación
     VeCoEmail(verifyCode, newNormalUser, res, next);
@@ -248,7 +255,6 @@ const loginNormalUser = async (req, res, next) => {
 
     // validacion contraseña
     const isMatch = await selectedUser.matchPasswords(Password);
-    console.log(isMatch);
 
     if (!isMatch) {
       return next(new ErrorResponse('La contraseña no es valida', 401, 'error'))

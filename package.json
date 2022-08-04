@@ -4,7 +4,7 @@
   "description": "The real project",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon server --ignore client"
+    "start": "nodemon server --ignore client"
   },
   "author": "",
   "license": "ISC",

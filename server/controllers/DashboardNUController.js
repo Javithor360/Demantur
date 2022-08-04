@@ -1,6 +1,8 @@
 const NormalUser = require("../models/NormalUser");
 const ErrorResponse = require("../utils/ErrorMessage");
 const GlobalData = require("../models/GlobalData");
+const Settings = require("../models/Settings");
+// const SavingAccount = require("../models/SavingAccount");
 
 const testDB = async (req, res, next) => {
   try {
@@ -27,13 +29,23 @@ const testDB = async (req, res, next) => {
       Contacts: [],
       Prestamo: {},
       Cards: [],
-      UserOwner: queryUser._id,
+      DataOwner: queryUser._id,
     });
 
-    const response = await newGlobalData.save();
+    const GoblaDataRes = await newGlobalData.save();
 
+    const newSettings = await new Settings({
+      SettingsOwner: queryUser._id,
+      RecoveryEmail: undefined,
+      PerfilPhoto: {
+        Url: undefined,
+        public_id: undefined,
+      }
+    })
 
-    res.json({ success: true, message: "STATUS UPDATED" });
+    const SettingsRes = await newSettings.save();
+
+    res.json({ success: true, data: { "MODELO GLOBAL DATA": GoblaDataRes, "MODELO SETTINGS": SettingsRes } });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
@@ -59,8 +71,22 @@ const getUserId = async (req, res, next) => {
   }
 };
 
+const getContacts = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+
+    const query = await GlobalData.findOne({ DataOwner: token.user.id });
+
+
+    res.status(200).json({ success: true, data: query })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
 module.exports = {
   testDB,
   PushDB,
   getUserId,
+  getContacts,
 };

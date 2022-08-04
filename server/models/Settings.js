@@ -9,10 +9,10 @@ const SettingsSchema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     require: true,
   },
-  RecoveryEmail: StringReq,
+  RecoveryEmail: String,
   PerfilPhoto: {
-    Url: StringReq,
-    public_id: StringReq,
+    Url: String,
+    public_id: String,
   }
 })
 

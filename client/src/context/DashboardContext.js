@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react"
-import { getInfo, getContacts } from "../api/Queries";
+import { creatElements, getInfo, getContactsQuery } from "../api/Queries";
 
 const dashContext = createContext();
 
@@ -15,31 +15,48 @@ export const DashProvider = ({ children }) => {
   const [SettingsOption, setSettingsOption] = useState(false);
 
   const [Info, setInfo] = useState({});
+  const [GlobalInfo, setGlobalInfo] = useState({});
 
-  const Query = async () => {
-    try {
-      const Res = await getInfo()
-      setInfo(Res.data.data);
-    } catch (error) {
-      console.log(error);
-
+  const PrivateConfig = (Token) => {
+    return {
+      headers: {
+        "Content-Type": "application/json",
+        "x-auth-token": Token,
+      },
     }
   };
 
-  const ContactsQuery = async () => {
+  const GeneralInfoQuery = async (Token) => {
     try {
-      const Res = await getContacts()
-      return Res;
+      const Res = await getInfo(PrivateConfig(Token))
+      setInfo(Res.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const CreateElements = async (Token) => {
+    try {
+      const Res = await creatElements(PrivateConfig(Token));
+      console.log(Res);
     } catch (error) {
       console.log(error);
     }
   }
 
+  const getContacts = async (Token) => {
+    try {
+      const res = await getContactsQuery(PrivateConfig(Token));
+      setGlobalInfo(res.data.data)
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <dashContext.Provider value={{
       Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
-      Query, Info, ContactsQuery
+      GeneralInfoQuery, Info, CreateElements, getContacts, GlobalInfo
     }}>
       {children}
     </dashContext.Provider>

@@ -1,22 +1,13 @@
 import axios from "axios";
 
-
-const PrivateConfig = {
-  headers: {
-    "Content-Type": "application/json",
-    "x-auth-token": localStorage.getItem('authToken'),
-  },
+export const getInfo = async (PrivateConfig) => {
+  return await axios.get("http://localhost:4000/api/dashboard/get-info", { headers: PrivateConfig.headers });
 };
 
-
-
-
-export const getInfo = async () => {
-  console.log(PrivateConfig);
-  return await axios.get("http://localhost:4000/api/dashboard/get-info", PrivateConfig);
-};
-
-export const getContacts = async () => {
-  return await axios.get('http://localhost:4000/api/dashboard/', PrivateConfig)
+export const creatElements = async (PrivateConfig) => {
+  return await axios.post("http://localhost:4000/api/dashboard/test-db-relation", {/* aqui van los datos de la cuenta */ }, { headers: PrivateConfig.headers })
 }
 
+export const getContactsQuery = async (PrivateConfig) => {
+  return await axios.get("http://localhost:4000/api/dashboard/get-contacts", { headers: PrivateConfig.headers })
+}

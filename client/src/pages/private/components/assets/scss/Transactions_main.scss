@@ -8,7 +8,7 @@
     border-right: 1px solid $gray_borders;
 
     .contacts-search-container{
-        margin-top: 1.5rem;
+        // margin-top: 1.5rem;
         
         .searchbox-wrapper{
             height: 2.5rem;
@@ -70,6 +70,7 @@
             border: 1px solid $primary_dark;
             transition: .4s ease;
         }
+        
     }
 }
 .header-contact-name{
@@ -92,3 +93,49 @@
 .bottom-tools-bar{
     border-top: 1px solid $gray_borders;
 }
+.lb-contact-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+    }
+}
+.lol{
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    white-space: nowrap;
+}
+.lol > *{
+    display: table-cell;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.vl2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    hr{
+        border-style: none;
+        height: 100%;
+        background-color: #707070;
+        width: 1px;
+        opacity: 1;
+    }
+}
+.transactions-msg-body{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    height: calc(100% - 4.5rem);
+
+}
+.transactions-msg-body::-webkit-scrollbar{
+    display: none;
+}
+
+    
+

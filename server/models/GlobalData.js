@@ -34,6 +34,13 @@ const GlobalDataSchema = new mongoose.Schema({
       Accept: Boolean,
     },
   ],
+  PendingFriendReq: [
+    {
+      Name: String,
+      Dui: String,
+      Photo: String,
+    }
+  ],
   TransfersHistory: {
     Made: [TransfersHistoryElements],
     Received: [TransfersHistoryElements],

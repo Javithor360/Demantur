@@ -11,3 +11,7 @@ export const creatElements = async (PrivateConfig) => {
 export const getContactsQuery = async (PrivateConfig) => {
   return await axios.get("http://localhost:4000/api/dashboard/get-contacts", { headers: PrivateConfig.headers })
 }
+
+export const getUsersToFRQuery = async (PrivateConfig) => {
+  return await axios.get("http://localhost:4000/api/dashboard/get-friend-req", { headers: PrivateConfig.headers })
+}

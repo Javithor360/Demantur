@@ -13,6 +13,7 @@ export const DashboardNormalUser = () => {
 
   useEffect(() => {
     GeneralInfoQuery(localStorage.getItem("authToken"));
+    document.body.style.overflowY = 'hidden'
     setTimeout(() => {
       setChargin(false)
     }, 1500)

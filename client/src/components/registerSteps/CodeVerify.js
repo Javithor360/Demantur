@@ -5,7 +5,7 @@ import { useAuth } from '../../context/AuthContext';
 import axios from 'axios';
 
 export const CodeVerify = () => {
-  const { nextButton, page, setstateOfStep5, configPublic, setError, setSuccess, setChargin } = useAuth()
+  const { nextButton, page, setstateOfStep5, configPublic, setError, setSuccess, setChargin, Email } = useAuth()
   const [Codigo, setCodigo] = useState('');
 
   useEffect(() => {
@@ -21,8 +21,6 @@ export const CodeVerify = () => {
   const handleForm = async (e) => {
     e.preventDefault();
 
-    const firstPart = JSON.parse(localStorage.getItem('SecondPartForm'))
-    const { Email } = firstPart
     try {
 
       const data = await axios.post('http://localhost:4000/api/auth/general-users/verify-email-code', { verifyCode: Codigo, Email }, configPublic)

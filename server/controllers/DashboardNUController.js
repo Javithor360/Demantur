@@ -51,13 +51,6 @@ const testDB = async (req, res, next) => {
   }
 };
 
-const PushDB = async (req, res, next) => {
-  try {
-    Token = req.resetToken;
-  } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
-  }
-};
 
 const getUserId = async (req, res, next) => {
   try {
@@ -84,9 +77,40 @@ const getContacts = async (req, res, next) => {
   }
 }
 
+const getFriendsReq = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const AllUsers = await NormalUser.find();
+
+    // const SeparadorArrays = (array1, array2) => {
+    //   for (let index1 = 0; index1 < array1.length; index1++) {
+    //     let igual = false;
+    //     for (let index2 = 0; index2 < array2.length; index2++) {
+    //       if (array1[index1] === array2[index2]) {
+    //         igual = true;
+    //       }
+    //     }
+    //     if (!igual) {
+    //       array3.push(array1[index1]);
+    //     }
+    //   }
+    // }
+
+    const user = await NormalUser.findOne({ _id: token.user.id })
+
+    const usersFiltrated = AllUsers.filter((item) => {
+      return item._id.toString() !== token.user.id.toString()
+    });
+
+    res.status(200).json({ success: true, data: usersFiltrated })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
 module.exports = {
   testDB,
-  PushDB,
   getUserId,
   getContacts,
+  getFriendsReq
 };

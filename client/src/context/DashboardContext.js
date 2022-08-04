@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react"
-import { creatElements, getInfo, getContactsQuery } from "../api/Queries";
+import { creatElements, getInfo, getContactsQuery, getUsersToFRQuery } from "../api/Queries";
 
 const dashContext = createContext();
 
@@ -38,7 +38,7 @@ export const DashProvider = ({ children }) => {
   const CreateElements = async (Token) => {
     try {
       const Res = await creatElements(PrivateConfig(Token));
-      console.log(Res);
+      // console.log(Res);
     } catch (error) {
       console.log(error);
     }
@@ -53,10 +53,18 @@ export const DashProvider = ({ children }) => {
     }
   }
 
+  const getUsersToFriendReq = async (Token) => {
+    try {
+      return await getUsersToFRQuery(PrivateConfig(Token));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <dashContext.Provider value={{
       Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
-      GeneralInfoQuery, Info, CreateElements, getContacts, GlobalInfo
+      GeneralInfoQuery, Info, CreateElements, getContacts, GlobalInfo, getUsersToFriendReq
     }}>
       {children}
     </dashContext.Provider>

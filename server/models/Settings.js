@@ -10,10 +10,6 @@ const SettingsSchema = new mongoose.Schema({
     require: true,
   },
   RecoveryEmail: String,
-  PerfilPhoto: {
-    Url: String,
-    public_id: String,
-  }
 })
 
 module.exports = mongoose.model('Settings', SettingsSchema);

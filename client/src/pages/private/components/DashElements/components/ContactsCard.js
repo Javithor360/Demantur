@@ -1,9 +1,19 @@
+import { useDash } from "../../../../../context/DashboardContext";
 
-export const ContactsCard = ({ User }) => {
+export const ContactsCard = ({ User, setUsersToReq, UsersToReq }) => {
   const HeaderImages = require.context('../../assets/img/', true);
+  const { addFriendRequest, PedingFriendReq, setReloadState } = useDash()
 
-  const handlerAdd = () => {
-    alert('wtfff')
+  const handlerAdd = (e) => {
+    addFriendRequest(localStorage.getItem('authToken'), User._id);
+    PedingFriendReq.push({
+      Name: `${User.FirstName} ${User.LastName}`,
+      Dui: User.Dui,
+      Photo: 'Foto link',
+    })
+    let filtarted = UsersToReq.filter((OtherUser) => OtherUser._id !== User._id)
+    setUsersToReq(filtarted);
+    setReloadState(true)
   }
 
   return (
@@ -19,7 +29,7 @@ export const ContactsCard = ({ User }) => {
         <span>Dui: {User.Dui}</span>
       </div>
       <div className='w-[20%] h-100 '>
-        <button onClick={handlerAdd}>agregar</button>
+        <button onClick={handlerAdd} >agregar</button>
       </div>
     </div >
   )

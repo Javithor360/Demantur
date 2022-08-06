@@ -1,32 +1,29 @@
 import '../assets/scss/Contacts_main.scss'
 import { FiSearch } from 'react-icons/fi'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { RiLoader3Fill as IconChargin } from 'react-icons/ri'
 
-
 import { useDash } from '../../../../context/DashboardContext'
-import { useEffect } from 'react'
-import { ContactsCard } from './components/ContactsCard'
-import { ContactsCardSkeleton } from './components/ContactsCardSkeleton'
-
+import { ContactsCard, ContactsCardSkeleton, YourContacts, PendingReq, YourFriendReq } from './components/'
 
 export const Contacts = () => {
   const [NombreInput, setNombreInput] = useState('');
-  const [CharginIco, setCharginIco] = useState(true);
 
-  const [Contacts, setContacts] = useState([]);
-  const [UsersToReq, setUsersToReq] = useState([]);
+  const [CharginIco, setCharginIco] = useState(true);
+  const [BoxHandler, setBoxhanlder] = useState(1);
   const [CharginSkeleton, setCharginSkeleton] = useState(false);
+
+  const [UsersToReq, setUsersToReq] = useState([]);
   const [UsersSearched, setUsersSearched] = useState([]);
 
-  const { getContacts, GlobalInfo, getUsersToFriendReq } = useDash();
+  const { getGlobalInfo, getUsersToFriendReq, Contacts, FriendRequest } = useDash();
 
   useEffect(() => {
-    getContacts(localStorage.getItem('authToken'));
+    getGlobalInfo(localStorage.getItem('authToken'));
+
     (async () => {
-      const Res = await getUsersToFriendReq(localStorage.getItem('authToken'));
-      // setUsersToReq(Res.data.data)
-      setUsersToReq(Res.data.data);
+      const gettedUsers = await getUsersToFriendReq(localStorage.getItem('authToken'));
+      setUsersToReq(gettedUsers.data.data);
     })()
 
     setTimeout(() => {
@@ -34,16 +31,6 @@ export const Contacts = () => {
     }, 2000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-
-
-
-  useEffect(() => {
-    setContacts(GlobalInfo.Contacts);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [GlobalInfo])
-
-
 
 
   // SearchHanddler
@@ -58,11 +45,10 @@ export const Contacts = () => {
       setUsersSearched([]);
     } else {
       let Names = NombreInput.split(' ')
-      if (Names.length === 1) setUsersSearched(UsersToReq.filter((User) => User.FirstName.toLowerCase().includes(Names[0].toLowerCase())))
-      if (Names.length === 2) setUsersSearched(UsersToReq.filter((User) => User.FirstName.toLowerCase().includes(Names[0].toLowerCase() || Names[1].toLowerCase())))
-      if (Names.length === 3) setUsersSearched(UsersToReq.filter((User) => User.FirstName.toLowerCase().includes(Names[0].toLowerCase() || Names[1].toLowerCase()) || User.LastName.toLowerCase().includes(Names[2].toLowerCase())))
-      if (Names.length === 4) setUsersSearched(UsersToReq.filter((User) => User.FirstName.toLowerCase().includes(Names[0].toLowerCase() || Names[1].toLowerCase()) || User.LastName.toLowerCase().includes(Names[2].toLowerCase() || Names[3].toLowerCase())))
-
+      if (Names.length === 1) setUsersSearched(UsersToReq.filter((User) => `${User.FirstName.toLowerCase()} ${User.LastName.toLowerCase()}`.includes(Names[0].toLowerCase())))
+      if (Names.length === 2) setUsersSearched(UsersToReq.filter((User) => `${User.FirstName.toLowerCase()} ${User.LastName.toLowerCase()}`.includes(Names[0].toLowerCase() || Names[1].toLowerCase())))
+      if (Names.length === 3) setUsersSearched(UsersToReq.filter((User) => `${User.FirstName.toLowerCase()} ${User.LastName.toLowerCase()}`.includes(Names[0].toLowerCase() || Names[1].toLowerCase()) || `${User.FirstName.toLowerCase()} ${User.LastName.toLowerCase()}`.includes(Names[2].toLowerCase())))
+      if (Names.length === 4) setUsersSearched(UsersToReq.filter((User) => `${User.FirstName.toLowerCase()} ${User.LastName.toLowerCase()}`.includes(Names[0].toLowerCase() || Names[1].toLowerCase()) || `${User.FirstName.toLowerCase()} ${User.LastName.toLowerCase()}`.includes(Names[2].toLowerCase() || Names[3].toLowerCase())))
     }
     setTimeout(() => {
       setCharginSkeleton(false);
@@ -77,7 +63,7 @@ export const Contacts = () => {
         {
           UsersSearched.length !== 0 ?
             UsersSearched.map((User) => {
-              return <ContactsCard User={User} key={User._id} />
+              return <ContactsCard User={User} key={User._id} setUsersToReq={setUsersToReq} UsersToReq={UsersToReq} />
             })
             :
             <p>no hay concidiencias</p>
@@ -86,26 +72,39 @@ export const Contacts = () => {
     )
   }
 
+  const renderBox = () => {
+    switch (BoxHandler) {
+      case 1:
+        return <YourContacts Contacts={Contacts} />;
+      case 2:
+        return <PendingReq />
+      case 3:
+        return <YourFriendReq />
+      default:
+        return <YourContacts Contacts={Contacts} />;
+    }
+  }
+
   return (
     <div className="contacts-main-div h-100 flex justify-between">
       <div className='divs-contact contacts-big-div  w-[60%]'>
         <h2 className='text-gray-500'>Tus Contactos</h2>
         <div className='line-contacts w-[40%] mx-auto' ></div>
-        <div className={` w-[80%] mx-auto my-6 h-[80%] ${CharginIco === true && ' flex justify-center items-center'}`}>
-          <div className='flex w-[100%] bg-black h-[3rem]'>
-            <div className='w-1/2 text-center bg-red-400'>Añadidos</div>
-            <div className='w-1/2 text-center bg-red-400'>Pendientes</div>
-          </div>
-          <div className=''>
-            {
-              CharginIco === true ?
-                <IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' />
-                :
-                <div>
-                  SUS Contactos: {Contacts.length === 0 ? "nohay" : Contacts}
+        <div className={` w-[80%] mx-auto my-6 h-[80%] ${CharginIco === true ? ' flex justify-center items-center' : 'border-black border-solid'}`}>
+
+          {
+            CharginIco === true ?
+              <IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' />
+              :
+              <>
+                <div className='flex w-[100%] bg-black h-[3rem]'>
+                  <div className='w-[auto] text-center bg-red-400' onClick={() => { setBoxhanlder(1) }}>Añadidos</div>
+                  <div className='w-[auto] text-center bg-red-400' onClick={() => { setBoxhanlder(2) }}>Pendientes</div>
+                  <div className='w-[auto] text-center bg-red-400' onClick={() => { setBoxhanlder(3) }}>solicitudes</div>
                 </div>
-            }
-          </div>
+                {renderBox()}
+              </>
+          }
         </div>
       </div>
 

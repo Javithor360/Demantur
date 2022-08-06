@@ -31,7 +31,7 @@ const GlobalDataSchema = new mongoose.Schema({
     {
       Name: String,
       Dui: String,
-      Accept: Boolean,
+      Photo: String,
     },
   ],
   PendingFriendReq: [

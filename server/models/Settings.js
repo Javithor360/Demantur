@@ -9,11 +9,7 @@ const SettingsSchema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     require: true,
   },
-  RecoveryEmail: StringReq,
-  PerfilPhoto: {
-    Url: StringReq,
-    public_id: StringReq,
-  }
+  RecoveryEmail: String,
 })
 
 module.exports = mongoose.model('Settings', SettingsSchema);

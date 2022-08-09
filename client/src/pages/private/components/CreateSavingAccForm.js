@@ -4,14 +4,17 @@ import {
   AiOutlineCloud as SuccesClud,
 } from "react-icons/ai";
 //hooks
+
 import { useEffect, useState } from "react";
 import { useDash } from "../../../context/DashboardContext";
 import Cleave from "cleave.js/react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 // import { JsonWebTokenError } from "jsonwebtoken";
 
 export const CreateSavingAccForm = () => {
-  const { QueryCreateSavingsAccount } = useDash();
+  const { QueryCreateSavingsAccount, CreateElements } = useDash();
+  const navigate = useNavigate();
 
   const [AccountOwner, setAccountOwner] = useState();
 
@@ -123,12 +126,14 @@ export const CreateSavingAccForm = () => {
         form.append(key, DatosForm[key]);
       }
 
-      const res = await axios.post(
+      await axios.post(
         "http://localhost:4000/api/accounts/create/first-savings",
         form,
         PrivateConfig
       );
-      return console.log(res.data);
+
+      CreateElements(localStorage.getItem("authToken"));
+      navigate("/dashboard");
     } catch (error) {
       console.log(error);
     }

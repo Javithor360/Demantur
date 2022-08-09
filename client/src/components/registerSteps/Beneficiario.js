@@ -36,6 +36,9 @@ export const Beneficiario = () => {
           setstateOfStep4('complete')
           setError('');
           setSuccess('Cuenta creada correctamente');
+          localStorage.removeItem('FirstPartForm');
+          localStorage.removeItem('SecondPartForm');
+          localStorage.removeItem('ThirdPartForm');
           setTimeout(() => {
             nextButton();
           }, 2000);

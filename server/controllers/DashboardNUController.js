@@ -1,11 +1,11 @@
 const NormalUser = require("../models/NormalUser");
 const ErrorResponse = require("../utils/ErrorMessage");
 const GlobalData = require("../models/GlobalData");
+const Settings = require("../models/Settings");
+// const SavingAccount = require("../models/SavingAccount");
 
 const testDB = async (req, res, next) => {
   try {
-    const { yes } = req.body;
-
     Token = req.resetToken;
 
     if (!Token) {
@@ -25,38 +25,32 @@ const testDB = async (req, res, next) => {
     queryUser.save();
 
     const newGlobalData = await new GlobalData({
-      Notifications: [
-        { Titulo: "hola", Icono: "Icono", Url: "http://hola.com" },
-      ],
-      Contacts: [
-        {
-          Name: "Alvin Josue Melendez Serrano",
-          Dui: "123456-7",
-          Photo: "URLDEFOTO...",
-        },
-      ],
-      Prestamo: { Tipo: "Tipo1", Monto: 1060, Pagos: [{}] },
-      Cards: [{}],
-      UserOwner: queryUser._id,
+      Notifications: [],
+      Contacts: [],
+      Prestamo: {},
+      Cards: [],
+      DataOwner: queryUser._id,
     });
 
-    const response = await newGlobalData.save();
+    const GoblaDataRes = await newGlobalData.save();
 
-    console.log(response);
+    const newSettings = await new Settings({
+      SettingsOwner: queryUser._id,
+      RecoveryEmail: undefined,
+      PerfilPhoto: {
+        Url: undefined,
+        public_id: undefined,
+      }
+    })
 
-    res.json({ success: true, message: "STATUS UPDATED" });
+    const SettingsRes = await newSettings.save();
+
+    res.json({ success: true, data: { "MODELO GLOBAL DATA": GoblaDataRes, "MODELO SETTINGS": SettingsRes } });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
 };
 
-const PushDB = async (req, res, next) => {
-  try {
-    Token = req.resetToken;
-  } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
-  }
-};
 
 const getUserId = async (req, res, next) => {
   try {
@@ -70,8 +64,157 @@ const getUserId = async (req, res, next) => {
   }
 };
 
+const getGlobalInfo = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+
+    const query = await GlobalData.findOne({ DataOwner: token.user.id });
+
+    res.status(200).json({ success: true, data: query })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const getFriendsReq = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const AllUsers = await NormalUser.find();
+    const PedingFriends = await GlobalData.findOne({ DataOwner: token.user.id });
+    let arrayFil1 = [];
+    let arrayFil2 = [];
+    let arrayFil3 = [];
+
+    const SeparadorArrays = (array1, array2, arrayFiltrated) => {
+      for (let index1 = 0; index1 < array1.length; index1++) {
+        let igual = false;
+        for (let index2 = 0; index2 < array2.length; index2++) {
+          if (array2.length !== 0) {
+            if (array1[index1].Dui === array2[index2].Dui) {
+              igual = true;
+            }
+          }
+        }
+        if (!igual) {
+          arrayFiltrated.push(array1[index1]);
+        }
+      }
+    }
+
+    // filtrar del usuario logeado
+    const usersFiltrated = AllUsers.filter((item) => {
+      return item._id.toString() !== token.user.id.toString()
+    });
+
+
+    SeparadorArrays(usersFiltrated, PedingFriends.PendingFriendReq, arrayFil1);
+    SeparadorArrays(arrayFil1, PedingFriends.FriendRequests, arrayFil2);
+    SeparadorArrays(arrayFil2, PedingFriends.PendingFriendReq, arrayFil3);
+
+
+    res.status(200).json({ success: true, data: arrayFil3 })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+
+// post
+
+const addFriendRequest = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const { UserId } = req.body;
+
+    const UserRequested1 = await NormalUser.findOne({ _id: UserId });
+    const ThisUser1 = await NormalUser.findOne({ _id: token.user.id });
+
+    const ThisUser = await GlobalData.findOneAndUpdate(
+      { DataOwner: token.user.id },
+      {
+        $addToSet: {
+          PendingFriendReq: {
+            Name: `${UserRequested1.FirstName} ${UserRequested1.LastName}`,
+            Dui: UserRequested1.Dui,
+            Photo: 'foto link',
+          }
+        }
+      }
+    );
+
+    const UserRequested = await GlobalData.findOneAndUpdate(
+      { DataOwner: UserId },
+      {
+        $addToSet: {
+          FriendRequests: {
+            Name: `${ThisUser1.FirstName} ${ThisUser1.LastName}`,
+            Dui: ThisUser1.Dui,
+            Photo: 'foto link',
+          }
+        }
+      }
+    )
+
+    res.status(200).json({ success: true, data: { ThisUser: ThisUser, UserRequested: UserRequested } })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+// put
+const CancelPendingFr = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const { element } = req.body;
+
+    const UserRequested1 = await NormalUser.findOne({ Dui: element.Dui });
+    const ThisUser1 = await NormalUser.findOne({ _id: token.user.id });
+
+    const CanceledReq = await GlobalData.findOneAndUpdate(
+      { DataOwner: token.user.id },
+      {
+        $pull: {
+          PendingFriendReq: {
+            Name: `${element.FirstName} ${element.LastName}`,
+            Dui: element.Dui,
+            Photo: 'foto link',
+          }
+        }
+      }
+    );
+
+    const OtherUserPending = await GlobalData.findOneAndUpdate(
+      { DataOwner: UserRequested1._id },
+      {
+        $pull: {
+          FriendRequests: {
+            Name: `${ThisUser1.FirstName} ${ThisUser1.LastName}`,
+            Dui: ThisUser1.Dui,
+            Photo: 'foto link',
+          }
+        }
+      }
+    )
+
+    res.status(200).json({ success: true, data: { CanceledReq: CanceledReq, OtherUserPending: OtherUserPending } })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+// const CancelPendingFr = async (req, res, next) => {
+//   try {
+//     const token = req.resetToken;
+
+//   } catch (error) {
+//     res.status(500).json({ success: false, error: error.message });
+//   }
+// }
 module.exports = {
   testDB,
-  PushDB,
   getUserId,
+  getGlobalInfo,
+  getFriendsReq,
+  addFriendRequest,
+  CancelPendingFr
 };

@@ -1,0 +1,121 @@
+@use '../../../../../../utilities/_colors.scss' as *;
+.message-wrapper{
+    display: flex;
+    padding: 1rem;
+
+    .message-container{
+        background-color: $secondary_gray_400;
+        display: flex;
+        flex-direction: column;
+        // max-width: fit-content;
+        min-width: 40%;
+        position: relative;
+        border-radius: 0.375rem;
+        margin-top: 2rem;
+        margin-bottom: 2.25rem;
+        min-height: fit-content;
+    
+        .triangle-div-right{
+            position: absolute;
+            height: 1rem;
+            width: 1rem;
+            right: 1.5rem;
+            top: -.5rem;
+            transform: rotate(45deg);
+            background-color: inherit;
+        }
+        .triangle-div-left{
+            position: absolute;
+            height: 1rem;
+            width: 1rem;
+            left: 1.5rem;
+            top: -.5rem;
+            transform: rotate(45deg);
+            background-color: inherit;
+        }
+        .message-time-left{
+            color: $secondary_gray;
+            position: absolute;
+            left: .2rem;
+            top: -1.3rem;
+            font-size: .8rem;
+        }
+        .message-user-right{
+            color: $secondary_gray;
+            position: absolute;
+            right: .2rem;
+            top: -2.3rem;
+            font-size: .8rem;
+        }
+        .message-time-right{
+            color: $secondary_gray;
+            position: absolute;
+            right: .2rem;
+            top: -1.3rem;
+            font-size: .8rem;
+        }
+        .message-user-left{
+            color: $secondary_gray;
+            position: absolute;
+            left: .2rem;
+            top: -2.3rem;
+            font-size: .8rem;
+        }
+        .message-content{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.3rem 2rem;
+    
+            p:nth-of-type(1), p:nth-of-type(3){
+                font-size: 16px;
+                font-weight: bold;
+                color: $primary_gray;
+                margin: 0;
+            }
+            p:nth-of-type(2){
+                font-size: 24px;
+                color: $primary_dark;
+                margin: 0 0 .5rem 0;
+            }
+            p:nth-of-type(4){
+                font-size: 18px;
+                color: $primary_dark;
+                margin: .5rem 0 0 0;
+            }
+        }
+    }
+}
+.message-wrapper.own{
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.message-container.user{
+    background-color: $primary_dark;
+
+    .message-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1.3rem 2rem;
+
+        p:nth-of-type(1), p:nth-of-type(3){
+            font-size: 16px;
+            font-weight: bold;
+            color: $primary_white;
+            margin: 0;
+        }
+        p:nth-of-type(2){
+            font-size: 24px;
+            color: $primary_white;
+            margin: 0 0 .5rem 0;
+        }
+        p:nth-of-type(4){
+            font-size: 18px;
+            color: $primary_white;
+            margin: .5rem 0 0 0;
+        }
+    }
+}

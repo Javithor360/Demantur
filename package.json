@@ -4,7 +4,7 @@
   "description": "The real project",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon server --ignore client"
+    "start": "nodemon server --ignore client"
   },
   "author": "",
   "license": "ISC",
@@ -28,6 +28,8 @@
     "mongoose": "^6.3.5",
     "nodemailer": "^6.7.5",
     "react-i18next": "^11.18.1",
+    "react-loading-skeleton": "^3.1.0",
+    "skeleton": "^0.1.2",
     "styled-components": "^5.3.5",
     "tailwind": "^4.0.0"
   }

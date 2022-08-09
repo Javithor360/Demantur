@@ -28,10 +28,12 @@ import {
   LoginNormalUserPage,
   ForgotPasswordPage,
   ResetPasswordPage,
+  VerifyEmailPage,
 } from "./pages/static";
 
 import { DashboardNormalUser, CreateSavingAcc } from "./pages/private/index";
-import { AuthValidate } from "./pages/private/routers/AuthValidate";
+// routers
+import { AuthValidate, OutAuthValidate, FirstLogVal, StartingValidate } from "./routers/indexRoutesDash";
 
 //contexts
 import { AuthProvider } from "./context/AuthContext";
@@ -86,24 +88,14 @@ const App = () => {
             {/* Rutas de la autentificacion */}
             <Route path="/auth" element={<SelectAccountPage />} />
             <Route path="/auth/normal-user/" element={<SelectAccountPage />} />
-            <Route
-              path="/auth/normal-user/login"
-              element={<LoginNormalUserPage />}
-            />
-            <Route
-              path="/auth/normal-user/register"
-              element={<RegisterNormalUserPage />}
-            />
-            <Route
-              path="/auth/forgot-password"
-              element={<ForgotPasswordPage />}
-            />
-            <Route
-              path="/auth/reset-password/:resetToken"
-              element={<ResetPasswordPage />}
-            />
+            <Route path="/auth/normal-user/login" element={<OutAuthValidate><LoginNormalUserPage /></OutAuthValidate>} />
+            <Route path="/auth/normal-user/register" element={<OutAuthValidate><RegisterNormalUserPage /></OutAuthValidate>} />
+            <Route path="/auth/forgot-password" element={<OutAuthValidate><ForgotPasswordPage /></OutAuthValidate>} />
+            <Route path="/auth/reset-password/:resetToken" element={<OutAuthValidate><ResetPasswordPage /></OutAuthValidate>} />
+            <Route path="/auth/verify-email" element={<OutAuthValidate><VerifyEmailPage /></OutAuthValidate>} />
 
             {/*Rutas de "/loans"*/}
+<<<<<<< HEAD
             <Route path="/loans" element={<LoansPage />}></Route>
             <Route
               path="/loans/BusinessLoan"
@@ -135,6 +127,18 @@ const App = () => {
                 </AuthValidate>
               }
             ></Route>
+=======
+            <Route path="/loans" element={<LoansPage />} />
+            <Route path="/loans/BusinessLoan" element={<BusinessLoan />} />
+            <Route path="/Loans/PersonalLoan" element={<PersonalLoan />} />
+            <Route path="/Loans/HouseLoan" element={<HouseLoan />} />
+
+
+            {/* test dashboard */}
+            <Route path="/dashboard" element={<AuthValidate><FirstLogVal><DashboardNormalUser /></FirstLogVal></AuthValidate>} />
+            <Route path="/normal-user/starting" element={<AuthValidate><StartingValidate><CreateSavingAcc /></StartingValidate></AuthValidate>} />
+
+>>>>>>> 37ea817bd86dd9da906cafc9e6f5629dcb2a82a7
           </Routes>
         </DashProvider>
       </AuthProvider>

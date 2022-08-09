@@ -34,6 +34,7 @@ export const VerifyEmailPage = () => {
         setError('')
         setTimeout(() => {
           setSuccess('Su Email ha sido verificado');
+          localStorage.removeItem('SecondPartForm');
           setTimeout(() => {
             setChargin(false)
             setSuccess('Ahora puede Iniciar Sesion');
@@ -85,7 +86,7 @@ export const VerifyEmailPage = () => {
                         <><VscLoading className='CharginIcon CharginIcon-Login' /></>
                         :
                         <>
-                          <span>Iniciar Sesion</span>
+                          <span>Verificar</span>
                           <div className='divisor'></div>
                           <Arrrow className='arrow-ico-re' />
                         </>

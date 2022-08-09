@@ -46,7 +46,86 @@
     "4": "Photocopy of NIT of the Company.",
     "5": "Photocopy of the Legal Representative Credential registered in the Registry of Commerce."
   },
-
+  "selectpage":{
+    "hero":{
+      "tittle": "User Selection",
+      "subtitle":"Welcome to the accounts interface"
+    },
+    "body":{
+      "tittle": "Welcome again",
+      "subtittle": "Welcome to the User Selection interface, please select the type of User you are the owner of, make sure you select the option with your account type and all your data correctly",
+      "tittle2":"Other options",
+      "subtittle2":"we have other options in case you already have an account, we have the following tools that could help you",
+      "tittle3":"how to register?"
+    },
+    "cards":{
+      "1":{
+        "tittle":"Normal account",
+        "subtittle":"If your company does not yet have an account with us, contract it in a safe, agile and digital way without going to an office or a bank.",
+        "button1":"log in",
+        "button2":"Register"
+      },
+      "2":{
+        "tittle":"Business Account",
+        "subtittle":"The best option in terms of managing your bank statement, all from the comfort of your home without having to go to a bank",
+        "button1":"log in",
+        "button2":"Register"
+      },
+      "3":{
+        "tittle":"Change of password",
+        "subtittle":"If you forget your password, this is the best option to recover your account and set a new password.",
+        "button1":"Go"
+      },
+      "4":{
+        "tittle":"Email verification",
+        "subtittle":"In case you have created an account but have not verified it yet here you can verify your account.",
+        "button1":"Go"
+      }
+    },
+    "info":{
+      "1":{
+        "first":"The first step will be to arrive at the form with the data requested, such as:",
+        "1":"Names",
+        "2":"Lastnames",
+        "3":"Date of Birth",
+        "4":"direction",
+        "note":"note",
+        "info":"Make sure the information is in capital letters and the address is as detailed as possible"
+      },
+      "2":{
+        "first":"Then you must enter the information requested below:",
+        "1":"DUI",
+        "2":"Email",
+        "3":"set a password",
+        "4":"Confirm your password",
+        "note":"note",
+        "info":"Make sure the information is correct and well written"
+      },
+      "3":{
+        "first":"In the next step, you will be asked for information about your monetary data. In order to provide you with a better service, the requested data is as follows:",
+        "1":"Social status",
+        "2":"Salary range",
+        "3":"Workplace",
+        "4":"Copy of employment certificate",
+        "note":"note",
+        "info":"Make sure the copy is as clear as possible and fill in the data correctly"
+      },
+      "4":{
+        "first":"For security measures, you will be asked to enter the data of a beneficiary in case something happens to you, in which the following data will be requested:",
+        "1":"Names",
+        "2":"Lastnames",
+        "3":"DUI",
+        "4":"Phone number",
+        "note":"note",
+        "info":"Make sure your beneficiary details are correct"
+      },
+      "5":{
+        "first":"As a last step you must enter a verification code that will be provided to the email you entered in the form to verify your account",
+        "note":"note",
+        "info":"This step is essential to follow as it will help us to activate your account"
+      }
+    }
+  },
   "index": {
     "slider": {
       "title": "Online Banking",

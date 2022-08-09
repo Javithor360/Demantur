@@ -610,7 +610,7 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
   top: -0.5rem !important;
   font-size: 1rem !important;
   left: 0.8rem !important;
-  z-index: 11;
+  z-index: 100;
   color: $dark-blue  !important;
 }
 

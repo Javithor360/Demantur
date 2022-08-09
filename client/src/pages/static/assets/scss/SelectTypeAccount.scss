@@ -19,7 +19,7 @@
   position: absolute;
   width: inherit;
   height: inherit;
-  background-color: rgba(0, 0, 0, 0.199);
+  background-color: rgba(0, 0, 0, 0.459);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,6 +81,9 @@
   opacity: 1;
   box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.125);
 }
+.flex{
+  display: flex;
+}
 
 // .icons {
 //   display: block;
@@ -109,15 +112,12 @@
 .custom-btn {
   width: 150px;
   height: 40px;
-  padding: 10px 25px;
   border: none;
   font-family: 'Lato', sans-serif;
   font-weight: 500;
   margin-left: 0.8rem;
   background: transparent;
   cursor: pointer;
-  position: relative;
-  display: inline-block;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -126,14 +126,34 @@
   color: #fff;
   z-index: 1;
 }
-
-
-
-.boton-position {
-  margin-left: 3.5rem;
+.custom-btn:hover:hover {
+  -ms-transform: scale(1.01); /* IE 9 */
+  -webkit-transform: scale(1.01); /* Safari 3-8 */
+  transform: scale(1.01); 
 }
+
 .iconst{
   font-size: 6rem;
   display: block;
   margin: auto;
+}
+.content-info{
+  background-color:#323643;
+  color: #fff;
+  width: 55rem;
+  height: 26rem;
+  margin-top: 4rem;
+  margin-bottom: 10rem;
+  border-radius: 1rem;
+}
+.content-info li{
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.img-register{
+  float: right;
+  margin-right: 8rem;
+}
+.img-register img{
+  width: 50rem;
 }

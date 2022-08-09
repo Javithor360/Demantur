@@ -2,8 +2,6 @@
 import './assets/scss/createSavingAccStyle.scss'
 //images
 import Icon from './assets/img/icons/new-acc-icon.svg'
-//components
-import { Navbar, Footer } from '../../components'
 import Modal from './components/Modal'
 import { CreateSavingAccForm } from './components/CreateSavingAccForm'
 //hooks
@@ -11,6 +9,8 @@ import { useState, useEffect } from 'react';
 
 export const CreateSavingAcc = () => {
   const [active, setActive] = useState(false);
+  const [Chargin, setChargin] = useState(true)
+
   const toggle = () => {
     setActive(!active)
   }
@@ -20,9 +20,19 @@ export const CreateSavingAcc = () => {
     }
   }, [active])
 
+  useEffect(() => {
+    setTimeout(() => {
+      setChargin(false)
+    }, 1500)
+  }, [])
+
   return (
     <>
-      <Navbar />
+      {Chargin === true &&
+        <div className="container-texts">
+          <span className="loader"></span>
+        </div>
+      }
       <div className="w-screen h-screen bg-[#F1F1F1] relative">
         <div className="w-full h-2/5 bg-[#323643] absolute"></div>
         <div className='w-screen h-screen flex items-center justify-center'>
@@ -46,14 +56,13 @@ export const CreateSavingAcc = () => {
             </div>
             <div className='create-acc-bg h-[100%] w-[40%]'></div>
           </div>
-            { toggle &&
-              <Modal active={active} toggle={toggle} onRequestClose={toggle}>
-                  <CreateSavingAccForm />
-              </Modal>
-            }
+          {toggle &&
+            <Modal active={active} toggle={toggle} onRequestClose={toggle}>
+              <CreateSavingAccForm />
+            </Modal>
+          }
         </div>
       </div>
-      <Footer />
     </>
   )
 }

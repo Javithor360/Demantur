@@ -21,7 +21,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
     "react-spring": "^9.5.2",
-    "react-transition-group": "^4.4.4",
+    "react-transition-group": "^4.4.5",
     "sass": "^1.52.3",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4",

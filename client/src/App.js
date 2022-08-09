@@ -117,11 +117,6 @@ const App = () => {
               {" "}
             </Route>
 
-            <Route
-              path="/normal-user/create-saving-account"
-              element={<CreateSavingAcc />}
-            ></Route>
-
             {/* test dashboard */}
             <Route
               path="/dashboard"
@@ -131,6 +126,15 @@ const App = () => {
                 </AuthValidate>
               }
             />
+
+            <Route
+              path="/dashboard/welcome"
+              element={
+                <AuthValidate>
+                  <CreateSavingAcc />
+                </AuthValidate>
+              }
+            ></Route>
           </Routes>
         </DashProvider>
       </AuthProvider>

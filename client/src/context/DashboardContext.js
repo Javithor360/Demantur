@@ -25,11 +25,19 @@ export const DashProvider = ({ children }) => {
     }
   };
 
+  const QueryCreateSavingsAccount = async () => {
+    try {
+      return await getInfo();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 
   return (
     <dashContext.Provider value={{
       Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
-      Query, Info, setInfo
+      Query, Info, setInfo, QueryCreateSavingsAccount
     }}>
       {children}
     </dashContext.Provider>

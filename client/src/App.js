@@ -31,7 +31,7 @@ import {
   VerifyEmailPage,
 } from "./pages/static";
 
-import { DashboardNormalUser, CreateSavingAcc } from "./pages/private/index";
+import { DashboardNormalUser, CreateSavingAcc, DashboarEmple } from "./pages/private/index";
 // routers
 import {
   AuthValidate,
@@ -141,6 +141,7 @@ const App = () => {
             <Route path="/Loans/HouseLoan" element={<HouseLoan />} />
 
             {/* test dashboard */}
+            <Route path="/dashboarde" element={<DashboarEmple />} />
             <Route
               path="/dashboard"
               element={

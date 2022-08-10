@@ -60,6 +60,14 @@ export const DashProvider = ({ children }) => {
     }
   };
 
+  const DematurClassicForm = async () => {
+    try {
+      return await getInfo();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const CreateElements = async (Token) => {
     try {
       const Res = await creatElements(PrivateConfig(Token));
@@ -127,6 +135,7 @@ export const DashProvider = ({ children }) => {
         cancelFriendReq,
         ReloadState,
         setReloadState,
+        DematurClassicForm,
       }}
     >
       {children}

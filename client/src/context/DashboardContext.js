@@ -1,5 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react"
-import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, getPedingFrReq, cancelFrReq } from "../api/Queries";
+import {
+  creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, getPedingFrReq, cancelFrReq,
+  AcceptFriendReq
+} from "../api/Queries";
 
 const dashContext = createContext();
 
@@ -21,6 +24,7 @@ export const DashProvider = ({ children }) => {
   const [FriendRequest, setFriendRequest] = useState([]);
 
   const [ReloadState, setReloadState] = useState(false);
+  const [ReloadState2, setReloadState2] = useState(false);
 
 
   useEffect(() => {
@@ -49,7 +53,7 @@ export const DashProvider = ({ children }) => {
 
   const CreateElements = async (Token) => {
     try {
-      const Res = await creatElements(PrivateConfig(Token));
+      await creatElements(PrivateConfig(Token));
       // console.log(Res);
     } catch (error) {
       console.log(error);
@@ -84,19 +88,29 @@ export const DashProvider = ({ children }) => {
 
   const cancelFriendReq = async (Token, el) => {
     try {
-      const res = await cancelFrReq(PrivateConfig(Token), el)
+      await cancelFrReq(PrivateConfig(Token), el)
+      // console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const AcceptFriend = async (Token, el) => {
+    try {
+      const res = await AcceptFriendReq(PrivateConfig(Token), el);
       console.log(res)
     } catch (error) {
       console.log(error)
     }
   }
 
+
   return (
     <dashContext.Provider value={{
       Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
       GeneralInfoQuery, Info, CreateElements, getGlobalInfo, GlobalInfo, getUsersToFriendReq, addFriendRequest,
       Contacts, PedingFriendReq, FriendRequest, setPedingFriendReq, cancelFriendReq,
-      ReloadState, setReloadState
+      ReloadState, setReloadState, AcceptFriend, ReloadState2, setReloadState2
     }}>
       {children}
     </dashContext.Provider>

@@ -16,7 +16,7 @@ export const Contacts = () => {
   const [UsersToReq, setUsersToReq] = useState([]);
   const [UsersSearched, setUsersSearched] = useState([]);
 
-  const { getGlobalInfo, getUsersToFriendReq, Contacts, FriendRequest } = useDash();
+  const { getGlobalInfo, getUsersToFriendReq, Contacts } = useDash();
 
   useEffect(() => {
     getGlobalInfo(localStorage.getItem('authToken'));

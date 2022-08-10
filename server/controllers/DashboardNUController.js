@@ -165,44 +165,70 @@ const addFriendRequest = async (req, res, next) => {
 const CancelPendingFr = async (req, res, next) => {
   try {
     const token = req.resetToken;
-    const { element } = req.body;
+    const { el: element } = req.body;
 
     const UserRequested1 = await NormalUser.findOne({ Dui: element.Dui });
     const ThisUser1 = await NormalUser.findOne({ _id: token.user.id });
 
-    const CanceledReq = await GlobalData.findOneAndUpdate(
+    await GlobalData.findOneAndUpdate(
+      { DataOwner: token.user.id },
+      { $pull: { PendingFriendReq: { Dui: element.Dui } } }
+    );
+
+    await GlobalData.findOneAndUpdate(
+      { DataOwner: UserRequested1._id },
+      { $pull: { FriendRequests: { Dui: ThisUser1.Dui } } }
+    );
+
+    res.status(200).json({ success: true, data: { message: 'Eliminado Correctamente' } });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+    console.log(error);
+  }
+}
+
+const AcceptFriend = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const { el: element } = req.body;
+
+    const UserRequested = await NormalUser.findOne({ Dui: element.Dui });
+    const ThisUser = await NormalUser.findOne({ _id: token.user.id });
+
+    // agregar contacto
+    await GlobalData.findOneAndUpdate(
       { DataOwner: token.user.id },
       {
-        $pull: {
-          PendingFriendReq: {
-            Name: `${element.FirstName} ${element.LastName}`,
-            Dui: element.Dui,
+        $addToSet: {
+          Contacts: {
+            Name: `${UserRequested.FirstName} ${UserRequested.LastName}`,
+            Dui: UserRequested.Dui,
+            Photo: 'foto link',
+          }
+        }
+      }
+    );
+    await GlobalData.findOneAndUpdate(
+      { DataOwner: UserRequested._id },
+      {
+        $addToSet: {
+          Contacts: {
+            Name: `${ThisUser.FirstName} ${ThisUser.LastName}`,
+            Dui: ThisUser.Dui,
             Photo: 'foto link',
           }
         }
       }
     );
 
-    const OtherUserPending = await GlobalData.findOneAndUpdate(
-      { DataOwner: UserRequested1._id },
-      {
-        $pull: {
-          FriendRequests: {
-            Name: `${ThisUser1.FirstName} ${ThisUser1.LastName}`,
-            Dui: ThisUser1.Dui,
-            Photo: 'foto link',
-          }
-        }
-      }
-    )
-
-    res.status(200).json({ success: true, data: { CanceledReq: CanceledReq, OtherUserPending: OtherUserPending } })
+    res.status(200).json({ success: true, data: element });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
 }
 
-// const CancelPendingFr = async (req, res, next) => {
+
+// const AcceptFriend = async (req, res, next) => {
 //   try {
 //     const token = req.resetToken;
 
@@ -216,5 +242,6 @@ module.exports = {
   getGlobalInfo,
   getFriendsReq,
   addFriendRequest,
-  CancelPendingFr
+  CancelPendingFr,
+  AcceptFriend
 };

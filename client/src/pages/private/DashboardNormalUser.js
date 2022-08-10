@@ -7,7 +7,7 @@ import { Contacts, HomePage, Transactions } from "./components/DashElements/inde
 import { useEffect, useState } from "react";
 
 export const DashboardNormalUser = () => {
-  const { Option, SettingsOption, GeneralInfoQuery } = useDash();
+  const { Option, SettingsOption, GeneralInfoQuery, } = useDash();
 
   const [Chargin, setChargin] = useState(true)
 

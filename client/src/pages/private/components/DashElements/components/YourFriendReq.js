@@ -2,10 +2,10 @@ import React from 'react'
 import { useDash } from '../../../../../context/DashboardContext'
 
 export const YourFriendReq = () => {
-    const { FriendRequest } = useDash()
+    const { FriendRequest, AcceptFriend } = useDash()
 
-    const FriendToAccept = () => {
-
+    const FriendToAccept = (el) => {
+        AcceptFriend(localStorage.getItem('authToken'), el);
     }
 
     const FriendToDecline = () => {
@@ -20,7 +20,7 @@ export const YourFriendReq = () => {
                         return (
                             <div key={i}>
                                 nombre: {el.Name}, Dui: {el.Dui}, foto: {el.Photo}
-                                <button onClick={FriendToAccept}>Aceptar</button>
+                                <button onClick={() => { FriendToAccept(el) }}>Aceptar</button>
                                 <button onClick={FriendToDecline}>Rechazar</button>
                             </div>
                         )

@@ -4,20 +4,20 @@ import { useDash } from "../../../../context/DashboardContext";
 export const HomePage = () => {
   const { Info } = useDash();
   return (
-    <>
+    <div>
       <div className="flex gap-3 my-1">
-        <div className="h-[10.125rem] bg-white basis-[40%] rounded-[0.75rem]">
+        <div className=" bg-white basis-[40%] rounded-[0.75rem]">
           <div className="m-[2rem] flex justify-between">
             <div>
               <h2 className="text-gray-500 text-[1.5625rem]">Saldo Neto:</h2>
-              <p className="text-[2.5rem]">$ 9,999.99</p>
+              <p className="text-[1.7rem]">$ 9,999.99</p>
             </div>
             <div className=" my-auto p-[10px] bg-[#323643] rounded-[50px]">
-              <IoWalletSharp className="text-[4rem] text-white" />
+              <IoWalletSharp className="text-[3rem] text-white" />
             </div>
           </div>
         </div>
-        <div className="h-[10.125rem] bg-white basis-[60%] rounded-[0.75rem]">
+        <div className=" bg-white basis-[60%] rounded-[0.75rem]">
           <div className="mx-[2rem] my-[1rem]">
             <h2 className="text-gray-500 text-[1.5625rem]">Datos personales</h2>
             <div className="grid grid-cols-3 gap-1">
@@ -40,7 +40,7 @@ export const HomePage = () => {
         </div>
       </div>
       <div className="flex gap-3 my-1">
-        <div className="h-[350.1px] basis-[70%] bg-white rounded-[0.75rem]">
+        <div className="basis-[70%] bg-white rounded-[0.75rem]">
           <div className="m-[2rem] flex justify-between">
             <div>
               <h2 className="text-gray-500 text-[1.5625rem]">
@@ -49,7 +49,7 @@ export const HomePage = () => {
             </div>
           </div>
         </div>
-        <div className="h-[350.1px] basis-[30%] bg-white rounded-[0.75rem]">
+        <div className="basis-[30%] bg-white rounded-[0.75rem]">
           <div className="m-[2rem] flex justify-between">
             <div>
               <h2 className="text-gray-500 text-[1.5625rem]">
@@ -61,14 +61,14 @@ export const HomePage = () => {
       </div>
 
       <div className="flex gap-3 my-1">
-        <div className="h-[236px] basis-[65%] bg-red-400 rounded-[0.75rem]">
+        <div className="basis-[65%] bg-white rounded-[0.75rem]">
           <div className="m-[2rem] flex justify-between">
             <div>
               <h2 className="text-gray-500 text-[1.5625rem]">Tarjetas</h2>
             </div>
           </div>
         </div>
-        <div className="h-[236px] basis-[35%] bg-slate-400 rounded-[0.75rem]">
+        <div className="basis-[35%] bg-white rounded-[0.75rem]">
           <div className="m-[2rem] flex justify-between">
             <div>
               <h2 className="text-gray-500 text-[1.5625rem]">Préstamo</h2>
@@ -76,7 +76,6 @@ export const HomePage = () => {
           </div>
         </div>
       </div>
-    </>
-
+    </div>
   );
 };

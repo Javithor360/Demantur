@@ -188,3 +188,63 @@ body{
     margin: 5rem auto 0 auto;
     display: block;
 }
+
+@media (max-width:975px){
+    .banner-content{
+        height: 20rem;
+        flex-basis: 25rem;
+    }
+
+    .contact-form-container form{
+        width: 75%;
+    }
+
+    .contact-information{
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width:870px){
+    .tittle{
+        font-size: 1.5rem;
+    }
+    .banner-content{
+        margin-left: 2rem;
+    }
+    .contact-form-container{
+        width: 60%;
+    }
+}
+
+@media (max-width:665px){
+    .contact-form-container{
+        width: 70%;
+    }
+}
+
+@media(max-width:580px){
+    .banner-content{
+        flex-basis: 20rem;
+        img{
+            width: 3rem;
+        }
+
+        h1{
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media (max-width:445px){
+
+    
+    .banner-content{
+        margin-left: 1rem;
+        flex-basis: 18rem;
+        height: 20rem;
+    }
+
+    .contact-form-container{
+        width: 75%;
+    }
+}

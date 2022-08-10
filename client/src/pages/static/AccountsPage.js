@@ -19,46 +19,49 @@ import {
   FaClock,
 } from "react-icons/fa";
 
+// Translation
+import { useTranslation } from "react-i18next";
+
 const AccountsImg = require.context("./assets/img/acc", true);
 
 export const AccountsPage = () => {
+  const {t}= useTranslation();
   return (
     <>
       <Navbar />
       <section className="acc-hero">
         <div className="acc-hero-cont">
           <BsPiggyBank size="4.375rem" color="#fff" />
-          <h1>Cuentas</h1>
-          <p>Conoce nuestra gama de posibilidades</p>
+          <h1>{t("AccountPage.tittle")}</h1>
+          <p>{t("AccountPage.desc")}</p>
         </div>
       </section>
 
       <section className="post-hero-container">
         <div className="post-hero-info">
-          <p>Tipos de cuenta</p>
+          <p>{t("AccountPage.types")}</p>
           <hr />
         </div>
 
         <div className="acc-container">
           <div className="acc-details">
-            <h1>Cuenta Corriente</h1>
+            <h1>{t("AccountPage.Checking.tittle")}</h1>
             <p className="acc-desc">
-              Disfruta de la liquidez inmediata con tu tarjeta de débito o
-              chequera.
+            {t("AccountPage.Checking.desc")}
             </p>
             <p className="acc-feature">
-              <FaMoneyCheckAlt color="#455FB9" /> Solicita tu chequera en Línea
+              <FaMoneyCheckAlt color="#455FB9" /> {t("AccountPage.Checking.details.1")}
             </p>
             <p className="acc-feature">
-              <FaScroll color="#455FB9" /> Estado de cuenta digital
+              <FaScroll color="#455FB9" /> {t("AccountPage.Checking.details.1")}
             </p>
             <p className="acc-feature">
-              <FaRegCreditCard color="#455FB9" /> Tarjeta de débito
-              internacional
+              <FaRegCreditCard color="#455FB9" /> {t("AccountPage.Checking.details.1")}
+              {t("AccountPage.Checking.details.1")}
             </p>
             <Link to="/accounts/checking">
-              <div className="acc-button">
-                <span>Más información</span>
+              <div className="acc-button corrienteButton">
+                <span>{t("AccountPage.button")}</span>
                 <FaAngleRight color="#fff" />
               </div>
             </Link>
@@ -71,25 +74,23 @@ export const AccountsPage = () => {
 
         <div className="acc-container">
           <div className="acc-details">
-            <h1>Cuenta de Ahorros</h1>
+            <h1>{t("AccountPage.Savings.tittle")}</h1>
             <p className="acc-desc">
-              Dispone de tu dinero sin restricción de fondos las 24 horas del
-              día.
+            {t("AccountPage.Savings.desc")}
             </p>
             <p className="acc-feature">
-              <FaClock color="#455FB9" /> Disponibilidad inmediata
+              <FaClock color="#455FB9" /> {t("AccountPage.Checking.details.1")}
             </p>
             <p className="acc-feature">
-              <BsCreditCard2Back color="#455FB9" /> Tarjeta de débito Demantur
+              <BsCreditCard2Back color="#455FB9" /> {t("AccountPage.Checking.details.2")}
               Classic
             </p>
             <p className="acc-feature">
-              <BsArrowUpRightCircleFill color="#455FB9" /> Controla tus
-              movimientos 24/7
+              <BsArrowUpRightCircleFill color="#455FB9" /> {t("AccountPage.Checking.details.3")}
             </p>
             <Link to="/accounts/savings">
-              <div className="acc-button">
-                <span>Más información</span>
+              <div className="acc-button ahorroButton">
+                <span>{t("AccountPage.button")}</span>
                 <FaAngleRight color="#fff" />
               </div>
             </Link>

@@ -1,0 +1,78 @@
+@use '../../../../../utilities/_colors.scss' as *;
+
+.dash-card-info{
+    border: 1px solid $gray_dimmed;
+    box-shadow: 0px 0px 5px .5px rgba(44, 40, 40, 0.212);
+    background-color: $secondary_white_200;
+    min-height: 15rem;
+    margin-bottom: 2rem;
+}
+.left-cards-container::-webkit-scrollbar{
+    display: block;
+    width: 8px;
+}
+.left-cards-container::-webkit-scrollbar-track{
+    background: hidden;
+    margin-top: 0.625rem;
+    margin-bottom: 0.625rem;
+}
+.left-cards-container::-webkit-scrollbar-thumb{
+    background-color: $secondary_gray_200;
+    border-right: none;
+    border-left: none;
+}
+.dash-left-card-img{
+    width: 180px;
+    margin-left: 1.25rem;
+}
+.dash-card-info .dash-card-info-content{
+    display: flex;
+    flex-direction: column;
+
+    .content-text{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1rem 0 1rem;
+
+        p:nth-of-type(2){
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+    }
+}
+.card-tipe-tittle{
+    hr{
+        border: 0;
+        opacity: 1;
+        height: .1rem;
+        background-color: $primary_dark;
+    }
+}
+@media (min-width: 1920px){
+    .dash-card-info{
+        min-height: 12rem;
+    }
+    .dash-card-info .dash-card-info-content{
+        display: flex;
+        flex-direction: row;
+        
+        .content-text{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 2.5rem 0 2rem;
+    
+            p:nth-of-type(2){
+                text-align: start;
+                margin-bottom: 0;
+
+            }
+        }
+        .card-info-btn{
+            margin-right: 1.5rem;
+        }
+    }
+}

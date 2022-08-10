@@ -3,7 +3,7 @@ import "./components/assets/scss/SideBar_Main.scss";
 import { SideBar, Header, Settings } from "./components/indexComp";
 import { useDash } from "../../context/DashboardContext";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
-import { Contacts, HomePage, Transactions } from "./components/DashElements/indexDashElement";
+import { Contacts, HomePage, Transactions, UserCards } from "./components/DashElements/indexDashElement";
 import { useEffect, useState } from "react";
 
 export const DashboardNormalUser = () => {
@@ -33,7 +33,7 @@ export const DashboardNormalUser = () => {
       case 5:
         return <Contacts />;
       case 6:
-        return <h1>Tarjetas</h1>;
+        return <UserCards/>
       default:
         return <h1>Home Page</h1>;
     }

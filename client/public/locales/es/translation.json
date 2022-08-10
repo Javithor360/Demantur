@@ -37,6 +37,86 @@
     }
 
   },
+  "selectpage":{
+    "hero":{
+      "tittle": "Selección de usuario",
+      "subtitle":"Bienvenido a la interfaz de cuentas"
+    },
+    "body":{
+      "tittle": "Bienvenido de nuevo",
+      "subtittle": "Bienvenido a la interfaz de selección de usuario, seleccione el tipo de usuario del que es propietario, asegúrese de seleccionar la opción con su tipo de cuenta y todos sus datos correctamente",
+      "tittle2":"Otras opciones",
+      "subtittle2":"Tenemos otras opciones en caso de que ya tengas una cuenta, tenemos las siguientes herramientas que podrían ayudarte",
+      "tittle3":"¿Cómo registrarse?"
+    },
+    "cards":{
+      "1":{
+        "tittle":"Cuenta normal",
+        "subtittle":"Si tu empresa aún no tiene una cuenta con nosotros, contrátala de forma segura, ágil y digital sin desplazarte a una oficina o a un banco.",
+        "button1":"Iniciar sesión",
+        "button2":"Registrarse"
+      },
+      "2":{
+        "tittle":"Cuenta de negocios",
+        "subtittle":"La mejor opción en cuanto a la gestión de tu extracto bancario, todo desde la comodidad de tu hogar sin necesidad de ir a un banco",
+        "button1":"Iniciar sesión",
+        "button2":"Registrarse"
+      },
+      "3":{
+        "tittle":"Cambio de contraseña",
+        "subtittle":"Si olvida su contraseña, esta es la mejor opción para recuperar su cuenta y establecer una nueva contraseña.",
+        "button1":"Ir"
+      },
+      "4":{
+        "tittle":"Verificacion de email",
+        "subtittle":"En caso de que haya creado una cuenta pero aún no la haya verificado, aquí puede verificar su cuenta.",
+        "button1":"Ir"
+      }
+    },
+    "info":{
+      "1":{
+        "first":"El primer paso será llegar al formulario con los datos solicitados, tales como:",
+        "1":"Nombres",
+        "2":"Apellidos",
+        "3":"Fecha de cumpkeaños",
+        "4":"Direccion",
+        "note":"Nota",
+        "info":"Asegúrate de que la información esté en mayúsculas y que la dirección sea lo más detallada posible"
+      },
+      "2":{
+        "first":"Luego deberás ingresar la información que se solicita a continuación:",
+        "1":"DUI",
+        "2":"Correo electronico",
+        "3":"Establecer una contraseña",
+        "4":"Confirmar contraseña",
+        "note":"Nota",
+        "info":"Asegúrate de que la información sea correcta y esté bien escrita."
+      },
+      "3":{
+        "first":"En el siguiente paso, se le pedirá información sobre sus datos monetarios. Con el fin de brindarle un mejor servicio, los datos solicitados son los siguientes:",
+        "1":"Estatus social",
+        "2":"Rango salarial",
+        "3":"Lugar de trabajo",
+        "4":"Copia del certificado de empleo",
+        "note":"Nota",
+        "info":"Procura que la copia sea lo más clara posible y rellena los datos correctamente"
+      },
+      "4":{
+        "first":"Por medidas de seguridad se le pedirá que ingrese los datos de un beneficiario por si le pasa algo, en el cual se le solicitarán los siguientes datos:",
+        "1":"Nombres",
+        "2":"Apellidos",
+        "3":"DUI",
+        "4":"Número de teléfono",
+        "note":"Nota",
+        "info":"Asegúrese de que los datos de su beneficiario sean correctos"
+      },
+      "5":{
+        "first":"Como último paso deberás ingresar un código de verificación que te será proporcionado al correo electrónico que ingresaste en el formulario para verificar tu cuenta",
+        "note":"Nota",
+        "info":"Este paso es fundamental de seguir ya que nos ayudará a activar tu cuenta"
+      }
+    }
+  },
 
   "bannertab":{
     "tittle":"requisitos",
@@ -46,6 +126,7 @@
     "4":"Fotocopia del NIT de la Empresa.",
     "5":"Fotocopia de la Credencial de Representante Legal inscrita en el Registro de Comercio."
   },
+  
 
   "index": {
     "slider": {
@@ -615,5 +696,69 @@
       "desc": "¿En que te podemos ayudar?",
       "button": "Enviar"
     }
+   },
+   "AccountPage":{
+     "tittle": "Cuentas",
+     "desc": "Conoce nuestra gama de posibilidades",
+     "types": "Tipos de Cuentas",
+     "button": "Más información",
+     "Checking":{
+      "tittle": "Cuenta Corriente",
+      "desc": "Disfruta de la liquidez inmediata con tu tarjeta de débito o chequera.",
+      "details":{
+        "1": " Solicita tu chequera en Línea",
+        "2": "Estado de cuenta digital",
+        "3": "Tarjeta de débito internacional"
+      }
+     },
+     "Savings":{
+       "tittle": "Cuenta de Ahorros",
+       "desc": "Dispone de tu dinero sin restricción de fondos las 24 horas del día.",
+       "details":{
+         "1": "Disponibilidad inmediata",
+         "2": "Tarjeta de débito Demantur Classic",
+         "3": "Controla tus movimientos 24/7"
+       }
+     }
+   },
+   "CheckingPage":{
+     "tittle": "Cuenta Corriente",
+     "subtittle": "Disfruta de diversos beneficios",
+     "benefit":{
+      "1": "Solicita tu chequera en Línea",
+      "2": "Estado de cuenta digital",
+      "3": "Tarjeta de Débito internacional"
+     },
+     "requirements":{
+      "tittle": "Requisitos y condiciones",
+      "subtittle": "Requisitos",
+      "1": "NIT en buen estado.",
+      "2": "DUI, carné de residente ó pasaporte con información actualizada, vigente y en buen estado.",
+      "3": "Apertura mínima desde $200.",
+      "button": "Solicitae"
+     }
+   },
+   "SavingPage":{
+     "tittle": "Cuenta de Ahorros",
+     "subtittle": "Disfruta de diversos beneficios",
+     "button": "Solicitar",
+     "benefit":{
+       "1": "Disponibilidad inmediata",
+       "2": "Tarjeta de débito Demantur",
+       "3": "Controla tus movimientos 24/7"
+      },
+      "requirements":{
+       "tittle": "Requisitos y condiciones",
+       "subtittle": "Requirements",
+       "1": "Apertura mínima desde US$25.00",
+       "2": "DUI, carné de residente ó pasaporte con información actualizada, vigente y en buen estado",
+       "3": "NIT"
+      },
+      "conditions":{
+       "tittle": "Condiciones",
+       "1": "Aplica para persona natural",
+       "2": "Monto mínimo de apertura: $25.00",
+       "3": "Tasa de interés de acuerdo a tabla publicada el 1 de cada mes"
+      }
    }
 }

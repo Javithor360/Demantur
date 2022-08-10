@@ -24,7 +24,6 @@ export const DashProvider = ({ children }) => {
   const [FriendRequest, setFriendRequest] = useState([]);
 
   const [ReloadState, setReloadState] = useState(false);
-  const [ReloadState2, setReloadState2] = useState(false);
 
 
   useEffect(() => {
@@ -97,7 +96,7 @@ export const DashProvider = ({ children }) => {
 
   const AcceptFriend = async (Token, el) => {
     try {
-      const res = await AcceptFriendReq(PrivateConfig(Token), el);
+      const res = await AcceptFriendReq(PrivateConfig(Token), el)
       console.log(res)
     } catch (error) {
       console.log(error)
@@ -110,7 +109,7 @@ export const DashProvider = ({ children }) => {
       Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
       GeneralInfoQuery, Info, CreateElements, getGlobalInfo, GlobalInfo, getUsersToFriendReq, addFriendRequest,
       Contacts, PedingFriendReq, FriendRequest, setPedingFriendReq, cancelFriendReq,
-      ReloadState, setReloadState, AcceptFriend, ReloadState2, setReloadState2
+      ReloadState, setReloadState, AcceptFriend
     }}>
       {children}
     </dashContext.Provider>

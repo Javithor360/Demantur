@@ -45,7 +45,7 @@ export const CardsPage = () => {
             <div className='cards-flexbox'>
                 <div className='individual-card-container'>
                     <div className='card-information'>
-                        <div className='card-image'>
+                        <div className='card-image classicCard'>
                             <img src={CreditCardsImages('./bank_cards_images/classicCard.png')} alt='' />
                         </div>
                         <div className='card-tittle'>
@@ -72,7 +72,7 @@ export const CardsPage = () => {
                         </div>
                         <div className='card-button'>
                             <Link to="/cards/classic" className="more-details-bt">
-                                <span >{t("cards_page.button")}</span>
+                                <span>{t("cards_page.button")}</span>
                                 <FaAngleRight className='more-details-bt-icon' />
                             </Link>
                         </div>
@@ -81,7 +81,7 @@ export const CardsPage = () => {
                 <hr />
                 <div className='individual-card-container'>
                     <div className='card-information'>
-                        <div className='card-image'>
+                        <div className='card-image platinumCard'>
                             <img src={CreditCardsImages('./bank_cards_images/platinumCard.png')} alt='' />
                         </div>
                         <div className='card-tittle'>
@@ -118,7 +118,7 @@ export const CardsPage = () => {
                 <hr />
                 <div className='individual-card-container'>
                     <div className='card-information'>
-                        <div className='card-image'>
+                        <div className='card-image goldCard'>
                             <img src={CreditCardsImages('./bank_cards_images/goldCard.png')} alt='' />
                         </div>
                         <div className='card-tittle'>
@@ -158,7 +158,7 @@ export const CardsPage = () => {
                 <hr />
                 <div className='individual-card-container'>
                     <div className='card-information'>
-                        <div className='card-image'>
+                        <div className='card-image blackCard'>
                             <img src={CreditCardsImages('./bank_cards_images/blackCard.png')} alt='' />
                         </div>
                         <div className='card-tittle'>
@@ -205,11 +205,11 @@ export const CardsPage = () => {
             <div className="cards-flexbox">
                 <div className='individual-card-container'>
                     <div className='card-information'>
-                        <div className='card-image'>
+                        <div className='card-image debitCard'>
                             <img src={CreditCardsImages('./bank_cards_images/debitCard.png')} alt='' />
                         </div>
                         <div className='card-tittle'>
-                            <p>{t("cards_page.tittle4")} {/*<span className='registered-icon'>&reg;</span>*/} </p>
+                            <p className="tittleDebit">{t("cards_page.tittle4")} {/*<span className='registered-icon'>&reg;</span>*/} </p>
                             <p>Mastercard &trade;</p>
                         </div>
                         <div className='card-details'>

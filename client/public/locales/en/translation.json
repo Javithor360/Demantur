@@ -695,5 +695,69 @@
      "desc": "How can we help you?",
      "button": "Send"
    }
+  },
+  "AccountPage":{
+    "tittle": "Accounts",
+    "desc": "See our range of possibilities",
+    "types": "Account types",
+    "button": "Learn More",
+    "Checking":{
+      "tittle": "Checking Account",
+      "desc": "Enjoy immediate liquidity with your debit card or checkbook.",
+      "details":{
+        "1": "Request your checkbook online",
+        "2": "Digital Account Statement",
+        "3": "International Debit Card"
+      }
+    },
+    "Savings":{
+      "title": "Savings Account",
+      "desc": "Have access to your money without restriction of funds 24 hours a day.",
+      "details":{
+        "1": "Immediate availability",
+        "2": "Demantur Classic Debit Card",
+        "3": "Control your movements 24/7"
+      }
+    }
+  },
+  "CheckingPage":{
+    "tittle": "Checking Account",
+    "subtittle": "Enjoy a variety of benefits",
+     "benefit":{
+      "1": "Order your checkbook online",
+      "2": "Digital Account Statement",
+      "3": "International Debit Card"
+     },
+     "requirements":{
+      "tittle": "Requirements and conditions",
+      "subtittle": "Requirements",
+      "1": "NIT in good condition.",
+      "2": "DUI, resident card or passport with updated information, current and in good condition.",
+      "3": "Minimum opening from $200.",
+      "button": "Request"
+     }
+  },
+  "SavingPage":{
+    "tittle": "Savings Account",
+    "subtittle": "Enjoy a variety of benefits",
+    "button": "Request",
+    "benefit":{
+      "1": "Immediate availability",
+      "2": "Demantur debit card",
+      "3": "Control your movements 24/7"
+     },
+     "requirements":{
+      "tittle": "Requirements and conditions",
+      "subtittle": "Requirements",
+      "1": "Minimum opening from US$25.00",
+      "2": "DUI, resident card or passport with updated information, current and in good condition",
+      "3": "NIT"
+     },
+     "conditions":{
+      "tittle": "Conditions",
+      "1": "Applies to natural person",
+      "2": "Minimum opening amount: $25.00",
+      "3": "Interest rate according to table published on the 1st of each month."
+     }
   }
 }

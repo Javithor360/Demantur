@@ -2,15 +2,16 @@ import { useEffect } from "react"
 import { useDash } from "../../../../../context/DashboardContext"
 
 export const PendingReq = () => {
-    const { PedingFriendReq, ReloadState, setReloadState, cancelFriendReq } = useDash()
+    const { PedingFriendReq, ReloadState, setReloadState, cancelFriendReq, setPedingFriendReq } = useDash()
     useEffect(() => {
         setReloadState(false)
         // console.log('rerender')
     }, [ReloadState])
 
     const CancelFriendReq = (el) => {
-        // cancelFriendReq(localStorage.getItem('authToken'), el)
-        console.log('wtf')
+        cancelFriendReq(localStorage.getItem('authToken'), el)
+        setPedingFriendReq(PedingFriendReq.filter((SingleReq) => SingleReq.Dui !== el.Dui));
+        setReloadState(false);
     }
 
     return (
@@ -24,7 +25,7 @@ export const PendingReq = () => {
 
                                 <>
                                     nombre: {el.Name}, Dui: {el.Dui}, foto: {el.Photo}
-                                    <button onClick={CancelFriendReq(el)}>Cancelar</button>
+                                    <button onClick={() => { CancelFriendReq(el) }}>Cancelar</button>
                                 </>
 
                             </div>

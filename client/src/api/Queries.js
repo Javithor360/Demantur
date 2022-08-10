@@ -25,5 +25,9 @@ export const getPedingFrReq = async (PrivateConfig) => {
 }
 
 export const cancelFrReq = async (PrivateConfig, el) => {
-  return await axios.post("http://localhost:4000/api/dashboard/cancel-friend-request", { element: el }, { headers: PrivateConfig.headers })
+  return await axios.post("http://localhost:4000/api/dashboard/cancel-friend-request", { el }, { headers: PrivateConfig.headers })
+}
+
+export const AcceptFriendReq = async (PrivateConfig, el) => {
+  return await axios.post("http://localhost:4000/api/dashboard/accept-friend-request", { el }, { headers: PrivateConfig.headers })
 }

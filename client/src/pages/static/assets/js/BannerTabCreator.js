@@ -395,26 +395,26 @@ function Tabs(type) {
                 <div className="tab-content">
                     <div className="tabs-selection">
                         <button className="tab-button tab-selection-active">
-                        Requisitos
+                        {t("CheckingPage.requirements.subtittle")}
                         </button>
                     </div>
 
                     <div className="content-text  active-content-text">
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>NIT en buen estado</p>
+                            <p>{t("CheckingPage.requirements.1")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>DUI, carné de residente ó pasaporte con información actualizada, vigente y en buen estado.</p>
+                            <p></p>{t("CheckingPage.requirements.2")}
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Apertura mínima desde $200.</p>
+                            <p>{t("CheckingPage.requirements.3")}</p>
                         </div>
                         <Link to="/accounts/form">
                             <div className="check_form-button">
-                            <span>Solicitar</span>
+                            <span>{t("CheckingPage.requirements.button")}</span>
                             </div>
                         </Link>
                     </div>
@@ -435,48 +435,48 @@ function Tabs(type) {
                 <div className="tab-content">
                     <div className="tabs-selection">
                         <button className={ toggleState === 1 ? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(1)}>
-                        Requisitos
+                        {t("SavingPage.requirements.subtittle")}
                         </button>
                         <button className={toggleState === 2? "tab-button tab-selection-active" : "tab-button"} onClick={() => toggleTab(2)}>
-                        Condiciones
+                        {t("SavingPage.conditions.tittle")}
                         </button>
                     </div>
 
                     <div className={toggleState === 1 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Apertura mínima desde US$25.00</p>
+                            <p>{t("SavingPage.requirements.1")}</p>
                             </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>DUI, carné de residente ó pasaporte con información actualizada, vigente y en buen estado</p>
+                            <p>{t("SavingPage.requirements.2")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>NIT</p>
+                            <p>{t("SavingPage.requirements.3")}</p>
                         </div>
                         <Link to="/accounts/form">
                             <div className="check_form-button">
-                            <span>Solicitar</span>
+                            <span>{t("SavingPage.button")}</span>
                             </div>
                         </Link>
                     </div>
                     <div className={toggleState === 2 ? "content-text  active-content-text" : "content-text"}>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Aplica para persona natural</p>
+                            <p>{t("SavingPage.conditions.1")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Monto mínimo de apertura: $25.00</p>
+                            <p>{t("SavingPage.conditions.2")}</p>
                         </div>
                         <div className="individual-text">
                             <p>&#10003;</p>
-                            <p>Tasa de interés de acuerdo a tabla publicada el 1 de cada mes</p>
+                            <p>{t("SavingPage.conditions.3")}</p>
                         </div>
                         <Link to="/accounts/form">
                             <div className="check_form-button">
-                            <span>Solicitar</span>
+                            <span>{t("SavingPage.button")}</span>
                             </div>
                         </Link>
                     </div>

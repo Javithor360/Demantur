@@ -679,5 +679,86 @@
        "sub-tittle": "Obtén puntos por cada una de tus compras",
        "desc": "Obtén 1 punto por cada $2.00 que gastes con tu tarjeta de débito"
      }
+   },
+   "ContactPage":{
+    "banner":{
+      "tittle": "¿Quieres comunicarte con nosotros?",
+      "desc":"Deja tu duda, comentario o sugerencia, estamos dispuestos a ayudarte"
+    },
+    "tittle": "Escríbenos",
+    "desc": "Recibiremos tu consulta, comentario etc., lo evaluaremos y posteriormente lo resolveremos, luego te notificaremos mediante teléfono o correo electrónico brindándote la solución. Si en dado caso no estas satisfecho con la respuesta puedes volver a contactarte con nosotros brindándonos tu numero de gestión que se te dio anteriormente en la notificación para poder seguir con tu caso en particular.",
+    "form":{
+      "name": "Nombre completo",
+      "dui":"Número de DUI",
+      "contact":"Número de contacto",
+      "email":"Correo Electrónico",
+      "management": "Número de gestión (Si tienes)",
+      "desc": "¿En que te podemos ayudar?",
+      "button": "Enviar"
+    }
+   },
+   "AccountPage":{
+     "tittle": "Cuentas",
+     "desc": "Conoce nuestra gama de posibilidades",
+     "types": "Tipos de Cuentas",
+     "button": "Más información",
+     "Checking":{
+      "tittle": "Cuenta Corriente",
+      "desc": "Disfruta de la liquidez inmediata con tu tarjeta de débito o chequera.",
+      "details":{
+        "1": " Solicita tu chequera en Línea",
+        "2": "Estado de cuenta digital",
+        "3": "Tarjeta de débito internacional"
+      }
+     },
+     "Savings":{
+       "tittle": "Cuenta de Ahorros",
+       "desc": "Dispone de tu dinero sin restricción de fondos las 24 horas del día.",
+       "details":{
+         "1": "Disponibilidad inmediata",
+         "2": "Tarjeta de débito Demantur Classic",
+         "3": "Controla tus movimientos 24/7"
+       }
+     }
+   },
+   "CheckingPage":{
+     "tittle": "Cuenta Corriente",
+     "subtittle": "Disfruta de diversos beneficios",
+     "benefit":{
+      "1": "Solicita tu chequera en Línea",
+      "2": "Estado de cuenta digital",
+      "3": "Tarjeta de Débito internacional"
+     },
+     "requirements":{
+      "tittle": "Requisitos y condiciones",
+      "subtittle": "Requisitos",
+      "1": "NIT en buen estado.",
+      "2": "DUI, carné de residente ó pasaporte con información actualizada, vigente y en buen estado.",
+      "3": "Apertura mínima desde $200.",
+      "button": "Solicitae"
+     }
+   },
+   "SavingPage":{
+     "tittle": "Cuenta de Ahorros",
+     "subtittle": "Disfruta de diversos beneficios",
+     "button": "Solicitar",
+     "benefit":{
+       "1": "Disponibilidad inmediata",
+       "2": "Tarjeta de débito Demantur",
+       "3": "Controla tus movimientos 24/7"
+      },
+      "requirements":{
+       "tittle": "Requisitos y condiciones",
+       "subtittle": "Requirements",
+       "1": "Apertura mínima desde US$25.00",
+       "2": "DUI, carné de residente ó pasaporte con información actualizada, vigente y en buen estado",
+       "3": "NIT"
+      },
+      "conditions":{
+       "tittle": "Condiciones",
+       "1": "Aplica para persona natural",
+       "2": "Monto mínimo de apertura: $25.00",
+       "3": "Tasa de interés de acuerdo a tabla publicada el 1 de cada mes"
+      }
    }
 }

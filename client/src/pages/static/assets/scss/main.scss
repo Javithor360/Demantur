@@ -548,3 +548,110 @@ body {
 
     }
 }
+
+@media (max-width:830px){
+
+    .section-tittle p{
+        font-size: 1.5rem;
+    }
+    .dual-banner .dual-banner-content p:first-child {
+        font-size: 1.4rem;
+        margin: 0;
+    }
+
+    .dual-banner p{
+        font-size: 0.85rem;
+    }
+
+    .about-button-rg span{
+        font-size: 0.85rem;
+    }
+
+    .buisness-banner .row-content p:first-child{
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .about-banner-content{
+        width: 40%;
+    } 
+
+    .about-banner-content p:first-child {
+        font-size: 1.25rem;
+        padding: .5rem;
+    }
+
+    .about-banner-content p:last-of-type {
+        font-size: 0.75rem;
+        padding: .5rem;
+    }
+}
+
+@media (max-width:675px){
+    .buisness-banner .row-content p:first-child{
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    .buisness-banner .row-content p:last-of-type{
+        font-size: 0.82rem;
+    }
+
+    .buisness-banner .view-more-button span{
+        font-size: 1rem;
+    } 
+}
+
+@media (max-width:560px){
+
+    .buisness-banner .blue-underline-2{
+        width: 12rem;
+    }
+
+    .dual-banner .dual-banner-content p:first-child {
+        font-size: 0.95rem;
+        margin: 0;
+    }
+
+    .dual-banner .dual-banner-content p:last-of-type {
+        font-size: 0.8em;
+    }
+
+    .help-center-banner .banner-logo{
+        transform: translateY(1rem);
+    }
+
+    .help-center-banner .banner-tittle{
+        font-size: 1.5rem;
+    }
+
+    .help-center-banner .help-banner-information{
+        font-size: 0.9rem;
+    }
+
+    .buisness-banner .row-content p:first-child{
+        font-size: 0.95rem;
+        text-align: center;
+    }
+    
+    .buisness-banner .row-content p:last-of-type{
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 470px){
+    .dual-banner .dual-banner-content p:first-child {
+        font-size: 0.8rem;
+        margin: 0;
+    }
+
+    .dual-banner .dual-banner-content p:last-of-type{
+        font-size: 0.75rem;
+    }
+
+    .buisness-banner .row-content p:first-child{
+        font-size: 0.9rem;
+        margin: 0.3rem;
+        margin-bottom: 1rem;
+    }
+}

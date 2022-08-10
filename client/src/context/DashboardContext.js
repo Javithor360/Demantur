@@ -1,24 +1,20 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react"
 import {
-  creatElements,
-  getInfo,
-  getGlobalInfoQuery,
-  getUsersToFRQuery,
-  addFriendReq,
-  getPedingFrReq,
-  cancelFrReq,
+  creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, getPedingFrReq, cancelFrReq,
+  AcceptFriendReq
 } from "../api/Queries";
 
 const dashContext = createContext();
 
 export const useDash = () => {
   const Context = useContext(dashContext);
-  return Context;
-};
+  return Context
+}
 
 export const DashProvider = ({ children }) => {
+
   const [Option, setOption] = useState(1);
-  const [OptionElement, setOptionElement] = useState("Home Page");
+  const [OptionElement, setOptionElement] = useState('Home Page');
   const [SettingsOption, setSettingsOption] = useState(false);
 
   const [Info, setInfo] = useState({});
@@ -29,11 +25,12 @@ export const DashProvider = ({ children }) => {
 
   const [ReloadState, setReloadState] = useState(false);
 
+
   useEffect(() => {
     setContacts(GlobalInfo.Contacts);
     setPedingFriendReq(GlobalInfo.PendingFriendReq);
     setFriendRequest(GlobalInfo.FriendRequests);
-  }, [GlobalInfo]);
+  }, [GlobalInfo])
 
   const PrivateConfig = (Token) => {
     return {
@@ -41,20 +38,13 @@ export const DashProvider = ({ children }) => {
         "Content-Type": "application/json",
         "x-auth-token": Token,
       },
-    };
-  };
-  const GeneralInfoQuery = async (Token) => {
-    try {
-      const Res = await getInfo(PrivateConfig(Token));
-      setInfo(Res.data.data);
-    } catch (error) {
-      console.log(error);
     }
   };
 
-  const QueryCreateSavingsAccount = async () => {
+  const GeneralInfoQuery = async (Token) => {
     try {
-      return await getInfo();
+      const Res = await getInfo(PrivateConfig(Token))
+      setInfo(Res.data.data);
     } catch (error) {
       console.log(error);
     }
@@ -70,21 +60,21 @@ export const DashProvider = ({ children }) => {
 
   const CreateElements = async (Token) => {
     try {
-      const Res = await creatElements(PrivateConfig(Token));
+      await creatElements(PrivateConfig(Token));
       // console.log(Res);
     } catch (error) {
       console.log(error);
     }
-  };
+  }
 
   const getGlobalInfo = async (Token) => {
     try {
       const res = await getGlobalInfoQuery(PrivateConfig(Token));
-      setGlobalInfo(res.data.data);
+      setGlobalInfo(res.data.data)
     } catch (error) {
       console.log(error);
     }
-  };
+  }
 
   const getUsersToFriendReq = async (Token) => {
     try {
@@ -92,7 +82,8 @@ export const DashProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }
+
 
   const addFriendRequest = async (Token, UserId) => {
     try {
@@ -100,16 +91,27 @@ export const DashProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }
 
   const cancelFriendReq = async (Token, el) => {
     try {
-      const res = await cancelFrReq(PrivateConfig(Token), el);
-      console.log(res);
+      await cancelFrReq(PrivateConfig(Token), el)
+      // console.log(res)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  };
+  }
+
+  const AcceptFriend = async (Token, el) => {
+    try {
+      const res = await AcceptFriendReq(PrivateConfig(Token), el)
+      console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
 
   return (
     <dashContext.Provider
@@ -122,7 +124,7 @@ export const DashProvider = ({ children }) => {
         setSettingsOption,
         GeneralInfoQuery,
         Info,
-        QueryCreateSavingsAccount,
+        // QueryCreateSavingsAccount,
         CreateElements,
         getGlobalInfo,
         GlobalInfo,
@@ -138,7 +140,14 @@ export const DashProvider = ({ children }) => {
         DematurClassicForm,
       }}
     >
-      {children}
+      <dashContext.Provider value={{
+        Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
+        GeneralInfoQuery, Info, CreateElements, getGlobalInfo, GlobalInfo, getUsersToFriendReq, addFriendRequest,
+        Contacts, PedingFriendReq, FriendRequest, setPedingFriendReq, cancelFriendReq,
+        ReloadState, setReloadState, AcceptFriend
+      }}>
+        {children}
+      </dashContext.Provider>
     </dashContext.Provider>
-  );
-};
+  )
+}

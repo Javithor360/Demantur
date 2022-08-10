@@ -31,3 +31,7 @@ export const cancelFrReq = async (PrivateConfig, el) => {
 export const AcceptFriendReq = async (PrivateConfig, el) => {
   return await axios.post("http://localhost:4000/api/dashboard/accept-friend-request", { el }, { headers: PrivateConfig.headers })
 }
+
+export const DeclineFriendReq = async (PrivateConfig, el) => {
+  return await axios.post('http://localhost:4000/api/dashboard/decline-friend-request', {el}, {headers: PrivateConfig.headers})
+}

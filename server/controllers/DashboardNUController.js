@@ -106,11 +106,9 @@ const getFriendsReq = async (req, res, next) => {
       return item._id.toString() !== token.user.id.toString()
     });
 
-
     SeparadorArrays(usersFiltrated, PedingFriends.PendingFriendReq, arrayFil1);
     SeparadorArrays(arrayFil1, PedingFriends.FriendRequests, arrayFil2);
-    SeparadorArrays(arrayFil2, PedingFriends.PendingFriendReq, arrayFil3);
-
+    SeparadorArrays(arrayFil2, PedingFriends.Contacts, arrayFil3);
 
     res.status(200).json({ success: true, data: arrayFil3 })
   } catch (error) {
@@ -195,6 +193,16 @@ const AcceptFriend = async (req, res, next) => {
     const UserRequested = await NormalUser.findOne({ Dui: element.Dui });
     const ThisUser = await NormalUser.findOne({ _id: token.user.id });
 
+    await GlobalData.findOneAndUpdate(
+      { DataOwner: token.user.id },
+      { $pull: { FriendRequests: { Dui: element.Dui } } }
+    );
+
+    await GlobalData.findOneAndUpdate(
+      { DataOwner: UserRequested._id },
+      { $pull: {  PendingFriendReq: { Dui: ThisUser.Dui } } }
+    );
+
     // agregar contacto
     await GlobalData.findOneAndUpdate(
       { DataOwner: token.user.id },
@@ -220,15 +228,46 @@ const AcceptFriend = async (req, res, next) => {
         }
       }
     );
-
-    res.status(200).json({ success: true, data: element });
+      
+    res.status(200).json({ success: true, data: 'Agregado correctamente' });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
 }
 
 
-// const AcceptFriend = async (req, res, next) => {
+const DeclineFriend = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const {el: element} = req.body;
+
+
+    const UserRequested = await NormalUser.findOne({ Dui: element.Dui });
+    const ThisUser = await NormalUser.findOne({ _id: token.user.id });
+    
+    await GlobalData.findOneAndUpdate(
+      { DataOwner: token.user.id },
+      { $pull: { FriendRequests: { Dui: UserRequested.Dui } } }
+    );
+
+
+
+    await GlobalData.findOneAndUpdate(
+      { DataOwner: UserRequested._id },
+      { $pull: {  PendingFriendReq: { Dui: ThisUser.Dui } } }
+    );
+
+
+
+
+    res.status(200).json({ success: true, data: 'se rechazo correctamente' });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+
+// const DeclineFriend = async (req, res, next) => {
 //   try {
 //     const token = req.resetToken;
 
@@ -243,5 +282,6 @@ module.exports = {
   getFriendsReq,
   addFriendRequest,
   CancelPendingFr,
-  AcceptFriend
+  AcceptFriend,
+  DeclineFriend
 };

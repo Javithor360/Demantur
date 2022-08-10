@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import {
   creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, getPedingFrReq, cancelFrReq,
-  AcceptFriendReq
+  AcceptFriendReq,DeclineFriendReq 
 } from "../api/Queries";
 
 const dashContext = createContext();
@@ -111,43 +111,31 @@ export const DashProvider = ({ children }) => {
     }
   }
 
+  const QueryCreateSavingsAccount = async (Token) => {
+    try {
+      return await getInfo(PrivateConfig(Token))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const DeclineFriend = async (Token, el) => {
+    try {
+      return await DeclineFriendReq(PrivateConfig(Token), el);
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
 
   return (
-    <dashContext.Provider
-      value={{
-        Option,
-        setOption,
-        OptionElement,
-        setOptionElement,
-        SettingsOption,
-        setSettingsOption,
-        GeneralInfoQuery,
-        Info,
-        // QueryCreateSavingsAccount,
-        CreateElements,
-        getGlobalInfo,
-        GlobalInfo,
-        getUsersToFriendReq,
-        addFriendRequest,
-        Contacts,
-        PedingFriendReq,
-        FriendRequest,
-        setPedingFriendReq,
-        cancelFriendReq,
-        ReloadState,
-        setReloadState,
-        DematurClassicForm,
-      }}
-    >
       <dashContext.Provider value={{
         Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
         GeneralInfoQuery, Info, CreateElements, getGlobalInfo, GlobalInfo, getUsersToFriendReq, addFriendRequest,
         Contacts, PedingFriendReq, FriendRequest, setPedingFriendReq, cancelFriendReq,
-        ReloadState, setReloadState, AcceptFriend
+        QueryCreateSavingsAccount, DeclineFriend, ReloadState, setReloadState, AcceptFriend, DematurClassicForm,  
       }}>
         {children}
       </dashContext.Provider>
-    </dashContext.Provider>
   )
 }

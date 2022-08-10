@@ -110,6 +110,9 @@ $font_family: 'Poppins', sans-serif;
                 filter: brightness(150%);
                 transition: all .2s ease;
             }
+            .corrienteButton{
+                transform: translateY(-1.5rem);
+            }
         }
 
         .acc-img {
@@ -130,5 +133,243 @@ $font_family: 'Poppins', sans-serif;
         box-shadow: 0 .5rem 1.5rem 1rem grey;
         transform: translateY(-0.3125rem);
         transition: all .5s ease-in-out;
+    }
+}
+
+@media (max-width:1150px){
+
+    
+    .post-hero-container .acc-container{
+        width: 58.75rem;
+    }
+
+    .corrienteButton{
+        transform: translateY(-1.3rem);
+    }
+
+    .ahorroButton{
+        transform: translateY(-2.5rem);
+    }
+}
+
+@media (max-width: 975px){
+    .post-hero-container .acc-container{
+        width: 50rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details h1{
+        font-size: 1.5rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-desc{
+        font-size: 0.9rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-feature{
+        font-size: 1rem;
+        padding-left: 0.8rem;
+    }
+
+    .post-hero-container  .acc-container .acc-img img{
+       
+        height: 100%;
+    }
+
+    .corrienteButton{
+        transform: translateY(-2.5rem);
+    }
+}
+
+@media (max-width:805px){
+    .post-hero-container .acc-container{ 
+        width: 45rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details h1{
+        font-size: 1.2rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-desc{
+        font-size: 0.8rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-feature{
+        font-size: 0.9rem;
+        padding-left: 0.8rem;
+    }
+
+    .corrienteButton{
+        transform: translateY(-1.5rem);
+    }
+
+    .ahorroButton{
+        transform: translateY(-.3rem);
+    }
+}
+
+@media (max-width:730px){
+    .post-hero-container .acc-container{ 
+        width: 40rem;
+    }
+
+    .corrienteButton{
+        transform: translateY(-2.4rem);
+    }
+
+    .ahorroButton{
+        transform: translateY(-2.3rem);
+    }
+}
+
+@media (max-width:645px){
+    .post-hero-container .acc-container{ 
+        width: 38rem;
+    }
+}
+
+@media (max-width:615px){
+    .post-hero-container .acc-container{ 
+        width: 35rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details h1{
+        font-size: 1.1rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-desc{
+        font-size: 0.75rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-feature{
+        font-size: 0.8rem;
+        padding-left: 0.7rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-button{
+        padding: 0.4rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-button span{
+        font-size: 0.95rem;
+    }
+
+    .corrienteButton{
+        transform: translateY(-1rem);
+    }
+
+    .ahorroButton{
+        transform: translateY(-2.3rem);
+    }
+}
+
+@media (max-width: 565px){
+    .post-hero-container .acc-container{ 
+        height: 20rem;
+        width: 33rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details h1{
+        font-size: 1rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-desc{
+        font-size: 0.65rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-feature{
+        font-size: 0.7rem;
+        padding-left: 0.6rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-button{
+        padding: 0.3rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-button span{
+        font-size: 0.85rem;
+    }
+
+    .corrienteButton{
+        transform: translateY(-1.5rem);
+    }
+
+    .ahorroButton{
+        transform: translateY(-2.5rem);
+    }
+}
+
+@media(max-width:530px){
+    .post-hero-container .acc-container{
+        width: 30rem;
+        height: 18rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details h1{
+        margin-left: -.5rem;
+        font-size: 0.8rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-desc{
+        margin-left: -.5rem;
+        font-size: 0.55rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-feature{
+        font-size: 0.6rem;
+        padding-left: 0.4rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-button{
+        padding: 0.2rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-button span{
+        font-size: 0.75rem;
+    }
+
+    .corrienteButton{
+        margin-left: -.5rem;
+        transform: translateY(-1.7rem);
+    }
+
+    .ahorroButton{
+        margin-left: -.5rem;
+        transform: translateY(-1.7rem);
+    }
+}
+
+@media (max-width:475px){
+    .post-hero-container .acc-container{
+        width: 25rem;
+        height: 18rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details h1{
+        margin-left: -.5rem;
+        font-size: 0.7rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-desc{
+        margin-left: -.5rem;
+        font-size: 0.45rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-feature{
+        font-size: 0.5rem;
+        padding-left: 0.2rem;
+    }
+
+    .post-hero-container  .acc-container .acc-details .acc-button span{
+        font-size: 0.55rem;
+    }
+
+    .corrienteButton{
+        margin-left: -.5rem;
+        transform: translateY(-0.9rem);
+    }
+
+    .ahorroButton{
+        margin-left: -.5rem;
+        transform: translateY(-.8rem);
     }
 }

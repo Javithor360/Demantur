@@ -146,3 +146,281 @@ body{
     margin-bottom: 15rem;
 }
 
+@media (max-width: 1295px){
+    .cards-flexbox .individual-card-container .card-information .card-image img{
+        margin-left: -.5rem;
+    }
+}
+
+@media (max-width: 1250px){
+    .cards-flexbox .individual-card-container .card-information .card-image img{
+        margin-left: -1rem;
+    }
+}
+
+@media (max-width: 1210px){
+    .cards-flexbox .individual-card-container .card-information .card-image img{
+        margin-left: -1.5rem;
+    }
+}
+
+@media (max-width: 1150px){
+    .cards-flexbox .individual-card-container .card-information .card-image img{
+        margin-left: -2rem;
+    }
+}
+
+@media (max-width: 1120px){
+    .cards-flexbox .individual-card-container .card-information .card-image img{
+        margin-left: -2.5rem;
+    }
+}
+
+@media (max-width: 1075px){
+    .cards-flexbox .individual-card-container .card-information .card-image img{
+        margin-left: -3rem;
+    }
+}
+
+@media (max-width: 1030px){
+
+    .cards-flexbox hr{
+        width: 90%;
+    }
+    .cards-flexbox .individual-card-container .card-information .card-image img{
+        margin-left: -3.5rem;
+    }
+
+    .platinumCard{
+        transform: translateY(1rem);
+    }
+
+    .goldCard{
+        transform: translateY(2rem);
+    }
+
+    .blackCard{
+        transform: translateY(3.5rem);
+    }
+}
+
+@media (max-width: 1010px){
+    .cards-flexbox .individual-card-container .card-information .card-image img{
+        margin-left: -4rem;
+    }
+}
+
+
+@media (max-width: 830px) { 
+
+    .card-tittle p{
+        transform: translateX(2.5rem);
+        font-size: 1rem;
+    }
+
+    .card-details{
+        margin-left: 2.5rem;
+    }
+
+    .card-button{
+        margin-left: 3rem;
+    }
+
+    .cards-flexbox .individual-card-container .card-information .card-image img{
+        margin-top: 2.5rem;
+        
+        width: 15rem;
+    }
+
+    .cards-flexbox hr{
+        width: 93%;
+    }
+
+    .classicCard{
+        transform: translateY(-.5rem);
+    }
+
+    .platinumCard{
+        transform: translateY(.2rem);
+    }
+
+    .goldCard{
+        transform: translateY(1rem);
+    }
+
+    .blackCard{
+        transform: translateY(1rem);
+    }
+}
+
+@media (max-width: 690px){
+    .card-details p{
+        transform: translateX(1.5rem);
+        font-size: 0.8rem;  
+    }
+
+    .card-tittle {
+        transform: translateX(1rem);
+    }
+
+    .cards-flexbox .individual-card-container .card-information .card-image img{
+        margin-top: 3rem;
+        width: 14.5rem;
+    }
+
+    .cards-flexbox hr{
+        width: 95%;
+    }
+
+    .classicCard{
+        transform: translateY(-1.1rem);
+    }
+
+    .platinumCard{
+        transform: translateY(1rem);
+    }
+
+    .goldCard{
+        transform: translateY(1.8rem);
+    }
+
+    .blackCard{
+        transform: translateY(2.5rem);
+    }
+
+    .debitCard{
+        transform: translateY(-1rem);
+    }
+}
+
+@media (max-width:590px){
+    .cards-flexbox .individual-card-container .card-information .card-image img{
+        margin-top: 4rem;
+        margin-left: 0.5rem;
+        width: 12rem;
+    }
+
+    .card-tittle{
+        margin-left: -1rem;
+    }
+
+    .cards-flexbox .individual-card-container .card-information .card-tittle p:nth-of-type(1){
+        font-size: 1rem;
+    }
+
+    .card-tittle p{
+        font-size: 0.8rem;
+    }
+
+    .card-details{
+        transform: translateY(.5rem);
+        margin-left: .2rem;
+        margin-right: -2.5rem;
+    }
+  
+    .card-button .more-details-bt span{
+        font-size: .75rem;
+    }
+    
+}
+
+@media (max-width:595px){
+
+    .card-tittle{
+        margin-left: -2rem;
+    }
+
+    .card-details{
+        transform: translateX(1.5rem);
+        margin-top: 1.5rem;
+        margin-left: -1rem;
+    }
+
+    .cards-flexbox .individual-card-container .card-information .card-image img{
+        width: 11rem;
+        transform: translateX(1.2rem);
+    }
+
+    .classicCard{
+        transform: translateY(2.2rem);
+    }
+
+    .classicCard{
+        transform: translateY(0.5rem);
+    }
+
+    .goldCard{
+        transform: translateY(2.2rem);
+    }
+
+    .debitCard{
+        transform: translateY(0.8rem);
+    }
+
+    .card-button{
+        margin-left: 2.5rem;
+    }
+
+    .card-button span{
+        font-size: 0.85rem;
+
+    }
+}
+
+@media (max-width: 465px){
+    .cards-flexbox .individual-card-container .card-information .card-image img{
+        width: 9.4rem;
+        transform: translateX(-3.2rem);
+    }
+
+    .cards-flexbox .individual-card-container .card-information .card-tittle p:nth-of-type(1){
+        font-size: .75rem;
+    }
+
+    .card-tittle p{
+        font-size: .7rem;
+    }
+
+    .card-tittle{
+        transform: translateX(0.5rem);
+        margin-right: 1rem;
+        margin-top: 1rem;
+    }
+
+
+    .card-details p{
+        margin-left: -1.7rem;
+        margin-right: 3rem;
+        font-size: .7rem;
+    }
+
+    .card-button{
+        margin-left: 1.7rem;
+    }
+    
+    .tittleDebit{
+        margin-right: 1rem;
+    }
+
+    
+    .classicCard{
+        transform: translateY(-.1rem);
+    }
+
+    .platinumCard{
+        transform: translateY(.5rem);
+    }
+
+    .goldCard{
+        transform: translateY(1.5rem);
+    }
+
+    .blackCard{
+        transform: translateY(1.5rem);
+    }
+
+    .debitCard{
+        transform: translateY(.1rem);
+    }
+    
+}

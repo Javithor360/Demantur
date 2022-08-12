@@ -1,14 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import {
-  creatElements,
-  getInfo,
-  getGlobalInfoQuery,
-  getUsersToFRQuery,
-  addFriendReq,
-  getPedingFrReq,
-  cancelFrReq,
-  AcceptFriendReq,
-} from "../api/Queries";
+import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, getPedingFrReq, cancelFrReq, AcceptFriendReq,DeclineFriendReq } from "../api/Queries";
 
 const dashContext = createContext();
 
@@ -116,41 +107,27 @@ export const DashProvider = ({ children }) => {
 
   const QueryCreateSavingsAccount = async (Token) => {
     try {
-      return await getInfo(PrivateConfig(Token));
+      return await getInfo(PrivateConfig(Token))
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-  };
+  }
 
+  const DeclineFriend = async (Token, el) => {
+    try {
+      return await DeclineFriendReq(PrivateConfig(Token), el);
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
-    <dashContext.Provider
-      value={{
-        Option,
-        setOption,
-        OptionElement,
-        setOptionElement,
-        SettingsOption,
-        setSettingsOption,
-        GeneralInfoQuery,
-        Info,
-        QueryCreateSavingsAccount,
-        CreateElements,
-        getGlobalInfo,
-        GlobalInfo,
-        getUsersToFriendReq,
-        addFriendRequest,
-        Contacts,
-        PedingFriendReq,
-        FriendRequest,
-        setPedingFriendReq,
-        cancelFriendReq,
-        ReloadState,
-        setReloadState,
-        DematurClassicForm,
-        AcceptFriend,
-      }}
-    >
-      {children}
-    </dashContext.Provider>
-  );
-};
+      <dashContext.Provider value={{
+        Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
+        GeneralInfoQuery, Info, CreateElements, getGlobalInfo, GlobalInfo, getUsersToFriendReq, addFriendRequest,
+        Contacts, PedingFriendReq, FriendRequest, setPedingFriendReq, cancelFriendReq,
+        QueryCreateSavingsAccount, DeclineFriend, ReloadState, setReloadState, AcceptFriend, DematurClassicForm,  
+      }}>
+        {children}
+      </dashContext.Provider>
+  )
+}

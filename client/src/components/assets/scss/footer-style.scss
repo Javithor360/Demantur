@@ -86,7 +86,15 @@ footer{
 	opacity: 1;
 }
 .select-item{
-	color: #000000;
+	option{
+		color: #4e525e;
+	}
+	
+}
+.select-item{
+	option:active{
+		color: #ffffff;
+	}
 }
 .copyright-container{
 	width: 100%;

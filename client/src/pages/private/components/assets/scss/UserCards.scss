@@ -50,6 +50,20 @@
         background-color: $primary_dark;
     }
 }
+.dash-user-cards-container{
+    border: 1px solid $secondary_gray_200;
+
+    hr{
+        border: 0;
+        opacity: 1;
+        height: .1rem;
+        background-color: $primary_dark;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+}
+
 @media (min-width: 1920px){
     .dash-card-info{
         min-height: 12rem;

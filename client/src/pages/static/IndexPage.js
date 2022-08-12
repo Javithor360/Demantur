@@ -56,7 +56,13 @@ export const IndexPage = () => {
           </div>
           <div className="card">
             <img src={TarjetasImages("./card-3.png")} alt="" />
-            <h4>{t("index.cards_grid.3.title")}</h4>
+            <h4
+              onClick={() => {
+                localStorage.removeItem("authToken");
+              }}
+            >
+              {t("index.cards_grid.3.title")}
+            </h4>
             <p>{t("index.cards_grid.3.desc")}</p>
             <div className="boton">
               <Link to="/accounts" className="LinkHover">

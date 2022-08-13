@@ -75,13 +75,13 @@ export const Contacts = () => {
   const renderBox = () => {
     switch (BoxHandler) {
       case 1:
-        return <YourContacts Contacts={Contacts} />;
+        return <YourContacts />;
       case 2:
         return <PendingReq />
       case 3:
         return <YourFriendReq />
       default:
-        return <YourContacts Contacts={Contacts} />;
+        return <YourContacts />;
     }
   }
 

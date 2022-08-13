@@ -5,7 +5,7 @@ export const PendingReq = () => {
     const { PedingFriendReq, ReloadState, setReloadState, cancelFriendReq, setPedingFriendReq } = useDash()
     useEffect(() => {
         setReloadState(false)
-        // console.log('rerender')
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ReloadState])
 
     const CancelFriendReq = (el) => {

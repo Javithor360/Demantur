@@ -35,13 +35,7 @@ export const CreateSavingAccForm = () => {
 
   useEffect(() => {
     (async () => {
-<<<<<<< HEAD
-      const res = await QueryCreateSavingsAccount(
-        localStorage.getItem("authToken")
-      );
-=======
       const res = await QueryCreateSavingsAccount(localStorage.getItem('authToken'));
->>>>>>> b6c37fb02b3cc1f58a38343fccb759bf17d8785f
       setAccountOwner(res.data.data._id);
     })();
   });

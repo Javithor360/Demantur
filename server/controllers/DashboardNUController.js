@@ -127,33 +127,42 @@ const addFriendRequest = async (req, res, next) => {
     const UserRequested1 = await NormalUser.findOne({ _id: UserId });
     const ThisUser1 = await NormalUser.findOne({ _id: token.user.id });
 
-    const ThisUser = await GlobalData.findOneAndUpdate(
-      { DataOwner: token.user.id },
-      {
-        $addToSet: {
-          PendingFriendReq: {
-            Name: `${UserRequested1.FirstName} ${UserRequested1.LastName}`,
-            Dui: UserRequested1.Dui,
-            Photo: 'foto link',
+    const ThisUserGlobalData = await GlobalData.findOne({ DataOwner: token.user.id });
+    let Filter = ThisUserGlobalData.Contacts.filter((contact) => contact.Dui === element.Dui);
+
+    if (Filter.length === 0) {
+      await GlobalData.findOneAndUpdate(
+        { DataOwner: token.user.id },
+        {
+          $addToSet: {
+            PendingFriendReq: {
+              Name: `${UserRequested1.FirstName} ${UserRequested1.LastName}`,
+              Dui: UserRequested1.Dui,
+              Photo: 'foto link',
+            }
           }
         }
-      }
-    );
+      );
 
-    const UserRequested = await GlobalData.findOneAndUpdate(
-      { DataOwner: UserId },
-      {
-        $addToSet: {
-          FriendRequests: {
-            Name: `${ThisUser1.FirstName} ${ThisUser1.LastName}`,
-            Dui: ThisUser1.Dui,
-            Photo: 'foto link',
+      await GlobalData.findOneAndUpdate(
+        { DataOwner: UserId },
+        {
+          $addToSet: {
+            FriendRequests: {
+              Name: `${ThisUser1.FirstName} ${ThisUser1.LastName}`,
+              Dui: ThisUser1.Dui,
+              Photo: 'foto link',
+            }
           }
         }
-      }
-    )
+      )
 
-    res.status(200).json({ success: true, data: { ThisUser: ThisUser, UserRequested: UserRequested } })
+      res.status(200).json({ success: true, data: 'Solicitud enviada Correctamente' })
+    } else {
+      res.status(400).json({ success: true, data: 'Usuario ya solicitado' })
+    }
+
+
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
@@ -193,43 +202,53 @@ const AcceptFriend = async (req, res, next) => {
     const UserRequested = await NormalUser.findOne({ Dui: element.Dui });
     const ThisUser = await NormalUser.findOne({ _id: token.user.id });
 
-    await GlobalData.findOneAndUpdate(
-      { DataOwner: token.user.id },
-      { $pull: { FriendRequests: { Dui: element.Dui } } }
-    );
+    const ThisUserGlobalData = await GlobalData.findOne({ _id: token.user.id });
 
-    await GlobalData.findOneAndUpdate(
-      { DataOwner: UserRequested._id },
-      { $pull: {  PendingFriendReq: { Dui: ThisUser.Dui } } }
-    );
+    let Filter = ThisUserGlobalData.Contacts.filter((contact) => contact.Dui === element.Dui);
 
-    // agregar contacto
-    await GlobalData.findOneAndUpdate(
-      { DataOwner: token.user.id },
-      {
-        $addToSet: {
-          Contacts: {
-            Name: `${UserRequested.FirstName} ${UserRequested.LastName}`,
-            Dui: UserRequested.Dui,
-            Photo: 'foto link',
+    if (Filter.length !== 0) {
+      await GlobalData.findOneAndUpdate(
+        { DataOwner: token.user.id },
+        { $pull: { FriendRequests: { Dui: element.Dui } } }
+      );
+
+      await GlobalData.findOneAndUpdate(
+        { DataOwner: UserRequested._id },
+        { $pull: { PendingFriendReq: { Dui: ThisUser.Dui } } }
+      );
+
+      // agregar contacto
+      await GlobalData.findOneAndUpdate(
+        { DataOwner: token.user.id },
+        {
+          $addToSet: {
+            Contacts: {
+              Name: `${UserRequested.FirstName} ${UserRequested.LastName}`,
+              Dui: UserRequested.Dui,
+              Photo: 'foto link',
+            }
           }
         }
-      }
-    );
-    await GlobalData.findOneAndUpdate(
-      { DataOwner: UserRequested._id },
-      {
-        $addToSet: {
-          Contacts: {
-            Name: `${ThisUser.FirstName} ${ThisUser.LastName}`,
-            Dui: ThisUser.Dui,
-            Photo: 'foto link',
+      );
+      await GlobalData.findOneAndUpdate(
+        { DataOwner: UserRequested._id },
+        {
+          $addToSet: {
+            Contacts: {
+              Name: `${ThisUser.FirstName} ${ThisUser.LastName}`,
+              Dui: ThisUser.Dui,
+              Photo: 'foto link',
+            }
           }
         }
-      }
-    );
-      
-    res.status(200).json({ success: true, data: 'Agregado correctamente' });
+      );
+
+      res.status(200).json({ success: true, data: 'Agregado correctamente' });
+    } else {
+      res.status(400).json({ success: false, data: 'Contacto ya agregado' });
+    }
+
+
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
@@ -239,25 +258,20 @@ const AcceptFriend = async (req, res, next) => {
 const DeclineFriend = async (req, res, next) => {
   try {
     const token = req.resetToken;
-    const {el: element} = req.body;
-
+    const { el: element } = req.body;
 
     const UserRequested = await NormalUser.findOne({ Dui: element.Dui });
     const ThisUser = await NormalUser.findOne({ _id: token.user.id });
-    
+
     await GlobalData.findOneAndUpdate(
       { DataOwner: token.user.id },
       { $pull: { FriendRequests: { Dui: UserRequested.Dui } } }
     );
 
-
-
     await GlobalData.findOneAndUpdate(
       { DataOwner: UserRequested._id },
-      { $pull: {  PendingFriendReq: { Dui: ThisUser.Dui } } }
+      { $pull: { PendingFriendReq: { Dui: ThisUser.Dui } } }
     );
-
-
 
 
     res.status(200).json({ success: true, data: 'se rechazo correctamente' });
@@ -267,6 +281,31 @@ const DeclineFriend = async (req, res, next) => {
 }
 
 
+const DeleteFriend = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const { el: element } = req.body;
+
+    const UserRequested = await NormalUser.findOne({ Dui: element.Dui });
+    const ThisUser = await NormalUser.findOne({ _id: token.user.id });
+
+    await GlobalData.findOneAndUpdate(
+      { DataOwner: token.user.id },
+      { $pull: { Contacts: { Dui: element.Dui } } }
+    );
+
+    await GlobalData.findOneAndUpdate(
+      { DataOwner: UserRequested._id },
+      { $pull: { Contacts: { Dui: ThisUser.Dui } } }
+    );
+
+    res.status(200).json({ success: true, data: 'se elimino correctamente' });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+    console.log(error)
+  }
+}
+
 // const DeclineFriend = async (req, res, next) => {
 //   try {
 //     const token = req.resetToken;
@@ -275,6 +314,7 @@ const DeclineFriend = async (req, res, next) => {
 //     res.status(500).json({ success: false, error: error.message });
 //   }
 // }
+
 module.exports = {
   testDB,
   getUserId,
@@ -283,5 +323,6 @@ module.exports = {
   addFriendRequest,
   CancelPendingFr,
   AcceptFriend,
-  DeclineFriend
+  DeclineFriend,
+  DeleteFriend
 };

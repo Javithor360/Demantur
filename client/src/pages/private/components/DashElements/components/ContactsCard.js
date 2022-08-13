@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { useDash } from "../../../../../context/DashboardContext";
 
 export const ContactsCard = ({ User, setUsersToReq, UsersToReq }) => {
   const HeaderImages = require.context('../../assets/img/', true);
   const { addFriendRequest, PedingFriendReq, setReloadState } = useDash()
+  const [TextBox, setTextBox] = useState({ text: 'Agregar', state: false });
 
   const handlerAdd = (e) => {
     addFriendRequest(localStorage.getItem('authToken'), User._id);
@@ -13,6 +15,7 @@ export const ContactsCard = ({ User, setUsersToReq, UsersToReq }) => {
     })
     let filtarted = UsersToReq.filter((OtherUser) => OtherUser._id !== User._id)
     setUsersToReq(filtarted);
+    setTextBox({ text: 'Agregado', state: true });
     setReloadState(true)
   }
 
@@ -29,7 +32,7 @@ export const ContactsCard = ({ User, setUsersToReq, UsersToReq }) => {
         <span>Dui: {User.Dui}</span>
       </div>
       <div className='w-[20%] h-100 '>
-        <button onClick={handlerAdd} >agregar</button>
+        <button onClick={handlerAdd} disabled={TextBox.state} >{TextBox.text}</button>
       </div>
     </div >
   )

@@ -25,11 +25,11 @@ export const DashboardNormalUser = () => {
       case 1:
         return <HomePage />;
       case 2:
-        return <h1><Accounts/></h1>;
+        return <h1><Accounts /></h1>;
       case 3:
         return <Transactions />;
       case 4:
-        return <h1><ActLoans/></h1>;
+        return <h1><ActLoans /></h1>;
       case 5:
         return <Contacts />;
       case 6:

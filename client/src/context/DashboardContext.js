@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, getPedingFrReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest } from "../api/Queries";
+import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest } from "../api/Queries";
 
 const dashContext = createContext();
 
@@ -12,6 +12,8 @@ export const DashProvider = ({ children }) => {
   const [Option, setOption] = useState(1);
   const [OptionElement, setOptionElement] = useState("Home Page");
   const [SettingsOption, setSettingsOption] = useState(false);
+  const [TransactionsArr, setTransactionsArr] = useState([]);
+
 
   const [Info, setInfo] = useState({});
   const [GlobalInfo, setGlobalInfo] = useState({});
@@ -20,6 +22,9 @@ export const DashProvider = ({ children }) => {
   const [FriendRequest, setFriendRequest] = useState([]);
 
   const [ReloadState, setReloadState] = useState(false);
+  const [CurrentChat, setCurrentChat] = useState(null);
+  const [MyTransfers, setMyTransfers] = useState([]);
+  const [HimTranfers, setHimTranfers] = useState([]);
 
   useEffect(() => {
     setContacts(GlobalInfo.Contacts);
@@ -79,9 +84,9 @@ export const DashProvider = ({ children }) => {
     }
   };
 
-  const addFriendRequest = async (Token, UserId) => {
+  const addFriendRequest = async (Token, el) => {
     try {
-      await addFriendReq(PrivateConfig(Token), UserId);
+      await addFriendReq(PrivateConfig(Token), el);
     } catch (error) {
       console.log(error);
     }
@@ -98,8 +103,7 @@ export const DashProvider = ({ children }) => {
 
   const AcceptFriend = async (Token, el) => {
     try {
-      const res = await AcceptFriendReq(PrivateConfig(Token), el);
-      console.log(res);
+      await AcceptFriendReq(PrivateConfig(Token), el);
     } catch (error) {
       console.log(error);
     }
@@ -136,7 +140,8 @@ export const DashProvider = ({ children }) => {
       GeneralInfoQuery, Info, CreateElements, getGlobalInfo, GlobalInfo, getUsersToFriendReq, addFriendRequest,
       Contacts, PedingFriendReq, FriendRequest, setPedingFriendReq, cancelFriendReq,
       QueryCreateSavingsAccount, DeclineFriend, ReloadState, setReloadState, AcceptFriend, DematurClassicForm, setContacts,
-      setFriendRequest, DeleteFriendReq
+      setFriendRequest, DeleteFriendReq, CurrentChat, setCurrentChat, TransactionsArr, setTransactionsArr,
+      MyTransfers, setMyTransfers, HimTranfers, setHimTranfers
     }}>
       {children}
     </dashContext.Provider>

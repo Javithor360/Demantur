@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
 
 const TransfersHistoryElements = {
-  Date: Date,
-  Subject: String,
+  // Date: Date,
+  SenderDui: String,
+  ReciverDui: String,
   Amount: Number,
   AccountN: Number,
   Type: String,
+  createdAt: Date,
 };
 
 const GlobalDataSchema = new mongoose.Schema({

@@ -7,7 +7,7 @@ export const ContactsCard = ({ User, setUsersToReq, UsersToReq }) => {
   const [TextBox, setTextBox] = useState({ text: 'Agregar', state: false });
 
   const handlerAdd = (e) => {
-    addFriendRequest(localStorage.getItem('authToken'), User._id);
+    addFriendRequest(localStorage.getItem('authToken'), User);
     PedingFriendReq.push({
       Name: `${User.FirstName} ${User.LastName}`,
       Dui: User.Dui,

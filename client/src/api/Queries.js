@@ -16,8 +16,8 @@ export const getUsersToFRQuery = async (PrivateConfig) => {
   return await axios.get("http://localhost:4000/api/dashboard/get-friend-req", { headers: PrivateConfig.headers })
 }
 
-export const addFriendReq = async (PrivateConfig, UserId) => {
-  return await axios.post("http://localhost:4000/api/dashboard/add-friend-request", { UserId }, { headers: PrivateConfig.headers })
+export const addFriendReq = async (PrivateConfig, el) => {
+  return await axios.post("http://localhost:4000/api/dashboard/add-friend-request", { el }, { headers: PrivateConfig.headers })
 }
 
 export const getPedingFrReq = async (PrivateConfig) => {

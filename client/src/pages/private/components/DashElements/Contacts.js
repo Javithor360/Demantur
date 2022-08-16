@@ -16,7 +16,7 @@ export const Contacts = () => {
   const [UsersToReq, setUsersToReq] = useState([]);
   const [UsersSearched, setUsersSearched] = useState([]);
 
-  const { getGlobalInfo, getUsersToFriendReq, Contacts } = useDash();
+  const { getGlobalInfo, getUsersToFriendReq } = useDash();
 
   useEffect(() => {
     getGlobalInfo(localStorage.getItem('authToken'));
@@ -62,8 +62,8 @@ export const Contacts = () => {
       <>
         {
           UsersSearched.length !== 0 ?
-            UsersSearched.map((User) => {
-              return <ContactsCard User={User} key={User._id} setUsersToReq={setUsersToReq} UsersToReq={UsersToReq} />
+            UsersSearched.map((User, index) => {
+              return <ContactsCard User={User} key={index} setUsersToReq={setUsersToReq} UsersToReq={UsersToReq} />
             })
             :
             <p>no hay concidiencias</p>
@@ -88,48 +88,54 @@ export const Contacts = () => {
   return (
     <div className="contacts-main-div h-100 flex justify-between">
       <div className='divs-contact contacts-big-div  w-[60%]'>
-        <h2 className='text-gray-500'>Tus Contactos</h2>
-        <div className='line-contacts w-[40%] mx-auto' ></div>
-        <div className={` w-[80%] mx-auto my-6 h-[80%] ${CharginIco === true ? ' flex justify-center items-center' : 'border-black border-solid'}`}>
-
-          {
-            CharginIco === true ?
-              <IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' />
-              :
-              <>
+        {
+          CharginIco === true ?
+            <div className='flex justify-center items-center w-100 h-100'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
+            :
+            <>
+              <h2 className='text-gray-500'>Tus Contactos</h2>
+              <div className='line-contacts w-[40%] mx-auto' ></div>
+              <div className={`w-[80%] mx-auto my-6 h-[80%] border-black border-solid`}>
                 <div className='flex w-[100%] bg-black h-[3rem]'>
                   <div className='w-[auto] text-center bg-red-400' onClick={() => { setBoxhanlder(1) }}>Añadidos</div>
                   <div className='w-[auto] text-center bg-red-400' onClick={() => { setBoxhanlder(2) }}>Pendientes</div>
                   <div className='w-[auto] text-center bg-red-400' onClick={() => { setBoxhanlder(3) }}>solicitudes</div>
                 </div>
                 {renderBox()}
-              </>
-          }
-        </div>
+              </div>
+            </>
+        }
       </div>
 
 
       <div className='divs-contact contacts-small-div w-[37%]'>
-        <h2 className='text-gray-500'>Agregar Contacto</h2>
-        <div className='line-contacts w-[70%] mx-auto '></div>
-        <div className='p-4 h-[90%]'>
-          <div className='container-contact-input w-[90%] mx-auto '>
-            <div className='h-100 w-[100%] mx-auto flex justify-center '>
-              <input id='Nombre' name='Nombre' placeholder='Nombre Completo' onChange={SearchFunct} value={NombreInput} autoComplete='off' className='input-contact-dui px-[1rem] py-[0.4rem] w-[100%] h-100 text-xl' />
-              <button type='submit' className='boton-contacts w-[14%]'><FiSearch /></button>
-            </div>
-          </div>
-          <div className='searched-contacts flex flex-col mt-4'>
+        {
+          CharginIco === true ?
+            <div className='w-100 h-100 flex justify-center items-center'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
+            :
             <>
-              {
-                CharginSkeleton === true ?
-                  <ContactsCardSkeleton cards={5} />
-                  :
-                  rederUsers()
-              }
+              <h2 className='text-gray-500'>Agregar Contacto</h2>
+              <div className='line-contacts w-[70%] mx-auto '></div>
+              <div className='p-4 h-[90%]'>
+                <div className='container-contact-input w-[90%] mx-auto '>
+                  <div className='h-100 w-[100%] mx-auto flex justify-center '>
+                    <input id='Nombre' name='Nombre' placeholder='Nombre Completo' onChange={SearchFunct} value={NombreInput} autoComplete='off' className='input-contact-dui px-[1rem] py-[0.4rem] w-[100%] h-100 text-xl' />
+                    <button type='submit' className='boton-contacts w-[14%]'><FiSearch /></button>
+                  </div>
+                </div>
+                <div className='searched-contacts flex flex-col mt-4'>
+                  <>
+                    {
+                      CharginSkeleton === true ?
+                        <ContactsCardSkeleton cards={5} />
+                        :
+                        rederUsers()
+                    }
+                  </>
+                </div>
+              </div>
             </>
-          </div>
-        </div>
+        }
       </div>
     </div>
   )

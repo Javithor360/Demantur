@@ -39,3 +39,7 @@ export const DeclineFriendReq = async (PrivateConfig, el) => {
 export const DeleteFriendRequest = async (PrivateConfig, el) => {
   return await axios.post('http://localhost:4000/api/dashboard/delete-friend-request', { el }, { headers: PrivateConfig.headers })
 }
+
+export const DoATransferQuery = async (PrivateConfig, transfer) => {
+  return await axios.post('http://localhost:4000/api/dashboard/do-a-transfer', transfer, { headers: PrivateConfig.headers })
+}

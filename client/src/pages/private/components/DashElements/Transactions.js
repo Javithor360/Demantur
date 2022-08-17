@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import '../assets/scss/Transactions_main.scss'
 import './TransactionsComponents/TransactionMessage'
 import photoExample from '../assets/img/contact-user-profile.png'
@@ -9,17 +9,25 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { RiLoader3Fill as IconChargin } from 'react-icons/ri'
 import Cleave from 'cleave.js/react'
+import { io } from 'socket.io-client'
 
 export const Transactions = () => {
     const [CharginComp, setCharginComp] = useState(true);
     const [AllTransfers, setAllTransfers] = useState([]);
-    const [MyDui, setMyDui] = useState([]);
+    const [MyDui, setMyDui] = useState('');
     const [MyName, setMyName] = useState('');
 
     const [MontoTransfer, setMontoTransfer] = useState('');
     const [NumberAccount, setNumberAccount] = useState('');
+    const socket = useRef(io('ws://localhost:5000'));
 
-    const { Contacts, getGlobalInfo, CurrentChat, setCurrentChat, GlobalInfo, TransactionsArr, setTransactionsArr, MyTransfers, HimTranfers, Info, setMyTransfers, setHimTranfers } = useDash()
+    const scrollRef = useRef();
+
+    const { Contacts, getGlobalInfo, CurrentChat, setCurrentChat, GlobalInfo, TransactionsArr, setTransactionsArr, MyTransfers, HimTranfers, Info, setMyTransfers, setHimTranfers, DoATransfer } = useDash()
+
+    useEffect(() => {
+        socket.current.emit('DoTransfer', CurrentChat)
+    }, [CurrentChat]);
 
     useEffect(() => {
         setMyDui(Info.Dui)
@@ -43,20 +51,45 @@ export const Transactions = () => {
     }, [GlobalInfo])
 
     useEffect(() => {
-        setAllTransfers(MyTransfers.concat(HimTranfers));
+        let TwoArrays = MyTransfers.concat(HimTranfers);
+
+        TwoArrays.sort((a, b) => {
+            let D_A = new Date(a.createdAt).getTime()
+            let D_B = new Date(b.createdAt).getTime()
+
+            if (D_A < D_B) {
+                return -1
+            } else {
+                return 1
+            }
+        })
+
+        setAllTransfers(TwoArrays);
     }, [MyTransfers, HimTranfers]);
 
-
-    const HandlerTransSubmit = (e) => {
-        e.preventDefault()
-
-        console.log(MontoTransfer);
-        console.log(NumberAccount);
-    }
-
     useEffect(() => {
-        console.log(MontoTransfer);
-    }, [MontoTransfer]);
+        scrollRef.current?.scrollIntoView({ behavior: 'smooth' })
+    }, [AllTransfers])
+
+
+    const HandlerTransSubmit = async (e) => {
+        e.preventDefault()
+        const transaction = {
+            SenderDui: MyDui,
+            ReciverDui: CurrentChat.Dui,
+            Amount: MontoTransfer,
+            AccountN: NumberAccount.split(' ')[1],
+            Type: 'NormalTransfer',
+            createdAt: new Date(),
+        }
+
+        try {
+            const res = await DoATransfer(localStorage.getItem('authToken'), transaction);
+            setAllTransfers([...AllTransfers, res.data.data])
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const FormTransfer = () => {
         return (
@@ -155,7 +188,9 @@ export const Transactions = () => {
                                                             {
                                                                 AllTransfers.length !== 0 ?
                                                                     AllTransfers.map((tr, index) => (
-                                                                        <TransactionMessage own={tr.SenderDui === MyDui} Transf={tr} CurrentChat={CurrentChat} MyName={MyName} key={index} />
+                                                                        <div ref={scrollRef}>
+                                                                            <TransactionMessage own={tr.SenderDui === MyDui} Transf={tr} CurrentChat={CurrentChat} MyName={MyName} key={index} />
+                                                                        </div>
                                                                     ))
                                                                     :
                                                                     <div className='flex justify-center items-center w-100 h-100'>

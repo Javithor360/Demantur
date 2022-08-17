@@ -1,11 +1,15 @@
+import '../../assets/scss/Contacts_main.scss'
+import { useState } from "react";
 import { useDash } from "../../../../../context/DashboardContext";
+
 
 export const ContactsCard = ({ User, setUsersToReq, UsersToReq }) => {
   const HeaderImages = require.context('../../assets/img/', true);
   const { addFriendRequest, PedingFriendReq, setReloadState } = useDash()
+  const [TextBox, setTextBox] = useState({ text: 'Agregar', state: false });
 
   const handlerAdd = (e) => {
-    addFriendRequest(localStorage.getItem('authToken'), User._id);
+    addFriendRequest(localStorage.getItem('authToken'), User);
     PedingFriendReq.push({
       Name: `${User.FirstName} ${User.LastName}`,
       Dui: User.Dui,
@@ -13,23 +17,24 @@ export const ContactsCard = ({ User, setUsersToReq, UsersToReq }) => {
     })
     let filtarted = UsersToReq.filter((OtherUser) => OtherUser._id !== User._id)
     setUsersToReq(filtarted);
+    setTextBox({ text: 'Agregado', state: true });
     setReloadState(true)
   }
 
   return (
-    <div className='flex h-[16%] justify-evenly items-center bg-zinc-50 mb-4'>
-      <div className=" w-[15%] h-100 flex justify-center items-center"> {/*   */}
-        <div className='profile-img'>
+    <div className='contact-card-container bg-[#FBFBFB] rounded-md shadow-md'>
+      <div className="w-[100%] h-100 flex items-center mb-2 py-2 px-3"> {/*   */}
+        <div className='profile-img mr-3'>
           <img src={HeaderImages('./profile-photo2.jpg')} alt="" className="h-full w-full" />
         </div>
+        <div className='flex flex-col justify-center h-100'>
+          <span>{`${User.FirstName} ${User.LastName}`} </span>
+          <hr className="my-1 p-0"/>
+          <span>Dui: {User.Dui}</span>
+        </div>
       </div>
-      <div className='w-[60%] h-100'>
-        <span>{`${User.FirstName} ${User.LastName}`} </span>
-        <hr />
-        <span>Dui: {User.Dui}</span>
-      </div>
-      <div className='w-[20%] h-100 '>
-        <button onClick={handlerAdd} >agregar</button>
+      <div className='add-contact-btn'>
+        <button  className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white" onClick={handlerAdd} disabled={TextBox.state} >{TextBox.text}</button>
       </div>
     </div >
   )

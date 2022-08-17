@@ -66,16 +66,21 @@
 
     img {
         margin-top: 2.8rem;
-        height: 30rem;
-        width: 25rem;
+        margin-right: -5rem;
+        height: 20rem;
+        width: 30rem;
         align-items: center;
     }
 }
 
 .about-impact-container {
-    background-image: url(../img/about-hero.jpg);
-    height: 24.5rem;
+    background-image: url(../img/about-down.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 25rem;
     width: 100%;
+    padding: 1.25rem;
+    position: relative;
     margin-top: 15rem;
     
     .about-impact-bg {
@@ -150,4 +155,5 @@
             }
         }
     }
+    
 }

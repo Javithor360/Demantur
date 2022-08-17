@@ -122,38 +122,47 @@ const getFriendsReq = async (req, res, next) => {
 const addFriendRequest = async (req, res, next) => {
   try {
     const token = req.resetToken;
-    const { UserId } = req.body;
+    const { el: element } = req.body;
 
-    const UserRequested1 = await NormalUser.findOne({ _id: UserId });
+    const UserRequested1 = await NormalUser.findOne({ _id: element._id });
     const ThisUser1 = await NormalUser.findOne({ _id: token.user.id });
 
-    const ThisUser = await GlobalData.findOneAndUpdate(
-      { DataOwner: token.user.id },
-      {
-        $addToSet: {
-          PendingFriendReq: {
-            Name: `${UserRequested1.FirstName} ${UserRequested1.LastName}`,
-            Dui: UserRequested1.Dui,
-            Photo: 'foto link',
+    const ThisUserGlobalData = await GlobalData.findOne({ DataOwner: token.user.id });
+    let Filter = ThisUserGlobalData.Contacts.filter((contact) => contact.Dui === element.Dui);
+
+    if (Filter.length === 0) {
+      await GlobalData.findOneAndUpdate(
+        { DataOwner: token.user.id },
+        {
+          $addToSet: {
+            PendingFriendReq: {
+              Name: `${UserRequested1.FirstName} ${UserRequested1.LastName}`,
+              Dui: UserRequested1.Dui,
+              Photo: 'foto link',
+            }
           }
         }
-      }
-    );
+      );
 
-    const UserRequested = await GlobalData.findOneAndUpdate(
-      { DataOwner: UserId },
-      {
-        $addToSet: {
-          FriendRequests: {
-            Name: `${ThisUser1.FirstName} ${ThisUser1.LastName}`,
-            Dui: ThisUser1.Dui,
-            Photo: 'foto link',
+      await GlobalData.findOneAndUpdate(
+        { DataOwner: element._id },
+        {
+          $addToSet: {
+            FriendRequests: {
+              Name: `${ThisUser1.FirstName} ${ThisUser1.LastName}`,
+              Dui: ThisUser1.Dui,
+              Photo: 'foto link',
+            }
           }
         }
-      }
-    )
+      )
 
-    res.status(200).json({ success: true, data: { ThisUser: ThisUser, UserRequested: UserRequested } })
+      res.status(200).json({ success: true, data: 'Solicitud enviada Correctamente' })
+    } else {
+      res.status(400).json({ success: true, data: 'Usuario ya solicitado' })
+    }
+
+
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
@@ -193,6 +202,7 @@ const AcceptFriend = async (req, res, next) => {
     const UserRequested = await NormalUser.findOne({ Dui: element.Dui });
     const ThisUser = await NormalUser.findOne({ _id: token.user.id });
 
+
     await GlobalData.findOneAndUpdate(
       { DataOwner: token.user.id },
       { $pull: { FriendRequests: { Dui: element.Dui } } }
@@ -200,7 +210,7 @@ const AcceptFriend = async (req, res, next) => {
 
     await GlobalData.findOneAndUpdate(
       { DataOwner: UserRequested._id },
-      { $pull: {  PendingFriendReq: { Dui: ThisUser.Dui } } }
+      { $pull: { PendingFriendReq: { Dui: ThisUser.Dui } } }
     );
 
     // agregar contacto
@@ -228,8 +238,10 @@ const AcceptFriend = async (req, res, next) => {
         }
       }
     );
-      
+
     res.status(200).json({ success: true, data: 'Agregado correctamente' });
+
+
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
@@ -239,25 +251,20 @@ const AcceptFriend = async (req, res, next) => {
 const DeclineFriend = async (req, res, next) => {
   try {
     const token = req.resetToken;
-    const {el: element} = req.body;
-
+    const { el: element } = req.body;
 
     const UserRequested = await NormalUser.findOne({ Dui: element.Dui });
     const ThisUser = await NormalUser.findOne({ _id: token.user.id });
-    
+
     await GlobalData.findOneAndUpdate(
       { DataOwner: token.user.id },
       { $pull: { FriendRequests: { Dui: UserRequested.Dui } } }
     );
 
-
-
     await GlobalData.findOneAndUpdate(
       { DataOwner: UserRequested._id },
-      { $pull: {  PendingFriendReq: { Dui: ThisUser.Dui } } }
+      { $pull: { PendingFriendReq: { Dui: ThisUser.Dui } } }
     );
-
-
 
 
     res.status(200).json({ success: true, data: 'se rechazo correctamente' });
@@ -267,6 +274,31 @@ const DeclineFriend = async (req, res, next) => {
 }
 
 
+const DeleteFriend = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const { el: element } = req.body;
+
+    const UserRequested = await NormalUser.findOne({ Dui: element.Dui });
+    const ThisUser = await NormalUser.findOne({ _id: token.user.id });
+
+    await GlobalData.findOneAndUpdate(
+      { DataOwner: token.user.id },
+      { $pull: { Contacts: { Dui: element.Dui } } }
+    );
+
+    await GlobalData.findOneAndUpdate(
+      { DataOwner: UserRequested._id },
+      { $pull: { Contacts: { Dui: ThisUser.Dui } } }
+    );
+
+    res.status(200).json({ success: true, data: 'se elimino correctamente' });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+    console.log(error)
+  }
+}
+
 // const DeclineFriend = async (req, res, next) => {
 //   try {
 //     const token = req.resetToken;
@@ -275,6 +307,51 @@ const DeclineFriend = async (req, res, next) => {
 //     res.status(500).json({ success: false, error: error.message });
 //   }
 // }
+
+
+// CONTROLLERS OF TRANSFERS
+// CONTROLLERS OF TRANSFERS
+// CONTROLLERS OF TRANSFERS
+// CONTROLLERS OF TRANSFERS
+
+// POST
+const DoAtransfer = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const { SenderDui, ReciverDui, Amount, AccountN, Type } = req.body;
+    let mader, receiver;
+
+    const ThisUser = await NormalUser.findOne({ _id: token.user.id });
+    if (SenderDui === ThisUser.Dui) {
+      // MADE TRANSFER
+      const RequestedUser = await NormalUser.findOne({ Dui: ReciverDui });
+      mader = token.user.id;
+      receiver = RequestedUser._id
+    } else {
+      // RECEIVE TRANSFER
+      const RequestedUser = await NormalUser.findOne({ Dui: SenderDui });
+      mader = RequestedUser._id;
+      receiver = token.user.id;
+    }
+
+    // MADER
+    await GlobalData.findOneAndUpdate(
+      { DataOwner: mader },
+      { $addToSet: { 'TransfersHistory.Made': { SenderDui, ReciverDui, Amount, AccountN, Type } } }
+    );
+
+    // RECEIVER
+    await GlobalData.findOneAndUpdate(
+      { DataOwner: receiver },
+      { $addToSet: { 'TransfersHistory.Received': { SenderDui, ReciverDui, Amount, AccountN, Type } } }
+    );
+
+    res.status(200).json({ success: true, data: 'transferencia hecha correctamente' })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error });
+  }
+}
+
 module.exports = {
   testDB,
   getUserId,
@@ -283,5 +360,7 @@ module.exports = {
   addFriendRequest,
   CancelPendingFr,
   AcceptFriend,
-  DeclineFriend
+  DeclineFriend,
+  DeleteFriend,
+  DoAtransfer
 };

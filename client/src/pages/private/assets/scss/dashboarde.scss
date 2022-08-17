@@ -116,7 +116,7 @@ body{
     box-shadow: 0 0 1px black;
 }
 
-.line{   
+.lineEmple{   
     background-color: #323643;
     width: 80%;
     height: 0.1rem;
@@ -135,7 +135,7 @@ body{
     width: 10rem;
 }
 
-.icon{
+.iconEmple{
     margin-right: .5rem;
     font-size: 1.5rem;
 }
@@ -166,7 +166,7 @@ li:hover{
     height: auto;
     box-shadow: 0  1px 1px 1px #868786;
     
-    .icon{
+    .iconEmple{
         transition: 1s all ease;
         height: 2rem;
         width: 2rem;
@@ -175,7 +175,7 @@ li:hover{
         color: #fff;
         margin-left: 1rem;
 
-        .icon2{
+        .iconEmple2{
             margin-left: .2rem;
             transform: translateY(-0.7rem);
         }

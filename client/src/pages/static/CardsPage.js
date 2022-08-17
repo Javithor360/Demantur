@@ -122,7 +122,7 @@ export const CardsPage = () => {
                             <img src={CreditCardsImages('./bank_cards_images/goldCard.png')} alt='' />
                         </div>
                         <div className='card-tittle'>
-                            <p>Demantur Gold  <span className='registered-icon'>&reg;</span> </p>
+                            <p>Demantur Gold<span className='registered-icon'>&reg;</span> </p>
                             <p>Visa &reg;</p>
                         </div>
                         <div className='card-details'>
@@ -162,7 +162,7 @@ export const CardsPage = () => {
                             <img src={CreditCardsImages('./bank_cards_images/blackCard.png')} alt='' />
                         </div>
                         <div className='card-tittle'>
-                            <p>Mastercard Black  <span className='registered-icon'>&reg;</span> </p>
+                            <p>Mastercard Black <span className='registered-icon'>&reg;</span> </p>
                             <p>Mastercard &trade;</p>
                         </div>
                         <div className='card-details'>

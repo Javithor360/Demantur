@@ -97,7 +97,7 @@ export const Contacts = () => {
                 <p className='text-gray-500 text-center text-[28px] m-0 p-0'>Tus Contactos</p>
                 <div className='line-contacts w-[40%] mx-auto' ></div>
                 <div className='flex w-[100%] bg-[#f7f7f7] p-2 h-[3rem] rounded-sm shadow-sm justify-center mb-3 mt-3'>
-                  <div className='contact-tab-header' onClick={() => { setBoxhanlder(1) }}>
+                  <div className={`contact-tab-header ${BoxHandler === 1 && 'bg-black'}`} onClick={() => { setBoxhanlder(1) }}>
                     <span className=''>Añadidos</span>
                   </div>
                   <div className='contact-tab-header' onClick={() => { setBoxhanlder(2) }}>

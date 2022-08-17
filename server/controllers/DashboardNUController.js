@@ -318,7 +318,7 @@ const DeleteFriend = async (req, res, next) => {
 const DoAtransfer = async (req, res, next) => {
   try {
     const token = req.resetToken;
-    const { SenderDui, ReciverDui, Amount, AccountN, Type } = req.body;
+    const { SenderDui, ReciverDui, Amount, AccountN, Type, createdAt } = req.body;
     let mader, receiver;
 
     const ThisUser = await NormalUser.findOne({ _id: token.user.id });
@@ -335,18 +335,20 @@ const DoAtransfer = async (req, res, next) => {
     }
 
     // MADER
-    await GlobalData.findOneAndUpdate(
+    const TransferMade = await GlobalData.findOneAndUpdate(
       { DataOwner: mader },
-      { $addToSet: { 'TransfersHistory.Made': { SenderDui, ReciverDui, Amount, AccountN, Type } } }
+      { $addToSet: { 'TransfersHistory.Made': { SenderDui, ReciverDui, Amount, AccountN, Type, createdAt } } }
     );
 
     // RECEIVER
     await GlobalData.findOneAndUpdate(
       { DataOwner: receiver },
-      { $addToSet: { 'TransfersHistory.Received': { SenderDui, ReciverDui, Amount, AccountN, Type } } }
+      { $addToSet: { 'TransfersHistory.Received': { SenderDui, ReciverDui, Amount, AccountN, Type, createdAt } } }
     );
 
-    res.status(200).json({ success: true, data: 'transferencia hecha correctamente' })
+    const Transfers = await GlobalData.findOne({ DataOwner: TransferMade.DataOwner })
+
+    res.status(200).json({ success: true, data: Transfers.TransfersHistory.Made.pop() })
   } catch (error) {
     res.status(500).json({ success: false, error: error });
   }

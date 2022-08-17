@@ -86,17 +86,17 @@ export const Contacts = () => {
   }
 
   return (
-    <div className="contacts-main-div h-100 flex justify-between">
-      <div className='divs-contact contacts-big-div  w-[58%]'>
+    <div className="contacts-main-div h-[100%] flex justify-between">
+      <div className='divs-contact contacts-big-div h-full w-[58%]'>
         {
           CharginIco === true ?
-            <div className='flex justify-center items-center w-100 h-100'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
+            <div className='flex justify-center items-center w-full h-full'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
             :
             <>
-              <p className='text-gray-500 text-center text-[28px] m-0 p-0'>Tus Contactos</p>
-              <div className='line-contacts w-[40%] mx-auto' ></div>
-              <div className={`w-[90%] mx-auto my-6 h-[80%]`}>
-                <div className='flex w-[100%] bg-[#f7f7f7] p-2 h-[3rem] rounded-sm shadow-sm justify-center mb-3'>
+              <div className={`w-[90%] mx-auto max-h-fit`}>
+                <p className='text-gray-500 text-center text-[28px] m-0 p-0'>Tus Contactos</p>
+                <div className='line-contacts w-[40%] mx-auto' ></div>
+                <div className='flex w-[100%] bg-[#f7f7f7] p-2 h-[3rem] rounded-sm shadow-sm justify-center mb-3 mt-3'>
                   <div className='contact-tab-header' onClick={() => { setBoxhanlder(1) }}>
                     <span className=''>Añadidos</span>
                   </div>
@@ -107,6 +107,8 @@ export const Contacts = () => {
                     <span className=''>Solicitudes</span>
                   </div>
                 </div>
+              </div>
+              <div className='h-[70%] overflow-x-hidden overflow-y-auto'>
                 {renderBox()}
               </div>
             </>

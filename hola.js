@@ -1,6 +1,6 @@
 const hola = async () => {
-  const fecha = new Date()
-  console.log(fecha);
+  const facha = new Date()
+  console.log(facha);
 }
 
 

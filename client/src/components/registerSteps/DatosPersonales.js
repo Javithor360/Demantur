@@ -2,10 +2,12 @@ import { useEffect } from 'react'
 import { StepperButtons } from '../StepperButtons'
 import axios from 'axios'
 import Cleave from 'cleave.js/react';
+import { useTranslation } from "react-i18next";
 
 import { useAuth } from '../../context/AuthContext';
 
 export const DatosPersonales = () => {
+  const { t } = useTranslation();
   const { nextButton, setstateOfStep1, setstateOfStep2, page, configPublic,
     setError, Nombres, setNombres, Apellidos, setApellidos, DateBirth, setDateBirth, Direccion, setDireccion
   } = useAuth()
@@ -49,19 +51,19 @@ export const DatosPersonales = () => {
         <div className='step-inputs'>
           <div className="input-class">
             <input type='text' id='Nombres' name='Nombres' placeholder=' ' onChange={(e) => setNombres(e.target.value)} value={Nombres} autoComplete='off' className='input-form' />
-            <label htmlFor="Nombres" className='label-form'>Nombres</label>
+            <label htmlFor="Nombres" className='label-form'>{t("login.register.names")}</label>
           </div>
           <div className="input-class">
             <input type='text' id='Apellidos' name='Apellidos' placeholder=' ' onChange={(e) => setApellidos(e.target.value)} value={Apellidos} autoComplete='off' className='input-form' />
-            <label htmlFor="Apellidos" className='label-form'>Apellidos</label>
+            <label htmlFor="Apellidos" className='label-form'>{t("login.register.lastname")}</label>
           </div>
           <div className="input-class">
             <Cleave id='date' name='date' placeholder=' ' options={{ date: true, timePattern: ['Y', 'm', 'd'] }} onChange={(e) => setDateBirth(e.target.value)} autoComplete='off' className='input-form' value={DateBirth} />
-            <label htmlFor="date" className='label-form' id='date-label'>Fecha de Nacimiento</label>
+            <label htmlFor="date" className='label-form' id='date-label'>{t("login.register.date")}</label>
           </div>
           <div className="input-class">
             <input type='text' id='Direccion' name='Direccion' placeholder=' ' onChange={(e) => setDireccion(e.target.value)} value={Direccion} autoComplete='off' className='input-form' />
-            <label htmlFor="Direccion" className='label-form'>Dirección</label>
+            <label htmlFor="Direccion" className='label-form'>{t("login.register.address")}</label>
           </div>
         </div>
         <div className='line-x'></div>

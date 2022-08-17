@@ -7,7 +7,7 @@ import { RiUser3Fill } from 'react-icons/ri'
 import { FaFingerprint, FaMoneyBillAlt } from 'react-icons/fa'
 import { HiUsers } from 'react-icons/hi'
 
-export const RegisterStepper = () => {
+export const  RegisterStepper = () => {
   const { stateOfStep1, stateOfStep2, stateOfStep3, stateOfStep4 } = useAuth()
 
   let classFirstIcon, classSecondIcon, classThirdIcon, classFourIcon = 'ball-icon';

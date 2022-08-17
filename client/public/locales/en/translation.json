@@ -4,7 +4,7 @@
     "accounts": "Accounts",
     "loans": "Loans",
     "contact": "Contact",
-    "business": "register",
+    "business": "Register",
     "about": "About Us",
     "help": "Help",
     "access": "Access"
@@ -36,6 +36,31 @@
         "3": "Possibility of having a checkbook"
       }
     }
+  },
+  "login":{
+    "register":{
+      "tittle":"Sign up for online banking",
+      "tittle2":"Personal information",
+      "subtittle":"We need your personal data to be able to identify you and know that it really is you",
+      "names":"Names",
+      "lastname":"Lastnames",
+      "date":"birthday date",
+      "address":"Address"
+    },
+    "contentreg":{
+      "tittle":"Other options",
+      "subtitle":"What do you need to do?",
+      "subtitle2":"Log in",
+      "subtitle3":"Change Password",
+      "Subtitle4":"Verify email"
+    },
+    "slidereg":{
+      "subittle":"Personal information",
+      "ID":"ID",
+      "money":"Monetary data",
+      "Beneficiary":"Beneficiary"
+    }
+
   },
   "Aboutpage":{
     "hero":{
@@ -77,7 +102,7 @@
       "subtittle": "Welcome to the user selection interface, select the option you want to go to",
       "tittle2":"Other options",
       "subtittle2":"we have other options in case you already have an account, we have the following tools that could help you",
-      "tittle3":"how to register?"
+      "tittle3":"H ow to register?"
     },
     "cards":{
       "1":{

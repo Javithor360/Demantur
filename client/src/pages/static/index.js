@@ -23,4 +23,5 @@ export { InfoEmpre } from "./InfoEmpre";
 export { ForgotPasswordPage } from './auth/ForgotPasswordPage';
 export { ResetPasswordPage } from './auth/ResetPasswordPage';
 export { AboutUs } from "./AboutUs";
-export { TermsandConditions } from "./TermsAndConditions"; 
+export { TermsandConditions } from "./TermsAndConditions";
+export { Error404 } from "./Error404" 

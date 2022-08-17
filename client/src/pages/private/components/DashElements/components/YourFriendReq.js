@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useDash } from '../../../../../context/DashboardContext'
+import requests_icon from '../../assets/img/contacts-icons/contacts-request-icon.png'
 
 export const YourFriendReq = () => {
     const { FriendRequest, AcceptFriend, DeclineFriend, setFriendRequest, setReloadState, Contacts } = useDash()
@@ -34,7 +35,7 @@ export const YourFriendReq = () => {
     }
     return (
         <>
-            <p>SUS solicitudes pendientes:</p>
+            <span className='mt-5 text-[#606470]'>Sus solicitudes pendientes</span>
             {
                 FriendRequest.length !== 0 ?
                     FriendRequest.map((el, i) => {
@@ -47,7 +48,10 @@ export const YourFriendReq = () => {
                         )
                     })
                     :
-                    'no hay'
+                    <div className='flex flex-col justify-center items-center h-[100%]'>
+                        <img className='w-[200px] mb-3' src={requests_icon} alt="" />
+                        <p className='text-[#606470]'>No tiene solicitudes pendientes</p>
+                    </div>
             }
         </>
     )

@@ -1,5 +1,7 @@
+import '../../assets/scss/Contacts_main.scss'
 import { useState } from "react";
 import { useDash } from "../../../../../context/DashboardContext";
+
 
 export const ContactsCard = ({ User, setUsersToReq, UsersToReq }) => {
   const HeaderImages = require.context('../../assets/img/', true);
@@ -20,19 +22,19 @@ export const ContactsCard = ({ User, setUsersToReq, UsersToReq }) => {
   }
 
   return (
-    <div className='flex h-[16%] justify-evenly items-center bg-zinc-50 mb-4'>
-      <div className=" w-[15%] h-100 flex justify-center items-center"> {/*   */}
-        <div className='profile-img'>
+    <div className='contact-card-container bg-[#FBFBFB] rounded-md shadow-md'>
+      <div className="w-[100%] h-100 flex items-center mb-2 py-2 px-3"> {/*   */}
+        <div className='profile-img mr-3'>
           <img src={HeaderImages('./profile-photo2.jpg')} alt="" className="h-full w-full" />
         </div>
+        <div className='flex flex-col justify-center h-100'>
+          <span>{`${User.FirstName} ${User.LastName}`} </span>
+          <hr className="my-1 p-0"/>
+          <span>Dui: {User.Dui}</span>
+        </div>
       </div>
-      <div className='w-[60%] h-100'>
-        <span>{`${User.FirstName} ${User.LastName}`} </span>
-        <hr />
-        <span>Dui: {User.Dui}</span>
-      </div>
-      <div className='w-[20%] h-100 '>
-        <button onClick={handlerAdd} disabled={TextBox.state} >{TextBox.text}</button>
+      <div className='add-contact-btn'>
+        <button  className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white" onClick={handlerAdd} disabled={TextBox.state} >{TextBox.text}</button>
       </div>
     </div >
   )

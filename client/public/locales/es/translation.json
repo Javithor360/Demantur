@@ -4,7 +4,7 @@
     "accounts": "Cuentas",
     "loans": "Préstamos",
     "contact": "Contacto",
-    "business": "Empresas",
+    "business": "registro",
     "about": "Nosotros",
     "help": "Ayuda",
     "access": "Acceder"
@@ -20,8 +20,8 @@
   },
   "bussinesPage":{
     "hero":{
-      "tittle":"cuenta empresarial",
-      "desc":"Encuentre la mejor solución que se adapte a sus necesidades"
+      "tittle":"Registro",
+      "desc":"bienvenido a la guia donde aprenderas todo lo que debes saber para poder registrarte"
     },
     "body":{
       "tittle":"¿que es una cuenta empresarial?",
@@ -37,14 +37,35 @@
     }
 
   },
+  "Aboutpage":{
+    "hero":{
+      "tittle":"Nos mueve un gran propósito",
+      "subtitle":"Contribuir a la construcción de un mejor país nos ha llevado a desarrollar un sistema operativo sostenible y a crear programas de desarrollo como educación financiera o asesoramiento en sostenibilidad.."
+    },
+    "body":{
+      "tittle":"Nuesta historia",
+      "subtitle":"Dematur fue fundada el 20 de marzo de 2022 con el propósito de poder brindar a sus clientes un servicio de banca en línea con el fin de optimizar el valioso tiempo de las personas a través de una interfaz amigable y dinámica para la realización de trámites. , ampliando nuestros servicios con breves guías para que puedas aprender a utilizar la banca online sin tener conocimientos de una, logrando así romper la brecha digital que existe a nivel mundial. El propósito con el que se fundó Demantur es para que puedas contar con un lugar seguro donde depositar tu dinero, garantizar la seguridad de tus bienes y brindarte ayuda en caso de que necesites realizar algún trámite de forma rápida y segura desde la comodidad de tu hogar. de tu casa o donde estés, logrando promover el conocimiento económico en la actualidad.",
+      "tittle2":"Nuestro impacto",
+      "subtitle2":"Nos hemos propuesto romper la brecha digital que afecta a la mayor parte de la población mundial, logrando que todos tengan acceso a un servicio sin necesidad de ser un experto en economía, para ello se ha propuesto una interfaz que cuenta con guías informativas de forma gratuita para que puede saber lo que es necesario para la funcionalidad de la banca en línea."
+    },
+    "valor":{
+      "tittle":"Nuestros valores",
+      "valor":"Responsabilidad",
+      "subtitle":"Somos puntuales en todo lo que puedas necesitar.",
+      "valor2":"Respeto",
+      "subtitle2":"Valoramos tu integridad como persona y ser humano",
+      "valor3":"Cercania",
+      "subtitle3":"Siempre buscamos brindar una mano amiga para ayudarte"
+    }
+  },
   "selectpage":{
     "hero":{
-      "tittle": "Selección de usuario",
-      "subtitle":"Bienvenido a la interfaz de cuentas"
+      "tittle": "Selección",
+      "subtitle":"Bienvenido a la interfaz de Seleccion de opciones"
     },
     "body":{
       "tittle": "Bienvenido de nuevo",
-      "subtittle": "Bienvenido a la interfaz de selección de usuario, seleccione el tipo de usuario del que es propietario, asegúrese de seleccionar la opción con su tipo de cuenta y todos sus datos correctamente",
+      "subtittle": "Bienvenido a la interfaz de selección de usuario, seleccione la opcion a la cual desea ir",
       "tittle2":"Otras opciones",
       "subtittle2":"Tenemos otras opciones en caso de que ya tengas una cuenta, tenemos las siguientes herramientas que podrían ayudarte",
       "tittle3":"¿Cómo registrarse?"

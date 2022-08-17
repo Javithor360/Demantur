@@ -4,7 +4,7 @@
     "accounts": "Accounts",
     "loans": "Loans",
     "contact": "Contact",
-    "business": "Business",
+    "business": "register",
     "about": "About Us",
     "help": "Help",
     "access": "Access"
@@ -21,8 +21,8 @@
 
   "bussinesPage": {
     "hero": {
-      "tittle": "business account",
-      "desc": "Find the best solution that suits your needs"
+      "tittle": "Register",
+      "desc": "welcome to the guide where you will learn everything you need to know to be able to register"
     },
     "body": {
       "tittle": "What is a business account?",
@@ -37,6 +37,27 @@
       }
     }
   },
+  "Aboutpage":{
+    "hero":{
+      "tittle":"We are moved by a great purpose",
+      "subtitle":"Contributing to the construction of a better country has led us to develop a sustainable operating system and to create development programs such as financial education or advice on sustainability."
+    },
+    "body":{
+      "tittle":"Our history",
+      "subtitle":"Dematur was founded on March 20, 2022 with the purpose of being able to provide its customers with an online banking service in order to optimize people's valuable time through a friendly and dynamic interface for carrying out procedures. , expanding our services with brief guides so that you can learn to use online banking without having knowledge of one, thus managing to break the digital divide that exists worldwide. The purpose with which Demantur was founded is so that you can have a safe place where you can deposit your money, guarantee the security of your assets and offer you help in case you need to carry out any procedure quickly and safely from the comfort of your home. of your home or wherever you are, managing to promote economic knowledge today.",
+      "tittle2":"Our impact",
+      "subtitle2":"We have set out to break the digital divide that affects most of the world's population, ensuring that everyone has access to a service without having to be an expert in economics, for this an interface has been proposed that has informative guides in a free so you can know what is necessary for the functionality of online banking."
+    },
+    "valor":{
+      "tittle":"Our values",
+      "valor":"Responsibility",
+      "subtitle":"We are punctual in everything you may need.",
+      "valor2":"Respect",
+      "subtitle2":"We value your integrity as a person and human being",
+      "valor3":"Closeness",
+      "subtitle3":"We always seek to provide a friendly hand to help you"
+    }
+  },
 
   "bannertab": {
     "tittle": "Requirements",
@@ -48,12 +69,12 @@
   },
   "selectpage":{
     "hero":{
-      "tittle": "User Selection",
-      "subtitle":"Welcome to the accounts interface"
+      "tittle": "Selection",
+      "subtitle":"Welcome to the Options Selection interface."
     },
     "body":{
       "tittle": "Welcome again",
-      "subtittle": "Welcome to the User Selection interface, please select the type of User you are the owner of, make sure you select the option with your account type and all your data correctly",
+      "subtittle": "Welcome to the user selection interface, select the option you want to go to",
       "tittle2":"Other options",
       "subtittle2":"we have other options in case you already have an account, we have the following tools that could help you",
       "tittle3":"how to register?"
@@ -62,12 +83,6 @@
       "1":{
         "tittle":"Normal account",
         "subtittle":"If your company does not yet have an account with us, contract it in a safe, agile and digital way without going to an office or a bank.",
-        "button1":"log in",
-        "button2":"Register"
-      },
-      "2":{
-        "tittle":"Business Account",
-        "subtittle":"The best option in terms of managing your bank statement, all from the comfort of your home without having to go to a bank",
         "button1":"log in",
         "button2":"Register"
       },

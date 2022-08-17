@@ -29,6 +29,7 @@ import {
   ForgotPasswordPage,
   ResetPasswordPage,
   VerifyEmailPage,
+  Error404,
 } from "./pages/static";
 
 import { DashboardNormalUser, CreateSavingAcc, DashboarEmple } from "./pages/private/index";
@@ -60,7 +61,7 @@ const App = () => {
           <Routes>
             {/* Rutas Basicas */}
             <Route path="/" element={<Navigate to="/index" replace />} />
-            <Route path="*" element={<h1>error 404</h1>} />
+            <Route path="*" element={<Error404 />} />
 
             {/* Ruta Index */}
             <Route path="/index" element={<IndexPage />} />

@@ -37,7 +37,10 @@
   }
 
   // Big Div
-  .contacts-big-div {}
+  .contacts-big-div {
+
+    
+  }
 
 
 }
@@ -48,8 +51,7 @@
 
 .line-contacts {
   background-color: $primary_gray;
-  height: 0.2ex;
-  margin-top: 0.6rem;
+  height: 0.0938rem;
 }
 
 .boton-contacts {
@@ -97,6 +99,10 @@
   }
 }
 
+// vl-2{
+  
+// }
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -105,4 +111,40 @@
 
 .animate-spin-custom {
   animation: spin 3s forwards infinite;
+}
+
+.contact-tab-header{
+  display: flex;
+  align-items: center;
+  width: auto;
+  text-align: center;
+  margin-right: 2.6rem;
+  cursor: pointer;
+}
+.add-contact-btn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.contact-card-container{
+  display: flex;
+  flex-direction: column;
+  min-height: fit-content;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 5px .5px rgba(44, 40, 40, 0.212);                            
+}
+@media (min-width: 1920px){
+  .contact-card-container{
+    display: flex;
+    flex-direction: row;
+  }
+  .add-contact-btn{
+    width: 35%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+  }
 }

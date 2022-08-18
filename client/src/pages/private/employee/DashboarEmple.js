@@ -1,4 +1,4 @@
-import NavBar from "../private/components/DashboardEmple/SideBar.js";
+import NavBar from "../components/DashboardEmple/SideBar.js";
 
 export const DashboarEmple = () => {
   return (

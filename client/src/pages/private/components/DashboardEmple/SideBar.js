@@ -67,7 +67,7 @@ const SideBar = ()=>{
           </li>
         </ul>
         <div className='button_logout'>
-          <button className='icon_logout'> <Logout className='logaout'/> Cerrar Sesión</button>
+          <button className='icon_logout' onClick={() => localStorage.removeItem('employeeToken')}> <Logout className='logaout'/> Cerrar Sesión</button>
         </div>
     </div>
 

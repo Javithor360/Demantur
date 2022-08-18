@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest } from "../api/Queries";
+import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery } from "../api/Queries";
 
 const dashContext = createContext();
 
@@ -134,6 +134,14 @@ export const DashProvider = ({ children }) => {
     }
   }
 
+  const DoATransfer = async (Token, transaction) => {
+    try {
+      return await DoATransferQuery(PrivateConfig(Token), transaction)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <dashContext.Provider value={{
       Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
@@ -141,7 +149,7 @@ export const DashProvider = ({ children }) => {
       Contacts, PedingFriendReq, FriendRequest, setPedingFriendReq, cancelFriendReq,
       QueryCreateSavingsAccount, DeclineFriend, ReloadState, setReloadState, AcceptFriend, DematurClassicForm, setContacts,
       setFriendRequest, DeleteFriendReq, CurrentChat, setCurrentChat, TransactionsArr, setTransactionsArr,
-      MyTransfers, setMyTransfers, HimTranfers, setHimTranfers
+      MyTransfers, setMyTransfers, HimTranfers, setHimTranfers, DoATransfer
     }}>
       {children}
     </dashContext.Provider>

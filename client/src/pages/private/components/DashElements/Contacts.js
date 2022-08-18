@@ -66,7 +66,7 @@ export const Contacts = () => {
               return <ContactsCard User={User} key={index} setUsersToReq={setUsersToReq} UsersToReq={UsersToReq} />
             })
             :
-            <p>no hay concidiencias</p>
+            <p className='text-[#606470]'>No hay concidiencias</p>
         }
       </>
     )
@@ -86,21 +86,29 @@ export const Contacts = () => {
   }
 
   return (
-    <div className="contacts-main-div h-100 flex justify-between">
-      <div className='divs-contact contacts-big-div  w-[60%]'>
+    <div className="contacts-main-div h-[100%] flex justify-between">
+      <div className='divs-contact contacts-big-div h-full w-[58%]'>
         {
           CharginIco === true ?
-            <div className='flex justify-center items-center w-100 h-100'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
+            <div className='flex justify-center items-center w-full h-full'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
             :
             <>
-              <h2 className='text-gray-500'>Tus Contactos</h2>
-              <div className='line-contacts w-[40%] mx-auto' ></div>
-              <div className={`w-[80%] mx-auto my-6 h-[80%] border-black border-solid`}>
-                <div className='flex w-[100%] bg-black h-[3rem]'>
-                  <div className='w-[auto] text-center bg-red-400' onClick={() => { setBoxhanlder(1) }}>Añadidos</div>
-                  <div className='w-[auto] text-center bg-red-400' onClick={() => { setBoxhanlder(2) }}>Pendientes</div>
-                  <div className='w-[auto] text-center bg-red-400' onClick={() => { setBoxhanlder(3) }}>solicitudes</div>
+              <div className={`w-[90%] mx-auto max-h-fit`}>
+                <p className='text-gray-500 text-center text-[28px] m-0 p-0'>Tus Contactos</p>
+                <div className='line-contacts w-[40%] mx-auto' ></div>
+                <div className='flex w-[100%] bg-[#f7f7f7] p-2 h-[3rem] rounded-sm shadow-sm justify-center mb-3 mt-3'>
+                  <div className={`contact-tab-header ${BoxHandler === 1 && 'contact-tab-header-active'}`} onClick={() => { setBoxhanlder(1) }}>
+                    <span className=''>Añadidos</span>
+                  </div>
+                  <div className={`contact-tab-header ${BoxHandler === 2 && 'contact-tab-header-active'}`} onClick={() => { setBoxhanlder(2) }}>
+                    <span className=''>Pendientes</span>
+                  </div>
+                  <div className={`contact-tab-header ${BoxHandler === 3 && 'contact-tab-header-active'}`} onClick={() => { setBoxhanlder(3) }}>
+                    <span className=''>Solicitudes</span>
+                  </div>
                 </div>
+              </div>
+              <div className='h-[70%] overflow-x-hidden overflow-y-auto'>
                 {renderBox()}
               </div>
             </>
@@ -108,15 +116,15 @@ export const Contacts = () => {
       </div>
 
 
-      <div className='divs-contact contacts-small-div w-[37%]'>
+      <div className='divs-contact contacts-small-div w-[40%]'>
         {
           CharginIco === true ?
-            <div className='w-100 h-100 flex justify-center items-center'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
+            <div className='w-full h-full flex justify-center items-center'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
             :
             <>
-              <h2 className='text-gray-500'>Agregar Contacto</h2>
+              <p className='text-gray-500 text-center text-[28px] m-0 p-0'>Agregar Contacto</p>
               <div className='line-contacts w-[70%] mx-auto '></div>
-              <div className='p-4 h-[90%]'>
+              <div className='p-4 h-[90%] w-[100%]'>
                 <div className='container-contact-input w-[90%] mx-auto '>
                   <div className='h-100 w-[100%] mx-auto flex justify-center '>
                     <input id='Nombre' name='Nombre' placeholder='Nombre Completo' onChange={SearchFunct} value={NombreInput} autoComplete='off' className='input-contact-dui px-[1rem] py-[0.4rem] w-[100%] h-100 text-xl' />

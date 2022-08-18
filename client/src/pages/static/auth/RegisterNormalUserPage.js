@@ -4,11 +4,12 @@ import '../assets/scss/auth-register.scss'
 // components
 import { FooterAuth, RegisterStepper, Navbar, StepsInfo, RegisterCard } from '../../../components'
 import { DatosPersonales, Identificacion, DatosMonetarios, Beneficiario, CodeVerify, SuccessAccount } from '../../../components/registerSteps'
-
+import { useTranslation } from "react-i18next";
 //context hook
 import { useAuth } from '../../../context/AuthContext'
 
 export const RegisterNormalUserPage = () => {
+  const { t } = useTranslation();
   const { page, Error, Success } = useAuth()
 
   const displayPages = () => {
@@ -24,10 +25,11 @@ export const RegisterNormalUserPage = () => {
   }
 
   return (
+    
     <>
       <Navbar />
       <div className='main-div'>
-        <h1>Regístrate en la banca en línea</h1>
+        <h1>{t("login.register.tittle")}</h1>
         <hr className='main-hr' />
 
         <div className='Container-div'>

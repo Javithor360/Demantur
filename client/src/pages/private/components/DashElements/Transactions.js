@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import '../assets/scss/Transactions_main.scss'
 import './TransactionsComponents/TransactionMessage'
 import photoExample from '../assets/img/contact-user-profile.png'
+import no_contacts_icon from './TransactionsComponents/assets/icons/contacts_icon.png'
+import select_contact_icon from './TransactionsComponents/assets/icons/select_contact_icon.png'
+import no_transactions_icon from './TransactionsComponents/assets/icons/no_transactions_icon.png'
 import { AiOutlineSearch, AiOutlineClose } from 'react-icons/ai'
 import { ContactTransactionCard as ContactCard, TransactionMessage } from './TransactionsComponents/'
 import { useDash } from '../../../../context/DashboardContext'
@@ -9,17 +12,25 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { RiLoader3Fill as IconChargin } from 'react-icons/ri'
 import Cleave from 'cleave.js/react'
+import { io } from 'socket.io-client'
 
 export const Transactions = () => {
     const [CharginComp, setCharginComp] = useState(true);
     const [AllTransfers, setAllTransfers] = useState([]);
-    const [MyDui, setMyDui] = useState([]);
+    const [MyDui, setMyDui] = useState('');
     const [MyName, setMyName] = useState('');
 
     const [MontoTransfer, setMontoTransfer] = useState('');
     const [NumberAccount, setNumberAccount] = useState('');
+    const socket = useRef(io('ws://localhost:5000'));
 
-    const { Contacts, getGlobalInfo, CurrentChat, setCurrentChat, GlobalInfo, TransactionsArr, setTransactionsArr, MyTransfers, HimTranfers, Info, setMyTransfers, setHimTranfers } = useDash()
+    const scrollRef = useRef();
+
+    const { Contacts, getGlobalInfo, CurrentChat, setCurrentChat, GlobalInfo, TransactionsArr, setTransactionsArr, MyTransfers, HimTranfers, Info, setMyTransfers, setHimTranfers, DoATransfer } = useDash()
+
+    useEffect(() => {
+        socket.current.emit('DoTransfer', CurrentChat)
+    }, [CurrentChat]);
 
     useEffect(() => {
         setMyDui(Info.Dui)
@@ -43,21 +54,45 @@ export const Transactions = () => {
     }, [GlobalInfo])
 
     useEffect(() => {
-        setAllTransfers(MyTransfers.concat(HimTranfers));
+        let TwoArrays = MyTransfers.concat(HimTranfers);
+
+        TwoArrays.sort((a, b) => {
+            let D_A = new Date(a.createdAt).getTime()
+            let D_B = new Date(b.createdAt).getTime()
+
+            if (D_A < D_B) {
+                return -1
+            } else {
+                return 1
+            }
+        })
+
+        setAllTransfers(TwoArrays);
     }, [MyTransfers, HimTranfers]);
 
-
-    const HandlerTransSubmit = (e) => {
-        e.preventDefault()
-
-        console.log(MontoTransfer);
-        console.log(NumberAccount);
-    }
-
     useEffect(() => {
-        console.log(MontoTransfer);
-    }, [MontoTransfer]);
+        scrollRef.current?.scrollIntoView({ behavior: 'smooth' })
+    }, [AllTransfers])
 
+
+    const HandlerTransSubmit = async (e) => {
+        e.preventDefault()
+        const transaction = {
+            SenderDui: MyDui,
+            ReciverDui: CurrentChat.Dui,
+            Amount: MontoTransfer,
+            AccountN: NumberAccount.split(' ')[1],
+            Type: 'NormalTransfer',
+            createdAt: new Date(),
+        }
+
+        try {
+            const res = await DoATransfer(localStorage.getItem('authToken'), transaction);
+            setAllTransfers([...AllTransfers, res.data.data])
+        } catch (error) {
+            console.log(error);
+        }
+    }
     const FormTransfer = () => {
         return (
             <div className='bottom-tools-bar h-[15%] w-full rounded-br-xl flex items-center'>
@@ -73,7 +108,7 @@ export const Transactions = () => {
                                 <p className='m-0 text-center text-[1.2rem] text-[#27AE60]'>$1020.00</p>
                             </div>
                         </div>
-                        <div className='acc-select-container bg-[#D6D6D6] h-[3.9rem] w-[30%] rounded-xl ml-5 px-2'>
+                        <div className='acc-select-container bg-[#D6D6D6] h-[3.9rem] w-fit rounded-xl ml-5 px-2'>
                             <select name="" id="" className='acc-select outline-none border-none lol3 w-full h-full m-auto block bg-[#D6D6D6] cursor-pointer' onChange={(e) => setNumberAccount(e.target.value)} value={NumberAccount} >
                                 <option>Selecionar Cuenta...</option>
                                 <option>Nº 0001112223</option>
@@ -121,7 +156,7 @@ export const Transactions = () => {
                                                     </div>
                                                 </form>
                                             </div>
-                                            <div className='contacts-names w-full h-[80%] rounded-bl-xl flex justify-center items-center'>
+                                            <div className='contacts-names w-full h-[80%] rounded-bl-xl flex justify-center items-center pt-4'>
                                                 <div className='user-contacts-left-bar w-[90%] h-[100%] overflow-x-hidden flex flex-col items-center'>
                                                     {
                                                         Contacts.map((Contact, index) => {
@@ -155,11 +190,14 @@ export const Transactions = () => {
                                                             {
                                                                 AllTransfers.length !== 0 ?
                                                                     AllTransfers.map((tr, index) => (
-                                                                        <TransactionMessage own={tr.SenderDui === MyDui} Transf={tr} CurrentChat={CurrentChat} MyName={MyName} key={index} />
+                                                                        <div ref={scrollRef}>
+                                                                            <TransactionMessage own={tr.SenderDui === MyDui} Transf={tr} CurrentChat={CurrentChat} MyName={MyName} key={index} />
+                                                                        </div>
                                                                     ))
                                                                     :
-                                                                    <div className='flex justify-center items-center w-100 h-100'>
-                                                                        <h1>No hay transferencias realizadas</h1>
+                                                                    <div className='flex flex-col items-center justify-center w-100 h-100'>
+                                                                        <img className='w-[180px] mb-3' src={no_transactions_icon} alt="" />
+                                                                        <p className='text-[#606470] text-[1.125rem]'>No hay transferencias realizadas</p>
                                                                     </div>
                                                             }
 
@@ -167,16 +205,18 @@ export const Transactions = () => {
                                                         <FormTransfer />
                                                     </>
                                                     :
-                                                    <div className='flex justify-center items-center w-100 h-100'>
-                                                        <h2>Seleccione un contacto para transferir</h2>
+                                                    <div className='flex flex-col justify-center items-center h-[100%]'>
+                                                        <img className='w-[180px] mb-3' src={select_contact_icon} alt="" />
+                                                        <p className='text-[#606470] text-[1.125rem]'>Seleccione un contacto para transferir</p>
                                                     </div>
                                             }
                                         </div>
                                     </div>
                                 </>
                                 :
-                                <div className='flex justify-center items-center w-100 h-100'>
-                                    <h1>No hay contactos</h1>
+                                <div className='flex flex-col justify-center items-center h-[100%]'>
+                                    <img className='w-[270px] mb-3' src={no_contacts_icon} alt="" />
+                                    <p className='text-[#606470] text-[1.25rem]'>No tiene contactos agregados</p>
                                 </div>
 
                         }

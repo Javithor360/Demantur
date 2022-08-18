@@ -4,8 +4,9 @@ const OfferL = require.context("../assets/img/Offer_Loan", true);
 
 export const ActLoans = () => {
     return (
+        
         <div className="flex flex-row justify-between w-full h-full bg-transparent">
-            <div className="left-credits-container w-[49%] h-[100%] bg-white rounded-xl shadow-md flex flex-col items-center overflow-x-hidden overflow-y-auto py-4">
+            <div className="left-credits-container w-[48%] h-[70%] bg-white rounded-xl shadow-md flex flex-col items-center overflow-y-auto py-4">
             <p className="text-[24px] text-[#323643] text-center p-2 mb-4">
                 Créditos que te ofrecemos
             </p>
@@ -17,7 +18,7 @@ export const ActLoans = () => {
                     </div>
                     <div className="dash-credits-info-content">
                     <div className="content-text">
-                    <p className="text-[1.375rem] text-[#606470]">Credito personal</p>
+                    <p className="text-[1.370rem] text-[#606470]">Credito personal</p>
                         <p className="text-[0.875rem] text-[#606470]">
                             Te facilitamos los trámites para que consolides tus deudas o
                             realices tu proyectos con nuestro Crédito Personal.
@@ -38,7 +39,7 @@ export const ActLoans = () => {
                     </div>
                     <div className="dash-credits-info-content">
                     <div className="content-text">
-                    <p className="text-[1.375rem] text-[#606470]">Credito empresarial</p>
+                    <p className="text-[1.370rem] text-[#606470]">Credito empresa</p>
                         <p className="text-[0.875rem] text-[#606470]">
                         Te lo facilitamos con condiciones especiales para que consolides 
                         tus deudas o realices tus nuevos proyectos o mejores las condiciones de 
@@ -60,7 +61,7 @@ export const ActLoans = () => {
                     </div>
                     <div className="dash-credits-info-content">
                     <div className="content-text">
-                    <p className="text-[1.375rem] text-[#606470]">Housing Demantur</p>
+                    <p className="text-[1.370rem] text-[#606470]">Housing Demantur</p>
                         <p className="text-[0.875rem] text-[#606470]">
                         Solicita los creditos que necesites para poder realizar la compra de tu vivienda nueva o usada en El Salvador.
                         </p>
@@ -73,6 +74,30 @@ export const ActLoans = () => {
                 </div>
             </div>
         </div>
+            <div className="w-[47%] h-[50%] bg-white rounded-xl shadow-md py-4 mt-9">
+                <p className="text-[1.5rem] text-[#323643] text-center p-2">
+                    Prestamos activos
+                </p>
+                <div className="flex flex-col item-center w-full min-h-full">
+                    <div className="mx-9 py-2 text-justify ">
+                        <p className="font-bold text-lg">
+                            Tipo de prestamos:
+                        </p>
+                        <p className="mt-7 font-bold text-lg">
+                            Cantidad a cancelar:
+                        </p>
+                        <p className="mt-7 font-bold text-lg">
+                            Cantidad pagada:
+                        </p>
+                        <p className="mt-7 font-bold text-lg">
+                            proximo pago:
+                        </p>
+                    </div>
+
+                    
+                </div>
+
+            </div>
         </div>
     );
 };

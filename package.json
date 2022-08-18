@@ -25,6 +25,7 @@
     "i18next-browser-languagedetector": "^6.1.4",
     "i18next-http-backend": "^1.4.1",
     "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.8.1",
     "mongoose": "^6.3.5",
     "nodemailer": "^6.7.5",
     "react-i18next": "^11.18.1",

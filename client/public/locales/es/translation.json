@@ -4,7 +4,7 @@
     "accounts": "Cuentas",
     "loans": "Préstamos",
     "contact": "Contacto",
-    "business": "registro",
+    "business": "Registro",
     "about": "Nosotros",
     "help": "Ayuda",
     "access": "Acceder"
@@ -34,6 +34,31 @@
         "2":"pago de nomimas",
         "3":"posibilidad de tener una chequera"
       }
+    }
+
+  },
+  "Login":{
+    "Register":{
+      "tittle":"Regístrate en la banca en línea",
+      "tittle2":"Datos Personales",
+      "subtittle":"Necesitamos tus datos personales para poder identificarte y saber que realmente eres tú",
+      "names":"Nombres",
+      "lastname":"Apellidos",
+      "date":"Fecha de cumpleaños",
+      "address":"Dirección"
+    },
+    "contentreg":{
+      "tittle":"Otras Opciones",
+      "subtitle":"Otras Opciones?",
+      "subtitle2":"Iniciar Sesioon",
+      "subtitle3":"Cambiar Sontraseña",
+      "Subtitle4":"Verificar Correo Electrónico"
+    },
+    "slidereg":{
+      "subittle":"Datos Perosonales",
+      "ID":"Identificacion",
+      "money":"Datos Monetarios",
+      "Beneficiary":"Beneficiario" 
     }
 
   },

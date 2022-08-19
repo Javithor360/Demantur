@@ -7,12 +7,13 @@ import { Contacts, HomePage, Transactions, UserCards, ActLoans, Accounts } from 
 import { useEffect, useState } from "react";
 
 export const DashboardNormalUser = () => {
-  const { Option, SettingsOption, GeneralInfoQuery } = useDash();
+  const { Option, SettingsOption, GeneralInfoQuery, getGlobalInfo } = useDash();
 
   const [Chargin, setChargin] = useState(true);
 
   useEffect(() => {
     GeneralInfoQuery(localStorage.getItem("authToken"));
+    getGlobalInfo(localStorage.getItem('authToken'));
     document.body.style.overflowY = "hidden";
     setTimeout(() => {
       setChargin(false);

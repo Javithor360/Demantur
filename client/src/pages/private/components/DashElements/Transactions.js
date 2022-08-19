@@ -23,11 +23,24 @@ export const Transactions = () => {
 
     const scrollRef = useRef();
 
-    const { Contacts, getGlobalInfo, CurrentChat, setCurrentChat, GlobalInfo, TransactionsArr, setTransactionsArr, MyTransfers, HimTranfers, Info, setMyTransfers, setHimTranfers, DoATransfer } = useDash()
+    const { Contacts, CurrentChat, setCurrentChat, GlobalInfo, TransactionsArr, setTransactionsArr, MyTransfers, HimTranfers, Info, setMyTransfers, setHimTranfers, DoATransfer } = useDash()
 
     useEffect(() => {
-        socket.current.emit('DoTransfer', CurrentChat)
-    }, [CurrentChat]);
+        // console.log(Contacts)
+        setCurrentChat(null);
+        setTimeout(() => {
+            setCharginComp(false)
+        }, 1500);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+
+    useEffect(() => {
+        socket.current.emit('onlineUsers', Contacts);
+        socket.current.on('getOnlineUsers', users => {
+            console.log(users);
+        })
+    }, [Contacts]);
 
     useEffect(() => {
         setMyDui(Info.Dui)
@@ -35,15 +48,6 @@ export const Transactions = () => {
         let LastName = Info.LastName.split(' ');
         setMyName(`${Name[0]} ${LastName[0]}`)
     }, [Info]);
-
-    useEffect(() => {
-        getGlobalInfo(localStorage.getItem('authToken'));
-        setCurrentChat(null);
-        setTimeout(() => {
-            setCharginComp(false)
-        }, 1500);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
 
     useEffect(() => {
         setTransactionsArr(GlobalInfo.TransfersHistory);
@@ -199,7 +203,7 @@ export const Transactions = () => {
                                                             }
 
                                                         </div>
-                                                        <FormTransfer />
+                                                        {FormTransfer()}
                                                     </>
                                                     :
                                                     <div className='flex justify-center items-center w-100 h-100'>

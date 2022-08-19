@@ -4,7 +4,19 @@ const io = require('socket.io')(5000, {
   }
 })
 
+let allOnlineUsers = [];
+
+const addUser = (el, socketId) => {
+  !allOnlineUsers.some(user => user.nose === el) &&
+    allOnlineUsers.push({ el, socketId });
+}
+
 io.on('connection', (socket) => {
-  console.log('a user conected');
-  io.emit('welcome', 'hola')
+  console.log('usuario conectado')
+  socket.on('onlineUsers', el => {
+    console.log(socket.id);
+    // addUser(el, socket.id);
+
+    io.emit('getOnlineUsers', allOnlineUsers);
+  })
 });

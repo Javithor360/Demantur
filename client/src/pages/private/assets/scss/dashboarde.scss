@@ -1,185 +1,74 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
-*{
-    margin: 0;
+@use '../../../../utilities/_colors.scss' as *;
+.black-line {
+    border: 0;
+    height: .4rem;
+    width: 75%;
+    background: #323643;
+    opacity: 100;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    margin: .7rem auto 1.3rem auto;
 }
 
-body{
-   position: relative;
-   min-height: 100vh;
-   width: 100%;
-   overflow: hidden;
-}
+.menu-items2 {
+    .menu-item2 {
+        color: $primary_gray;
+        transition: .2s;
+        cursor: pointer;
 
-.sidebar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 95%;
-    width: 15rem;
-    background: #fff;
-    border-radius: .5rem;
-    box-shadow: 0 0 1px black ;
-    margin-top: 1rem;
-    transform: translateX(2rem);
-}
+        .menu-icon2 {
+            font-size: 2.2rem;
+            color: #396EB0;
+            transition: .2s;
+        }
 
-.sidebar .logo_content .logo{
-    color: #fff;
-    display: flex;
-    height: 50px;
-    width: 100%;
-    align-items: center;
-}
+        &:hover {
+            color: #2f5b91;
+            transition: .2s ease-in-out;
 
-.logo_content .logo Menu{
-    font-size: 28px;
-    margin-right: 5px   ;
-}
+            .menu-icon2 {
+                color: #2f5b91;
+                transition: .1s ease-in-ou
+            }
+        }
+    }
 
-.logo_content .logo .logo_name{
-    font-size: 20px;
-    font-weight: 400;
-}
+    .menu-item-selected2 {
+        box-shadow: 0px 0px 10px .5px rgba(0, 0, 0, 0.246);
+        transition: .2s ease-in-out;
+        color: $primary_dark;
+        cursor: auto;
 
-/*.sidebar #btn{
-    position: absolute;
-    color: #fff;
-    left: 90%;
-    top: 6px;
-    font-size: 20px;
-    height: 50px;
-    width: 50px;
-    text-align: center;
-    line-height: 50px;
-    transform: translateX(-50%);
-}*/
+        .menu-icon-container2 {
+            color: $primary_white;
+            transition: .1s ease-in-out;
 
-.sidebar ul{
-    margin-top: 20px;
-}
-
-.sidebar ul li{
-    position: relative;
-    height: 50px;
-    width: 100%;
-    list-style: none;
-    line-height: 50px;
-    border-radius: 12px;
-    margin-bottom: .5rem;
-}
-
-.sidebar ul li .a{
-    color: #868786;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    transition: all 0.4s ease;
-    border-radius: 12px;
-}
-
-.sidebar ul li .a:hover{
-    color: #11101d;
-    
-
-}
-
-.fondo{
-    width: 100%;
-    height: 15rem;
-    background-color: #396EB0;
-
-    .text-fondo{
-        margin-left: 20rem;
-        color: #fff;
-        transform: translateY(1.5rem);
-
-        .line2{
-            background-color: #fff;
-            transform: translateY(-.7rem);
-            width: 6.5rem;
-            height: .01rem;
+            .menu-icon2 {
+                background-color: #396EB0;
+                transition: .1s ease-in-out;
+                color: $primary_white;
+            }
         }
     }
 }
 
-.fondo2{
-    width: 72%;
-    height: 38rem;
-    margin-top: -10rem;
-    transform: translateX(23rem);
-    background-color: #fff;
-    border-radius: 1rem;
-    box-shadow: 0 0 1px black;
-}
-
-.lineEmple{   
-    background-color: #323643;
-    width: 80%;
-    height: 0.1rem;
-    margin: 2.5rem auto;
-    transform: translateY(3.5rem);
-    
-}
-
-.nav_list{
-    transform: translateY(8rem);
-}
-
-.LogoEmple{
-    transform: translateY(5rem);
-    margin-left: 2rem;
-    width: 10rem;
-}
-
-.iconEmple{
-    margin-right: .5rem;
-    font-size: 1.5rem;
-}
-
-.icon_logout{
-    border: none;
-    border-radius: .5rem;
-    width: 10rem;
+.logout-button2 {
+    border-style: none;
+    background-color: #396EB0;
+    color: $primary_white;
     height: 3rem;
-    background-color: #396EB0;
-    color: #fff;
-    margin-left: 2rem;
-    transform: translateY(15rem);
+    transition: .2s;
 
-    .logaout{
-        font-size: 1.5rem;
+    .logout-icon {
+        font-size: 2rem;
     }
 }
 
-li{
-    margin-left: -1rem;
+.logout-button:hover {
+    background-color: #3468a8;
+    transition: .2s;
 }
-
-li:hover{
-    transition: 1s all ease;
-    transform: scale(1);
-    width: 10rem;
-    height: auto;
-    box-shadow: 0  1px 1px 1px #868786;
-    
-    .iconEmple{
-        transition: 1s all ease;
-        height: 2rem;
-        width: 2rem;
-        background-color: #396EB0;
-        border-radius: 0.2rem;
-        color: #fff;
-        margin-left: 1rem;
-
-        .iconEmple2{
-            margin-left: .2rem;
-            transform: translateY(-0.7rem);
-        }
-    }
-
-    
+.Display-dash-div {
+    height: 100%;
+    width: 100%;
 }

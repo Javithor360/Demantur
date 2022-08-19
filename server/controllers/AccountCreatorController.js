@@ -1,4 +1,5 @@
 const SavingAccount = require("../models/SavingsAccount");
+const Employee = require("../models/Employee");
 const { uploadRegisterImage } = require("../libs/cloudinary");
 const fs = require("fs-extra");
 
@@ -70,4 +71,34 @@ const WelcomeSavingsAccount = async (req, res, next) => {
   }
 };
 
-module.exports = { WelcomeSavingsAccount };
+const EmployeeAccount = async (req, res, next) => {
+
+  function employeeIdGen(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
+  try {
+    const { FirstNames, LastNames, Dui, Email, Password } = req.body;
+    const EmployeeId = `${parseInt(new Date().getFullYear())}${employeeIdGen(1000, 9999)}`;
+
+    const newEmployee = await new Employee({
+      FirstNames, 
+      LastNames, 
+      Dui,
+      Email, 
+      Password, 
+      EmployeeId
+    });
+
+    await newEmployee.save();
+    return res.send(newEmployee)
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: error.message });
+  }
+
+}
+
+module.exports = { WelcomeSavingsAccount, EmployeeAccount };

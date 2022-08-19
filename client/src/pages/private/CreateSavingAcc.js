@@ -35,21 +35,21 @@ export const CreateSavingAcc = () => {
       }
       <div className="w-screen h-screen bg-[#F1F1F1] relative">
         <div className="w-full h-2/5 bg-[#323643] absolute"></div>
-        <div className='w-screen h-screen flex items-center justify-center'>
-          <div className='h-3/4 w-4/5 bg-white shadow-xl relative flex flex-row'>
+        <div className='flex items-center justify-center w-screen h-screen'>
+          <div className='relative flex flex-row w-4/5 bg-white shadow-xl h-3/4'>
             <div className='h-[100%] w-[60%] flex flex-col justify-center'>
               <div className="h-[20%] w-[100%] flex justify-center">
-                <div className="circle-container absolute bg-white -top-14 shadow-md flex justify-center items-center">
+                <div className="absolute flex items-center justify-center bg-white shadow-md circle-container -top-14">
                   <img className='w-3/6' src={Icon} alt="" />
                 </div>
               </div>
               <div className="h-[80%]">
                 <p className="create-account-tittle">Crea tu primera cuenta de ahorros</p>
                 <hr className="black-line-2"></hr>
-                <p className='text-center px-5'>
+                <p className='px-5 text-center'>
                   Para poder hacer uso de todos nuestros beneficios crea tu primera cuenta de ahorros con nosotros, al hacer esto, recibes acceso a todos los servicios de Demantur, además de que empiezas a tener el control de tu dinero, alcanzando la estabilidad financiera que deseas
                 </p>
-                <button className='create-btn my-10 text-center' onClick={toggle}>
+                <button className='my-10 text-center create-btn' onClick={toggle}>
                   Crear
                 </button>
               </div>

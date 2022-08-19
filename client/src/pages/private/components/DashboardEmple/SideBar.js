@@ -16,13 +16,16 @@ import { from } from 'form-data';
 const SideBar = ()=>{
     return(
       <>
-    {/* <div>
+    <div className='fondo' >
       <div className='text-fondo'>
           <p className='text'>HomePage</p>
           <div className='line2' />
       </div>
-    </div> */}
+    </div>
     <div className='fondo2'>
+      
+
+
     </div>
 
       <div className='sidebar'>
@@ -31,40 +34,40 @@ const SideBar = ()=>{
             <img className='LogoEmple' src={imagen}/>        
             
           </div>
-          <div className='lineEmple'></div>
+          <div className='line'></div>
         </div>
             
         <ul className='nav_list'>
           <li>
             <Link className='a' to="/HomePage">
-              <div className='iconEmple'> <House className='iconiconEmpl2'/> </div>
+              <div className='icon'> <House className='icon2'/> </div>
               <span>HomePage</span>
             </Link>
           </li>
 
           <li>
             <Link className='a' to="/">
-              <div className='iconEmple'><Request className='iconiconEmpl2'/></div>
+              <div className='icon'><Request className='icon2'/></div>
               <span>Solicitudes</span>
             </Link>
           </li>
 
           <li>
             <Link className='a' to="/">
-              <div className='iconEmple'><Credit className='iconiconEmpl2'/></div>
+              <div className='icon'><Credit className='icon2'/></div>
               <span>Tarjetas de crédito</span>
             </Link>
         </li>
         
         <li>  
             <Link className='a' to="/">
-              <div className='iconEmple'><Loan className='iconiconEmpl2'/></div>
+              <div className='icon'><Loan className='icon2'/></div>
               <span>Prestamos</span>
             </Link>
           </li>
         </ul>
         <div className='button_logout'>
-          <button className='icon_logout'> <Logout className='logaout'/> Cerrar Sesión</button>
+          <button className='icon_logout' onClick={() => localStorage.removeItem('employeeToken')}> <Logout className='logaout'/> Cerrar Sesión</button>
         </div>
     </div>
 

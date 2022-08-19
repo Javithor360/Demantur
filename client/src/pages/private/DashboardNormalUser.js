@@ -53,11 +53,11 @@ export const DashboardNormalUser = () => {
           <div className="w-[98%] h-[95%] flex">
             {/* sidebar */}
             <SideBar />
-            <div className="h-full w-[80%]  mx-auto">
+            <div className="h-[95%] w-[80%]  mx-auto">
               <Header />
               <div className="pl-4 Display-dash-div">
                 <div className="h-100">
-                  <div className="flex flex-col justify-between py-3 w-100 h-100">
+                  <div className="flex flex-col justify-between py-3 w-100 h-full">
                     {DisplayElement()}
                   </div>
                 </div>

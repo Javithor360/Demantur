@@ -19,8 +19,14 @@ const {
   resetPasswordVerify,
 } = require("../controllers/GeneralController");
 const SendEmail = require("../utils/SendMail");
+const { loginEmployee } = require("../controllers/EmployeeController");
 
 // main route /api/auth
+
+
+// Rutas para el empleado xd
+
+router.route("/employee/login").post(loginEmployee);
 
 // Rutas para usuario normal
 

@@ -37,10 +37,10 @@
   }
 
   // Big Div
-  .contacts-big-div {
+  // .contacts-big-div {
 
     
-  }
+  // }
 
 
 }
@@ -123,6 +123,9 @@
   text-align: center;
   margin-right: 2.6rem;
   cursor: pointer;
+}
+.contact-tab-header-active{
+  border-bottom: 2px solid $primary_dark
 }
 .add-contact-btn{
   width: 100%;

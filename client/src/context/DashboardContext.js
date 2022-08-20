@@ -50,9 +50,9 @@ export const DashProvider = ({ children }) => {
     }
   };
 
-  const DematurClassicForm = async () => {
+  const DematurClassicForm = async (token) => {
     try {
-      return await getInfo();
+      return await getInfo(PrivateConfig(token));
     } catch (error) {
       console.log(error);
     }

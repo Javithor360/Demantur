@@ -21,6 +21,7 @@ import { useNavigate } from "react-router-dom";
 //images
 const CreditCardsImages = require.context('../assets/img/credit_cards', true)
 
+
 export const DemanturClassic = () => {
   const {t}= useTranslation();
 
@@ -28,7 +29,7 @@ export const DemanturClassic = () => {
 
   const { DematurClassicForm, CreateElements } = useDash();
 
-  // const [AccountOwner, setAccountOwner] = useState();
+  const [CardOwner, setCardOwner] = useState();
   const [Name, setName] = useState();
   const [CellNumber, setCellNumber] = useState();
   const [Address, setAddress] = useState();
@@ -58,12 +59,13 @@ export const DemanturClassic = () => {
     Imagefunc(ImageName3, setImageName3);
   }, [ImageName3]);
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const res = await DematurClassicForm();
-  //     setAccountOwner(res.data.data._id);
-  //   })();
-  // });
+  useEffect(() => {
+    (async () => {
+      const res = await DematurClassicForm(localStorage.getItem('authToken'));
+      // setCardOwner(res.data.data._id);
+      console.log(res)
+    })();
+  });
 
   const Imagefunc = (UploadImage, SetImageName) => {
     if (UploadImage !== "") {
@@ -125,7 +127,7 @@ export const DemanturClassic = () => {
       };
 
       const ClassicCardFormData = {
-        // AccountOwner: AccountOwner,
+        CardOwner: CardOwner,
         Name: Name,
         CellNumber: CellNumber,
         Address: Address,
@@ -336,6 +338,20 @@ export const DemanturClassic = () => {
             </div>
           </form>
         </div>
+        {
+           (localStorage.getItem('authToken')) ?
+          <>
+            <div>
+              <p>Formulario</p>
+            </div>
+          </>
+          :
+          <>
+            <div>
+              <p>Formularion't</p>
+            </div>
+          </>
+        }
         <Footer />
     </>
   )

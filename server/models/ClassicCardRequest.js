@@ -10,6 +10,10 @@ const ClassicCardRequestSchema = new mongoose.Schema(
         //     type: mongoose.Types.ObjectId,
         //     require: true,
         // },
+        CardOwner: {
+            type: mongoose.Types.ObjectId,
+            require: true,
+        },
         CardType: StringReq,
         Name: StringReq,
         CellNumber: StringReq,

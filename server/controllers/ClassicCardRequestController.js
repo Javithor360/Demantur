@@ -1,11 +1,14 @@
 const ClassicCardRequest = require("../models/ClassicCardRequest");
+const DuiModel = require("../models/DuiModel");
 const { uploadRegisterImage } = require("../libs/cloudinary");
 const fs = require("fs-extra");
 
+
 const ClassicCardFormRequests = async (req, res, next) => {
     try {
-        const CardType = 'Classic';
 
+        const CardType = 'Classic';
+        const token = req.resetToken;
         const { Name, CellNumber, Address, DuiNum, Email, Salary, Job} = req.body;
 
         let DuiFrontImg, NitImg, SalaryEvidenceImg ;
@@ -38,6 +41,7 @@ const ClassicCardFormRequests = async (req, res, next) => {
         }
 
         const newClassicCardRequests = await new ClassicCardRequest({
+            CardOwner:token.user.id,
             CardType,
             Name, 
             CellNumber, 

@@ -27,3 +27,4 @@ export { TermsandConditions } from "./TermsAndConditions";
 export { Error404 } from "./Error404";
 
 export { EmployeeLoginPage } from "./auth/EmployeeLoginPage"
+export { AdminLoginPage } from "./auth/AdminLoginPage"

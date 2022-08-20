@@ -20,13 +20,16 @@ const {
 } = require("../controllers/GeneralController");
 const SendEmail = require("../utils/SendMail");
 const { loginEmployee } = require("../controllers/EmployeeController");
+const { loginAdmin } = require("../controllers/AdminController");
 
 // main route /api/auth
 
 
-// Rutas para el empleado xd
-
+// Rutas para el empleado
 router.route("/employee/login").post(loginEmployee);
+
+// Rutas para el administrador
+router.route("/admin/login").post(loginAdmin)
 
 // Rutas para usuario normal
 

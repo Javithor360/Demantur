@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { JsonWebTokenError } = require('jsonwebtoken');
 
 const EmployeeSchema = new mongoose.Schema({
     EmployeeId: {

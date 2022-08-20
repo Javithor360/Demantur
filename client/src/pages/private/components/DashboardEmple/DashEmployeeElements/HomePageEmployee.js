@@ -1,9 +1,11 @@
 import React from 'react'
+import '../assets/scss/HomePageEmployee.scss'
+
 
 export const HomePageEmployee = () => {
   return (
-    <div className='h-full w-full bg-white rounded-xl p-3'>
-        <p>Home Page</p>
+    <div className='homepage-employee-container'>
+        <p>¡Bienvenido de nuevo Empleado!</p>
     </div>
   )
 }

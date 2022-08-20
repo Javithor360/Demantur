@@ -31,17 +31,20 @@ import {
   VerifyEmailPage,
   Error404,
   EmployeeLoginPage,
+  AdminLoginPage
 } from "./pages/static";
 
 import { DashboardNormalUser, CreateSavingAcc } from "./pages/private/index";
 import { DashboarEmple } from "./pages/private/employee/index";
+import { AdminDashboard } from './pages/private/admin/index'
 // routers
 import {
   AuthValidate,
   OutAuthValidate,
   FirstLogVal,
   StartingValidate,
-  EmployeeValidate
+  EmployeeValidate,
+  AdminValidate
 } from "./routers/indexRoutesDash";
 
 //contexts
@@ -138,9 +141,11 @@ const App = () => {
               }
             />
 
-            <Route path="/auth/login/employee" element={
-                <EmployeeLoginPage />
+            <Route path="/auth/employee/login" element={
+              <EmployeeLoginPage />
             } />
+
+            <Route path="/auth/admin/login" element={<AdminLoginPage />} />
 
             {/*Rutas de "/loans"*/}
             <Route path="/loans" element={<LoansPage />} />
@@ -149,6 +154,13 @@ const App = () => {
             <Route path="/Loans/HouseLoan" element={<HouseLoan />} />
 
             {/* test dashboard */}
+            <Route path="/admin/home" element={
+              <AdminValidate>
+                <AdminDashboard />
+              </AdminValidate>
+            } />
+
+
             <Route path="/employee/home" element={
               <EmployeeValidate>
                 <DashboarEmple />

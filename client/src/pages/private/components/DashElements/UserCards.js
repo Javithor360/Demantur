@@ -451,100 +451,100 @@ export const UserCards = () => {
     
   }
 
-  const CardsForm = () => {
-    <form onSubmit={handleForm} className="main-card-form">
-      <div className="form-row-1">
-        <div className="form-row-content">
-          <div className="form-individual-element">
-            <div className="label-icon"><MdPersonOutline /></div>
-            <div className="form-input-container">
-                <input className="form-input-box" type="text" placeholder="Nombre completo" onChange={(e) => setName(e.target.value)} value={Name}/>
-                <label className="form-label-box" htmlFor="">
-                {t("CardsPage-Form.name")}
-                </label>
-            </div>
-          </div>
-          <div className="form-individual-element">
-            <div className="label-icon"><MdOutlinePhone /></div>
-            <div className="form-input-container">
-                <Cleave id='Telefono' name='Telefono' placeholder='Número de contacto' options={{ blocks: [4, 4], delimiter: "-", numericOnly: true }} autoComplete='off' className='form-input-box' onChange={(e) => setCellNumber(e.target.value)} value={CellNumber}/>
-                <label className="form-label-box" htmlFor="">
-                {t("CardsPage-Form.contact")}
-                </label>
-            </div>
-          </div>
-          <div className="form-individual-element">
-            <div className="label-icon"><MdOutlineHome /></div>
-            <div className="form-input-container">
-                <input className="form-input-box" type="text" placeholder="Dirección" onChange={(e) => setAddress(e.target.value)} value={Address}/>
-                <label className="form-label-box" htmlFor="">
-                {t("CardsPage-Form.address")}
-                </label>
-            </div>
-          </div>
-        </div>
-        <div className="form-row-content">
-          <div className="form-individual-element">
-              <div className="label-icon"><MdOutlineBadge /></div>
-              <div className="form-input-container">
-                  <Cleave id='Dui' name='Dui' placeholder='Número de DUI' options={{ blocks: [6, 1], delimiter: "-", numericOnly: true }} autoComplete='off' className='form-input-box' onChange={(e) => setDuiNum(e.target.value)} value={DuiNum}/>
-                  <label className="form-label-box" htmlFor="">
-                  {t("CardsPage-Form.dui")}
-                  </label>
-                </div>
-          </div>
-          <div className="form-individual-element">
-              <div className="label-icon"><MdOutlineEmail /></div>
-              <div className="form-input-container">
-                  <input className="form-input-box" type="email" placeholder="Correo Electrónico" onChange={(e) => setEmail(e.target.value)} value={Email}/>
-                  <label className="form-label-box" htmlFor="">
-                  {t("CardsPage-Form.email")}
-                  </label>
-              </div>
-          </div> 
-          <div className="form-flex-row">
-            <div className="card-form-select">
-              <select name="" id="" onChange={(e) => setSalary(e.target.value)} value={Salary}>
-                  <option>{t("CardsPage-Form.option")}</option>
-                  <option>{t("CardsPage-Form.desc4")} $450 y $499</option>
-                  <option>{t("CardsPage-Form.desc4")} $500 y $999</option>
-                  <option>{t("CardsPage-Form.desc4")} $1,000 y $1,999</option>
-                  <option>{t("CardsPage-Form.desc4")} $2,000 y $3,999</option>
-                  <option>{t("CardsPage-Form.desc4")} $4,000 y $5,999</option>
-                  <option>{t("CardsPage-Form.desc4")} $6,000</option>
-              </select> 
-            </div>
-            <div className="flex-row-input">
-                <input className="form-input-box" type="text" placeholder="Escriba su posición laboral" onChange={(e) => setJob(e.target.value)} value={Job}/>
-                <label className="form-label-box" htmlFor="">
-                {t("CardsPage-Form.desc6")}
-                </label>
-            </div>
-          </div>
-        </div>
-      </div>    
-      <div className="form-row-2">
-        <div className="input-files">
-          <p>{t("CardsPage-Form.desc1")}</p>
-          <input type='file' accept='image/*' id='Constancia' name='Constancia' placeholder=' ' onChange={handleChangeFile} autoComplete='off' />
-          <label htmlFor="Constancia" className=''>{ImageName === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName}</label>
-        </div>
-        <div className="input-files">
-          <p>{t("CardsPage-Form.desc2")}</p>
-          <input type='file' accept='image/*' id='Constancia2' name='Constancia2' placeholder=' ' onChange={handleChangeFile2} autoComplete='off' />
-          <label htmlFor="Constancia2" className=''>{ImageName2 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName2}</label>
-        </div>
-        <div className="input-files">
-          <p>{t("CardsPage-Form.desc3")}</p>
-          <input type='file' accept='image/*' id='Constancia3' name='Constancia3' placeholder=' ' onChange={handleChangeFile3} autoComplete='off' />
-          <label htmlFor="Constancia3" className=''>{ImageName3 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName3}</label>
-        </div>
-      </div>
-      <div className="form-row-3">
-        <button className="card-submit-button" type="submit">{t("CardsPage-Form.button2")}</button>
-      </div>
-    </form>
-  }
+  // const CardsForm = () => {
+  //   <form onSubmit={handleForm} className="main-card-form">
+  //     <div className="form-row-1">
+  //       <div className="form-row-content">
+  //         <div className="form-individual-element">
+  //           <div className="label-icon"><MdPersonOutline /></div>
+  //           <div className="form-input-container">
+  //               <input className="form-input-box" type="text" placeholder="Nombre completo" onChange={(e) => setName(e.target.value)} value={Name}/>
+  //               <label className="form-label-box" htmlFor="">
+  //               {t("CardsPage-Form.name")}
+  //               </label>
+  //           </div>
+  //         </div>
+  //         <div className="form-individual-element">
+  //           <div className="label-icon"><MdOutlinePhone /></div>
+  //           <div className="form-input-container">
+  //               <Cleave id='Telefono' name='Telefono' placeholder='Número de contacto' options={{ blocks: [4, 4], delimiter: "-", numericOnly: true }} autoComplete='off' className='form-input-box' onChange={(e) => setCellNumber(e.target.value)} value={CellNumber}/>
+  //               <label className="form-label-box" htmlFor="">
+  //               {t("CardsPage-Form.contact")}
+  //               </label>
+  //           </div>
+  //         </div>
+  //         <div className="form-individual-element">
+  //           <div className="label-icon"><MdOutlineHome /></div>
+  //           <div className="form-input-container">
+  //               <input className="form-input-box" type="text" placeholder="Dirección" onChange={(e) => setAddress(e.target.value)} value={Address}/>
+  //               <label className="form-label-box" htmlFor="">
+  //               {t("CardsPage-Form.address")}
+  //               </label>
+  //           </div>
+  //         </div>
+  //       </div>
+  //       <div className="form-row-content">
+  //         <div className="form-individual-element">
+  //             <div className="label-icon"><MdOutlineBadge /></div>
+  //             <div className="form-input-container">
+  //                 <Cleave id='Dui' name='Dui' placeholder='Número de DUI' options={{ blocks: [6, 1], delimiter: "-", numericOnly: true }} autoComplete='off' className='form-input-box' onChange={(e) => setDuiNum(e.target.value)} value={DuiNum}/>
+  //                 <label className="form-label-box" htmlFor="">
+  //                 {t("CardsPage-Form.dui")}
+  //                 </label>
+  //               </div>
+  //         </div>
+  //         <div className="form-individual-element">
+  //             <div className="label-icon"><MdOutlineEmail /></div>
+  //             <div className="form-input-container">
+  //                 <input className="form-input-box" type="email" placeholder="Correo Electrónico" onChange={(e) => setEmail(e.target.value)} value={Email}/>
+  //                 <label className="form-label-box" htmlFor="">
+  //                 {t("CardsPage-Form.email")}
+  //                 </label>
+  //             </div>
+  //         </div> 
+  //         <div className="form-flex-row">
+  //           <div className="card-form-select">
+  //             <select name="" id="" onChange={(e) => setSalary(e.target.value)} value={Salary}>
+  //                 <option>{t("CardsPage-Form.option")}</option>
+  //                 <option>{t("CardsPage-Form.desc4")} $450 y $499</option>
+  //                 <option>{t("CardsPage-Form.desc4")} $500 y $999</option>
+  //                 <option>{t("CardsPage-Form.desc4")} $1,000 y $1,999</option>
+  //                 <option>{t("CardsPage-Form.desc4")} $2,000 y $3,999</option>
+  //                 <option>{t("CardsPage-Form.desc4")} $4,000 y $5,999</option>
+  //                 <option>{t("CardsPage-Form.desc4")} $6,000</option>
+  //             </select> 
+  //           </div>
+  //           <div className="flex-row-input">
+  //               <input className="form-input-box" type="text" placeholder="Escriba su posición laboral" onChange={(e) => setJob(e.target.value)} value={Job}/>
+  //               <label className="form-label-box" htmlFor="">
+  //               {t("CardsPage-Form.desc6")}
+  //               </label>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>    
+  //     <div className="form-row-2">
+  //       <div className="input-files">
+  //         <p>{t("CardsPage-Form.desc1")}</p>
+  //         <input type='file' accept='image/*' id='Constancia' name='Constancia' placeholder=' ' onChange={handleChangeFile} autoComplete='off' />
+  //         <label htmlFor="Constancia" className=''>{ImageName === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName}</label>
+  //       </div>
+  //       <div className="input-files">
+  //         <p>{t("CardsPage-Form.desc2")}</p>
+  //         <input type='file' accept='image/*' id='Constancia2' name='Constancia2' placeholder=' ' onChange={handleChangeFile2} autoComplete='off' />
+  //         <label htmlFor="Constancia2" className=''>{ImageName2 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName2}</label>
+  //       </div>
+  //       <div className="input-files">
+  //         <p>{t("CardsPage-Form.desc3")}</p>
+  //         <input type='file' accept='image/*' id='Constancia3' name='Constancia3' placeholder=' ' onChange={handleChangeFile3} autoComplete='off' />
+  //         <label htmlFor="Constancia3" className=''>{ImageName3 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName3}</label>
+  //       </div>
+  //     </div>
+  //     <div className="form-row-3">
+  //       <button className="card-submit-button" type="submit">{t("CardsPage-Form.button2")}</button>
+  //     </div>
+  //   </form>
+  // }
 
   return (
     <div className="flex flex-row justify-between w-full h-full bg-transparent">

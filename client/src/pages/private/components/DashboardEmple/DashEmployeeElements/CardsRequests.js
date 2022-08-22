@@ -8,7 +8,25 @@ export const CardsRequests = () => {
   return (
     <>
       <div className='cards-employee p-3'>
-       <div className='container-employee'>
+        <div className='individual-req w-[90%] bg-red-300 flex p-2'>
+          <div className='mr-4'>
+            <p>ID</p>
+            <p>1</p>
+          </div>
+          <div className='mr-4'>
+            <p>Nombre</p>
+            <p>Daniel Ernesto Vásquez</p>
+          </div>
+          <div className='mr-4'>
+            <p>Tipo de Tarjeta</p>
+            <p>Demantur Classic</p>
+          </div>
+          <div className='flex items-center'>
+            <button className='my-auto block'>Más detalles</button>
+          </div>
+        </div>
+      </div> 
+      {/* <div className='container-employee'>
         <div className='cards-info-employee'>
             <div className='info-employee'>
 
@@ -64,9 +82,7 @@ export const CardsRequests = () => {
           <div>
             <button className='button-employee'>Denegar</button>
           </div>
-        </div>
-      </div> 
-
+        </div> */}
 
     </>
   )

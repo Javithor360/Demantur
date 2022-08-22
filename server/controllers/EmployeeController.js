@@ -1,4 +1,6 @@
 const Employee = require('../models/Employee');
+const CardsRequests = require('../models/CardsRequests')
+const NormalUser = require('../models/NormalUser')
 const ErrorResponse = require("../utils/ErrorMessage");
 const { sendToken } = require("../helpers/Functions");
 
@@ -34,6 +36,34 @@ const loginEmployee = async (req, res, next) => {
     }
 }
 
+const getCardRequests = async(req, res, next) => {
+    try {
+        const getAllCardRequests = await CardsRequests.find()
+        const getAllUsers = await NormalUser.find()
+
+        let cardRequestsOrder = []
+
+        for (let index = 0; index < getAllUsers.length; index++) {
+            
+            if (getAllUsers[index]._id.toString() === getAllCardRequests[index]?.CardOwner.toString()) {
+                let ObjectCardRequest = {}
+                ObjectCardRequest.RequestOwner = getAllUsers[index]
+                ObjectCardRequest.CardRequest = getAllCardRequests[index]  
+                cardRequestsOrder.push(ObjectCardRequest)
+                console.log(ObjectCardRequest)
+            }
+            
+        }
+        
+        res.status(200).json({data: cardRequestsOrder});
+    } catch (e) {
+        console.log(e);
+        res.status(500).json({message: e.message});
+    }
+
+}
+
 module.exports = {
     loginEmployee,
+    getCardRequests
 }

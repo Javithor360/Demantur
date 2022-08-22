@@ -50,7 +50,7 @@ export const DashProvider = ({ children }) => {
     }
   };
 
-  const DematurClassicForm = async (token) => {
+  const CardsRequestsForm = async (token) => {
     try {
       return await getInfo(PrivateConfig(token));
     } catch (error) {
@@ -147,7 +147,7 @@ export const DashProvider = ({ children }) => {
       Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
       GeneralInfoQuery, Info, CreateElements, getGlobalInfo, GlobalInfo, getUsersToFriendReq, addFriendRequest,
       Contacts, PedingFriendReq, FriendRequest, setPedingFriendReq, cancelFriendReq,
-      QueryCreateSavingsAccount, DeclineFriend, ReloadState, setReloadState, AcceptFriend, DematurClassicForm, setContacts,
+      QueryCreateSavingsAccount, DeclineFriend, ReloadState, setReloadState, AcceptFriend, CardsRequestsForm, setContacts,
       setFriendRequest, DeleteFriendReq, CurrentChat, setCurrentChat, TransactionsArr, setTransactionsArr,
       MyTransfers, setMyTransfers, HimTranfers, setHimTranfers, DoATransfer
     }}>

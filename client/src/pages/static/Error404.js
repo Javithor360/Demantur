@@ -17,9 +17,9 @@ export const Error404 = () => {
       
     },*/
     <div className='error'>
-        <h1>Error 404</h1>
+        <h1>¡Algo salió mal!</h1>
         <div className='error-text'>
-        <p>Parece que algo a fallado, al parecer digitaste una dirección que no existe</p>
+        <p className='p'>Parece que algo ha fallado, al parecer digitaste una dirección que no existe</p>
         <Link to="/index"><button className='botonx'>Volver</button></Link>
         
         </div>

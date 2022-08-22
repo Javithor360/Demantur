@@ -2,6 +2,7 @@ const NormalUser = require("../models/NormalUser");
 const ErrorResponse = require("../utils/ErrorMessage");
 const GlobalData = require("../models/GlobalData");
 const Settings = require("../models/Settings");
+const CardsRequests = require("../models/CardsRequests");
 // const SavingAccount = require("../models/SavingAccount");
 
 const testDB = async (req, res, next) => {
@@ -355,6 +356,26 @@ const DoAtransfer = async (req, res, next) => {
   }
 }
 
+const getMyCardReq = async (req, res, next) => {
+  try {
+    let exportss;
+    const token = req.resetToken;
+
+
+    const isHadCardReq = await CardsRequests.findOne({ CardOwner: token.user.id })
+    if (isHadCardReq) {
+      exportss = isHadCardReq
+    } else {
+      exportss = false
+    }
+    console.log(exportss)
+
+    res.status(200).json({ success: true, data: exportss })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
 module.exports = {
   testDB,
   getUserId,
@@ -365,5 +386,6 @@ module.exports = {
   AcceptFriend,
   DeclineFriend,
   DeleteFriend,
-  DoAtransfer
+  DoAtransfer,
+  getMyCardReq
 };

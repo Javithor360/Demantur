@@ -122,6 +122,8 @@ export const Transactions = ({ OnlineUsers }) => {
 
                 GlobalInfo.TransfersHistory.Made.push(transaction)
 
+                console.log(res);
+
                 setAllTransfers([...AllTransfers, res.data.data])
             } catch (error) {
                 console.log(error);

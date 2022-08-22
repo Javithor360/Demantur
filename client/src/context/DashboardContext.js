@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery } from "../api/Queries";
+import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ } from "../api/Queries";
 
 const dashContext = createContext();
 
@@ -55,9 +55,9 @@ export const DashProvider = ({ children }) => {
     }
   };
 
-  const DematurClassicForm = async () => {
+  const CardsRequestsForm = async (token) => {
     try {
-      return await getInfo();
+      return await getInfo(PrivateConfig(token));
     } catch (error) {
       console.log(error);
     }
@@ -147,14 +147,23 @@ export const DashProvider = ({ children }) => {
     }
   }
 
+  const getMyCardReq = async (Token) => {
+    try {
+      return await getMyCardReqREQ(PrivateConfig(Token))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <dashContext.Provider value={{
       Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
       GeneralInfoQuery, Info, CreateElements, getGlobalInfo, GlobalInfo, getUsersToFriendReq, addFriendRequest,
       Contacts, PedingFriendReq, FriendRequest, setPedingFriendReq, cancelFriendReq, ReloadStateTwo, setReloadStateTwo,
-      QueryCreateSavingsAccount, DeclineFriend, ReloadState, setReloadState, AcceptFriend, DematurClassicForm, setContacts,
+      QueryCreateSavingsAccount, DeclineFriend, ReloadState, setReloadState, AcceptFriend, CardsRequestsForm, setContacts,
       setFriendRequest, DeleteFriendReq, CurrentChat, setCurrentChat, TransactionsArr, setTransactionsArr,
-      MyTransfers, setMyTransfers, HimTranfers, setHimTranfers, DoATransfer, setGlobalInfo, socket, setSocket
+      MyTransfers, setMyTransfers, HimTranfers, setHimTranfers, DoATransfer, setGlobalInfo, socket, setSocket,
+      getMyCardReq
     }}>
       {children}
     </dashContext.Provider>

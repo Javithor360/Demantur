@@ -21,6 +21,7 @@ app.use("/api/admin/", require("./routes/admin.routes"));
 app.use("/api/dashboard/", require("./routes/dashboard.routes"));
 app.use("/api/accounts/", require("./routes/accounts.routes"));
 app.use("/api/requests/", require("./routes/requests.routes"));
+app.use("/api/employee/", require("./routes/employee.routes"));
 
 // Error Middleware
 app.use(MiddlewareError);

@@ -1,0 +1,130 @@
+.cards-employee{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: .75rem;
+    font-family: 'Poppins', sans-serif;
+
+    .container-employee{     
+        width: 76.5%;     
+        border-radius: 2rem;
+        padding: 2rem;
+        border: 1px solid #707070;
+        justify-content: center;
+        align-items: center; 
+        transform: translateX(6.5rem);
+
+        .info-employee{
+            margin-top: 1rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            transform: translateX(4rem);
+            line-height:0;
+
+            .info-employee1{
+                margin-left: -1rem;
+            }
+
+            .info-employee2{
+                margin-left: 2rem;
+            }
+        
+            .info-employee3{
+                transform: translateX(-5rem);
+            }
+        
+            .line-employee{
+                transform: translateX(16rem);
+                margin-top: -1.5rem;
+                hr{
+                    
+                    height: .1rem;
+                    width:15%;
+                    opacity: 100;
+                    transform: rotate(90deg);
+                    background-color: black;
+                    
+                }   
+            }
+        
+            .line-employee2{
+                transform: translateX(5.5rem);
+                margin-top: -1.5rem;
+                hr{
+                    
+                    height: .1rem;
+                    width:18%;
+                    opacity: 100;
+                    transform: rotate(90deg);
+                    background-color: black;
+                    
+                } 
+                
+            }
+        }  
+        
+        .cards-employee{
+            width: 30%;
+            margin-left: 18rem;
+            
+            transform: translateY(2rem);
+        }
+    }
+
+    .container-employee-2{      
+        width: 90%;
+        height: 60%;
+        margin-top: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        transform: translateX(3.95rem);
+
+        p{
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        img{ 
+            width: 15rem;
+            display: block;
+            margin: auto;
+        }
+
+        .tarjet-1{
+            width: 40%;
+            height: 80%;
+            padding: 1rem;
+            border: 1px solid #707070;
+            border-radius: 1rem;
+            transform: translateX(2.5rem);   
+        }
+
+        .tarjet-2{
+            width: 40%;
+            height: 80%;
+            padding: 1rem;
+            border: 1px solid #707070;
+            border-radius: 1rem;
+            transform: translateX(-7.2rem); 
+        }
+    }
+
+    .button-cards-employee{
+        display: flex;
+        justify-content: space-between;
+        transform: translateX(25.5rem);
+        width: 23%;
+        
+        .button-employee{
+            width: 8rem;
+            height: 3rem;
+            border-radius: 1rem;
+            border: none;
+            background-color: #396EB0;
+            color: #fff;
+        }
+    }
+    
+}

@@ -43,3 +43,15 @@ export const DeleteFriendRequest = async (PrivateConfig, el) => {
 export const DoATransferQuery = async (PrivateConfig, transfer) => {
   return await axios.post('http://localhost:4000/api/dashboard/do-a-transfer', transfer, { headers: PrivateConfig.headers })
 }
+
+export const getMyCardReqREQ = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-my-card-request', { headers: PrivateConfig.headers })
+}
+
+
+// ?? QUERYS EMPLOYEE
+
+export const getCardRequest = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/employee/get-cards-requests', { headers: PrivateConfig.headers })
+}
+

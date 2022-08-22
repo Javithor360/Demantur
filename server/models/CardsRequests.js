@@ -4,27 +4,27 @@ const NumberReq = { type: Number, require: true };
 const StringReq = { type: String, require: true };
 const DateReq = { type: Date, require: true };
 
-const ClassicCardRequestSchema = new mongoose.Schema(
+const CardsRequestsSchema = new mongoose.Schema(
     {
-        // AccountOwner: {
-        //     type: mongoose.Types.ObjectId,
-        //     require: true,
-        // },
         CardType: StringReq,
+        CardOwner: {
+            type: mongoose.Types.ObjectId,
+            require: true,
+        },
         Name: StringReq,
+        // DuiNum: StringReq,
+        Email: StringReq,
+        UserSalary: StringReq, 
+        UserLaboralStatus: StringReq,
         CellNumber: StringReq,
         Address: StringReq,
-        DuiNum: StringReq,
-        Email: StringReq,
-        Salary: StringReq,
-        Job: StringReq,
-
         annexes: {
             DuiFrontImg: Object,
+            DuiBackImg: Object,
             NitImg: Object,
             SalaryEvidenceImg: Object,
         }
     },
     { timestamps: true }
 );
-module.exports = mongoose.model("ClassicCardRequest", ClassicCardRequestSchema);
+module.exports = mongoose.model("CardsRequests", CardsRequestsSchema);

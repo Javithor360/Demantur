@@ -1,7 +1,12 @@
 const SavingAccount = require("../models/SavingsAccount");
 const Employee = require("../models/Employee");
+const Admin = require("../models/Admin");
 const { uploadRegisterImage } = require("../libs/cloudinary");
 const fs = require("fs-extra");
+
+// @route POST api/accounts/create/first-savings
+// @desc Crear primera cuenta de ahorros obligatoria
+// @access private
 
 const WelcomeSavingsAccount = async (req, res, next) => {
   function accNumberGen(min, max) {
@@ -71,6 +76,10 @@ const WelcomeSavingsAccount = async (req, res, next) => {
   }
 };
 
+// @route POST api/accounts/create/employee
+// @desc Crear cuenta de empleado
+// @access private
+
 const EmployeeAccount = async (req, res, next) => {
 
   function employeeIdGen(min, max) {
@@ -98,7 +107,24 @@ const EmployeeAccount = async (req, res, next) => {
     console.error(error);
     return res.status(500).json({ message: error.message });
   }
-
 }
 
-module.exports = { WelcomeSavingsAccount, EmployeeAccount };
+
+// @route POST api/accounts/create/admin
+// @desc Crear nuevo admin
+// @access private
+
+const AdminAccount = async(req, res) => {
+  try {
+    const { Name, Password } = req.body;
+
+    const newAdmin = await new Admin({ Name, Password });
+    await newAdmin.save();
+    return res.send(newAdmin);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: error.message });
+  }
+}
+
+module.exports = { WelcomeSavingsAccount, EmployeeAccount, AdminAccount };

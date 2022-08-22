@@ -12,38 +12,47 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { RiLoader3Fill as IconChargin } from 'react-icons/ri'
 import Cleave from 'cleave.js/react'
-import { io } from 'socket.io-client'
+// import { io } from 'socket.io-client'
 
-export const Transactions = () => {
+export const Transactions = ({ OnlineUsers }) => {
     const [CharginComp, setCharginComp] = useState(true);
     const [AllTransfers, setAllTransfers] = useState([]);
     const [MyDui, setMyDui] = useState('');
     const [MyName, setMyName] = useState('');
 
+    const [ArrivalMessage, setArrivalMessage] = useState(null);
     const [MontoTransfer, setMontoTransfer] = useState('');
     const [NumberAccount, setNumberAccount] = useState('');
-    const socket = useRef(io('ws://localhost:5000'));
+
+    const [FormError, setFormError] = useState(false);
 
     const scrollRef = useRef();
 
-    const { Contacts, CurrentChat, setCurrentChat, GlobalInfo, TransactionsArr, setTransactionsArr, MyTransfers, HimTranfers, Info, setMyTransfers, setHimTranfers, DoATransfer } = useDash()
+    const { Contacts, CurrentChat, setCurrentChat, GlobalInfo, TransactionsArr, setTransactionsArr, MyTransfers, HimTranfers, Info, setMyTransfers, setHimTranfers, DoATransfer, socket, } = useDash()
 
     useEffect(() => {
-        // console.log(Contacts)
+        setFormError(false);
+        socket.on('getTransfer', data => {
+            let theMessage = data.transfer
+            theMessage.createdAt = Date.now()
+            setArrivalMessage({ SenderDui: data.SenderDui, transfer: theMessage })
+        })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        if (ArrivalMessage && ArrivalMessage.SenderDui === CurrentChat.Dui) {
+            setAllTransfers((prev) => [...prev, ArrivalMessage.transfer])
+        }
+    }, [ArrivalMessage, CurrentChat]);
+
+    useEffect(() => {
         setCurrentChat(null);
         setTimeout(() => {
             setCharginComp(false)
         }, 1500);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
-
-    useEffect(() => {
-        socket.current.emit('onlineUsers', Contacts);
-        socket.current.on('getOnlineUsers', users => {
-            console.log(users);
-        })
-    }, [Contacts]);
 
     useEffect(() => {
         setMyDui(Info.Dui)
@@ -81,29 +90,52 @@ export const Transactions = () => {
 
     const HandlerTransSubmit = async (e) => {
         e.preventDefault()
-        const transaction = {
-            SenderDui: MyDui,
-            ReciverDui: CurrentChat.Dui,
-            Amount: MontoTransfer,
-            AccountN: NumberAccount.split(' ')[1],
-            Type: 'NormalTransfer',
-            createdAt: new Date(),
-        }
+        // eslint-disable-next-line eqeqeq
+        if (!MontoTransfer || !NumberAccount || MontoTransfer == 0) {
+            setFormError(true);
+        } else {
+            setFormError(false)
+            const transaction = {
+                SenderDui: MyDui,
+                ReciverDui: CurrentChat.Dui,
+                Amount: MontoTransfer,
+                AccountN: NumberAccount.split(' ')[1],
+                Type: 'NormalTransfer',
+                createdAt: new Date(),
+            }
 
-        try {
-            const res = await DoATransfer(localStorage.getItem('authToken'), transaction);
-            setAllTransfers([...AllTransfers, res.data.data])
-        } catch (error) {
-            console.log(error);
+            socket.emit('DoingTransfer', {
+                SenderDui: MyDui,
+                ReceiverDui: CurrentChat.Dui,
+                transfer: {
+                    SenderDui: MyDui,
+                    ReciverDui: CurrentChat.Dui,
+                    Amount: transaction.Amount,
+                    AccountN: transaction.AccountN,
+                    createdAt: null,
+                    Type: 'NormalTransfer',
+                },
+            })
+
+            try {
+                const res = await DoATransfer(localStorage.getItem('authToken'), transaction);
+
+                GlobalInfo.TransfersHistory.Made.push(transaction)
+
+                setAllTransfers([...AllTransfers, res.data.data])
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
+
     const FormTransfer = () => {
         return (
             <div className='bottom-tools-bar h-[15%] w-full rounded-br-xl flex items-center'>
                 <form onSubmit={HandlerTransSubmit} className='w-full h-full flex justify-between items-center py-2 px-4'>
                     <div className='w-[70%] h-[4rem] flex flex-row'>
                         <div className='bg-[#D6D6D6] h-[3.9rem] w-[50%] rounded-xl flex flex-row'>
-                            <Cleave type='text' options={{ numericOnly: true }} className='w-[60%] h-full bg-transparent border-none outline-none pl-5' placeholder='Ingresar Monto...' onChange={(e) => setMontoTransfer(e.target.value)} value={MontoTransfer} autoComplete='off' />
+                            <Cleave type='text' options={{ numeral: true, numeralThousandsGroupStyle: 'thousand' }} className='w-[60%] h-full bg-transparent border-none outline-none pl-5' placeholder='Ingresar Monto...' onChange={(e) => setMontoTransfer(e.target.value)} value={MontoTransfer} autoComplete='off' />
                             <div className='vl2 w-[1%]'>
                                 <hr />
                             </div>
@@ -122,7 +154,7 @@ export const Transactions = () => {
 
                     </div>
                     <div className='w-[20%] h-full flex justify-end items-center'>
-                        <button type='submit' className='h-[3rem] w-[8rem] outline-none rounded-md border-none bg-[#323643] text-white' >
+                        <button type='submit' className={`h-[3rem] w-[8rem] outline-none rounded-md border-none ${FormError ? 'bg-[#C90000]' : 'bg-[#323643]'} text-white`} >
                             Transferir
                         </button>
                     </div>
@@ -170,7 +202,7 @@ export const Transactions = () => {
                                                                     setMyTransfers(TransactionsArr.Made.filter((Transaction) => Transaction.ReciverDui === Contact.Dui));
                                                                     setHimTranfers(TransactionsArr.Received.filter((Transaction) => Transaction.SenderDui === Contact.Dui));
                                                                 }}>
-                                                                    <ContactCard Contact={Contact} TransactionsArr={TransactionsArr} key={index} />
+                                                                    <ContactCard key={index} Contact={Contact} TransactionsArr={TransactionsArr} OnlineUsers={OnlineUsers} />
                                                                 </div>
                                                             )
                                                         })

@@ -29,12 +29,12 @@ export const ContactsCard = ({ User, setUsersToReq, UsersToReq }) => {
         </div>
         <div className='flex flex-col justify-center h-100'>
           <span>{`${User.FirstName} ${User.LastName}`} </span>
-          <hr className="my-1 p-0"/>
+          <hr className="my-1 p-0" />
           <span>Dui: {User.Dui}</span>
         </div>
       </div>
       <div className='add-contact-btn'>
-        <button  className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white" onClick={handlerAdd} disabled={TextBox.state} >{TextBox.text}</button>
+        <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white" onClick={handlerAdd} disabled={TextBox.state} >{TextBox.text}</button>
       </div>
     </div >
   )

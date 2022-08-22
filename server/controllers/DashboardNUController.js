@@ -347,8 +347,9 @@ const DoAtransfer = async (req, res, next) => {
     );
 
     const Transfers = await GlobalData.findOne({ DataOwner: TransferMade.DataOwner })
+    let TheRes = Transfers.TransfersHistory.Made.pop()
 
-    res.status(200).json({ success: true, data: Transfers.TransfersHistory.Made.pop() })
+    res.status(200).json({ success: true, data: TheRes })
   } catch (error) {
     res.status(500).json({ success: false, error: error });
   }

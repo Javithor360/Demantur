@@ -5,13 +5,16 @@ import { useDash } from "../../context/DashboardContext";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import { Contacts, HomePage, Transactions, UserCards, ActLoans, Accounts } from "./components/DashElements/indexDashElement";
 import { useEffect, useState } from "react";
+import { io } from "socket.io-client";
 
 export const DashboardNormalUser = () => {
-  const { Option, SettingsOption, GeneralInfoQuery, getGlobalInfo } = useDash();
+  const { Option, SettingsOption, GeneralInfoQuery, getGlobalInfo, setSocket, socket, Info } = useDash();
 
   const [Chargin, setChargin] = useState(true);
+  const [OnlineUsers, setOnlineUsers] = useState([]);
 
   useEffect(() => {
+    setSocket(io('ws://localhost:5000'));
     GeneralInfoQuery(localStorage.getItem("authToken"));
     getGlobalInfo(localStorage.getItem('authToken'));
     document.body.style.overflowY = "hidden";
@@ -21,16 +24,26 @@ export const DashboardNormalUser = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (socket !== null) {
+      socket.emit('onlineUsers', Info.Dui);
+      socket.on('getOnlineUsers', users => {
+        setOnlineUsers(users);
+      })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Info]);
+
   const DisplayElement = () => {
     switch (Option) {
       case 1:
         return <HomePage />;
       case 2:
-        return <h1><Accounts /></h1>;
+        return <Accounts />;
       case 3:
-        return <Transactions />;
+        return <Transactions OnlineUsers={OnlineUsers} />;
       case 4:
-        return <h1><ActLoans /></h1>;
+        return <ActLoans />;
       case 5:
         return <Contacts />;
       case 6:

@@ -22,14 +22,19 @@ export const DashProvider = ({ children }) => {
   const [FriendRequest, setFriendRequest] = useState([]);
 
   const [ReloadState, setReloadState] = useState(false);
+  const [ReloadStateTwo, setReloadStateTwo] = useState(false);
   const [CurrentChat, setCurrentChat] = useState(null);
   const [MyTransfers, setMyTransfers] = useState([]);
   const [HimTranfers, setHimTranfers] = useState([]);
 
+  const [socket, setSocket] = useState(null)
+
   useEffect(() => {
-    setContacts(GlobalInfo.Contacts);
-    setPedingFriendReq(GlobalInfo.PendingFriendReq);
-    setFriendRequest(GlobalInfo.FriendRequests);
+    if (GlobalInfo !== null) {
+      setContacts(GlobalInfo.Contacts);
+      setPedingFriendReq(GlobalInfo.PendingFriendReq);
+      setFriendRequest(GlobalInfo.FriendRequests);
+    }
   }, [GlobalInfo]);
 
   const PrivateConfig = (Token) => {
@@ -146,10 +151,10 @@ export const DashProvider = ({ children }) => {
     <dashContext.Provider value={{
       Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
       GeneralInfoQuery, Info, CreateElements, getGlobalInfo, GlobalInfo, getUsersToFriendReq, addFriendRequest,
-      Contacts, PedingFriendReq, FriendRequest, setPedingFriendReq, cancelFriendReq,
+      Contacts, PedingFriendReq, FriendRequest, setPedingFriendReq, cancelFriendReq, ReloadStateTwo, setReloadStateTwo,
       QueryCreateSavingsAccount, DeclineFriend, ReloadState, setReloadState, AcceptFriend, DematurClassicForm, setContacts,
       setFriendRequest, DeleteFriendReq, CurrentChat, setCurrentChat, TransactionsArr, setTransactionsArr,
-      MyTransfers, setMyTransfers, HimTranfers, setHimTranfers, DoATransfer
+      MyTransfers, setMyTransfers, HimTranfers, setHimTranfers, DoATransfer, setGlobalInfo, socket, setSocket
     }}>
       {children}
     </dashContext.Provider>

@@ -209,7 +209,7 @@ const registerPart4 = async (req, res, next) => {
       SecondPartForm,
       ThirdPartForm,
     } = req.body;
-    
+
     const { FirstName, LastName, DateBirth, Adress } =
       JSON.parse(FirstPartForm);
     const { Dui, Email, Number, Password } = JSON.parse(SecondPartForm);
@@ -300,6 +300,7 @@ const registerPart4 = async (req, res, next) => {
       Dui,
       Email: Email,
       verifyCode,
+      PerfilPhoto: ImageConstancia,
       ActivedAccount: false,
       AccountRuning: false,
     });

@@ -1,25 +1,22 @@
-import React from 'react'
 import { useDash } from '../../../../../context/DashboardContext';
 import no_contacts_icon from '../../assets/img/contacts-icons/contacts_icon.png'
 
 export const YourContacts = () => {
-    const { Contacts, DeleteFriendReq } = useDash()
+    const { Contacts, DeleteFriendReq, setContacts, setReloadStateTwo } = useDash()
 
     const DeleteFriend = (el) => {
         DeleteFriendReq(localStorage.getItem('authToken'), el)
+        setContacts(Contacts.filter((element) => element.Dui !== el.Dui));
+        setReloadStateTwo(true);
     }
     const HeaderImages = require.context('../../assets/img/', true);
     return (
         <div className='h-[100%]'>
-            <span className='mt-5 ml-5 text-[#606470] h-[100%]'>Sus contactos</span>
+            {/* <span className='mt-5 ml-5 text-[#606470] h-[100%]'>Sus contactos</span> */}
             {Contacts.length !== 0 ?
                 Contacts.map((el, i) => {
                     return (
-                        // <div key={i}>
-                        //     nombre: {el.Name}, Dui: {el.Dui}, foto: {el.Photo}
-                        //     <button onClick={() => { DeleteFriend(el) }}>Eliminar</button>
-                        // </div>
-                        <div key={i} className="bg-[#FBFBFB] w-[90%] flex justify-between mt-4 ml-5 p-3 border border-[#707070] rounded-md">
+                        <div key={i} className="bg-[#FBFBFB] w-[90%] flex justify-between mt-4 ml-5 p-3 border border-[#707070] rounded-md mx-auto">
                             <>
                                 <div className="flex">
                                     <div className="mr-7 flex items-center">
@@ -30,14 +27,14 @@ export const YourContacts = () => {
                                     </div>
                                     <div className="contact-data flex flex-col">
                                         <div className="contact-name mb-3 p-0">
-                                            <span className="font-semibold text-[#606470]">Nombre: </span> <p className="m-0 p-0">{el.Name}</p> 
+                                            <span className="font-semibold text-[#606470]">Nombre: </span> <p className="m-0 p-0">{el.Name}</p>
                                         </div>
                                         <p className="m-0 p-0">
                                             <span className="font-semibold text-[#606470]">DUI: </span> <p className="m-0 p-0">{el.Dui}</p>
-                                        </p> 
+                                        </p>
                                     </div>
                                 </div>
-                                
+
                                 <div className="flex items-center">
                                     <button className="px-3 py-2 outline-none border-none rounded-md bg-[#989398] text-white" onClick={() => { DeleteFriend(el) }}>Eliminar</button>
                                 </div>

@@ -27,7 +27,7 @@ const NormalUserSchema = new mongoose.Schema({
     select: false,
   },
   PerfilPhoto: {
-    Url: String,
+    url: String,
     public_id: String,
   },
   verifyCode: String,

@@ -4,7 +4,7 @@ import pending_icon from '../../assets/img/contacts-icons/contacts-pending-icon.
 import '../../assets/scss/Contacts_main.scss'
 
 export const PendingReq = () => {
-    const { PedingFriendReq, ReloadState, setReloadState, cancelFriendReq, setPedingFriendReq } = useDash()
+    const { PedingFriendReq, ReloadState, setReloadState, cancelFriendReq, setPedingFriendReq, setReloadStateTwo } = useDash()
     useEffect(() => {
         setReloadState(false)
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -14,11 +14,11 @@ export const PendingReq = () => {
         cancelFriendReq(localStorage.getItem('authToken'), el)
         setPedingFriendReq(PedingFriendReq.filter((SingleReq) => SingleReq.Dui !== el.Dui));
         setReloadState(false);
+        setReloadStateTwo(true);
     }
     const HeaderImages = require.context('../../assets/img/', true);
     return (
         <>
-            <span className='mt-5 ml-5 text-[#606470]'>Sus solicitudes hechas</span>
             {
                 PedingFriendReq.length !== 0 ?
                     PedingFriendReq.map((el, i) => {
@@ -34,14 +34,14 @@ export const PendingReq = () => {
                                         </div>
                                         <div className="contact-data flex flex-col">
                                             <div className="contact-name mb-3 p-0">
-                                                <span className="font-semibold text-[#606470]">Nombre: </span> <p className="m-0 p-0">{el.Name}</p> 
+                                                <span className="font-semibold text-[#606470]">Nombre: </span> <p className="m-0 p-0">{el.Name}</p>
                                             </div>
-                                            <p className="m-0 p-0">
+                                            <span className="m-0 p-0">
                                                 <span className="font-semibold text-[#606470]">DUI: </span> <p className="m-0 p-0">{el.Dui}</p>
-                                            </p> 
+                                            </span>
                                         </div>
                                     </div>
-                                    
+
                                     <div className="flex items-center">
                                         <button className="px-3 py-2 outline-none border-none rounded-md bg-[#989398] text-white" onClick={() => { CancelFriendReq(el) }}>Cancelar</button>
                                     </div>

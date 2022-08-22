@@ -4,10 +4,14 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { useDash } from '../../../../../context/DashboardContext'
 
-export const ContactTransactionCard = ({ Contact, index }) => {
+export const ContactTransactionCard = ({ Contact, index, OnlineUsers }) => {
   const [validated, setValidated] = useState(false)
+  const [isOnline, setisOnline] = useState([]);
   const { CurrentChat } = useDash()
 
+  useEffect(() => {
+    setisOnline(OnlineUsers.filter((SigUser) => SigUser.Dui === Contact.Dui))
+  }, [OnlineUsers, Contact.Dui]);
 
   useEffect(() => {
     if (CurrentChat !== null) {
@@ -34,42 +38,12 @@ export const ContactTransactionCard = ({ Contact, index }) => {
         </div>
         <div>
           <div className='flex flex-row items-center'>
-            <span className='text-[#606470]'><GoPrimitiveDot /></span>
-            <p className='m-0 text-[0.75rem]'>Desconectado </p>
+            <span className={isOnline.length === 0 ? 'text-[#606470]' : 'text-[#0DC700]'}><GoPrimitiveDot /></span>
+            <p className='m-0 text-[0.75rem]'>{isOnline.length === 0 ? "Desconectado" : "conectado"}</p>
           </div>
-          {/* <div className='flex flex-row items-center'>
-                <span className='text-[#0DC700]'><GoPrimitiveDot /></span>
-                <p className='m-0 text-[0.75rem]'>En Línea</p>
-            </div> */}
         </div>
       </div>
       {validated && <div className='h-100 w-2 bg-[#717171] absolute right-0'></div>}
     </div>
   )
 }
-
-
-
-
-
-
-
-
-// <div className='individual-contact-container w-full h-[5rem] flex flex-row items-center p-1 mb-[4%] relative'>
-//   <div className='contact-profile-img-container'>
-//     <div className="lb-contact-img">
-//       <img src={photoExample2} alt="" className="h-full w-full" />
-//     </div>
-//   </div>
-//   <div className='w-full flex flex-col justify-center ml-2'>
-//     <div className='lol'>
-//       <p className=''>Alvin Josué Meléndez Serrano</p>
-//     </div>
-//     <div>
-//       <div className='flex flex-row items-center'>
-//         <span className='text-[#0DC700]'><GoPrimitiveDot /></span>
-//         <p className='m-0 text-[0.75rem]'>En Línea</p>
-//       </div>
-//     </div>
-//   </div>
-// </div>

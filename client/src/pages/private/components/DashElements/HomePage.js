@@ -1,8 +1,11 @@
 import { IoWalletSharp } from "react-icons/io5";
 import { useDash } from "../../../../context/DashboardContext";
+import '../assets/scss/HomePage.scss'
+import { HistoryWidget, ContactsWidget } from "./HomePageWidgets/";
 
 export const HomePage = () => {
   const { Info } = useDash();
+
   return (
     <div>
       <div className="flex gap-3 my-1">
@@ -19,7 +22,7 @@ export const HomePage = () => {
         </div>
         <div className=" bg-white basis-[60%] rounded-[0.75rem]">
           <div className="mx-[2rem] my-[1rem]">
-            <h2 className="text-gray-500 text-[1.5625rem]">Datos personales</h2>
+            <h2 className="text-gray-500 text-[1.5625rem] text-center">Datos personales</h2>
             <div className="grid grid-cols-3 gap-1">
               <div>
                 <h6 className="text-gray-400 font-[1.125rem]">Nombre:</h6>
@@ -40,22 +43,14 @@ export const HomePage = () => {
         </div>
       </div>
       <div className="flex gap-3 my-1">
-        <div className="basis-[70%] bg-white rounded-[0.75rem]">
-          <div className="m-[2rem] flex justify-between">
-            <div>
-              <h2 className="text-gray-500 text-[1.5625rem]">
-                Historial de transferencias
-              </h2>
-            </div>
+        <div className="basis-[70%] bg-white rounded-[0.75rem] ">
+          <div className="m-[2rem]">
+            <HistoryWidget />
           </div>
         </div>
         <div className="basis-[30%] bg-white rounded-[0.75rem]">
-          <div className="m-[2rem] flex justify-between">
-            <div>
-              <h2 className="text-gray-500 text-[1.5625rem]">
-                Lista de contactos
-              </h2>
-            </div>
+          <div className="m-[2rem] h-[72%]">
+            <ContactsWidget />
           </div>
         </div>
       </div>

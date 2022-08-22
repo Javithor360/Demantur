@@ -1,5 +1,6 @@
 @use '../../../../utilities/_colors.scss' as *;
-.black-line-2{
+
+.black-line-2 {
   border: 0rem;
   width: 35%;
   background: #323643;
@@ -7,25 +8,29 @@
   padding: 0;
   margin: 2rem auto 2rem auto;
 }
-.circle-container{
+
+.circle-container {
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
 }
-.create-account-tittle{
+
+.create-account-tittle {
   font-size: 1.8rem;
   color: $primary_dark;
   text-align: center;
   font-weight: 600;
   margin: 1.8rem auto 2rem auto;
 }
-.create-acc-bg{
+
+.create-acc-bg {
   background-image: url(../img/bg/create-acc-bg.jpg);
   background-size: cover;
   background-position: center center;
 
 }
-.create-btn{
+
+.create-btn {
   border-style: none;
   background-color: $primary_dark;
   color: $primary_white;
@@ -36,7 +41,8 @@
   margin: 3rem auto 3rem auto;
   display: block;
 }
-.input-class{
+
+.input-class {
   position: relative;
   width: 40%;
   height: 2.5rem;
@@ -86,6 +92,7 @@
     color: $primary_gray;
   }
 }
+
 .input-form:focus+.label-form,
 .input-form:not(:placeholder-shown).input-form:not(:focus)+.label-form {
   top: -0.6rem !important;
@@ -94,8 +101,8 @@
   z-index: 11;
   color: $primary_dark  !important;
 }
-.uploadImgContainer{
-  // width: 30%;
+
+.uploadImgContainer {
   background-color: $primary_dark;
   color: $primary_white;
   transition: .3s;
@@ -106,12 +113,14 @@
     z-index: 100 !important;
   }
 }
-.uploadImgContainer:hover{
+
+.uploadImgContainer:hover {
   cursor: pointer;
   background-color: #474d60;
   transition: .3s;
 }
-.create-saving-acc-btn{
+
+.create-saving-acc-btn {
   outline: none;
   border-style: none;
   color: $primary_gray;
@@ -120,6 +129,7 @@
   background-color: $primary_skyblue;
   transition: .4s;
 }
-.create-saving-acc-btn:hover{
+
+.create-saving-acc-btn:hover {
   transition: .4s;
 }

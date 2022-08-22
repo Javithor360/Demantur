@@ -16,16 +16,19 @@ export const Contacts = () => {
   const [UsersToReq, setUsersToReq] = useState([]);
   const [UsersSearched, setUsersSearched] = useState([]);
 
-  const { getGlobalInfo, getUsersToFriendReq } = useDash();
+  const { getGlobalInfo, getUsersToFriendReq, ReloadStateTwo, setReloadStateTwo } = useDash();
 
   useEffect(() => {
-    getGlobalInfo(localStorage.getItem('authToken'));
-
     (async () => {
       const gettedUsers = await getUsersToFriendReq(localStorage.getItem('authToken'));
       setUsersToReq(gettedUsers.data.data);
     })()
+    setReloadStateTwo(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ReloadStateTwo])
 
+  useEffect(() => {
+    getGlobalInfo(localStorage.getItem('authToken'));
     setTimeout(() => {
       setCharginIco(false);
     }, 2000);
@@ -77,9 +80,9 @@ export const Contacts = () => {
       case 1:
         return <YourContacts />;
       case 2:
-        return <PendingReq />
+        return <PendingReq />;
       case 3:
-        return <YourFriendReq />
+        return <YourFriendReq />;
       default:
         return <YourContacts />;
     }
@@ -108,7 +111,7 @@ export const Contacts = () => {
                   </div>
                 </div>
               </div>
-              <div className='h-[70%] overflow-x-hidden overflow-y-auto'>
+              <div className='h-[70%] overflow-x-hidden overflow-y-hidden'>
                 {renderBox()}
               </div>
             </>

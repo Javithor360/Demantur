@@ -39,7 +39,7 @@
   // Big Div
   // .contacts-big-div {
 
-    
+
   // }
 
 
@@ -100,7 +100,7 @@
 }
 
 
-.vl-2{
+.vl-2 {
   width: 1.5px;
   background: $gray_borders;
 }
@@ -116,7 +116,7 @@
   animation: spin 3s forwards infinite;
 }
 
-.contact-tab-header{
+.contact-tab-header {
   display: flex;
   align-items: center;
   width: auto;
@@ -124,43 +124,51 @@
   margin-right: 2.6rem;
   cursor: pointer;
 }
-.contact-tab-header-active{
+
+.contact-tab-header-active {
   border-bottom: 2px solid $primary_dark
 }
-.add-contact-btn{
+
+.add-contact-btn {
   width: 100%;
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
 }
-.contact-card-container{
+
+.contact-card-container {
   display: flex;
   flex-direction: column;
   min-height: fit-content;
   width: 100%;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 0px 5px .5px rgba(44, 40, 40, 0.212);                            
+  box-shadow: 0px 0px 5px .5px rgba(44, 40, 40, 0.212);
 }
-.contact-data{
+
+.contact-data {
   display: flex;
   flex-direction: column;
 }
-@media (min-width: 1920px){
-  .contact-card-container{
+
+@media (min-width: 1920px) {
+  .contact-card-container {
     display: flex;
     flex-direction: row;
   }
-  .add-contact-btn{
+
+  .add-contact-btn {
     width: 35%;
     display: flex;
     align-items: center;
     margin-bottom: 0;
   }
-  .contact-data{
+
+  .contact-data {
     display: flex;
     flex-direction: row;
-    .contact-name{
+
+    .contact-name {
       margin-right: 2rem;
     }
   }

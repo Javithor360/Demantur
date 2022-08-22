@@ -16,17 +16,6 @@ const SavingsAccountSchema = new mongoose.Schema(
     balance: NumberReq,
     interest: NumberReq,
     increaseRate: NumberReq,
-    withdrawHistory: [{}],
-    deposits: [
-      {
-        amount: NumberReq,
-        Date: DateReq,
-        depositor: {
-          Name: StringReq,
-          Dui: StringReq,
-        },
-      },
-    ],
     annexes: {
       CreateReason: String,
       AccountExpectations: String,

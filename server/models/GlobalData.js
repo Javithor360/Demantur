@@ -47,6 +47,23 @@ const GlobalDataSchema = new mongoose.Schema({
     Made: [TransfersHistoryElements],
     Received: [TransfersHistoryElements],
   },
+  Deposits: [
+    {
+      Amount: String,
+      Account: String,
+      Date: Date,
+      Depositor: {
+        Name: String,
+        Dui: String,
+      },
+    },
+  ],
+  withdrawHistory: [{
+    Amount: String,
+    Account: String,
+    Date: Date,
+  }],
+
 });
 
 module.exports = mongoose.model("GlobalData", GlobalDataSchema);

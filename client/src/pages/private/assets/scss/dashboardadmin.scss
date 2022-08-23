@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+.sidebar{
+    position: fixed;
+    top: 0.5rem;
+    left: 1rem;
+    height: 95%;
+    width: 300px;
+    background: #373642;
+    padding: 6px 14px;
+    border-radius: 0.3rem;
+}
+.sidebar #btn{
+    position: absolute;
+    color: #fff;
+    left: 90%;
+    top: 6px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    transform: translate(-50%);
+}
+.sidebar ul{
+    margin-top: 9rem;
+}
+
+.sidebar ul li{
+    position: relative;
+    height: 95px;
+    width: 100%;
+    margin-left: -1rem;
+    list-style: none;
+    line-height: 50px;
+}
+.sidebar ul li .link{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+.sidebar ul li .link:hover{
+    color: #11101d;
+    background: #fff;
+    border-radius: 0.5rem;
+}
+.style-button {
+    background-color: #7c85a1;
+    color: #ffffff;
+    border-radius: 0.3rem;
+    height: 2.6rem;
+    width: 10rem;
+    border: none;
+    margin-top: 20rem;
+    margin-left: 3rem;
+  }
+  .style-button:hover:hover {
+    -ms-transform: scale(1.01); /* IE 9 */
+    -webkit-transform: scale(1.01); /* Safari 3-8 */
+    transform: scale(1.01); 
+  }
+  
+  .icont{
+    font-size: 2rem;
+  }
+  .logot{
+    height: 5rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
+  }

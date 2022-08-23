@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { format } from "timeago.js";
 import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ } from "../api/Queries";
 
 const dashContext = createContext();
@@ -80,6 +81,14 @@ export const DashProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+  const GlobalInfoSetReq = async (Token) => {
+    try {
+      return await getGlobalInfoQuery(PrivateConfig(Token));
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const getUsersToFriendReq = async (Token) => {
     try {
@@ -163,7 +172,7 @@ export const DashProvider = ({ children }) => {
       QueryCreateSavingsAccount, DeclineFriend, ReloadState, setReloadState, AcceptFriend, CardsRequestsForm, setContacts,
       setFriendRequest, DeleteFriendReq, CurrentChat, setCurrentChat, TransactionsArr, setTransactionsArr,
       MyTransfers, setMyTransfers, HimTranfers, setHimTranfers, DoATransfer, setGlobalInfo, socket, setSocket,
-      getMyCardReq
+      getMyCardReq, GlobalInfoSetReq
     }}>
       {children}
     </dashContext.Provider>

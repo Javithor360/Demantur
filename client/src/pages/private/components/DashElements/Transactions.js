@@ -28,25 +28,35 @@ export const Transactions = ({ OnlineUsers }) => {
 
     const scrollRef = useRef();
 
-    const { Contacts, CurrentChat, setCurrentChat, GlobalInfo, TransactionsArr, setTransactionsArr, MyTransfers, HimTranfers, Info, setMyTransfers, setHimTranfers, DoATransfer, socket, } = useDash()
+    const { Contacts, CurrentChat, setCurrentChat, GlobalInfo, TransactionsArr, setTransactionsArr, MyTransfers, HimTranfers, Info, setMyTransfers, setHimTranfers, DoATransfer, socket, getGlobalInfo } = useDash()
 
     useEffect(() => {
         setFormError(false);
         socket.on('getTransfer', data => {
+            console.log(data.SenderDui)
+            console.log(CurrentChat);
+
             let theMessage = data.transfer
             theMessage.createdAt = Date.now()
             setArrivalMessage({ SenderDui: data.SenderDui, transfer: theMessage })
+            // === === === === === === ===
+            if (TransactionsArr.length !== 0) {
+                let newTransArr = TransactionsArr;
+                newTransArr.Received.push(theMessage);
+                setTransactionsArr(newTransArr);
+            }
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [TransactionsArr]);
 
     useEffect(() => {
-        if (ArrivalMessage && ArrivalMessage.SenderDui === CurrentChat.Dui) {
+        if (ArrivalMessage) {
             setAllTransfers((prev) => [...prev, ArrivalMessage.transfer])
         }
     }, [ArrivalMessage, CurrentChat]);
 
     useEffect(() => {
+        getGlobalInfo(localStorage.getItem('authToken'));
         setCurrentChat(null);
         setTimeout(() => {
             setCharginComp(false)
@@ -121,8 +131,6 @@ export const Transactions = ({ OnlineUsers }) => {
                 const res = await DoATransfer(localStorage.getItem('authToken'), transaction);
 
                 GlobalInfo.TransfersHistory.Made.push(transaction)
-
-                console.log(res);
 
                 setAllTransfers([...AllTransfers, res.data.data])
             } catch (error) {
@@ -203,7 +211,7 @@ export const Transactions = ({ OnlineUsers }) => {
                                                                     setCurrentChat(Contact)
                                                                     setMyTransfers(TransactionsArr.Made.filter((Transaction) => Transaction.ReciverDui === Contact.Dui));
                                                                     setHimTranfers(TransactionsArr.Received.filter((Transaction) => Transaction.SenderDui === Contact.Dui));
-                                                                }}>
+                                                                }} key={index} >
                                                                     <ContactCard key={index} Contact={Contact} TransactionsArr={TransactionsArr} OnlineUsers={OnlineUsers} />
                                                                 </div>
                                                             )
@@ -228,7 +236,7 @@ export const Transactions = ({ OnlineUsers }) => {
                                                             {
                                                                 AllTransfers.length !== 0 ?
                                                                     AllTransfers.map((tr, index) => (
-                                                                        <div ref={scrollRef}>
+                                                                        <div ref={scrollRef} key={index}>
                                                                             <TransactionMessage own={tr.SenderDui === MyDui} Transf={tr} CurrentChat={CurrentChat} MyName={MyName} key={index} />
                                                                         </div>
                                                                     ))

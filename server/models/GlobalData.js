@@ -4,7 +4,7 @@ const TransfersHistoryElements = {
   // Date: Date,
   SenderDui: String,
   ReciverDui: String,
-  Amount: Number,
+  Amount: String,
   AccountN: Number,
   Type: String,
   createdAt: Date,

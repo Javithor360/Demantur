@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { useDash } from "../../../../../context/DashboardContext";
 import { format } from 'timeago.js'
 
 
 export const HistoryWidget = () => {
-  const { GlobalInfo, Contacts } = useDash()
+  const { GlobalInfo, Contacts, getGlobalInfo } = useDash()
 
   const [MyTransactions, setMyTransactions] = useState(null);
   const [HimTransactions, setHimTransactions] = useState(null);
@@ -23,20 +24,27 @@ export const HistoryWidget = () => {
   }
 
   useEffect(() => {
+    getGlobalInfo(localStorage.getItem('authToken'));
+  }, []);
+
+  useEffect(() => {
     if (GlobalInfo !== null && Object.keys(GlobalInfo).length !== 0) {
-      if (GlobalInfo.TransfersHistory.Made.length !== 0) {
+      if (GlobalInfo.TransfersHistory.Made.length !== 0 || GlobalInfo.TransfersHistory.Received.length !== 0) {
         let transaction1 = [];
         let transaction2 = [];
 
         let orderByDateMT = sortArrays(GlobalInfo.TransfersHistory.Made);
         let orderByDateHT = sortArrays(GlobalInfo.TransfersHistory.Received);
 
+        orderByDateMT = orderByDateMT.reverse();
+        orderByDateHT = orderByDateHT.reverse();
+
         for (let index = 0; index < 4; index++) {
           transaction1.push(orderByDateMT[index]);
           transaction2.push(orderByDateHT[index]);
         }
-        setMyTransactions(transaction1.reverse());
-        setHimTransactions(transaction2.reverse());
+        setMyTransactions(transaction1);
+        setHimTransactions(transaction2);
       }
     }
   }, [GlobalInfo]);
@@ -50,7 +58,7 @@ export const HistoryWidget = () => {
           <div className="box-in-transfer w-100 h-[90%] mt-2 border-2 rounded">
             <div className="div-info-transfer bg-[#F3F3F3] w-full h-[20%] flex justify-evenly items-center border-b-1">
               <span>Monto</span>
-              <span>Nombre</span>
+              <span>Beneficiario</span>
               <span>Numero de cuenta</span>
               <span>Fecha</span>
             </div>
@@ -63,7 +71,7 @@ export const HistoryWidget = () => {
                     }
                   }
                   return (
-                    <div className={`${i !== 3 && "div-info-transfer"} bg-[#fff] w-full h-[20%] flex justify-evenly items-center`}>
+                    <div className={`${i !== 3 && "div-info-transfer"} bg-[#fff] w-full h-[20%] flex justify-evenly items-center`} key={i}>
                       <span>{SingleTrans?.Amount}</span>
                       <span>{Name()}</span>
                       <span>{SingleTrans?.AccountN}</span>
@@ -85,7 +93,7 @@ export const HistoryWidget = () => {
           <div className="box-in-transfer w-100 h-[90%] mt-2 border-2 rounded">
             <div className="div-info-transfer bg-[#F3F3F3] w-full h-[20%] flex justify-evenly items-center border-b-1">
               <span>Monto</span>
-              <span>Nombre</span>
+              <span>Benefactor</span>
               <span>Numero de cuenta</span>
               <span>Fecha</span>
             </div>
@@ -98,7 +106,7 @@ export const HistoryWidget = () => {
                     }
                   }
                   return (
-                    <div className={`${i !== 3 && "div-info-transfer"} bg-[#fff] w-full h-[20%] flex justify-evenly items-center`}>
+                    <div className={`${i !== 3 && "div-info-transfer"} bg-[#fff] w-full h-[20%] flex justify-evenly items-center`} key={i}>
                       <span>{SingleTrans?.Amount}</span>
                       <span>{Name()}</span>
                       <span>{SingleTrans?.AccountN}</span>

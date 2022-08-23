@@ -29,6 +29,7 @@ export const ContactsWidget = () => {
         {
           FourContacts ?
             FourContacts.map((Contact, i) => {
+
               return (
                 <>
                   <div className='flex items-center justify-evenly' key={i}>

@@ -14,9 +14,9 @@ export const DashboardNormalUser = () => {
   const [OnlineUsers, setOnlineUsers] = useState([]);
 
   useEffect(() => {
-    setSocket(io('ws://localhost:5000'));
     GeneralInfoQuery(localStorage.getItem("authToken"));
     getGlobalInfo(localStorage.getItem('authToken'));
+    setSocket(io('ws://localhost:5000'));
     document.body.style.overflowY = "hidden";
     setTimeout(() => {
       setChargin(false);

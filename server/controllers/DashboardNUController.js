@@ -338,13 +338,13 @@ const DoAtransfer = async (req, res, next) => {
     // MADER
     const TransferMade = await GlobalData.findOneAndUpdate(
       { DataOwner: mader },
-      { $addToSet: { 'TransfersHistory.Made': { SenderDui, ReciverDui, Amount, AccountN, Type, createdAt } } }
+      { $push: { 'TransfersHistory.Made': { SenderDui, ReciverDui, Amount, AccountN, Type, createdAt } } }
     );
 
     // RECEIVER
     await GlobalData.findOneAndUpdate(
       { DataOwner: receiver },
-      { $addToSet: { 'TransfersHistory.Received': { SenderDui, ReciverDui, Amount, AccountN, Type, createdAt } } }
+      { $push: { 'TransfersHistory.Received': { SenderDui, ReciverDui, Amount, AccountN, Type, createdAt } } }
     );
 
     const Transfers = await GlobalData.findOne({ DataOwner: TransferMade.DataOwner })
@@ -353,6 +353,7 @@ const DoAtransfer = async (req, res, next) => {
     res.status(200).json({ success: true, data: TheRes })
   } catch (error) {
     res.status(500).json({ success: false, error: error });
+    console.log(error);
   }
 }
 
@@ -368,7 +369,6 @@ const getMyCardReq = async (req, res, next) => {
     } else {
       exportss = false
     }
-    console.log(exportss)
 
     res.status(200).json({ success: true, data: exportss })
   } catch (error) {

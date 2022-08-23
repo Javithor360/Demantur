@@ -7,7 +7,7 @@ import { AiOutlineCloudUpload as CloudIcon, AiOutlineCloud as SuccesClud } from 
 
 
 export const Settings = ({ hidden }) => {
-  const { setSettingsOption } = useDash()
+  const { setSettingsOption, Info } = useDash()
 
   const [Image, setImage] = useState();
   const [ImageName, setImageName] = useState("");
@@ -39,6 +39,10 @@ export const Settings = ({ hidden }) => {
     Imagefunc(ImageName, setImageName);
   }, [ImageName]);
 
+  useEffect(() => {
+    // console.log()
+  }, [Info]);
+
   const handleChangeFile = (e) => {
     if (e.target.files.length !== 0) {
       setImageName(e.target.files[0].name);
@@ -65,7 +69,7 @@ export const Settings = ({ hidden }) => {
           <div className='w-100 h-5/6 flex flex-col'>
 
             <span className='text-foto-de-perfil text-[#4E5364]'>Foto de perfil</span>
-            <img src={perfilPhoto} alt="" className='rounded-xl h-[12rem] w-[16rem] mx-auto mt-3' />
+            <img src={Info?.PerfilPhoto?.url} alt="" className='rounded-xl h-[12rem] w-[16rem] mx-auto mt-3' />
 
             <form onSubmit={HandlerSubmitPhoto}>
               <div className="input-form input-file mx-auto mt-4">

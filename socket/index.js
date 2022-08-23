@@ -29,6 +29,7 @@ io.on('connection', (socket) => {
   // hacer las transacciones
   socket.on('DoingTransfer', ({ SenderDui, ReceiverDui, transfer }) => {
     const SenderUser = getOneUser(ReceiverDui);
+    console.log(allOnlineUsers);
     io.to(SenderUser.socketId).emit('getTransfer', {
       SenderDui,
       transfer

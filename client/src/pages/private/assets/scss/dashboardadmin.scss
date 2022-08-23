@@ -1,3 +1,4 @@
+@use '../../../../utilities/_colors.scss' as *;
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 *{
     margin: 0;
@@ -5,57 +6,22 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-body{
-    position: relative;
-    min-height: 100vh;
-    width: 100%;
-    overflow: hidden;
-}
+
+// body{
+//     position: relative;
+//     min-height: 100vh;
+//     width: 100%;
+//     overflow: hidden;
+// }
+
 .sidebar{
-    position: fixed;
-    top: 0.5rem;
-    left: 1rem;
-    height: 95%;
+    height: 100%;
     width: 300px;
     background: #373642;
     padding: 6px 14px;
     border-radius: 0.3rem;
 }
-.sidebar #btn{
-    position: absolute;
-    color: #fff;
-    left: 90%;
-    top: 6px;
-    height: 50px;
-    width: 50px;
-    text-align: center;
-    line-height: 50px;
-    transform: translate(-50%);
-}
-.sidebar ul{
-    margin-top: 9rem;
-}
 
-.sidebar ul li{
-    position: relative;
-    height: 95px;
-    width: 100%;
-    margin-left: -1rem;
-    list-style: none;
-    line-height: 50px;
-}
-.sidebar ul li .link{
-    color: #fff;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    transition: all 0.4s ease;
-}
-.sidebar ul li .link:hover{
-    color: #11101d;
-    background: #fff;
-    border-radius: 0.5rem;
-}
 .style-button {
     background-color: #7c85a1;
     color: #ffffff;
@@ -65,6 +31,7 @@ body{
     border: none;
     margin-top: 20rem;
     margin-left: 3rem;
+    
   }
   .style-button:hover:hover {
     -ms-transform: scale(1.01); /* IE 9 */
@@ -79,4 +46,70 @@ body{
     height: 5rem;
     margin-top: 2rem;
     margin-left: 2rem;
+    margin-bottom: 2rem;
   }
+
+  .menu-items3 {
+    .menu-item3 {
+        color: $primary_white;
+        transition: .2s;
+        cursor: pointer;
+
+        .menu-icon3 {
+            font-size: 2.2rem;
+            color: $primary_white;
+            transition: .2s;
+        }
+
+        
+    }
+
+    .menu-item-selected3 {
+        
+        transition: .2s ease-in-out;
+        background-color: #fff;
+        color: $primary_dark;
+        cursor: auto;
+
+        .menu-icon-container3 {
+            color: $primary_white;
+            transition: .1s ease-in-out;
+
+            .menu-icon3 {
+                background-color: #373642;
+                transition: .1s ease-in-out;
+                color: #fff;
+            }
+        }
+    }
+}
+
+
+// .menu-items3 {
+//     .menu-item3 {
+//         background-color: #fff;
+//         color: $primary_gray;
+//         transition: .2s;
+//         cursor: pointer;     
+//     }
+// }
+
+//   .menu-item-selected3 {
+//     box-shadow: 0px 0px 10px .5px rgba(0, 0, 0, 0.246);
+//     transition: .2s ease-in-out;
+//     background-color: #fff;
+//     color: #11101d;
+//     cursor: auto;
+
+//     .menu-icon-container3 {
+//         font-size: 2rem;
+//         color:#11101d;
+//         transition: .1s ease-in-out;
+
+//         .menu-icon3 {
+//             background-color: #fff;
+//             transition: .1s ease-in-out;
+//             color: #11101d;
+//         }
+//     }
+// }

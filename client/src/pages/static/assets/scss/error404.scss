@@ -6,36 +6,45 @@
 }
 .error-text{
     width: 50rem;
+    float: right;
 }
 .error h1{
     text-align: center;
     font-size: 80pt;
 }
+
 .h1{
     display: flex;
 }
 .error-text p{
     margin-top: 8rem;
     margin-left: 4rem;
-    font-size: 15pt;
+    font-size: 27pt;
+    text-align: justify;
 }
 
 .error img{
-    float: right;
-    margin-right: -5rem;
-    margin-top: -29rem;
+    float: left;
+    margin-left: -10rem;
+    margin-top: -19rem;
     height: 40rem;
     
+}
+.p{
+    font-size: 20rem;
 }
 
 .botonx{
     background-color:#323643;
   color: #fff;
-  width: 7rem;
-  height: 3rem;
+  width: 9rem;
+  height: 4rem;
+  float: left;
   border-radius: 0.5rem;
-  margin-left: 4rem;
-  margin-top: 8rem;
+  margin-top: 1rem;
+  margin-left: 5rem ;
+  border: none;
+  font-size: 19pt;
 }
 .botonx:hover{
     -ms-transform: scale(1.03); 

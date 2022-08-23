@@ -54,7 +54,7 @@ const GlobalDataSchema = new mongoose.Schema({
       Date: Date,
       Depositor: {
         Name: String,
-        Dui: String,
+        EmployeeId: String,
       },
     },
   ],

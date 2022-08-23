@@ -1,0 +1,100 @@
+.container-loan_request{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .personal-loan{
+        width: 40%;
+        height: 100%;
+        margin-top: -19rem;
+        transform:translateX(2.5rem);
+
+        .tittle-loan{
+            background-color: #396EB0;
+            color: #fff;
+            width: 13rem;
+            height: 3rem;
+            border-radius: 2rem;
+            transform: translateX(7.8rem);
+    
+            p{
+                padding-top: .6rem;
+                text-align: center;
+            }
+        }
+    }
+
+    .businnes-loan{
+        width: 40%;
+        height: 100%;
+        margin-top: -19rem;
+        transform:translateX(-3.5rem);
+
+
+        .tittle-loan-2{
+            width: 14rem;
+            height: 3rem;
+            background-color: #396EB0;
+            color: #fff;
+            border-radius: 2rem;
+            transform: translateX(7.3rem);
+
+            p{
+                padding-top: .6rem;
+                text-align: center;
+            }
+        }
+    }
+
+    .container2-loan-request{
+        height: 83.5%;
+        margin-top: 3rem;
+        border: 1px solid black;
+        text-align: center;    
+
+        .content-info-loan{
+            margin-bottom: .8rem;
+            margin-left: .3rem;
+            width: 28rem;
+            height: 3.5rem;
+            display: flex;
+            justify-content: left;
+            border: 1px solid black;
+
+            .p-1{
+                margin-right: -.2rem;
+            }
+
+            .btn-loan_request-employee{
+                background-color: #396EB0;
+                color: #fff;
+                width: 4.5rem;
+                height: 2rem;
+                font-size: .8rem;
+                border-radius: .5rem;
+                border: none;
+                margin-top: .6rem;
+                transform: translateX(3.5rem);
+            }
+
+            .register-request-employee{
+                padding: 0.75rem;
+                border-right: 1px solid black;      
+            }
+            .content-request-employee{
+                padding: 0.75rem;
+            }
+        }    
+    }
+}
+
+.line-loan-employee{
+    
+    height: .1rem;
+    width: 53%;
+    opacity: 1;
+    background-color: black;
+    transform: rotate(90deg);
+    margin-top: 18rem;
+    margin-left: 16.5rem;
+}

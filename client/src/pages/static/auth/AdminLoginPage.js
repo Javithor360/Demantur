@@ -2,6 +2,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 import React, { useState } from 'react';
 import { useAuth } from '../../../context/AuthContext';
+import { FooterAuth } from '../../../components'
+import "../assets/scss/formsadmin.scss";
 
 export const AdminLoginPage = () => {
     let navigate = useNavigate();
@@ -31,15 +33,23 @@ export const AdminLoginPage = () => {
     return (
         <>
             {Error !== '' && Error}
+            <h1 className='titu'>Bienvenido al panel de administrador</h1><br/><br/><br/>
+            <div className='banert'></div>
+            <div className='formt'>
             <form onSubmit={handleForm}>
-                <label htmlFor="Username">Nombre de usuario</label>
-                <input type="text" id="Username" name='Username' onChange={(e) => { setName(e.target.value) }} value={Name} />
-                <hr />
-                <label htmlFor="Email">Contraseña</label>
-                <input type="password" id="Password" name='Password' onChange={(e) => { setPassword(e.target.value) }} value={Password} />
-                <hr />
-                <button type='submit'>Enviar</button>
+                <h2 className='subtitlet'>Inicio de sesión</h2>
+                <div className='request'>
+                <label className='label' htmlFor="Username">Nombre de usuario</label><br/>
+                <input className='input' type="text" id="Username" name='Username' onChange={(e) => { setName(e.target.value) }} value={Name} />
+                <br />
+                <label className='label' htmlFor="Email">Contraseña</label><br/>
+                <input className='input' type="password" id="Password" name='Password' onChange={(e) => { setPassword(e.target.value) }} value={Password} />
+                <br />
+                </div>
+                <button type='submit' className='style-buttont'>Iniciar sesión</button>
             </form>
+            </div>
+            <FooterAuth />
         </>
 
     )

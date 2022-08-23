@@ -1,0 +1,115 @@
+@use '../../../../utilities/_colors.scss' as *;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+// body{
+//     position: relative;
+//     min-height: 100vh;
+//     width: 100%;
+//     overflow: hidden;
+// }
+
+.sidebar{
+    height: 100%;
+    width: 300px;
+    background: #373642;
+    padding: 6px 14px;
+    border-radius: 0.3rem;
+}
+
+.style-button {
+    background-color: #7c85a1;
+    color: #ffffff;
+    border-radius: 0.3rem;
+    height: 2.6rem;
+    width: 10rem;
+    border: none;
+    margin-top: 20rem;
+    margin-left: 3rem;
+    
+  }
+  .style-button:hover:hover {
+    -ms-transform: scale(1.01); /* IE 9 */
+    -webkit-transform: scale(1.01); /* Safari 3-8 */
+    transform: scale(1.01); 
+  }
+  
+  .icont{
+    font-size: 2rem;
+  }
+  .logot{
+    height: 5rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .menu-items3 {
+    .menu-item3 {
+        color: $primary_white;
+        transition: .2s;
+        cursor: pointer;
+
+        .menu-icon3 {
+            font-size: 2.2rem;
+            color: $primary_white;
+            transition: .2s;
+        }
+
+        
+    }
+
+    .menu-item-selected3 {
+        
+        transition: .2s ease-in-out;
+        background-color: #fff;
+        color: $primary_dark;
+        cursor: auto;
+
+        .menu-icon-container3 {
+            color: $primary_white;
+            transition: .1s ease-in-out;
+
+            .menu-icon3 {
+                background-color: #373642;
+                transition: .1s ease-in-out;
+                color: #fff;
+            }
+        }
+    }
+}
+
+
+// .menu-items3 {
+//     .menu-item3 {
+//         background-color: #fff;
+//         color: $primary_gray;
+//         transition: .2s;
+//         cursor: pointer;     
+//     }
+// }
+
+//   .menu-item-selected3 {
+//     box-shadow: 0px 0px 10px .5px rgba(0, 0, 0, 0.246);
+//     transition: .2s ease-in-out;
+//     background-color: #fff;
+//     color: #11101d;
+//     cursor: auto;
+
+//     .menu-icon-container3 {
+//         font-size: 2rem;
+//         color:#11101d;
+//         transition: .1s ease-in-out;
+
+//         .menu-icon3 {
+//             background-color: #fff;
+//             transition: .1s ease-in-out;
+//             color: #11101d;
+//         }
+//     }
+// }

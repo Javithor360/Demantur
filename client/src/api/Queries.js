@@ -51,6 +51,10 @@ export const getMyCardReqREQ = async (PrivateConfig) => {
 
 // ?? QUERYS EMPLOYEE
 
+export const getEmployeeData = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/employee/get-data', { headers: PrivateConfig.headers });
+}
+
 export const getCardRequest = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/employee/get-cards-requests', { headers: PrivateConfig.headers })
 }

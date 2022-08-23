@@ -33,11 +33,15 @@ const EmployeeSchema = new mongoose.Schema({
         type: String,
         required: true,
         select: false,
+    },
+    History: {
+        Action: String,
+        Details: Object
     }
-}, { timestamps:true });
+}, { timestamps: true });
 
-EmployeeSchema.pre('save', async function(next) {
-    if(!this.isModified('Password')) {
+EmployeeSchema.pre('save', async function (next) {
+    if (!this.isModified('Password')) {
         next();
     }
     const salt = await bcrypt.genSalt(10);
@@ -49,7 +53,7 @@ EmployeeSchema.methods.matchPasswords = async function (Password) {
     return await bcrypt.compare(Password, this.Password);
 }
 
-EmployeeSchema.methods.getSignedToken = function() {
+EmployeeSchema.methods.getSignedToken = function () {
     return jwt.sign({
         user: {
             id: this._id,

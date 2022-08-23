@@ -1,11 +1,20 @@
+import { useEffect, useState } from "react";
 import { SideBar } from "./components/SideBarEmployee";
 import { Header } from "./components/HeaderEmployee";
 import "./assets/scss/dashboarde.scss";
 import { useDash } from "../../context/DashboardContext";
-import { HomePageEmployee, LoansRequests, CardsRequests, Requests } from "./components/DashboardEmployeeElements/IndexEmployeeDash";
+import { HomePageEmployee, LoansRequests, CardsRequests, Requests, Deposits } from "./components/DashboardEmployeeElements/IndexEmployeeDash";
+import { useEmpConx } from "../../context/EmployeeContext";
+
 
 export const DashboardEmployee = () => {
-  const { Option } = useDash();
+  const { Option, SettingsOption, GeneralInfoQuery} = useDash();
+
+  const { EmployeeInfoQuery } = useEmpConx();
+
+  useEffect(() => {
+    EmployeeInfoQuery(localStorage.getItem("employeeToken"));
+  }, []);
 
   const DisplayElementEmployee = () => {
     switch (Option) {
@@ -17,6 +26,8 @@ export const DashboardEmployee = () => {
         return <CardsRequests />;
       case 4:
         return <Requests />
+      case 5:
+        return <Deposits />
       default:
         return <h1>Home Page</h1>;
     }

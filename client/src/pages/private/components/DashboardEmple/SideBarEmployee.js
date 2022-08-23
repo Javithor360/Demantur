@@ -104,11 +104,28 @@ export const SideBar = () => {
               <span className={SpanNavLinkStyles}>Solicitudes</span>
             </div>
 
+            <div
+              onClick={() => {
+                setOption(5);
+                setOptionElement("Depositos");
+              }}
+              className={
+                Option === 5
+                  ? `${NavLinkStyles} menu-item2 menu-item-selected2`
+                  : `${NavLinkStyles} menu-item2`
+              }
+            >
+              <div className={DivNavLinkStyles}>
+                <GoChecklist className={IconNavLinkStyles} />
+              </div>
+              <span className={SpanNavLinkStyles}>Depósitos</span>
+            </div>
+
           </div>
         </div>
 
         <div className="flex justify-center w-full pb-4">
-          <button className="logout-button2 flex items-center justify-center rounded w-[85%]">
+          <button className="logout-button2 flex items-center justify-center rounded w-[85%]" onClick={() => localStorage.removeItem('employeeToken')}>
             <div className="flex items-center mr-2 logout-icon">
               <MdOutlineLogout />
             </div>

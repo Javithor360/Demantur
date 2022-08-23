@@ -1,13 +1,20 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SideBar } from "../components/DashboardEmple/SideBarEmployee";
 import { Header } from "../components/DashboardEmple/HeaderEmployee";
 import "../assets/scss/dashboarde.scss";
 import { useDash } from "../../../context/DashboardContext";
-import { HomePageEmployee, LoansRequests, CardsRequests, Requests } from "../components/DashboardEmple/DashEmployeeElements/IndexEmployeeDash";
+import { HomePageEmployee, LoansRequests, CardsRequests, Requests, Deposits } from "../components/DashboardEmple/DashEmployeeElements/IndexEmployeeDash";
+import { useEmpConx } from "../../../context/EmployeeContext";
 
 export const DashboarEmple = () => {
   const { Option, SettingsOption, GeneralInfoQuery } = useDash();
+  const { EmployeeInfoQuery } = useEmpConx();
+
+  useEffect(() => {
+    EmployeeInfoQuery(localStorage.getItem("employeeToken"));
+  }, []);
+
 
   const DisplayElementEmployee = () => {
     switch (Option) {
@@ -19,13 +26,14 @@ export const DashboarEmple = () => {
         return <CardsRequests />;
       case 4:
         return <Requests />
+      case 5:
+        return <Deposits />
       default:
         return <h1>Home Page</h1>;
     }
   };
   return (
     <>
-     
       <div className="w-screen h-screen bg-[#F1F1F1] relative">
         <div className="w-full h-2/5 bg-[#396EB0] absolute fondo"></div>
         <div className="absolute flex items-center justify-center w-full h-full">
@@ -41,7 +49,7 @@ export const DashboarEmple = () => {
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>

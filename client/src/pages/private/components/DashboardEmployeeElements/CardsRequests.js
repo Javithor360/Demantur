@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
-import { useEmpConx } from '../../../../../context/EmployeeContext';
+import { useEmpConx } from '../../../../context/EmployeeContext';
 import React from 'react'
-import '../assets/scss/CardEmployee.scss'
+import './assets/scss/CardEmployee.scss'
 import { DetailsCardRequest } from './DetailsCardRequest'
 
 
 export const CardsRequests = () => {
   const { getCardReq } = useEmpConx()
-  const [CardRqs, setCardRqs] = useState(null);
+  const [CardRqs, setCardRqs] = useState([]);
   const [DisplayDetails, setDisplayDetails] = useState(false);
   const [Params, setParams] = useState(null);
 
@@ -25,10 +25,11 @@ export const CardsRequests = () => {
       {
         DisplayDetails === false ?
           <>
-            {
-              CardRqs !== null ?
+            { 
+              CardRqs.length !== 0 ?
                 CardRqs.map((SingReq, i) => {
                   console.log(SingReq);
+                  console.log(CardRqs);
                   let Name = SingReq.RequestOwner.FirstName + SingReq.RequestOwner.LastName
                   let Type = SingReq.CardRequest.CardType
                   return (
@@ -55,7 +56,7 @@ export const CardsRequests = () => {
                                 Email: SingReq.RequestOwner.Email,
                                 Type,
                                 Info: SingReq.CardRequest,
-                                PerfilPhoto: SingReq.RequestOwner.PerfilPhoto.url
+                                // PerfilPhoto: SingReq.RequestOwner.PerfilPhoto.url
                               })
                               setDisplayDetails(true);
                             }}>Más detalles</button>
@@ -64,8 +65,10 @@ export const CardsRequests = () => {
                       </div>
                     </>
                   );
+                  
                 })
-                :
+                
+              : 
                 <>
                   no hay
                 </>
@@ -78,4 +81,5 @@ export const CardsRequests = () => {
       }
     </>
   )
+  
 }

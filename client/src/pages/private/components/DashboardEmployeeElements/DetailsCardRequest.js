@@ -1,4 +1,4 @@
-import img1 from '../assets/img/platinumCard.png'
+import img1 from './assets/img/platinumCard.png'
 
 export const DetailsCardRequest = ({ Params, setDisplayDetails }) => {
   console.log(Params)

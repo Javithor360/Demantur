@@ -1,5 +1,5 @@
 import React from 'react'
-import '../assets/scss/LoansRequests.scss'
+import './assets/scss/LoansRequests.scss'
 
 
 

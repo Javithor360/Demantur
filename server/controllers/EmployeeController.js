@@ -52,7 +52,6 @@ const getCardRequests = async(req, res, next) => {
                 cardRequestsOrder.push(ObjectCardRequest)
                 console.log(ObjectCardRequest)
             }
-            
         }
         
         res.status(200).json({data: cardRequestsOrder});

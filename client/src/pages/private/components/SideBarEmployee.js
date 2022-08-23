@@ -6,8 +6,7 @@ import {
 } from "react-icons/md";
 import { GoChecklist } from "react-icons/go";
 import { BsCreditCardFill } from "react-icons/bs";
-import { useDash } from "../../../../context/DashboardContext";
-import { useNavigate } from "react-router-dom";
+import { useDash } from "../../../context/DashboardContext";
 
 const NavLinkStyles =
   "menu-item2 mb-2 h-14 flex flex-row w-full rounded items-center";
@@ -17,11 +16,10 @@ const IconNavLinkStyles = "menu-icon2 p-1 rounded";
 const SpanNavLinkStyles = "menu-span-navlink";
 
 //images
-const SideBarImages = require.context("../assets/img/", true);
+const SideBarImages = require.context("./assets/img/", true);
 
 export const SideBar = () => {
   const { Option, setOption, setOptionElement } = useDash();
-  const navigate = useNavigate();
 
   return (
     <>

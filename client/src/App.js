@@ -34,8 +34,7 @@ import {
   AdminLoginPage
 } from "./pages/static";
 
-import { DashboardNormalUser, CreateSavingAcc } from "./pages/private/index";
-import { DashboarEmple } from "./pages/private/employee/index";
+import { DashboardNormalUser, CreateSavingAcc, DashboardEmployee } from "./pages/private/index";
 import { AdminDashboard } from './pages/private/admin/index'
 // routers
 import {
@@ -165,7 +164,7 @@ const App = () => {
 
               <Route path="/employee/home" element={
                 <EmployeeValidate>
-                  <DashboarEmple />
+                  <DashboardEmployee />
                 </EmployeeValidate>
               } />
               <Route

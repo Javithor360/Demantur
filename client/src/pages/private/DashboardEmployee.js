@@ -1,13 +1,11 @@
+import { SideBar } from "./components/SideBarEmployee";
+import { Header } from "./components/HeaderEmployee";
+import "./assets/scss/dashboarde.scss";
+import { useDash } from "../../context/DashboardContext";
+import { HomePageEmployee, LoansRequests, CardsRequests, Requests } from "./components/DashboardEmployeeElements/IndexEmployeeDash";
 
-import { useState } from "react";
-import { SideBar } from "../components/DashboardEmple/SideBarEmployee";
-import { Header } from "../components/DashboardEmple/HeaderEmployee";
-import "../assets/scss/dashboarde.scss";
-import { useDash } from "../../../context/DashboardContext";
-import { HomePageEmployee, LoansRequests, CardsRequests, Requests } from "../components/DashboardEmple/DashEmployeeElements/IndexEmployeeDash";
-
-export const DashboarEmple = () => {
-  const { Option, SettingsOption, GeneralInfoQuery } = useDash();
+export const DashboardEmployee = () => {
+  const { Option } = useDash();
 
   const DisplayElementEmployee = () => {
     switch (Option) {

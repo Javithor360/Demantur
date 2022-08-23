@@ -82,10 +82,27 @@ export const Navbar = () => {
             <span className="help-text">{t("main_navbar.help")}</span>
           </Link>
           <div className="line"></div>
-          <Link to="/auth" className="access-button">
-            <span className="access-text">{t("main_navbar.access")}</span>
-            <UserIcon className="access-icon fa-regular fa-user" />
-          </Link>
+          {
+            (localStorage.getItem('authToken')) ? 
+            <>
+              <Link to="/dashboard" className="access-button">
+                {
+                  //username logged n't
+                  <span className="access-text mr-1">Acceder</span>
+                }
+                 <UserIcon className="ml-2 access-icon fa-regular fa-user" />
+              </Link>
+            </>
+            :
+            <>
+              <Link to="/auth" className="access-button">
+                {
+                  <span className="access-text mr-1" >Acceder</span>
+                }
+                 <UserIcon className="ml-2 access-icon fa-regular fa-user" />
+              </Link>
+            </>
+          }
         </div>
       </div>
       <div

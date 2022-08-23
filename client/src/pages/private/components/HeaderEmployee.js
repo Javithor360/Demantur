@@ -1,28 +1,12 @@
-import { useDash } from "../../../../context/DashboardContext";
+import { useDash } from "../../../context/DashboardContext";
 //scss
-import './assets/scss/Header_Employee.scss'
+import './DashboardEmployeeElements/assets/scss/Header_Employee.scss'
 //icons
 import { FaCog, FaBell } from 'react-icons/fa';
-import { useState } from "react";
-import { useEffect } from "react";
 
 export const Header = () => {
   const HeaderImages = require.context('./assets/img/', true);
-  const { OptionElement, setSettingsOption, Info } = useDash();
-  const [NameToHeader, setNameToHeader] = useState('')
-
-  const Capitalize = (word) => {
-    return word[0].toUpperCase() + word.slice(1);
-  }
-
-  useEffect(() => {
-    if (Object.keys(Info).length !== 0) {
-      let Name = Info.FirstName.split(' ');
-      let LastName = Info.LastName.split(' ');
-      LastName = LastName[0];
-      setNameToHeader(`${Capitalize(Name[0])} ${LastName[0].toUpperCase()}.`);
-    }
-  }, [Info])
+  const { OptionElement, setSettingsOption } = useDash();
 
   return (
     <div className="dashboard-header flex justify-between flex-row h-12 w-100">

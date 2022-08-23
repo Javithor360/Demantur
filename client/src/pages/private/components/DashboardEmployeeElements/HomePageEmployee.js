@@ -1,5 +1,5 @@
 import React from 'react'
-import '../assets/scss/HomePageEmployee.scss'
+import './assets/scss/HomePageEmployee.scss'
 
 
 export const HomePageEmployee = () => {

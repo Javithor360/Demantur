@@ -1,5 +1,5 @@
 import React from 'react'
-import '../assets/scss/RequestEmployee.scss'
+import './assets/scss/RequestEmployee.scss'
 import {BsXCircle} from "react-icons/bs";
 
 

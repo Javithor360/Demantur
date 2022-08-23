@@ -1,21 +1,49 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useEmpConx } from '../../../../context/EmployeeContext';
+import { ConfirmAction } from './ConfirmAction';
+import Modal from '../Modal';
 
 export const Deposits = () => {
-
     const { Info } = useEmpConx();
 
     const [AccNumber, setAccNumber] = useState('');
     const [Amount, setAmount] = useState('');
+
     const [Error, setError] = useState('');
+    const [active, setActive] = useState(false);
+
+    const [formData, setFormData] = useState({});
+
+    const toggle = () => {
+        setActive(!active)
+    }
+
+    useEffect(() => {
+        if (active) {
+            document.body.style.overflowY = 'hidden'
+        }
+    }, [active])
 
     const handleForm = async (e) => {
         e.preventDefault();
 
         try {
-            const data = await axios.post('http://localhost:4000/api/requests/deposit', { AccountNumber: AccNumber, Amount, Accountable: Info._id });
-            console.log(data);
+            toggle();
+
+            const res = await axios.post('http://localhost:4000/api/employee/get-user-data', { AccountNumber: AccNumber });
+            setFormData(
+                {
+                    uFullName: `${res.data.data.FirstName} ${res.data.data.LastName}`,
+                    uPfp: res.data.data.PerfilPhoto.url,
+                    uAcc: AccNumber,
+                    eId: Info.EmployeeId,
+                    eDbId: Info._id,
+                    eFullName: `${Info.FirstNames} ${Info.LastNames}`,
+                    client: res.data.data._id,
+                    amount: Amount,
+                }
+            );
         } catch (error) {
             console.error(error);
             setError(error.response.data.error);
@@ -32,13 +60,21 @@ export const Deposits = () => {
             <div className='mx-[25rem]'>
                 <form onSubmit={handleForm} className='flex flex-col'>
                     <label htmlFor="AccNumber">Número de cuenta</label>
-                    <input type="number" id="AccNumber" name='AccNumber' onChange={(e) => { setAccNumber(e.target.value) }} value={AccNumber} />
+                    <input type="number" id="AccNumber" name='AccNumber' onChange={(e) => { setAccNumber(e.target.value) }} value={AccNumber} required />
 
                     <label htmlFor="Amount">Monto a depositar</label>
-                    <input type="number" id="Amount" name='Amount' onChange={(e) => { setAmount(e.target.value) }} value={Amount} />
+                    <input type="number" id="Amount" name='Amount' onChange={(e) => { setAmount(e.target.value) }} value={Amount} required />
 
                     <button type="submit" className='mt-[2rem] mx-[5rem]'>Realizar depósito</button>
                 </form>
+            </div>
+
+            <div className='h-[100%] w-[100%] flex items-center'>
+                {toggle &&
+                    <Modal active={active} toggle={toggle} onRequestClose={toggle}>
+                        <ConfirmAction props={formData} />
+                    </Modal>
+                }
             </div>
         </div>
     )

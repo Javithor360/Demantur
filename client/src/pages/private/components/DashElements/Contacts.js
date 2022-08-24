@@ -29,9 +29,9 @@ export const Contacts = () => {
 
   useEffect(() => {
     getGlobalInfo(localStorage.getItem('authToken'));
-    setTimeout(() => {
-      setCharginIco(false);
-    }, 2000);
+      setTimeout(() => {
+        setCharginIco(false);
+      }, 2000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

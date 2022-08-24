@@ -624,7 +624,8 @@ body{
 
         .card-submit-button{
             border: none;
-            padding: 1rem 2rem;
+            min-width: 7rem;
+            min-height: 3rem;
             background-color: #323643;
             color: #ffffff;
             cursor: pointer;

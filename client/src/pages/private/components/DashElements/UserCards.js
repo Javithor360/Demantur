@@ -10,7 +10,9 @@ import axios from "axios";
 import { useDash } from "../../../../context/DashboardContext";
 //icons
 import { BsArrowLeft } from 'react-icons/bs'
+import { BiLoaderAlt } from 'react-icons/bi'
 import  pendingReqIcon  from '../assets/img/cards-icons/quote-request.png'
+import { RiLoader3Fill as IconChargin } from 'react-icons/ri'
 //translate
 import { useTranslation } from "react-i18next";
 
@@ -24,8 +26,12 @@ export const UserCards = () => {
   const [changeBox, setChangeBox] = useState(false);
   const [parametros, setParametros] = useState(null);
   const [CardReq, setCardReq] = useState(false);
+  const [CharginIco, setCharginIco] = useState(true);
+  const [Chargin, setChargin] = useState(false);
+
   const handleClick = event => {
-    event.currentTarget.disabled = true;  };
+    event.currentTarget.disabled = true;  
+  };
   const { t } = useTranslation();
 
   const { CardsRequestsForm, CreateElements, getMyCardReq } = useDash();
@@ -37,7 +43,9 @@ export const UserCards = () => {
     })()
   }, []);
 
-
+  setTimeout(() => {
+    setCharginIco(false);
+  }, 2000);
 
   const UserElementsSalary = ['$450 y $499', '$500 y $999', '$700 y $1200', '$1200 en adelante',]
   const UserElementsLaboralStatus = ['Asalariado', 'Desempleado', 'Estudiante', 'Emprendedor',]
@@ -83,7 +91,6 @@ export const UserCards = () => {
     setImageName3('')
     setImageName4('')
   }, [changeBox]);
-
 
   const Imagefunc = (UploadImage, SetImageName) => {
     if (UploadImage !== "") {
@@ -164,6 +171,8 @@ export const UserCards = () => {
 
       const CardsRequestsForm = new FormData();
 
+      setChargin(true);
+
       for (let key in CardRequestsFormData) {
         CardsRequestsForm.append(key, CardRequestsFormData[key]);
       }
@@ -177,6 +186,7 @@ export const UserCards = () => {
       CreateElements(localStorage.getItem("authToken"));
 
       setTimeout(() => {
+        setChargin(false)
         setUserSalary('')
         setUserLaboralStatus('')
         setImageName1('')
@@ -184,9 +194,12 @@ export const UserCards = () => {
         setImageName3('')
         setImageName4('')
         setChangeBox(false)
-      } , 2000);
-
-      // navigate("/index");
+      } , 1500);
+      
+      (async () => {
+        const resp = await getMyCardReq(localStorage.getItem('authToken'));
+        setCardReq(resp.data.data);
+      })()
 
     } catch (error) {
       setError(error.response.data.error);
@@ -197,7 +210,6 @@ export const UserCards = () => {
     return (
       
       <div className="w-full h-full bg-white rounded-xl overflow-y-auto scroll-cards">
-       
         <div className="w-full h-[2rem] flex items-center justify-start">
           <button className="bg-transparent outline-none border-none mt-4 ml-5"  onClick={() => {
             setChangeBox(false)
@@ -268,8 +280,19 @@ export const UserCards = () => {
               </div>
             </div>
             <div className="form-row-3">
-              <button className="card-submit-button" type="submit" disabled={handleClick}
-              >Solicitar</button>
+              <button className="card-submit-button" type="submit" disabled={Chargin}
+              >
+                {
+                  Chargin === true ?
+                    <>
+                      <BiLoaderAlt  className="animate-spin"/>
+                    </>
+                  :
+                  <>
+                    <span>Solicitar</span>
+                  </>
+                }
+              </button>
             </div>
           </form>
         </div>
@@ -278,55 +301,62 @@ export const UserCards = () => {
   }
 
   const userCards = () => {
-
     return (
       <>
-        <p className="text-[1.5rem] text-[#323643] text-center p-2 ">
-          Tus Tarjetas
-        </p>
-        <div className="mb-6 ml-5 card-tipe-tittle">
-          <p className="text-[1.375rem] text-[#323643] p-0 m-0">Crédito</p>
-          <hr className="p-0  m-0 w-[20%]" />
-        </div>
-
-        <div className="flex flex-col items-center w-full min-h-fit ">
-          <div className="min-h-[20rem] w-[75%] shadow-lg rounded-xl mb-5 flex flex-col justify-center items-center dash-user-cards-container">
-            <div className="h-[10%]">
-              <p className="text-[1.375rem] text-center">Demantur Platinum</p>
-              <img
-                src={DashCardsImages("./platinumCard.png")}
-                alt=""
-                className="w-[200px] mt-3 mb-3"
-              />
-            </div>
-            <div className="mt-6">
-              <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
-                Ver detalles
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="mb-6 ml-5 card-tipe-tittle">
-          <p className="text-[1.375rem] text-[#323643] p-0 m-0">Débito</p>
-          <hr className="p-0  m-0 w-[20%]" />
-        </div>
-        <div className="flex flex-col items-center w-full min-h-fit">
-          <div className="min-h-[20rem] w-[75%] shadow-lg rounded-xl flex flex-col justify-center items-center dash-user-cards-container mb-5">
-            <div className="h-[10%]">
-              <p className="text-[1.375rem] text-center">Débito Clásica</p>
-              <img
-                src={DashCardsImages("./debitCard.png")}
-                alt=""
-                className="w-[200px] mt-3 mb-3"
-              />
-            </div>
-            <div className="mt-6">
-              <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
-                Ver detalles
-              </button>
-            </div>
-          </div>
-        </div>
+        {
+          CharginIco === true ?
+            <>
+              <div className='flex justify-center items-center w-full h-full'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
+            </>
+          :
+            <>
+              <p className="text-[1.5rem] text-[#323643] text-center p-2 ">
+                Tus Tarjetas
+              </p>
+              <div className="mb-6 ml-5 card-tipe-tittle">
+                <p className="text-[1.375rem] text-[#323643] p-0 m-0">Crédito</p>
+                <hr className="p-0  m-0 w-[20%]" />
+              </div>
+              <div className="flex flex-col items-center w-full min-h-fit ">
+                <div className="min-h-[20rem] w-[75%] shadow-lg rounded-xl mb-5 flex flex-col justify-center items-center dash-user-cards-container">
+                  <div className="h-[10%]">
+                    <p className="text-[1.375rem] text-center">Demantur Platinum</p>
+                    <img
+                      src={DashCardsImages("./platinumCard.png")}
+                      alt=""
+                      className="w-[200px] mt-3 mb-3"
+                    />
+                  </div>
+                  <div className="mt-6">
+                    <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
+                      Ver detalles
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="mb-6 ml-5 card-tipe-tittle">
+                <p className="text-[1.375rem] text-[#323643] p-0 m-0">Débito</p>
+                <hr className="p-0  m-0 w-[20%]" />
+              </div>
+              <div className="flex flex-col items-center w-full min-h-fit">
+                <div className="min-h-[20rem] w-[75%] shadow-lg rounded-xl flex flex-col justify-center items-center dash-user-cards-container mb-5">
+                  <div className="h-[10%]">
+                    <p className="text-[1.375rem] text-center">Débito Clásica</p>
+                    <img
+                      src={DashCardsImages("./debitCard.png")}
+                      alt=""
+                      className="w-[200px] mt-3 mb-3"
+                    />
+                  </div>
+                  <div className="mt-6">
+                    <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
+                      Ver detalles
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </>
+        }
       </>
     );
   }
@@ -361,65 +391,70 @@ export const UserCards = () => {
 
     return (
       <>
-        <p className="text-[24px] text-[#323643] text-center p-2 mb-4">
-          Solicita tu tarjeta de crédito
-        </p>
         {
-          CardReq === false ?
-            <>
-              {
-                cardProperties.map((element, i) => {
-                  return (
-                    <>
-                      <div className="dash-card-info w-[90%] rounded-xl relative flex flex-row items-center">
-                        <div className="flex items-center justify-center h-full w-fit">
-                          <img
-                            src={DashCardsImages(`${element.cardImage}`)}
-                            alt=""
-                            className="dash-left-card-img"
-                          />
-                        </div>
-                        <div className="dash-card-info-content">
-                          <div className="content-text">
-                            <p className="text-[1.375rem] text-[#606470]">{element.cardName}</p>
-                            <p className="text-[0.875rem] text-[#606470]">
-                              {element.cardDescription}
-                            </p>
-                          </div>
-                          <div className="flex items-center justify-center card-info-btn">
-                            <button onClick={() => {
-                              setChangeBox(true)
-                              setParametros({
-                                cardId: i,
-                                cardName: element.cardName,
-                                cardDescription: element.cardDescription,
-                                cardDescription2: element.cardDescription2,
-                                cardImage: element.cardImage
-                              })
-                            }} className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
-                              Solicitar
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </>
-                  )
-                })
-              }
-            </>
+          CharginIco === true ?
+              <div className='flex justify-center items-center w-full h-full'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
             :
             <>
-            <div className='h-full w-full flex flex-col items-center justify-center'>
-              <img src={ pendingReqIcon } alt="" className='w-[200px] mb-4'/>
-              <span>Tiene una Solicitud en progreso</span>
-            </div>   
-              {/* {console.log(CardReq)} */}
-            </>
-        }
-
+              <p className="text-[24px] text-[#323643] text-center p-2 mb-4">
+                Solicita tu tarjeta de crédito
+              </p>
+            {
+              CardReq === false ?
+              <>
+                {
+                  cardProperties.map((element, i) => {
+                    return (
+                      <>
+                        <div className="dash-card-info w-[90%] rounded-xl relative flex flex-row items-center">
+                          <div className="flex items-center justify-center h-full w-fit">
+                            <img
+                              src={DashCardsImages(`${element.cardImage}`)}
+                              alt=""
+                              className="dash-left-card-img"
+                            />
+                          </div>
+                          <div className="dash-card-info-content">
+                            <div className="content-text">
+                              <p className="text-[1.375rem] text-[#606470]">{element.cardName}</p>
+                              <p className="text-[0.875rem] text-[#606470]">
+                                {element.cardDescription}
+                              </p>
+                            </div>
+                            <div className="flex items-center justify-center card-info-btn">
+                              <button onClick={() => {
+                                setChangeBox(true)
+                                setParametros({
+                                  cardId: i,
+                                  cardName: element.cardName,
+                                  cardDescription: element.cardDescription,
+                                  cardDescription2: element.cardDescription2,
+                                  cardImage: element.cardImage
+                                })
+                              }} className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
+                                Solicitar
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </>
+                    )
+                  })
+                }
+              </>
+              :
+                <>
+                  <div className='h-full w-full flex flex-col items-center justify-center'>
+                    <img src={ pendingReqIcon } alt="" className='w-[200px] mb-4'/>
+                    <span>Tiene una Solicitud en progreso</span>
+                  </div>   
+                {/* {console.log(CardReq)} */}
+                </>
+            }
+          </>
+        } 
       </>
     )
-
   }
 
   return (

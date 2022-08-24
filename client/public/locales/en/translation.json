@@ -260,6 +260,9 @@
     "what's_home_demantur": "What is ",
     "what's_home_demantur2": "Demantur housing?",
     "info_home_demantur": "Take advantage of preferential conditions to request the credits you need to be able to purchase your new or used home in El Salvador.",
+    "what's_car_Demantur":"What is",
+    "what's_car_Demantur2": "Demantur car?",
+    "info_car_demantur":"Our Loan is aimed at financing the purchase of a new or used vehicle. (Does not apply commercial vehicles; Trucks, Buses, Minibuses)",
     "Doubts": "Do you have any doubt?",
     "loans_buttons": {
       "more_info": "More information",
@@ -295,7 +298,26 @@
           "sure": "Life insurance and funeral assistance.",
           "commission": "A commission of 0.5% applies to the amount of the credit if the term is 10 years. Zero commission if the term is 9 years or less."
         }
-      }
+      },
+      "forms":{
+        "title": "Are you decided?",
+        "subtitle":"Request your loans",
+        "name":"Full name",
+        "id_dui":"Dui number",
+        "contact":"Contact number",
+        "address":"Address",
+        "email":"Email",
+        "Amount":"Amount to request",
+        "salary": "Salary range",
+        "company": "Name of the company where you work",
+        "op1": "Photocopy of DUI (reverse and right)",
+        "op2": "proof of work",
+        "op3": "Attach your proof of salary",
+        "op4": "Among",
+        "op5": "Greater than",
+        "button":"Subir Archivo",
+        "button2":"submit"
+    }
     },
     "business_loan_page": {
       "title": "Business Credits",
@@ -327,7 +349,7 @@
     "housing_page": {
       "title": "Housing Credit",
       "subtitle": "We offer you a loan tailored to your needs for your new home",
-      "what's_it": "Vivienda Demantur",
+      "what's_it": "Housing Demantur",
       "housing_info": "This type of loan is made in the long term and will be backed by the property that is purchased. These loans can be financed for a certain term and at an interest rate that will depend on the amount you request to obtain what you need.",
       "housing_info2": " It is important that you are clear that the fact that the property is the guarantee of the loan, that does not mean that we will keep your house or that you will not be able to use it until you finish paying the debt.",
       "benefits": "Benefits",
@@ -354,6 +376,16 @@
           "amount": "Life insurance according to credit amount and construction damage insurance."
         }
       }
+    },
+    "Demantur_car":{
+      "title": "Car Credit",
+      "subtitle": "Change your lifestyle with our decreasing credit for the purchase of a new or used vehicle",
+      "what's_it": "Car Demantur",
+      "car_info": "We offer you the option of acquiring a vehicle with the figure of lease with purchase option, which will allow you to acquire ownership of the vehicle at the end of the term..",
+      "car_info2": " You have financing in a new vehicle of up to 90% according to the quote with the vehicle insurance fee included.",
+      "benefits": "Benefits",
+      "benefits_bannerc": "Fast and agile process",
+      "benefits_bannerc2": "We listen to you, we understand your needs and we offer you the most suitable plan for your project."
     }
   },
   "help_page":{

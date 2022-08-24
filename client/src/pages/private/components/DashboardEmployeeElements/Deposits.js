@@ -69,7 +69,7 @@ export const Deposits = () => {
             <h1 className='text-center mb-[4rem]'>Efectuar depósito</h1>
             {
                 Success !== false && Success &&
-                <p>TRANSACCIÓN HECHA PE</p>
+                <p className='text-green-500'>TRANSACCIÓN HECHA PE</p>
             }
             <div className='mx-[25rem]'>
                 <form onSubmit={handleForm} className='flex flex-col'>

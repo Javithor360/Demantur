@@ -56,3 +56,38 @@
         background: #477bba;
     }
 }
+
+
+// ConfirActiom.js scss
+
+.container-confir_action{
+    width: 60%;
+    text-align: center;
+    box-shadow: 4px 4px 4px 4px rgba(grey, 0.35);
+    border: 1px solid black;
+    border-radius: 0.75rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    transform: translateX(11rem);
+
+    img{
+        width: 8rem;
+        height: 8rem;
+       transform: translateX(13.2rem);
+    }
+
+    .number-account-employee{
+        margin-top: 8rem;
+        transform: translateX(1.5rem);
+    }
+
+    .btn-confirm{
+        width: 6rem;
+        height: 2rem;
+        background-color: #396EB0;
+        color: #fff;
+        border-radius: 0.75rem;
+        border: none;
+        transform: translateX(1rem);
+    }
+}

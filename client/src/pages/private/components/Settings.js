@@ -4,13 +4,18 @@ import { useDash } from '../../../context/DashboardContext'
 import perfilPhoto from './assets/img/profile-photo2.jpg'
 import './DashElements/TransactionsComponents/scss/settings.scss'
 import { AiOutlineCloudUpload as CloudIcon, AiOutlineCloud as SuccesClud } from 'react-icons/ai'
+import { BiLoaderAlt } from 'react-icons/bi';
+import { LanguageSwitcher } from '../../../components/LanguageSwitcher'
 
 
 export const Settings = ({ hidden }) => {
-  const { setSettingsOption, Info } = useDash()
+  const { setSettingsOption, Info, UpdatePhoto } = useDash()
 
   const [Image, setImage] = useState();
   const [ImageName, setImageName] = useState("");
+  const [Error, setError] = useState(null);
+  const [Success, setSuccess] = useState(null);
+  const [CharginButton, setCharginButton] = useState(false);
 
   const Imagefunc = (UploadImage, SetImageName) => {
     if (UploadImage !== "") {
@@ -52,9 +57,31 @@ export const Settings = ({ hidden }) => {
     }
   };
 
-  const HandlerSubmitPhoto = (e) => {
-    // e.preventDefault();
-    console.log('hola')
+  const HandlerSubmitPhoto = async (e) => {
+    e.preventDefault();
+    let form = new FormData();
+    if (Image) {
+      let data = { Image: Image };
+      for (let key in data) {
+        form.append(key, data[key])
+      }
+
+    } else {
+      setError('No ha seleccionado la imagen');
+    }
+    try {
+      setCharginButton(true)
+      setTimeout(() => {
+        setCharginButton(false)
+      }, 1500);
+      const { data } = await UpdatePhoto(localStorage.getItem('authToken'), form)
+      setSuccess('Foto actualizada correctamente')
+      Info.PerfilPhoto.url = data.data.url
+      Info.PerfilPhoto.public_id = data.data.public_id
+      setError(null);
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -70,17 +97,29 @@ export const Settings = ({ hidden }) => {
 
             <span className='text-foto-de-perfil text-[#4E5364]'>Foto de perfil</span>
             <img src={Info?.PerfilPhoto?.url} alt="" className='rounded-xl h-[12rem] w-[16rem] mx-auto mt-3' />
+            {
+              Error || Success &&
+              <div className='m-[-1rem] p-[-1rem]'>
+                {Error && <p className='text-red-400 text-center m-0 p-0'>{Error}</p>}
+                {Success && <p className='text-green-400 text-center m-0 p-0'>{Success}</p>}
+              </div>
+            }
 
-            <form onSubmit={HandlerSubmitPhoto}>
+            <form onSubmit={HandlerSubmitPhoto} className=' '>
               <div className="input-form input-file mx-auto mt-4">
                 <input type='file' accept='image/*' id='Constancia' name='Constancia' placeholder=' ' onChange={handleChangeFile} autoComplete='off' />
                 <label htmlFor="Constancia" className='label-form'>{ImageName === '' ? 'Foto de Perfil' : ImageName}</label>
                 {ImageName === '' ? <CloudIcon className='CloudIcon' /> : <SuccesClud className='CloudIcon' />}
               </div>
-              <button type="submit" className='boton-settings'>Cambiar</button>
+              <button type="submit" className='boton-settings' disabled={CharginButton}>{CharginButton ? <BiLoaderAlt className='animate-spin' /> : 'Cambiar'}</button>
             </form>
-
+            <div className=''>
+              <div className='w-[80%] mx-auto h-[0.12rem] bg-slate-500 mb-4 mt-2'></div>
+              <span className='text-foto-de-perfil text-[#4E5364]'>Idioma</span>
+              <LanguageSwitcher />
+            </div>
           </div>
+
         </div>
       </div >
     </div >

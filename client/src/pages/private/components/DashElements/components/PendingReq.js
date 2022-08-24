@@ -16,12 +16,12 @@ export const PendingReq = () => {
         setReloadState(false);
         setReloadStateTwo(true);
     }
-    const HeaderImages = require.context('../../assets/img/', true);
     return (
         <>
             {
                 PedingFriendReq.length !== 0 ?
                     PedingFriendReq.map((el, i) => {
+                        console.log(el)
                         return (
                             <div key={i} className="bg-[#FBFBFB] w-[90%] flex justify-between mt-4 ml-5 p-3 border border-[#707070] rounded-md">
                                 <>
@@ -29,7 +29,7 @@ export const PendingReq = () => {
                                         <div className="mr-7 flex items-center">
                                             {/* foto: {el.Photo} */}
                                             <div className='profile-img mr-3'>
-                                                <img src={HeaderImages('./profile-photo2.jpg')} alt="" className="h-full w-full" />
+                                                <img src={el.Photo} alt="" className="h-full w-full" />
                                             </div>
                                         </div>
                                         <div className="contact-data flex flex-col">

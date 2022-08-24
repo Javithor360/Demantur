@@ -8,14 +8,16 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
 export const DashboardNormalUser = () => {
-  const { Option, SettingsOption, GeneralInfoQuery, getGlobalInfo, setSocket, socket, Info } = useDash();
+  const { Option, SettingsOption, GeneralInfoQuery, getGlobalInfo, setSocket, socket, Info, getContacsWP, getSavingAccts } = useDash();
 
   const [Chargin, setChargin] = useState(true);
   const [OnlineUsers, setOnlineUsers] = useState([]);
 
   useEffect(() => {
     GeneralInfoQuery(localStorage.getItem("authToken"));
+    getContacsWP(localStorage.getItem("authToken"))
     getGlobalInfo(localStorage.getItem('authToken'));
+    getSavingAccts(localStorage.getItem('authToken'))
     setSocket(io('ws://localhost:5000'));
     document.body.style.overflowY = "hidden";
     setTimeout(() => {

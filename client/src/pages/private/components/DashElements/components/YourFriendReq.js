@@ -22,7 +22,7 @@ export const YourFriendReq = () => {
         Contacts.push({
             Name: el.Name,
             Dui: el.Dui,
-            Photo: 'Foto link',
+            Photo: el.Photo,
         });
         setReloadState(true);
         setReloadComp(true);
@@ -35,7 +35,6 @@ export const YourFriendReq = () => {
         setReloadComp(true);
         setReloadStateTwo(true);
     }
-    const HeaderImages = require.context('../../assets/img/', true);
     return (
         <>
             {
@@ -53,7 +52,7 @@ export const YourFriendReq = () => {
                                         <div className="mr-7 flex items-center">
                                             {/* foto: {el.Photo} */}
                                             <div className='profile-img mr-3'>
-                                                <img src={HeaderImages('./profile-photo2.jpg')} alt="" className="h-full w-full" />
+                                                <img src={el.Photo} alt="" className="h-full w-full" />
                                             </div>
                                         </div>
                                         <div className="contact-data flex flex-col">

@@ -51,7 +51,7 @@ export const Header = () => {
         <div className="ml-2 user-info flex justify-center items-center">
           <span className="text-white mr-3 my-0">{NameToHeader}</span>
           <div className="profile-img">
-            <img src={HeaderImages('./profile-default.jpg')} alt="" className="h-full w-full" />
+            <img src={Info?.PerfilPhoto?.url} alt="" className="h-full w-full" />
           </div>
         </div>
       </div>

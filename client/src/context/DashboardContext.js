@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { format } from "timeago.js";
-import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ, getMyLoanReqREQ} from "../api/Queries";
+// import { format } from "timeago.js";
+import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ, getContactsWPReq, getMyLoanReqREQ, getSavingAcctsReq, UpdatePhotoReq } from "../api/Queries";
 
 const dashContext = createContext();
 
@@ -27,12 +27,12 @@ export const DashProvider = ({ children }) => {
   const [CurrentChat, setCurrentChat] = useState(null);
   const [MyTransfers, setMyTransfers] = useState([]);
   const [HimTranfers, setHimTranfers] = useState([]);
+  const [SavingAccounts, setSavingAccounts] = useState([]);
 
   const [socket, setSocket] = useState(null)
 
   useEffect(() => {
     if (GlobalInfo !== null) {
-      setContacts(GlobalInfo.Contacts);
       setPedingFriendReq(GlobalInfo.PendingFriendReq);
       setFriendRequest(GlobalInfo.FriendRequests);
     }
@@ -83,11 +83,19 @@ export const DashProvider = ({ children }) => {
   const CreateElements = async (Token) => {
     try {
       await creatElements(PrivateConfig(Token));
-      // console.log(Res);
     } catch (error) {
       console.log(error);
     }
   };
+
+  const getContacsWP = async (Token) => {
+    try {
+      const res = await getContactsWPReq(PrivateConfig(Token));
+      setContacts(res.data.data)
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const getGlobalInfo = async (Token) => {
     try {
@@ -188,6 +196,23 @@ export const DashProvider = ({ children }) => {
     }
   }
 
+  const getSavingAccts = async (Token) => {
+    try {
+      const res = await getSavingAcctsReq(PrivateConfig(Token))
+      setSavingAccounts(res.data.data)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const UpdatePhoto = async (Token, Form) => {
+    try {
+      return await UpdatePhotoReq(Token, Form);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <dashContext.Provider value={{
       Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
@@ -196,7 +221,7 @@ export const DashProvider = ({ children }) => {
       QueryCreateSavingsAccount, DeclineFriend, ReloadState, setReloadState, AcceptFriend, CardsRequestsForm, LoansRequestsForm, setContacts,
       setFriendRequest, DeleteFriendReq, CurrentChat, setCurrentChat, TransactionsArr, setTransactionsArr,
       MyTransfers, setMyTransfers, HimTranfers, setHimTranfers, DoATransfer, setGlobalInfo, socket, setSocket,
-      getMyCardReq, getMyLoanReq, GlobalInfoSetReq
+      getMyCardReq, getMyLoanReq, GlobalInfoSetReq, getContacsWP, SavingAccounts, getSavingAccts, UpdatePhoto
     }}>
       {children}
     </dashContext.Provider>

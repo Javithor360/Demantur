@@ -29,7 +29,7 @@ export const ContactTransactionCard = ({ Contact, index, OnlineUsers }) => {
     <div className={`individual-contact-container w-[100%] h-[5rem] flex flex-row items-center p-1 mb-[4%]  relative ${validated ? 'bg-white' : 'cursor-pointer'}`} key={index}>
       <div className='contact-profile-img-container'>
         <div className="lb-contact-img">
-          <img src={photoExample} alt="" className="h-full w-full" />
+          <img src={Contact.Photo} alt="" className="h-full w-full" />
         </div>
       </div>
       <div className='w-full flex flex-col justify-center ml-2'>

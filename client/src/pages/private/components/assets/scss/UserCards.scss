@@ -7,16 +7,16 @@
     min-height: 15rem;
     margin-bottom: 2rem;
 }
-.left-cards-container::-webkit-scrollbar{
+.scroll-cards::-webkit-scrollbar{
     display: block;
     width: 8px;
 }
-.left-cards-container::-webkit-scrollbar-track{
+.scroll-cards::-webkit-scrollbar-track{
     background: hidden;
     margin-top: 0.625rem;
     margin-bottom: 0.625rem;
 }
-.left-cards-container::-webkit-scrollbar-thumb{
+.scroll-cards::-webkit-scrollbar-thumb{
     background-color: $secondary_gray_200;
     border-right: none;
     border-left: none;
@@ -88,5 +88,19 @@
         .card-info-btn{
             margin-right: 1.5rem;
         }
+    }
+}
+.border-text{
+    border-left: 3px solid $primary_dark;
+    padding-left: 10px;
+}
+.subdivisions{
+    hr{
+        border: 0;
+        width: 20%;
+        height: 2px;
+        opacity: 1;
+        background: $primary_dark;
+        margin: auto;
     }
 }

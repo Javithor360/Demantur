@@ -1,5 +1,6 @@
 const CardsRequests = require("../models/CardsRequests");
 const DuiModel = require("../models/DuiModel");
+const ErrorResponse = require("../utils/ErrorMessage");
 const { uploadRegisterImage } = require("../libs/cloudinary");
 const fs = require("fs-extra");
 
@@ -10,7 +11,43 @@ const CardsFormRequests = async (req, res, next) => {
         const token = req.resetToken;
         const { UserSalary, UserLaboralStatus, cardId } = req.body;
 
+        if (!UserSalary || !UserLaboralStatus) {
+            return next(
+                new ErrorResponse("Por favor rellene todos los campos", 400, "error")
+            );
+        }
+        
         let DuiFrontImg, DuiBackImg, NitImg, SalaryEvidenceImg;
+
+        if (req.files?.Image1) {
+            DuiFrontImg = req.files.Image1;
+        } else {
+            return next(
+              new ErrorResponse("Por favor suba su fotocopia de DUI (Frontal)", 400, "error")
+            );
+        }
+        if (req.files?.Image2) {
+            DuiBackImg = req.files.Image2;
+        } else {
+            return next(
+              new ErrorResponse("Por favor suba su fotocopia de DUI (Trasera)", 400, "error")
+            );
+        }
+        if (req.files?.Image3) {
+            NitImg = req.files.Image3;
+        } else {
+            return next(
+              new ErrorResponse("Por favor suba su fotocopia del NIT", 400, "error")
+            );
+        }
+        if (req.files?.Image4) {
+            SalaryEvidenceImg = req.files.Image4;
+        } else {
+            return next(
+              new ErrorResponse("Por favor suba su constancia de salario", 400, "error")
+            );
+        }
+
         let CardType;
 
         const img1 = await uploadRegisterImage(req.files.Image1.tempFilePath);
@@ -74,10 +111,11 @@ const CardsFormRequests = async (req, res, next) => {
         });
 
         await newCardRequest.save();
-        return res.send(newCardRequest);
-    } catch (e) {
-        console.error(e);
-        return res.status(500).json({ message: e.message });
+        res.status(200).json({ success: true, data: true});
+        // return res.send(newCardRequest);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ success: false, error: error.message });
     }
 };
 

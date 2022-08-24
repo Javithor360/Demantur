@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDash } from '../../../../../context/DashboardContext'
 
-import perfilPhoto from '../../assets/img/profile-photo2.jpg'
 import { RiContactsFill } from 'react-icons/ri'
 
 export const ContactsWidget = () => {
@@ -33,7 +32,7 @@ export const ContactsWidget = () => {
               return (
                 <>
                   <div className='flex items-center justify-evenly' key={i}>
-                    <img src={perfilPhoto} alt="perfilphoto" className='rounded-full w-[3rem] h-[3rem]' />
+                    <img src={Contact.Photo} alt="perfilphoto" className='rounded-full w-[3rem] h-[3rem]' />
                     <span className='text-xl'>{`${Contact?.Name.split(' ')[0]} ${Contact?.Name.split(' ')[2]}`}</span>
                     <span className='text-xl mx-[-1rem]'>|</span>
                     <span className='text-xl'>{Contact.Dui}</span>

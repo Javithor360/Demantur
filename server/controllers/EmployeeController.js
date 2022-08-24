@@ -143,6 +143,7 @@ const makeDeposit = async (req, res, next) => {
                 }
             }
         )
+        res.status(200).json({ success: true, data: "Depósito hecho correctamente" })
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
         console.log(error)

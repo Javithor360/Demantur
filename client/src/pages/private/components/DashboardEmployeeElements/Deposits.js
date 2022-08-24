@@ -5,12 +5,14 @@ import { ConfirmAction } from './ConfirmAction';
 import Modal from '../Modal';
 
 export const Deposits = () => {
+
     const { Info } = useEmpConx();
 
     const [AccNumber, setAccNumber] = useState('');
     const [Amount, setAmount] = useState('');
 
     const [Error, setError] = useState('');
+    const [Success, setSuccess] = useState(false);
     const [active, setActive] = useState(false);
 
     const [formData, setFormData] = useState({});
@@ -24,6 +26,15 @@ export const Deposits = () => {
             document.body.style.overflowY = 'hidden'
         }
     }, [active])
+
+    useEffect(() => {
+        if (Success === true) {
+            setTimeout(() => {
+                setSuccess(false);
+            }, 5000);
+        }
+    }, [Success])
+
 
     const handleForm = async (e) => {
         e.preventDefault();
@@ -56,7 +67,10 @@ export const Deposits = () => {
             {Error !== '' && Error}
 
             <h1 className='text-center mb-[4rem]'>Efectuar depósito</h1>
-
+            {
+                Success !== false && Success &&
+                <p>TRANSACCIÓN HECHA PE</p>
+            }
             <div className='mx-[25rem]'>
                 <form onSubmit={handleForm} className='flex flex-col'>
                     <label htmlFor="AccNumber">Número de cuenta</label>
@@ -72,7 +86,7 @@ export const Deposits = () => {
             <div className='h-[100%] w-[100%] flex items-center'>
                 {toggle &&
                     <Modal active={active} toggle={toggle} onRequestClose={toggle}>
-                        <ConfirmAction props={formData} />
+                        <ConfirmAction props={formData} setActive={setActive} setSuccess={setSuccess} />
                     </Modal>
                 }
             </div>

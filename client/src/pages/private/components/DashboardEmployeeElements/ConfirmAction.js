@@ -1,9 +1,17 @@
 import axios from 'axios';
 import React from 'react'
 
-export const ConfirmAction = ({ props }) => {
+export const ConfirmAction = ({ props, setActive, setSuccess }) => {
     const handleButton = async () => {
-        await axios.post('http://localhost:4000/api/requests/deposit', { AccountNumber: props.uAcc, Amount: props.amount, Accountable: props.eDbId });
+        try {
+            setActive(false);
+
+            const res = await axios.post('http://localhost:4000/api/requests/deposit', { AccountNumber: props.uAcc, Amount: props.amount, Accountable: props.eDbId });  
+            setSuccess(true);
+            console.log(res);
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return (
@@ -40,7 +48,7 @@ export const ConfirmAction = ({ props }) => {
 
                     <div className='flex justify-center'>
                         <button onClick={handleButton} className="m-[2rem]">CONFIRMAR</button>
-                        <button className='m-[2rem]'>CANCELAR</button>
+                        <button onClick={setActive(false)} className='m-[2rem]'>CANCELAR</button>
                     </div>
                 </div>
             </div>

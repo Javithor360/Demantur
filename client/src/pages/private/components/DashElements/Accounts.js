@@ -8,8 +8,9 @@ export const Accounts = () => {
     return (
         <>
             <div className="w-[100%] flex justify-between h-[100%]  lg:inline-block">
-                <div className=' rounded-[0.72rem]  p-[2rem] bg-white w-[99.8%] mx-[.11rem] h-[53.5rem] shadow-lg'>
-                    <h2 className='text-gray-500 text-center'>
+                <div className=' rounded-[0.72rem]  p-[2rem] bg-white w-[99.8%] mx-[.11rem] h-[100%] shadow-lg'>
+                    <h2 className="text-gray-500 text-center">Cuentass</h2>
+                    {/* <h2 className='text-gray-500 text-center'>
                         Cuentas
                     </h2>
                 <div className=" p-[2.5rem] px-[11rem] flex gap-3 my-1">
@@ -52,7 +53,7 @@ export const Accounts = () => {
                                 <span> Crear Cuenta</span>
                             </Link>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>

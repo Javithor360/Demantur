@@ -4,7 +4,7 @@ import '../assets/scss/HomePage.scss'
 import { HistoryWidget, ContactsWidget } from "./HomePageWidgets/";
 
 export const HomePage = () => {
-  const { Info, SavingAccounts } = useDash();
+  const { Info, clientBalance } = useDash();
   return (
     <div>
       <div className="flex gap-3 my-1">
@@ -12,7 +12,7 @@ export const HomePage = () => {
           <div className="m-[2rem] flex justify-between">
             <div>
               <h2 className="text-gray-500 text-[1.5625rem]">Saldo Neto:</h2>
-              <p className="text-[1.7rem]">$ {SavingAccounts.balance}</p>
+              <p className="text-[1.7rem]">$ {clientBalance}</p>
             </div>
             <div className=" my-auto p-[10px] bg-[#323643] rounded-[50px]">
               <IoWalletSharp className="text-[3rem] text-white" />

@@ -27,6 +27,7 @@ export const DashProvider = ({ children }) => {
   const [MyTransfers, setMyTransfers] = useState([]);
   const [HimTranfers, setHimTranfers] = useState([]);
   const [SavingAccounts, setSavingAccounts] = useState([]);
+  const [clientBalance, setClientBalance] = useState(0);
 
   const [socket, setSocket] = useState(null)
 
@@ -36,6 +37,18 @@ export const DashProvider = ({ children }) => {
       setFriendRequest(GlobalInfo.FriendRequests);
     }
   }, [GlobalInfo]);
+
+  useEffect(() => {
+    if (SavingAccounts.length !== 0) {
+      let newBalance = 0;
+      SavingAccounts.forEach(element => {
+        newBalance = newBalance + element.balance
+      });
+      setClientBalance(newBalance);
+
+    }
+  }, [SavingAccounts])
+
 
   const PrivateConfig = (Token) => {
     return {
@@ -196,7 +209,7 @@ export const DashProvider = ({ children }) => {
       QueryCreateSavingsAccount, DeclineFriend, ReloadState, setReloadState, AcceptFriend, CardsRequestsForm, setContacts,
       setFriendRequest, DeleteFriendReq, CurrentChat, setCurrentChat, TransactionsArr, setTransactionsArr,
       MyTransfers, setMyTransfers, HimTranfers, setHimTranfers, DoATransfer, setGlobalInfo, socket, setSocket,
-      getMyCardReq, GlobalInfoSetReq, getContacsWP, SavingAccounts, getSavingAccts, UpdatePhoto
+      getMyCardReq, GlobalInfoSetReq, getContacsWP, SavingAccounts, getSavingAccts, UpdatePhoto, clientBalance
     }}>
       {children}
     </dashContext.Provider>

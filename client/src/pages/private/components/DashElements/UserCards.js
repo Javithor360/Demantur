@@ -11,7 +11,7 @@ import { useDash } from "../../../../context/DashboardContext";
 //icons
 import { BsArrowLeft } from 'react-icons/bs'
 import { BiLoaderAlt } from 'react-icons/bi'
-import  pendingReqIcon  from '../assets/img/cards-icons/quote-request.png'
+import pendingReqIcon from '../assets/img/cards-icons/quote-request.png'
 import { RiLoader3Fill as IconChargin } from 'react-icons/ri'
 //translate
 import { useTranslation } from "react-i18next";
@@ -30,7 +30,7 @@ export const UserCards = () => {
   const [Chargin, setChargin] = useState(false);
 
   const handleClick = event => {
-    event.currentTarget.disabled = true;  
+    event.currentTarget.disabled = true;
   };
   const { t } = useTranslation();
 
@@ -194,8 +194,8 @@ export const UserCards = () => {
         setImageName3('')
         setImageName4('')
         setChangeBox(false)
-      } , 1500);
-      
+      }, 1500);
+
       (async () => {
         const resp = await getMyCardReq(localStorage.getItem('authToken'));
         setCardReq(resp.data.data);
@@ -208,10 +208,10 @@ export const UserCards = () => {
 
   const FormRequestCard = () => {
     return (
-      
+
       <div className="w-full h-full bg-white rounded-xl overflow-y-auto scroll-cards">
         <div className="w-full h-[2rem] flex items-center justify-start">
-          <button className="bg-transparent outline-none border-none mt-4 ml-5"  onClick={() => {
+          <button className="bg-transparent outline-none border-none mt-4 ml-5" onClick={() => {
             setChangeBox(false)
             setParametros(null)
             setError('')
@@ -224,9 +224,9 @@ export const UserCards = () => {
             {parametros.cardName}
           </p>
           <div className='subdivisions'>
-            <hr className=''/>
+            <hr className='' />
           </div>
-          
+
           <img
             src={DashCardsImages(`${parametros.cardImage}`)}
             alt=""
@@ -236,13 +236,13 @@ export const UserCards = () => {
             <p className="border-text text-[1rem] mx-auto mb-4">
               {parametros.cardDescription2}
             </p>
-            
+
           </div>
         </div>
-        
+
         <div className="card-form-container">
           <form onSubmit={handleForm} className="main-card-form">
-           <span className='ml-7 mb-3 text-[15px] text-[red]'>{Error !== '' && Error}</span>
+            <span className='ml-7 mb-3 text-[15px] text-[red]'>{Error !== '' && Error}</span>
             <div className='flex flex-row w-full h-[30%] justify-start items-center px-[2rem] mb-5'>
               <div className='h-[70%] mr-5'>
                 <p className='text-[1.1rem] text-[#606470]'>Rango Salarial</p>
@@ -285,12 +285,12 @@ export const UserCards = () => {
                 {
                   Chargin === true ?
                     <>
-                      <BiLoaderAlt  className="animate-spin"/>
+                      <BiLoaderAlt className="animate-spin" />
                     </>
-                  :
-                  <>
-                    <span>Solicitar</span>
-                  </>
+                    :
+                    <>
+                      <span>Solicitar</span>
+                    </>
                 }
               </button>
             </div>
@@ -308,7 +308,8 @@ export const UserCards = () => {
             <>
               <div className='flex justify-center items-center w-full h-full'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
             </>
-          :
+            :
+
             <>
               <p className="text-[1.5rem] text-[#323643] text-center p-2 ">
                 Tus Tarjetas
@@ -393,66 +394,66 @@ export const UserCards = () => {
       <>
         {
           CharginIco === true ?
-              <div className='flex justify-center items-center w-full h-full'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
+            <div className='flex justify-center items-center w-full h-full'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
             :
             <>
               <p className="text-[24px] text-[#323643] text-center p-2 mb-4">
                 Solicita tu tarjeta de crédito
               </p>
-            {
-              CardReq === false ?
-              <>
-                {
-                  cardProperties.map((element, i) => {
-                    return (
-                      <>
-                        <div className="dash-card-info w-[90%] rounded-xl relative flex flex-row items-center">
-                          <div className="flex items-center justify-center h-full w-fit">
-                            <img
-                              src={DashCardsImages(`${element.cardImage}`)}
-                              alt=""
-                              className="dash-left-card-img"
-                            />
-                          </div>
-                          <div className="dash-card-info-content">
-                            <div className="content-text">
-                              <p className="text-[1.375rem] text-[#606470]">{element.cardName}</p>
-                              <p className="text-[0.875rem] text-[#606470]">
-                                {element.cardDescription}
-                              </p>
+              {
+                CardReq === false ?
+                  <>
+                    {
+                      cardProperties.map((element, i) => {
+                        return (
+                          <>
+                            <div className="dash-card-info w-[90%] rounded-xl relative flex flex-row items-center">
+                              <div className="flex items-center justify-center h-full w-fit">
+                                <img
+                                  src={DashCardsImages(`${element.cardImage}`)}
+                                  alt=""
+                                  className="dash-left-card-img"
+                                />
+                              </div>
+                              <div className="dash-card-info-content">
+                                <div className="content-text">
+                                  <p className="text-[1.375rem] text-[#606470]">{element.cardName}</p>
+                                  <p className="text-[0.875rem] text-[#606470]">
+                                    {element.cardDescription}
+                                  </p>
+                                </div>
+                                <div className="flex items-center justify-center card-info-btn">
+                                  <button onClick={() => {
+                                    setChangeBox(true)
+                                    setParametros({
+                                      cardId: i,
+                                      cardName: element.cardName,
+                                      cardDescription: element.cardDescription,
+                                      cardDescription2: element.cardDescription2,
+                                      cardImage: element.cardImage
+                                    })
+                                  }} className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
+                                    Solicitar
+                                  </button>
+                                </div>
+                              </div>
                             </div>
-                            <div className="flex items-center justify-center card-info-btn">
-                              <button onClick={() => {
-                                setChangeBox(true)
-                                setParametros({
-                                  cardId: i,
-                                  cardName: element.cardName,
-                                  cardDescription: element.cardDescription,
-                                  cardDescription2: element.cardDescription2,
-                                  cardImage: element.cardImage
-                                })
-                              }} className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
-                                Solicitar
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </>
-                    )
-                  })
-                }
-              </>
-              :
-                <>
-                  <div className='h-full w-full flex flex-col items-center justify-center'>
-                    <img src={ pendingReqIcon } alt="" className='w-[200px] mb-4'/>
-                    <span>Tiene una Solicitud en progreso</span>
-                  </div>   
-                {/* {console.log(CardReq)} */}
-                </>
-            }
-          </>
-        } 
+                          </>
+                        )
+                      })
+                    }
+                  </>
+                  :
+                  <>
+                    <div className='h-full w-full flex flex-col items-center justify-center'>
+                      <img src={pendingReqIcon} alt="" className='w-[200px] mb-4' />
+                      <span>Tiene una Solicitud en progreso</span>
+                    </div>
+                    {/* {console.log(CardReq)} */}
+                  </>
+              }
+            </>
+        }
       </>
     )
   }
@@ -462,6 +463,7 @@ export const UserCards = () => {
       {
         changeBox === false ?
           <>
+            <ScrollToTop />
             <div className="scroll-cards w-[49%] h-[100%] bg-white rounded-xl shadow-md flex flex-col items-center overflow-x-hidden overflow-y-auto py-4">
               {divLeft()}
             </div>

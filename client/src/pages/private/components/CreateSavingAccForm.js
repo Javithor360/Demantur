@@ -183,9 +183,9 @@ export const CreateSavingAccForm = () => {
             >
               {ImageName === "" ? "Subir Imagen" : ImageName}
               {ImageName === "" ? (
-                <CloudIcon className="CloudIcon" />
+                <CloudIcon className="CloudIcon1" />
               ) : (
-                <SuccesClud className="CloudIcon" />
+                <SuccesClud className="CloudIcon1" />
               )}
             </label>
           </div>
@@ -213,9 +213,9 @@ export const CreateSavingAccForm = () => {
                 >
                   {ImageName2 === "" ? "Subir Imagen" : ImageName2}
                   {ImageName2 === "" ? (
-                    <CloudIcon className="CloudIcon" />
+                    <CloudIcon className="CloudIcon1" />
                   ) : (
-                    <SuccesClud className="CloudIcon" />
+                    <SuccesClud className="CloudIcon1" />
                   )}
                 </label>
               </div>
@@ -235,13 +235,13 @@ export const CreateSavingAccForm = () => {
                 />
                 <label
                   htmlFor="References2"
-                  className="flex items-center justify-between w-full px-4 py-2 mr-1"
+                  className="flex items-center justify-between w-full px-4 py-2 mr-1 "
                 >
                   {ImageName3 === "" ? "Subir Imagen" : ImageName3}
                   {ImageName3 === "" ? (
-                    <CloudIcon className="CloudIcon" />
+                    <CloudIcon className="CloudIcon1" />
                   ) : (
-                    <SuccesClud className="CloudIcon" />
+                    <SuccesClud className="CloudIcon1" />
                   )}
                 </label>
               </div>
@@ -249,8 +249,10 @@ export const CreateSavingAccForm = () => {
           </div>
           <hr className="w-3/4 mt-4" />
           <div className="flex justify-center w-full">
-            <div className="flex flex-col justify-center w-2/5 mr-4">
-              <p className="text-center">¿Por qué quieres abrir esta cuenta?</p>
+            <div className="flex flex-col justify-center items-center w-2/5 mr-4">
+              <div className="h-[4rem] flex items-center">
+                <p className="text-center">¿Por qué quieres abrir esta cuenta?</p>
+              </div>
               <textarea
                 name=""
                 id=""
@@ -261,9 +263,11 @@ export const CreateSavingAccForm = () => {
               ></textarea>
             </div>
             <div className="flex flex-col justify-center w-2/5">
-              <p className="text-center">
-                Describa las proyecciones del dinero a manejar en la cuenta
-              </p>
+              <div className="h-[4rem] flex items-center">
+                <p className="text-center">
+                  Describa las proyecciones del dinero a manejar en la cuenta
+                </p>
+              </div>
               <textarea
                 name=""
                 id=""

@@ -1,0 +1,58 @@
+.container-deposits{
+    height: 60%;
+    box-shadow: 4px 4px 4px 4px rgba(grey, 0.35);
+    display: flex;
+    justify-content: center;
+
+    .hola-deposits{
+        width: 100%;
+        background-color: #396EB0;
+        color: #fff;
+        font-size: 1.5rem;
+        height: 3rem;
+    }
+
+    hr{
+        height: .1rem;
+        width: 60%;
+        opacity: 1;
+        background-color: #396EB0;
+        margin-left: 1rem;
+        transform: translateY(-1rem);
+    }
+
+    label{
+        font-family: 'Poppins', sans-serif;
+        margin-top: 2rem;
+        margin-left: 1rem;
+        margin-bottom: .5rem;
+    }
+
+    input{
+        height: 2.5rem;
+        border: none;
+        background-color: #CFD2CF;
+        border-radius: 0.2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        transform: translateY(-1.5rem);
+    }
+
+    form label:nth-of-type(2){
+        margin-top: -0.8rem;
+    }
+
+    .btn-deposits-employee{
+        border: none;
+        height: 2.5rem;
+        background-color: #396EB0;
+        border-radius: 0.2rem;
+        color: #fff;
+        transform: translateY(-1.5rem);
+    }
+
+    .btn-deposits-employee:hover{
+        opacity: 1;
+        background: #477bba;
+    }
+}

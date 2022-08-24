@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useEmpConx } from '../../../../context/EmployeeContext';
 import { ConfirmAction } from './ConfirmAction';
 import Modal from '../Modal';
+import './assets/scss/DepositsEmployee.scss'
 
 export const Deposits = () => {
 
@@ -71,15 +72,18 @@ export const Deposits = () => {
                 Success !== false && Success &&
                 <p className='text-green-500'>TRANSACCIÓN HECHA PE</p>
             }
-            <div className='mx-[25rem]'>
+            <div className='mx-[25rem] container-deposits'>
                 <form onSubmit={handleForm} className='flex flex-col'>
+                    <div className='hola-deposits'></div>
                     <label htmlFor="AccNumber">Número de cuenta</label>
+                    <hr />
                     <input type="number" id="AccNumber" name='AccNumber' onChange={(e) => { setAccNumber(e.target.value) }} value={AccNumber} required />
 
                     <label htmlFor="Amount">Monto a depositar</label>
+                    <hr />
                     <input type="number" id="Amount" name='Amount' onChange={(e) => { setAmount(e.target.value) }} value={Amount} required />
 
-                    <button type="submit" className='mt-[2rem] mx-[5rem]'>Realizar depósito</button>
+                    <button type="submit" className='mt-[2rem] mx-[5rem] btn-deposits-employee'>Realizar depósito</button>
                 </form>
             </div>
 

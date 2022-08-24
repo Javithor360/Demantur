@@ -7,13 +7,12 @@ import { Dropdown } from '../../../../components/Dropdown';
 //hooks
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { useDash } from "../../../../context/DashboardContext";
 //icons
-import { AiOutlineClose } from 'react-icons/ai'
+import { BsArrowLeft } from 'react-icons/bs'
+import  pendingReqIcon  from '../assets/img/cards-icons/quote-request.png'
 //translate
 import { useTranslation } from "react-i18next";
-
 
 //img
 const DashCardsImages = require.context(
@@ -22,14 +21,12 @@ const DashCardsImages = require.context(
 );
 
 export const UserCards = () => {
-
   const [changeBox, setChangeBox] = useState(false);
   const [parametros, setParametros] = useState(null);
   const [CardReq, setCardReq] = useState(false);
-
+  const handleClick = event => {
+    event.currentTarget.disabled = true;  };
   const { t } = useTranslation();
-
-  const navigate = useNavigate();
 
   const { CardsRequestsForm, CreateElements, getMyCardReq } = useDash();
 
@@ -44,15 +41,11 @@ export const UserCards = () => {
 
   const UserElementsSalary = ['$450 y $499', '$500 y $999', '$700 y $1200', '$1200 en adelante',]
   const UserElementsLaboralStatus = ['Asalariado', 'Desempleado', 'Estudiante', 'Emprendedor',]
-
+  const [Error, setError] = useState('');
   const [CardOwner, setCardOwner] = useState();
-  const [Name, setName] = useState();
-  const [DuiNum, setDuiNum] = useState();
-  const [Email, setEmail] = useState();
+
   const [UserSalary, setUserSalary] = useState('');
   const [UserLaboralStatus, setUserLaboralStatus] = useState('');
-  const [CellNumber, setCellNumber] = useState();
-  const [Address, setAddress] = useState();
 
   const [Image1, setImage1] = useState();
   const [ImageName1, setImageName1] = useState("");
@@ -82,14 +75,6 @@ export const UserCards = () => {
     Imagefunc(ImageName4, setImageName4);
   }, [ImageName4]);
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const res = await DematurClassicForm(localStorage.getItem('authToken'));
-  //     // setCardOwner(res.data.data._id);
-  //     console.log(res)
-  //   })();
-  // });
-
   useEffect(() => {
     setUserSalary('')
     setUserLaboralStatus('')
@@ -98,6 +83,7 @@ export const UserCards = () => {
     setImageName3('')
     setImageName4('')
   }, [changeBox]);
+
 
   const Imagefunc = (UploadImage, SetImageName) => {
     if (UploadImage !== "") {
@@ -153,6 +139,7 @@ export const UserCards = () => {
       setImageName4("");
     }
   };
+
   const handleForm = async (e) => {
     e.preventDefault();
     console.log(parametros.cardId)
@@ -167,13 +154,8 @@ export const UserCards = () => {
       const CardRequestsFormData = {
         cardId: parametros.cardId,
         CardOwner: CardOwner,
-        Name: Name,
-        DuiNum: DuiNum,
-        Email: Email,
         UserSalary,
         UserLaboralStatus,
-        CellNumber: CellNumber,
-        Address: Address,
         Image1: Image1,
         Image2: Image2,
         Image3: Image3,
@@ -193,36 +175,62 @@ export const UserCards = () => {
       );
 
       CreateElements(localStorage.getItem("authToken"));
-      navigate("/index");
+
+      setTimeout(() => {
+        setUserSalary('')
+        setUserLaboralStatus('')
+        setImageName1('')
+        setImageName2('')
+        setImageName3('')
+        setImageName4('')
+        setChangeBox(false)
+      } , 2000);
+
+      // navigate("/index");
 
     } catch (error) {
-      console.log(error);
+      setError(error.response.data.error);
     }
   };
 
   const FormRequestCard = () => {
     return (
-      <div className="w-full h-full bg-white rounded-xl overflow-y-auto">
-        <div className="w-full h-[2rem] flex items-center justify-end">
-          <button className="bg-transparent outline-none border-none" onClick={() => {
+      
+      <div className="w-full h-full bg-white rounded-xl overflow-y-auto scroll-cards">
+       
+        <div className="w-full h-[2rem] flex items-center justify-start">
+          <button className="bg-transparent outline-none border-none mt-4 ml-5"  onClick={() => {
             setChangeBox(false)
             setParametros(null)
+            setError('')
           }}>
-            <AiOutlineClose className="text-[1.2rem] text-[#323643]" />
+            <BsArrowLeft className="text-[2rem] text-[#323643]" />
           </button>
         </div>
         <div className="h-fit w-full">
-          <p className="text-center text-[1.4rem] mb-3">
+          <p className="text-center text-[1.8rem] mb-2">
             {parametros.cardName}
           </p>
-          <div className="min-h-fit w-full px-2 border-emerald-300 border-l-2">
-            <p className="card-description text-[1rem] mx-auto mb-4">
+          <div className='subdivisions'>
+            <hr className=''/>
+          </div>
+          
+          <img
+            src={DashCardsImages(`${parametros.cardImage}`)}
+            alt=""
+            className="w-[220px] mx-auto block mt-5 mb-5 shadow-lg"
+          />
+          <div className="min-h-fit w-[90%] px-2 m-auto">
+            <p className="border-text text-[1rem] mx-auto mb-4">
               {parametros.cardDescription2}
             </p>
+            
           </div>
         </div>
+        
         <div className="card-form-container">
           <form onSubmit={handleForm} className="main-card-form">
+           <span className='ml-7 mb-3 text-[15px] text-[red]'>{Error !== '' && Error}</span>
             <div className='flex flex-row w-full h-[30%] justify-start items-center px-[2rem] mb-5'>
               <div className='h-[70%] mr-5'>
                 <p className='text-[1.1rem] text-[#606470]'>Rango Salarial</p>
@@ -260,7 +268,8 @@ export const UserCards = () => {
               </div>
             </div>
             <div className="form-row-3">
-              <button className="card-submit-button" type="submit">{t("CardsPage-Form.button2")}</button>
+              <button className="card-submit-button" type="submit" disabled={handleClick}
+              >Solicitar</button>
             </div>
           </form>
         </div>
@@ -280,7 +289,7 @@ export const UserCards = () => {
           <hr className="p-0  m-0 w-[20%]" />
         </div>
 
-        <div className="flex flex-col items-center w-full min-h-full">
+        <div className="flex flex-col items-center w-full min-h-fit ">
           <div className="min-h-[20rem] w-[75%] shadow-lg rounded-xl mb-5 flex flex-col justify-center items-center dash-user-cards-container">
             <div className="h-[10%]">
               <p className="text-[1.375rem] text-center">Demantur Platinum</p>
@@ -384,7 +393,8 @@ export const UserCards = () => {
                                 cardId: i,
                                 cardName: element.cardName,
                                 cardDescription: element.cardDescription,
-                                cardDescription2: element.cardDescription2
+                                cardDescription2: element.cardDescription2,
+                                cardImage: element.cardImage
                               })
                             }} className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
                               Solicitar
@@ -399,8 +409,11 @@ export const UserCards = () => {
             </>
             :
             <>
+            <div className='h-full w-full flex flex-col items-center justify-center'>
+              <img src={ pendingReqIcon } alt="" className='w-[200px] mb-4'/>
               <span>Tiene una Solicitud en progreso</span>
-              {console.log(CardReq)}
+            </div>   
+              {/* {console.log(CardReq)} */}
             </>
         }
 
@@ -414,10 +427,10 @@ export const UserCards = () => {
       {
         changeBox === false ?
           <>
-            <div className="left-cards-container w-[49%] h-[100%] bg-white rounded-xl shadow-md flex flex-col items-center overflow-x-hidden overflow-y-auto py-4">
+            <div className="scroll-cards w-[49%] h-[100%] bg-white rounded-xl shadow-md flex flex-col items-center overflow-x-hidden overflow-y-auto py-4">
               {divLeft()}
             </div>
-            <div className="w-[49%] h-full bg-white rounded-xl shadow-md py-4 overflow-x-hidden overflow-y-auto">
+            <div className="scroll-cards w-[49%] h-full bg-white rounded-xl shadow-md py-4 overflow-x-hidden overflow-y-auto">
               {userCards()}
             </div>
           </>

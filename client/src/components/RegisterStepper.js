@@ -6,8 +6,10 @@ import './assets/scss/stepper-control.scss'
 import { RiUser3Fill } from 'react-icons/ri'
 import { FaFingerprint, FaMoneyBillAlt } from 'react-icons/fa'
 import { HiUsers } from 'react-icons/hi'
+import { useTranslation } from "react-i18next";
 
 export const  RegisterStepper = () => {
+  const { t } = useTranslation();
   const { stateOfStep1, stateOfStep2, stateOfStep3, stateOfStep4 } = useAuth()
 
   let classFirstIcon, classSecondIcon, classThirdIcon, classFourIcon = 'ball-icon';
@@ -37,7 +39,7 @@ export const  RegisterStepper = () => {
       <div className='stepper'>
         {/* step 1 */}
         <div className='stepper-ball'>
-          <div className={classFirstDes}>Datos Personales</div>
+          <div className={classFirstDes}>{t("login.sidebar.date")}</div>
           <div className={classFirstIcon}><RiUser3Fill /></div>
         </div>
         <div className='stepper-container-line'>
@@ -46,7 +48,7 @@ export const  RegisterStepper = () => {
 
         {/* step 2 */}
         <div className='stepper-ball'>
-          <div className={classSecondDes}>Identificacion</div>
+          <div className={classSecondDes}>{t("login.sidebar.identification")}</div>
           <div className={classSecondIcon}><FaFingerprint /></div>
         </div>
         <div className='stepper-container-line'>
@@ -55,7 +57,7 @@ export const  RegisterStepper = () => {
 
         {/* step 3 */}
         <div className='stepper-ball'>
-          <div className={classThirdDes}>Datos Monetarios</div>
+          <div className={classThirdDes}>{t("login.sidebar.money")}</div>
           <div className={classThirdIcon}><FaMoneyBillAlt /></div>
         </div>
         <div className='stepper-container-line'>
@@ -64,7 +66,7 @@ export const  RegisterStepper = () => {
 
         {/* step 4 */}
         <div className='stepper-ball'>
-          <div className={classFourDes}>Beneficiario</div>
+          <div className={classFourDes}>{t("login.sidebar.beneficiary")}</div>
           <div className={classFourIcon}><HiUsers /></div>
         </div>
       </div>

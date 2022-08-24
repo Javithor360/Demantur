@@ -1,4 +1,5 @@
 import { useAuth } from '../context/AuthContext'
+import { useTranslation } from "react-i18next";
 
 export const StepsInfo = () => {
   const { pageTitle, page, pageInfo } = useAuth()

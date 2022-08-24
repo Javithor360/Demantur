@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react'
 import { StepperButtons } from '../StepperButtons'
 import axios from 'axios'
 import Cleave from 'cleave.js/react';
+import { useTranslation } from "react-i18next";
 
 import { useAuth } from '../../context/AuthContext';
 
 import { BsFillEyeFill as Eye1, BsFillEyeSlashFill as Eye2 } from 'react-icons/bs'
 
 export const Identificacion = () => {
+  const { t } = useTranslation();
 
   const { nextButton, setstateOfStep2, setstateOfStep3, page, configPublic, setError,
     Dui, setDui, Number, setNumber, Email, setEmail, Password, setPassword, ConfPassword, setConfPassword,
@@ -71,7 +73,7 @@ export const Identificacion = () => {
             </div>
             <div className="input-class">
               <Cleave id='Telefono' name='Telefono' placeholder=' ' options={{ blocks: [4, 4], numericOnly: true }} onChange={(e) => setNumber(e.target.value)} value={Number} autoComplete='off' className='input-form' />
-              <label htmlFor="Telefono" className='label-form'>Teléfono</label>
+              <label htmlFor="Telefono" className='label-form'>{t("login.identification.number")}</label>
             </div>
             <div className="input-class">
               <input type='text' id='Email' name='Nombres' placeholder=' ' onChange={(e) => setEmail(e.target.value)} value={Email} autoComplete='off' className='input-form' />
@@ -81,12 +83,12 @@ export const Identificacion = () => {
           <div className='parts-form'>
             <div className="input-class">
               <input type={ShowPass ? 'text' : 'password'} id='Password' name='Password' placeholder=' ' onChange={(e) => setPassword(e.target.value)} value={Password} autoComplete='off' className='input-form' />
-              <label htmlFor="Password" className='label-form'>Contraseña</label>
+              <label htmlFor="Password" className='label-form'>{t("login.identification.password")}</label>
               <button type='button' onClick={toggleShowPass} className='EyesButton' >{ShowPass ? <Eye1 className='EyesPass EyePass1' /> : <Eye2 className='EyesPass EyePass2' />}</button>
             </div>
             <div className="input-class">
               <input type={ShowConfPass ? 'text' : 'password'} id='confirmpassword' name='confirmpassword' placeholder=' ' onChange={(e) => setConfPassword(e.target.value)} value={ConfPassword} autoComplete='off' className='input-form' />
-              <label htmlFor="confirmpassword" className='label-form'>Confirmar Contras... </label>
+              <label htmlFor="confirmpassword" className='label-form'>{t("login.identification.password2")} </label>
               <button type='button' onClick={toggleShowConfPass} className='EyesButton' >{ShowConfPass ? <Eye1 className='EyesPass EyePass1' /> : <Eye2 className='EyesPass EyePass2' />}</button>
             </div>
           </div>

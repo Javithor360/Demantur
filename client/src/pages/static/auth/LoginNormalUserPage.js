@@ -2,7 +2,7 @@ import '../assets/scss/auth-login.scss'
 import { FooterAuth, Navbar } from '../../../components'
 import Cleave from 'cleave.js/react';
 
-
+import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
 import { useState } from 'react';
@@ -14,6 +14,7 @@ import { BsFillEyeFill as Eye1, BsFillEyeSlashFill as Eye2 } from 'react-icons/b
 import { useAuth } from '../../../context/AuthContext'
 
 export const LoginNormalUserPage = () => {
+  const { t } = useTranslation();
   let navigate = useNavigate();
   const { configPublic } = useAuth();
 
@@ -55,14 +56,14 @@ export const LoginNormalUserPage = () => {
     <>
       <Navbar />
       <div className='main-div'>
-        <h1>Inicia Sesión en la banca en línea</h1>
+        <h1>{t("login.logins.tittle")}</h1>
         <hr className='main-hr' />
 
         <div className='Container-div'>
-          <div className='FormDiv FormDivLogin'>
+          <div className='FormDiv FormDivLogin'>  
             <div className='info-login'>
-              <h1>Inicio de Sesión</h1>
-              <p>En este apartado puede acceder con su cuenta previamente creada</p>
+              <h1>{t("login.logins.tittle2")}</h1>
+              <p>{t("login.logins.subtittle")}</p>
             </div>
 
             {Error && <span className='ball-description-error messages-login'>{Error}</span>}
@@ -83,7 +84,7 @@ export const LoginNormalUserPage = () => {
                   </div>
                   <div className="input-class last-input">
                     <input type={ShowPass ? 'text' : 'password'} id='Password' name='Password' placeholder=' ' onChange={(e) => setPassword(e.target.value)} value={Password} autoComplete='off' className='input-form' />
-                    <label htmlFor="Password" className='label-form'>Contraseña</label>
+                    <label htmlFor="Password" className='label-form'>{t("login.identification.password")}</label>
                     <button type='button' onClick={toggleShowPass} className='EyesButton' >{ShowPass ? <Eye1 className='EyesPass EyePass1' /> : <Eye2 className='EyesPass EyePass2' />}</button>
                   </div>
 
@@ -95,7 +96,7 @@ export const LoginNormalUserPage = () => {
                         <><VscLoading className='CharginIcon CharginIcon-Login' /></>
                         :
                         <>
-                          <span>Iniciar Sesion</span>
+                          <span>{t("login.logins.tittle2")}</span>
                           <div className='divisor'></div>
                           <Arrrow className='arrow-ico-re' />
                         </>
@@ -110,9 +111,9 @@ export const LoginNormalUserPage = () => {
             <div className='line-x'></div>
 
             <div className='links-div'>
-              <Link to='/auth/forgot-password' className='Link'>¿Olvidó su contraseña?</Link>
-              <Link to='/auth/normal-user/register' className='Link'>Registrarse</Link>
-              <Link to='/auth/verify-email' className='Link'>Verificar Email</Link>
+              <Link to='/auth/forgot-password' className='Link'>{t("login.logins.forgot")}</Link>
+              <Link to='/auth/normal-user/register' className='Link'>{t("login.logins.register")}</Link>
+              <Link to='/auth/verify-email' className='Link'>{t("login.contentreg.subtitle4")}</Link>
             </div>
           </div>
         </div>

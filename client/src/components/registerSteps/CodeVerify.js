@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import { StepperButtons } from '../StepperButtons'
-
+import { useTranslation } from "react-i18next";
 import { useAuth } from '../../context/AuthContext';
 import axios from 'axios';
 
 export const CodeVerify = () => {
+  const { t } = useTranslation();
   const { nextButton, page, setstateOfStep5, configPublic, setError, setSuccess, setChargin, Email } = useAuth()
   const [Codigo, setCodigo] = useState('');
 
@@ -54,7 +55,7 @@ export const CodeVerify = () => {
 
           <div className="input-class input-code">
             <input type='text' id='Codigo' name='Codigo' placeholder=' ' onChange={(e) => setCodigo(e.target.value)} value={Codigo} autoComplete='off' className='input-form ' />
-            <label htmlFor="Codigo" className='label-form'>Código</label>
+            <label htmlFor="Codigo" className='label-form'>{t("login.identification.code")}</label>
           </div>
 
         </div>

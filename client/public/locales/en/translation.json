@@ -47,18 +47,48 @@
       "date":"birthday date",
       "address":"Address"
     },
+
     "contentreg":{
       "tittle":"Other options",
       "subtitle":"What do you need to do?",
       "subtitle2":"Log in",
       "subtitle3":"Change Password",
-      "Subtitle4":"Verify email"
+      "subtitle4":"Verify email"
     },
-    "slidereg":{
-      "subittle":"Personal information",
-      "ID":"ID",
-      "money":"Monetary data",
-      "Beneficiary":"Beneficiary"
+    "sidebar":{
+      "date":"personal information",
+      "identification":"identification",
+      "money":"monetary data",
+      "beneficiary":"beneficiary"
+    },
+    "buttons":{
+      "previous":"PREVIOUS"
+    },
+
+    "identification":{
+      "number":"Number",
+      "password":"Password",
+      "password2":"Confirm Passwo...",
+      "code":"Code"
+    },
+    "logins":{
+      "tittle":"Login to online banking",
+      "tittle2":"Login",
+      "subtittle":"In this section you can access with your previously created account",
+      "forgot":"Forgot your password?",
+      "register":"Register"
+    },
+    "password":{
+      "tittle":"Lost password",
+      "forgtott":"If you do not remember your password, you can change it in this section",
+      "send":"Send email"
+    },
+    "verify":{
+      "tittle":"Verify Email",
+      "tittle2":"Vefication",
+      "subtittle":"Here you can verify your email to finalize your registration",
+      "very":"Verify"
+
     }
 
   },
@@ -102,7 +132,7 @@
       "subtittle": "Welcome to the user selection interface, select the option you want to go to",
       "tittle2":"Other options",
       "subtittle2":"we have other options in case you already have an account, we have the following tools that could help you",
-      "tittle3":"H ow to register?"
+      "tittle3":"How to register?"
     },
     "cards":{
       "1":{

@@ -2,8 +2,7 @@
 import '../assets/scss/auth-verify-code.scss'
 import { FooterAuth, Navbar } from '../../../components'
 import Cleave from 'cleave.js/react';
-
-
+import { useTranslation } from "react-i18next";
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { useState } from 'react';
@@ -14,6 +13,7 @@ import { VscLoading } from 'react-icons/vsc'
 import { useAuth } from '../../../context/AuthContext'
 
 export const ForgotPasswordPage = () => {
+  const { t } = useTranslation();
   const { configPublic } = useAuth();
 
   const [Chargin, setChargin] = useState(false);
@@ -56,14 +56,14 @@ export const ForgotPasswordPage = () => {
     <>
       <Navbar />
       <div className='main-div'>
-        <h1>Contraseña perdida</h1>
+        <h1>{t("login.password.tittle")}</h1>
         <hr className='main-hr' />
 
         <div className='Container-div'>
           <div className='FormDiv FormDivLogin'>
             <div className='info-login'>
-              <h1>¿Olvidó su contraseña?</h1>
-              <p>Si no recuerda su contraseña, puede cambiarla en este apartado</p>
+              <h1>{t("login.logins.forgot")}</h1>
+              <p>{t("login.password.forgtott")}</p>
             </div>
 
             {Error && <span className='ball-description-error messages-login'>{Error}</span>}
@@ -90,7 +90,7 @@ export const ForgotPasswordPage = () => {
                         <><VscLoading className='CharginIcon CharginIcon-Login' /></>
                         :
                         <>
-                          <span>Envar Correo</span>
+                          <span>{t("login.password.send")}</span>
                           <div className='divisor'></div>
                           <Arrrow className='arrow-ico-re' />
                         </>
@@ -105,9 +105,9 @@ export const ForgotPasswordPage = () => {
             <div className='line-x'></div>
 
             <div className='links-div'>
-              <Link to='/auth/normal-user/login' className='Link'>Iniciar Sesión</Link>
-              <Link to='/auth/verify-email' className='Link'>Verificar Email</Link>
-              <Link to='/auth/normal-user/register' className='Link'>Registrarse</Link>
+              <Link to='/auth/normal-user/login' className='Link'>{t("login.logins.tittle2")}</Link>
+              <Link to='/auth/verify-email' className='Link'>{t("login.contentreg.subtitle4")}</Link>
+              <Link to='/auth/normal-user/register' className='Link'>{t("login.logins.register")}</Link>
             </div>
           </div>
         </div>

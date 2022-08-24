@@ -37,8 +37,8 @@
     }
 
   },
-  "Login":{
-    "Register":{
+  "login":{
+    "register":{
       "tittle":"Regístrate en la banca en línea",
       "tittle2":"Datos Personales",
       "subtittle":"Necesitamos tus datos personales para poder identificarte y saber que realmente eres tú",
@@ -47,20 +47,51 @@
       "date":"Fecha de cumpleaños",
       "address":"Dirección"
     },
+
     "contentreg":{
       "tittle":"Otras Opciones",
       "subtitle":"Otras Opciones?",
       "subtitle2":"Iniciar Sesioon",
       "subtitle3":"Cambiar Sontraseña",
-      "Subtitle4":"Verificar Correo Electrónico"
+      "subtitle4":"Verificar email"
     },
-    "slidereg":{
-      "subittle":"Datos Perosonales",
-      "ID":"Identificacion",
-      "money":"Datos Monetarios",
-      "Beneficiary":"Beneficiario" 
-    }
 
+    "sidebar":{
+      "date":"Datos personales",
+      "identification":"Identificacion",
+      "money":"Datos Monetarios",
+      "beneficiary":"Beneficiario"
+    },
+    "buttons":{
+      "previous":"ANTERIOR"
+    },
+
+    "identification":{
+      "number":"Numero",
+      "password":"Contraseña",
+      "password2":"Confirmar contras...",
+      "code":"Codigo"
+    },
+    "logins":{
+      "tittle":"Inicia Sesión en la banca en línea",
+      "tittle2":"Inicio de Sesión",
+      "subtittle":"En este apartado puede acceder con su cuenta previamente creada",
+      "forgot":"¿Olvidó su contraseña?",
+      "register":"Registrarce",
+      "very":"Verify"
+    },
+    "password":{
+      "tittle":"Contraseña perdida",
+      "forgtott":"Si no recuerda su contraseña, puede cambiarla en este apartado",
+      "send":"Enviar correo"
+    },
+    "verify":{
+      "tittle":"Verificar correo electrónico",
+      "tittle2":"Veficación",
+      "subtittle":"Aquí puede verificar su correo electrónico para finalizar su registro",
+      "very":"Verificar"
+
+    }
   },
   "Aboutpage":{
     "hero":{

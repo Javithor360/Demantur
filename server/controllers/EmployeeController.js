@@ -57,6 +57,10 @@ const getEmployeeData = async (req, res, next) => {
     }
 };
 
+// @route POST api/requests/deposit
+// @desc Depositar dinero en la cuenta de un cliente
+// @access private
+
 const makeDeposit = async (req, res, next) => {
     try {
         // Obtenemos los datos recibidos del front-end
@@ -71,21 +75,31 @@ const makeDeposit = async (req, res, next) => {
 
         // Buscamos el número de cuenta en la base de datos las cuentas para vincularlo con el cliente, además de obtener otros datos para validar mucho mejor la información
         const Client = await SavingsAccount.findOne({ accountNumber: AccountNumber }).select('_id AccountOwner accountNumber balance activated');
+        if (!Client) {
+            return next(
+                new ErrorResponse("El número de cuenta no existe", 400, "error")
+            );
+        }
 
         // Hacemos los cambios, es decir, se deposita el dinero en la cuenta
         const ClientAccountQuery = await SavingsAccount.findOneAndUpdate(
             { accountNumber: AccountNumber },
-            { $inc: { balance: Amount } }
+            {
+                $inc: { balance: Amount },
+                // $set: {
+                //     activated: {
+                //         $cond: { if: { $gte: ["balance", 50]}, then: true, else: false }
+                //     }
+                // }
+            }
         );
 
         // Si el usuario no existe, se cancela la operación y se muestra un error
         if (!ClientAccountQuery) {
             return next(
-                new ErrorResponse("El número de cuenta no fue encontrado", 400, "error")
+                new ErrorResponse("Ocurrió un error al depositar el monto establecido", 400, "error")
             );
-
-            // REVISAR BIEN QUE LA QUERY AÚN NO TIENE LA UPDATE HECHA ARRIBA ~ Se activa la cuenta si el usuario ya cumple los requisitos
-        } else if ((ClientAccountQuery.balance + Amount) >= 50 && ClientAccountQuery.activated === false) {
+        } else if ((Client.balance + Amount) >= 50 && Client.activated === false) {
             await SavingsAccount.findOneAndUpdate(
                 { accountNumber: AccountNumber },
                 { $set: { activated: true } }
@@ -129,6 +143,7 @@ const makeDeposit = async (req, res, next) => {
                 }
             }
         )
+        res.status(200).json({ success: true, data: "Depósito hecho correctamente" })
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });
         console.log(error)
@@ -165,9 +180,33 @@ const getCardRequests = async (req, res, next) => {
 
 }
 
+// @route POST api/employee/get-user-data
+// @desc Obtener la información del usuario por parte del empleado
+// @access private
+
+const getUserInfoForEmployee = async (req, res, next) => {
+    try {
+        const { AccountNumber } = req.body;
+        if (!AccountNumber) {
+            return next(
+                new ErrorResponse("Los datos envíados no están completos", 400, "error")
+            );
+        }
+
+        const ClientRelation = await SavingsAccount.findOne({ accountNumber: AccountNumber }).select('AccountOwner');
+        const Client = await NormalUser.findOne({ _id: ClientRelation.AccountOwner }).select('FirstName LastName PerfilPhoto')
+
+        res.status(200).json({ success: true, data: Client });
+    } catch (e) {
+        console.log(e);
+        res.status(500).json({ message: e.message });
+    }
+}
+
 module.exports = {
     loginEmployee,
     getEmployeeData,
+    makeDeposit,
     getCardRequests,
-    makeDeposit
+    getUserInfoForEmployee
 }

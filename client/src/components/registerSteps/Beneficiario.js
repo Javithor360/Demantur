@@ -1,11 +1,13 @@
 import { useEffect } from 'react'
 import { StepperButtons } from '../StepperButtons'
 import Cleave from 'cleave.js/react';
+import { useTranslation } from "react-i18next";
 
 import { useAuth } from '../../context/AuthContext';
 import axios from 'axios';
 
 export const Beneficiario = () => {
+  const { t } = useTranslation();
   const { nextButton, setstateOfStep4, page, configPublic, setError,
     BNombres, setBNombres, BApellidos, setBApellidos, BDui, setBDui, BNumber, setBNumber, setSuccess, setChargin
   } = useAuth()
@@ -59,11 +61,11 @@ export const Beneficiario = () => {
         <div className='step-inputs'>
           <div className="input-class">
             <input type='text' id='Nombres' name='Nombres' placeholder=' ' onChange={(e) => setBNombres(e.target.value)} value={BNombres} autoComplete='off' className='input-form' />
-            <label htmlFor="Nombres" className='label-form'>Nombres</label>
+            <label htmlFor="Nombres" className='label-form'>{t("login.register.names")}</label>
           </div>
           <div className="input-class">
             <input type='text' id='Apellidos' name='Apellidos' placeholder=' ' onChange={(e) => setBApellidos(e.target.value)} value={BApellidos} autoComplete='off' className='input-form' />
-            <label htmlFor="Apellidos" className='label-form'>Apellidos</label>
+            <label htmlFor="Apellidos" className='label-form'>{t("login.register.lastname")}</label>
           </div>
           <div className="input-class">
             <Cleave type='text' id='DUI' name='DUI' placeholder=' ' options={{ blocks: [6, 1], delimiter: "-", numericOnly: true }} onChange={(e) => setBDui(e.target.value)} value={BDui} autoComplete='off' className='input-form' />
@@ -71,7 +73,7 @@ export const Beneficiario = () => {
           </div>
           <div className="input-class">
             <Cleave type='text' id='Telefono' name='Telefono' placeholder=' ' options={{ blocks: [4, 4], numericOnly: true }} onChange={(e) => setBNumber(e.target.value)} value={BNumber} autoComplete='off' className='input-form' />
-            <label htmlFor="Telefono" className='label-form'>Teléfono</label>
+            <label htmlFor="Telefono" className='label-form'>{t("login.identification.number")}</label>
           </div>
         </div>
         <div className='line-x'></div>

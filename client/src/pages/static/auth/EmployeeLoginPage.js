@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 import React, { useState } from 'react';
+import { FooterAuth } from '../../../components'
 import { useAuth } from '../../../context/AuthContext';
-
+import "../assets/scss/employeelogin.scss";
 export const EmployeeLoginPage = () => {
     let navigate = useNavigate();
     const { configPublic } = useAuth();
@@ -31,15 +32,24 @@ export const EmployeeLoginPage = () => {
   return (
     <>
     {Error !== '' && Error}
+    <h1 className='titlex'>Bienvenido al panel de empleado</h1>
+    <div className='banerts'></div>
+    <div className='content-formt'>
     <form onSubmit={handleForm}>
-        <label htmlFor="Email">Correo</label>
-        <input type="text" id="Email" name='Nombres' onChange={(e) => {setEmail(e.target.value)}} value={Email} />
-        <hr />
-        <label htmlFor="Email">Contraseña</label>
-        <input type="password" id="Password" name='Password' onChange={(e) => {setPassword(e.target.value)}} value={Password} />
-        <hr />  
-        <button type='submit'>Enviar</button>
+        <div className='form-info'>
+       <div className='request'>
+       <label className='labelt' htmlFor="Email">Correo</label> <br />
+        <input className='inputs' type="text" id="Email" name='Nombres' onChange={(e) => {setEmail(e.target.value)}} value={Email} />
+        <br />
+        <label className='labelt' htmlFor="Email">Contraseña</label> <br />
+        <input className='inputs' type="password" id="Password" name='Password' onChange={(e) => {setPassword(e.target.value)}} value={Password} />
+        <br />  
+       </div>
+        <button className='buttonx' type='submit'>Enviar</button>
+        </div>
     </form>
+    </div>
+    <FooterAuth />
     </>
 
   )

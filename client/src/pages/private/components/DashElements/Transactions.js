@@ -232,7 +232,7 @@ export const Transactions = ({ OnlineUsers }) => {
                                                     <>
                                                         <div className='header-contact-name h-[4.5rem] w-full rounded-tr-xl flex flex-row items-center p-2'>
                                                             <div className="header-contact-name-img">
-                                                                <img src={photoExample} alt="" className="h-full w-full" />
+                                                                <img src={CurrentChat.Photo} alt="" className="h-full w-full" />
                                                             </div>
                                                             <span className="contact-username text-[#323643] ml-3 my-0">{CurrentChat.Name}</span>
                                                         </div>

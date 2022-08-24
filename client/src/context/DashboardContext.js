@@ -182,7 +182,7 @@ export const DashProvider = ({ children }) => {
 
   const UpdatePhoto = async (Token, Form) => {
     try {
-      return await UpdatePhotoReq(Token);
+      return await UpdatePhotoReq(Token, Form);
     } catch (error) {
       console.log(error)
     }

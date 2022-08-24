@@ -436,7 +436,7 @@ const UploadPhoto = async (req, res, next) => {
       }
     })
 
-    res.status(200).json({ success: true, data: 'Foto actualizada correctamente' });
+    res.status(200).json({ success: true, data: { url: result.secure_url, public_id: result.public_id } });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }

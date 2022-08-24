@@ -28,35 +28,38 @@ export const Transactions = ({ OnlineUsers }) => {
 
     const scrollRef = useRef();
 
-    const { Contacts, CurrentChat, setCurrentChat, GlobalInfo, TransactionsArr, setTransactionsArr, MyTransfers, HimTranfers, Info, setMyTransfers, setHimTranfers, DoATransfer, socket, getGlobalInfo } = useDash()
+    const { Contacts, CurrentChat, setCurrentChat, GlobalInfo, TransactionsArr, setTransactionsArr, MyTransfers, HimTranfers, Info, setMyTransfers, setHimTranfers, DoATransfer, socket, getGlobalInfo, SavingAccounts } = useDash()
 
     useEffect(() => {
-        setFormError(false);
         socket.on('getTransfer', data => {
-            console.log(data.SenderDui)
-            console.log(CurrentChat);
-
+            setArrivalMessage(null);
             let theMessage = data.transfer
             theMessage.createdAt = Date.now()
-            setArrivalMessage({ SenderDui: data.SenderDui, transfer: theMessage })
+
             // === === === === === === ===
+            setArrivalMessage({ SenderDui: data.SenderDui, transfer: theMessage })
+
+            // === === === === === === ===
+
             if (TransactionsArr.length !== 0) {
                 let newTransArr = TransactionsArr;
                 newTransArr.Received.push(theMessage);
                 setTransactionsArr(newTransArr);
             }
+
         })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [TransactionsArr]);
 
     useEffect(() => {
-        if (ArrivalMessage) {
+        if (ArrivalMessage && CurrentChat?.Dui === ArrivalMessage.SenderDui) {
             setAllTransfers((prev) => [...prev, ArrivalMessage.transfer])
         }
     }, [ArrivalMessage, CurrentChat]);
 
     useEffect(() => {
         getGlobalInfo(localStorage.getItem('authToken'));
+        setFormError(false);
         setCurrentChat(null);
         setTimeout(() => {
             setCharginComp(false)
@@ -101,7 +104,9 @@ export const Transactions = ({ OnlineUsers }) => {
     const HandlerTransSubmit = async (e) => {
         e.preventDefault()
         // eslint-disable-next-line eqeqeq
-        if (!MontoTransfer || !NumberAccount || MontoTransfer == 0) {
+        setMontoTransfer(parseFloat(MontoTransfer))
+        console.log(MontoTransfer)
+        if (!MontoTransfer || !NumberAccount || MontoTransfer === 0 || MontoTransfer >= SavingAccounts.balance) {
             setFormError(true);
         } else {
             setFormError(false)
@@ -151,14 +156,14 @@ export const Transactions = ({ OnlineUsers }) => {
                             </div>
                             <div className='w-[39%] flex flex-col items-center justify-center'>
                                 <p className='m-0 text-center'>Saldo:</p>
-                                <p className='m-0 text-center text-[1.2rem] text-[#27AE60]'>$1020.00</p>
+                                <p className='m-0 text-center text-[1.2rem] text-[#27AE60]'>$ {SavingAccounts.balance}</p>
                             </div>
                         </div>
                         <div className='acc-select-container bg-[#D6D6D6] h-[3.9rem] w-fit rounded-xl ml-5 px-2'>
                             <select name="" id="" className='acc-select outline-none border-none lol3 w-full h-full m-auto block bg-[#D6D6D6] cursor-pointer' onChange={(e) => setNumberAccount(e.target.value)} value={NumberAccount} >
                                 <option>Selecionar Cuenta...</option>
-                                <option>Nº 0001112223</option>
-                                <option>Nº 0001112223</option>
+                                <option>Nº {SavingAccounts.accountNumber}</option>
+                                {/* <option>Nº 0001112223</option> */}
                             </select>
                         </div>
 

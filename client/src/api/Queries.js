@@ -48,6 +48,19 @@ export const getMyCardReqREQ = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/dashboard/get-my-card-request', { headers: PrivateConfig.headers })
 }
 
+export const getContactsWPReq = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-contacts-new', { headers: PrivateConfig.headers })
+}
+
+export const getSavingAcctsReq = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-saving-accounts', { headers: PrivateConfig.headers })
+}
+
+export const UpdatePhotoReq = async (Token, Form) => {
+  console.log(Form);
+  return await axios.post('http://localhost:4000/api/dashboard/upload-photo', Form, { headers: { 'Content-Type': 'multipart/form-data', "x-auth-token": Token } })
+}
+
 
 // ?? QUERYS EMPLOYEE
 

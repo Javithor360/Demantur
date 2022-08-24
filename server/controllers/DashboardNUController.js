@@ -3,6 +3,9 @@ const ErrorResponse = require("../utils/ErrorMessage");
 const GlobalData = require("../models/GlobalData");
 const Settings = require("../models/Settings");
 const CardsRequests = require("../models/CardsRequests");
+const SavingsAccount = require('../models/SavingsAccount');
+const { uploadRegisterImage } = require("../libs/cloudinary");
+const fs = require("fs-extra");
 // const SavingAccount = require("../models/SavingAccount");
 
 const testDB = async (req, res, next) => {
@@ -52,6 +55,30 @@ const testDB = async (req, res, next) => {
   }
 };
 
+
+const getContacs = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+
+    const ContactsWtPic = await GlobalData.findOne({ DataOwner: token.user.id });
+    const isNormalUsers = await NormalUser.find();
+    let auxContacts = ContactsWtPic.Contacts;
+    let ContactsWithPic = []
+
+    ContactsWithPic = ContactsWtPic.Contacts.map((Contact, index) => {
+      isNormalUsers.forEach(element => {
+        if (element.Dui === Contact.Dui) {
+          auxContacts[index].Photo = element.PerfilPhoto.url;
+        }
+      });
+      return auxContacts[index]
+    })
+
+    res.status(200).json({ success: true, data: ContactsWithPic })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
 
 const getUserId = async (req, res, next) => {
   try {
@@ -139,7 +166,7 @@ const addFriendRequest = async (req, res, next) => {
             PendingFriendReq: {
               Name: `${UserRequested1.FirstName} ${UserRequested1.LastName}`,
               Dui: UserRequested1.Dui,
-              Photo: 'foto link',
+              Photo: null,
             }
           }
         }
@@ -152,7 +179,7 @@ const addFriendRequest = async (req, res, next) => {
             FriendRequests: {
               Name: `${ThisUser1.FirstName} ${ThisUser1.LastName}`,
               Dui: ThisUser1.Dui,
-              Photo: 'foto link',
+              Photo: null,
             }
           }
         }
@@ -222,7 +249,7 @@ const AcceptFriend = async (req, res, next) => {
           Contacts: {
             Name: `${UserRequested.FirstName} ${UserRequested.LastName}`,
             Dui: UserRequested.Dui,
-            Photo: 'foto link',
+            Photo: null,
           }
         }
       }
@@ -234,7 +261,7 @@ const AcceptFriend = async (req, res, next) => {
           Contacts: {
             Name: `${ThisUser.FirstName} ${ThisUser.LastName}`,
             Dui: ThisUser.Dui,
-            Photo: 'foto link',
+            Photo: null,
           }
         }
       }
@@ -376,6 +403,45 @@ const getMyCardReq = async (req, res, next) => {
   }
 }
 
+const getSavAcc = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+
+    const queryAccount = await SavingsAccount.findOne({ AccountOwner: token.user.id });
+
+    res.status(200).json({ success: true, data: queryAccount });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const UploadPhoto = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    let ImagePhoto;
+
+    if (req.files?.Image) {
+      ImagePhoto = req.files.Image
+    } else {
+      return next(new ErrorResponse("No se ha subido ninguna imagen", 400, "error"))
+    }
+
+    const result = await uploadRegisterImage(ImagePhoto.tempFilePath);
+    await fs.remove("./upload");
+
+    const user = await NormalUser.findOneAndUpdate({ _id: token.user.id }, {
+      PerfilPhoto: {
+        url: result.secure_url,
+        public_id: result.public_id
+      }
+    })
+
+    res.status(200).json({ success: true, data: 'Foto actualizada correctamente' });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
 module.exports = {
   testDB,
   getUserId,
@@ -387,5 +453,8 @@ module.exports = {
   DeclineFriend,
   DeleteFriend,
   DoAtransfer,
-  getMyCardReq
+  getMyCardReq,
+  getContacs,
+  getSavAcc,
+  UploadPhoto
 };

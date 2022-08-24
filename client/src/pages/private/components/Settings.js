@@ -7,10 +7,12 @@ import { AiOutlineCloudUpload as CloudIcon, AiOutlineCloud as SuccesClud } from 
 
 
 export const Settings = ({ hidden }) => {
-  const { setSettingsOption, Info } = useDash()
+  const { setSettingsOption, Info, UpdatePhoto } = useDash()
 
   const [Image, setImage] = useState();
   const [ImageName, setImageName] = useState("");
+  const [Error, setError] = useState(null);
+  const [Success, setSuccess] = useState(null);
 
   const Imagefunc = (UploadImage, SetImageName) => {
     if (UploadImage !== "") {
@@ -52,9 +54,24 @@ export const Settings = ({ hidden }) => {
     }
   };
 
-  const HandlerSubmitPhoto = (e) => {
-    // e.preventDefault();
-    console.log('hola')
+  const HandlerSubmitPhoto = async (e) => {
+    e.preventDefault();
+    let form = new FormData();
+    if (Image) {
+      let data = { Image: Image };
+      for (let key in data) {
+        form.append(key, data[key])
+      }
+
+    } else {
+      setError('No ha seleccionado la imagen');
+    }
+    try {
+      const { data } = await UpdatePhoto(localStorage.getItem('authToken'), form)
+      setSuccess(data.data)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -79,7 +96,8 @@ export const Settings = ({ hidden }) => {
               </div>
               <button type="submit" className='boton-settings'>Cambiar</button>
             </form>
-
+            {Error && <p className='text-red-400 text-center'>{Error}</p>}
+            {Success && <p className='text-green-400 text-center'>{Success}</p>}
           </div>
         </div>
       </div >

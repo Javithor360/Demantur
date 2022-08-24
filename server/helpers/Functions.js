@@ -250,7 +250,7 @@ footer{
       <div class="fondo"><img class="icon" src="https://media.discordapp.net/attachments/825146450232213505/999324633478205560/Demantur_Imagotype-3.png?width=1025&height=414" alt="">
           <div class="baners">
               <div class="baners-content">
-                <h1 class="title">Demantur Banck</h1>
+                <h1 class="title">Demantur Bank</h1>
               </div>
             </div>
             <div class="title2">

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const AuthMiddleware = require("../middlewares/AuthMiddleware");
 
-const { getCardRequests, getEmployeeData } = require("../controllers/EmployeeController");
+const { getCardRequests, getEmployeeData, getLoanRequests } = require("../controllers/EmployeeController");
 
 // Route -> /api/employee/
 
@@ -10,6 +10,7 @@ const { getCardRequests, getEmployeeData } = require("../controllers/EmployeeCon
 router.route("/get-data").get([AuthMiddleware], getEmployeeData);
 
 router.route("/get-cards-requests").get(getCardRequests);
+router.route("/get-Loans-requests").get(getLoanRequests);
 
 
 module.exports = router;

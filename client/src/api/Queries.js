@@ -48,6 +48,9 @@ export const getMyCardReqREQ = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/dashboard/get-my-card-request', { headers: PrivateConfig.headers })
 }
 
+export const getMyLoanReqREQ = async (PrivateConfig) =>{
+  return await axios.get('http://localhost:4000/api/dashboard/get-Loans-requests', { headers: PrivateConfig.headers })
+}
 
 // ?? QUERYS EMPLOYEE
 
@@ -57,5 +60,9 @@ export const getEmployeeData = async (PrivateConfig) => {
 
 export const getCardRequest = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/employee/get-cards-requests', { headers: PrivateConfig.headers })
+}
+
+export const getLoanRequests = async (PrivateConfig)=>{
+  return await axios.get('http://localhost:4000/api/employee//get-Loans-requests', { headers: PrivateConfig.headers });
 }
 

@@ -238,6 +238,9 @@
     "what's_home_demantur": "¿Qué es la ",
     "what's_home_demantur2": "vivienda Demantur?",
     "info_home_demantur": "Aprovecha condiciones preferenciales para solicitar los creditos que necesites para poder realizar la compra de tu vivienda nueva o usada en El Salvador.",
+    "what's_car_Demantur":"¿Qué es",
+    "what's_car_Demantur2": "Car Demantur?",
+    "info_car_demantur":"Nuestro Préstamo está orientado a financiar la compra de vehículo nuevo o usado. (No aplica vehículos comerciales; Camiones, Buses, Microbuses)",
     "Doubts": "¿Tienes alguna duda?",
     "loans_buttons": {
       "more_info": "Más información",
@@ -269,11 +272,29 @@
           "conditions": "Condiciones",
           "bills": "Gastos personales, consolidación de deudas, viajes y estudios.",
           "amount": "Monto máximo:",
-          "amount2": "Hasta $40,000.00",
+          "up_to": "Hasta $40,000.00",
           "sure": "Seguro de Vida y asistencia funeraria",
           "commission": "Aplica comisión de 0.5% sobre el monto del crédito si el plazo es de 10 años. Cero comisión si el plazo es de 9 años o menos"
         }
-      }
+      },
+      "forms":{
+        "title": "¿Estas decidido?",
+        "subtitle":"Solicita tu préstamos",
+        "name":"Nombre completo",
+        "id_dui":"Número de Dui",
+        "contact":"Número de contacto",
+        "address":"Dirección",
+        "email":"Correo Electrónico",
+        "Amount":"Monto a solicitar",
+        "salary": "Rango Salarial",
+        "company": "Nombre de la empresa donde trabaja",
+        "op1": "Fotocopia de DUI (revés y derecho)",
+        "op2": "constancia de trabajo",
+        "op3": "Adjunta tu constancia de salario",
+        "op4": "Entre",
+        "button":"Subir Archivo",
+        "button2":"Enviar"
+    }
     },
     "business_loan_page": {
       "title": "Creditos Empresariales",
@@ -332,6 +353,16 @@
           "amount": "Seguro de vida según monto del crédito y seguro de daños sobre la construcción."
         }
       }
+    },
+    "Demantur_car":{
+      "title": "Auto Demantur",
+      "subtitle": "Cambia tu estilo de vida con nuestro crédito decreciente para la adquisición de un nuevo vehículo",
+      "what's_it": "Automovil Demantur",
+      "car_info": "Te ofrecemos la opción de que adquirir un vehículo con la figura de arrendamiento con opción de compra, lo cual te permitirá adquirir al final del plazo la propiedad del vehículo.",
+      "car_info2": " Tienes financiamiento en vehículo nuevo de hasta el 90% según cotización con cuota de seguro del vehículo incluido.",
+      "benefits": "Beneficios",
+      "benefits_bannerc": "Trámite rápido y ágil",
+      "benefits_bannerc2": "Te escuchamos, entendemos tu necesidad y te ofrecemos el plan más apto para tu proyecto."
     }
   },
   "help_page":{

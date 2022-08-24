@@ -3,6 +3,7 @@ const ErrorResponse = require("../utils/ErrorMessage");
 const GlobalData = require("../models/GlobalData");
 const Settings = require("../models/Settings");
 const CardsRequests = require("../models/CardsRequests");
+const LoansModels = require('../models/LoansModels')
 // const SavingAccount = require("../models/SavingAccount");
 
 const testDB = async (req, res, next) => {
@@ -376,6 +377,25 @@ const getMyCardReq = async (req, res, next) => {
   }
 }
 
+const getMyLoanReq = async (req, res, next) => {
+  try {
+    let exportss;
+    const token = req.resetToken;
+
+
+    const isHadLoanReq = await LoansModels.findOne({ loan_guarantor: token.user.id })
+    if (isHadLoanReq) {
+      exportss = isHadLoanReq
+    } else {
+      exportss = false
+    }
+
+    res.status(200).json({ success: true, data: exportss })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
 module.exports = {
   testDB,
   getUserId,
@@ -387,5 +407,6 @@ module.exports = {
   DeclineFriend,
   DeleteFriend,
   DoAtransfer,
-  getMyCardReq
+  getMyCardReq,
+  getMyLoanReq
 };

@@ -11,3 +11,10 @@ exports.uploadRegisterImage = async (filePath) => {
     folder: 'Demantur-Register'
   })
 }
+
+
+exports.uploadLoansImages = async (filePath) => {
+  return await cloudinary.uploader.upload(filePath, {
+    folder: 'Loans'
+  })
+}

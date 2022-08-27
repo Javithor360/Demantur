@@ -22,8 +22,9 @@ const SpanNavLinkStyles = "menu-span-navlink";
 const SideBarImages = require.context("./assets/img/", true);
 
 export const SideBar = () => {
-  const { Option, setOption, setOptionElement } = useDash();
+  const { Option, setOption, setOptionElement, setNPName } = useDash();
   const navigate = useNavigate();
+
 
   return (
     <>
@@ -143,15 +144,17 @@ export const SideBar = () => {
         </div>
 
         <div className="flex justify-center w-full pb-4">
-          <button className="logout-button flex items-center justify-center rounded w-[85%]">
+          <button className="logout-button flex items-center justify-center rounded w-[85%]"
+            onClick={() => {
+              localStorage.removeItem("authToken");
+              navigate("/auth");
+              setNPName(null);
+            }}
+          >
             <div className="flex items-center mr-2 logout-icon">
               <MdOutlineLogout />
             </div>
             <span
-              onClick={() => {
-                localStorage.removeItem("authToken");
-                navigate("/auth/normal-user/login");
-              }}
             >
               Cerrar Sesion
             </span>

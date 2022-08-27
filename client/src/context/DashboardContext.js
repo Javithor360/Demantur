@@ -10,6 +10,8 @@ export const useDash = () => {
 };
 
 export const DashProvider = ({ children }) => {
+  const [NPName, setNPName] = useState(null);
+
   const [Option, setOption] = useState(1);
   const [OptionElement, setOptionElement] = useState("Home Page");
   const [SettingsOption, setSettingsOption] = useState(false);
@@ -234,7 +236,8 @@ export const DashProvider = ({ children }) => {
       QueryCreateSavingsAccount, DeclineFriend, ReloadState, setReloadState, AcceptFriend, CardsRequestsForm, LoansRequestsForm, setContacts,
       setFriendRequest, DeleteFriendReq, CurrentChat, setCurrentChat, TransactionsArr, setTransactionsArr,
       MyTransfers, setMyTransfers, HimTranfers, setHimTranfers, DoATransfer, setGlobalInfo, socket, setSocket,
-      getMyCardReq, getMyLoanReq, GlobalInfoSetReq, getContacsWP, SavingAccounts, getSavingAccts, UpdatePhoto, clientBalance
+      getMyCardReq, getMyLoanReq, GlobalInfoSetReq, getContacsWP, SavingAccounts, getSavingAccts, UpdatePhoto, clientBalance,
+      NPName, setNPName
     }}>
       {children}
     </dashContext.Provider>

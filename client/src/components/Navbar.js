@@ -10,8 +10,10 @@ import Logo from "./assets/img/Demantur_Imagotype-2.svg";
 import { useState } from "react";
 
 import { useTranslation } from "react-i18next";
+import { useDash } from "../context/DashboardContext";
 
 export const Navbar = () => {
+  const { NPName } = useDash()
   const { t } = useTranslation();
   const [isActive, setActive] = useState(true);
 
@@ -82,27 +84,15 @@ export const Navbar = () => {
             <span className="help-text">{t("main_navbar.help")}</span>
           </Link>
           <div className="line"></div>
-          {
-            (localStorage.getItem('authToken')) ? 
-            <>
-              <Link to="/dashboard" className="access-button">
-                {
-                  //username logged n't
-                  <span className="access-text mr-1">Acceder</span>
-                }
-                 <UserIcon className="ml-2 access-icon fa-regular fa-user" />
-              </Link>
-            </>
-            :
-            <>
-              <Link to="/auth" className="access-button">
-                {
-                  <span className="access-text mr-1" >Acceder</span>
-                }
-                 <UserIcon className="ml-2 access-icon fa-regular fa-user" />
-              </Link>
-            </>
-          }
+          <>
+            <Link to="/dashboard" className="access-button">
+              {
+                <span className="access-text mr-1" >{NPName ? NPName : 'Acceder'}</span>
+              }
+              <UserIcon className="ml-2 access-icon fa-regular fa-user" />
+            </Link>
+          </>
+
         </div>
       </div>
       <div

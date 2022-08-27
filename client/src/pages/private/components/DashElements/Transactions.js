@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
 import '../assets/scss/Transactions_main.scss'
 import './TransactionsComponents/TransactionMessage'
-import photoExample from '../assets/img/contact-user-profile.png'
 import no_contacts_icon from './TransactionsComponents/assets/icons/contacts_icon.png'
 import select_contact_icon from './TransactionsComponents/assets/icons/select_contact_icon.png'
 import no_transactions_icon from './TransactionsComponents/assets/icons/no_transactions_icon.png'

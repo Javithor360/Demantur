@@ -72,10 +72,10 @@ const Slideshow = ({
 				siguiente();
 			}, intervalo);
 	
-			// Eliminamos los intervalos
-			slideshow.current.addEventListener('mouseenter', () => {
-				clearInterval(intervaloSlideshow.current);
-			});
+			// // Eliminamos los intervalos
+			// slideshow.current.addEventListener('mouseenter', () => {
+			// 	clearInterval(intervaloSlideshow.current);
+			// });
 		}
 	}, [autoplay, intervalo, siguiente]);
 

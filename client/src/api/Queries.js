@@ -49,7 +49,7 @@ export const getMyCardReqREQ = async (PrivateConfig) => {
 }
 
 export const getMyLoanReqREQ = async (PrivateConfig) =>{
-  return await axios.get('http://localhost:4000/api/dashboard/get-Loans-requests', { headers: PrivateConfig.headers })
+  return await axios.get('http://localhost:4000/api/dashboard/get-my-loan-request', { headers: PrivateConfig.headers })
 }
 
 export const getContactsWPReq = async (PrivateConfig) => {

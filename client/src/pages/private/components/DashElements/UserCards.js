@@ -226,7 +226,7 @@ export const UserCards = () => {
           <div className='subdivisions'>
             <hr className=''/>
           </div>
-          
+        
           <img
             src={DashCardsImages(`${parametros.cardImage}`)}
             alt=""
@@ -269,7 +269,7 @@ export const UserCards = () => {
                 <label htmlFor="Constancia2" className=''>{ImageName2 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName2}</label>
               </div>
               <div className="input-files mr-7">
-                <p className='text-[1.1rem] text-[#606470]'>{t("CardsPage-Form.desc2")}</p>
+                <p className='text-[1.1rem] text-[#606470]'></p>
                 <input type='file' accept='image/*' id='Constancia3' name='Constancia3' placeholder=' ' onChange={handleChangeFile3} autoComplete='off' />
                 <label htmlFor="Constancia3" className=''>{ImageName3 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName3}</label>
               </div>

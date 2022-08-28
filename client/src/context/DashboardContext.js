@@ -71,14 +71,6 @@ export const DashProvider = ({ children }) => {
     }
   };
 
-  const PersonalLoanForm = async (token) => {
-    try {
-      return await getInfo(PrivateConfig(token));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
 
   const CreateElements = async (Token) => {
     try {

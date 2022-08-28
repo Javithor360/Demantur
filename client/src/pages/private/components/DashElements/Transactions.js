@@ -109,6 +109,7 @@ export const Transactions = ({ OnlineUsers }) => {
         if (!MontoTransfer || !NumberAccount || MontoTransfer === 0 || MontoTransfer >= SavingAccounts.balance) {
             setFormError(true);
         } else {
+            setMontoTransfer('')    
             setFormError(false)
             const transaction = {
                 SenderDui: MyDui,
@@ -156,13 +157,17 @@ export const Transactions = ({ OnlineUsers }) => {
                             </div>
                             <div className='w-[39%] flex flex-col items-center justify-center'>
                                 <p className='m-0 text-center'>Saldo:</p>
-                                <p className='m-0 text-center text-[1.2rem] text-[#27AE60]'>$ {SavingAccounts.balance}</p>
+                                <p className='m-0 text-center text-[1.2rem] text-[#27AE60]'>$ 1200{SavingAccounts.balance}</p>
                             </div>
                         </div>
                         <div className='acc-select-container bg-[#D6D6D6] h-[3.9rem] w-fit rounded-xl ml-5 px-2'>
                             <select name="" id="" className='acc-select outline-none border-none lol3 w-full h-full m-auto block bg-[#D6D6D6] cursor-pointer' onChange={(e) => setNumberAccount(e.target.value)} value={NumberAccount} >
                                 <option>Selecionar Cuenta...</option>
-                                <option>Nº {SavingAccounts.accountNumber}</option>
+                                {SavingAccounts.map((el) => {
+                                    return (
+                                        <option>{el.accountNumber}</option>
+                                    )
+                                })}
                                 {/* <option>Nº 0001112223</option> */}
                             </select>
                         </div>

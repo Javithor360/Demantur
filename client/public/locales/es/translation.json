@@ -52,7 +52,7 @@
       "tittle":"Otras Opciones",
       "subtitle":"Otras Opciones?",
       "subtitle2":"Iniciar Sesioon",
-      "subtitle3":"Cambiar Sontraseña",
+      "subtitle3":"Cambiar Contraseña",
       "subtitle4":"Verificar email"
     },
 
@@ -74,10 +74,10 @@
     },
     "logins":{
       "tittle":"Inicia Sesión en la banca en línea",
-      "tittle2":"Inicio de Sesión",
+      "tittle2":"Iniciar sesión",
       "subtittle":"En este apartado puede acceder con su cuenta previamente creada",
       "forgot":"¿Olvidó su contraseña?",
-      "register":"Registrarce",
+      "register":"Registrarse",
       "very":"Verify"
     },
     "password":{

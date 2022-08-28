@@ -3,7 +3,6 @@ const ErrorResponse = require("../utils/ErrorMessage");
 const GlobalData = require("../models/GlobalData");
 const Settings = require("../models/Settings");
 const CardsRequests = require("../models/CardsRequests");
-const LoansModels = require('../models/LoansModels')
 const SavingsAccount = require('../models/SavingsAccount');
 const { uploadRegisterImage } = require("../libs/cloudinary");
 const fs = require("fs-extra");
@@ -430,7 +429,7 @@ const getSavAcc = async (req, res, next) => {
 
     const queryAccount = await SavingsAccount.find();
 
-    let filterArray = queryAccount.filter(SingAcc => SingAcc.AccountOwner   == token.user.id)
+    let filterArray = queryAccount.filter(SingAcc => SingAcc.AccountOwner == token.user.id)
 
     res.status(200).json({ success: true, data: filterArray });
   } catch (error) {
@@ -482,4 +481,3 @@ module.exports = {
   getSavAcc,
   UploadPhoto
 };
-

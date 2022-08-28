@@ -300,7 +300,10 @@ const registerPart4 = async (req, res, next) => {
       Dui,
       Email: Email,
       verifyCode,
-      PerfilPhoto: ImageConstancia,
+      PerfilPhoto: {
+        url: 'https://res.cloudinary.com/demantur/image/upload/v1661360968/Demantur-Register/datv00kqnvkxuhpqpvgd.png',
+        public_id: '',
+      },
       ActivedAccount: false,
       AccountRuning: false,
     });

@@ -428,9 +428,11 @@ const getSavAcc = async (req, res, next) => {
   try {
     const token = req.resetToken;
 
-    const queryAccount = await SavingsAccount.findOne({ AccountOwner: token.user.id });
+    const queryAccount = await SavingsAccount.find();
 
-    res.status(200).json({ success: true, data: queryAccount });
+    let filterArray = queryAccount.filter(SingAcc => SingAcc.AccountOwner   == token.user.id)
+
+    res.status(200).json({ success: true, data: filterArray });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }

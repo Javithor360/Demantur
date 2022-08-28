@@ -5,6 +5,8 @@ import {
 } from "react-icons/ai";
 //hooks
 
+import {VscLoading} from "react-icons/vsc"
+
 import { useEffect, useState } from "react";
 import { useDash } from "../../../context/DashboardContext";
 import Cleave from "cleave.js/react";
@@ -32,6 +34,8 @@ export const CreateSavingAccForm = () => {
 
   const [Image3, setImage3] = useState();
   const [ImageName3, setImageName3] = useState("");
+
+  const [CharginButton, setCharginButton] = useState(false)
 
   useEffect(() => {
     (async () => {
@@ -104,6 +108,7 @@ export const CreateSavingAccForm = () => {
     e.preventDefault();
 
     try {
+      setCharginButton(true);
       const PrivateConfig = {
         headers: {
           "Content-Type": "application/json",
@@ -131,6 +136,10 @@ export const CreateSavingAccForm = () => {
         form,
         PrivateConfig
       );
+
+      setTimeout(() => {
+        setCharginButton(false)
+      }, 1500)
 
       CreateElements(localStorage.getItem("authToken"));
       navigate("/dashboard");
@@ -278,8 +287,8 @@ export const CreateSavingAccForm = () => {
               ></textarea>
             </div>
           </div>
-          <button type="submit" className="mt-5 create-saving-acc-btn">
-            Enviar
+          <button type="submit" className="mt-5 create-saving-acc-btn" disabled={CharginButton}>
+            {CharginButton ? <VscLoading className="animate-spin"/> : "Enviar" }
           </button>
         </div>
       </form>

@@ -843,7 +843,7 @@
       "1": "NIT en buen estado.",
       "2": "DUI, carné de residente ó pasaporte con información actualizada, vigente y en buen estado.",
       "3": "Apertura mínima desde $200.",
-      "button": "Solicitae"
+      "button": "Solicitar"
      }
    },
    "SavingPage":{
@@ -868,5 +868,177 @@
        "2": "Monto mínimo de apertura: $25.00",
        "3": "Tasa de interés de acuerdo a tabla publicada el 1 de cada mes"
       }
+   },
+   "DashboardNormalUser":{
+    "SideBar":{
+      "1": "Inicio",
+      "2": "Cuentas",
+      "3": "Transferencias",
+      "4": "Préstamos",
+      "5": "Contactos",
+      "6": "Tajetas",
+      "7": "Cerrar Sesion"
+    },
+    "Dropdown":{
+      "tittle": "Seleccionar"
+    },
+    "Setting":{
+      "tittle": "Configuraciones",
+      "desc": "Foto de perfil",
+      "button": "Cambiar",
+      "language": "Idioma"
+    },
+    "Home":{
+      "balance": "Saldo Neto:",
+      "information": "Datos Personales",
+      "name": "Nombre:",
+      "dui": "DUI",
+      "email": "Email:",
+      "cards": "Tarjetas",
+      "loan": "Préstamo",
+      "transfers2": "No hay ninguna transferencia",
+      "transfers": {
+        "tittle": "Últimas Transferencias",
+        "tittle2": "Hechas",
+        "tittle3": "Recibidas",
+        "amount": "Monto",
+        "beneficiary1": "Beneficiario",
+        "beneficiary2": "Benefactor",
+        "account": "Número de cuenta",
+        "date": "Fecha"
+        
+      },
+      "contact": {
+        "tittle": "Lista de contactos",
+        "desc": "No hay más contactos",
+        "des2": "No tienes contactos"
+      }
+    },
+    "Transfers":{
+      "tittle": "Contactos",
+      "desc": "Seleccione un contacto para transferir",
+      "desc2": "No hay transferencias realizadas",
+      "des3": "No tiene contactos agregados",
+      "input": "Buscar...",
+      "form":{
+        "balance": "Saldo:",
+        "option": "Selecionar Cuenta...",
+        "button": "Transferir",
+        "placeholder": "Ingresar Monto..."
+      }
+    },
+    "Loans":{
+      "tittle": "Solicita tu Credito",
+      "tittle2": "Tus Créditos activos",
+      "tittle3": "Préstamos",
+      "desc": "Tiene una Solicitud en progreso",
+      "button": "Solicitar",
+      "button2": "Ver detalles",
+      "1":{
+        "tittle": "Crédito Personal",
+        "desc": "Disfruta tu nueva vida con las mejores condiciones. Facilitamos los trámites para que realices tu proyectos con nuestro Crédito Personal.",
+        "desc2": "Damos solución a tus necesidades financieras. Créditos Personales preferenciales para empleados. Somos los únicos que no te cobramos comisión."
+      },
+      "2":{
+        "tittle": "Credito Empresa",
+        "desc": "Si trabajas en tu propio negocio, te lo facilitamos con condiciones especiales para que consolides tus deudas o realices tus nuevos proyectos.",
+        "desc2": "Especiales para que consolides tus deudas o realices tus nuevos proyectos o mejores las condiciones de tu empresa o emprendimiento."
+      },
+      "3":{
+        "tittle": "Vivienda Demantur",
+        "desc": "Aprovecha condiciones preferenciales para solicitar los creditos que necesites para poder realizar la compra de tu vivienda nueva o usada.",
+        "desc2": "Obtén muchas más posibilidades, beneficios superiores y un mayor nivel de compra y efectivo con la tarjeta Demantur Gold, con ella siempre tendrás ese respaldo de calidad y una mayor seguridad, confianza y ese respaldo que mereces. La Demantur Gold está pensada para aquellas personas como tú, que siempre buscan esa exigencia y buen nivel en una tarjeta de crédito."
+      },
+      "4":{
+        "tittle": "Auto Demantur",
+        "desc": "Cambia tu estilo de vida con nuestro crédito decreciente para la adquisición de vehículo nuevo o usado.",
+        "desc2": "Te escuchamos, entendemos tu necesidad y te ofrecemos el plan más apto para tu proyecto."
+      },
+      "form":{
+        "tittle1": "Rango Salarial",
+        "tittle2": "Estatus Laboral",
+        "tittle3": "Fotocopia de DUI (Frontal)",
+        "tittle4": "Fotocopia de DUI (Trasera)",
+        "tittle5": "Constancia de salario",
+        "UserElementsSalary":{
+          "1": "en adelante"
+        },
+        "LaboralStatus":{
+          "1": "Asalariado",
+          "2": "Desempleado",
+          "3": "Estudiante",
+          "4": "Emprendedor"
+        }
+      } 
+    },
+    "Contacts":{
+      "tittle": "Tus Contactos",
+      "tittle2": "Añadidos",
+      "tittle3": "Pedientes",
+      "tittle4": "Solicitudes",
+      "tittle5": "Agregar Contacto",
+      "desc": "No hay concidiencias",
+      "search": "Nombre Completo",
+      "YourContacts":{
+        "name": "Nombre",
+        "dui": "DUI",
+        "button": "Eliminar",
+        "desc": "No tiene contactos agregados"
+      },
+      "Pending":{
+        "name": "Nombre:",
+        "dui": "DUI:",
+        "buttton": "Cancelar",
+        "desc": "No tiene solicitudes hechas pendientes"
+      },
+      "YourFriendReq":{
+        "name": "Nombre:",
+        "dui": "DUI:",
+        "buttton1": "Aceptar",
+        "buttton2": "Cancelar",
+        "desc": "No tiene solicitudes pendientes"
+      }
+    },
+    "Cards":{
+      "tittle": "Solicita tu tarjeta de crédito",
+      "tittle2": "Tus tarjetas",
+      "sub-tittle": "Crédito",
+      "sub-tittle2": "Débito",
+      "desc": "Tiene una Solicitud en progreso",
+      "button": "Ver detalles",
+      "1":{
+        "desc": "Beneficios necesarios para tu día a día, con ella dispones de un medio de pago seguro para usarlo en comercios, compras en línea, etc.",
+        "desc2": "La tarjeta de crédito Demantur Classic te brinda los beneficios necesarios para tu día a día, con ella dispones de un medio de pago seguro para usarlo en comercios, compras en línea, etc. Además, dispones de retiro inmediato de efectivo en cajeros nacionales, encuentra información más detallada en nuestro sitio web"
+      },
+      "2":{
+        "desc": "Obtén numerosos beneficios que se adaptan a tus necesidades con una gran flexibilidad y comodidad.",
+        "desc2": "¿Estás en busca de una tarjeta que te permita disfrutar de grandes beneficios en cualquier lugar y en todo momento?, pues si es así, La tarjeta Demantur Platinum es para ti, obtén numerosos beneficios que se adaptan a tus necesidades con una gran flexibilidad. Puedes viajar, comprar lo que quieras y tener la seguridad que necesitas por cada una de tus compras, revisa muchos más beneficios en nuestro sitio web."
+      },
+      "3":{
+        "desc": "Obtén ese respaldo que te mereces con una gran cantidad de posibilidades y beneficios superiores en cualquier momento.",
+        "desc2": "Obtén muchas más posibilidades, beneficios superiores y un mayor nivel de compra y efectivo con la tarjeta Demantur Gold, con ella siempre tendrás ese respaldo de calidad y una mayor seguridad, confianza y ese respaldo que mereces. La Demantur Gold está pensada para aquellas personas como tú, que siempre buscan esa exigencia y buen nivel en una tarjeta de crédito"
+      },
+      "4":{
+        "desc": "Disfruta de un mundo sin limites y lleno de lo que te mereces, obten beneficios, prestigio y reconocimiento con una gran capacidad.",
+        "desc2": "Cuando hablamos de la tarjeta Mastercard Black estamos concientes que es algo superior, obtén ese prestigio, reconocimiento, exclusividad y obviamente unos maravillosos beneficios que solo esta tarjeta es capaz de darte, vive un mundo lleno de posibilidades y sueños, viajes, extrafinanciameitos, protecciones, asistencias, salas VIP, entre otras muchas cosas con las que disfrutar de la vida al máximo."
+      },
+      "form":{
+        "tittle1": "Rango Salarial",
+        "tittle2": "Estatus Laboral",
+        "tittle3": "Fotocopia de DUI (Frontal)",
+        "tittle4": "Fotocopia de DUI (Trasera)",
+        "tittle5": "Constancia de salario",
+        "button": "Solicitar",
+        "UserElementsSalary":{
+          "1": "en adelante"
+        },
+        "LaboralStatus":{
+          "1": "Asalariado",
+          "2": "Desempleado",
+          "3": "Estudiante",
+          "4": "Emprendedor"
+        }
+      } 
+    }
    }
 }

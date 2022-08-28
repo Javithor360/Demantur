@@ -7,15 +7,32 @@ import { AiOutlineQuestionCircle as QuestionIcon } from "react-icons/ai";
 import { FaAngleRight } from "react-icons/fa";
 
 import Logo from "./assets/img/Demantur_Imagotype-2.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useTranslation } from "react-i18next";
 import { useDash } from "../context/DashboardContext";
 
 export const Navbar = () => {
-  const { NPName } = useDash()
+  const { NPName, getNametoNav, setNPName } = useDash();
   const { t } = useTranslation();
   const [isActive, setActive] = useState(true);
+
+  useEffect(() => {
+    if (localStorage.getItem('authToken')) {
+      (async () => {
+        const res = await getNametoNav(localStorage.getItem('authToken'))
+        let Info = res.data.data
+        const Capitalize = (word) => {
+          return word[0].toUpperCase() + word.slice(1);
+        }
+        let Name = Info.FirstName.split(' ');
+        let LastName = Info.LastName.split(' ');
+        LastName = LastName[0];
+        setNPName(`${Capitalize(Name[0])} ${LastName[0].toUpperCase()}.`);
+      })()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleBurger = () => {
     setActive(!isActive);

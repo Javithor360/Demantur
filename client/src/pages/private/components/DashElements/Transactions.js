@@ -11,6 +11,8 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { RiLoader3Fill as IconChargin } from 'react-icons/ri'
 import Cleave from 'cleave.js/react'
+import Modal from '../Modal';
+import { ModalTransaction } from './TransactionsComponents/ModalTransaction'
 // import { io } from 'socket.io-client'
 
 export const Transactions = ({ OnlineUsers }) => {
@@ -18,16 +20,32 @@ export const Transactions = ({ OnlineUsers }) => {
     const [AllTransfers, setAllTransfers] = useState([]);
     const [MyDui, setMyDui] = useState('');
     const [MyName, setMyName] = useState('');
+    const [Saldo, setSaldo] = useState(null);
+
+    const [activeModal, setActiveModal] = useState(false);
 
     const [ArrivalMessage, setArrivalMessage] = useState(null);
-    const [MontoTransfer, setMontoTransfer] = useState('');
-    const [NumberAccount, setNumberAccount] = useState('');
+    const [MontoTransfer, setMontoTransfer] = useState(null);
+    const [NumberAccount, setNumberAccount] = useState(undefined);
 
     const [FormError, setFormError] = useState(false);
+    const [ModalValidate, setModalValidate] = useState(false);
+    const [InputSearch, setInputSearch] = useState('');
+    const [ContactsTS, SetContactsTS] = useState([]);
 
     const scrollRef = useRef();
 
-    const { Contacts, CurrentChat, setCurrentChat, GlobalInfo, TransactionsArr, setTransactionsArr, MyTransfers, HimTranfers, Info, setMyTransfers, setHimTranfers, DoATransfer, socket, getGlobalInfo, SavingAccounts } = useDash()
+    const { Contacts, CurrentChat, setCurrentChat, GlobalInfo, TransactionsArr, setTransactionsArr, MyTransfers, HimTranfers, Info, setMyTransfers, setHimTranfers, DoATransfer, socket, getGlobalInfo, SavingAccounts, setSavingAccounts, setClientBalance } = useDash()
+
+    const toggle = () => {
+        setActiveModal(!activeModal)
+    }
+
+    useEffect(() => {
+        if (activeModal) {
+            document.body.style.overflowY = 'hidden'
+        }
+    }, [activeModal])
 
     useEffect(() => {
         socket.on('getTransfer', data => {
@@ -53,13 +71,17 @@ export const Transactions = ({ OnlineUsers }) => {
     useEffect(() => {
         if (ArrivalMessage && CurrentChat?.Dui === ArrivalMessage.SenderDui) {
             setAllTransfers((prev) => [...prev, ArrivalMessage.transfer])
+            setClientBalance(prev => prev + ArrivalMessage.transfer.Amount)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ArrivalMessage, CurrentChat]);
 
     useEffect(() => {
         getGlobalInfo(localStorage.getItem('authToken'));
         setFormError(false);
         setCurrentChat(null);
+        setSaldo(null);
+        SetContactsTS(Contacts);
         setTimeout(() => {
             setCharginComp(false)
         }, 1500);
@@ -100,80 +122,136 @@ export const Transactions = ({ OnlineUsers }) => {
     }, [AllTransfers])
 
 
-    const HandlerTransSubmit = async (e) => {
-        e.preventDefault()
-        // eslint-disable-next-line eqeqeq
-        setMontoTransfer(parseFloat(MontoTransfer))
-        console.log(MontoTransfer)
-        if (!MontoTransfer || !NumberAccount || MontoTransfer === 0 || MontoTransfer >= SavingAccounts.balance) {
-            setFormError(true);
-        } else {
-            setFormError(false)
-            const transaction = {
-                SenderDui: MyDui,
-                ReciverDui: CurrentChat.Dui,
-                Amount: MontoTransfer,
-                AccountN: NumberAccount.split(' ')[1],
-                Type: 'NormalTransfer',
-                createdAt: new Date(),
-            }
-
-            socket.emit('DoingTransfer', {
-                SenderDui: MyDui,
-                ReceiverDui: CurrentChat.Dui,
-                transfer: {
+    useEffect(() => {
+        (async () => {
+            if (ModalValidate) {
+                const transaction = {
                     SenderDui: MyDui,
                     ReciverDui: CurrentChat.Dui,
-                    Amount: transaction.Amount,
-                    AccountN: transaction.AccountN,
-                    createdAt: null,
+                    Amount: MontoTransfer,
+                    AccountN: NumberAccount.split(' ')[1],
                     Type: 'NormalTransfer',
-                },
-            })
+                    createdAt: new Date(),
+                }
 
-            try {
-                const res = await DoATransfer(localStorage.getItem('authToken'), transaction);
+                socket.emit('DoingTransfer', {
+                    SenderDui: MyDui,
+                    ReceiverDui: CurrentChat.Dui,
+                    transfer: {
+                        SenderDui: MyDui,
+                        ReciverDui: CurrentChat.Dui,
+                        Amount: transaction.Amount,
+                        AccountN: transaction.AccountN,
+                        createdAt: null,
+                        Type: 'NormalTransfer',
+                    },
+                })
 
-                GlobalInfo.TransfersHistory.Made.push(transaction)
+                setClientBalance(prev => prev - transaction.Amount)
+                setMontoTransfer('');
+                setNumberAccount('');
+                setSaldo(null);
 
-                setAllTransfers([...AllTransfers, res.data.data])
-            } catch (error) {
-                console.log(error);
+
+                let auxAccounts = SavingAccounts;
+                auxAccounts.forEach(element => {
+                    // eslint-disable-next-line eqeqeq
+                    if (element.accountNumber == transaction.AccountN) {
+                        element.balance = element.balance - transaction.Amount;
+                    }
+                    setSavingAccounts(auxAccounts);
+                });
+
+
+                try {
+                    const res = await DoATransfer(localStorage.getItem('authToken'), transaction);
+
+                    GlobalInfo.TransfersHistory.Made.push(transaction)
+                    setAllTransfers([...AllTransfers, res.data.data])
+                } catch (error) {
+                    console.log(error);
+                }
             }
+        })()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ModalValidate, SavingAccounts]);
+
+    useEffect(() => {
+        if (InputSearch.length > 4) {
+            SetContactsTS(ContactsTS.filter((c) => `${c.Name.toLowerCase()}`.includes(InputSearch.toLowerCase())))
+        } else if (InputSearch === '') {
+            SetContactsTS(Contacts)
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [InputSearch]);
+
+
+    const HandlerTransSubmit = async (e) => {
+        e.preventDefault()
+        let Monto = MontoTransfer;
+        if (MontoTransfer && typeof MontoTransfer === 'string') {
+            Monto = parseFloat(MontoTransfer.replace(/,/g, ''))
+        }
+        if (!MontoTransfer || !NumberAccount || Monto === 0) {
+            setFormError(true);
+        } else if (NumberAccount === 'Selecionar Cuenta...' || Monto > parseFloat(Saldo)) {
+            setFormError(true);
+        } else {
+            setMontoTransfer(Monto.toFixed(2))
+            toggle()
+            setFormError(false);
         }
     }
 
     const FormTransfer = () => {
         return (
-            <div className='bottom-tools-bar h-[15%] w-full rounded-br-xl flex items-center'>
-                <form onSubmit={HandlerTransSubmit} className='w-full h-full flex justify-between items-center py-2 px-4'>
-                    <div className='w-[70%] h-[4rem] flex flex-row'>
-                        <div className='bg-[#D6D6D6] h-[3.9rem] w-[50%] rounded-xl flex flex-row'>
-                            <Cleave type='text' options={{ numeral: true, numeralThousandsGroupStyle: 'thousand' }} className='w-[60%] h-full bg-transparent border-none outline-none pl-5' placeholder='Ingresar Monto...' onChange={(e) => setMontoTransfer(e.target.value)} value={MontoTransfer} autoComplete='off' />
-                            <div className='vl2 w-[1%]'>
-                                <hr />
+            <>
+                {toggle &&
+                    <Modal active={activeModal} toggle={toggle} onRequestClose={toggle} padtop={'p-52'}>
+                        <ModalTransaction Name={CurrentChat.Name}
+                            Dui={CurrentChat.Dui}
+                            Monto={MontoTransfer}
+                            NumberAccount={NumberAccount}
+                            setModalValidate={setModalValidate}
+                            toggle={toggle}
+                        />
+                    </Modal>
+                }
+                <div className='bottom-tools-bar h-[15%] w-full rounded-br-xl flex items-center'>
+                    <form onSubmit={HandlerTransSubmit} className='w-full h-full flex justify-between items-center py-2 px-4'>
+                        <div className='w-[70%] h-[4rem] flex flex-row'>
+                            <div className='bg-[#D6D6D6] h-[3.9rem] w-[50%] rounded-xl flex flex-row'>
+                                <Cleave type='text' options={{ numeral: true, numeralThousandsGroupStyle: 'thousand' }} className='w-[60%] h-full bg-transparent border-none outline-none pl-5' placeholder='Ingresar Monto...' onChange={(e) => setMontoTransfer(e.target.value)} value={MontoTransfer} autoComplete='off' />
+                                <div className='vl2 w-[1%]'>
+                                    <hr />
+                                </div>
+                                <div className='w-[39%] flex flex-col items-center justify-center'>
+                                    <p className='m-0 text-center'>Saldo:</p>
+                                    <p className='m-0 text-center text-[1.2rem] text-[#27AE60]'>$ {Saldo === null ? '?' : Saldo.toFixed(2)}</p>
+                                </div>
                             </div>
-                            <div className='w-[39%] flex flex-col items-center justify-center'>
-                                <p className='m-0 text-center'>Saldo:</p>
-                                <p className='m-0 text-center text-[1.2rem] text-[#27AE60]'>$ {SavingAccounts.balance}</p>
+                            <div className='acc-select-container bg-[#D6D6D6] h-[3.9rem] w-fit rounded-xl ml-5 px-2'>
+                                <select name="" id="" className='acc-select outline-none border-none lol3 w-full h-full m-auto block bg-[#D6D6D6] cursor-pointer' onChange={(e) => setNumberAccount(e.target.value)} value={NumberAccount} >
+                                    <option onClick={() => { setSaldo(null) }}>Selecionar Cuenta...</option>
+                                    {
+                                        SavingAccounts.map((c) => {
+                                            return (
+                                                <option onClick={() => { setSaldo(c.balance); }}>Nº {c.accountNumber}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
                             </div>
-                        </div>
-                        <div className='acc-select-container bg-[#D6D6D6] h-[3.9rem] w-fit rounded-xl ml-5 px-2'>
-                            <select name="" id="" className='acc-select outline-none border-none lol3 w-full h-full m-auto block bg-[#D6D6D6] cursor-pointer' onChange={(e) => setNumberAccount(e.target.value)} value={NumberAccount} >
-                                <option>Selecionar Cuenta...</option>
-                                <option>Nº {SavingAccounts.accountNumber}</option>
-                                {/* <option>Nº 0001112223</option> */}
-                            </select>
-                        </div>
 
-                    </div>
-                    <div className='w-[20%] h-full flex justify-end items-center'>
-                        <button type='submit' className={`h-[3rem] w-[8rem] outline-none rounded-md border-none ${FormError ? 'bg-[#C90000]' : 'bg-[#323643]'} text-white`} >
-                            Transferir
-                        </button>
-                    </div>
-                </form>
-            </div>
+                        </div>
+                        <div className='w-[20%] h-full flex justify-end items-center'>
+                            <button type='submit' className={`h-[3rem] w-[8rem] outline-none rounded-md border-none ${FormError ? 'bg-[#C90000] hover:bg-[#890e0e]' : 'bg-[#323643] hover:bg-[#262932]'} text-white `} >
+                                Transferir
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </>
         )
     }
 
@@ -194,22 +272,22 @@ export const Transactions = ({ OnlineUsers }) => {
                                         <div className='contacts-area  w-[25%] h-full rounded-tl-xl flex flex-col items-center'>
                                             <div className='contacts-search-container w-[90%] h-[10%] rounded-tl-xl mt-[2rem] mb-3'>
                                                 <h3 className='text-center'>Contactos</h3>
-                                                <form className='searchbox w-full'>
+                                                <div className='searchbox w-full'>
                                                     <div role="search" className='searchbox-wrapper flex w-full'>
                                                         <button type="submit" title="" className='sbx-submit-btn'>
                                                             <AiOutlineSearch className='sbx-submit-btn-icon' />
                                                         </button>
-                                                        <input type="search" name="search" placeholder="Buscar..." autoComplete="off" className='sbx-input' />
-                                                        <button type="reset" title="" className="sbx-reset-btn">
+                                                        <input type="search" name="search" placeholder="Buscar..." autoComplete="off" className='sbx-input' onChange={(e) => { setInputSearch(e.target.value) }} value={InputSearch} />
+                                                        <button onClick={() => { setInputSearch('') }} title="" className="sbx-reset-btn">
                                                             <AiOutlineClose />
                                                         </button>
                                                     </div>
-                                                </form>
+                                                </div>
                                             </div>
                                             <div className='contacts-names w-full h-[80%] rounded-bl-xl flex justify-center items-center pt-4'>
                                                 <div className='user-contacts-left-bar w-[90%] h-[100%] overflow-x-hidden flex flex-col items-center'>
                                                     {
-                                                        Contacts.map((Contact, index) => {
+                                                        ContactsTS.map((Contact, index) => {
                                                             return (
                                                                 <div onClick={() => {
                                                                     setCurrentChat(Contact)

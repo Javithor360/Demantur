@@ -70,12 +70,13 @@ export const HistoryWidget = () => {
                       if (SingleTrans?.ReciverDui === Contacts[index].Dui) return `${Contacts[index].Name.split(' ')[0]} ${Contacts[index].Name.split(' ')[2]}`
                     }
                   }
+                  let time = new Date(SingleTrans?.createdAt)
                   return (
                     <div className={`${i !== 3 && "div-info-transfer"} bg-[#fff] w-full h-[20%] flex justify-evenly items-center`} key={i}>
                       <span>{SingleTrans?.Amount}</span>
                       <span>{Name()}</span>
                       <span>{SingleTrans?.AccountN}</span>
-                      <span>{SingleTrans && format(SingleTrans?.createdAt)}</span>
+                      <span>{SingleTrans && time.toLocaleDateString('en-GB')}</span>
                     </div>
                   )
                 })
@@ -105,12 +106,13 @@ export const HistoryWidget = () => {
                       if (SingleTrans?.SenderDui === Contacts[index].Dui) return `${Contacts[index].Name.split(' ')[0]} ${Contacts[index].Name.split(' ')[2]}`
                     }
                   }
+                  let time = new Date(SingleTrans?.createdAt)
                   return (
                     <div className={`${i !== 3 && "div-info-transfer"} bg-[#fff] w-full h-[20%] flex justify-evenly items-center`} key={i}>
                       <span>{SingleTrans?.Amount}</span>
                       <span>{Name()}</span>
                       <span>{SingleTrans?.AccountN}</span>
-                      <span>{SingleTrans && format(SingleTrans?.createdAt)}</span>
+                      <span>{SingleTrans && time.toLocaleDateString('en-GB')}</span>
                     </div>
                   )
                 })

@@ -1,10 +1,16 @@
+import { useEffect } from "react";
 import { IoWalletSharp } from "react-icons/io5";
 import { useDash } from "../../../../context/DashboardContext";
 import '../assets/scss/HomePage.scss'
 import { HistoryWidget, ContactsWidget } from "./HomePageWidgets/";
 
 export const HomePage = () => {
-  const { Info, clientBalance } = useDash();
+  const { Info, clientBalance, socket, setClientBalance } = useDash();
+  useEffect(() => {
+    socket?.on('getTransfer', data => {
+      setClientBalance(prev => parseFloat(prev) + parseFloat(data.transfer.Amount));
+    })
+  }, [socket, setClientBalance]);
   return (
     <div>
       <div className="flex gap-3 my-1">

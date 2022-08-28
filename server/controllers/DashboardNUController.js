@@ -363,13 +363,31 @@ const DoAtransfer = async (req, res, next) => {
       receiver = token.user.id;
     }
 
+
+
     // MADER
+
+    const MaderAccount = await SavingsAccount.findOne({ AccountOwner: mader })
+
+    await SavingsAccount.findOneAndUpdate(
+      { AccountOwner: mader },
+      { balance: (parseFloat(MaderAccount.balance) - parseFloat(Amount)).toFixed(2) }
+    )
+
     const TransferMade = await GlobalData.findOneAndUpdate(
       { DataOwner: mader },
       { $push: { 'TransfersHistory.Made': { SenderDui, ReciverDui, Amount, AccountN, Type, createdAt } } }
     );
 
     // RECEIVER
+
+    const ReceiverAccount = await SavingsAccount.findOne({ AccountOwner: receiver })
+
+    await SavingsAccount.findOneAndUpdate(
+      { AccountOwner: receiver },
+      { balance: (parseFloat(ReceiverAccount.balance) + parseFloat(Amount)).toFixed(2) }
+    )
+
     await GlobalData.findOneAndUpdate(
       { DataOwner: receiver },
       { $push: { 'TransfersHistory.Received': { SenderDui, ReciverDui, Amount, AccountN, Type, createdAt } } }
@@ -430,7 +448,7 @@ const getSavAcc = async (req, res, next) => {
 
     const queryAccount = await SavingsAccount.find();
 
-    let filterArray = queryAccount.filter(SingAcc => SingAcc.AccountOwner   == token.user.id)
+    let filterArray = queryAccount.filter(SingAcc => SingAcc.AccountOwner == token.user.id)
 
     res.status(200).json({ success: true, data: filterArray });
   } catch (error) {
@@ -465,6 +483,17 @@ const UploadPhoto = async (req, res, next) => {
   }
 }
 
+const getNavName = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+
+    const query = await NormalUser.findOne({ _id: token.user.id });
+    res.status(200).json({ success: true, data: query });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
 module.exports = {
   testDB,
   getUserId,
@@ -480,6 +509,7 @@ module.exports = {
   getMyLoanReq,
   getContacs,
   getSavAcc,
-  UploadPhoto
+  UploadPhoto,
+  getNavName
 };
 

@@ -6,7 +6,12 @@ import { RiLoader3Fill as IconChargin } from 'react-icons/ri'
 import { useDash } from '../../../../context/DashboardContext'
 import { ContactsCard, ContactsCardSkeleton, YourContacts, PendingReq, YourFriendReq } from './components/'
 
+// Translation
+import { useTranslation } from "react-i18next";
+
 export const Contacts = () => {
+  const {t}=useTranslation();
+
   const [NombreInput, setNombreInput] = useState('');
 
   const [CharginIco, setCharginIco] = useState(true);
@@ -69,7 +74,7 @@ export const Contacts = () => {
               return <ContactsCard User={User} key={index} setUsersToReq={setUsersToReq} UsersToReq={UsersToReq} />
             })
             :
-            <p className='text-[#606470]'>No hay concidiencias</p>
+            <p className='text-[#606470]'>{t("DashboardNormalUser.Contacts.desc")}</p>
         }
       </>
     )
@@ -97,17 +102,17 @@ export const Contacts = () => {
             :
             <>
               <div className={`w-[90%] mx-auto max-h-fit`}>
-                <p className='text-gray-500 text-center text-[28px] m-0 p-0'>Tus Contactos</p>
+                <p className='text-gray-500 text-center text-[28px] m-0 p-0'>{t("DashboardNormalUser.Contacts.tittle")}</p>
                 <div className='line-contacts w-[40%] mx-auto' ></div>
                 <div className='flex w-[100%] bg-[#f7f7f7] p-2 h-[3rem] rounded-sm shadow-sm justify-center mb-3 mt-3'>
                   <div className={`contact-tab-header ${BoxHandler === 1 && 'contact-tab-header-active'}`} onClick={() => { setBoxhanlder(1) }}>
-                    <span className=''>Añadidos</span>
+                    <span className=''>{t("DashboardNormalUser.Contacts.tittle2")}</span>
                   </div>
                   <div className={`contact-tab-header ${BoxHandler === 2 && 'contact-tab-header-active'}`} onClick={() => { setBoxhanlder(2) }}>
-                    <span className=''>Pendientes</span>
+                    <span className=''>{t("DashboardNormalUser.Contacts.tittle3")}</span>
                   </div>
                   <div className={`contact-tab-header ${BoxHandler === 3 && 'contact-tab-header-active'}`} onClick={() => { setBoxhanlder(3) }}>
-                    <span className=''>Solicitudes</span>
+                    <span className=''>{t("DashboardNormalUser.Contacts.tittle4")}</span>
                   </div>
                 </div>
               </div>
@@ -125,12 +130,12 @@ export const Contacts = () => {
             <div className='w-full h-full flex justify-center items-center'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
             :
             <>
-              <p className='text-gray-500 text-center text-[28px] m-0 p-0'>Agregar Contacto</p>
+              <p className='text-gray-500 text-center text-[28px] m-0 p-0'>{t("DashboardNormalUser.Contacts.tittle5")}</p>
               <div className='line-contacts w-[70%] mx-auto '></div>
               <div className='p-4 h-[90%] w-[100%]'>
                 <div className='container-contact-input w-[90%] mx-auto '>
                   <div className='h-100 w-[100%] mx-auto flex justify-center '>
-                    <input id='Nombre' name='Nombre' placeholder='Nombre Completo' onChange={SearchFunct} value={NombreInput} autoComplete='off' className='input-contact-dui px-[1rem] py-[0.4rem] w-[100%] h-100 text-xl' />
+                    <input id='Nombre' name='Nombre' placeholder={t("DashboardNormalUser.Contacts.search")} onChange={SearchFunct} value={NombreInput} autoComplete='off' className='input-contact-dui px-[1rem] py-[0.4rem] w-[100%] h-100 text-xl' />
                     <button type='submit' className='boton-contacts w-[14%]'><FiSearch /></button>
                   </div>
                 </div>

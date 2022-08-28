@@ -4,7 +4,12 @@ import { useState } from 'react'
 import { useDash } from '../../../../../context/DashboardContext'
 import requests_icon from '../../assets/img/contacts-icons/contacts-request-icon.png'
 
+// Translation
+import { useTranslation } from "react-i18next";
+
 export const YourFriendReq = () => {
+    const {t}=useTranslation();
+
     const { FriendRequest, AcceptFriend, DeclineFriend, setFriendRequest, setReloadState, Contacts, setReloadStateTwo } = useDash()
     const [ReloadComp, setReloadComp] = useState(false);
 
@@ -57,17 +62,17 @@ export const YourFriendReq = () => {
                                         </div>
                                         <div className="contact-data flex flex-col">
                                             <div className="contact-name mb-3 p-0">
-                                                <span className="font-semibold text-[#606470]">Nombre: </span> <p className="m-0 p-0">{el.Name}</p>
+                                                <span className="font-semibold text-[#606470]">{t("DashboardNormalUser.Contacts.YourFriendReq.name")} </span> <p className="m-0 p-0">{el.Name}</p>
                                             </div>
                                             <p className="m-0 p-0">
-                                                <span className="font-semibold text-[#606470]">DUI: </span> <p className="m-0 p-0">{el.Dui}</p>
+                                                <span className="font-semibold text-[#606470]">{t("DashboardNormalUser.Contacts.YourFriendReq.dui")} </span> <p className="m-0 p-0">{el.Dui}</p>
                                             </p>
                                         </div>
                                     </div>
 
                                     <div className="flex flex-col items-center justify-center gap-2">
-                                        <button className="w-[6.5rem] px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white" onClick={() => { FriendToAccept(el) }}>Aceptar</button>
-                                        <button className="w-[6.5rem] px-3 py-2 outline-none border-none rounded-md bg-[#989398] text-white" onClick={() => { FriendToDecline(el) }}>Cancelar</button>
+                                        <button className="w-[6.5rem] px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white" onClick={() => { FriendToAccept(el) }}>{t("DashboardNormalUser.Contacts.YourFriendReq.button1")}</button>
+                                        <button className="w-[6.5rem] px-3 py-2 outline-none border-none rounded-md bg-[#989398] text-white" onClick={() => { FriendToDecline(el) }}>{t("DashboardNormalUser.Contacts.YourFriendReq.button2")}</button>
                                     </div>
                                 </>
                             </div>
@@ -76,7 +81,7 @@ export const YourFriendReq = () => {
                     :
                     <div className='flex flex-col justify-center items-center h-[90%] mt-2'>
                         <img className='w-[200px] mb-3' src={requests_icon} alt="" />
-                        <p className='text-[#606470]'>No tiene solicitudes pendientes</p>
+                        <p className='text-[#606470]'>{t("DashboardNormalUser.Contacts.YourFriendReq.desc")}</p>
                     </div>
             }
         </>

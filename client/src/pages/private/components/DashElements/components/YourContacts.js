@@ -1,7 +1,12 @@
 import { useDash } from '../../../../../context/DashboardContext';
 import no_contacts_icon from '../../assets/img/contacts-icons/contacts_icon.png'
 
+// Translation
+import { useTranslation } from "react-i18next";
+
 export const YourContacts = () => {
+    const {t}=useTranslation();
+
     const { Contacts, DeleteFriendReq, setContacts, setReloadStateTwo } = useDash()
 
     const DeleteFriend = (el) => {
@@ -26,16 +31,16 @@ export const YourContacts = () => {
                                     </div>
                                     <div className="contact-data flex flex-col">
                                         <div className="contact-name mb-3 p-0">
-                                            <span className="font-semibold text-[#606470]">Nombre: </span> <p className="m-0 p-0">{el.Name}</p>
+                                            <span className="font-semibold text-[#606470]">{t("DashboardNormalUser.Contacts.YourContacts.name")} </span> <p className="m-0 p-0">{el.Name}</p>
                                         </div>
                                         <p className="m-0 p-0">
-                                            <span className="font-semibold text-[#606470]">DUI: </span> <p className="m-0 p-0">{el.Dui}</p>
+                                            <span className="font-semibold text-[#606470]">{t("DashboardNormalUser.Contacts.YourContacts.dui")} </span> <p className="m-0 p-0">{el.Dui}</p>
                                         </p>
                                     </div>
                                 </div>
 
                                 <div className="flex items-center">
-                                    <button className="px-3 py-2 outline-none border-none rounded-md bg-[#989398] text-white" onClick={() => { DeleteFriend(el) }}>Eliminar</button>
+                                    <button className="px-3 py-2 outline-none border-none rounded-md bg-[#989398] text-white" onClick={() => { DeleteFriend(el) }}>{t("DashboardNormalUser.Contacts.YourContacts.button")}</button>
                                 </div>
                             </>
                         </div>
@@ -44,7 +49,7 @@ export const YourContacts = () => {
                 :
                 <div className='flex flex-col justify-center items-center h-[90%] mt-2'>
                     <img className='w-[200px] mb-3' src={no_contacts_icon} alt="" />
-                    <p className='text-[#606470]'>No tiene contactos agregados</p>
+                    <p className='text-[#606470]'>{t("DashboardNormalUser.Contacts.YourContacts.desc")}</p>
                 </div>
             }
         </div>

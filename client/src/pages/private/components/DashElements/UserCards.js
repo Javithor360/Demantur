@@ -47,8 +47,8 @@ export const UserCards = () => {
     setCharginIco(false);
   }, 2000);
 
-  const UserElementsSalary = ['$450 y $499', '$500 y $999', '$700 y $1200', '$1200 en adelante',]
-  const UserElementsLaboralStatus = ['Asalariado', 'Desempleado', 'Estudiante', 'Emprendedor',]
+  const UserElementsSalary = ['$450 y $499', '$500 y $999', '$700 y $1200', <span>$1200 {t("DashboardNormalUser.Cards.form.UserElementsSalary.1")}</span>,]
+  const UserElementsLaboralStatus = [<span>{t("DashboardNormalUser.Cards.form.LaboralStatus.1")}</span>, <span>{t("DashboardNormalUser.Cards.form.LaboralStatus.2")}</span>, <span>{t("DashboardNormalUser.Cards.form.LaboralStatus.3")}</span>, <span>{t("DashboardNormalUser.Cards.form.LaboralStatus.4")}</span>,]
   const [Error, setError] = useState('');
   const [CardOwner, setCardOwner] = useState();
 
@@ -245,26 +245,26 @@ export const UserCards = () => {
             <span className='ml-7 mb-3 text-[15px] text-[red]'>{Error !== '' && Error}</span>
             <div className='flex flex-row w-full h-[30%] justify-start items-center px-[2rem] mb-5'>
               <div className='h-[70%] mr-5'>
-                <p className='text-[1.1rem] text-[#606470]'>Rango Salarial</p>
+                <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Cards.form.tittle1")}</p>
                 <div className='h-[2.5rem] w-[15rem]'>
                   <Dropdown setElement={setUserSalary} elements={UserElementsSalary} Elemento={UserSalary} />
                 </div>
               </div>
               <div className='h-[70%] mr-5 '>
-                <p className='text-[1.1rem] text-[#606470]'>Estatus Laboral</p>
+                <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Cards.form.tittle2")}</p>
                 <div className='h-[2.5rem] w-[15rem]'>
                   <Dropdown setElement={setUserLaboralStatus} elements={UserElementsLaboralStatus} Elemento={UserLaboralStatus} />
                 </div>
               </div>
               <div className="input-files h-[70%]">
-                <p className='text-[1.1rem] text-[#606470]'>Fotocopia de DUI (Frontal)</p>
+                <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Cards.form.tittle3")}</p>
                 <input type='file' accept='image/*' id='Constancia1' name='Constancia1' placeholder=' ' onChange={handleChangeFile1} autoComplete='off' />
                 <label htmlFor="Constancia1" className=''>{ImageName1 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName1}</label>
               </div>
             </div>
             <div className="form-row-2">
               <div className="input-files mr-7">
-                <p className='text-[1.1rem] text-[#606470]'>Fotocopia de DUI (Trasera)</p>
+                <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Cards.form.tittle4")}</p>
                 <input type='file' accept='image/*' id='Constancia2' name='Constancia2' placeholder=' ' onChange={handleChangeFile2} autoComplete='off' />
                 <label htmlFor="Constancia2" className=''>{ImageName2 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName2}</label>
               </div>
@@ -274,7 +274,7 @@ export const UserCards = () => {
                 <label htmlFor="Constancia3" className=''>{ImageName3 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName3}</label>
               </div>
               <div className="input-files">
-                <p className='text-[1.1rem] text-[#606470]'>Constancia de salario</p>
+                <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Cards.form.tittle5")}</p>
                 <input type='file' accept='image/*' id='Constancia4' name='Constancia4' placeholder=' ' onChange={handleChangeFile4} autoComplete='off' />
                 <label htmlFor="Constancia4" className=''>{ImageName4 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName4}</label>
               </div>
@@ -289,7 +289,7 @@ export const UserCards = () => {
                     </>
                     :
                     <>
-                      <span>Solicitar</span>
+                      <span>{t("DashboardNormalUser.Cards.form.button")}</span>
                     </>
                 }
               </button>
@@ -312,10 +312,10 @@ export const UserCards = () => {
 
             <>
               <p className="text-[1.5rem] text-[#323643] text-center p-2 ">
-                Tus Tarjetas
+                {t("DashboardNormalUser.Cards.tittle2")}
               </p>
               <div className="mb-6 ml-5 card-tipe-tittle">
-                <p className="text-[1.375rem] text-[#323643] p-0 m-0">Crédito</p>
+                <p className="text-[1.375rem] text-[#323643] p-0 m-0">{t("DashboardNormalUser.Cards.sub-tittle")}</p>
                 <hr className="p-0  m-0 w-[20%]" />
               </div>
               <div className="flex flex-col items-center w-full min-h-fit ">
@@ -330,13 +330,13 @@ export const UserCards = () => {
                   </div>
                   <div className="mt-6">
                     <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
-                      Ver detalles
+                      {t("DashboardNormalUser.Cards.button")}
                     </button>
                   </div>
                 </div>
               </div>
               <div className="mb-6 ml-5 card-tipe-tittle">
-                <p className="text-[1.375rem] text-[#323643] p-0 m-0">Débito</p>
+                <p className="text-[1.375rem] text-[#323643] p-0 m-0">{t("DashboardNormalUser.Cards.sub-tittle2")}</p>
                 <hr className="p-0  m-0 w-[20%]" />
               </div>
               <div className="flex flex-col items-center w-full min-h-fit">
@@ -366,26 +366,26 @@ export const UserCards = () => {
     const cardProperties = [
       {
         cardName: 'Demantur Classic',
-        cardDescription: 'Beneficios necesarios para tu día a día, con ella dispones de un medio de pago seguro para usarlo en comercios, compras en línea, etc.',
-        cardDescription2: 'La tarjeta de crédito Demantur Classic te brinda los beneficios necesarios para tu día a día, con ella dispones de un medio de pago seguro para usarlo en comercios, compras en línea, etc. Además, dispones de retiro inmediato de efectivo en cajeros nacionales, encuentra información más detallada en nuestro sitio web',
+        cardDescription: <span>{t("DashboardNormalUser.Loans.1.desc")}</span>,
+        cardDescription2: <span>{t("DashboardNormalUser.Loans.2.desc")}</span>,
         cardImage: './classicCard.png'
       },
       {
         cardName: 'Demantur Platinum',
-        cardDescription: 'Obtén numerosos beneficios que se adaptan a tus necesidades con una gran flexibilidad y comodidad',
-        cardDescription2: '¿Estás en busca de una tarjeta que te permita disfrutar de grandes beneficios en cualquier lugar y en todo momento?, pues si es así, La tarjeta Demantur Platinum es para ti, obtén numerosos beneficios que se adaptan a tus necesidades con una gran flexibilidad. Puedes viajar, comprar lo que quieras y tener la seguridad que necesitas por cada una de tus compras, revisa muchos más beneficios en nuestro sitio web',
+        cardDescription: <span>{t("DashboardNormalUser.Loans.2.desc")}</span>,
+        cardDescription2: <span>{t("DashboardNormalUser.Loans.2.desc2")}</span>,
         cardImage: './platinumCard.png'
       },
       {
         cardName: 'Demantur Gold',
-        cardDescription: 'Obtén ese respaldo que te mereces con una gran cantidad de posibilidades y beneficios superiores en cualquier momento',
-        cardDescription2: 'Obtén muchas más posibilidades, beneficios superiores y un mayor nivel de compra y efectivo con la tarjeta Demantur Gold, con ella siempre tendrás ese respaldo de calidad y una mayor seguridad, confianza y ese respaldo que mereces. La Demantur Gold está pensada para aquellas personas como tú, que siempre buscan esa exigencia y buen nivel en una tarjeta de crédito',
+        cardDescription: <span>{t("DashboardNormalUser.Loans.3.desc")}</span>,
+        cardDescription2: <span>{t("DashboardNormalUser.Loans.3.desc2")}</span>,
         cardImage: './goldCard.png'
       },
       {
         cardName: 'Mastercard Black',
-        cardDescription: 'Disfruta de un mundo sin limites y lleno de lo que te mereces, obten beneficios, prestigio y reconocimiento con una gran capacidad',
-        cardDescription2: 'Cuando hablamos de la tarjeta Mastercard Black estamos concientes que es algo superior, obtén ese prestigio, reconocimiento, exclusividad y obviamente unos maravillosos beneficios que solo esta tarjeta es capaz de darte, vive un mundo lleno de posibilidades y sueños, viajes, extrafinanciameitos, protecciones, asistencias, salas VIP, entre otras muchas cosas con las que disfrutar de la vida al máximo',
+        cardDescription: <span>{t("DashboardNormalUser.Loans.4.desc")}</span>,
+        cardDescription2: <span>{t("DashboardNormalUser.Loans.4.desc2")}</span>,
         cardImage: './blackCard.png'
       }
     ]
@@ -398,7 +398,7 @@ export const UserCards = () => {
             :
             <>
               <p className="text-[24px] text-[#323643] text-center p-2 mb-4">
-                Solicita tu tarjeta de crédito
+                {t("DashboardNormalUser.Cards.tittle")}
               </p>
               {
                 CardReq === false ?
@@ -433,7 +433,7 @@ export const UserCards = () => {
                                       cardImage: element.cardImage
                                     })
                                   }} className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
-                                    Solicitar
+                                    {t("DashboardNormalUser.Cards.form.button")}
                                   </button>
                                 </div>
                               </div>

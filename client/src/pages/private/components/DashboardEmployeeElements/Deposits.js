@@ -63,14 +63,16 @@ export const Deposits = () => {
     }
 
     return (
-        <div className='h-full w-full bg-white rounded-xl p-3'>
+        <div className='h-full w-full bg-white rounded-xl p-3 overflow-hidden'>
 
             {Error !== '' && Error}
 
             <h1 className='text-center mb-[4rem]'>Efectuar depósito</h1>
             {
                 Success !== false && Success &&
-                <p className='text-green-500'>TRANSACCIÓN HECHA PE</p>
+                <div className='text-center	w-full'>
+                    <p className='text-green-500'>TRANSACCIÓN HECHA PE</p>
+                </div>
             }
             <div className='mx-[25rem] container-deposits'>
                 <form onSubmit={handleForm} className='flex flex-col'>

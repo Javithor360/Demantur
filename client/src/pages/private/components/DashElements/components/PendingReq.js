@@ -3,7 +3,12 @@ import { useDash } from "../../../../../context/DashboardContext"
 import pending_icon from '../../assets/img/contacts-icons/contacts-pending-icon.png'
 import '../../assets/scss/Contacts_main.scss'
 
+// Translation
+import { useTranslation } from "react-i18next";
+
 export const PendingReq = () => {
+    const {t}=useTranslation();
+
     const { PedingFriendReq, ReloadState, setReloadState, cancelFriendReq, setPedingFriendReq, setReloadStateTwo } = useDash()
     useEffect(() => {
         setReloadState(false)
@@ -34,16 +39,16 @@ export const PendingReq = () => {
                                         </div>
                                         <div className="contact-data flex flex-col">
                                             <div className="contact-name mb-3 p-0">
-                                                <span className="font-semibold text-[#606470]">Nombre: </span> <p className="m-0 p-0">{el.Name}</p>
+                                                <span className="font-semibold text-[#606470]">{t("DashboardNormalUser.Contacts.Pending.name")}  </span> <p className="m-0 p-0">{el.Name}</p>
                                             </div>
                                             <span className="m-0 p-0">
-                                                <span className="font-semibold text-[#606470]">DUI: </span> <p className="m-0 p-0">{el.Dui}</p>
+                                                <span className="font-semibold text-[#606470]">{t("DashboardNormalUser.Contacts.Pending.dui")} </span> <p className="m-0 p-0">{el.Dui}</p>
                                             </span>
                                         </div>
                                     </div>
 
                                     <div className="flex items-center">
-                                        <button className="px-3 py-2 outline-none border-none rounded-md bg-[#989398] text-white" onClick={() => { CancelFriendReq(el) }}>Cancelar</button>
+                                        <button className="px-3 py-2 outline-none border-none rounded-md bg-[#989398] text-white" onClick={() => { CancelFriendReq(el) }}>{t("DashboardNormalUser.Contacts.Pending.button")}</button>
                                     </div>
                                 </>
                             </div>
@@ -52,7 +57,7 @@ export const PendingReq = () => {
                     :
                     <div className='flex flex-col justify-center items-center h-[90%] mt-2'>
                         <img className='w-[200px] mb-3' src={pending_icon} alt="" />
-                        <p className='text-[#606470]'>No tiene solicitudes hechas pendientes</p>
+                        <p className='text-[#606470]'>{t("DashboardNormalUser.Contacts.Pending.desc")}</p>
                     </div>
             }
         </>

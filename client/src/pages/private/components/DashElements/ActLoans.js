@@ -42,8 +42,8 @@ export const ActLoans = () => {
 
 
 
-  const UserElementsSalary = ['$450 y $499', '$500 y $999', '$700 y $1200', '$1200 en adelante',]
-  const UserElementsLaboralStatus = ['Asalariado', 'Desempleado', 'Estudiante', 'Emprendedor',]
+  const UserElementsSalary = ['$450 y $499', '$500 y $999', '$700 y $1200', <span>$1200 {t("DashboardNormalUser.Loans.form.UserElementsSalary.1")}</span> ,]
+  const UserElementsLaboralStatus = [ <span>{t("DashboardNormalUser.Loans.form.LaboralStatus.1")}</span>, <span>{t("DashboardNormalUser.Loans.form.LaboralStatus.2")}</span>, <span>{t("DashboardNormalUser.Loans.form.LaboralStatus.3")}</span>, <span>{t("DashboardNormalUser.Loans.form.LaboralStatus.4")}</span>,]
 
   const [loan_guarantor, setloan_guarantor] = useState();
   const [UserSalary, setUserSalary] = useState('');
@@ -217,26 +217,26 @@ export const ActLoans = () => {
           <form onSubmit={handleForm} className="main-card-form">
             <div className='flex flex-row w-full h-[30%] justify-start items-center px-[2rem] mb-5'>
               <div className='h-[70%] mr-5'>
-                <p className='text-[1.1rem] text-[#606470]'>Rango Salarial</p>
+                <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Loans.form.tittle1")}</p>
                 <div className='h-[2.5rem] w-[15rem]'>
                   <Dropdown setElement={setUserSalary} elements={UserElementsSalary} Elemento={UserSalary} />
                 </div>
               </div>
               <div className='h-[70%] mr-5 '>
-                <p className='text-[1.1rem] text-[#606470]'>Estatus Laboral</p>
+                <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Loans.form.tittle2")}</p>
                 <div className='h-[2.5rem] w-[15rem]'>
                   <Dropdown setElement={setUserLaboralStatus} elements={UserElementsLaboralStatus} Elemento={UserLaboralStatus} />
                 </div>
               </div>
               <div className="input-files h-[70%]">
-                <p className='text-[1.1rem] text-[#606470]'>Fotocopia de DUI (Frontal)</p>
+                <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Loans.form.tittle3")}</p>
                 <input type='file' accept='image/*' id='Constancia1' name='Constancia1' placeholder=' ' onChange={handleChangeFile1} autoComplete='off' />
                 <label htmlFor="Constancia1" className=''>{ImageName1 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName1}</label>
               </div>
             </div>
             <div className="form-row-2">
               <div className="input-files mr-7">
-                <p className='text-[1.1rem] text-[#606470]'>Fotocopia de DUI (Trasera)</p>
+                <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Loans.form.tittle4")}</p>
                 <input type='file' accept='image/*' id='Constancia2' name='Constancia2' placeholder=' ' onChange={handleChangeFile2} autoComplete='off' />
                 <label htmlFor="Constancia2" className=''>{ImageName2 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName2}</label>
               </div>
@@ -246,7 +246,7 @@ export const ActLoans = () => {
                 <label htmlFor="Constancia3" className=''>{ImageName3 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName3}</label>
               </div>
               <div className="input-files">
-                <p className='text-[1.1rem] text-[#606470]'>Constancia de salario</p>
+                <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Loans.form.tittle5")}</p>
                 <input type='file' accept='image/*' id='Constancia4' name='Constancia4' placeholder=' ' onChange={handleChangeFile4} autoComplete='off' />
                 <label htmlFor="Constancia4" className=''>{ImageName4 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName4}</label>
               </div>
@@ -265,17 +265,17 @@ export const ActLoans = () => {
     return (
       <>
         <p className="text-[1.5rem] text-[#323643] text-center p-2 ">
-          Tus Créditos activos
+        {t("DashboardNormalUser.Loans.tittle2")}
         </p>
         <div className="mb-6 ml-5 card-tipe-tittle">
-          <p className="text-[1.375rem] text-[#323643] p-0 m-0">préstamo</p>
+          <p className="text-[1.375rem] text-[#323643] p-0 m-0">{t("DashboardNormalUser.Loans.tittle3")}</p>
           <hr className="p-0  m-0 w-[20%]" />
         </div>
 
         <div className="flex flex-col items-center w-full min-h-full">
           <div className="min-h-[20rem] w-[75%] shadow-lg rounded-xl mb-5 flex flex-col justify-center items-center dash-user-cards-container">
             <div className="h-[10%]">
-              <p className="text-[1.375rem] text-center">Deamantur House</p>
+              <p className="text-[1.375rem] text-center">Demantur House</p>
               <img
                 src={OfferLoans("./House.jpg")}
                 alt=""
@@ -284,7 +284,7 @@ export const ActLoans = () => {
             </div>
             <div className="mt-6">
               <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
-                Ver detalles
+                {t("DashboardNormalUser.Loans.button2")}
               </button>
             </div>
           </div>
@@ -297,27 +297,27 @@ export const ActLoans = () => {
   const divLeft = () => {
     const LoansProperties = [
       {
-        LoanName: 'Crédito Personal',
-        LoanDescription: 'Disfruta tu nueva vida con las mejores condiciones. Facilitamos los trámites para que realices tu proyectos con nuestro Crédito Personal.',
-        LoanDescription2: 'Damos solución a tus necesidades financieras. Créditos Personales preferenciales para empleados. Somos los únicos que no te cobramos comisión.',
+        LoanName: <span>{t("DashboardNormalUser.Loans.1.tittle")}</span>,
+        LoanDescription: <span>{t("DashboardNormalUser.Loans.1.desc")}</span>,
+        LoanDescription2: <span>{t("DashboardNormalUser.Loans.1.desc2")}</span>,
         LoanImage: './personal_loan.jpg'
       },
       {
-        LoanName: 'Credito Empresa',
-        LoanDescription: 'Si trabajas en tu propio negocio, te lo facilitamos con condiciones especiales para que consolides tus deudas o realices tus nuevos proyectos ',
-        LoanDescription2: 'Especiales para que consolides tus deudas o realices tus nuevos proyectos o mejores las condiciones de tu empresa o emprendimiento.',
+        LoanName: <span>{t("DashboardNormalUser.Loans.2.tittle")}</span>,
+        LoanDescription: <span>{t("DashboardNormalUser.Loans.2.desc")}</span>,
+        LoanDescription2: <span>{t("DashboardNormalUser.Loans.2.desc2")}</span>,
         LoanImage: './business_loan.jpg'
       },
       {
-        LoanName: 'Vivienda Demantur',
-        LoanDescription: 'Aprovecha condiciones preferenciales para solicitar los creditos que necesites para poder realizar la compra de tu vivienda nueva o usada.',
-        LoanDescription2: 'Obtén muchas más posibilidades, beneficios superiores y un mayor nivel de compra y efectivo con la tarjeta Demantur Gold, con ella siempre tendrás ese respaldo de calidad y una mayor seguridad, confianza y ese respaldo que mereces. La Demantur Gold está pensada para aquellas personas como tú, que siempre buscan esa exigencia y buen nivel en una tarjeta de crédito',
+        LoanName: <span>{t("DashboardNormalUser.Loans.3.tittle")}</span>,
+        LoanDescription: <span>{t("DashboardNormalUser.Loans.3.desc")}</span>,
+        LoanDescription2: <span>{t("DashboardNormalUser.Loans.3.desc2")}</span>,
         LoanImage: './House.jpg'
       },
       {
-        LoanName: 'Auto Demantur',
-        LoanDescription: 'Cambia tu estilo de vida con nuestro crédito decreciente para la adquisición de vehículo nuevo o usado',
-        LoanDescription2: 'Te escuchamos, entendemos tu necesidad y te ofrecemos el plan más apto para tu proyecto',
+        LoanName: <span>{t("DashboardNormalUser.Loans.4.tittle")}</span>,
+        LoanDescription: <span>{t("DashboardNormalUser.Loans.4.desc")}</span>,
+        LoanDescription2: <span>{t("DashboardNormalUser.Loans.4.desc2")}</span>,
         LoanImage: './CarDemantur.jpg'
       }
     ]
@@ -325,7 +325,7 @@ export const ActLoans = () => {
     return (
       <>
         <p className="text-[24px] text-[#323643] text-center p-2 mb-4">
-          Solicita tu Credito
+          {t("DashboardNormalUser.Loans.tittle")}
         </p>
         {
           LoanReq === false ?
@@ -359,7 +359,7 @@ export const ActLoans = () => {
                                 LoanDescription2: element.LoanDescription2
                               })
                             }} className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
-                              Solicitar
+                              {t("DashboardNormalUser.Loans.button")}
                             </button>
                           </div>
                         </div>
@@ -371,7 +371,7 @@ export const ActLoans = () => {
             </>
             :
             <>
-              <span>Tiene una Solicitud en progreso</span>
+              <span>{t("DashboardNormalUser.Loans.desc")}</span>
               {console.log(LoanReq)}
             </>
         }

@@ -3,7 +3,6 @@ const ErrorResponse = require("../utils/ErrorMessage");
 const GlobalData = require("../models/GlobalData");
 const Settings = require("../models/Settings");
 const CardsRequests = require("../models/CardsRequests");
-const LoansModels = require('../models/LoansModels')
 const SavingsAccount = require('../models/SavingsAccount');
 const { uploadRegisterImage } = require("../libs/cloudinary");
 const fs = require("fs-extra");
@@ -512,4 +511,3 @@ module.exports = {
   UploadPhoto,
   getNavName
 };
-

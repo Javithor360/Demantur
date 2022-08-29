@@ -7,8 +7,12 @@ import { AiOutlineCloudUpload as CloudIcon, AiOutlineCloud as SuccesClud } from 
 import { BiLoaderAlt } from 'react-icons/bi';
 import { LanguageSwitcher } from '../../../components/LanguageSwitcher'
 
+// Translation
+import { useTranslation } from "react-i18next";
 
 export const Settings = ({ hidden }) => {
+  const {t}=useTranslation();
+
   const { setSettingsOption, Info, UpdatePhoto } = useDash()
 
   const [Image, setImage] = useState();
@@ -91,11 +95,11 @@ export const Settings = ({ hidden }) => {
           <FiX className="" onClick={() => { setSettingsOption(false) }} />
         </div>
         <div className="MainDiv-settings h-100">
-          <span className="">Configuraciones</span>
+          <span className="">{t("DashboardNormalUser.Setting.tittle")}</span>
           <div className='w-[80%] mx-auto h-[0.12rem] bg-slate-500 mb-4 mt-2'></div>
           <div className='w-100 h-5/6 flex flex-col'>
 
-            <span className='text-foto-de-perfil text-[#4E5364]'>Foto de perfil</span>
+            <span className='text-foto-de-perfil text-[#4E5364]'>{t("DashboardNormalUser.Setting.desc")}</span>
             <img src={Info?.PerfilPhoto?.url} alt="" className='rounded-xl h-[12rem] w-[16rem] mx-auto mt-3' />
             {
               Error || Success &&
@@ -108,14 +112,14 @@ export const Settings = ({ hidden }) => {
             <form onSubmit={HandlerSubmitPhoto} className=' '>
               <div className="input-form input-file mx-auto mt-4">
                 <input type='file' accept='image/*' id='Constancia' name='Constancia' placeholder=' ' onChange={handleChangeFile} autoComplete='off' />
-                <label htmlFor="Constancia" className='label-form'>{ImageName === '' ? 'Foto de Perfil' : ImageName}</label>
+                <label htmlFor="Constancia" className='label-form'>{ImageName === '' ? <span>{t("DashboardNormalUser.Setting.desc")}</span> : ImageName}</label>
                 {ImageName === '' ? <CloudIcon className='CloudIcon' /> : <SuccesClud className='CloudIcon' />}
               </div>
-              <button type="submit" className='boton-settings' disabled={CharginButton}>{CharginButton ? <BiLoaderAlt className='animate-spin' /> : 'Cambiar'}</button>
+              <button type="submit" className='boton-settings' disabled={CharginButton}>{CharginButton ? <BiLoaderAlt className='animate-spin' /> : <span className='text-base'>{t("DashboardNormalUser.Setting.button")}</span>}</button>
             </form>
             <div className=''>
               <div className='w-[80%] mx-auto h-[0.12rem] bg-slate-500 mb-4 mt-2'></div>
-              <span className='text-foto-de-perfil text-[#4E5364]'>Idioma</span>
+              <span className='text-foto-de-perfil text-[#4E5364]'>{t("DashboardNormalUser.Setting.language")}</span>
               <LanguageSwitcher />
             </div>
           </div>

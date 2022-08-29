@@ -3,8 +3,12 @@ import { useEffect, useState } from "react";
 import { useDash } from "../../../../../context/DashboardContext";
 import { format } from 'timeago.js'
 
+// Translation
+import { useTranslation } from "react-i18next";
+
 
 export const HistoryWidget = () => {
+  const {t}= useTranslation();
   const { GlobalInfo, Contacts, getGlobalInfo } = useDash()
 
   const [MyTransactions, setMyTransactions] = useState(null);
@@ -51,16 +55,16 @@ export const HistoryWidget = () => {
 
   return (
     <>
-      <h2 className="text-gray-500 text-[1.5625rem] text-center">Últimas Transferencias</h2>
+      <h2 className="text-gray-500 text-[1.5625rem] text-center">{t("DashboardNormalUser.Home.transfers.tittle")}</h2>
       <div className="w-100  flex h-[20rem]">
         <div className="text-center w-1/2 m-2">
-          <span className=" text-[#34B1E7] text-2xl">Hechas</span>
+          <span className=" text-[#34B1E7] text-2xl">{t("DashboardNormalUser.Home.transfers.tittle2")}</span>
           <div className="box-in-transfer w-100 h-[90%] mt-2 border-2 rounded">
             <div className="div-info-transfer bg-[#F3F3F3] w-full h-[20%] flex justify-evenly items-center border-b-1">
-              <span>Monto</span>
-              <span>Beneficiario</span>
-              <span>Numero de cuenta</span>
-              <span>Fecha</span>
+              <span>{t("DashboardNormalUser.Home.transfers.amount")}</span>
+              <span>{t("DashboardNormalUser.Home.transfers.beneficiary1")}</span>
+              <span>{t("DashboardNormalUser.Home.transfers.account")}</span>
+              <span>{t("DashboardNormalUser.Home.transfers.date")}</span>
             </div>
             {
               MyTransactions ?
@@ -90,13 +94,13 @@ export const HistoryWidget = () => {
           </div>
         </div>
         <div className="text-center w-1/2 m-2">
-          <span className="text-[#1a2c6b] text-2xl">Recibidas</span>
+          <span className="text-[#1a2c6b] text-2xl">{t("DashboardNormalUser.Home.transfers.tittle3")}</span>
           <div className="box-in-transfer w-100 h-[90%] mt-2 border-2 rounded">
             <div className="div-info-transfer bg-[#F3F3F3] w-full h-[20%] flex justify-evenly items-center border-b-1">
-              <span>Monto</span>
-              <span>Benefactor</span>
-              <span>Numero de cuenta</span>
-              <span>Fecha</span>
+              <span>{t("DashboardNormalUser.Home.transfers.amount")}</span>
+              <span>{t("DashboardNormalUser.Home.transfers.beneficiary2")}</span>
+              <span>{t("DashboardNormalUser.Home.transfers.account")}</span>
+              <span>{t("DashboardNormalUser.Home.transfers.date")}</span>
             </div>
             {
               HimTransactions ?
@@ -118,8 +122,8 @@ export const HistoryWidget = () => {
                 })
                 :
                 <>
-                  <div className=" flex justify-center items-center w-100 h-[75%]">
-                    <span className="text-xl">No hay ninguna transferencia</span>
+                  <div className=" flex justify-center items-center w-full h-[75%]">
+                    <span className="text-xl">{t("DashboardNormalUser.Home.transfers2")}</span>
                   </div>
                 </>
             }

@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 // import { format } from "timeago.js";
-import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ, getContactsWPReq, getMyLoanReqREQ, getSavingAcctsReq, UpdatePhotoReq, getNametoNavQuery } from "../api/Queries";
+import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ, getContactsWPReq, getMyLoanReqREQ, getSavingAcctsReq, UpdatePhotoReq, getNametoNavQuery, getEveryAccQuery } from "../api/Queries";
 
 const dashContext = createContext();
 
@@ -236,6 +236,14 @@ export const DashProvider = ({ children }) => {
     }
   }
 
+  const getEveryAcc = async (Token) => {
+    try {
+      return await getEveryAccQuery(PrivateConfig(Token));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <dashContext.Provider value={{
       Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
@@ -245,7 +253,7 @@ export const DashProvider = ({ children }) => {
       setFriendRequest, DeleteFriendReq, CurrentChat, setCurrentChat, TransactionsArr, setTransactionsArr,
       MyTransfers, setMyTransfers, HimTranfers, setHimTranfers, DoATransfer, setGlobalInfo, socket, setSocket,
       getMyCardReq, getMyLoanReq, GlobalInfoSetReq, getContacsWP, SavingAccounts, getSavingAccts, UpdatePhoto, clientBalance,
-      NPName, setNPName, setSavingAccounts, setClientBalance, getNametoNav
+      NPName, setNPName, setSavingAccounts, setClientBalance, getNametoNav, getEveryAcc
     }}>
       {children}
     </dashContext.Provider>

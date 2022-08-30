@@ -17,7 +17,7 @@ import { ModalTransaction } from './TransactionsComponents/ModalTransaction'
 
 // Translation
 import { useTranslation } from "react-i18next";
-import { DashboardNormalUser } from '../../DashboardNormalUser'
+// import { DashboardNormalUser } from '../../DashboardNormalUser'
 
 export const Transactions = ({ OnlineUsers }) => {
     const { t } = useTranslation();
@@ -32,15 +32,18 @@ export const Transactions = ({ OnlineUsers }) => {
     const [ArrivalMessage, setArrivalMessage] = useState(null);
     const [MontoTransfer, setMontoTransfer] = useState(null);
     const [NumberAccount, setNumberAccount] = useState(undefined);
+    const [HimNumberAcc, setHimNumberAcc] = useState(undefined)
 
     const [FormError, setFormError] = useState(false);
     const [ModalValidate, setModalValidate] = useState(false);
     const [InputSearch, setInputSearch] = useState('');
     const [ContactsTS, SetContactsTS] = useState([]);
+    const [EveryAccount, setEveryAccount] = useState(null);
+    const [CurrentAccs, setCurrentAccs] = useState(null);
 
     const scrollRef = useRef();
 
-    const { Contacts, CurrentChat, setCurrentChat, GlobalInfo, TransactionsArr, setTransactionsArr, MyTransfers, HimTranfers, Info, setMyTransfers, setHimTranfers, DoATransfer, socket, getGlobalInfo, SavingAccounts, setSavingAccounts, setClientBalance } = useDash()
+    const { Contacts, CurrentChat, setCurrentChat, GlobalInfo, TransactionsArr, setTransactionsArr, MyTransfers, HimTranfers, Info, setMyTransfers, setHimTranfers, DoATransfer, socket, getGlobalInfo, SavingAccounts, setSavingAccounts, setClientBalance, getEveryAcc } = useDash()
 
     const toggle = () => {
         setActiveModal(!activeModal)
@@ -76,7 +79,18 @@ export const Transactions = ({ OnlineUsers }) => {
     useEffect(() => {
         if (ArrivalMessage && CurrentChat?.Dui === ArrivalMessage.SenderDui) {
             setAllTransfers((prev) => [...prev, ArrivalMessage.transfer])
-            setClientBalance(prev => prev + ArrivalMessage.transfer.Amount)
+            setClientBalance(prev => (parseFloat(prev) + parseFloat(ArrivalMessage.transfer.Amount)).toFixed(2))
+            let auxAccounts = SavingAccounts;
+            auxAccounts.forEach(element => {
+                // eslint-disable-next-line eqeqeq
+                if (element.accountNumber == ArrivalMessage.transfer.AccountReceiver) {
+                    element.balance = (parseFloat(element.balance) + parseFloat(ArrivalMessage.transfer.Amount)).toFixed(2);
+                }
+                setSavingAccounts(auxAccounts);
+            });
+            setMontoTransfer('');
+            setNumberAccount('');
+            setSaldo(null);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ArrivalMessage, CurrentChat]);
@@ -87,6 +101,10 @@ export const Transactions = ({ OnlineUsers }) => {
         setCurrentChat(null);
         setSaldo(null);
         SetContactsTS(Contacts);
+        (async () => {
+            const res = await getEveryAcc(localStorage.getItem('authToken'))
+            setEveryAccount(res.data.data);
+        })()
         setTimeout(() => {
             setCharginComp(false)
         }, 1500);
@@ -130,11 +148,13 @@ export const Transactions = ({ OnlineUsers }) => {
     useEffect(() => {
         (async () => {
             if (ModalValidate) {
+                setModalValidate(false)
                 const transaction = {
                     SenderDui: MyDui,
                     ReciverDui: CurrentChat.Dui,
                     Amount: MontoTransfer,
-                    AccountN: NumberAccount.split(' ')[1],
+                    AccountN: NumberAccount,
+                    AccountReceiver: HimNumberAcc,
                     Type: 'NormalTransfer',
                     createdAt: new Date(),
                 }
@@ -148,27 +168,27 @@ export const Transactions = ({ OnlineUsers }) => {
                         ReciverDui: CurrentChat.Dui,
                         Amount: transaction.Amount,
                         AccountN: transaction.AccountN,
+                        AccountReceiver: HimNumberAcc,
                         createdAt: null,
                         Type: 'NormalTransfer',
                     },
                 })
-
-                setClientBalance(prev => prev - transaction.Amount)
-                setMontoTransfer('');
-                setNumberAccount('');
-                setSaldo(null);
 
 
                 let auxAccounts = SavingAccounts;
                 auxAccounts.forEach(element => {
                     // eslint-disable-next-line eqeqeq
                     if (element.accountNumber == transaction.AccountN) {
-                        element.balance = element.balance - transaction.Amount;
+                        element.balance = (parseFloat(element.balance) - parseFloat(transaction.Amount)).toFixed(2);
                     }
                     setSavingAccounts(auxAccounts);
                 });
 
-
+                setClientBalance(prev => (parseFloat(prev) - parseFloat(transaction.Amount)).toFixed(2))
+                setMontoTransfer('');
+                setNumberAccount('');
+                setHimNumberAcc('');
+                setSaldo(null);
                 try {
                     const res = await DoATransfer(localStorage.getItem('authToken'), transaction);
 
@@ -198,9 +218,9 @@ export const Transactions = ({ OnlineUsers }) => {
         if (MontoTransfer && typeof MontoTransfer === 'string') {
             Monto = parseFloat(MontoTransfer.replace(/,/g, ''))
         }
-        if (!MontoTransfer || !NumberAccount || Monto === 0) {
+        if (!MontoTransfer || !NumberAccount || Monto === 0 || Saldo === null) {
             setFormError(true);
-        } else if (NumberAccount === 'Selecionar Cuenta...' || Monto > parseFloat(Saldo)) {
+        } else if (NumberAccount === 'Selecionar Cuenta...' || HimNumberAcc === '' || Monto > parseFloat(Saldo)) {
             setFormError(true);
         } else {
             setMontoTransfer(Monto.toFixed(2))
@@ -232,29 +252,30 @@ export const Transactions = ({ OnlineUsers }) => {
                                 <div className='vl2 w-[1%]'>
                                     <hr />
                                 </div>
-                                <div className='acc-select-container bg-[#D6D6D6] h-[3.9rem] w-fit rounded-xl ml-5 px-2'>
-                                    <select name="" id="" className='acc-select outline-none border-none lol3 w-full h-full m-auto block bg-[#D6D6D6] cursor-pointer' onChange={(e) => setNumberAccount(e.target.value)} value={NumberAccount} >
-                                        <option onClick={() => { setSaldo(null) }}>Selecionar Cuenta...</option>
-                                        {
-                                            SavingAccounts.map((c) => {
-                                                return (
-                                                    <option onClick={() => { setSaldo(c.balance); }}>Nº {c.accountNumber}</option>
-                                                )
-                                            })
-                                        }
-                                    </select>
+                                <div className='w-[39%] flex flex-col items-center justify-center'>
+                                    <p className='m-0 text-center'>Saldo:</p>
+                                    <p className='m-0 text-center text-[1.2rem] text-[#27AE60]'>$ {Saldo ? Saldo : '?'}</p>
                                 </div>
 
                             </div>
                             <div className='acc-select-container bg-[#D6D6D6] h-[3.9rem] w-fit rounded-xl ml-5 px-2'>
                                 <select name="" id="" className='acc-select outline-none border-none lol3 w-full h-full m-auto block bg-[#D6D6D6] cursor-pointer' onChange={(e) => setNumberAccount(e.target.value)} value={NumberAccount} >
-                                    <option>{t("DashboardNormalUser.Transfers.form.option")}.</option>
+                                    <option onClick={() => setSaldo(null)}>{t("DashboardNormalUser.Transfers.form.option")}.</option>
                                     {SavingAccounts.map((el) => {
                                         return (
-                                            <option>{el.accountNumber}</option>
+                                            <option onClick={() => setSaldo(el.balance)} >{el.accountNumber}</option>
                                         )
                                     })}
-                                    {/* <option>Nº 0001112223</option> */}
+                                </select>
+                            </div>
+                            <div className='acc-select-container bg-[#D6D6D6] h-[3.9rem] w-fit rounded-xl ml-5 px-2'>
+                                <select name="" id="" className='acc-select outline-none border-none lol3 w-full h-full m-auto block bg-[#D6D6D6] cursor-pointer' onChange={(e) => setHimNumberAcc(e.target.value)} value={HimNumberAcc} >
+                                    <option onClick={() => setHimNumberAcc('')}>Cuenta a transferir</option>
+                                    {CurrentAccs.map((el) => {
+                                        return (
+                                            <option >{el.accountNumber}</option>
+                                        )
+                                    })}
                                 </select>
                             </div>
 
@@ -271,109 +292,7 @@ export const Transactions = ({ OnlineUsers }) => {
 
     }
 
-    //     return (
-    //         <div className='flex flex-col w-full h-full bg-white rounded-xl shadow-md'>
-    //         {
-    //             CharginComp === true ?
-    //                 <div className='flex justify-center items-center w-100 h-100'>
-    //                     <IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' />
-    //                 </div>
-    //                 :
-    //                 <>
-    //                     {
-    //                         Contacts.length !== 0 ?
-    //                             <>
-    //                                 <div className='flex flex-row h-[100%]'>
-    //                                     <div className='contacts-area  w-[25%] h-full rounded-tl-xl flex flex-col items-center'>
-    //                                         <div className='contacts-search-container w-[90%] h-[10%] rounded-tl-xl mt-[2rem] mb-3'>
 
-    //                                             <h3 className='text-center'>{t("DashboardNormalUser.Transfers.tittle")}</h3>
-    //                                             <form className='searchbox w-full'>
-
-    //                                                 <div role="search" className='searchbox-wrapper flex w-full'>
-    //                                                     <button type="submit" title="" className='sbx-submit-btn'>
-    //                                                         <AiOutlineSearch className='sbx-submit-btn-icon' />
-    //                                                     </button>
-
-    //                                                     <input type="search" name="search" placeholder={t("DashboardNormalUser.Transfers.input")} autoComplete="off" className='sbx-input' />
-    //                                                     <button type="reset" title="" className="sbx-reset-btn">
-    //                                                         <AiOutlineClose />
-    //                                                     </button>
-    //                                                 </div>
-    //                                             </form>
-    //                                         </div >
-    //                                     </div >
-    //                                     <div className='contacts-names w-full h-[80%] rounded-bl-xl flex justify-center items-center pt-4'>
-    //                                         <div className='user-contacts-left-bar w-[90%] h-[100%] overflow-x-hidden flex flex-col items-center'>
-    //                                             {
-    //                                                 ContactsTS.map((Contact, index) => {
-    //                                                     return (
-    //                                                         <div onClick={() => {
-    //                                                             setCurrentChat(Contact)
-    //                                                             setMyTransfers(TransactionsArr.Made.filter((Transaction) => Transaction.ReciverDui === Contact.Dui));
-    //                                                             setHimTranfers(TransactionsArr.Received.filter((Transaction) => Transaction.SenderDui === Contact.Dui));
-    //                                                         }} key={index} >
-    //                                                             <ContactCard key={index} Contact={Contact} TransactionsArr={TransactionsArr} OnlineUsers={OnlineUsers} />
-    //                                                         </div>
-    //                                                     )
-    //                                                 })
-    //                                             }
-    //                                         </div>
-    //                                     </div>
-    //                                 </div >
-    //                                 <div className='w-[75%] h-full rounded-r-xl flex flex-col'>
-
-    //                                     {
-    //                                         CurrentChat !== null ?
-    //                                             <>
-    //                                                 <div className='header-contact-name h-[4.5rem] w-full rounded-tr-xl flex flex-row items-center p-2'>
-    //                                                     <div className="header-contact-name-img">
-    //                                                         <img src={CurrentChat.Photo} alt="" className="h-full w-full" />
-    //                                                     </div>
-    //                                                     <span className="contact-username text-[#323643] ml-3 my-0">{CurrentChat.Name}</span>
-    //                                                 </div>
-    //                                                 <div className='transactions-msg-body w-full h-full flex flex-col overflow-x-hidden overflow-y-auto px-4 py-2'>
-
-    //                                                     {
-    //                                                         AllTransfers.length !== 0 ?
-    //                                                             AllTransfers.map((tr, index) => (
-    //                                                                 <div ref={scrollRef} key={index}>
-    //                                                                     <TransactionMessage own={tr.SenderDui === MyDui} Transf={tr} CurrentChat={CurrentChat} MyName={MyName} key={index} />
-    //                                                                 </div>
-    //                                                             ))
-    //                                                             :
-    //                                                             <div className='flex flex-col items-center justify-center w-100 h-100'>
-    //                                                                 <img className='w-[180px] mb-3' src={no_transactions_icon} alt="" />
-    //                                                                 <p className='text-[#606470] text-[1.125rem]'>{t("DashboardNormalUser.Transfers.desc2")}</p>
-    //                                                             </div>
-    //                                                     }
-
-    //                                                 </div>
-    //                                                 {FormTransfer()}
-    //                                             </>
-    //                                             :
-    //                                             <div className='flex flex-col justify-center items-center h-[100%]'>
-    //                                                 <img className='w-[180px] mb-3' src={select_contact_icon} alt="" />
-    //                                                 <p className='text-[#606470] text-[1.125rem]'>{t("DashboardNormalUser.Transfers.desc")}</p>
-    //                                             </div>
-    //                                     }
-    //                                 </div>
-    //                             </div >
-    //                                     </>
-    //                                     :
-    //         <div className='flex flex-col justify-center items-center h-[100%]'>
-    //             <img className='w-[270px] mb-3' src={no_contacts_icon} alt="" />
-    //             <p className='text-[#606470] text-[1.25rem]'>{t("DashboardNormalUser.Transfers.desc3")}</p>
-    //         </div>
-
-    //                             }
-    //                 }
-
-    //     </div >
-
-    //     )
-
-    // }
     return (
         <div className='flex flex-col w-full h-full bg-white rounded-xl shadow-md'>
             {
@@ -389,13 +308,13 @@ export const Transactions = ({ OnlineUsers }) => {
                                     <div className='flex flex-row h-[100%]'>
                                         <div className='contacts-area  w-[25%] h-full rounded-tl-xl flex flex-col items-center'>
                                             <div className='contacts-search-container w-[90%] h-[10%] rounded-tl-xl mt-[2rem] mb-3'>
-                                                <h3 className='text-center'>Contactos</h3>
+                                                <h3 className='text-center'>{t("DashboardNormalUser.Transfers.tittle")}</h3>
                                                 <form className='searchbox w-full'>
                                                     <div role="search" className='searchbox-wrapper flex w-full'>
                                                         <button type="submit" title="" className='sbx-submit-btn'>
                                                             <AiOutlineSearch className='sbx-submit-btn-icon' />
                                                         </button>
-                                                        <input type="search" name="search" placeholder="Buscar..." autoComplete="off" className='sbx-input' />
+                                                        <input type="search" name="search" placeholder={t("DashboardNormalUser.Transfers.input")} autoComplete="off" className='sbx-input' onChange={(e) => setInputSearch(e.target.value)} value={InputSearch} />
                                                         <button type="reset" title="" className="sbx-reset-btn">
                                                             <AiOutlineClose />
                                                         </button>
@@ -405,14 +324,15 @@ export const Transactions = ({ OnlineUsers }) => {
                                             <div className='contacts-names w-full h-[80%] rounded-bl-xl flex justify-center items-center'>
                                                 <div className='user-contacts-left-bar w-[90%] h-[100%] overflow-x-hidden flex flex-col items-center'>
                                                     {
-                                                        Contacts.map((Contact, index) => {
+                                                        ContactsTS.map((Contact, index) => {
                                                             return (
                                                                 <div onClick={() => {
                                                                     setCurrentChat(Contact)
+                                                                    setCurrentAccs(EveryAccount.filter((Acc) => Acc.Dui === Contact.Dui))
                                                                     setMyTransfers(TransactionsArr.Made.filter((Transaction) => Transaction.ReciverDui === Contact.Dui));
                                                                     setHimTranfers(TransactionsArr.Received.filter((Transaction) => Transaction.SenderDui === Contact.Dui));
                                                                 }}>
-                                                                    <ContactCard Contact={Contact} TransactionsArr={TransactionsArr} key={index} />
+                                                                    <ContactCard Contact={Contact} TransactionsArr={TransactionsArr} key={index} OnlineUsers={OnlineUsers} />
                                                                 </div>
                                                             )
                                                         })
@@ -424,9 +344,11 @@ export const Transactions = ({ OnlineUsers }) => {
 
                                             {
                                                 CurrentChat !== null ?
+
                                                     <>
                                                         <div className='header-contact-name h-[4.5rem] w-full rounded-tr-xl flex flex-row items-center p-2'>
                                                             <div className="header-contact-name-img">
+                                                                <img src={CurrentChat.Photo} alt="" />
                                                             </div>
                                                             <span className="contact-username text-[#323643] ml-3 my-0">{CurrentChat.Name}</span>
                                                         </div>
@@ -435,28 +357,33 @@ export const Transactions = ({ OnlineUsers }) => {
                                                             {
                                                                 AllTransfers.length !== 0 ?
                                                                     AllTransfers.map((tr, index) => (
-                                                                        <TransactionMessage own={tr.SenderDui === MyDui} Transf={tr} CurrentChat={CurrentChat} MyName={MyName} key={index} />
+                                                                        <div ref={scrollRef} key={index}>
+                                                                            <TransactionMessage own={tr.SenderDui === MyDui} Transf={tr} CurrentChat={CurrentChat} MyName={MyName} key={index} />
+                                                                        </div>
                                                                     ))
                                                                     :
-                                                                    <div className='flex justify-center items-center w-100 h-100'>
-                                                                        <h1>No hay transferencias realizadas</h1>
+                                                                    <div className='flex flex-col items-center justify-center w-100 h-100'>
+                                                                        <img className='w-[180px] mb-3' src={no_transactions_icon} alt="" />
+                                                                        <p className='text-[#606470] text-[1.125rem]'>{t("DashboardNormalUser.Transfers.desc2")}</p>
                                                                     </div>
                                                             }
 
                                                         </div>
-                                                        <FormTransfer />
+                                                        {FormTransfer()}
                                                     </>
                                                     :
-                                                    <div className='flex justify-center items-center w-100 h-100'>
-                                                        <h2>Seleccione un contacto para transferir</h2>
+                                                    <div className='flex flex-col justify-center items-center h-[100%]'>
+                                                        <img className='w-[180px] mb-3' src={select_contact_icon} alt="" />
+                                                        <p className='text-[#606470] text-[1.125rem]'>{t("DashboardNormalUser.Transfers.desc")}</p>
                                                     </div>
                                             }
                                         </div>
                                     </div>
                                 </>
                                 :
-                                <div className='flex justify-center items-center w-100 h-100'>
-                                    <h1>No hay contactos</h1>
+                                <div className='flex flex-col justify-center items-center h-[100%]'>
+                                    <img className='w-[270px] mb-3' src={no_contacts_icon} alt="" />
+                                    <p className='text-[#606470] text-[1.25rem]'>{t("DashboardNormalUser.Transfers.desc3")}</p>
                                 </div>
 
                         }

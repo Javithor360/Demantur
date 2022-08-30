@@ -68,6 +68,10 @@ export const getNametoNavQuery = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/dashboard/get-nav-name', { headers: PrivateConfig.headers })
 }
 
+export const getEveryAccQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-every-account', { headers: PrivateConfig.headers })
+}
+
 // ?? QUERYS EMPLOYEE
 
 export const getEmployeeData = async (PrivateConfig) => {

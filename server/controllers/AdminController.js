@@ -80,7 +80,7 @@ const GhostWithdraw = async (req, res, next) => {
 
     const withdraw = await SavingsAccount.findOneAndUpdate(
       { accountNumber: AccountNumber },
-      { $inc: { balance: -Amount } }
+      { $inc: { balance: -parseFloat(Amount).toFixed(2) } }
     );
     if (!withdraw) {
       return next(new ErrorResponse('Ocurrió un error al retirar el dinero', 400, "error"))

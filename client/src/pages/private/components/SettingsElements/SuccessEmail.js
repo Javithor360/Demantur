@@ -2,6 +2,6 @@ import React from 'react'
 
 export const SuccessEmail = () => {
   return (
-    <div>SuccessEmail</div>
+    <div>Email Cambiado Correctamente</div>
   )
 }

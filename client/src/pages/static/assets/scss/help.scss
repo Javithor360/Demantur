@@ -41,7 +41,7 @@
      border-left: 50rem;
      background-color: #eeeeee;
      transition: border .3s ease;
-
+     padding-left: .5rem;
  }
 
  .container-input input:focus{
@@ -96,6 +96,10 @@
         margin-left: -0.5rem;
     }
  }
+
+ .filtro{
+    display: none;
+ }
  
  @media screen and (max-width:670px){
     .help-container{
@@ -104,6 +108,12 @@
 
     .text-container{
         margin-top: 9rem;
+    }
+ }
+
+ @media screen and (max-width:580px){
+    .help-container{
+        height: 74.2vh;
     }
  }
 

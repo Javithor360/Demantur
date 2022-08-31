@@ -31,6 +31,7 @@ const NormalUserSchema = new mongoose.Schema({
     public_id: String,
   },
   ChangeEmailCode: String,
+  ChangePassCode: String,
   verifyCode: String,
   resetPasswordToken: String,
   resetPasswordExpire: Date,

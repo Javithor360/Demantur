@@ -567,6 +567,28 @@ const ChangeEmail = async (req, res, next) => {
   }
 }
 
+const EmailCodeVer = async (req, res, next) => {
+  try {
+    const { Code } = req.body
+
+    const getAllUsers = await NormalUser.find()
+
+    getAllUsers.forEach(async (element, i) => {
+      if (element?.ChangeEmailCode != code) {
+        return next(new ErrorResponse("El codigo es invalido", 400, "error"))
+      }
+      if (element?.ChangeEmailCode == Code) {
+        getAllUsers[i].ChangeEmailCode = undefined;
+        await getAllUsers[i].save();
+        res.status(200).json({ success: true });
+      }
+    });
+
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
 const getAccountsHistory = async (req, res, next) => {
   try {
     const token = req.resetToken;
@@ -622,6 +644,7 @@ module.exports = {
   getNavName,
   getEveryAcc,
   ChangeEmail,
-  getAccountsHistory
+  getAccountsHistory,
+  EmailCodeVer
 };
 

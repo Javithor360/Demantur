@@ -885,7 +885,7 @@
       "balance": "Net Balance:",
       "information": "Personal Information",
       "name": "Name:",
-      "dui": "DUI",
+      "dui:": "DUI",
       "email": "Email:",
       "cards": "Cards",
       "loan": "Loan",
@@ -903,14 +903,14 @@
       "contact": {
         "tittle": "Contact List",
         "desc": "No further contacts",
-        "des2": "You have no contacts"
+        "desc2": "You have no contacts"
       }
     },
     "Transfers":{
       "tittle": "Contacts",
       "desc": "Select a contact to transfer",
       "desc2": "No transfers have been made",
-      "des3": "You have no contacts added",
+      "desc3": "You have no contacts added",
       "input": "Search...",
       "form":{
         "balance": "Balance",
@@ -980,14 +980,14 @@
       "Pending":{
         "name": "Name:",
         "dui": "DUI:",
-        "buttton": "Cancel",
+        "button": "Cancel",
         "desc": "No pending requests made"
       },
       "YourFriendReq":{
         "name": "Name:",
         "dui": "DUI:",
-        "buttton1": "Accept",
-        "buttton2": "Cancel",
+        "button1": "Accept",
+        "button2": "Cancel",
         "desc": "No pending requests"
       }
     },

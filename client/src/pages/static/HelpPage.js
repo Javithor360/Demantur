@@ -15,6 +15,20 @@ const HelpImg = require.context('./assets/img/help', true);
 
 export const HelpPage = () => {
     const {t}= useTranslation();
+
+    document.addEventListener("keyup", help=>{
+
+        if(help.target.matches("#buscador")){
+
+            document.querySelectorAll(".acc").forEach(elemento =>{
+                elemento.textContent.toLocaleLowerCase().includes(help.target.value.toLocaleLowerCase())
+                ?elemento.classList.remove("filtro")
+                :elemento.classList.add("filtro")
+            })
+        }
+
+    })
+
     return (
         <> 
             <Navbar />  
@@ -23,7 +37,7 @@ export const HelpPage = () => {
                     <p className="text-title">{t("help_page.help.help_tittle")}</p>
                     <p className="text-content"> {t("help_page.help.help_desc")}</p>    
                     <div className="container-input">
-                       <input type="Search" placeholder={t("help_page.help.help_search")} maxLength={55}/>
+                       <input type="text" id="buscador" placeholder={t("help_page.help.help_search")} maxLength={55}/>
                        <BsSearch className="icon-input"/>                    </div>
                 </div>         
             </div>

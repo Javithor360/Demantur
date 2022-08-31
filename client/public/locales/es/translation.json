@@ -876,7 +876,7 @@
       "3": "Transferencias",
       "4": "Préstamos",
       "5": "Contactos",
-      "6": "Tajetas",
+      "6": "Tarjetas",
       "7": "Cerrar Sesion"
     },
     "Dropdown":{
@@ -892,7 +892,7 @@
       "balance": "Saldo Neto:",
       "information": "Datos Personales",
       "name": "Nombre:",
-      "dui": "DUI",
+      "dui": "DUI:",
       "email": "Email:",
       "cards": "Tarjetas",
       "loan": "Préstamo",
@@ -911,14 +911,14 @@
       "contact": {
         "tittle": "Lista de contactos",
         "desc": "No hay más contactos",
-        "des2": "No tienes contactos"
+        "desc2": "No tienes contactos"
       }
     },
     "Transfers":{
       "tittle": "Contactos",
       "desc": "Seleccione un contacto para transferir",
       "desc2": "No hay transferencias realizadas",
-      "des3": "No tiene contactos agregados",
+      "desc3": "No tiene contactos agregados",
       "input": "Buscar...",
       "form":{
         "balance": "Saldo:",
@@ -988,14 +988,14 @@
       "Pending":{
         "name": "Nombre:",
         "dui": "DUI:",
-        "buttton": "Cancelar",
+        "button": "Cancelar",
         "desc": "No tiene solicitudes hechas pendientes"
       },
       "YourFriendReq":{
         "name": "Nombre:",
         "dui": "DUI:",
-        "buttton1": "Aceptar",
-        "buttton2": "Cancelar",
+        "button1": "Aceptar",
+        "button2": "Cancelar",
         "desc": "No tiene solicitudes pendientes"
       }
     },

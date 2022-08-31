@@ -254,9 +254,9 @@ export const DashProvider = ({ children }) => {
     }
   }
 
-  const EmailCodeVer = async (Token, Code) => {
+  const EmailCodeVer = async (Token, Code, Email) => {
     try {
-      return await EmailCodeVerQuery(PrivateConfig(Token), Code)
+      return await EmailCodeVerQuery(PrivateConfig(Token), Code, Email)
     } catch (error) {
       return error;
     }

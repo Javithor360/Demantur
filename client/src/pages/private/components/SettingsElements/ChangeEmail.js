@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useDash } from "../../../../context/DashboardContext";
 
-export const ChangeEmail = ({ setSwitchValue }) => {
+export const ChangeEmail = ({ setSwitchValue, setEmail }) => {
 
-  const { ChangeEmail } = useDash()
+  const { ChangeEmail, Info } = useDash()
 
   const [Email, setEmail] = useState(null);
   const [Error, setError] = useState(null);
@@ -24,6 +24,8 @@ export const ChangeEmail = ({ setSwitchValue }) => {
       if (res?.response?.data?.error !== undefined) {
         SetTheError(res.response.data.error)
       } else {
+        Info.ChangeEmailCode = res.data.data.code
+        setEmail(res.data.data.Email)
         setSwitchValue(5)
       }
     } catch (error) {

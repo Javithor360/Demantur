@@ -560,7 +560,7 @@ const ChangeEmail = async (req, res, next) => {
       User.ChangeEmailCode = code;
       await User.save()
       ChangeEmailFunc(code, Email, res);
-      res.status(200).json({ success: true, data: 'Email Enviado Correctamente' })
+      res.status(200).json({ success: true, data: {code, Email} })
     }
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
@@ -569,20 +569,30 @@ const ChangeEmail = async (req, res, next) => {
 
 const EmailCodeVer = async (req, res, next) => {
   try {
-    const { Code } = req.body
-
+    const { Code, Email } = req.body
     const getAllUsers = await NormalUser.find()
+    let UserWithCode = null;
 
-    getAllUsers.forEach(async (element, i) => {
-      if (element?.ChangeEmailCode != code) {
-        return next(new ErrorResponse("El codigo es invalido", 400, "error"))
-      }
-      if (element?.ChangeEmailCode == Code) {
-        getAllUsers[i].ChangeEmailCode = undefined;
-        await getAllUsers[i].save();
-        res.status(200).json({ success: true });
+
+    getAllUsers.forEach(async (element) => {
+      if (element.ChangeEmailCode === Code) {
+        console.log('WITH THIS WILL HAPPENS?')
+        UserWithCode = element
+      } else {
+        UserWithCode = null;
       }
     });
+
+    if(UserWithCode){
+      const updateUser = NormalUser.findOne({_id: UserWithCode._id});
+      updateUser.ChangeEmailCode = undefined;
+      updateUser.Email = Email;
+      await updateUser.save();
+      res.status(200).json({ success: true });
+    } else {
+      return next(new ErrorResponse("El codigo es invalido", 400, "error"))
+    }
+
 
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });

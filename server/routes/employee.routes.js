@@ -10,7 +10,7 @@ router.route("/get-data").get([AuthMiddleware], getEmployeeData);
 router.route("/get-user-data").post(getUserInfoForEmployee);
 
 router.route("/get-cards-requests").get(getCardRequests);
-router.route("/get-Loans-requests").get(getLoanRequests);
+router.route("/get-loans-requests").get(getLoanRequests);
 
 
 module.exports = router;

@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { getCardRequest, getEmployeeData } from "../api/Queries";
+import { getCardRequest, getEmployeeData, getLoanRequests } from "../api/Queries";
 
 const employeeContext = createContext();
 
@@ -38,9 +38,17 @@ export const EmployeeProvider = ({ children }) => {
     }
   }
 
+  const getLoanReq = async ( Token ) =>{
+    try{
+      return await getLoanRequests(PrivateConfig(Token))
+    }catch (error){
+      console.log(error)
+    }
+  }
+
   return (
     <employeeContext.Provider value={{
-      getCardReq, EmployeeInfoQuery, Info
+      getCardReq, EmployeeInfoQuery, getLoanReq, Info
     }}>
       {children}
     </employeeContext.Provider>

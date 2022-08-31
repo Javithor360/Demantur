@@ -183,16 +183,16 @@ const getCardRequests = async (req, res, next) => {
 const getLoanRequests = async (req, res, next) => {
     try {
         const getAllLoansRequests = await LoansModels.find()
-        const getAllUsers = await NormalUser.find()
+        const getsUsers = await NormalUser.find()
 
         let LoansRequestsOrder = []
 
-        for (let index = 0; index < getAllUsers.length; index++) {
+        for (let index = 0; index < getsUsers.length; index++) {
 
-            if (getAllUsers[index]._id.toString() === getAllLoansRequests[index]?.CardOwner.toString()) {
+            if (getsUsers[index]._id.toString() === getAllLoansRequests[index]?. loan_guarantor.toString()) {
                 let ObjectLoanRequest = {}
-                ObjectLoanRequest.RequestOwner = getAllUsers[index]
-                ObjectLoanRequest.CardRequest = getAllLoansRequests[index]
+                ObjectLoanRequest.Requestguarantor = getsUsers[index]
+                ObjectLoanRequest.LoansRequest = getAllLoansRequests[index]
                 LoansRequestsOrder.push(ObjectLoanRequest)
                 console.log(ObjectLoanRequest)
             }

@@ -17,8 +17,7 @@ import { BiLoaderAlt } from 'react-icons/bi'
 //translate
 import { useTranslation } from "react-i18next";
 
-//modal
-import Modal from '../Modal';
+
 
 
 //img
@@ -36,17 +35,10 @@ export const ActLoans = () => {
   const [CharginIco, setCharginIco] = useState(true);
   const [Chargin, setChargin] = useState(false);
 
-  const [modalOn, setModalOn] = useState(false);
-  const [choice, setChoice] = useState(false)
-
-  const clicked = () => {
-    setModalOn(true)
-  }
-
-
   const handleClick = event => {
-    event.currentTarget.disabled = true;  
-  };  
+    event.currentTarget.disabled = true;
+  };
+
   const { t } = useTranslation();
 
 
@@ -224,11 +216,7 @@ export const ActLoans = () => {
     }
   };
 
-  if (setParametros === 'Crédito Personal'){
-    <p>Hola</p>
-  }else if(setParametros === 'Credito Empresa' ){
-    <di>HII</di>
-  }
+
 
   const FormRequestLoan = () => {
     return (
@@ -375,25 +363,29 @@ export const ActLoans = () => {
         LoanName: <span>{t("DashboardNormalUser.Loans.1.tittle")}</span>,
         LoanDescription: <span>{t("DashboardNormalUser.Loans.1.desc")}</span>,
         LoanDescription2: <span>{t("DashboardNormalUser.Loans.1.desc2")}</span>,
-        LoanImage: './personal_loan.jpg'
+        LoanImage: './personal_loan.jpg', 
+        LoanImage2:'./PersonalRequire.jpg'
       },
       {
         LoanName: <span>{t("DashboardNormalUser.Loans.2.tittle")}</span>,
         LoanDescription: <span>{t("DashboardNormalUser.Loans.2.desc")}</span>,
         LoanDescription2: <span>{t("DashboardNormalUser.Loans.2.desc2")}</span>,
-        LoanImage: './business_loan.jpg'
+        LoanImage: './business_loan.jpg',
+        LoanImage2:'./RequireLoan.jpg'
       },
       {
         LoanName: <span>{t("DashboardNormalUser.Loans.3.tittle")}</span>,
         LoanDescription: <span>{t("DashboardNormalUser.Loans.3.desc")}</span>,
         LoanDescription2: <span>{t("DashboardNormalUser.Loans.3.desc2")}</span>,
-        LoanImage: './House.jpg'
+        LoanImage: './House.jpg',
+        LoanImage2:'./HousinRequire.jpg'
       },
       {
         LoanName: <span>{t("DashboardNormalUser.Loans.4.tittle")}</span>,
         LoanDescription: <span>{t("DashboardNormalUser.Loans.4.desc")}</span>,
         LoanDescription2: <span>{t("DashboardNormalUser.Loans.4.desc2")}</span>,
-        LoanImage: './CarDemantur.jpg'
+        LoanImage: './CarDemantur.jpg',
+        LoanImage2:'./AutoRequire.jpg'
 
       }
     ]
@@ -457,10 +449,8 @@ export const ActLoans = () => {
             <div className='h-full w-full flex flex-col items-center justify-center'>
               <img src={ pendingReqIcon } alt="" className='w-[200px] mb-4'/>
               <span>{t("DashboardNormalUser.Loans.desc")}</span>
-            </div>   
-          {/* {console.log(Loanreq)} */}
+            </div>
           </>
-
         }
         </>
       }

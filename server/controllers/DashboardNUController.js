@@ -532,6 +532,7 @@ const getEveryAcc = async (req, res, next) => {
   }
 }
 
+
 const ChangeEmail = async (req, res, next) => {
   try {
     const token = req.resetToken;
@@ -566,6 +567,42 @@ const ChangeEmail = async (req, res, next) => {
   }
 }
 
+const getAccountsHistory = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const AccountNumber = req.header('AccountNumber');
+    if (!AccountNumber) {
+      return next(new ErrorResponse('No se encontró el número de cuenta', 400, 'error'))
+    }
+
+    let filterArray,
+      depHistory = [],
+      withHistory = [],
+      generalHistory = [];
+
+    const DepQuery = await GlobalData.findOne({ DataOwner: token.user.id });
+    if (!DepQuery) {
+      return next(new ErrorResponse('El usuario no existe', 400, 'error'))
+    }
+
+    filterArray = DepQuery.Deposits.filter(i => i.Account == AccountNumber);
+    depHistory.push({ Deposits: filterArray })
+
+    filterArray = DepQuery.withdrawHistory.filter(i => i.Account == AccountNumber);
+    withHistory.push({ Withdraws: filterArray });
+
+    generalHistory.push(depHistory, withHistory);
+
+    if (depHistory.length < 1) {
+      return next(new ErrorResponse('No hay ningún dato', 400, 'error'))
+    }
+    res.status(200).json({ success: true, data: generalHistory });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
 module.exports = {
   testDB,
   getUserId,
@@ -584,6 +621,7 @@ module.exports = {
   UploadPhoto,
   getNavName,
   getEveryAcc,
-  ChangeEmail
+  ChangeEmail,
+  getAccountsHistory
 };
 

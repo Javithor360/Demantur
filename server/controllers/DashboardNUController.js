@@ -600,6 +600,8 @@ const getAccountsHistory = async (req, res, next) => {
     let filterArray,
       depHistory = [],
       withHistory = [],
+      transferMadeHistory = [],
+      transferReceivedHistory = [],
       generalHistory = [];
 
     const DepQuery = await GlobalData.findOne({ DataOwner: token.user.id });
@@ -613,11 +615,18 @@ const getAccountsHistory = async (req, res, next) => {
     filterArray = DepQuery.withdrawHistory.filter(i => i.Account == AccountNumber);
     withHistory.push({ Withdraws: filterArray });
 
-    generalHistory.push(depHistory, withHistory);
+    filterArray = DepQuery.TransfersHistory.Made.filter(el => el.AccountN == AccountNumber);
+    transferMadeHistory.push({ TransferMade: filterArray });
+
+    filterArray = DepQuery.TransfersHistory.Received.filter(el => el.AccountReceiver == AccountNumber);
+    transferReceivedHistory.push({ TransferReceived: filterArray });
+
+    generalHistory.push(depHistory, withHistory, transferMadeHistory, transferReceivedHistory);
 
     if (depHistory.length < 1) {
       return next(new ErrorResponse('No hay ningún dato', 400, 'error'))
     }
+    console.log(generalHistory)
     res.status(200).json({ success: true, data: generalHistory });
   } catch (error) {
     console.error(error);

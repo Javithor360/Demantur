@@ -10,7 +10,7 @@ export const WithdrawHistory = ({ accNum }) => {
             const res = await getAccountsHistory(localStorage.getItem('authToken'), accNum);
             setAccountHistory(res.data.data[1][0].Withdraws)
         })()
-    });
+    }, []);
 
     return (
         <div className='flex flex-col-reverse justify-between text-center mx-[10rem]'>
@@ -26,7 +26,7 @@ export const WithdrawHistory = ({ accNum }) => {
                         )
                     })
                     :
-                    <div>Hola xd</div>
+                    <div>No hay registro de retiros aún</div>
             }
         </div>
     )

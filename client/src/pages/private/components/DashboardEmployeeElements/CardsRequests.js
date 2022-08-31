@@ -35,7 +35,7 @@ export const CardsRequests = () => {
                 CardRqs.map((SingReq, i) => {
                   console.log(SingReq);
                   console.log(CardRqs);
-                  let Name = SingReq.RequestOwner.FirstName + SingReq.RequestOwner.LastName
+                  let Name = `${SingReq.RequestOwner.FirstName} ` + `${SingReq.RequestOwner.LastName}`
                   let Type = SingReq.CardRequest.CardType
                   let Dui = SingReq.RequestOwner.Dui
                   return (
@@ -85,7 +85,7 @@ export const CardsRequests = () => {
                               PerfilPhoto: SingReq.RequestOwner.PerfilPhoto.url,
                               CloudCardImage: SingReq.CardRequest.annexes.CloudCardImage
                             })
-                            setDisplayDetails(true);
+                            setDisplayDetails(true)
                           }}>Más detalles</button>
                         </div>
                       </div>

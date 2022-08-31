@@ -3,6 +3,7 @@ const SavingsAccount = require('../models/SavingsAccount');
 const CardsRequests = require('../models/CardsRequests')
 const LoansModels = require('../models/LoansModels')
 const NormalUser = require('../models/NormalUser')
+const ExtraInfoNormalUser = require('../models/ExtraInfoNormalUser')
 const ErrorResponse = require("../utils/ErrorMessage");
 const { sendToken } = require("../helpers/Functions");
 const GlobalData = require('../models/GlobalData');
@@ -86,7 +87,7 @@ const makeDeposit = async (req, res, next) => {
         const ClientAccountQuery = await SavingsAccount.findOneAndUpdate(
             { accountNumber: AccountNumber },
             {
-                $inc: { balance: Amount },
+                $inc: { balance: parseFloat(Amount).toFixed(2) },
                 // $set: {
                 //     activated: {
                 //         $cond: { if: { $gte: ["balance", 50]}, then: true, else: false }
@@ -157,17 +158,23 @@ const makeDeposit = async (req, res, next) => {
 
 const getCardRequests = async (req, res, next) => {
     try {
+
         const getAllCardRequests = await CardsRequests.find()
         const getAllUsers = await NormalUser.find()
+
+        const ExtraInfo = await ExtraInfoNormalUser.find()
+        
 
         let cardRequestsOrder = []
 
         for (let index = 0; index < getAllUsers.length; index++) {
 
+
             if (getAllUsers[index]._id.toString() === getAllCardRequests[index]?.CardOwner.toString()) {
                 let ObjectCardRequest = {}
                 ObjectCardRequest.RequestOwner = getAllUsers[index]
                 ObjectCardRequest.CardRequest = getAllCardRequests[index]
+                ObjectCardRequest.ExtraInfo = ExtraInfo[index]
                 cardRequestsOrder.push(ObjectCardRequest)
                 console.log(ObjectCardRequest)
             }

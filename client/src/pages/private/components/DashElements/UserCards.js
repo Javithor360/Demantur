@@ -48,7 +48,7 @@ export const UserCards = () => {
   }, 2000);
 
   const UserElementsSalary = ['$450 y $499', '$500 y $999', '$700 y $1200', <span>$1200 {t("DashboardNormalUser.Cards.form.UserElementsSalary.1")}</span>,]
-  const UserElementsLaboralStatus = [<span>{t("DashboardNormalUser.Cards.form.LaboralStatus.1")}</span>, <span>{t("DashboardNormalUser.Cards.form.LaboralStatus.2")}</span>, <span>{t("DashboardNormalUser.Cards.form.LaboralStatus.3")}</span>, <span>{t("DashboardNormalUser.Cards.form.LaboralStatus.4")}</span>,]
+  const UserElementsLaboralStatus = [`${t("DashboardNormalUser.Cards.form.LaboralStatus.1")}`, `${t("DashboardNormalUser.Cards.form.LaboralStatus.2")}`, `${t("DashboardNormalUser.Cards.form.LaboralStatus.3")}`, `${t("DashboardNormalUser.Cards.form.LaboralStatus.4")}`,]
   const [Error, setError] = useState('');
   const [CardOwner, setCardOwner] = useState();
 
@@ -366,26 +366,26 @@ export const UserCards = () => {
     const cardProperties = [
       {
         cardName: 'Demantur Classic',
-        cardDescription: <span>{t("DashboardNormalUser.Loans.1.desc")}</span>,
-        cardDescription2: <span>{t("DashboardNormalUser.Loans.2.desc")}</span>,
+        cardDescription: <span>{t("DashboardNormalUser.Cards.1.desc")}</span>,
+        cardDescription2: <span>{t("DashboardNormalUser.Cards.1.desc2")}</span>,
         cardImage: './classicCard.png'
       },
       {
         cardName: 'Demantur Platinum',
-        cardDescription: <span>{t("DashboardNormalUser.Loans.2.desc")}</span>,
-        cardDescription2: <span>{t("DashboardNormalUser.Loans.2.desc2")}</span>,
+        cardDescription: <span>{t("DashboardNormalUser.Cards.2.desc")}</span>,
+        cardDescription2: <span>{t("DashboardNormalUser.Cards.2.desc2")}</span>,
         cardImage: './platinumCard.png'
       },
       {
         cardName: 'Demantur Gold',
-        cardDescription: <span>{t("DashboardNormalUser.Loans.3.desc")}</span>,
-        cardDescription2: <span>{t("DashboardNormalUser.Loans.3.desc2")}</span>,
+        cardDescription: <span>{t("DashboardNormalUser.Cards.3.desc")}</span>,
+        cardDescription2: <span>{t("DashboardNormalUser.Cards.3.desc2")}</span>,
         cardImage: './goldCard.png'
       },
       {
         cardName: 'Mastercard Black',
-        cardDescription: <span>{t("DashboardNormalUser.Loans.4.desc")}</span>,
-        cardDescription2: <span>{t("DashboardNormalUser.Loans.4.desc2")}</span>,
+        cardDescription: <span>{t("DashboardNormalUser.Cards.4.desc")}</span>,
+        cardDescription2: <span>{t("DashboardNormalUser.Cards.4.desc2")}</span>,
         cardImage: './blackCard.png'
       }
     ]

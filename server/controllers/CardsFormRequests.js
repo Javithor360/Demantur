@@ -57,12 +57,16 @@ const CardsFormRequests = async (req, res, next) => {
         
         if (cardId == 0){
             CardType = 'Classic'
+            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1661868613/bank_card_images/classicCard-no_borrar_rk4osh.png'
         }else if (cardId == 1){
             CardType = 'Platinum'
+            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1661868613/bank_card_images/platinumCard-no_borrar_tqt0zl.png'
         } else  if (cardId == 2){
             CardType = 'Gold'
+            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1661868613/bank_card_images/goldCard-no_borrar_ovmjjp.png'
         } else if (cardId == 3){
             CardType = 'Black'
+            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1661868613/bank_card_images/blackCard-no_borrar_egcyc0.png'
         }
     
         console.log(CardType)
@@ -94,7 +98,8 @@ const CardsFormRequests = async (req, res, next) => {
             DuiFrontImg,
             DuiBackImg,
             NitImg, 
-            SalaryEvidenceImg 
+            SalaryEvidenceImg,
+            CloudCardImage
         }
 
         const newCardRequest = await new CardsRequests({

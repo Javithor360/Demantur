@@ -1,9 +1,9 @@
 @use '../../../../../../utilities/_colors.scss' as *;
 
-.header-icons-grid {
+.emp-header-icons-grid {
     width: 100%;
     display: grid;
-    grid-template-columns: auto 1% auto 1% auto;
+    grid-template-columns: auto;
 
     .user-info {
         .profile-img {
@@ -11,6 +11,7 @@
             height: 36px;
             border-radius: 100%;
             overflow: hidden;
+            box-shadow: 0px 0px 10px -3px rgba(145,145,145,0.75);
 
             img {
                 width: 100%;
@@ -19,14 +20,18 @@
     }
 }
 
-.header-icon {
-    color: $primary_white;
+.emp-header-icon2 {
+    color: $secondary_gray;
     transition: .2s;
     cursor: pointer;
 }
-
-.hi-hover-1:hover {
-    color: $secondary_white;
+.emp-header-icon {
+    color: $secondary_gray;
+    transition: .2s;
+    cursor: pointer;
+}
+.emp-hi-hover-1:hover {
+    color: $secondary_gray;
     transition: .2s;
     animation: 2s bell-vibrate ease-in-out infinite;
 }
@@ -66,16 +71,16 @@
 }
 
 
-.hi-hover-2:hover {
+.emp-hi-hover-2:hover {
     transform: rotate(55deg);
-    color: $secondary_white;
+    color: $secondary_gray;
     transition: .2s;
 }
 
 .separate hr {
     border-style: none;
     height: 70%;
-    background-color: $primary_white;
+    background-color: $secondary_gray;
     width: 1px;
     opacity: 100;
 }

@@ -1,3 +1,4 @@
+import axios from "axios";
 //scss
 import "./assets/scss/ContactPage_main.scss"
 
@@ -7,15 +8,57 @@ import { Footer } from "../../components/Footer";
 
 //images
 import ContactIconBg from './assets/img/contact/contact_bg_icon.png'
-
+import { useState } from "react";
 // Translation
 import { useTranslation } from "react-i18next";
 
 //hooks
+
 //Aqui van los hooks
 
 export const ContactPage = () => {
     const {t}= useTranslation();
+
+    const [name, setName] = useState('')
+    const [dui, setDui] = useState('')
+    const [mail, setMail] = useState('')
+    const [cellnum, setCellnum] = useState('')
+
+    const handleForm = async(e) => {
+        e.preventDefault();
+
+        try {
+            const PrivateConfig = {
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-auth-token": localStorage.getItem("authToken"),
+                },
+            };
+
+            const ContactFormData = {
+                name: name,
+                dui: dui,
+                mail: mail,
+                cellnum: cellnum
+            }
+
+            const ContactForm = new FormData();
+
+            for (let key in ContactFormData) {
+                ContactForm.append(key, ContactFormData[key]);
+            }
+
+            await axios.post(
+                "http://localhost:4000/api/contact/contact-data",
+                ContactForm,
+                PrivateConfig
+            );
+            
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
         <>
             <Navbar />
@@ -38,7 +81,7 @@ export const ContactPage = () => {
                     {t("ContactPage.desc")} 
                 </p>
                 <div className="contact-form-container">
-                    <form className="" action="">
+                    <form onSubmit={handleForm} className="" action="">
                         <div className="form-element">
                             <div className="input-container">
                                 <input
@@ -46,6 +89,7 @@ export const ContactPage = () => {
                                     type="text"
                                     required="required"
                                     placeholder="Nombre completo"
+                                    onChange={(e) => setName(e.target.value)}
                                 />
                                 <label className="form-label" htmlFor="">
                                     {t("ContactPage.form.name")} 
@@ -59,6 +103,7 @@ export const ContactPage = () => {
                                     type="number"
                                     required="required"
                                     placeholder="Número de DUI"
+                                    onChange={(e) => setDui(e.target.value)}
                                 />
                                 <label className="form-label" htmlFor="">
                                     {t("ContactPage.form.dui")} 
@@ -72,6 +117,7 @@ export const ContactPage = () => {
                                     type="email"
                                     required="required"
                                     placeholder="Correo electrónico"
+                                    onChange={(e) => setMail(e.target.value)}
                                 />
                                 <label className="form-label" htmlFor="">
                                     {t("ContactPage.form.email")} 
@@ -85,6 +131,7 @@ export const ContactPage = () => {
                                     type="number"
                                     required="required"
                                     placeholder="Telefono de contacto"
+                                    onChange={(e) => setCellnum(e.target.value)}
                                 />
                                 <label className="form-label" htmlFor="">
                                     {t("ContactPage.form.contact")} 

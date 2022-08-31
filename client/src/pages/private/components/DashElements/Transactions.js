@@ -36,6 +36,7 @@ export const Transactions = ({ OnlineUsers }) => {
     const [NumberAccount, setNumberAccount] = useState('');
     const [HimNumberAcc, setHimNumberAcc] = useState('')
 
+
     const [FormError, setFormError] = useState(false);
     const [ModalValidate, setModalValidate] = useState(false);
     const [InputSearch, setInputSearch] = useState('');
@@ -259,7 +260,7 @@ export const Transactions = ({ OnlineUsers }) => {
                                 </div>
                                 <div className='w-[39%] flex flex-col items-center justify-center'>
                                     <p className='m-0 text-center'>Saldo:</p>
-                                    <p className='m-0 text-center text-[1.2rem] text-[#27AE60]'>$ {Saldo !== null ? Saldo : '?'}</p>
+                                    <p className='m-0 text-center text-[1.2rem] text-[#27AE60]'>$ {Saldo !== null ? parseFloat(Saldo).toFixed(2) : '?'}</p>
                                 </div>
 
                             </div>

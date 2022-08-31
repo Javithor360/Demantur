@@ -7,6 +7,7 @@ const LoansModels = require('../models/LoansModels')
 const SavingsAccount = require('../models/SavingsAccount');
 const { uploadRegisterImage } = require("../libs/cloudinary");
 const fs = require("fs-extra");
+const { ChangeEmailFunc, createCode } = require("../helpers/Functions");
 // const SavingAccount = require("../models/SavingAccount");
 
 const testDB = async (req, res, next) => {
@@ -531,6 +532,40 @@ const getEveryAcc = async (req, res, next) => {
   }
 }
 
+const ChangeEmail = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const { Email } = req.body
+
+    const User = await NormalUser.findOne({ _id: token.user.id });
+
+    const isSetted = await NormalUser.findOne({ Email: Email });
+
+    if (!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(Email)) {
+      return next(new ErrorResponse("Ingrese un Email Valido", 400, "error"))
+    }
+
+    if (!Email) {
+      return next(new ErrorResponse("Ingrese su Email", 400, "error"))
+    }
+
+    if (isSetted) {
+      return next(new ErrorResponse("Este Email ya está registrado", 400, "error"))
+    }
+    if (User.Email == Email) {
+      return next(new ErrorResponse("El email no puede ser igual al anterior", 400, "error"))
+    } else {
+      const code = createCode();
+      User.ChangeEmailCode = code;
+      await User.save()
+      ChangeEmailFunc(code, Email, res);
+      res.status(200).json({ success: true, data: 'Email Enviado Correctamente' })
+    }
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
 module.exports = {
   testDB,
   getUserId,
@@ -548,6 +583,7 @@ module.exports = {
   getSavAcc,
   UploadPhoto,
   getNavName,
-  getEveryAcc
+  getEveryAcc,
+  ChangeEmail
 };
 

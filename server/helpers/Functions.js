@@ -277,6 +277,13 @@ exports.createCode = () => {
 
   return code;
 };
+// creacion del codigo de gestion
+exports.createGestionCode = () => {
+  let code2 = Math.random() * (9000 - 1000);
+  code2 = code2 + 1000;
+  code2 = Math.trunc(code2);
+  return code2;
+};
 
 // Enviar email de verificacion del email
 exports.VeCoEmail = async (verifyCode, isNormalUser, next) => {
@@ -407,7 +414,7 @@ footer{
   }
 };
 
-exports.ContactEmail = async (name, dui, mail, cellnum, TextMessage) => {
+exports.ContactEmail = async (gestionCode, name, dui, mail, cellnum, TextMessage) => {
   try {
     const message = `
       <p><b>Nombre del cliente:</b> ${name}</p>
@@ -415,6 +422,7 @@ exports.ContactEmail = async (name, dui, mail, cellnum, TextMessage) => {
       <p><b>Correo Electrónico de Contacto:</b>: ${mail}</p>
       <p><b>Número de contacto</b>: ${cellnum}</p>
       <p><b>Mensaje:</b>: ${TextMessage}</p>
+      <p><b>Número de gestión:</b>: ${gestionCode}</p>
     `
     await sendEmail({
       to: process.env.EMAIL_FROM,

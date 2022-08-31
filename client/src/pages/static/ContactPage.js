@@ -1,16 +1,18 @@
 import axios from "axios";
 //scss
 import "./assets/scss/ContactPage_main.scss"
-
+//icons
+import { BiLoaderAlt } from 'react-icons/bi'
 //components
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 
 //images
 import ContactIconBg from './assets/img/contact/contact_bg_icon.png'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // Translation
 import { useTranslation } from "react-i18next";
+import Cleave from "cleave.js/react";
 
 //hooks
 
@@ -18,12 +20,14 @@ import { useTranslation } from "react-i18next";
 
 export const ContactPage = () => {
     const {t}= useTranslation();
-
+    const [Error, setError] = useState('')
     const [name, setName] = useState('')
     const [dui, setDui] = useState('')
     const [mail, setMail] = useState('')
     const [cellnum, setCellnum] = useState('')
-
+    const [TextMessage, setTextMessage] = useState('')
+    const [Chargin, setChargin] = useState(false);
+    
     const handleForm = async(e) => {
         e.preventDefault();
 
@@ -39,10 +43,13 @@ export const ContactPage = () => {
                 name: name,
                 dui: dui,
                 mail: mail,
-                cellnum: cellnum
+                cellnum: cellnum,
+                TextMessage: TextMessage
             }
 
             const ContactForm = new FormData();
+
+            setChargin(true);
 
             for (let key in ContactFormData) {
                 ContactForm.append(key, ContactFormData[key]);
@@ -53,12 +60,22 @@ export const ContactPage = () => {
                 ContactForm,
                 PrivateConfig
             );
+
+            setTimeout(() => {
+                setChargin(false)
+                setName('')
+                setDui('')
+                setMail('')
+                setCellnum('')
+                setTextMessage('')
+            }, 1500);
+        
             
         } catch (error) {
-            console.log(error);
+            setChargin(false)
+            setError(error.response.data.error);
         }
     }
-
     return (
         <>
             <Navbar />
@@ -87,7 +104,6 @@ export const ContactPage = () => {
                                 <input
                                     className="input-box"
                                     type="text"
-                                    required="required"
                                     placeholder="Nombre completo"
                                     onChange={(e) => setName(e.target.value)}
                                 />
@@ -98,11 +114,10 @@ export const ContactPage = () => {
                         </div>
                         <div className="form-element">
                             <div className="input-container">
-                                <input
+                                <Cleave
                                     className="input-box"
-                                    type="number"
-                                    required="required"
                                     placeholder="Número de DUI"
+                                    options={{ blocks: [6, 1], delimiter: "-", numericOnly: true }}
                                     onChange={(e) => setDui(e.target.value)}
                                 />
                                 <label className="form-label" htmlFor="">
@@ -114,8 +129,6 @@ export const ContactPage = () => {
                             <div className="input-container">
                                 <input
                                     className="input-box"
-                                    type="email"
-                                    required="required"
                                     placeholder="Correo electrónico"
                                     onChange={(e) => setMail(e.target.value)}
                                 />
@@ -126,28 +139,14 @@ export const ContactPage = () => {
                         </div>
                         <div className="form-element">
                             <div className="input-container">
-                                <input
+                                <Cleave
                                     className="input-box"
-                                    type="number"
-                                    required="required"
                                     placeholder="Telefono de contacto"
+                                    options={{ blocks: [4, 4], numericOnly: true }}
                                     onChange={(e) => setCellnum(e.target.value)}
                                 />
                                 <label className="form-label" htmlFor="">
                                     {t("ContactPage.form.contact")} 
-                                </label>
-                            </div>
-                        </div>
-                        <div className="form-element">
-                            <div className="input-container">
-                                <input
-                                    className="input-box"
-                                    type="number"
-                                    required="required"
-                                    placeholder="Número de gestión (Si tienes)"
-                                />
-                                <label className="form-label" htmlFor="">
-                                    {t("ContactPage.form.management")} 
                                 </label>
                             </div>
                         </div>
@@ -159,10 +158,23 @@ export const ContactPage = () => {
                             cols={30}
                             rows={10}
                             defaultValue={""}
+                            onChange={(e) => setTextMessage(e.target.value)}
+                            
                         />
-                        <button className="contact-submit-button" type="submit">
-                            {t("ContactPage.form.button")}
+                        <span className='text-[16px] text-[red] mt-7'>{Error !== '' && Error}</span>
+                        <button className="contact-submit-button" type="submit" disabled={Chargin}>
+                        {
+                            Chargin === true ?
+                                <>
+                                    <BiLoaderAlt className="animate-spin" />
+                                </>
+                                :
+                                <>
+                                    <span>{t("ContactPage.form.button")}</span>
+                                </>
+                        }
                         </button>
+                        
                     </form>
                 </div>
             </main>

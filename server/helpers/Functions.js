@@ -406,3 +406,22 @@ footer{
     return next(new ErrorResponse("El EMAIL NO SE PUDO ENVIAR", 500, "error"));
   }
 };
+
+exports.ContactEmail = async (name, dui, mail, cellnum, TextMessage) => {
+  try {
+    const message = `
+      <p><b>Nombre del cliente:</b> ${name}</p>
+      <p><b>Número de DUI:</b>: ${dui}</p>
+      <p><b>Correo Electrónico de Contacto:</b>: ${mail}</p>
+      <p><b>Número de contacto</b>: ${cellnum}</p>
+      <p><b>Mensaje:</b>: ${TextMessage}</p>
+    `
+    await sendEmail({
+      to: process.env.EMAIL_FROM,
+      subject: "Contacto con nosotros",
+      text: message,
+    });
+  } catch (error) {
+    return next(new ErrorResponse("El EMAIL NO SE PUDO ENVIAR", 500, "error"));
+  }
+}

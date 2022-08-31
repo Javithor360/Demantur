@@ -11,7 +11,7 @@ import { LanguageSwitcher } from '../../../components/LanguageSwitcher'
 import { useTranslation } from "react-i18next";
 
 export const Settings = ({ hidden }) => {
-  const {t}=useTranslation();
+  const { t } = useTranslation();
 
   const { setSettingsOption, Info, UpdatePhoto } = useDash()
 
@@ -47,10 +47,6 @@ export const Settings = ({ hidden }) => {
   useEffect(() => {
     Imagefunc(ImageName, setImageName);
   }, [ImageName]);
-
-  useEffect(() => {
-    // console.log()
-  }, [Info]);
 
   const handleChangeFile = (e) => {
     if (e.target.files.length !== 0) {

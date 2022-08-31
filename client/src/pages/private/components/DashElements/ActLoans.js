@@ -33,12 +33,12 @@ export const ActLoans = () => {
 
   const { LoansRequestsForm, CreateElements, getMyLoanReq } = useDash();
 
-  useEffect(() => {
-    (async () => {
-      const resp = await getMyLoanReq(localStorage.getItem('authToken'));
-      setLoanReq(resp.data.data);
-    })()
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const resp = await getMyLoanReq(localStorage.getItem('authToken'));
+  //     setLoanReq(resp.data.data);
+  //   })()
+  // }, []);
 
 
 
@@ -183,7 +183,7 @@ export const ActLoans = () => {
       );
 
       CreateElements(localStorage.getItem("authToken"));
-      setChangeBox (false);
+      setChangeBox(false);
 
     } catch (error) {
       setError(error.response.data.error)
@@ -194,7 +194,7 @@ export const ActLoans = () => {
   const FormRequestLoan = () => {
     return (
       <div className="w-full h-full bg-white rounded-xl overflow-y-auto">
-        { Error !== '' && Error }
+        {Error !== '' && Error}
         <div className="w-full h-[2rem] flex items-center justify-end">
           <button className="bg-transparent outline-none border-none" onClick={() => {
             setChangeBox(false)
@@ -289,7 +289,7 @@ export const ActLoans = () => {
             </div>
           </div>
         </div>
-        
+
       </>
     );
   }

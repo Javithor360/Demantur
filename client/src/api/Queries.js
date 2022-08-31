@@ -61,8 +61,15 @@ export const getSavingAcctsReq = async (PrivateConfig) => {
 }
 
 export const UpdatePhotoReq = async (Token, Form) => {
-  console.log(Form);
   return await axios.post('http://localhost:4000/api/dashboard/upload-photo', Form, { headers: { 'Content-Type': 'multipart/form-data', "x-auth-token": Token } })
+}
+
+export const getNametoNavQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-nav-name', { headers: PrivateConfig.headers })
+}
+
+export const getEveryAccQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-every-account', { headers: PrivateConfig.headers })
 }
 
 export const getAccHistory = async (Token, accNum) => {

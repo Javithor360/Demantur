@@ -23,7 +23,7 @@ export const SideBar = () => {
 
   return (
     <>
-      <div className="flex items-center justify-between w-64 h-full p-2 bg-white rounded-md shadow-lg side-bar-container flex-column">
+      <div className="flex items-center justify-between w-64 h-full p-2 bg-white shadow-lg side-bar-container flex-column">
         <div className="w-full side-bar-content-container">
           <div className="w-full side-bar-logo content-column-1">
             <img

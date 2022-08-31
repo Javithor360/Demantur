@@ -48,7 +48,7 @@ export const UserCards = () => {
   }, 2000);
 
   const UserElementsSalary = ['$450 y $499', '$500 y $999', '$700 y $1200', <span>$1200 {t("DashboardNormalUser.Cards.form.UserElementsSalary.1")}</span>,]
-  const UserElementsLaboralStatus = [<span>{t("DashboardNormalUser.Cards.form.LaboralStatus.1")}</span>, <span>{t("DashboardNormalUser.Cards.form.LaboralStatus.2")}</span>, <span>{t("DashboardNormalUser.Cards.form.LaboralStatus.3")}</span>, <span>{t("DashboardNormalUser.Cards.form.LaboralStatus.4")}</span>,]
+  const UserElementsLaboralStatus = [`${t("DashboardNormalUser.Cards.form.LaboralStatus.1")}`, `${t("DashboardNormalUser.Cards.form.LaboralStatus.2")}`, `${t("DashboardNormalUser.Cards.form.LaboralStatus.3")}`, `${t("DashboardNormalUser.Cards.form.LaboralStatus.4")}`,]
   const [Error, setError] = useState('');
   const [CardOwner, setCardOwner] = useState();
 

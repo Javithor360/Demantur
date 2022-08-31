@@ -14,6 +14,8 @@ import Cleave from 'cleave.js/react'
 import Modal from '../Modal';
 import { ModalTransaction } from './TransactionsComponents/ModalTransaction'
 // import { io } from 'socket.io-client'
+import '../../assets/scss/DropdownTr.scss'
+import { IoMdArrowDropdown as ArrowDown } from 'react-icons/io'
 
 // Translation
 import { useTranslation } from "react-i18next";
@@ -31,8 +33,8 @@ export const Transactions = ({ OnlineUsers }) => {
 
     const [ArrivalMessage, setArrivalMessage] = useState(null);
     const [MontoTransfer, setMontoTransfer] = useState(null);
-    const [NumberAccount, setNumberAccount] = useState(undefined);
-    const [HimNumberAcc, setHimNumberAcc] = useState(undefined)
+    const [NumberAccount, setNumberAccount] = useState('');
+    const [HimNumberAcc, setHimNumberAcc] = useState('')
 
     const [FormError, setFormError] = useState(false);
     const [ModalValidate, setModalValidate] = useState(false);
@@ -40,6 +42,9 @@ export const Transactions = ({ OnlineUsers }) => {
     const [ContactsTS, SetContactsTS] = useState([]);
     const [EveryAccount, setEveryAccount] = useState(null);
     const [CurrentAccs, setCurrentAccs] = useState(null);
+
+    const [IsSelect, setIsSelect] = useState(false);
+    const [IsSelect2, setIsSelect2] = useState(false);
 
     const scrollRef = useRef();
 
@@ -246,7 +251,7 @@ export const Transactions = ({ OnlineUsers }) => {
 
                 <div className='bottom-tools-bar h-[15%] w-full rounded-br-xl flex items-center'>
                     <form onSubmit={HandlerTransSubmit} className='w-full h-full flex justify-between items-center py-2 px-4'>
-                        <div className='w-[70%] h-[4rem] flex flex-row'>
+                        <div className='w-[80%] h-[4rem] flex flex-row'>
                             <div className='bg-[#D6D6D6] h-[3.9rem] w-[50%] rounded-xl flex flex-row'>
                                 <Cleave type='text' options={{ numeral: true, numeralThousandsGroupStyle: 'thousand' }} className='w-[60%] h-full bg-transparent border-none outline-none pl-5' placeholder={t("DashboardNormalUser.Transfers.form.placeholder")} onChange={(e) => setMontoTransfer(e.target.value)} value={MontoTransfer} autoComplete='off' />
                                 <div className='vl2 w-[1%]'>
@@ -254,29 +259,64 @@ export const Transactions = ({ OnlineUsers }) => {
                                 </div>
                                 <div className='w-[39%] flex flex-col items-center justify-center'>
                                     <p className='m-0 text-center'>Saldo:</p>
-                                    <p className='m-0 text-center text-[1.2rem] text-[#27AE60]'>$ {Saldo ? Saldo : '?'}</p>
+                                    <p className='m-0 text-center text-[1.2rem] text-[#27AE60]'>$ {Saldo !== null ? Saldo : '?'}</p>
                                 </div>
 
                             </div>
-                            <div className='acc-select-container bg-[#D6D6D6] h-[3.9rem] w-fit rounded-xl ml-5 px-2'>
-                                <select name="" id="" className='acc-select outline-none border-none lol3 w-full h-full m-auto block bg-[#D6D6D6] cursor-pointer' onChange={(e) => setNumberAccount(e.target.value)} value={NumberAccount} >
-                                    <option onClick={() => setSaldo(null)}>{t("DashboardNormalUser.Transfers.form.option")}.</option>
-                                    {SavingAccounts.map((el) => {
-                                        return (
-                                            <option onClick={() => setSaldo(el.balance)} >{el.accountNumber}</option>
-                                        )
-                                    })}
-                                </select>
+
+                            <div className='acc-select-container bg-[#D6D6D6] h-[3.9rem] w-[25rem] rounded-xl ml-5 px-2'>
+                                <div className='dropdown-tr'>
+                                    <div className="dropdown-button-tr" onClick={e => setIsSelect(!IsSelect)}>{NumberAccount === '' ? <span>Cuenta Emisora</span> : NumberAccount} <ArrowDown /></div>
+                                    {IsSelect && (
+                                        <div className={`dropdown-box-content-tr top-[-${(SavingAccounts.length * 3.3) + 3.3}rem]`}>
+                                            <div className="dropdown-box-item-tr" onClick={e => { setNumberAccount(''); setIsSelect(false); setSaldo(null) }} >
+                                                Seleccionar
+                                            </div>
+                                            {SavingAccounts.map((element, i) => {
+                                                return (
+                                                    <div
+                                                        className="dropdown-box-item-tr"
+                                                        onClick={e => {
+                                                            setNumberAccount(element.accountNumber)
+                                                            setIsSelect(false)
+                                                            setSaldo(element.balance)
+                                                        }}
+                                                        key={i}
+                                                    >
+                                                        {element.accountNumber}
+                                                    </div>
+                                                )
+                                            })}
+                                        </div>
+                                    )}
+                                </div>
                             </div>
-                            <div className='acc-select-container bg-[#D6D6D6] h-[3.9rem] w-fit rounded-xl ml-5 px-2'>
-                                <select name="" id="" className='acc-select outline-none border-none lol3 w-full h-full m-auto block bg-[#D6D6D6] cursor-pointer' onChange={(e) => setHimNumberAcc(e.target.value)} value={HimNumberAcc} >
-                                    <option onClick={() => setHimNumberAcc('')}>Cuenta a transferir</option>
-                                    {CurrentAccs.map((el) => {
-                                        return (
-                                            <option >{el.accountNumber}</option>
-                                        )
-                                    })}
-                                </select>
+
+                            <div className='acc-select-container bg-[#D6D6D6] h-[3.9rem] w-[25rem] rounded-xl ml-5 px-2'>
+                                <div className='dropdown-tr'>
+                                    <div className="dropdown-button-tr" onClick={e => setIsSelect2(!IsSelect2)}>{HimNumberAcc === '' ? <span>Cuenta a transferir</span> : HimNumberAcc} <ArrowDown /></div>
+                                    {IsSelect2 && (
+                                        <div className={`dropdown-box-content-tr top-[-${(CurrentAccs.length * 3.3) + 3.3}rem]`}>
+                                            <div className="dropdown-box-item-tr" onClick={e => { setHimNumberAcc(''); setIsSelect2(false) }} >
+                                                Seleccionar
+                                            </div>
+                                            {CurrentAccs.map((element, i) => {
+                                                return (
+                                                    <div
+                                                        className="dropdown-box-item-tr"
+                                                        onClick={e => {
+                                                            setHimNumberAcc(element.accountNumber)
+                                                            setIsSelect2(false)
+                                                        }}
+                                                        key={i}
+                                                    >
+                                                        {element.accountNumber}
+                                                    </div>
+                                                )
+                                            })}
+                                        </div>
+                                    )}
+                                </div>
                             </div>
 
                         </div>

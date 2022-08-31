@@ -86,6 +86,12 @@ export const Settings = ({ hidden }) => {
     }
   }
 
+  useEffect(() => {
+    if (Info?.ChangeEmailCode) {
+      setSwitchValue(5);
+    }
+  }, [Info]);
+
   const DisplayElements = () => {
     switch (SwitchValue) {
       case 1:
@@ -93,15 +99,15 @@ export const Settings = ({ hidden }) => {
       case 2:
         return <ChangeEmail setSwitchValue={setSwitchValue} />
       case 3:
-        return <ChangePassword />
+        return <ChangePassword setSwitchValue={setSwitchValue} />
       case 4:
-        return <SuccessPass />
+        return <SuccessPass setSwitchValue={setSwitchValue} />
       case 5:
-        return <EmailCode />
+        return <EmailCode setSwitchValue={setSwitchValue} />
       case 6:
-        return <SuccessEmail />
+        return <SuccessEmail setSwitchValue={setSwitchValue} />
       default:
-        return <DefaultElement />
+        return <DefaultElement setSwitchValue={setSwitchValue} />
     }
   }
 

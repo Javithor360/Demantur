@@ -514,17 +514,17 @@ const getEveryAcc = async (req, res, next) => {
 
     let AccountsWithUsers = [];
 
-    AllAccounts.forEach((element, i) => {
-      if (element.AccountOwner.toString() === AllUsers[i]._id.toString()) {
-        let datos = { Dui: null, accountNumber: null };
-        datos.Dui = AllUsers[i].Dui;
-        datos.accountNumber = element.accountNumber;
+    AllAccounts.forEach((element1, i) => {
+      AllUsers.forEach(element2 => {
+        if (element1?.AccountOwner?.toString() === element2._id?.toString()) {
+          let datos = { Dui: null, accountNumber: null };
+          datos.Dui = element2.Dui;
+          datos.accountNumber = element1.accountNumber;
 
-        AccountsWithUsers.push(datos);
-      }
+          AccountsWithUsers.push(datos);
+        }
+      });
     });
-
-    console.log(AccountsWithUsers);
 
     res.status(200).json({ success: true, data: AccountsWithUsers })
   } catch (error) {

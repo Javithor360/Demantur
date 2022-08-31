@@ -7,7 +7,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 export const Header = () => {
-  const HeaderImages = require.context('./assets/img/', true);
   const { OptionElement, setSettingsOption, Info } = useDash();
   const [NameToHeader, setNameToHeader] = useState('')
 

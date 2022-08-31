@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 
 
 export const HistoryWidget = () => {
-  const {t}= useTranslation();
+  const { t } = useTranslation();
   const { GlobalInfo, Contacts, getGlobalInfo } = useDash()
 
   const [MyTransactions, setMyTransactions] = useState(null);
@@ -33,21 +33,31 @@ export const HistoryWidget = () => {
 
   useEffect(() => {
     if (GlobalInfo !== null && Object.keys(GlobalInfo).length !== 0) {
-      if (GlobalInfo.TransfersHistory.Made.length !== 0 || GlobalInfo.TransfersHistory.Received.length !== 0) {
+      if (GlobalInfo.TransfersHistory.Made.length !== 0) {
         let transaction1 = [];
-        let transaction2 = [];
 
         let orderByDateMT = sortArrays(GlobalInfo.TransfersHistory.Made);
-        let orderByDateHT = sortArrays(GlobalInfo.TransfersHistory.Received);
 
         orderByDateMT = orderByDateMT.reverse();
-        orderByDateHT = orderByDateHT.reverse();
 
         for (let index = 0; index < 4; index++) {
           transaction1.push(orderByDateMT[index]);
-          transaction2.push(orderByDateHT[index]);
         }
         setMyTransactions(transaction1);
+      }
+    }
+
+    if (GlobalInfo !== null && Object.keys(GlobalInfo).length !== 0) {
+      if (GlobalInfo.TransfersHistory.Received.length !== 0) {
+        let transaction2 = [];
+
+        let orderByDateHT = sortArrays(GlobalInfo.TransfersHistory.Received);
+
+        orderByDateHT = orderByDateHT.reverse();
+
+        for (let index = 0; index < 4; index++) {
+          transaction2.push(orderByDateHT[index]);
+        }
         setHimTransactions(transaction2);
       }
     }
@@ -74,19 +84,20 @@ export const HistoryWidget = () => {
                       if (SingleTrans?.ReciverDui === Contacts[index].Dui) return `${Contacts[index].Name.split(' ')[0]} ${Contacts[index].Name.split(' ')[2]}`
                     }
                   }
+                  let time = new Date(SingleTrans?.createdAt)
                   return (
                     <div className={`${i !== 3 && "div-info-transfer"} bg-[#fff] w-full h-[20%] flex justify-evenly items-center`} key={i}>
                       <span>{SingleTrans?.Amount}</span>
                       <span>{Name()}</span>
                       <span>{SingleTrans?.AccountN}</span>
-                      <span>{SingleTrans && format(SingleTrans?.createdAt)}</span>
+                      <span>{SingleTrans && time.toLocaleDateString('en-GB')}</span>
                     </div>
                   )
                 })
                 :
                 <>
                   <div className=" flex justify-center items-center w-100 h-[75%]">
-                    <span className="text-xl">No hay ninguna transferencia</span>
+                    <span className="text-xl">{t("DashboardNormalUser.Home.transfers2")}</span>
                   </div>
                 </>
             }
@@ -109,12 +120,13 @@ export const HistoryWidget = () => {
                       if (SingleTrans?.SenderDui === Contacts[index].Dui) return `${Contacts[index].Name.split(' ')[0]} ${Contacts[index].Name.split(' ')[2]}`
                     }
                   }
+                  let time = new Date(SingleTrans?.createdAt)
                   return (
                     <div className={`${i !== 3 && "div-info-transfer"} bg-[#fff] w-full h-[20%] flex justify-evenly items-center`} key={i}>
                       <span>{SingleTrans?.Amount}</span>
                       <span>{Name()}</span>
                       <span>{SingleTrans?.AccountN}</span>
-                      <span>{SingleTrans && format(SingleTrans?.createdAt)}</span>
+                      <span>{SingleTrans && time.toLocaleDateString('en-GB')}</span>
                     </div>
                   )
                 })

@@ -23,59 +23,59 @@ const Logo = require.context("../assets/img/logo", true);
 
 export const SideBar = () => {
 
-    const { Option, setOption, setOptionElement } = useDash();
+  const { Option, setOption, setOptionElement } = useDash();
 
   return (
     <>
 
-       <div className='sidebar'>
-       <div className='logo_content'>
+      <div className='sidebar'>
+        <div className='logo_content'>
           <div className='logo'>
-            <img className='logot' src={Logo("./Demantur_Imagotype-4_White.svg")}/>
+            <img className='logot' src={Logo("./Demantur_Imagotype-4_White.svg")} />
             <div className='logo_name'>
             </div>
           </div>
         </div>
-       <div className="w-full menu-items3 content-column-3">
-            <div
-                onClick={() => {
-                    setOption(1);
-                    setOptionElement("AdminDuis");
-                }}
-                className={
-                    Option === 1
-                    ? `${NavLinkStyles} menu-item3 menu-item-selected3`
-                    : `${NavLinkStyles} menu-item3`
-                }
-                >
-                <div className={DivNavLinkStyles}>
-                    <Ingre className={IconNavLinkStyles} />
-                </div>
-                <span className={SpanNavLinkStyles}>AdminDuis</span>
-                </div>
-
-                <div
-                onClick={() => {
-                    setOption(2);
-                    setOptionElement("AdminsRequest");
-                }}
-                className={
-                    Option === 2
-                    ? `${NavLinkStyles} menu-item3 menu-item-selected3`
-                    : `${NavLinkStyles} menu-item3`
-                }
-                >
-                <div className={DivNavLinkStyles}>
-                    <Soli className={IconNavLinkStyles} />
-                </div>
-                <span className={SpanNavLinkStyles}>Transacción</span>
-                </div>
-
-                <button className='style-button' onClick={() => localStorage.removeItem('secretToken')}>Cerrar sesión</button>
-
+        <div className="w-full menu-items3 content-column-3">
+          <div
+            onClick={() => {
+              setOption(1);
+              setOptionElement("AdminDuis");
+            }}
+            className={
+              Option === 1
+                ? `${NavLinkStyles} menu-item3 menu-item-selected3`
+                : `${NavLinkStyles} menu-item3`
+            }
+          >
+            <div className={DivNavLinkStyles}>
+              <Ingre className={IconNavLinkStyles} />
             </div>
-        
-        </div> 
+            <span className={SpanNavLinkStyles}>AdminDuis</span>
+          </div>
+
+          <div
+            onClick={() => {
+              setOption(2);
+              setOptionElement("AdminsRequest");
+            }}
+            className={
+              Option === 2
+                ? `${NavLinkStyles} menu-item3 menu-item-selected3`
+                : `${NavLinkStyles} menu-item3`
+            }
+          >
+            <div className={DivNavLinkStyles}>
+              <Soli className={IconNavLinkStyles} />
+            </div>
+            <span className={SpanNavLinkStyles}>Transacción</span>
+          </div>
+
+          <button className='style-button' onClick={() => localStorage.removeItem('secretToken')}>Cerrar sesión</button>
+
+        </div>
+
+      </div>
       {/* <div className='sidebar'>
         <div className='logo_content'>
           <div className='logo'>
@@ -102,7 +102,7 @@ export const SideBar = () => {
       <button className='style-button' onClick={() => localStorage.removeItem('secretToken')}>Cerrar sesión</button>
       </div>
       <br /> */}
-     
+
     </>
   )
 }

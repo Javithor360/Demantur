@@ -87,7 +87,7 @@ const makeDeposit = async (req, res, next) => {
         const ClientAccountQuery = await SavingsAccount.findOneAndUpdate(
             { accountNumber: AccountNumber },
             {
-                $inc: { balance: Amount },
+                $inc: { balance: parseFloat(Amount).toFixed(2) },
                 // $set: {
                 //     activated: {
                 //         $cond: { if: { $gte: ["balance", 50]}, then: true, else: false }

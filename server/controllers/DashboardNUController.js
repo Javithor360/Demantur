@@ -3,9 +3,11 @@ const ErrorResponse = require("../utils/ErrorMessage");
 const GlobalData = require("../models/GlobalData");
 const Settings = require("../models/Settings");
 const CardsRequests = require("../models/CardsRequests");
+const LoansModels = require('../models/LoansModels')
 const SavingsAccount = require('../models/SavingsAccount');
 const { uploadRegisterImage } = require("../libs/cloudinary");
 const fs = require("fs-extra");
+const { ChangeEmailFunc, createCode } = require("../helpers/Functions");
 // const SavingAccount = require("../models/SavingAccount");
 
 const testDB = async (req, res, next) => {
@@ -346,7 +348,7 @@ const DeleteFriend = async (req, res, next) => {
 const DoAtransfer = async (req, res, next) => {
   try {
     const token = req.resetToken;
-    const { SenderDui, ReciverDui, Amount, AccountN, Type, createdAt } = req.body;
+    const { SenderDui, ReciverDui, Amount, AccountN, AccountReceiver, Type, createdAt } = req.body;
     let mader, receiver;
 
     const ThisUser = await NormalUser.findOne({ _id: token.user.id });
@@ -362,16 +364,44 @@ const DoAtransfer = async (req, res, next) => {
       receiver = token.user.id;
     }
 
+    const EveryAcc = await SavingsAccount.find()
+
+
     // MADER
+
+    const MaderAccount = await SavingsAccount.findOne({ AccountOwner: mader })
+    EveryAcc.forEach(async (element) => {
+      console.log(element.accountNumber);
+      console.log(AccountN);
+      if (element.accountNumber == AccountN) {
+        await SavingsAccount.findOneAndUpdate(
+          { accountNumber: AccountN },
+          { balance: (parseFloat(MaderAccount.balance) - parseFloat(Amount)).toFixed(2) }
+        )
+      }
+    });
+
     const TransferMade = await GlobalData.findOneAndUpdate(
       { DataOwner: mader },
-      { $push: { 'TransfersHistory.Made': { SenderDui, ReciverDui, Amount, AccountN, Type, createdAt } } }
+      { $push: { 'TransfersHistory.Made': { SenderDui, ReciverDui, Amount, AccountN, AccountReceiver, Type, createdAt } } }
     );
 
     // RECEIVER
+
+    const ReceiverAccount = await SavingsAccount.findOne({ AccountOwner: receiver })
+
+    EveryAcc.forEach(async element => {
+      if (element.accountNumber == AccountReceiver) {
+        await SavingsAccount.findOneAndUpdate(
+          { accountNumber: AccountReceiver },
+          { balance: (parseFloat(ReceiverAccount.balance) + parseFloat(Amount)).toFixed(2) }
+        )
+      }
+    });
+
     await GlobalData.findOneAndUpdate(
       { DataOwner: receiver },
-      { $push: { 'TransfersHistory.Received': { SenderDui, ReciverDui, Amount, AccountN, Type, createdAt } } }
+      { $push: { 'TransfersHistory.Received': { SenderDui, ReciverDui, Amount, AccountN, AccountReceiver, Type, createdAt } } }
     );
 
     const Transfers = await GlobalData.findOne({ DataOwner: TransferMade.DataOwner })
@@ -464,6 +494,115 @@ const UploadPhoto = async (req, res, next) => {
   }
 }
 
+const getNavName = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+
+    const query = await NormalUser.findOne({ _id: token.user.id });
+    res.status(200).json({ success: true, data: query });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const getEveryAcc = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+
+    const AllAccounts = await SavingsAccount.find();
+    const AllUsers = await NormalUser.find();
+
+    let AccountsWithUsers = [];
+
+    AllAccounts.forEach((element, i) => {
+      if (element.AccountOwner.toString() === AllUsers[i]._id.toString()) {
+        let datos = { Dui: null, accountNumber: null };
+        datos.Dui = AllUsers[i].Dui;
+        datos.accountNumber = element.accountNumber;
+
+        AccountsWithUsers.push(datos);
+      }
+    });
+
+    console.log(AccountsWithUsers);
+
+    res.status(200).json({ success: true, data: AccountsWithUsers })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+
+const ChangeEmail = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const { Email } = req.body
+
+    const User = await NormalUser.findOne({ _id: token.user.id });
+
+    const isSetted = await NormalUser.findOne({ Email: Email });
+
+    if (!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(Email)) {
+      return next(new ErrorResponse("Ingrese un Email Valido", 400, "error"))
+    }
+
+    if (!Email) {
+      return next(new ErrorResponse("Ingrese su Email", 400, "error"))
+    }
+
+    if (isSetted) {
+      return next(new ErrorResponse("Este Email ya está registrado", 400, "error"))
+    }
+    if (User.Email == Email) {
+      return next(new ErrorResponse("El email no puede ser igual al anterior", 400, "error"))
+    } else {
+      const code = createCode();
+      User.ChangeEmailCode = code;
+      await User.save()
+      ChangeEmailFunc(code, Email, res);
+      res.status(200).json({ success: true, data: 'Email Enviado Correctamente' })
+    }
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const getAccountsHistory = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const AccountNumber = req.header('AccountNumber');
+    if (!AccountNumber) {
+      return next(new ErrorResponse('No se encontró el número de cuenta', 400, 'error'))
+    }
+
+    let filterArray,
+      depHistory = [],
+      withHistory = [],
+      generalHistory = [];
+
+    const DepQuery = await GlobalData.findOne({ DataOwner: token.user.id });
+    if (!DepQuery) {
+      return next(new ErrorResponse('El usuario no existe', 400, 'error'))
+    }
+
+    filterArray = DepQuery.Deposits.filter(i => i.Account == AccountNumber);
+    depHistory.push({ Deposits: filterArray })
+
+    filterArray = DepQuery.withdrawHistory.filter(i => i.Account == AccountNumber);
+    withHistory.push({ Withdraws: filterArray });
+
+    generalHistory.push(depHistory, withHistory);
+
+    if (depHistory.length < 1) {
+      return next(new ErrorResponse('No hay ningún dato', 400, 'error'))
+    }
+    res.status(200).json({ success: true, data: generalHistory });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
 module.exports = {
   testDB,
   getUserId,
@@ -479,5 +618,10 @@ module.exports = {
   getMyLoanReq,
   getContacs,
   getSavAcc,
-  UploadPhoto
+  UploadPhoto,
+  getNavName,
+  getEveryAcc,
+  ChangeEmail,
+  getAccountsHistory
 };
+

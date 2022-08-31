@@ -1,6 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
 // import { format } from "timeago.js";
-import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ, getContactsWPReq, getMyLoanReqREQ, getSavingAcctsReq, UpdatePhotoReq } from "../api/Queries";
+
+import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ, getContactsWPReq, getMyLoanReqREQ, getSavingAcctsReq, UpdatePhotoReq, getNametoNavQuery, getEveryAccQuery, getAccHistory, ChangeEmailQuery } from "../api/Queries";
+
 
 const dashContext = createContext();
 
@@ -10,6 +12,8 @@ export const useDash = () => {
 };
 
 export const DashProvider = ({ children }) => {
+  const [NPName, setNPName] = useState(null);
+
   const [Option, setOption] = useState(1);
   const [OptionElement, setOptionElement] = useState("Home Page");
   const [SettingsOption, setSettingsOption] = useState(false);
@@ -42,11 +46,11 @@ export const DashProvider = ({ children }) => {
   useEffect(() => {
     if (SavingAccounts.length !== 0) {
       let newBalance = 0;
-      SavingAccounts.forEach(element => {
-        newBalance = newBalance + element.balance
+      SavingAccounts.forEach((element, i) => {
+        newBalance = newBalance + parseFloat(element.balance.$numberDecimal)
+        SavingAccounts[i].balance = parseFloat(element.balance.$numberDecimal)
       });
-      setClientBalance(newBalance);
-
+      setClientBalance(newBalance.toFixed(2));
     }
   }, [SavingAccounts])
 
@@ -226,6 +230,37 @@ export const DashProvider = ({ children }) => {
     }
   }
 
+  const getNametoNav = async (Token) => {
+    try {
+      return await getNametoNavQuery(PrivateConfig(Token));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const getEveryAcc = async (Token) => {
+    try {
+      return await getEveryAccQuery(PrivateConfig(Token));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const ChangeEmail = async (Token, Email) => {
+    try {
+      return await ChangeEmailQuery(PrivateConfig(Token), Email)
+    } catch (error) {
+      return error;
+    }
+  }
+  const getAccountsHistory = async (Token, accNum) => {
+    try {
+      return await getAccHistory(Token, accNum);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <dashContext.Provider value={{
       Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
@@ -234,7 +269,8 @@ export const DashProvider = ({ children }) => {
       QueryCreateSavingsAccount, DeclineFriend, ReloadState, setReloadState, AcceptFriend, CardsRequestsForm, LoansRequestsForm, setContacts,
       setFriendRequest, DeleteFriendReq, CurrentChat, setCurrentChat, TransactionsArr, setTransactionsArr,
       MyTransfers, setMyTransfers, HimTranfers, setHimTranfers, DoATransfer, setGlobalInfo, socket, setSocket,
-      getMyCardReq, getMyLoanReq, GlobalInfoSetReq, getContacsWP, SavingAccounts, getSavingAccts, UpdatePhoto, clientBalance
+      getMyCardReq, getMyLoanReq, GlobalInfoSetReq, getContacsWP, SavingAccounts, getSavingAccts, UpdatePhoto, clientBalance,
+      NPName, setNPName, setSavingAccounts, setClientBalance, getNametoNav, getEveryAcc, ChangeEmail, getAccountsHistory
     }}>
       {children}
     </dashContext.Provider>

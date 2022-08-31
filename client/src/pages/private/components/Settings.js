@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react'
 import { FiX } from 'react-icons/fi'
 import { useDash } from '../../../context/DashboardContext'
-import perfilPhoto from './assets/img/profile-photo2.jpg'
 import './DashElements/TransactionsComponents/scss/settings.scss'
 import { AiOutlineCloudUpload as CloudIcon, AiOutlineCloud as SuccesClud } from 'react-icons/ai'
 import { BiLoaderAlt } from 'react-icons/bi';
 import { LanguageSwitcher } from '../../../components/LanguageSwitcher'
+import { ChangeEmail, DefaultElement, ChangePassword, EmailCode, SuccessPass, SuccessEmail } from './SettingsElements/Index'
 
 // Translation
 import { useTranslation } from "react-i18next";
 
 export const Settings = ({ hidden }) => {
-  const {t}=useTranslation();
+  const { t } = useTranslation();
 
   const { setSettingsOption, Info, UpdatePhoto } = useDash()
 
@@ -20,6 +20,8 @@ export const Settings = ({ hidden }) => {
   const [Error, setError] = useState(null);
   const [Success, setSuccess] = useState(null);
   const [CharginButton, setCharginButton] = useState(false);
+
+  const [SwitchValue, setSwitchValue] = useState(1);
 
   const Imagefunc = (UploadImage, SetImageName) => {
     if (UploadImage !== "") {
@@ -47,10 +49,6 @@ export const Settings = ({ hidden }) => {
   useEffect(() => {
     Imagefunc(ImageName, setImageName);
   }, [ImageName]);
-
-  useEffect(() => {
-    // console.log()
-  }, [Info]);
 
   const handleChangeFile = (e) => {
     if (e.target.files.length !== 0) {
@@ -88,6 +86,25 @@ export const Settings = ({ hidden }) => {
     }
   }
 
+  const DisplayElements = () => {
+    switch (SwitchValue) {
+      case 1:
+        return <DefaultElement setSwitchValue={setSwitchValue} />;
+      case 2:
+        return <ChangeEmail setSwitchValue={setSwitchValue} />
+      case 3:
+        return <ChangePassword />
+      case 4:
+        return <SuccessPass />
+      case 5:
+        return <EmailCode />
+      case 6:
+        return <SuccessEmail />
+      default:
+        return <DefaultElement />
+    }
+  }
+
   return (
     <div className={`absolute top-0 right-0 settings-div h-full ${hidden !== undefined ? hidden : ''} div-settings-modal`}  >
       <div className="w-[100%] h-[100%] relative">
@@ -102,8 +119,8 @@ export const Settings = ({ hidden }) => {
             <span className='text-foto-de-perfil text-[#4E5364]'>{t("DashboardNormalUser.Setting.desc")}</span>
             <img src={Info?.PerfilPhoto?.url} alt="" className='rounded-xl h-[12rem] w-[16rem] mx-auto mt-3' />
             {
-              Error || Success &&
-              <div className='m-[-1rem] p-[-1rem]'>
+              (Error || Success) &&
+              <div className='mb-[-1rem] p-b[-1rem] mt-2'>
                 {Error && <p className='text-red-400 text-center m-0 p-0'>{Error}</p>}
                 {Success && <p className='text-green-400 text-center m-0 p-0'>{Success}</p>}
               </div>
@@ -121,6 +138,13 @@ export const Settings = ({ hidden }) => {
               <div className='w-[80%] mx-auto h-[0.12rem] bg-slate-500 mb-4 mt-2'></div>
               <span className='text-foto-de-perfil text-[#4E5364]'>{t("DashboardNormalUser.Setting.language")}</span>
               <LanguageSwitcher />
+            </div>
+            <div className='mt-4 h-full'>
+              <div className='w-[80%] mx-auto h-[0.16rem] bg-slate-500 mb-4 mt-2'></div>
+              <span className='text-foto-de-perfil text-[#4E5364]'>Cambiar datos</span>
+              <div className=' w-100 px-4 py-2 h-full'>
+                {DisplayElements()}
+              </div>
             </div>
           </div>
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDash } from "../../../../context/DashboardContext";
 
-export const ChangeEmail = ({ setSwitchValue, setEmail }) => {
+export const ChangeEmail = ({ setSwitchValue }) => {
 
   const { ChangeEmail, Info } = useDash()
 

@@ -8,7 +8,7 @@ import { HistoryWidget, ContactsWidget } from "./HomePageWidgets/";
 import { useTranslation } from "react-i18next";
 
 export const HomePage = () => {
-  const { Info, clientBalance, socket, setClientBalance, getSavingAccts, getGlobalInfo, SavingAccounts, setSavingAccounts } = useDash();
+  const { Info, clientBalance, socket, setClientBalance, SavingAccounts, setSavingAccounts } = useDash();
   const { t } = useTranslation();
 
   const [plusMount, setPlusMount] = useState(null);

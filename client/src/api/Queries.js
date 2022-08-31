@@ -72,8 +72,13 @@ export const getEveryAccQuery = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/dashboard/get-every-account', { headers: PrivateConfig.headers })
 }
 
+
+export const ChangeEmailQuery = async (PrivateConfig, Email) => {
+  return await axios.put('http://localhost:4000/api/dashboard/change-email', { Email }, { headers: PrivateConfig.headers })
+}
+
 export const getAccHistory = async (Token, accNum) => {
-  return await axios.get('http://localhost:4000/api/dashboard/get-account-history', { headers: { "Content-Type": "application/json", "x-auth-token": Token, "AccountNumber": accNum} });
+  return await axios.get('http://localhost:4000/api/dashboard/get-account-history', { headers: { "Content-Type": "application/json", "x-auth-token": Token, "AccountNumber": accNum } });
 }
 
 // ?? QUERYS EMPLOYEE

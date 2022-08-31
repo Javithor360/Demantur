@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const AuthMiddleware = require('../middlewares/AuthMiddleware');
-const { testDB, getUserId, getGlobalInfo, getFriendsReq, addFriendRequest, CancelPendingFr, AcceptFriend, DeclineFriend, DeleteFriend, DoAtransfer, getMyCardReq, getMyLoanReq, getContacs, getSavAcc, UploadPhoto, getNavName, getEveryAcc, getAccountsHistory } = require('../controllers/DashboardNUController');
+
+const { testDB, getUserId, getGlobalInfo, getFriendsReq, addFriendRequest, CancelPendingFr, AcceptFriend, DeclineFriend, DeleteFriend, DoAtransfer, getMyCardReq, getMyLoanReq, getContacs, getSavAcc, UploadPhoto, getNavName, getEveryAcc, ChangeEmail, getAccountsHistory } = require('../controllers/DashboardNUController');
 
 router.route('/test-db-relation').post([AuthMiddleware], testDB);
 
@@ -22,6 +23,8 @@ router.route('/get-saving-accounts').get([AuthMiddleware], getSavAcc)
 router.route('/upload-photo').post([AuthMiddleware], UploadPhoto)
 router.route('/get-nav-name').get([AuthMiddleware], getNavName);
 router.route('/get-every-account').get([AuthMiddleware], getEveryAcc);
+router.route('/change-email').put([AuthMiddleware], ChangeEmail);
 router.route('/get-account-history').get([AuthMiddleware], getAccountsHistory);
+
 
 module.exports = router;

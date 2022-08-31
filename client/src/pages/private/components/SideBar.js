@@ -10,6 +10,8 @@ import { FaListAlt } from "react-icons/fa";
 import { BsCreditCardFill } from "react-icons/bs";
 import { useDash } from "../../../context/DashboardContext";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 // Translation
 import { useTranslation } from "react-i18next";
@@ -35,11 +37,13 @@ export const SideBar = () => {
       <div className="flex items-center justify-between w-64 h-full p-2 bg-white rounded-md shadow-lg side-bar-container flex-column">
         <div className="w-full side-bar-content-container">
           <div className="w-full side-bar-logo content-column-1">
-            <img
-              className="block mx-auto mt-4 w-44"
-              src={SideBarImages("./Demantur_Imagotype-2.png")}
-              alt=""
-            />
+            <Link to="/">
+              <img
+                className="block mx-auto mt-4 w-44"
+                src={SideBarImages("./Demantur_Imagotype-2.png")}
+                alt=""
+              />
+            </Link>
             <hr className="black-line" />
           </div>
           <div className="w-full menu-items content-column-2">

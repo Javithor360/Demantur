@@ -22,7 +22,7 @@
   "bussinesPage": {
     "hero": {
       "tittle": "Register",
-      "desc": "welcome to the guide where you will learn everything you need to know to be able to register"
+      "desc": "Welcome to the guide where you will learn everything you need to know to be able to register"
     },
     "body": {
       "tittle": "What is a business account?",
@@ -869,7 +869,7 @@
       "3": "Transfers",
       "4": "Loans",
       "5": "Contacts",
-      "6": "Tajetas",
+      "6": "Cards",
       "7": "Log Out"
     },
     "Dropdown":{
@@ -885,7 +885,7 @@
       "balance": "Net Balance:",
       "information": "Personal Information",
       "name": "Name:",
-      "dui:": "DUI",
+      "dui:": "DUI:",
       "email": "Email:",
       "cards": "Cards",
       "loan": "Loan",

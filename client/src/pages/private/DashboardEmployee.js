@@ -35,22 +35,25 @@ export const DashboardEmployee = () => {
   return (
     <>
      
-      <div className="w-screen h-screen bg-[#F1F1F1] relative">
-        <div className="w-full h-2/5 bg-[#396EB0] absolute fondo"></div>
+      <div className="w-screen h-screen bg-[#396EB0] relative">
+        <div className="w-full h-2/5 bg-[#F1F1F1] absolute fondo"></div>
         <div className="absolute flex items-center justify-center w-full h-full">
-          <div className="w-[98%] h-[95%] flex">
-            <SideBar />
-            <div className="h-[95%] w-[80%]  mx-auto">
-              <Header />
-              <div className="pl-4 Display-dash-div">
-                <div className="h-100">
-                  <div className="flex flex-col justify-between py-3 w-100 h-100">
-                    {DisplayElementEmployee()}
+          <div className="w-[100%] h-[100%] flex">
+            <div>
+              <SideBar />
+            </div>
+            <div className="h-full w-full flex items-center">
+              <div className="h-[95%] w-[98%]">
+                <Header />
+                <div className="pl-4 h-[95%]">
+                  <div className="h-full">
+                    <div className="flex flex-col py-3 w-full h-full">
+                      {DisplayElementEmployee()}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
       </div>

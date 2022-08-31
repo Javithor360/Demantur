@@ -23,6 +23,7 @@ app.use("/api/accounts/", require("./routes/accounts.routes"));
 app.use("/api/requests/", require("./routes/requests.routes"));
 app.use("/api/employee/", require("./routes/employee.routes"));
 app.use('/api/Loans/', require('./routes/Loans.routes'));
+app.use('/api/contact/', require('./routes/contact.routes'));
 
 // Error Middleware
 app.use(MiddlewareError);

@@ -50,6 +50,7 @@ export const getMyCardReqREQ = async (PrivateConfig) => {
 
 export const getMyLoanReqREQ = async (PrivateConfig) =>{
   return await axios.get('http://localhost:4000/api/dashboard/get-my-loan-request', { headers: PrivateConfig.headers })
+
 }
 
 export const getContactsWPReq = async (PrivateConfig) => {
@@ -61,8 +62,28 @@ export const getSavingAcctsReq = async (PrivateConfig) => {
 }
 
 export const UpdatePhotoReq = async (Token, Form) => {
-  console.log(Form);
   return await axios.post('http://localhost:4000/api/dashboard/upload-photo', Form, { headers: { 'Content-Type': 'multipart/form-data', "x-auth-token": Token } })
+}
+
+export const getNametoNavQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-nav-name', { headers: PrivateConfig.headers })
+}
+
+export const getEveryAccQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-every-account', { headers: PrivateConfig.headers })
+}
+
+
+export const ChangeEmailQuery = async (PrivateConfig, Email) => {
+  return await axios.put('http://localhost:4000/api/dashboard/change-email', { Email }, { headers: PrivateConfig.headers })
+}
+
+export const getAccHistory = async (Token, accNum) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-account-history', { headers: { "Content-Type": "application/json", "x-auth-token": Token, "AccountNumber": accNum } });
+}
+
+export const EmailCodeVerQuery = async (PrivateConfig, Code) => {
+  return await axios.post('http://localhost:4000/api/dashboard/email-code-verify', { Code }, { headers: PrivateConfig.headers });
 }
 
 // ?? QUERYS EMPLOYEE
@@ -75,7 +96,7 @@ export const getCardRequest = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/employee/get-cards-requests', { headers: PrivateConfig.headers })
 }
 
+
 export const getLoanRequests = async (PrivateConfig)=>{
   return await axios.get('http://localhost:4000/api/employee/get-loans-requests', { headers: PrivateConfig.headers });
 }
-

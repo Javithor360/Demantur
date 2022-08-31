@@ -22,6 +22,7 @@ const getOneUser = (SenderDui) => {
 io.on('connection', (socket) => {
   // console.log('usuario conectado');
   socket.on('onlineUsers', Dui => {
+    console.log(allOnlineUsers);
     addUser(Dui, socket.id);
     io.emit('getOnlineUsers', allOnlineUsers);
   })
@@ -29,7 +30,6 @@ io.on('connection', (socket) => {
   // hacer las transacciones
   socket.on('DoingTransfer', ({ SenderDui, ReceiverDui, transfer }) => {
     const SenderUser = getOneUser(ReceiverDui);
-    // console.log(allOnlineUsers);
     if (SenderUser !== undefined) {
       io.to(SenderUser.socketId).emit('getTransfer', {
         SenderDui,
@@ -39,6 +39,8 @@ io.on('connection', (socket) => {
   });
 
   socket.on('disconnect', () => {
+    console.log(allOnlineUsers);
+    console.log(socket.id);
     removeUser(socket.id)
     io.emit('getOnlineUsers', allOnlineUsers);
   })

@@ -21,6 +21,7 @@ const CardsRequestsSchema = new mongoose.Schema(
             DuiBackImg: Object,
             NitImg: Object,
             SalaryEvidenceImg: Object,
+            CloudCardImage: StringReq
         }
     },
     { timestamps: true }

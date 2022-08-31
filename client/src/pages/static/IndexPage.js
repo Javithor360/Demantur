@@ -26,12 +26,12 @@ export const IndexPage = () => {
       <Navbar />
       <div>
         <Slide1 />
-        <div className="section-tittle">
+        <div className="section-tittle tittle-cards ">
           <p>{t("index.financial_solutions")}</p>
           <hr />
         </div>
 
-        <div className="cards-container">
+        <div className="cards-container ">
           <div className="card">
             <img src={TarjetasImages("./card-1.png")} alt="" />
             <h4>{t("index.cards_grid.1.title")}</h4>

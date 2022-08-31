@@ -1,0 +1,6 @@
+export { ChangeEmail } from './ChangeEmail'
+export { ChangePassword } from './ChangePassword'
+export { DefaultElement } from './DefaultElement'
+export { EmailCode } from './EmailCode'
+export { SuccessPass } from './SuccessPass'
+export { SuccessEmail } from './SuccessEmail'

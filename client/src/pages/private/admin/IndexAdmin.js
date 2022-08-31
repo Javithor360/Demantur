@@ -1,2 +1,2 @@
-export {AdminDuis} from './AdminDuis'
-export{AdminsRequest } from './AdminsRequest'
+export { AdminDuis } from './AdminDuis'
+export { AdminsRequest } from './AdminsRequest'

@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
 export const DashboardNormalUser = () => {
-  const { Option, SettingsOption, GeneralInfoQuery, getGlobalInfo, setSocket, socket, Info, getContacsWP, getSavingAccts } = useDash();
+  const { Option, SettingsOption, GeneralInfoQuery, getGlobalInfo, setSocket, socket, Info, getContacsWP, getSavingAccts, setNPName } = useDash();
 
   const [Chargin, setChargin] = useState(true);
   const [OnlineUsers, setOnlineUsers] = useState([]);
@@ -35,6 +35,20 @@ export const DashboardNormalUser = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Info]);
+
+  const Capitalize = (word) => {
+    return word[0].toUpperCase() + word.slice(1);
+  }
+
+  useEffect(() => {
+    if (Object.keys(Info).length !== 0) {
+      let Name = Info.FirstName.split(' ');
+      let LastName = Info.LastName.split(' ');
+      LastName = LastName[0];
+      setNPName(`${Capitalize(Name[0])} ${LastName[0].toUpperCase()}.`);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Info])
 
   const DisplayElement = () => {
     switch (Option) {

@@ -60,7 +60,7 @@ export const LoginNormalUserPage = () => {
         <hr className='main-hr' />
 
         <div className='Container-div'>
-          <div className='FormDiv FormDivLogin'>  
+          <div className='FormDiv FormDivLogin'>
             <div className='info-login'>
               <h1>{t("login.logins.tittle2")}</h1>
               <p>{t("login.logins.subtittle")}</p>

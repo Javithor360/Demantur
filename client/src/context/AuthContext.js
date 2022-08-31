@@ -29,6 +29,8 @@ export const AuthProvider = ({ children }) => {
   ]
 
   const [page, setPage] = useState(1);
+  const [NPName, setNPName] = useState(null);
+
 
   const [Error, setError] = useState('');
   const [Success, setSuccess] = useState('');
@@ -82,7 +84,7 @@ export const AuthProvider = ({ children }) => {
       Nombres, setNombres, Apellidos, setApellidos, DateBirth, setDateBirth, Direccion, setDireccion,
       Dui, setDui, Number, setNumber, Email, setEmail, Password, setPassword, ConfPassword, setConfPassword,
       LaboralSituation, setLaboralSituation, WorkPlace, setWorkPlace, Salary, setSalary,
-      BNombres, setBNombres, BApellidos, setBApellidos, BDui, setBDui, BNumber, setBNumber,
+      BNombres, setBNombres, BApellidos, setBApellidos, BDui, setBDui, BNumber, setBNumber, NPName, setNPName
     }}>
       {children}
     </authContext.Provider>

@@ -3,7 +3,7 @@ import { SideBar } from './SideBar-Admin';
 import { useDash } from "../../../context/DashboardContext";
 
 import "../assets/scss/dashboardadmin.scss";
-import { AdminDuis, AdminsRequest } from './IndexAdmin';
+import { AdminDuis, AdminsRequest, AdminEmployees  } from './IndexAdmin';
 
 const Logo = require.context("../assets/img/logo", true);
 
@@ -18,6 +18,8 @@ export const AdminDashboard = () => {
         return <AdminDuis />;
       case 2:
         return <AdminsRequest />;
+      case 3: 
+        return <AdminEmployees />;
       default:
         return <h1>Home Page</h1>;
     }

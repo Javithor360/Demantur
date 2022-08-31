@@ -1,6 +1,8 @@
 const { sendToken } = require('../helpers/Functions');
 const Admin = require('../models/Admin');
 const DuiModel = require('../models/DuiModel');
+const GlobalData = require('../models/GlobalData');
+const SavingsAccount = require('../models/SavingsAccount');
 const ErrorResponse = require('../utils/ErrorMessage');
 
 // @route POST api/auth/admin/login
@@ -57,7 +59,54 @@ const CreateDui = async (req, res) => {
   }
 }
 
+// @route POST api/admin/actions/withdraw
+// @desc Simular el retiro de dinero
+// @access private
+
+const GhostWithdraw = async (req, res, next) => {
+  try {
+    const { AccountNumber, Amount } = req.body;
+
+    if (!AccountNumber || !Amount) {
+      return next(new ErrorResponse('Los datos están incompletos', 400, "error"))
+    }
+
+    const userQuery = await SavingsAccount.findOne({ accountNumber: AccountNumber }).select('AccountOwner accountNumber');
+    if (!userQuery) {
+      return next(
+        new ErrorResponse("El número de cuenta no existe", 400, "error")
+      );
+    }
+
+    const withdraw = await SavingsAccount.findOneAndUpdate(
+      { accountNumber: AccountNumber },
+      { $inc: { balance: -Amount } }
+    );
+    if (!withdraw) {
+      return next(new ErrorResponse('Ocurrió un error al retirar el dinero', 400, "error"))
+    }
+
+    await GlobalData.findOneAndUpdate(
+      { DataOwner: userQuery.AccountOwner },
+      {
+        $push: {
+          withdrawHistory: {
+            Amount: Amount,
+            Account: userQuery.accountNumber,
+            Date: new Date()
+          }
+        }
+      }
+    )
+    res.status(200).json({ success: true, data: "Retiro fantasma hecho correctamente" })
+  } catch (error) {
+    console.error(`Error del Servidor`)
+    res.status(500).send(`ERROR: ${error.message}`);
+  }
+}
+
 module.exports = {
   CreateDui,
-  loginAdmin
+  loginAdmin,
+  GhostWithdraw
 }

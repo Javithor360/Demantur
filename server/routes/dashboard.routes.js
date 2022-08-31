@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const AuthMiddleware = require('../middlewares/AuthMiddleware');
-const { testDB, getUserId, getGlobalInfo, getFriendsReq, addFriendRequest, CancelPendingFr, AcceptFriend, DeclineFriend, DeleteFriend, DoAtransfer, getMyCardReq, getMyLoanReq, getContacs, getSavAcc, UploadPhoto } = require('../controllers/DashboardNUController');
+const { testDB, getUserId, getGlobalInfo, getFriendsReq, addFriendRequest, CancelPendingFr, AcceptFriend, DeclineFriend, DeleteFriend, DoAtransfer, getMyCardReq, getMyLoanReq, getContacs, getSavAcc, UploadPhoto, getAccountsHistory } = require('../controllers/DashboardNUController');
 
 router.route('/test-db-relation').post([AuthMiddleware], testDB);
 
@@ -20,5 +20,6 @@ router.route('/get-my-card-request').get([AuthMiddleware], getMyCardReq)
 router.route('/get-contacts-new').get([AuthMiddleware], getContacs)
 router.route('/get-saving-accounts').get([AuthMiddleware], getSavAcc)
 router.route('/upload-photo').post([AuthMiddleware], UploadPhoto)
+router.route('/get-account-history').get([AuthMiddleware], getAccountsHistory);
 
 module.exports = router;

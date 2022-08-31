@@ -95,3 +95,6 @@ export const getLoanRequests = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/employee//get-Loans-requests', { headers: PrivateConfig.headers });
 }
 
+export const getPendingAccounts = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/accounts/get-account-requests', { headers: PrivateConfig.headers });
+}

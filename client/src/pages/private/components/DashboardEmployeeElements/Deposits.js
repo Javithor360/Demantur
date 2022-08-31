@@ -4,6 +4,7 @@ import { useEmpConx } from '../../../../context/EmployeeContext';
 import { ConfirmAction } from './ConfirmAction';
 import Modal from '../Modal';
 import './assets/scss/DepositsEmployee.scss'
+import Cleave from 'cleave.js/react';
 
 export const Deposits = () => {
 
@@ -79,11 +80,11 @@ export const Deposits = () => {
                     <div className='hola-deposits'></div>
                     <label htmlFor="AccNumber">Número de cuenta</label>
                     <hr />
-                    <input type="number" id="AccNumber" name='AccNumber' onChange={(e) => { setAccNumber(e.target.value) }} value={AccNumber} required />
+                    <Cleave options={{numericOnly: true}} id="AccNumber" name='AccNumber' onChange={(e) => { setAccNumber(e.target.value) }} value={AccNumber} required />
 
                     <label htmlFor="Amount">Monto a depositar</label>
                     <hr />
-                    <input type="number" id="Amount" name='Amount' onChange={(e) => { setAmount(e.target.value) }} value={Amount} required />
+                    <Cleave options={{numericOnly: true}} id="Amount" name='Amount' onChange={(e) => { setAmount(e.target.value) }} value={Amount} required />
 
                     <button type="submit" className='mt-[2rem] mx-[5rem] btn-deposits-employee'>Realizar depósito</button>
                 </form>

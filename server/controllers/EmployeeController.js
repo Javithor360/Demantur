@@ -163,7 +163,7 @@ const getCardRequests = async (req, res, next) => {
         const getAllUsers = await NormalUser.find()
 
         const ExtraInfo = await ExtraInfoNormalUser.find()
-        
+
 
         let cardRequestsOrder = []
 
@@ -236,6 +236,71 @@ const getUserInfoForEmployee = async (req, res, next) => {
     }
 }
 
+const getAccountActivationRequests = async (req, res, next) => {
+    try {
+        let arrayFilter,
+            info = [];
+
+        const query = await NormalUser.find();
+        arrayFilter = query.filter(i => i.ActivedAccount == false);
+        info.push(arrayFilter);
+
+        const filter = arrayFilter.map(i => i._id).toString();
+        const detailsQuery = await ExtraInfoNormalUser.find();
+        arrayFilter = detailsQuery.filter(i => filter.includes(i.UserOwner.toString()));
+        info.push(arrayFilter);
+        res.status(200).json({ success: true, data: info })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: error.message });
+    }
+}
+
+const activateAccount = async (req, res, next) => {
+    try {
+        const { AccountId } = req.body;
+        if (!AccountId) {
+            return next(
+                new ErrorResponse("Datos incompletos", 400, "error")
+            );
+        }
+        await NormalUser.findOneAndUpdate(
+            { _id: AccountId },
+            {
+                $set: { ActivedAccount: true }
+            }
+        )
+        res.status(200).json({ success: true, data: 'Cuenta activada correctamente' })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: error.message });
+    }
+}
+
+const denyAccount = async (req, res, next) => {
+    try {
+        const { AccountId } = req.body;
+        if (!AccountId) {
+            return next(
+                new ErrorResponse("Datos incompletos", 400, "error")
+            );
+        }
+
+        const user = await NormalUser.findOneAndDelete({ _id: AccountId });
+        const otherData = await GlobalData.findOneAndDelete({ DataOwner: AccountId });
+        const extraData = await ExtraInfoNormalUser.findOneAndDelete({ UserOwner: AccountId });
+        // Envío del correo (?)
+        // [...]
+        await user.delete();
+        await otherData.delete();
+        await extraData.delete();
+        res.status(200).json({ success: true, data: 'Cuenta rechazada correctamente' })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: error.message });
+    }
+}
+
 module.exports = {
     loginEmployee,
     getEmployeeData,
@@ -243,5 +308,8 @@ module.exports = {
     getCardRequests,
     makeDeposit,
     getLoanRequests,
-    getUserInfoForEmployee
+    getUserInfoForEmployee,
+    getAccountActivationRequests,
+    activateAccount,
+    denyAccount
 }

@@ -12,5 +12,4 @@ router.route("/get-user-data").post(getUserInfoForEmployee);
 router.route("/get-cards-requests").get(getCardRequests);
 router.route("/get-Loans-requests").get(getLoanRequests);
 
-
 module.exports = router;

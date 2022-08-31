@@ -168,8 +168,7 @@ const getCardRequests = async (req, res, next) => {
         let cardRequestsOrder = []
 
         for (let index = 0; index < getAllUsers.length; index++) {
-
-
+            number .toString( [base ] ) 
             if (getAllUsers[index]._id.toString() === getAllCardRequests[index]?.CardOwner.toString()) {
                 let ObjectCardRequest = {}
                 ObjectCardRequest.RequestOwner = getAllUsers[index]
@@ -187,32 +186,35 @@ const getCardRequests = async (req, res, next) => {
     }
 
 }
+
 const getLoanRequests = async (req, res, next) => {
     try {
-        const getAllLoansRequests = await LoansModels.find()
-        const getsUsers = await NormalUser.find()
 
-        let LoansRequestsOrder = []
+        const getAllLoanRequests = await LoansModels.find()
+        const getAllUsers = await NormalUser.find()
+        
 
-        for (let index = 0; index < getsUsers.length; index++) {
+        let loanRequestsOrder = []
 
-            if (getsUsers[index]._id.toString() === getAllLoansRequests[index]?. loan_guarantor.toString()) {
+        for (let index = 0; index < getAllUsers.length; index++) {
+
+
+            if (getAllUsers[index]._id.toString() === getAllLoanRequests[index]?. loan_guarantor.toString()) {
                 let ObjectLoanRequest = {}
-                ObjectLoanRequest.Requestguarantor = getsUsers[index]
-                ObjectLoanRequest.LoansRequest = getAllLoansRequests[index]
-                LoansRequestsOrder.push(ObjectLoanRequest)
+                ObjectLoanRequest.RequestOwner = getAllUsers[index]
+                ObjectLoanRequest.CardRequest = getAllLoanRequests[index]
+                loanRequestsOrder.push(ObjectLoanRequest)
                 console.log(ObjectLoanRequest)
             }
         }
 
-        res.status(200).json({ data: LoansRequestsOrder });
+        res.status(200).json({ data: loanRequestsOrder });
     } catch (e) {
         console.log(e);
         res.status(500).json({ message: e.message });
     }
 
 }
-
 // @route POST api/employee/get-user-data
 // @desc Obtener la información del usuario por parte del empleado
 // @access private

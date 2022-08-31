@@ -1,0 +1,109 @@
+$acua: #93DEFF;
+$black-purple: #4E5364;
+$white-gray: #707070;
+$white-gray-transparent: #70707065;
+$gray: #6D6E71;
+$dark-blue: #323643;
+$verde: #00C900;
+
+$color: #c0392b;
+$color-dark: #a53125;
+$speed: "0.25s";
+$transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
+
+input[type="file"] {
+  display: none;
+  cursor: pointer !important;
+  z-index: 100 !important;
+}
+
+.input-form {
+  background: none;
+  position: relative;
+  width: 17rem;
+  height: 3.3rem;
+  border: .15rem solid $white-gray;
+  border-radius: 0.25rem;
+  color: $black-purple;
+  outline: none;
+  padding: 1rem;
+  z-index: 10;
+
+  &:hover {
+    border-color: $dark-blue;
+
+  }
+
+  &:focus {
+    border-color: $dark-blue;
+  }
+}
+
+.CloudIcon {
+  position: absolute;
+  right: 1rem;
+  top: 0.8rem;
+  color: $white-gray;
+  height: 1.3rem;
+  width: 1.3rem;
+
+}
+
+.EyesButton {
+  position: absolute;
+  right: 0.9rem;
+  top: 0.7rem;
+  cursor: pointer;
+  z-index: 100;
+  border: none;
+  background-color: transparent;
+  outline: none;
+
+  .EyesPass {
+
+    color: $white-gray;
+    height: 1.3rem;
+    width: 1.3rem;
+  }
+
+  .EyesPass:hover {
+    color: $dark-blue  !important;
+
+  }
+}
+
+
+
+.label-form {
+  position: absolute;
+  left: 1rem;
+  top: 0.7rem;
+  padding: 0 0.1rem;
+  color: $dark-blue;
+  cursor: text;
+  transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+  background-color: white;
+  font-size: 1.1rem;
+  color: $white-gray;
+
+  span{
+    font-size: 1.2rem;
+  }
+}
+
+.boton-settings {
+  margin-top: 1rem;
+  width: 7rem;
+  height: 2.3rem;
+  background-color: #4E5364;
+  color: white;
+  border: none;
+
+  &:hover {
+    background-color: #323643;
+  }
+
+  span{
+    font-size: 1rem;
+  }
+}

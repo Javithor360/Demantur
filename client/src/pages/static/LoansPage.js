@@ -123,6 +123,37 @@ export const LoansPage = () => {
           </div>
         </div>
       </div>
+      <div className="page-section">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-6 py-3">
+              <div className="subhead">{t("loans_main_page.personal_loan")}</div>
+              <h2 className="title-section">
+              {t("loans_main_page.what's_car_Demantur")}
+                <span className="fg-primary"> {t("loans_main_page.what's_car_Demantur2")}</span>
+              </h2>
+              <p>
+              {t("loans_main_page.info_car_demantur")}
+              </p>
+              {/*boton para mas info de las paginas"*/}
+              <div className="Btn-info">
+                <Link to="/Loans/CarLoan">
+                  <span>{t("loans_main_page.loans_buttons.more_info")}</span>
+                  <FaAngleRight color="#fff" />
+                </Link>
+              </div>
+            </div>
+            <div className="col-lg-6 py-3">
+              <div className="about-img">
+                <img
+                  src={LoansImage("./CarDemantur.jpg")}
+                  alt="Prestamo personal"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <br></br>
 
       {/*Hero banner contact*/}

@@ -2,8 +2,6 @@ const mongoose = require("mongoose");
 
 const AccNumberReq = { type: Number, require: true, trim: false };
 const NumberReq = { type: Number, require: true };
-const StringReq = { type: String, require: true };
-const DateReq = { type: Date, require: true };
 const BooleanReq = { type: Boolean, require: true };
 
 const SavingsAccountSchema = new mongoose.Schema(
@@ -13,20 +11,9 @@ const SavingsAccountSchema = new mongoose.Schema(
       require: true,
     },
     accountNumber: AccNumberReq,
-    balance: NumberReq,
+    balance: { type: mongoose.Types.Decimal128, require: true },
     interest: NumberReq,
     increaseRate: NumberReq,
-    withdrawHistory: [{}],
-    deposits: [
-      {
-        amount: NumberReq,
-        Date: DateReq,
-        depositor: {
-          Name: StringReq,
-          Dui: StringReq,
-        },
-      },
-    ],
     annexes: {
       CreateReason: String,
       AccountExpectations: String,

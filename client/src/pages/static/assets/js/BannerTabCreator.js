@@ -680,11 +680,6 @@ function Tabs(type) {
                             <p>&#10003;</p>
                             <p>{t("loans_pages.personal_loan_page.personal_tab.2.commission")}</p>
                         </div>
-                        <Link to="/accounts/form">
-                            <div className="check_form-button">
-                            <span>{t("loans_pages.personal_loan_page.apply_for")}</span>
-                            </div>
-                        </Link>
                     </div>
                 </div>
             </div>

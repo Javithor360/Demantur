@@ -1,16 +1,57 @@
+import { useEffect, useState } from "react";
 import { IoWalletSharp } from "react-icons/io5";
 import { useDash } from "../../../../context/DashboardContext";
+import '../assets/scss/HomePage.scss'
+import { HistoryWidget, ContactsWidget } from "./HomePageWidgets/";
+
+// Translation
+import { useTranslation } from "react-i18next";
 
 export const HomePage = () => {
-  const { Info } = useDash();
+  const { Info, clientBalance, socket, setClientBalance, getSavingAccts, getGlobalInfo, SavingAccounts, setSavingAccounts } = useDash();
+  const { t } = useTranslation();
+
+  const [plusMount, setPlusMount] = useState(null);
+  const [Elm, setElm] = useState(null);
+
+  useEffect(() => {
+    // getSavingAccts(localStorage.getItem('authToken'))
+    if (plusMount !== null) {
+      setClientBalance(prev => (parseFloat(prev) + parseFloat(plusMount)).toFixed(2));
+      setPlusMount(null)
+    }
+  }, [plusMount, setClientBalance]);
+
+  useEffect(() => {
+    if (Elm !== null) {
+      let auxAccounts = SavingAccounts;
+      auxAccounts.forEach(element => {
+        // eslint-disable-next-line eqeqeq
+        if (element.accountNumber == Elm.transfer.AccountReceiver) {
+          element.balance = (parseFloat(element.balance) + parseFloat(Elm.transfer.Amount)).toFixed(2);
+        }
+        setSavingAccounts(auxAccounts);
+      });
+    }
+  }, [Elm, SavingAccounts, setSavingAccounts]);
+
+  useEffect(() => {
+    socket?.on('getTransfer', data => {
+      // getGlobalInfo(localStorage.getItem('authToken'));
+      setPlusMount(data.transfer.Amount)
+      setElm(data)
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [socket]);
+
   return (
     <div>
       <div className="flex gap-3 my-1">
         <div className=" bg-white basis-[40%] rounded-[0.75rem]">
           <div className="m-[2rem] flex justify-between">
             <div>
-              <h2 className="text-gray-500 text-[1.5625rem]">Saldo Neto:</h2>
-              <p className="text-[1.7rem]">$ 9,999.99</p>
+              <h2 className="text-gray-500 text-[1.5625rem]">{t("DashboardNormalUser.Home.balance")}</h2>
+              <p className="text-[1.7rem]">$ {clientBalance}</p>
             </div>
             <div className=" my-auto p-[10px] bg-[#323643] rounded-[50px]">
               <IoWalletSharp className="text-[3rem] text-white" />
@@ -19,20 +60,20 @@ export const HomePage = () => {
         </div>
         <div className=" bg-white basis-[60%] rounded-[0.75rem]">
           <div className="mx-[2rem] my-[1rem]">
-            <h2 className="text-gray-500 text-[1.5625rem]">Datos personales</h2>
+            <h2 className="text-gray-500 text-[1.5625rem] text-center">{t("DashboardNormalUser.Home.information")}</h2>
             <div className="grid grid-cols-3 gap-1">
               <div>
-                <h6 className="text-gray-400 font-[1.125rem]">Nombre:</h6>
+                <h6 className="text-gray-400 font-[1.125rem]">{t("DashboardNormalUser.Home.name")}</h6>
                 <p className="font-[1.125rem]">
                   {`${Info.FirstName} ${Info.LastName}`}
                 </p>
               </div>
               <div>
-                <h6 className="text-gray-400 font-[1.125rem]">DUI:</h6>
+                <h6 className="text-gray-400 font-[1.125rem]">{t("DashboardNormalUser.Home.dui")}</h6>
                 <p className="font-[1.125rem]">{`${Info.Dui}`}</p>
               </div>
               <div className="ml-[-3.5rem]">
-                <h6 className="text-gray-400 ">Email:</h6>
+                <h6 className="text-gray-400 ">{t("DashboardNormalUser.Home.email")}</h6>
                 <p className="font-[1.125rem]">{`${Info.Email}`}</p>
               </div>
             </div>
@@ -40,22 +81,14 @@ export const HomePage = () => {
         </div>
       </div>
       <div className="flex gap-3 my-1">
-        <div className="basis-[70%] bg-white rounded-[0.75rem]">
-          <div className="m-[2rem] flex justify-between">
-            <div>
-              <h2 className="text-gray-500 text-[1.5625rem]">
-                Historial de transferencias
-              </h2>
-            </div>
+        <div className="basis-[70%] bg-white rounded-[0.75rem] ">
+          <div className="m-[2rem]">
+            <HistoryWidget />
           </div>
         </div>
         <div className="basis-[30%] bg-white rounded-[0.75rem]">
-          <div className="m-[2rem] flex justify-between">
-            <div>
-              <h2 className="text-gray-500 text-[1.5625rem]">
-                Lista de contactos
-              </h2>
-            </div>
+          <div className="m-[2rem] h-[72%]">
+            <ContactsWidget />
           </div>
         </div>
       </div>
@@ -64,14 +97,14 @@ export const HomePage = () => {
         <div className="basis-[65%] bg-white rounded-[0.75rem]">
           <div className="m-[2rem] flex justify-between">
             <div>
-              <h2 className="text-gray-500 text-[1.5625rem]">Tarjetas</h2>
+              <h2 className="text-gray-500 text-[1.5625rem]">{t("DashboardNormalUser.Home.cards")}</h2>
             </div>
           </div>
         </div>
         <div className="basis-[35%] bg-white rounded-[0.75rem]">
           <div className="m-[2rem] flex justify-between">
             <div>
-              <h2 className="text-gray-500 text-[1.5625rem]">Préstamo</h2>
+              <h2 className="text-gray-500 text-[1.5625rem]">{t("DashboardNormalUser.Home.loan")}</h2>
             </div>
           </div>
         </div>

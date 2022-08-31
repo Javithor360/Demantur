@@ -209,7 +209,7 @@ const registerPart4 = async (req, res, next) => {
       SecondPartForm,
       ThirdPartForm,
     } = req.body;
-    
+
     const { FirstName, LastName, DateBirth, Adress } =
       JSON.parse(FirstPartForm);
     const { Dui, Email, Number, Password } = JSON.parse(SecondPartForm);
@@ -300,6 +300,10 @@ const registerPart4 = async (req, res, next) => {
       Dui,
       Email: Email,
       verifyCode,
+      PerfilPhoto: {
+        url: 'https://res.cloudinary.com/demantur/image/upload/v1661360968/Demantur-Register/datv00kqnvkxuhpqpvgd.png',
+        public_id: '',
+      },
       ActivedAccount: false,
       AccountRuning: false,
     });

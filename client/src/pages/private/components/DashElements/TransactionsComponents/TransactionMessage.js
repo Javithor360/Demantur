@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './scss/transaction-message.scss'
+import { format } from 'timeago.js'
 
 export const TransactionMessage = ({ own, Transf, CurrentChat, MyName }) => {
 
@@ -11,6 +12,8 @@ export const TransactionMessage = ({ own, Transf, CurrentChat, MyName }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    let time = new Date(Transf.createdAt)
+
     return (
         <div className={own ? "message-wrapper own" : "message-wrapper"}>
             <div className={own ? "message-container" : "message-container user"}>
@@ -19,7 +22,7 @@ export const TransactionMessage = ({ own, Transf, CurrentChat, MyName }) => {
                     <p>{own === true ? MyName : HimName}</p>
                 </div>
                 <div className={own ? "message-time-left" : "message-time-right"}>
-                    <p>just now</p>
+                    <p>{time.toLocaleDateString('en-GB')} - {format(time)}</p>
                 </div>
                 <div className='message-content'>
                     <p>Monto:</p>

@@ -18,9 +18,17 @@ const {
   VerifyEmailCode,
   resetPasswordVerify,
 } = require("../controllers/GeneralController");
-const SendEmail = require("../utils/SendMail");
+const { loginEmployee } = require("../controllers/EmployeeController");
+const { loginAdmin } = require("../controllers/AdminController");
 
 // main route /api/auth
+
+
+// Rutas para el empleado
+router.route("/employee/login").post(loginEmployee);
+
+// Rutas para el administrador
+router.route("/admin/login").post(loginAdmin)
 
 // Rutas para usuario normal
 
@@ -45,18 +53,5 @@ router
   .route("/general-users/reset-password/:resetToken")
   .put([resetMiddleware], resetPassword);
 router.route("/general-users/verify-email-code").post(VerifyEmailCode);
-router.route("/holatest").get(async (req, res, next) => {
-  try {
-    const pepe = `color: red; font-style: italic;`;
-    const resp = await SendEmail({
-      to: "floresmejia004@gmail.com",
-      subject: "test correo",
-      text: `<h1 style="${pepe}">el pepardo</h1>`,
-    });
-    console.log(resp);
-  } catch (error) {
-    console.log(error);
-  }
-});
 
 module.exports = router;

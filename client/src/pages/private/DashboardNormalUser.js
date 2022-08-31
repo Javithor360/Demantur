@@ -5,14 +5,20 @@ import { useDash } from "../../context/DashboardContext";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import { Contacts, HomePage, Transactions, UserCards, ActLoans, Accounts } from "./components/DashElements/indexDashElement";
 import { useEffect, useState } from "react";
+import { io } from "socket.io-client";
 
 export const DashboardNormalUser = () => {
-  const { Option, SettingsOption, GeneralInfoQuery } = useDash();
+  const { Option, SettingsOption, GeneralInfoQuery, getGlobalInfo, setSocket, socket, Info, getContacsWP, getSavingAccts, setNPName } = useDash();
 
   const [Chargin, setChargin] = useState(true);
+  const [OnlineUsers, setOnlineUsers] = useState([]);
 
   useEffect(() => {
     GeneralInfoQuery(localStorage.getItem("authToken"));
+    getContacsWP(localStorage.getItem("authToken"))
+    getGlobalInfo(localStorage.getItem('authToken'));
+    getSavingAccts(localStorage.getItem('authToken'))
+    setSocket(io('ws://localhost:5000'));
     document.body.style.overflowY = "hidden";
     setTimeout(() => {
       setChargin(false);
@@ -20,16 +26,40 @@ export const DashboardNormalUser = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if (socket !== null) {
+      socket.emit('onlineUsers', Info.Dui);
+      socket.on('getOnlineUsers', users => {
+        setOnlineUsers(users);
+      })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Info]);
+
+  const Capitalize = (word) => {
+    return word[0].toUpperCase() + word.slice(1);
+  }
+
+  useEffect(() => {
+    if (Object.keys(Info).length !== 0) {
+      let Name = Info.FirstName.split(' ');
+      let LastName = Info.LastName.split(' ');
+      LastName = LastName[0];
+      setNPName(`${Capitalize(Name[0])} ${LastName[0].toUpperCase()}.`);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Info])
+
   const DisplayElement = () => {
     switch (Option) {
       case 1:
         return <HomePage />;
       case 2:
-        return <h1><Accounts /></h1>;
+        return <Accounts />;
       case 3:
-        return <Transactions />;
+        return <Transactions OnlineUsers={OnlineUsers} />;
       case 4:
-        return <h1><ActLoans /></h1>;
+        return <ActLoans />;
       case 5:
         return <Contacts />;
       case 6:
@@ -52,11 +82,11 @@ export const DashboardNormalUser = () => {
           <div className="w-[98%] h-[95%] flex">
             {/* sidebar */}
             <SideBar />
-            <div className="h-full w-[80%]  mx-auto">
+            <div className="h-[95%] w-[80%]  mx-auto">
               <Header />
               <div className="pl-4 Display-dash-div">
                 <div className="h-100">
-                  <div className="flex flex-col justify-between py-3 w-100 h-100">
+                  <div className="flex flex-col justify-between py-3 w-100 h-full">
                     {DisplayElement()}
                   </div>
                 </div>

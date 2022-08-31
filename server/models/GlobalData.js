@@ -4,7 +4,8 @@ const TransfersHistoryElements = {
   // Date: Date,
   SenderDui: String,
   ReciverDui: String,
-  Amount: Number,
+  Amount: String,
+  AccountReceiver: Number,
   AccountN: Number,
   Type: String,
   createdAt: Date,
@@ -47,6 +48,23 @@ const GlobalDataSchema = new mongoose.Schema({
     Made: [TransfersHistoryElements],
     Received: [TransfersHistoryElements],
   },
+  Deposits: [
+    {
+      Amount: String,
+      Account: String,
+      Date: Date,
+      Depositor: {
+        Name: String,
+        EmployeeId: String,
+      },
+    },
+  ],
+  withdrawHistory: [{
+    Amount: String,
+    Account: String,
+    Date: Date,
+  }],
+
 });
 
 module.exports = mongoose.model("GlobalData", GlobalDataSchema);

@@ -16,6 +16,7 @@ export { LoansPage } from "./LoansPage";
 export { BusinessLoan } from "./loans/BusinessLoan";
 export { PersonalLoan } from "./loans/PersonalLoan";
 export { HouseLoan } from "./loans/HouseLoan";
+export { CarLoan } from "./loans/CarLoan"
 export { RegisterNormalUserPage } from "./auth/RegisterNormalUserPage";
 export { LoginNormalUserPage } from './auth/LoginNormalUserPage';
 export { VerifyEmailPage } from './auth/VerifyEmailPage';
@@ -24,4 +25,7 @@ export { ForgotPasswordPage } from './auth/ForgotPasswordPage';
 export { ResetPasswordPage } from './auth/ResetPasswordPage';
 export { AboutUs } from "./AboutUs";
 export { TermsandConditions } from "./TermsAndConditions";
-export { Error404 } from "./Error404" 
+export { Error404 } from "./Error404";
+
+export { EmployeeLoginPage } from "./auth/EmployeeLoginPage"
+export { AdminLoginPage } from "./auth/AdminLoginPage"

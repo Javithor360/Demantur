@@ -11,6 +11,9 @@ import { BsCreditCardFill } from "react-icons/bs";
 import { useDash } from "../../../context/DashboardContext";
 import { useNavigate } from "react-router-dom";
 
+// Translation
+import { useTranslation } from "react-i18next";
+
 const NavLinkStyles =
   "menu-item mb-2 h-14 flex flex-row w-full rounded items-center";
 const DivNavLinkStyles =
@@ -22,8 +25,10 @@ const SpanNavLinkStyles = "menu-span-navlink";
 const SideBarImages = require.context("./assets/img/", true);
 
 export const SideBar = () => {
-  const { Option, setOption, setOptionElement } = useDash();
+  const { Option, setOption, setOptionElement, setNPName } = useDash();
   const navigate = useNavigate();
+  const {t}=useTranslation();
+
 
   return (
     <>
@@ -41,7 +46,7 @@ export const SideBar = () => {
             <div
               onClick={() => {
                 setOption(1);
-                setOptionElement("Home Page");
+                setOptionElement(<span>{t("DashboardNormalUser.SideBar.1")}</span>);
               }}
               className={
                 Option === 1
@@ -52,13 +57,13 @@ export const SideBar = () => {
               <div className={DivNavLinkStyles}>
                 <AiFillHome className={IconNavLinkStyles} />
               </div>
-              <span className={SpanNavLinkStyles}>Home Page</span>
+              <span className={SpanNavLinkStyles}>{t("DashboardNormalUser.SideBar.1")}</span>
             </div>
 
             <div
               onClick={() => {
                 setOption(2);
-                setOptionElement("Cuentas");
+                setOptionElement(<span>{t("DashboardNormalUser.SideBar.2")}</span>);
               }}
               className={
                 Option === 2
@@ -69,13 +74,13 @@ export const SideBar = () => {
               <div className={DivNavLinkStyles}>
                 <MdAccountBalanceWallet className={IconNavLinkStyles} />
               </div>
-              <span className={SpanNavLinkStyles}>Cuentas</span>
+              <span className={SpanNavLinkStyles}>{t("DashboardNormalUser.SideBar.2")}</span>
             </div>
 
             <div
               onClick={() => {
                 setOption(3);
-                setOptionElement("Transferencias");
+                setOptionElement(<span>{t("DashboardNormalUser.SideBar.3")}</span>);
               }}
               className={
                 Option === 3
@@ -86,13 +91,13 @@ export const SideBar = () => {
               <div className={DivNavLinkStyles}>
                 <BiTransfer className={IconNavLinkStyles} />
               </div>
-              <span className={SpanNavLinkStyles}>Transferecias</span>
+              <span className={SpanNavLinkStyles}>{t("DashboardNormalUser.SideBar.3")}</span>
             </div>
 
             <div
               onClick={() => {
                 setOption(4);
-                setOptionElement("Préstamos");
+                setOptionElement(<span>{t("DashboardNormalUser.SideBar.4")}</span>);
               }}
               className={
                 Option === 4
@@ -103,13 +108,13 @@ export const SideBar = () => {
               <div className={DivNavLinkStyles}>
                 <FaListAlt className={IconNavLinkStyles} />
               </div>
-              <span className={SpanNavLinkStyles}>Préstamos</span>
+              <span className={SpanNavLinkStyles}>{t("DashboardNormalUser.SideBar.4")}</span>
             </div>
 
             <div
               onClick={() => {
                 setOption(5);
-                setOptionElement("Contactos");
+                setOptionElement(<span>{t("DashboardNormalUser.SideBar.5")}</span>);
               }}
               className={
                 Option === 5
@@ -120,13 +125,13 @@ export const SideBar = () => {
               <div className={DivNavLinkStyles}>
                 <MdPermContactCalendar className={IconNavLinkStyles} />
               </div>
-              <span className={SpanNavLinkStyles}>Contactos</span>
+              <span className={SpanNavLinkStyles}>{t("DashboardNormalUser.SideBar.5")}</span>
             </div>
 
             <div
               onClick={() => {
                 setOption(6);
-                setOptionElement("Tarjetas");
+                setOptionElement(<span>{t("DashboardNormalUser.SideBar.6")}</span>);
               }}
               className={
                 Option === 6
@@ -137,23 +142,25 @@ export const SideBar = () => {
               <div className={DivNavLinkStyles}>
                 <BsCreditCardFill className={IconNavLinkStyles} />
               </div>
-              <span className={SpanNavLinkStyles}>Tarjetas</span>
+              <span className={SpanNavLinkStyles}>{t("DashboardNormalUser.SideBar.6")}</span>
             </div>
           </div>
         </div>
 
         <div className="flex justify-center w-full pb-4">
-          <button className="logout-button flex items-center justify-center rounded w-[85%]">
+          <button className="logout-button flex items-center justify-center rounded w-[85%]"
+            onClick={() => {
+              localStorage.removeItem("authToken");
+              navigate("/auth");
+              setNPName(null);
+            }}
+          >
             <div className="flex items-center mr-2 logout-icon">
               <MdOutlineLogout />
             </div>
             <span
-              onClick={() => {
-                localStorage.removeItem("authToken");
-                navigate("/auth/normal-user/login");
-              }}
             >
-              Cerrar Sesion
+              {t("DashboardNormalUser.SideBar.7")}
             </span>
           </button>
         </div>

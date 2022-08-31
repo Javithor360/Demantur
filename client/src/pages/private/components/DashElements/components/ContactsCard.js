@@ -4,7 +4,6 @@ import { useDash } from "../../../../../context/DashboardContext";
 
 
 export const ContactsCard = ({ User, setUsersToReq, UsersToReq }) => {
-  const HeaderImages = require.context('../../assets/img/', true);
   const { addFriendRequest, PedingFriendReq, setReloadState } = useDash()
   const [TextBox, setTextBox] = useState({ text: 'Agregar', state: false });
 
@@ -25,16 +24,16 @@ export const ContactsCard = ({ User, setUsersToReq, UsersToReq }) => {
     <div className='contact-card-container bg-[#FBFBFB] rounded-md shadow-md'>
       <div className="w-[100%] h-100 flex items-center mb-2 py-2 px-3"> {/*   */}
         <div className='profile-img mr-3'>
-          <img src={HeaderImages('./profile-photo2.jpg')} alt="" className="h-full w-full" />
+          <img src={User.PerfilPhoto.url} alt="" className="h-full w-full" />
         </div>
         <div className='flex flex-col justify-center h-100'>
           <span>{`${User.FirstName} ${User.LastName}`} </span>
-          <hr className="my-1 p-0"/>
+          <hr className="my-1 p-0" />
           <span>Dui: {User.Dui}</span>
         </div>
       </div>
       <div className='add-contact-btn'>
-        <button  className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white" onClick={handlerAdd} disabled={TextBox.state} >{TextBox.text}</button>
+        <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white" onClick={handlerAdd} disabled={TextBox.state} >{TextBox.text}</button>
       </div>
     </div >
   )

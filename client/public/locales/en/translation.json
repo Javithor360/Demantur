@@ -4,7 +4,7 @@
     "accounts": "Accounts",
     "loans": "Loans",
     "contact": "Contact",
-    "business": "register",
+    "business": "Register",
     "about": "About Us",
     "help": "Help",
     "access": "Access"
@@ -36,6 +36,61 @@
         "3": "Possibility of having a checkbook"
       }
     }
+  },
+  "login":{
+    "register":{
+      "tittle":"Sign up for online banking",
+      "tittle2":"Personal information",
+      "subtittle":"We need your personal data to be able to identify you and know that it really is you",
+      "names":"Names",
+      "lastname":"Lastnames",
+      "date":"birthday date",
+      "address":"Address"
+    },
+
+    "contentreg":{
+      "tittle":"Other options",
+      "subtitle":"What do you need to do?",
+      "subtitle2":"Log in",
+      "subtitle3":"Change Password",
+      "subtitle4":"Verify email"
+    },
+    "sidebar":{
+      "date":"personal information",
+      "identification":"identification",
+      "money":"monetary data",
+      "beneficiary":"beneficiary"
+    },
+    "buttons":{
+      "previous":"PREVIOUS"
+    },
+
+    "identification":{
+      "number":"Number",
+      "password":"Password",
+      "password2":"Confirm Passwo...",
+      "code":"Code"
+    },
+    "logins":{
+      "tittle":"Login to online banking",
+      "tittle2":"Login",
+      "subtittle":"In this section you can access with your previously created account",
+      "forgot":"Forgot your password?",
+      "register":"Register"
+    },
+    "password":{
+      "tittle":"Lost password",
+      "forgtott":"If you do not remember your password, you can change it in this section",
+      "send":"Send email"
+    },
+    "verify":{
+      "tittle":"Verify Email",
+      "tittle2":"Vefication",
+      "subtittle":"Here you can verify your email to finalize your registration",
+      "very":"Verify"
+
+    }
+
   },
   "Aboutpage":{
     "hero":{
@@ -77,7 +132,7 @@
       "subtittle": "Welcome to the user selection interface, select the option you want to go to",
       "tittle2":"Other options",
       "subtittle2":"we have other options in case you already have an account, we have the following tools that could help you",
-      "tittle3":"how to register?"
+      "tittle3":"How to register?"
     },
     "cards":{
       "1":{
@@ -205,6 +260,9 @@
     "what's_home_demantur": "What is ",
     "what's_home_demantur2": "Demantur housing?",
     "info_home_demantur": "Take advantage of preferential conditions to request the credits you need to be able to purchase your new or used home in El Salvador.",
+    "what's_car_Demantur":"What is",
+    "what's_car_Demantur2": "Demantur car?",
+    "info_car_demantur":"Our Loan is aimed at financing the purchase of a new or used vehicle. (Does not apply commercial vehicles; Trucks, Buses, Minibuses)",
     "Doubts": "Do you have any doubt?",
     "loans_buttons": {
       "more_info": "More information",
@@ -240,7 +298,26 @@
           "sure": "Life insurance and funeral assistance.",
           "commission": "A commission of 0.5% applies to the amount of the credit if the term is 10 years. Zero commission if the term is 9 years or less."
         }
-      }
+      },
+      "forms":{
+        "title": "Are you decided?",
+        "subtitle":"Request your loans",
+        "name":"Full name",
+        "id_dui":"Dui number",
+        "contact":"Contact number",
+        "address":"Address",
+        "email":"Email",
+        "Amount":"Amount to request",
+        "salary": "Salary range",
+        "company": "Name of the company where you work",
+        "op1": "Photocopy of DUI (reverse and right)",
+        "op2": "proof of work",
+        "op3": "Attach your proof of salary",
+        "op4": "Among",
+        "op5": "Greater than",
+        "button":"Subir Archivo",
+        "button2":"submit"
+    }
     },
     "business_loan_page": {
       "title": "Business Credits",
@@ -272,7 +349,7 @@
     "housing_page": {
       "title": "Housing Credit",
       "subtitle": "We offer you a loan tailored to your needs for your new home",
-      "what's_it": "Vivienda Demantur",
+      "what's_it": "Housing Demantur",
       "housing_info": "This type of loan is made in the long term and will be backed by the property that is purchased. These loans can be financed for a certain term and at an interest rate that will depend on the amount you request to obtain what you need.",
       "housing_info2": " It is important that you are clear that the fact that the property is the guarantee of the loan, that does not mean that we will keep your house or that you will not be able to use it until you finish paying the debt.",
       "benefits": "Benefits",
@@ -299,6 +376,16 @@
           "amount": "Life insurance according to credit amount and construction damage insurance."
         }
       }
+    },
+    "Demantur_car":{
+      "title": "Car Credit",
+      "subtitle": "Change your lifestyle with our decreasing credit for the purchase of a new or used vehicle",
+      "what's_it": "Car Demantur",
+      "car_info": "We offer you the option of acquiring a vehicle with the figure of lease with purchase option, which will allow you to acquire ownership of the vehicle at the end of the term..",
+      "car_info2": " You have financing in a new vehicle of up to 90% according to the quote with the vehicle insurance fee included.",
+      "benefits": "Benefits",
+      "benefits_bannerc": "Fast and agile process",
+      "benefits_bannerc2": "We listen to you, we understand your needs and we offer you the most suitable plan for your project."
     }
   },
   "help_page":{
@@ -774,5 +861,178 @@
       "2": "Minimum opening amount: $25.00",
       "3": "Interest rate according to table published on the 1st of each month."
      }
+  },
+  "DashboardNormalUser":{
+    "SideBar":{
+      "1": "Home",
+      "2": "Accounts",
+      "3": "Transfers",
+      "4": "Loans",
+      "5": "Contacts",
+      "6": "Tajetas",
+      "7": "Log Out"
+    },
+    "Dropdown":{
+      "tittle": "Select"
+    },
+    "Setting":{
+      "tittle": "Settings",
+      "desc": "Profile Picture",
+      "button": "Change",
+      "language": "Language"
+    },
+    "Home":{
+      "balance": "Net Balance:",
+      "information": "Personal Information",
+      "name": "Name:",
+      "dui": "DUI",
+      "email": "Email:",
+      "cards": "Cards",
+      "loan": "Loan",
+      "transfers2": "There is no transfer",
+      "transfers": {
+        "tittle": "Latest Transfers",
+        "tittle2": "Made",
+        "tittle3": "Received",
+        "amount": "Amount",
+        "beneficiary1": "Beneficiary",
+        "beneficiary2": "Benefactor",
+        "account": "Account number",
+        "date": "Date"
+      },
+      "contact": {
+        "tittle": "Contact List",
+        "desc": "No further contacts",
+        "des2": "You have no contacts"
+      }
+    },
+    "Transfers":{
+      "tittle": "Contacts",
+      "desc": "Select a contact to transfer",
+      "desc2": "No transfers have been made",
+      "des3": "You have no contacts added",
+      "input": "Search...",
+      "form":{
+        "balance": "Balance",
+        "option": "Select Account...",
+        "button": "Transfer",
+        "placeholder": "Enter Amount..."      
+      }
+    },
+    "Loans":{
+      "tittle": "Apply for your Credit",
+      "tittle2": "Your Active Credits",
+      "tittle3": "Loans",
+      "desc": "You have an Application in progress",
+      "button": "Request",
+      "button2": "View details",
+      "1":{
+        "tittle": "Personal Credit",
+        "desc": "Enjoy your new life with the best conditions. We facilitate the procedures for you to carry out your projects with our Personal Credit.",
+        "desc2": "We provide solutions to your financial needs. Preferential Personal Loans for employees. We are the only ones that do not charge you commission."
+      },
+      "2":{
+        "tittle": "Credito Empresa",
+        "desc": "If you work in your own business, we provide it with special conditions for you to consolidate your debts or carry out your new projects.",
+        "desc2": "Special for you to consolidate your debts or carry out your new projects or improve the conditions of your company or enterprise."
+      },
+      "3":{
+        "tittle": "Demantur Housing",
+        "desc": "Take advantage of preferential conditions to apply for the loans you need to be able to purchase your new or used home.",
+        "desc2": "Get many more possibilities, superior benefits and a higher level of purchase and cash with the Demantur Gold card, with it you will always have that quality support and greater security, confidence and that support you deserve. Demantur Gold is designed for those people like you, who are always looking for that exigency and good level in a credit card."
+      },
+      "4":{
+        "tittle": "Auto Demantur",
+        "desc": "Change your lifestyle with our decreasing credit for the purchase of new or used vehicle.",
+        "desc2": "We listen to you, we understand your needs and we offer you the most suitable plan for your project."
+      },
+      "form":{
+        "tittle1": "Salary Range",
+        "tittle2": "Employment Status",
+        "tittle3": "Photocopy of DUI (Front)",
+        "tittle4": "Photocopy of DUI (Rear)",
+        "tittle5": "Proof of salary",
+        "UserElementsSalary":{
+          "1": "onwards"
+        },
+        "LaboralStatus":{
+          "1": "Employed",
+          "2": "Unemployed",
+          "3": "Student",
+          "4": "Entrepreneur"
+        }
+      }
+    },
+    "Contacts":{
+      "tittle": "Your Contacts",
+      "tittle2": "Added",
+      "tittle3": "Requests",
+      "tittle4": "Requests",
+      "tittle5": "Add Contact",
+      "desc": "No concidence",
+      "search": "Full Name",
+      "YourContacts":{
+        "name": "Name:",
+        "dui": "DUI:",
+        "button": "Delete",
+        "desc": "You have no contacts added"
+      },
+      "Pending":{
+        "name": "Name:",
+        "dui": "DUI:",
+        "buttton": "Cancel",
+        "desc": "No pending requests made"
+      },
+      "YourFriendReq":{
+        "name": "Name:",
+        "dui": "DUI:",
+        "buttton1": "Accept",
+        "buttton2": "Cancel",
+        "desc": "No pending requests"
+      }
+    },
+    "Cards":{
+      "tittle": "Apply for your credit card",
+      "tittle2": "Your cards",
+      "sub-tittle": "Credit",
+      "sub-tittle2": "Debit",
+      "desc": "You have an Application in progress",  
+      "button": "View details",
+      "1":{
+        "desc": "Necessary benefits for your daily life, with it you have a secure payment method to use in stores, online shopping, etc.",
+        "desc2": "The Demantur Classic credit card provides you with the necessary benefits for your day to day life, with it you have a secure payment method to use in stores, online purchases, etc. In addition, you have immediate cash withdrawal at national ATMs, find more detailed information on our website."
+      },
+      "2":{
+        "desc": "Obtain numerous benefits that adapt to your needs with great flexibility and comfort.",
+        "desc2": "Are you looking for a card that allows you to enjoy great benefits anywhere and anytime? If so, the Demantur Platinum card is for you, get numerous benefits that adapt to your needs with great flexibility. You can travel, buy whatever you want and have the security you need for each of your purchases, check out many more benefits on our website."
+      },
+      "3":{
+        "desc": "Get that backing you deserve with a lot of possibilities and superior benefits at any time.",
+        "desc2": "Get many more possibilities, superior benefits and a higher level of purchase and cash with the Demantur Gold card, with it you will always have that quality backing and greater security, confidence and that backing you deserve. Demantur Gold is designed for those people like you, who are always looking for that exigency and good level in a credit card."
+      },
+      "4":{
+        "desc": "Enjoy a world without limits and full of what you deserve, get benefits, prestige and recognition with a great capacity.",
+        "desc2": "When we talk about the Mastercard Black card we are aware that it is something superior, get that prestige, recognition, exclusivity and obviously some wonderful benefits that only this card is able to give you, live a world full of possibilities and dreams, travel, extrafinanciameitos, protections, assistance, VIP lounges, among many other things with which to enjoy life to the fullest."
+      }
+      ,
+      "form":{
+        "tittle1": "Salary Range",
+        "tittle2": "Employment Status",
+        "tittle3": "Photocopy of DUI (Front)",
+        "tittle4": "Photocopy of DUI (Rear)",
+        "tittle5": "Proof of salary",
+        "button": "Request",
+        "UserElementsSalary":{
+          "1": "onwards"
+        },
+        "LaboralStatus":{
+          "1": "Employed",
+          "2": "Unemployed",
+          "3": "Student",
+          "4": "Entrepreneur"
+        }
+      }
+    }
   }
 }
+

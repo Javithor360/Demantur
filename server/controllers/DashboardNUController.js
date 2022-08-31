@@ -2,6 +2,11 @@ const NormalUser = require("../models/NormalUser");
 const ErrorResponse = require("../utils/ErrorMessage");
 const GlobalData = require("../models/GlobalData");
 const Settings = require("../models/Settings");
+const CardsRequests = require("../models/CardsRequests");
+const LoansModels = require('../models/LoansModels')
+const SavingsAccount = require('../models/SavingsAccount');
+const { uploadRegisterImage } = require("../libs/cloudinary");
+const fs = require("fs-extra");
 // const SavingAccount = require("../models/SavingAccount");
 
 const testDB = async (req, res, next) => {
@@ -51,6 +56,30 @@ const testDB = async (req, res, next) => {
   }
 };
 
+
+const getContacs = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+
+    const ContactsWtPic = await GlobalData.findOne({ DataOwner: token.user.id });
+    const isNormalUsers = await NormalUser.find();
+    let auxContacts = ContactsWtPic.Contacts;
+    let ContactsWithPic = []
+
+    ContactsWithPic = ContactsWtPic.Contacts.map((Contact, index) => {
+      isNormalUsers.forEach(element => {
+        if (element.Dui === Contact.Dui) {
+          auxContacts[index].Photo = element.PerfilPhoto.url;
+        }
+      });
+      return auxContacts[index]
+    })
+
+    res.status(200).json({ success: true, data: ContactsWithPic })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
 
 const getUserId = async (req, res, next) => {
   try {
@@ -138,7 +167,7 @@ const addFriendRequest = async (req, res, next) => {
             PendingFriendReq: {
               Name: `${UserRequested1.FirstName} ${UserRequested1.LastName}`,
               Dui: UserRequested1.Dui,
-              Photo: 'foto link',
+              Photo: null,
             }
           }
         }
@@ -151,7 +180,7 @@ const addFriendRequest = async (req, res, next) => {
             FriendRequests: {
               Name: `${ThisUser1.FirstName} ${ThisUser1.LastName}`,
               Dui: ThisUser1.Dui,
-              Photo: 'foto link',
+              Photo: null,
             }
           }
         }
@@ -221,7 +250,7 @@ const AcceptFriend = async (req, res, next) => {
           Contacts: {
             Name: `${UserRequested.FirstName} ${UserRequested.LastName}`,
             Dui: UserRequested.Dui,
-            Photo: 'foto link',
+            Photo: null,
           }
         }
       }
@@ -233,7 +262,7 @@ const AcceptFriend = async (req, res, next) => {
           Contacts: {
             Name: `${ThisUser.FirstName} ${ThisUser.LastName}`,
             Dui: ThisUser.Dui,
-            Photo: 'foto link',
+            Photo: null,
           }
         }
       }
@@ -318,7 +347,7 @@ const DeleteFriend = async (req, res, next) => {
 const DoAtransfer = async (req, res, next) => {
   try {
     const token = req.resetToken;
-    const { SenderDui, ReciverDui, Amount, AccountN, Type } = req.body;
+    const { SenderDui, ReciverDui, Amount, AccountN, AccountReceiver, Type, createdAt } = req.body;
     let mader, receiver;
 
     const ThisUser = await NormalUser.findOne({ _id: token.user.id });
@@ -334,21 +363,206 @@ const DoAtransfer = async (req, res, next) => {
       receiver = token.user.id;
     }
 
+    const EveryAcc = await SavingsAccount.find()
+
+
     // MADER
-    await GlobalData.findOneAndUpdate(
+
+    const MaderAccount = await SavingsAccount.findOne({ AccountOwner: mader })
+    EveryAcc.forEach(async (element) => {
+      console.log(element.accountNumber);
+      console.log(AccountN);
+      if (element.accountNumber == AccountN) {
+        await SavingsAccount.findOneAndUpdate(
+          { accountNumber: AccountN },
+          { balance: (parseFloat(MaderAccount.balance) - parseFloat(Amount)).toFixed(2) }
+        )
+      }
+    });
+
+    const TransferMade = await GlobalData.findOneAndUpdate(
       { DataOwner: mader },
-      { $addToSet: { 'TransfersHistory.Made': { SenderDui, ReciverDui, Amount, AccountN, Type } } }
+      { $push: { 'TransfersHistory.Made': { SenderDui, ReciverDui, Amount, AccountN, AccountReceiver, Type, createdAt } } }
     );
 
     // RECEIVER
+
+    const ReceiverAccount = await SavingsAccount.findOne({ AccountOwner: receiver })
+
+    EveryAcc.forEach(async element => {
+      if (element.accountNumber == AccountReceiver) {
+        await SavingsAccount.findOneAndUpdate(
+          { accountNumber: AccountReceiver },
+          { balance: (parseFloat(ReceiverAccount.balance) + parseFloat(Amount)).toFixed(2) }
+        )
+      }
+    });
+
     await GlobalData.findOneAndUpdate(
       { DataOwner: receiver },
-      { $addToSet: { 'TransfersHistory.Received': { SenderDui, ReciverDui, Amount, AccountN, Type } } }
+      { $push: { 'TransfersHistory.Received': { SenderDui, ReciverDui, Amount, AccountN, AccountReceiver, Type, createdAt } } }
     );
 
-    res.status(200).json({ success: true, data: 'transferencia hecha correctamente' })
+    const Transfers = await GlobalData.findOne({ DataOwner: TransferMade.DataOwner })
+    let TheRes = Transfers.TransfersHistory.Made.pop()
+
+    res.status(200).json({ success: true, data: TheRes })
   } catch (error) {
     res.status(500).json({ success: false, error: error });
+    console.log(error);
+  }
+}
+
+const getMyCardReq = async (req, res, next) => {
+  try {
+    let exportss;
+    const token = req.resetToken;
+
+
+    const isHadCardReq = await CardsRequests.findOne({ CardOwner: token.user.id })
+    if (isHadCardReq) {
+      exportss = isHadCardReq
+    } else {
+      exportss = false
+    }
+
+    res.status(200).json({ success: true, data: exportss })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const getMyLoanReq = async (req, res, next) => {
+  try {
+    let exportss;
+    const token = req.resetToken;
+
+
+    const isHadLoanReq = await LoansModels.findOne({ loan_guarantor: token.user.id })
+    if (isHadLoanReq) {
+      exportss = isHadLoanReq
+    } else {
+      exportss = false
+    }
+
+    res.status(200).json({ success: true, data: exportss })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const getSavAcc = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+
+    const queryAccount = await SavingsAccount.find();
+
+    let filterArray = queryAccount.filter(SingAcc => SingAcc.AccountOwner == token.user.id)
+
+    res.status(200).json({ success: true, data: filterArray });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const UploadPhoto = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    let ImagePhoto;
+
+    if (req.files?.Image) {
+      ImagePhoto = req.files.Image
+    } else {
+      return next(new ErrorResponse("No se ha subido ninguna imagen", 400, "error"))
+    }
+
+    const result = await uploadRegisterImage(ImagePhoto.tempFilePath);
+    await fs.remove("./upload");
+
+    const user = await NormalUser.findOneAndUpdate({ _id: token.user.id }, {
+      PerfilPhoto: {
+        url: result.secure_url,
+        public_id: result.public_id
+      }
+    })
+
+    res.status(200).json({ success: true, data: { url: result.secure_url, public_id: result.public_id } });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const getNavName = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+
+    const query = await NormalUser.findOne({ _id: token.user.id });
+    res.status(200).json({ success: true, data: query });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const getEveryAcc = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+
+    const AllAccounts = await SavingsAccount.find();
+    const AllUsers = await NormalUser.find();
+
+    let AccountsWithUsers = [];
+
+    AllAccounts.forEach((element, i) => {
+      if (element.AccountOwner.toString() === AllUsers[i]._id.toString()) {
+        let datos = { Dui: null, accountNumber: null };
+        datos.Dui = AllUsers[i].Dui;
+        datos.accountNumber = element.accountNumber;
+
+        AccountsWithUsers.push(datos);
+      }
+    });
+
+    console.log(AccountsWithUsers);
+
+    res.status(200).json({ success: true, data: AccountsWithUsers })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const getAccountsHistory = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const AccountNumber = req.header('AccountNumber');
+    if (!AccountNumber) {
+      return next(new ErrorResponse('No se encontró el número de cuenta', 400, 'error'))
+    }
+
+    let filterArray,
+      depHistory = [],
+      withHistory = [],
+      generalHistory = [];
+
+    const DepQuery = await GlobalData.findOne({ DataOwner: token.user.id });
+    if (!DepQuery) {
+      return next(new ErrorResponse('El usuario no existe', 400, 'error'))
+    }
+
+    filterArray = DepQuery.Deposits.filter(i => i.Account == AccountNumber);
+    depHistory.push({ Deposits: filterArray })
+
+    filterArray = DepQuery.withdrawHistory.filter(i => i.Account == AccountNumber);
+    withHistory.push({ Withdraws: filterArray });
+
+    generalHistory.push(depHistory, withHistory);
+
+    if (depHistory.length < 1) {
+      return next(new ErrorResponse('No hay ningún dato', 400, 'error'))
+    }
+    res.status(200).json({ success: true, data: generalHistory });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, error: error.message });
   }
 }
 
@@ -362,5 +576,14 @@ module.exports = {
   AcceptFriend,
   DeclineFriend,
   DeleteFriend,
-  DoAtransfer
+  DoAtransfer,
+  getMyCardReq,
+  getMyLoanReq,
+  getContacs,
+  getSavAcc,
+  UploadPhoto,
+  getNavName,
+  getEveryAcc,
+  getAccountsHistory
 };
+

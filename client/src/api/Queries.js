@@ -39,3 +39,54 @@ export const DeclineFriendReq = async (PrivateConfig, el) => {
 export const DeleteFriendRequest = async (PrivateConfig, el) => {
   return await axios.post('http://localhost:4000/api/dashboard/delete-friend-request', { el }, { headers: PrivateConfig.headers })
 }
+
+export const DoATransferQuery = async (PrivateConfig, transfer) => {
+  return await axios.post('http://localhost:4000/api/dashboard/do-a-transfer', transfer, { headers: PrivateConfig.headers })
+}
+
+export const getMyCardReqREQ = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-my-card-request', { headers: PrivateConfig.headers })
+}
+
+export const getMyLoanReqREQ = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-Loans-requests', { headers: PrivateConfig.headers })
+}
+
+export const getContactsWPReq = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-contacts-new', { headers: PrivateConfig.headers })
+}
+
+export const getSavingAcctsReq = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-saving-accounts', { headers: PrivateConfig.headers })
+}
+
+export const UpdatePhotoReq = async (Token, Form) => {
+  return await axios.post('http://localhost:4000/api/dashboard/upload-photo', Form, { headers: { 'Content-Type': 'multipart/form-data', "x-auth-token": Token } })
+}
+
+export const getNametoNavQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-nav-name', { headers: PrivateConfig.headers })
+}
+
+export const getEveryAccQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-every-account', { headers: PrivateConfig.headers })
+}
+
+export const getAccHistory = async (Token, accNum) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-account-history', { headers: { "Content-Type": "application/json", "x-auth-token": Token, "AccountNumber": accNum} });
+}
+
+// ?? QUERYS EMPLOYEE
+
+export const getEmployeeData = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/employee/get-data', { headers: PrivateConfig.headers });
+}
+
+export const getCardRequest = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/employee/get-cards-requests', { headers: PrivateConfig.headers })
+}
+
+export const getLoanRequests = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/employee//get-Loans-requests', { headers: PrivateConfig.headers });
+}
+

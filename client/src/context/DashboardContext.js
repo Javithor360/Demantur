@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest } from "../api/Queries";
+// import { format } from "timeago.js";
+import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ, getContactsWPReq, getMyLoanReqREQ, getSavingAcctsReq, UpdatePhotoReq, getNametoNavQuery, getEveryAccQuery, getAccHistory } from "../api/Queries";
 
 const dashContext = createContext();
 
@@ -9,6 +10,8 @@ export const useDash = () => {
 };
 
 export const DashProvider = ({ children }) => {
+  const [NPName, setNPName] = useState(null);
+
   const [Option, setOption] = useState(1);
   const [OptionElement, setOptionElement] = useState("Home Page");
   const [SettingsOption, setSettingsOption] = useState(false);
@@ -22,15 +25,33 @@ export const DashProvider = ({ children }) => {
   const [FriendRequest, setFriendRequest] = useState([]);
 
   const [ReloadState, setReloadState] = useState(false);
+  const [ReloadStateTwo, setReloadStateTwo] = useState(false);
   const [CurrentChat, setCurrentChat] = useState(null);
   const [MyTransfers, setMyTransfers] = useState([]);
   const [HimTranfers, setHimTranfers] = useState([]);
+  const [SavingAccounts, setSavingAccounts] = useState([]);
+  const [clientBalance, setClientBalance] = useState(0);
+
+  const [socket, setSocket] = useState(null)
 
   useEffect(() => {
-    setContacts(GlobalInfo.Contacts);
-    setPedingFriendReq(GlobalInfo.PendingFriendReq);
-    setFriendRequest(GlobalInfo.FriendRequests);
+    if (GlobalInfo !== null) {
+      setPedingFriendReq(GlobalInfo.PendingFriendReq);
+      setFriendRequest(GlobalInfo.FriendRequests);
+    }
   }, [GlobalInfo]);
+
+  useEffect(() => {
+    if (SavingAccounts.length !== 0) {
+      let newBalance = 0;
+      SavingAccounts.forEach((element, i) => {
+        newBalance = newBalance + parseFloat(element.balance.$numberDecimal)
+        SavingAccounts[i].balance = parseFloat(element.balance.$numberDecimal)
+      });
+      setClientBalance(newBalance.toFixed(2));
+    }
+  }, [SavingAccounts])
+
 
   const PrivateConfig = (Token) => {
     return {
@@ -50,22 +71,46 @@ export const DashProvider = ({ children }) => {
     }
   };
 
-  const DematurClassicForm = async () => {
+  const CardsRequestsForm = async (token) => {
     try {
-      return await getInfo();
+      return await getInfo(PrivateConfig(token));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const LoansRequestsForm = async (token) => {
+    try {
+      return await getInfo(PrivateConfig(token));
     } catch (error) {
       console.log(error);
     }
   };
 
-  const CreateElements = async (Token) => {
+  const PersonalLoanForm = async (token) => {
     try {
-      await creatElements(PrivateConfig(Token));
-      // console.log(Res);
+      return await getInfo(PrivateConfig(token));
     } catch (error) {
       console.log(error);
     }
   };
+
+
+  const CreateElements = async (Token) => {
+    try {
+      await creatElements(PrivateConfig(Token));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getContacsWP = async (Token) => {
+    try {
+      const res = await getContactsWPReq(PrivateConfig(Token));
+      setContacts(res.data.data)
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const getGlobalInfo = async (Token) => {
     try {
@@ -75,6 +120,14 @@ export const DashProvider = ({ children }) => {
       console.log(error);
     }
   };
+
+  const GlobalInfoSetReq = async (Token) => {
+    try {
+      return await getGlobalInfoQuery(PrivateConfig(Token));
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const getUsersToFriendReq = async (Token) => {
     try {
@@ -134,14 +187,81 @@ export const DashProvider = ({ children }) => {
     }
   }
 
+  const DoATransfer = async (Token, transaction) => {
+    try {
+      return await DoATransferQuery(PrivateConfig(Token), transaction)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getMyCardReq = async (Token) => {
+    try {
+      return await getMyCardReqREQ(PrivateConfig(Token))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getMyLoanReq = async (Token) => {
+    try {
+      return await getMyLoanReqREQ(PrivateConfig(Token))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getSavingAccts = async (Token) => {
+    try {
+      const res = await getSavingAcctsReq(PrivateConfig(Token))
+      setSavingAccounts(res.data.data)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const UpdatePhoto = async (Token, Form) => {
+    try {
+      return await UpdatePhotoReq(Token, Form);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getNametoNav = async (Token) => {
+    try {
+      return await getNametoNavQuery(PrivateConfig(Token));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const getEveryAcc = async (Token) => {
+    try {
+      return await getEveryAccQuery(PrivateConfig(Token));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const getAccountsHistory = async (Token, accNum) => {
+    try {
+      return await getAccHistory(Token, accNum);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <dashContext.Provider value={{
       Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
       GeneralInfoQuery, Info, CreateElements, getGlobalInfo, GlobalInfo, getUsersToFriendReq, addFriendRequest,
-      Contacts, PedingFriendReq, FriendRequest, setPedingFriendReq, cancelFriendReq,
-      QueryCreateSavingsAccount, DeclineFriend, ReloadState, setReloadState, AcceptFriend, DematurClassicForm, setContacts,
+      Contacts, PedingFriendReq, FriendRequest, setPedingFriendReq, cancelFriendReq, ReloadStateTwo, setReloadStateTwo,
+      QueryCreateSavingsAccount, DeclineFriend, ReloadState, setReloadState, AcceptFriend, CardsRequestsForm, LoansRequestsForm, setContacts,
       setFriendRequest, DeleteFriendReq, CurrentChat, setCurrentChat, TransactionsArr, setTransactionsArr,
-      MyTransfers, setMyTransfers, HimTranfers, setHimTranfers
+      MyTransfers, setMyTransfers, HimTranfers, setHimTranfers, DoATransfer, setGlobalInfo, socket, setSocket,
+      getMyCardReq, getMyLoanReq, GlobalInfoSetReq, getContacsWP, SavingAccounts, getSavingAccts, UpdatePhoto, clientBalance,
+      NPName, setNPName, setSavingAccounts, setClientBalance, getNametoNav, getEveryAcc, getAccountsHistory
     }}>
       {children}
     </dashContext.Provider>

@@ -3,6 +3,7 @@ const Employee = require("../models/Employee");
 const Admin = require("../models/Admin");
 const { uploadRegisterImage } = require("../libs/cloudinary");
 const fs = require("fs-extra");
+const ErrorResponse = require("../utils/ErrorMessage");
 
 // @route POST api/accounts/create/first-savings
 // @desc Crear primera cuenta de ahorros obligatoria
@@ -17,6 +18,30 @@ const WelcomeSavingsAccount = async (req, res, next) => {
 
   try {
     const { AccountOwner, Reason1, Reason2 } = req.body;
+
+    const query = await SavingAccount.find();
+    let filterArray = query.filter(i => i.AccountOwner == AccountOwner);
+    if (filterArray.length >= 3) {
+      return next(
+        new ErrorResponse("No puedes crearte una cuenta porque ya superaste el límite permitido de tres.", 400, "error")
+      )
+    }
+
+    if (!AccountOwner || Reason1.length < 10 || Reason2.length < 10) {
+      return next(
+        new ErrorResponse("Completa todos los campos antes de continuar", 400, "error")
+      );
+    }
+
+    if (!req.files) {
+      return next(
+        new ErrorResponse("Sube las imágenes necesarias antes de continuar", 400, "error")
+      );
+    } else if (!req.files.Image || !req.files.Image2 || !req.files.Image3) {
+      return next(
+        new ErrorResponse("Asegúrate de subir todas las imágenes necesarias antes de continuar.", 400, "error")
+      );
+    }
     const accountNumber = `21030${accNumberGen(1000, 9999)}`;
     const balance = 0;
     const interest = 0;
@@ -93,11 +118,11 @@ const EmployeeAccount = async (req, res, next) => {
     const EmployeeId = `${parseInt(new Date().getFullYear())}${employeeIdGen(1000, 9999)}`;
 
     const newEmployee = await new Employee({
-      FirstNames, 
-      LastNames, 
+      FirstNames,
+      LastNames,
       Dui,
-      Email, 
-      Password, 
+      Email,
+      Password,
       EmployeeId
     });
 
@@ -114,7 +139,7 @@ const EmployeeAccount = async (req, res, next) => {
 // @desc Crear nuevo admin
 // @access private
 
-const AdminAccount = async(req, res) => {
+const AdminAccount = async (req, res) => {
   try {
     const { Name, Password } = req.body;
 

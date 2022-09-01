@@ -123,11 +123,19 @@
 .create-saving-acc-btn {
   outline: none;
   border-style: none;
-  color: $primary_gray;
   border-radius: 5px;
   padding: .7rem 2rem .7rem 2rem;
-  background-color: $primary_skyblue;
   transition: .4s;
+}
+
+.accept {
+  color: $primary_gray;
+  background-color: $primary_skyblue;
+}
+
+.cancel {
+  color: $primary_white;
+  background-color: $primary_dark;
 }
 
 .create-saving-acc-btn:hover {

@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 // import { format } from "timeago.js";
 
-import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ, getContactsWPReq, getMyLoanReqREQ, getSavingAcctsReq, UpdatePhotoReq, getNametoNavQuery, getEveryAccQuery, getAccHistory, ChangeEmailQuery, EmailCodeVerQuery } from "../api/Queries";
+import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ, getContactsWPReq, getMyLoanReqREQ, getSavingAcctsReq, UpdatePhotoReq, getNametoNavQuery, getEveryAccQuery, getAccHistory, ChangeEmailQuery, EmailCodeVerQuery, getPendingAccounts } from "../api/Queries";
 
 
 const dashContext = createContext();
@@ -254,9 +254,9 @@ export const DashProvider = ({ children }) => {
     }
   }
 
-  const EmailCodeVer = async (Token, Code) => {
+  const EmailCodeVer = async (Token, Code, Email) => {
     try {
-      return await EmailCodeVerQuery(PrivateConfig(Token), Code)
+      return await EmailCodeVerQuery(PrivateConfig(Token), Code, Email)
     } catch (error) {
       return error;
     }
@@ -265,6 +265,14 @@ export const DashProvider = ({ children }) => {
   const getAccountsHistory = async (Token, accNum) => {
     try {
       return await getAccHistory(Token, accNum);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const getActivatedAccountRequests = async (Token) => {
+    try {
+      return await getPendingAccounts(PrivateConfig(Token));
     } catch (error) {
       console.log(error);
     }
@@ -279,7 +287,7 @@ export const DashProvider = ({ children }) => {
       setFriendRequest, DeleteFriendReq, CurrentChat, setCurrentChat, TransactionsArr, setTransactionsArr,
       MyTransfers, setMyTransfers, HimTranfers, setHimTranfers, DoATransfer, setGlobalInfo, socket, setSocket,
       getMyCardReq, getMyLoanReq, GlobalInfoSetReq, getContacsWP, SavingAccounts, getSavingAccts, UpdatePhoto, clientBalance,
-      NPName, setNPName, setSavingAccounts, setClientBalance, getNametoNav, getEveryAcc, ChangeEmail, getAccountsHistory, EmailCodeVer
+      NPName, setNPName, setSavingAccounts, setClientBalance, getNametoNav, getEveryAcc, ChangeEmail, getAccountsHistory, EmailCodeVer, getActivatedAccountRequests
     }}>
       {children}
     </dashContext.Provider>

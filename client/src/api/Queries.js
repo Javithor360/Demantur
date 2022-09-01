@@ -81,8 +81,8 @@ export const getAccHistory = async (Token, accNum) => {
   return await axios.get('http://localhost:4000/api/dashboard/get-account-history', { headers: { "Content-Type": "application/json", "x-auth-token": Token, "AccountNumber": accNum } });
 }
 
-export const EmailCodeVerQuery = async (PrivateConfig, Code) => {
-  return await axios.post('http://localhost:4000/api/dashboard/email-code-verify', { Code }, { headers: PrivateConfig.headers });
+export const EmailCodeVerQuery = async (PrivateConfig, Code, Email) => {
+  return await axios.post('http://localhost:4000/api/dashboard/email-code-verify', { Code, Email }, { headers: PrivateConfig.headers });
 }
 
 // ?? QUERYS EMPLOYEE
@@ -99,3 +99,6 @@ export const getLoanRequests = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/employee//get-Loans-requests', { headers: PrivateConfig.headers });
 }
 
+export const getPendingAccounts = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/accounts/get-account-requests', { headers: PrivateConfig.headers });
+}

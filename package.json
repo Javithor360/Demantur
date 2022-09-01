@@ -13,6 +13,7 @@
     "nodemon": "^2.0.19"
   },
   "dependencies": {
+    "@pronestor/react-zoom-pan-pinch": "^2.3.0",
     "bcryptjs": "^2.4.3",
     "cleave.js": "^1.6.0",
     "cloudinary": "^1.30.0",

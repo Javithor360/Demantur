@@ -29,9 +29,6 @@ export const UserCards = () => {
   const [CharginIco, setCharginIco] = useState(true);
   const [Chargin, setChargin] = useState(false);
 
-  const handleClick = event => {
-    event.currentTarget.disabled = true;
-  };
   const { t } = useTranslation();
 
   const { CardsRequestsForm, CreateElements, getMyCardReq } = useDash();
@@ -202,101 +199,104 @@ export const UserCards = () => {
       })()
 
     } catch (error) {
+      setChargin(false)
       setError(error.response.data.error);
     }
   };
 
   const FormRequestCard = () => {
     return (
-
-      <div className="w-full h-full bg-white rounded-xl overflow-y-auto scroll-cards">
-        <div className="w-full h-[2rem] flex items-center justify-start">
-          <button className="bg-transparent outline-none border-none mt-4 ml-5" onClick={() => {
-            setChangeBox(false)
-            setParametros(null)
-            setError('')
-          }}>
-            <BsArrowLeft className="text-[2rem] text-[#323643]" />
-          </button>
-        </div>
-        <div className="h-fit w-full">
-          <p className="text-center text-[1.8rem] mb-2">
-            {parametros.cardName}
-          </p>
-          <div className='subdivisions'>
-            <hr className='' />
+      <>
+        <ScrollToTop/>
+        <div className="w-full h-full bg-white rounded-xl overflow-y-auto scroll-cards">
+          <div className="w-full h-[2rem] flex items-center justify-start">
+            <button className="bg-transparent outline-none border-none mt-4 ml-5" onClick={() => {
+              setChangeBox(false)
+              setParametros(null)
+              setError('')
+            }}>
+              <BsArrowLeft className="text-[2rem] text-[#323643]" />
+            </button>
           </div>
-
-          <img
-            src={DashCardsImages(`${parametros.cardImage}`)}
-            alt=""
-            className="w-[220px] mx-auto block mt-5 mb-5 shadow-lg"
-          />
-          <div className="min-h-fit w-[90%] px-2 m-auto">
-            <p className="border-text text-[1rem] mx-auto mb-4">
-              {parametros.cardDescription2}
+          <div className="h-fit w-full">
+            <p className="text-center text-[1.8rem] mb-2">
+              {parametros.cardName}
             </p>
+            <div className='subdivisions'>
+              <hr className='' />
+            </div>
 
+            <img
+              src={DashCardsImages(`${parametros.cardImage}`)}
+              alt=""
+              className="w-[220px] mx-auto block mt-5 mb-5 shadow-lg"
+            />
+            <div className="min-h-fit w-[90%] px-2 m-auto">
+              <p className="border-text text-[1rem] mx-auto mb-4">
+                {parametros.cardDescription2}
+              </p>
+
+            </div>
+          </div>
+
+          <div className="card-form-container">
+            <form onSubmit={handleForm} className="main-card-form">
+              <span className='ml-7 mb-3 text-[15px] text-[red]'>{Error !== '' && Error}</span>
+              <div className='flex flex-row w-full h-[30%] justify-start items-center px-[2rem] mb-5'>
+                <div className='h-[70%] mr-5'>
+                  <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Cards.form.tittle1")}</p>
+                  <div className='h-[2.5rem] w-[15rem]'>
+                    <Dropdown setElement={setUserSalary} elements={UserElementsSalary} Elemento={UserSalary} />
+                  </div>
+                </div>
+                <div className='h-[70%] mr-5 '>
+                  <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Cards.form.tittle2")}</p>
+                  <div className='h-[2.5rem] w-[15rem]'>
+                    <Dropdown setElement={setUserLaboralStatus} elements={UserElementsLaboralStatus} Elemento={UserLaboralStatus} />
+                  </div>
+                </div>
+                <div className="input-files h-[70%]">
+                  <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Cards.form.tittle3")}</p>
+                  <input type='file' accept='image/*' id='Constancia1' name='Constancia1' placeholder=' ' onChange={handleChangeFile1} autoComplete='off' />
+                  <label htmlFor="Constancia1" className=''>{ImageName1 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName1}</label>
+                </div>
+              </div>
+              <div className="form-row-2">
+                <div className="input-files mr-7">
+                  <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Cards.form.tittle4")}</p>
+                  <input type='file' accept='image/*' id='Constancia2' name='Constancia2' placeholder=' ' onChange={handleChangeFile2} autoComplete='off' />
+                  <label htmlFor="Constancia2" className=''>{ImageName2 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName2}</label>
+                </div>
+                <div className="input-files mr-7">
+                  <p className='text-[1.1rem] text-[#606470]'>{t("CardsPage-Form.desc2")}</p>
+                  <input type='file' accept='image/*' id='Constancia3' name='Constancia3' placeholder=' ' onChange={handleChangeFile3} autoComplete='off' />
+                  <label htmlFor="Constancia3" className=''>{ImageName3 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName3}</label>
+                </div>
+                <div className="input-files">
+                  <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Cards.form.tittle5")}</p>
+                  <input type='file' accept='image/*' id='Constancia4' name='Constancia4' placeholder=' ' onChange={handleChangeFile4} autoComplete='off' />
+                  <label htmlFor="Constancia4" className=''>{ImageName4 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName4}</label>
+                </div>
+              </div>
+              <div className="form-row-3">
+                <button className="card-submit-button" type="submit" disabled={Chargin}
+                >
+                  {
+                    Chargin === true ?
+                      <>
+                        <BiLoaderAlt className="animate-spin" />
+                      </>
+                      :
+                      <>
+                        <span>{t("DashboardNormalUser.Cards.form.button")}</span>
+                      </>
+                  }
+                </button>
+              </div>
+            </form>
           </div>
         </div>
-
-        <div className="card-form-container">
-          <form onSubmit={handleForm} className="main-card-form">
-            <span className='ml-7 mb-3 text-[15px] text-[red]'>{Error !== '' && Error}</span>
-            <div className='flex flex-row w-full h-[30%] justify-start items-center px-[2rem] mb-5'>
-              <div className='h-[70%] mr-5'>
-                <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Cards.form.tittle1")}</p>
-                <div className='h-[2.5rem] w-[15rem]'>
-                  <Dropdown setElement={setUserSalary} elements={UserElementsSalary} Elemento={UserSalary} />
-                </div>
-              </div>
-              <div className='h-[70%] mr-5 '>
-                <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Cards.form.tittle2")}</p>
-                <div className='h-[2.5rem] w-[15rem]'>
-                  <Dropdown setElement={setUserLaboralStatus} elements={UserElementsLaboralStatus} Elemento={UserLaboralStatus} />
-                </div>
-              </div>
-              <div className="input-files h-[70%]">
-                <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Cards.form.tittle3")}</p>
-                <input type='file' accept='image/*' id='Constancia1' name='Constancia1' placeholder=' ' onChange={handleChangeFile1} autoComplete='off' />
-                <label htmlFor="Constancia1" className=''>{ImageName1 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName1}</label>
-              </div>
-            </div>
-            <div className="form-row-2">
-              <div className="input-files mr-7">
-                <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Cards.form.tittle4")}</p>
-                <input type='file' accept='image/*' id='Constancia2' name='Constancia2' placeholder=' ' onChange={handleChangeFile2} autoComplete='off' />
-                <label htmlFor="Constancia2" className=''>{ImageName2 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName2}</label>
-              </div>
-              <div className="input-files mr-7">
-                <p className='text-[1.1rem] text-[#606470]'>{t("CardsPage-Form.desc2")}</p>
-                <input type='file' accept='image/*' id='Constancia3' name='Constancia3' placeholder=' ' onChange={handleChangeFile3} autoComplete='off' />
-                <label htmlFor="Constancia3" className=''>{ImageName3 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName3}</label>
-              </div>
-              <div className="input-files">
-                <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Cards.form.tittle5")}</p>
-                <input type='file' accept='image/*' id='Constancia4' name='Constancia4' placeholder=' ' onChange={handleChangeFile4} autoComplete='off' />
-                <label htmlFor="Constancia4" className=''>{ImageName4 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName4}</label>
-              </div>
-            </div>
-            <div className="form-row-3">
-              <button className="card-submit-button" type="submit" disabled={Chargin}
-              >
-                {
-                  Chargin === true ?
-                    <>
-                      <BiLoaderAlt className="animate-spin" />
-                    </>
-                    :
-                    <>
-                      <span>{t("DashboardNormalUser.Cards.form.button")}</span>
-                    </>
-                }
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
+      </>
     )
   }
 
@@ -472,8 +472,7 @@ export const UserCards = () => {
             </div>
           </>
           :
-          <>
-            <ScrollToTop />
+          <>  
             {FormRequestCard()}
           </>
       }

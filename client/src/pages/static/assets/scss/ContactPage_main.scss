@@ -1,3 +1,4 @@
+@use '../../../../utilities/_colors.scss' as *;
 /*Globals*/
 body{
 	font-family: 'Poppins', sans-serif;
@@ -41,13 +42,13 @@ body{
     padding: 4rem 3rem;
     flex-direction: column;
     flex-basis: 30rem;
-    border-radius: 5px;
+    border-radius: 10px;
 
     h1{
         font-size: 2rem;
-        font-weight: 300;
+        font-weight: normal;
         line-height: 1.5;
-        color: rgb(66, 66, 66);
+        color: $primary_dark;
         text-align: center;
     }
 
@@ -171,7 +172,7 @@ body{
     border-style: none;
     display: block;
     border: 1px solid #757575;
-    margin: auto;
+    margin: auto auto 3rem auto;
 }
 .contact-textarea:focus{
     outline: none;
@@ -183,9 +184,7 @@ body{
     padding: 1rem 2rem;
     background-color: #93DEFF;
     color: #606470;
-    margin-top: 7rem;
-    cursor: pointer;
-    margin: 5rem auto 0 auto;
+    margin: 3rem auto 0 auto;
     display: block;
 }
 

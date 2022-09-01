@@ -56,6 +56,10 @@ export const Transactions = ({ OnlineUsers }) => {
     }
 
     useEffect(() => {
+        console.log(CurrentAccs);
+    }, [CurrentAccs]);
+
+    useEffect(() => {
         if (activeModal) {
             document.body.style.overflowY = 'hidden'
         }
@@ -274,6 +278,7 @@ export const Transactions = ({ OnlineUsers }) => {
                                                 Seleccionar
                                             </div>
                                             {SavingAccounts.map((element, i) => {
+                                                console.log((SavingAccounts.length * 3.3) + 3.3)
                                                 return (
                                                     <div
                                                         className="dropdown-box-item-tr"

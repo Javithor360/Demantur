@@ -142,112 +142,114 @@ exports.FoPaEmail = async (resetToken, isNormalUser, next, res) => {
 
   const message = `
   <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-  <style>
-      body{
-          font-family: 'Poppins', sans-serif;
-      }
-      .fondo{
-          margin: 0 auto;
-          height: 70rem;
-          width: 60rem;
-          border: solid;
-          border-color: rgba(0, 0, 0, 0.068);
-          border-radius: 1.5rem;
-      }
-      .icon{
-          width: 15rem;
-          margin-top: 2rem;
-          margin-left: 2rem;
-          margin-bottom: 2rem;
-      }
-  .baners {
-  background-image: url(https://img.freepik.com/foto-gratis/casarse-finanzas-hogar-pareja-asiatica-revisando-sus-cuentas-bancarias-usando-computadora-portatil-calculadora-sala-estarpareja-asiatica-sentada-sofa-computadora-portatil-emocion-estresante-casa_609648-8.jpg?w=1380&t=st=1658290429~exp=1658291029~hmac=45c5a63d80e66cce23df79b437c8383f6a2cdaf09e517e16f66c0749be13656f);
-  background-size: cover;
-  width: 100%;
-  height: 22rem;
-  position: relative;
-
-}
-
-.baners-content {
-  position: absolute;
-  width: inherit;
-  height: inherit;
-  background-color: rgba(0, 0, 0, 0.342);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #ffffff;
-}
-.title{
-  font-size: 3rem;
-          font-weight: bold;
-          margin: 1.25rem auto 1.25rem auto ;
-}
-.title2 hr{
-  border: 0;
-  height: .3rem;
-  background: #93DEFF;
-  opacity: 100;
-  padding: 0;
-  margin: auto;
-  width: 15rem;
-  font-weight: bold;
-}
-
-.title2 p{
-  text-align: center;
-  margin: 2rem auto 0 auto;
-  font-size: 2.5rem;
-}
-.subs{
-  text-align: center;
-  font-size: 2rem;
-  margin-left: 5rem;
-  margin-right: 5rem;
-}
-.copyright{
-  font-size: 1.5rem;
-padding: 0.625rem 0;
-  color: #ffffff;
-}
-.a{
-  text-align: center;
-  font-size: 2rem;
-}
-footer{
-  background-color: rgb(78, 78, 78);
-  margin-top: 14rem;
-  height: 3rem;
-  text-align: center;
-}
-  </style>
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+        .fondo{
+            margin: 0 auto;
+            height: 70rem;
+            width: 60rem;
+            border: solid;
+            border-color: rgba(0, 0, 0, 0.068);
+            border-radius: 1.5rem;
+        }
+        .icon{
+            width: 15rem;
+            margin-top: 2rem;
+            margin-left: 2rem;
+            margin-bottom: 2rem;
+        }
+    .baners {
+    background-image: url(https://img.freepik.com/foto-gratis/casarse-finanzas-hogar-pareja-asiatica-revisando-sus-cuentas-bancarias-usando-computadora-portatil-calculadora-sala-estarpareja-asiatica-sentada-sofa-computadora-portatil-emocion-estresante-casa_609648-8.jpg?w=1380&t=st=1658290429~exp=1658291029~hmac=45c5a63d80e66cce23df79b437c8383f6a2cdaf09e517e16f66c0749be13656f);
+    background-size: cover;
+    width: 100%;
+    height: 22rem;
+    position: relative;
+  
+  }
+  
+  .baners-content {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: rgba(0, 0, 0, 0.342);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+  }
+  .title{
+    margin-top: 2rem;
+    font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+  }
+   hr{
+    border: 0;
+    height: .4rem;
+    background: #93DEFF;
+    opacity: 100;
+    padding: 0;
+    margin-top: -2.5rem;
+    width: 19rem;
+    font-weight: bold;
+  }
+  
+  .title2 p{
+    text-align: center;
+    font-size: 2.5rem;
+  }
+  .subs{
+    text-align: center;
+    font-size: 2rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+  .copyright{
+    font-size: 1.5rem;
+  padding: 0.625rem 0;
+    color: #ffffff;
+  }
+  .a{
+    text-align: center;
+    font-size: 2rem;
+  }
+  footer{
+    background-color: rgb(78, 78, 78);
+    margin-top: 32rem;
+    height: 3rem;
+    text-align: center;
+  }
+  .img{
+    margin-top: -2rem;
+    margin-right: -5rem;
+    width: 60rem;
+    float: right;
+    margin-bottom: -5rem;
     
-    <div class="fondo"><img class="icon" src="https://media.discordapp.net/attachments/825146450232213505/999324633478205560/Demantur_Imagotype-3.png?width=1025&height=414" alt="">
-        <div class="baners">
-            <div class="baners-content">
-              <h1 class="title">Cambio de contraseña</h1><br>
-            </div>
-          </div>
-          <div class="title2">
-            <p>Solicitud para cambio</p>
-            <hr />
-          </div>
-          <p class="subs">tienes una solicitud para cambiar tu contraseña por favor ingrese a este link para cambiar su contraseña:</p>
-          <a href="${resetUrl}"><p class="a">${resetUrl}</p></a>
-          <footer>
-            <span class="copyright">
-                Todos los derechos reservados. © 2022 Demantur
-            </span>
-          </footer>
-    </div>
-    
-</body>
+  }
+    </style>
+  </head>
+  <body>
+      
+      <div class="fondo"><img class="icon" src="https://media.discordapp.net/attachments/825146450232213505/999324633478205560/Demantur_Imagotype-3.png?width=1025&height=414" alt="">
+                <h1 class="title">Cambio de contraseña</h1>
+                <hr /><br>
+            <p class="subs">tienes una solicitud para cambiar tu contraseña por favor ingrese a este link para cambiar su contraseña:</p>
+            <a href="${resetUrl}"><p class="a">${resetUrl}</p></a>
+            <img class="img" src="https://media.discordapp.net/attachments/861438024659501087/1014584092253224960/Imagen2.png?width=724&height=424" alt="">
+            <footer>
+              <span class="copyright">
+                  Todos los derechos reservados. © 2022 Demantur
+              </span>
+            </footer>
+      </div>
+      
+  </body>
   `;
 
   try {
@@ -276,6 +278,13 @@ exports.createCode = () => {
   code = Math.trunc(code);
 
   return code;
+};
+// creacion del codigo de gestion
+exports.createGestionCode = () => {
+  let code2 = Math.random() * (9000 - 1000);
+  code2 = code2 + 1000;
+  code2 = Math.trunc(code2);
+  return code2;
 };
 
 // Enviar email de verificacion del email
@@ -330,15 +339,15 @@ exports.VeCoEmail = async (verifyCode, isNormalUser, next) => {
 .title{
     font-size: 3rem;
             font-weight: bold;
-            margin: 1.25rem auto 1.25rem auto ;
+            text-align: center;
 }
-.title2 hr{
+ hr{
     border: 0;
     height: .3rem;
     background: #93DEFF;
     opacity: 100;
     padding: 0;
-    margin: auto;
+    margin-top: -2rem   ;
     width: 15rem;
     font-weight: bold;
 }
@@ -365,30 +374,35 @@ exports.VeCoEmail = async (verifyCode, isNormalUser, next) => {
 }
 footer{
     background-color: rgb(78, 78, 78);
-    margin-top: 14rem;
+    margin-top: 16.5rem;
     height: 3rem;
-    text-align: center;
+}
+.img{
+    width: 30rem;
+    float: right;
+    margin-top: -5.5rem;
+}
+.codec{
+    font-size: 5rem;
 }
     </style>
   </head>
   <body>
       
       <div class="fondo"><img class="icon" src="https://media.discordapp.net/attachments/825146450232213505/999324633478205560/Demantur_Imagotype-3.png?width=1025&height=414" alt="">
-          <div class="baners">
-              <div class="baners-content">
-                <h1 class="title">Demantur Bank</h1>
-              </div>
-            </div>
+                <h1 class="title">Codigo de verificacion</h1>
+                <hr />
             <div class="title2">
-              <p>CODIGO DE VERIFICACION:</p>
-              <hr />
+              <p>Tu codigo de verificacion para finalizar la creacion de tu cuenta es:</p>
+              
             </div>
-    <p class="subtitles"><strong>${verifyCode}</strong></p>
-    
+            <br><br><br><br>
+            <p class="subtitles"><strong class="codec">${verifyCode}</strong></p>
+            <img class="img" src="https://cdn.discordapp.com/attachments/861438024659501087/1014409038102007848/Imagen1.png" alt=""><br><br><br><br><br><br><br>
             <footer>
-              <span class="copyright">
+              <center><span class="copyright">
                   Todos los derechos reservados. © 2022 Demantur
-              </span>
+              </span></center>
             </footer>
       </div>
       
@@ -406,3 +420,23 @@ footer{
     return next(new ErrorResponse("El EMAIL NO SE PUDO ENVIAR", 500, "error"));
   }
 };
+
+exports.ContactEmail = async (gestionCode, name, dui, mail, cellnum, TextMessage) => {
+  try {
+    const message = `
+      <p><b>Nombre del cliente:</b> ${name}</p>
+      <p><b>Número de DUI:</b>: ${dui}</p>
+      <p><b>Correo Electrónico de Contacto:</b>: ${mail}</p>
+      <p><b>Número de contacto</b>: ${cellnum}</p>
+      <p><b>Mensaje:</b>: ${TextMessage}</p>
+      <p><b>Número de gestión:</b>: ${gestionCode}</p>
+    `
+    await sendEmail({
+      to: process.env.EMAIL_FROM,
+      subject: "Contacto con nosotros",
+      text: message,
+    });
+  } catch (error) {
+    return next(new ErrorResponse("El EMAIL NO SE PUDO ENVIAR", 500, "error"));
+  }
+}

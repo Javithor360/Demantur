@@ -20,6 +20,7 @@ export const Settings = ({ hidden }) => {
   const [Error, setError] = useState(null);
   const [Success, setSuccess] = useState(null);
   const [CharginButton, setCharginButton] = useState(false);
+  const [Email, setEmail] = useState(null);
 
   const [SwitchValue, setSwitchValue] = useState(1);
 
@@ -97,13 +98,13 @@ export const Settings = ({ hidden }) => {
       case 1:
         return <DefaultElement setSwitchValue={setSwitchValue} />;
       case 2:
-        return <ChangeEmail setSwitchValue={setSwitchValue} />
+        return <ChangeEmail setSwitchValue={setSwitchValue} setEmail={setEmail} />
       case 3:
         return <ChangePassword setSwitchValue={setSwitchValue} />
       case 4:
         return <SuccessPass setSwitchValue={setSwitchValue} />
       case 5:
-        return <EmailCode setSwitchValue={setSwitchValue} />
+        return <EmailCode setSwitchValue={setSwitchValue} Email={Email} />
       case 6:
         return <SuccessEmail setSwitchValue={setSwitchValue} />
       default:

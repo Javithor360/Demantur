@@ -30,7 +30,7 @@ export const ActLoans = () => {
 
   const [changeBox, setChangeBox] = useState(false);
   const [parametros, setParametros] = useState(null);
-  const [LoanReq, setLoanReq] = useState(false);
+  const [LoanReq, setLoanReq] = useState(null);
   const [Error, setError] = useState('');
   const [CharginIco, setCharginIco] = useState(true);
   const [Chargin, setChargin] = useState(false);
@@ -44,12 +44,18 @@ export const ActLoans = () => {
 
   const { LoansRequestsForm, CreateElements, getMyLoanReq } = useDash();
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const resp = await getMyLoanReq(localStorage.getItem('authToken'));
-  //     setLoanReq(resp.data.data);
-  //   })()
-  // }, []);
+  useEffect(() => {
+    (async () => {
+      try {
+        const resp = await getMyLoanReq(localStorage.getItem('authToken'));
+      
+        setLoanReq(resp.data.data);
+        console.log(resp)
+      } catch (e) {
+        console.log(e)
+      }
+    })()
+  }, []);
 
   setTimeout(() => {
     setCharginIco(false);
@@ -207,8 +213,13 @@ export const ActLoans = () => {
       }, 1500);
 
       (async () => {
-        const resp = await getMyLoanReq(localStorage.getItem('authToken'));
-        setLoanReq(resp.data.data);
+        try {
+          const resp = await getMyLoanReq(localStorage.getItem('authToken'));
+          // setLoanReq(resp.data.data);
+
+        } catch (error) {
+          console.log(error)
+        }
       })()
       setChangeBox(false);
 

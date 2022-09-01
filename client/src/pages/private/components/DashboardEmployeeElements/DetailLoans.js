@@ -1,4 +1,4 @@
-import './assets/scss/CardEmployee.scss'
+import './assets/scss/LoansEmployee.scss'
 import { BsArrowLeft } from 'react-icons/bs'
 import { AiOutlineZoomIn, AiOutlineZoomOut, AiOutlineCompress, AiOutlineClose } from 'react-icons/ai'
 import { useState } from 'react'
@@ -24,8 +24,8 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
       Name: 'Fotocopia de DUI trasera'
     },
     {
-      ImgSrc: Params.NitImg,
-      Name: 'Fotocopia de NIT'
+      ImgSrc: Params.ConstancyImg ,
+      Name: 'Constancia de trabajo'
     },
     {
       ImgSrc: Params.SalaryEvidenceImg,

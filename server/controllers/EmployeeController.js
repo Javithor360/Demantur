@@ -168,7 +168,7 @@ const getCardRequests = async (req, res, next) => {
         let cardRequestsOrder = []
 
         for (let index = 0; index < getAllUsers.length; index++) {
-            number .toString( [base ] ) 
+            
             if (getAllUsers[index]._id.toString() === getAllCardRequests[index]?.CardOwner.toString()) {
                 let ObjectCardRequest = {}
                 ObjectCardRequest.RequestOwner = getAllUsers[index]
@@ -192,22 +192,23 @@ const getLoanRequests = async (req, res, next) => {
 
         const getAllLoanRequests = await LoansModels.find()
         const getAllUsers = await NormalUser.find()
-        
+        const ExtraInfo = await ExtraInfoNormalUser.find()
 
-        let loanRequestsOrder = []
+        let loanRequestsOrder = [] 
+        console.log(getAllUsers)
 
         for (let index = 0; index < getAllUsers.length; index++) {
-
-
-            if (getAllUsers[index]._id.toString() === getAllLoanRequests[index]?. loan_guarantor.toString()) {
+            console.log('=======================')
+            console.log(getAllUsers[index]?._id?.toString(), getAllLoanRequests[index]?.loan_guarantor?.toString())
+            console.log('=======================')
+            if (getAllUsers[index]?._id?.toString() == getAllLoanRequests[index]?.loan_guarantor?.toString()) {
                 let ObjectLoanRequest = {}
-                ObjectLoanRequest.RequestOwner = getAllUsers[index]
-                ObjectLoanRequest.CardRequest = getAllLoanRequests[index]
+                ObjectLoanRequest.Request_guarantor = getAllUsers[index]
+                ObjectLoanRequest.LoanRequest = getAllLoanRequests[index]
+                ObjectLoanRequest.ExtraInfo = ExtraInfo[index] 
                 loanRequestsOrder.push(ObjectLoanRequest)
-                console.log(ObjectLoanRequest)
             }
         }
-
         res.status(200).json({ data: loanRequestsOrder });
     } catch (e) {
         console.log(e);

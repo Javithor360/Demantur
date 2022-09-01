@@ -18,9 +18,14 @@ export const LoansRequests = () => {
 
   useEffect(() => {
     (async () => {
-      const resp = await getLoanReq(localStorage.getItem('secretToken'));
+      try {
+        const resp = await getLoanReq(localStorage.getItem('secretToken'));
+        console.log(resp)
       if (resp.data.data) {
         setLoanRqs(resp.data.data);
+      }
+      } catch (error) {
+        console.log(error)
       }
     })()
   }, []);
@@ -35,9 +40,9 @@ export const LoansRequests = () => {
               LoanRqs.map((SingReq, i) => {
                   console.log(SingReq);
                   console.log(LoanRqs);
-                  let Name = SingReq.loan_guarantor.FirstName + SingReq.loan_guarantor.LastName
+                  let Name = SingReq.Request_guarantor.FirstName + SingReq.Request_guarantor.LastName
                   let Type = SingReq.LoanRequest.LoanType
-                  let Dui = SingReq.loan_guarantor.Dui
+                  let Dui = SingReq.Request_guarantor.Dui
                   return (
                     <>
                         <div className='individual-req w-[95%] mb-5 rounded-lg h-[8rem] border-cover' key={i}>
@@ -69,21 +74,22 @@ export const LoansRequests = () => {
                             <button className='my-auto block outline-none border-none px-2 py-2 rounded bg-[#455FB9] text-white' onClick={() => {
                               setParams({
                                 Name,
-                                Dui: SingReq.loan_guarantor.Dui,
+                                Dui: SingReq.Request_guarantor.Dui,
                                 DateBirth: SingReq.ExtraInfo.DateBirth,
-                                Email: SingReq.loan_guarantor.Email,
+                                Email: SingReq.Request_guarantor.Email,
                                 CelNum: SingReq.ExtraInfo.Number,
                                 LaboralStatus: SingReq.LoanRequest.UserLaboralStatus,
                                 UserSalary: SingReq.LoanRequest.UserSalary,
                                 WorkPlace: SingReq.ExtraInfo.WorkPlace,
                                 Type,
                                 Info: SingReq.LoanRequest,
-                                DuiFrontImg: SingReq.LoanRequest.annexes.DuiFrontImg.url,
-                                DuiBackImg: SingReq.LoanRequest.annexes.DuiBackImg.url,
-                                NitImg: SingReq.LoanRequest.annexes.NitImg.url,
-                                SalaryEvidenceImg: SingReq.LoanRequest.annexes.SalaryEvidenceImg.url,
-                                PerfilPhoto: SingReq.loan_guarantor.PerfilPhoto.url,
-                                CloudCardImage: SingReq.LoanRequest.annexes.CloudCardImage
+                                DuiFrontImg: SingReq.LoanRequest.anex.DuiFrontImg.url,
+                                DuiBackImg: SingReq.LoanRequest.anex.DuiBackImg.url,
+                                ConstancyImg: SingReq.LoanRequest.anex.ConstancyImg.url,
+                                SalaryEvidenceImg: SingReq.LoanRequest.anex.SalaryEvidenceImg.url,
+                                PerfilPhoto: SingReq.Request_guarantor.PerfilPhoto.url,
+                                CloudLoansImage: SingReq.LoanRequest.anex.CloudLoansImage
+                                
                               })
                               setDisplayDetails(true);
                             }}>Más detalles</button>

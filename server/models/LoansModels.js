@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const NormalUser = require("./NormalUser");
 const NumberReq = { type: Number, require: true};
 const StringReq = { type: String, require: true};
 const DateReq = { type: Date, require: true }; 
@@ -26,6 +25,8 @@ const LoanRequestSchema = new mongoose.Schema(
             DuiFrontImg: Object,
             SalaryEvidenceImg: Object,
             DuiBackImg: Object,
+            CloudLoansImage: StringReq
+            
         }
     }, 
     { timestamps: true}

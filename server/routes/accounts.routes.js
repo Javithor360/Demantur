@@ -14,7 +14,7 @@ router.route("/create/first-savings").post([AuthMiddleware], WelcomeSavingsAccou
 router.route("/create/employee").post(EmployeeAccount);
 router.route("/create/admin").post(AdminAccount);
 router.route("/get-cards-requests").get(getCardRequests);
-router.route("get-loans-requests").get(getLoanRequests)
+router.route("/get-loans-requests").get(getLoanRequests)
 
 router.route("/get-account-requests").get([AuthMiddleware], getAccountActivationRequests);
 router.route('/activate-account').post([AuthMiddleware], activateAccount)

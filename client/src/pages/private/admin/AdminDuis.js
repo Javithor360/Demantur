@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Cleave from 'cleave.js/react';
 import e from 'cors';
 import React, { useState } from 'react'
 
@@ -43,7 +44,7 @@ export const AdminDuis = () => {
         <label htmlFor="LastNames">Apellidos: </label>
         <input type="text" id="LastNames" name="LastNames" onChange={(e) => { setLastNames(e.target.value) }} value={LastNames} />
         <label htmlFor="DuiNumber">Número de DUI: </label>
-        <input type="text" id="DuiNumber" name="DuiNumber" onChange={(e) => { setDuiNumber(e.target.value) }} value={DuiNumber} />
+        <Cleave type="text" id="DuiNumber" name="DuiNumber" onChange={(e) => { setDuiNumber(e.target.value) }} value={DuiNumber} options={{ blocks: [6, 1], delimiter: "-", numericOnly: true }} />
         <label htmlFor="Birth">Fecha de nacimiento: </label>
         <input type="text" id="Birth" name="Birth" onChange={(e) => { setBirth(e.target.value) }} value={Birth} />
 

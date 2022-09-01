@@ -27,10 +27,18 @@ export const ContactPage = () => {
     const [cellnum, setCellnum] = useState('')
     const [TextMessage, setTextMessage] = useState('')
     const [Chargin, setChargin] = useState(false);
+    const [Success, setSuccess] = useState('');
+    useEffect(() => {
+    if (Success === true) {
+        setTimeout(() => {
+            setSuccess(false);
+        }, 3000);
+    }
+    }, [Success]);
     
     const handleForm = async(e) => {
         e.preventDefault();
-
+        
         try {
             const PrivateConfig = {
                 headers: {
@@ -60,7 +68,7 @@ export const ContactPage = () => {
                 ContactForm,
                 PrivateConfig
             );
-
+            
             setTimeout(() => {
                 setChargin(false)
                 setName('')
@@ -68,9 +76,10 @@ export const ContactPage = () => {
                 setMail('')
                 setCellnum('')
                 setTextMessage('')
+                setSuccess(true);
+                setError(false);
             }, 1500);
-        
-            
+
         } catch (error) {
             setChargin(false)
             setError(error.response.data.error);
@@ -105,6 +114,7 @@ export const ContactPage = () => {
                                     className="input-box"
                                     type="text"
                                     placeholder="Nombre completo"
+                                    value={name}
                                     onChange={(e) => setName(e.target.value)}
                                 />
                                 <label className="form-label" htmlFor="">
@@ -118,6 +128,7 @@ export const ContactPage = () => {
                                     className="input-box"
                                     placeholder="Número de DUI"
                                     options={{ blocks: [6, 1], delimiter: "-", numericOnly: true }}
+                                    value={dui}
                                     onChange={(e) => setDui(e.target.value)}
                                 />
                                 <label className="form-label" htmlFor="">
@@ -130,6 +141,7 @@ export const ContactPage = () => {
                                 <input
                                     className="input-box"
                                     placeholder="Correo electrónico"
+                                    value={mail}
                                     onChange={(e) => setMail(e.target.value)}
                                 />
                                 <label className="form-label" htmlFor="">
@@ -143,6 +155,7 @@ export const ContactPage = () => {
                                     className="input-box"
                                     placeholder="Telefono de contacto"
                                     options={{ blocks: [4, 4], numericOnly: true }}
+                                    value={cellnum}
                                     onChange={(e) => setCellnum(e.target.value)}
                                 />
                                 <label className="form-label" htmlFor="">
@@ -157,11 +170,22 @@ export const ContactPage = () => {
                             id=""
                             cols={30}
                             rows={10}
-                            defaultValue={""}
+                            value={TextMessage}
                             onChange={(e) => setTextMessage(e.target.value)}
                             
                         />
-                        <span className='text-[16px] text-[red] mt-7'>{Error !== '' && Error}</span>
+                        {
+                            Error !== false && Error &&
+                                <div className='text-center	w-full'>
+                                    <p className='text-[16px] text-[red]'>{Error !== '' && Error}</p>
+                                </div>
+                        } 
+                        {
+                            Success !== false && Success &&
+                                <div className='text-center	w-full'>
+                                    <p className='text-green-500'>Mensaje Enviado Correctamente</p>
+                                </div>
+                        } 
                         <button className="contact-submit-button" type="submit" disabled={Chargin}>
                         {
                             Chargin === true ?

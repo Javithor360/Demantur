@@ -215,6 +215,7 @@ const getLoanRequests = async (req, res, next) => {
     }
 
 }
+
 // @route POST api/employee/get-user-data
 // @desc Obtener la información del usuario por parte del empleado
 // @access private

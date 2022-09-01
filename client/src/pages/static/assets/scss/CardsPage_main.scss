@@ -210,6 +210,21 @@ body{
     }
 }
 
+@media (max-width: 875px){
+    .cards-flexbox .individual-card-container .card-information .card-image img{
+        margin-top: 2rem;
+        width:13rem
+    }
+
+    .blackCard{
+        transform: translateY(2.5rem);
+    }
+
+    .debitCard{
+        transform: translateY(-1rem);
+    }
+}
+
 
 @media (max-width: 830px) { 
 
@@ -228,8 +243,6 @@ body{
 
     .cards-flexbox .individual-card-container .card-information .card-image img{
         margin-top: 2.5rem;
-        
-        width: 15rem;
     }
 
     .cards-flexbox hr{
@@ -250,6 +263,28 @@ body{
 
     .blackCard{
         transform: translateY(1rem);
+    }
+}
+
+@media(max-width: 760px){
+    .classicCard{
+        transform: translateY(.5rem)
+    }
+    
+    .platinumCard{
+        transform: translateY(.8rem);
+    }
+
+    .goldCard{
+        transform: translateY(2.8rem);
+    }
+
+    .blackCard{
+        transform: translateY(4.5rem);
+    }
+
+    .debitCard{
+        transform: translateY(.5rem);
     }
 }
 
@@ -291,6 +326,42 @@ body{
     .debitCard{
         transform: translateY(-1rem);
     }
+}
+
+@media(max-width: 620px){
+    .cards-flexbox .individual-card-container .card-information .card-image img{
+        width: 12rem;
+    }
+
+    .classicCard{
+        transform: translateY(1.2rem);
+        margin-left: 1.7rem;
+    }
+
+    .platinumCard{
+        transform: translateY(2.2rem);
+        margin-left: 1.7rem;
+    }
+
+    .goldCard{
+        transform: translateY(2.8rem);
+        margin-left: 1.7rem;
+    }
+
+    .blackCard{
+        transform: translateY(4.2rem);
+        margin-left: 1.7rem;
+    }
+
+    .debitCard{
+        transform: translateY(-.2rem);
+        margin-left: 1.7rem;
+    }
+
+    .card-button{
+        margin-left: 1rem;
+    }
+
 }
 
 @media (max-width:590px){
@@ -367,6 +438,50 @@ body{
     }
 }
 
+@media (max-width: 588px){
+    .cards-flexbox .individual-card-container .card-information .card-image img{
+        width: 9.5rem;
+        transform: translateX(-5.5rem);
+    }
+
+    .cards-flexbox .individual-card-container .card-information .card-tittle p:nth-of-type(1){
+        font-size: .75rem;
+        margin-right: 2rem;
+    }
+
+    .card-tittle .mastercard{
+        margin-right: 2rem;
+    }
+    
+    .card-tittle{
+       transform: translateX(-1rem); 
+    }
+
+    .card-details{
+        transform: translateX(-2rem);
+    }
+
+    .classicCard{
+        transform: translateY(.2rem);
+    }
+
+    .platinumCard{
+        transform: translateY(.5rem);
+    }
+
+    .goldCard{
+        transform: translateY(1.5rem);
+    }
+
+    .blackCard{
+        transform: translateY(1.5rem );
+    }
+
+    .debitCard{
+        transform: translateY(-1.2rem);
+    }
+}
+
 @media (max-width: 465px){
     .cards-flexbox .individual-card-container .card-information .card-image img{
         width: 9.4rem;
@@ -423,3 +538,5 @@ body{
         transform: translateY(.1rem);
     } 
 }
+
+

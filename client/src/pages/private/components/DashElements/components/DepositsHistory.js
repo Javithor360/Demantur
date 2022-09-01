@@ -11,7 +11,7 @@ export const DepositsHistory = ({ accNum }) => {
       const res = await getAccountsHistory(localStorage.getItem('authToken'), accNum);
       setAccountHistory(res.data.data[0][0].Deposits);
     })()
-  });
+  }, []);
   return (
     <div className='flex flex-col-reverse justify-between text-center mx-[10rem]'>
       {
@@ -27,7 +27,7 @@ export const DepositsHistory = ({ accNum }) => {
             )
           })
           :
-          <div>Hola xd</div>
+          <div>No hay historial de depósitos aún</div>
       }
     </div>
   )

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDash } from '../../../../context/DashboardContext';
 
-export const EmailCode = ({ setSwitchValue }) => {
+export const EmailCode = ({ setSwitchValue, Email }) => {
   const { EmailCodeVer } = useDash()
 
   const [Code, setCode] = useState(null);
@@ -17,7 +17,7 @@ export const EmailCode = ({ setSwitchValue }) => {
   const handleForm = async (e) => {
     e.preventDefault();
     try {
-      const res = await EmailCodeVer(localStorage.getItem('authToken'), Code)
+      const res = await EmailCodeVer(localStorage.getItem('authToken'), Code,Email)
       console.log(res);
       if (res?.response?.data?.error !== undefined) {
         SetTheError(res.response.data.error)

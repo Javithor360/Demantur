@@ -15,16 +15,16 @@ import { useNavigate } from "react-router-dom";
 // import { JsonWebTokenError } from "jsonwebtoken";
 
 export const CreateSavingAccForm = ({ isModal, setDisplay }) => {
-  const { QueryCreateSavingsAccount, CreateElements, Info } = useDash();
+  const { QueryCreateSavingsAccount, CreateElements, Info, SavingAccounts } = useDash();
   const navigate = useNavigate();
 
   const [AccountOwner, setAccountOwner] = useState();
 
-  const [DuiNumber, setDuiNumber] = useState();
+  const [DuiNumber, setDuiNumber] = useState('');
 
-  const [Reason1, setReason1] = useState();
+  const [Reason1, setReason1] = useState('');
 
-  const [Reason2, setReason2] = useState();
+  const [Reason2, setReason2] = useState('');
 
   const [Image, setImage] = useState();
   const [ImageName, setImageName] = useState("");
@@ -137,18 +137,28 @@ export const CreateSavingAccForm = ({ isModal, setDisplay }) => {
         form.append(key, DatosForm[key]);
       }
 
-      await axios.post(
+      const res = await axios.post(
         "http://localhost:4000/api/accounts/create/first-savings",
         form,
         PrivateConfig
       );
-
       setTimeout(() => {
         setCharginButton(false)
       }, 1500)
 
-      CreateElements(localStorage.getItem("authToken"));
-      isModal == true ? navigate("/dashboard") : setDisplay(false);
+      if (isModal === true) {
+        CreateElements(localStorage.getItem("authToken")) &&
+          navigate("/dashboard")
+      } else {
+        SavingAccounts.push({
+          activated: res.data.data.activated,
+          accountNumber: res.data.data.accoutNumber,
+          balance: res.data.data.balance.$numberDecimal,
+          interest: res.data.data.interest,
+          createdAt: res.data.data.createdAt
+        })
+        setDisplay(false);
+      }
     } catch (error) {
       console.error(error);
       setError(error.response.data.error);
@@ -188,12 +198,12 @@ export const CreateSavingAccForm = ({ isModal, setDisplay }) => {
               autoComplete="off"
               className="input-form"
             />
-            <label htmlFor="Dui" className="label-form">
+            <label htmlFor="Dui" className={`label-form`}>
               Número de DUI
             </label>
           </div>
-          <p className="text-[#606470] text-[1.2rem] mt-4">Imagen del DUI</p>
-          <div className="uploadImgContainer rounded-md w-[35%]">
+          <p className={` text-[1.2rem] mt-4  ${(Error && !Image) ? 'text-red-500' : 'text-[#606470]'} `}>Imagen del DUI</p>
+          <div className={`uploadImgContainer rounded-md w-[35%] ${(Error && !Image) ? 'bg-red-500 hover:bg-red-400' : 'bg-[#323643] hover:bg-[#474d60]'}`} >
             <input
               type="file"
               accept="image/*"
@@ -202,7 +212,7 @@ export const CreateSavingAccForm = ({ isModal, setDisplay }) => {
               placeholder=" "
               onChange={handleChangeFile}
               autoComplete="off"
-              className=""
+              className={``}
             />
             <label
               htmlFor="DuiImage"
@@ -222,8 +232,8 @@ export const CreateSavingAccForm = ({ isModal, setDisplay }) => {
           </p>
           <div className="flex justify-center w-full">
             <div className="w-[35%] mr-5">
-              <p className="text-center">Referencia Personal</p>
-              <div className="w-full rounded-md uploadImgContainer">
+              <p className={`text-center ${(Error && !Image2) ? 'text-red-500' : 'text-[#323643]'}`}>Referencia Personal</p>
+              <div className={`w-full rounded-md uploadImgContainer ${(Error && !Image2) ? 'bg-red-500 hover:bg-red-400' : 'bg-[#323643] hover:bg-[#474d60]'}`}>
                 <input
                   type="file"
                   accept="image/*"
@@ -248,8 +258,8 @@ export const CreateSavingAccForm = ({ isModal, setDisplay }) => {
               </div>
             </div>
             <div className="w-[35%]">
-              <p className="text-center">Referencia Laboral</p>
-              <div className="w-full rounded-md uploadImgContainer">
+              <p className={`text-center ${(Error && !Image3) ? 'text-red-500' : 'text-[#323643]'}`}>Referencia Laboral</p>
+              <div className={`w-full rounded-md uploadImgContainer ${(Error && !Image3) ? 'bg-red-500 hover:bg-red-400' : 'bg-[#323643] hover:bg-[#474d60]'}`}>
                 <input
                   type="file"
                   accept="image/*"
@@ -278,29 +288,31 @@ export const CreateSavingAccForm = ({ isModal, setDisplay }) => {
           <div className="flex justify-center w-full">
             <div className="flex flex-col justify-center items-center w-2/5 mr-4">
               <div className="h-[4rem] flex items-center">
-                <p className="text-center">¿Por qué quieres abrir esta cuenta?</p>
+                <p className={`text-center ${(Error && (Reason1 === '' || Reason1.length < 10)) ? 'text-red-500' : 'text-[#323643]'}`}>¿Por qué quieres abrir esta cuenta?</p>
               </div>
+              {/* Aquí no sé porque el border se queda con el color original aunque ya está rojo */}
               <textarea
                 name=""
                 id=""
                 cols="30"
                 rows="10"
-                className="w-full max-h-[10rem] min-h-[10rem] outline-none"
+                className={`w-full max-h-[10rem] min-h-[10rem] outline-none ${(Error && (Reason1 === '' || Reason1.length < 10) ? 'border border-red-500' : '')}`}
                 onChange={(e) => setReason1(e.target.value)}
               ></textarea>
             </div>
             <div className="flex flex-col justify-center w-2/5">
               <div className="h-[4rem] flex items-center">
-                <p className="text-center">
+                <p className={`text-center ${(Error && (Reason2 === '' || Reason2.length <= 10)) ? 'text-red-500' : 'text-[#323643]'}`}>
                   Describa las proyecciones del dinero a manejar en la cuenta
                 </p>
               </div>
+              {/* Aquí no sé porque el border se queda con el color original aunque ya está rojo */}
               <textarea
                 name=""
                 id=""
                 cols="30"
                 rows="10"
-                className="w-full max-h-[10rem] min-h-[10rem] outline-none"
+                className={`w-full max-h-[10rem] min-h-[10rem] outline-none ${(Error && (Reason2 === '' || Reason2.length <= 10) ? 'border border-red-500' : '')}`}
                 onChange={(e) => setReason2(e.target.value)}
               ></textarea>
             </div>

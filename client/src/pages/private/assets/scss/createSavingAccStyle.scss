@@ -64,7 +64,6 @@
     height: 100%;
     border: 1px solid $primary_gray;
     border-radius: 0.25rem;
-    color: $primary_dark;
     outline: none;
     padding: 1rem;
     z-index: 10;
@@ -84,12 +83,10 @@
     position: absolute;
     left: 1rem;
     top: 0.5rem;
-    color: $primary_dark;
     cursor: text;
     transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
     background-color: white;
     font-size: 0.9375rem;
-    color: $primary_gray;
   }
 }
 
@@ -99,11 +96,9 @@
   font-size: 0.875rem !important;
   left: 0.8rem !important;
   z-index: 11;
-  color: $primary_dark  !important;
 }
 
 .uploadImgContainer {
-  background-color: $primary_dark;
   color: $primary_white;
   transition: .3s;
 
@@ -116,7 +111,6 @@
 
 .uploadImgContainer:hover {
   cursor: pointer;
-  background-color: #474d60;
   transition: .3s;
 }
 

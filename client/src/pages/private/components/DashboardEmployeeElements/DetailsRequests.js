@@ -3,8 +3,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { AiOutlineZoomIn, AiOutlineZoomOut, AiOutlineCompress, AiOutlineClose } from 'react-icons/ai';
 import { TransformComponent, TransformWrapper } from '@pronestor/react-zoom-pan-pinch';
 import { useState } from 'react';
-import { useEmpConx } from '../../../../context/EmployeeContext';
-import { useEffect } from 'react';
+
 import axios from 'axios';
 
 export const DetailsRequests = ({ info, setDisplayDetails }) => {
@@ -95,7 +94,7 @@ export const DetailsRequests = ({ info, setDisplayDetails }) => {
                                     <p className='m-0 p-0'>Nombre</p>
                                 </div>
                                 <div className={`${table_content_styles} rounded-bl-lg`}>
-                                    <p className='m-0 p-0'>{`${info.MainInfo.FirstName} ${info.MainInfo.LastName}`}</p>
+                                    <p className='m-0 p-0'>{`${info.MainInfo.FirstName}  ${info.MainInfo.LastName}`}</p>
                                 </div>
                             </div>
                             <div className={`${grid_column_styles} border-subdivisions `}>
@@ -213,7 +212,7 @@ export const DetailsRequests = ({ info, setDisplayDetails }) => {
                             {dataImg.map((item, index) => {
                                 return (
                                     <>
-                                        <div className={`${grid_column_styles}`}>
+                                        <div className={`${grid_column_styles}`} key={index}>
                                             <div className={`${table_name_styles} border-subdivisions`}>
                                                 <p className='m-0 p-0'>{item.Name}</p>
                                             </div>

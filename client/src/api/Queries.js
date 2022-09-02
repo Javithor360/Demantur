@@ -48,8 +48,9 @@ export const getMyCardReqREQ = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/dashboard/get-my-card-request', { headers: PrivateConfig.headers })
 }
 
-export const getMyLoanReqREQ = async (PrivateConfig) => {
-  return await axios.get('http://localhost:4000/api/dashboard/get-Loans-requests', { headers: PrivateConfig.headers })
+export const getMyLoanReqREQ = async (PrivateConfig) =>{
+  return await axios.get('http://localhost:4000/api/dashboard/get-my-loan-request', { headers: PrivateConfig.headers })
+
 }
 
 export const getContactsWPReq = async (PrivateConfig) => {
@@ -99,10 +100,10 @@ export const getCardRequest = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/employee/get-cards-requests', { headers: PrivateConfig.headers })
 }
 
-export const getLoanRequests = async (PrivateConfig) => {
-  return await axios.get('http://localhost:4000/api/employee//get-Loans-requests', { headers: PrivateConfig.headers });
+export const getLoanRequests = async (PrivateConfig)=>{
+  return await axios.get('http://localhost:4000/api/employee/get-loans-requests', { headers: PrivateConfig.headers });
 }
-
 export const getPendingAccounts = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/accounts/get-account-requests', { headers: PrivateConfig.headers });
+
 }

@@ -9,7 +9,8 @@ import { useState, useEffect } from 'react';
 
 export const CreateSavingAcc = () => {
   const [active, setActive] = useState(false);
-  const [Chargin, setChargin] = useState(true)
+  const [Chargin, setChargin] = useState(true);
+  const isModal = true;
 
   const toggle = () => {
     setActive(!active)
@@ -58,7 +59,7 @@ export const CreateSavingAcc = () => {
           </div>
           {toggle &&
             <Modal active={active} toggle={toggle} onRequestClose={toggle}>
-              <CreateSavingAccForm />
+              <CreateSavingAccForm isModal={isModal} />
             </Modal>
           }
         </div>

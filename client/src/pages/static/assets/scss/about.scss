@@ -1,21 +1,19 @@
 .about-hero {
     background-image: url(../img/about-hero.jpg);
-    background-repeat: no-repeat;
     background-size: cover;
+    background-position: center center;
     height: 35.93rem;
     width: 100%;
-    padding: 1.25rem;
-    position: relative;
-
+    
     .about-hero-cont {
+        width: inherit;
+        height: inherit;
         position: absolute;
+        color: #ffffff;
         background-color: rgba(0, 0, 0, .5);
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: flex-start;
         justify-content: center;
         
@@ -38,9 +36,16 @@
 }
 
 .about-history-container {
+    width: 100%;
     margin: 5rem 12rem;
+    margin-left: -2rem;
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+
     .about-history-text {
+        margin-left: 15rem;
         margin-right: 4rem;
         text-align: justify ;
 
@@ -70,6 +75,7 @@
         height: 25rem;
         width: 38rem;
         align-items: center;
+        
     }
 }
 
@@ -125,18 +131,18 @@
     }
 
     .about-valors-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-        margin: 3rem 6rem 4rem;
+        justify-content: center;
+        margin: 3rem 2rem 4rem 4rem;
 
         .about-valors-card-cont {
             text-align: center;
             overflow: hidden;
-            height: 100%;
             padding: 2rem;
             border-radius: 0.3125rem;
-            margin: 0 1rem;
+            margin-right: 1rem;
             box-shadow: 0 0 0.3125rem 0 rgba(0, 0, 0, 0.315);
 
             .about-valors-icon {
@@ -156,4 +162,17 @@
         }
     }
     
+}
+
+@media(max-width:915px){
+    .about-valors-grid{
+        margin: auto;
+        flex-direction: column;
+        
+        .about-valors-card-cont{
+            margin-bottom: 1rem;
+            height: 30%;
+            width: 50%;
+        }
+    }
 }

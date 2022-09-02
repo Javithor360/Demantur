@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useDash } from "../../../../context/DashboardContext";
 
-export const ChangeEmail = ({ setSwitchValue }) => {
+export const ChangeEmail = ({ setSwitchValue, setEmail }) => {
 
   const { ChangeEmail, Info } = useDash()
 
-  const [Email, setEmail] = useState(null);
+  const [EmailInput, setEmailInput] = useState(null);
   const [Error, setError] = useState(null);
 
   const SetTheError = (Error) => {
@@ -19,7 +19,7 @@ export const ChangeEmail = ({ setSwitchValue }) => {
     e.preventDefault();
 
     try {
-      const res = await ChangeEmail(localStorage.getItem('authToken'), Email);
+      const res = await ChangeEmail(localStorage.getItem('authToken'), EmailInput);
 
       if (res?.response?.data?.error !== undefined) {
         SetTheError(res.response.data.error)
@@ -29,7 +29,7 @@ export const ChangeEmail = ({ setSwitchValue }) => {
         setSwitchValue(5)
       }
     } catch (error) {
-      // console.log(error);
+      console.log(error);
     }
 
   }
@@ -39,10 +39,14 @@ export const ChangeEmail = ({ setSwitchValue }) => {
       <span>Cambio de Email</span>
       {Error && <h4 className="my-2 text-red-500">{Error}</h4>}
       <div className="input-class w-100 mt-4">
-        <input value={Email} onChange={(e) => setEmail(e.target.value)} type='text' id='Nombres' name='Nombres' placeholder=' ' autoComplete='off' className='input-form' />
+        <input value={EmailInput} onChange={(e) => setEmailInput(e.target.value)} type='text' id='Nombres' name='Nombres' placeholder=' ' autoComplete='off' className='input-form' />
         <label htmlFor="Nombres" className='label-form'>Nuevo Email</label>
       </div>
-      <button className={`w-1/2 h-10 mx-auto outline-none text-white border-none mt-4 ${Error ? 'bg-[#C90000]' : 'bg-[#323643]'}`} type="submit">Enviar</button>
+      <div className="flex flex-col h-5">
+        <button className={`w-1/2 h-10 mx-auto outline-none text-white border-none mt-4 ${Error ? 'bg-[#C90000]' : 'bg-[#323643]'}`} type="submit">Enviar</button>
+        <span className={`w-1/2 h-10 mx-auto outline-none text-white border-none mt-4 bg-[#606470]`} type="submit" onClick={() => {setSwitchValue(1)}}>Regresar</span>
+      </div>
     </form>
   )
 }
+ 

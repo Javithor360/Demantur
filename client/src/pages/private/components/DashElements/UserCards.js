@@ -1,6 +1,8 @@
 //scss
+
 import '../../../static/assets/scss/credit_cards/individual_cards_pages_main.scss'
 import "../assets/scss/UserCards.scss";
+
 //components
 import { ScrollToTop } from '../../../../components/ScrollToTop';
 import { Dropdown } from '../../../../components/Dropdown';
@@ -13,6 +15,7 @@ import { BsArrowLeft } from 'react-icons/bs'
 import { BiLoaderAlt } from 'react-icons/bi'
 import pendingReqIcon from '../assets/img/cards-icons/quote-request.png'
 import { RiLoader3Fill as IconChargin } from 'react-icons/ri'
+
 //translate
 import { useTranslation } from "react-i18next";
 

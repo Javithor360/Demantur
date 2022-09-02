@@ -33,6 +33,7 @@ export const LoansPage = () => {
       <p>{t("loans_main_page.type_loans")}</p>
         <hr />
       </div>
+      <div className="mx-[10rem]">
       <div className="page-section">
         <div className="container">
           <div className="row align-items-center">
@@ -155,11 +156,11 @@ export const LoansPage = () => {
         </div>
       </div>
       <br></br>
-
+      </div>
       {/*Hero banner contact*/}
 
-      <div className="hero">
-        <div className="text">
+      <div className="hero  ">
+        <div className="text ml-[3rem]">
           <h1>{t("loans_main_page.Doubts")}</h1>
           <div className="Btn-contac">
             <Link to="/contact">

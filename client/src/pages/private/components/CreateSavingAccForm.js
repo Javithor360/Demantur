@@ -5,7 +5,7 @@ import {
 } from "react-icons/ai";
 //hooks
 
-import {VscLoading} from "react-icons/vsc"
+import { VscLoading } from "react-icons/vsc"
 
 import { useEffect, useState } from "react";
 import { useDash } from "../../../context/DashboardContext";
@@ -14,8 +14,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 // import { JsonWebTokenError } from "jsonwebtoken";
 
-export const CreateSavingAccForm = () => {
-  const { QueryCreateSavingsAccount, CreateElements } = useDash();
+export const CreateSavingAccForm = ({ isModal, setDisplay }) => {
+  const { QueryCreateSavingsAccount, CreateElements, Info } = useDash();
   const navigate = useNavigate();
 
   const [AccountOwner, setAccountOwner] = useState();
@@ -35,7 +35,8 @@ export const CreateSavingAccForm = () => {
   const [Image3, setImage3] = useState();
   const [ImageName3, setImageName3] = useState("");
 
-  const [CharginButton, setCharginButton] = useState(false)
+  const [CharginButton, setCharginButton] = useState(false);
+  const [Error, setError] = useState('');
 
   useEffect(() => {
     (async () => {
@@ -108,6 +109,11 @@ export const CreateSavingAccForm = () => {
     e.preventDefault();
 
     try {
+
+      if (Info.Dui !== DuiNumber) {
+        return setError('El número de DUI ingresado no coincide con de esta cuenta')
+      }
+
       setCharginButton(true);
       const PrivateConfig = {
         headers: {
@@ -142,9 +148,11 @@ export const CreateSavingAccForm = () => {
       }, 1500)
 
       CreateElements(localStorage.getItem("authToken"));
-      navigate("/dashboard");
+      isModal == true ? navigate("/dashboard") : setDisplay(false);
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      setError(error.response.data.error);
+      setCharginButton(false);
     }
   };
 
@@ -154,6 +162,16 @@ export const CreateSavingAccForm = () => {
         Formulario de creación de Cuenta de Ahorro
       </p>
       <hr className="w-3/4" />
+      {
+        Error !== '' &&
+        <>
+          <div className='p-[1rem] text-white bg-red-500 w-[60%] text-center'>
+            <h5>Error</h5>
+            <p className="text-[13px]">{Error}</p>
+          </div>
+          <hr className="w-3/4" />
+        </>
+      }
       <form onSubmit={handleForm} className="w-full">
         <div className="flex flex-col items-center justify-center w-full">
           <p className="text-center text-[1.2rem] text-[#606470]">
@@ -287,9 +305,13 @@ export const CreateSavingAccForm = () => {
               ></textarea>
             </div>
           </div>
-          <button type="submit" className="mt-5 create-saving-acc-btn" disabled={CharginButton}>
-            {CharginButton ? <VscLoading className="animate-spin"/> : "Enviar" }
-          </button>
+          <div className="flex gap-[2rem]">
+            <button type="submit" className="mt-5 create-saving-acc-btn accept" disabled={CharginButton}>
+              {CharginButton ? <VscLoading className="animate-spin" /> : "Enviar"}
+            </button>
+            {isModal === false &&
+              <button type="button" className="mt-5 create-saving-acc-btn cancel" onClick={() => { setDisplay(false) }}>Regresar</button>}
+          </div>
         </div>
       </form>
     </div>

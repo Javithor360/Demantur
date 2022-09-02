@@ -7,12 +7,17 @@ import { Dropdown } from '../../../../components/Dropdown';
 //hooks
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+
 import { useDash } from "../../../../context/DashboardContext";
 //icons
-import { AiOutlineClose } from 'react-icons/ai'
+import { BsArrowLeft } from 'react-icons/bs'
+import  pendingReqIcon  from '../assets/img/cards-icons/quote-request.png'
+import { RiLoader3Fill as IconChargin } from 'react-icons/ri'
+import { BiLoaderAlt } from 'react-icons/bi'
 //translate
 import { useTranslation } from "react-i18next";
+
+
 
 
 //img
@@ -25,20 +30,36 @@ export const ActLoans = () => {
 
   const [changeBox, setChangeBox] = useState(false);
   const [parametros, setParametros] = useState(null);
-  const [LoanReq, setLoanReq] = useState(false);
+  const [LoanReq, setLoanReq] = useState(null);
   const [Error, setError] = useState('');
+  const [CharginIco, setCharginIco] = useState(true);
+  const [Chargin, setChargin] = useState(false);
+
+  const handleClick = event => {
+    event.currentTarget.disabled = true;
+  };
 
   const { t } = useTranslation();
 
 
   const { LoansRequestsForm, CreateElements, getMyLoanReq } = useDash();
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const resp = await getMyLoanReq(localStorage.getItem('authToken'));
-  //     setLoanReq(resp.data.data);
-  //   })()
-  // }, []);
+  useEffect(() => {
+    (async () => {
+      try {
+        const resp = await getMyLoanReq(localStorage.getItem('authToken'));
+      
+        setLoanReq(resp.data.data);
+        console.log(resp)
+      } catch (e) {
+        console.log(e)
+      }
+    })()
+  }, []);
+
+  setTimeout(() => {
+    setCharginIco(false);
+  }, 2000);
 
 
 
@@ -77,13 +98,6 @@ export const ActLoans = () => {
     Imagefunc(ImageName4, setImageName4);
   }, [ImageName4]);
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const res = await DematurClassicForm(localStorage.getItem('authToken'));
-  //     // setCardOwner(res.data.data._id);
-  //     console.log(res)
-  //   })();
-  // });
 
   useEffect(() => {
     setUserSalary('')
@@ -172,6 +186,8 @@ export const ActLoans = () => {
 
       const LoansRequestsForm = new FormData();
 
+      setChargin(true);
+
       for (let key in LoanRequestsFormData) {
         LoansRequestsForm.append(key, LoanRequestsFormData[key]);
       }
@@ -183,13 +199,38 @@ export const ActLoans = () => {
       );
 
       CreateElements(localStorage.getItem("authToken"));
+
+      
+      setTimeout(()=>{
+        setChargin(false)
+        setUserSalary('')
+        setUserLaboralStatus('')
+        setImageName1('')
+        setImageName2('')
+        setImageName3('')
+        setImageName4('')
+        setChangeBox(false)
+      }, 1500);
+
+      (async () => {
+        try {
+          const resp = await getMyLoanReq(localStorage.getItem('authToken'));
+          // setLoanReq(resp.data.data);
+
+        } catch (error) {
+          console.log(error)
+        }
+      })()
       setChangeBox(false);
+
 
     } catch (error) {
       setError(error.response.data.error)
       console.log(error);
     }
   };
+
+
 
   const FormRequestLoan = () => {
     return (
@@ -199,14 +240,23 @@ export const ActLoans = () => {
           <button className="bg-transparent outline-none border-none" onClick={() => {
             setChangeBox(false)
             setParametros(null)
+            setError('')
           }}>
-            <AiOutlineClose className="text-[1.2rem] text-[#323643]" />
+            <BsArrowLeft className="text-[1.8rem] flex float-left text-[#323643]" />
           </button>
         </div>
         <div className="h-fit w-full">
           <p className="text-center text-[1.4rem] mb-3">
             {parametros.LoanName}
           </p>
+          <div className='subdivisions'>
+            <hr className=''/>
+          </div>
+          <img
+            src={OfferLoans(`${parametros.LoanImage2}`)}
+            alt=""
+            className="w-[25.5rem] h-[15rem] rounded-lg  mx-auto block mt-4 mb-4 shadow-lg"
+          />
           <div className="min-h-fit w-full px-2 border-emerald-300 border-l-2">
             <p className="card-description text-[1rem] mx-auto mb-4">
               {parametros.LoanDescription2}
@@ -214,6 +264,7 @@ export const ActLoans = () => {
           </div>
         </div>
         <div className="card-form-container">
+          
           <form onSubmit={handleForm} className="main-card-form">
             <div className='flex flex-row w-full h-[30%] justify-start items-center px-[2rem] mb-5'>
               <div className='h-[70%] mr-5'>
@@ -241,7 +292,7 @@ export const ActLoans = () => {
                 <label htmlFor="Constancia2" className=''>{ImageName2 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName2}</label>
               </div>
               <div className="input-files mr-7">
-                <p className='text-[1.1rem] text-[#606470]'>{t("CardsPage-Form.desc2")}</p>
+                <p className='text-[1.1rem] text-[#606470]'>Constancia de trabajo</p>
                 <input type='file' accept='image/*' id='Constancia3' name='Constancia3' placeholder=' ' onChange={handleChangeFile3} autoComplete='off' />
                 <label htmlFor="Constancia3" className=''>{ImageName3 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName3}</label>
               </div>
@@ -252,7 +303,19 @@ export const ActLoans = () => {
               </div>
             </div>
             <div className="form-row-3">
-              <button className="card-submit-button" type="submit">{t("CardsPage-Form.button2")}</button>
+              <button className="card-submit-button" type="submit" disabled={Chargin}
+              >
+                {
+                  Chargin === true ?
+                    <>
+                      <BiLoaderAlt  className="animate-spin"/>
+                    </>
+                  :
+                  <>
+                    <span>Solicitar</span>
+                  </>
+                }
+              </button>
             </div>
           </form>
         </div>
@@ -260,12 +323,23 @@ export const ActLoans = () => {
     )
   }
 
+  
+
   const userLoans = () => {
 
     return (
       <>
+
+      {
+        CharginIco === true? 
+      <>
+        <div className='flex justify-center items-center w-full h-full'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
+      </>
+      :
+      <>
         <p className="text-[1.5rem] text-[#323643] text-center p-2 ">
         {t("DashboardNormalUser.Loans.tittle2")}
+
         </p>
         <div className="mb-6 ml-5 card-tipe-tittle">
           <p className="text-[1.375rem] text-[#323643] p-0 m-0">{t("DashboardNormalUser.Loans.tittle3")}</p>
@@ -285,10 +359,13 @@ export const ActLoans = () => {
             <div className="mt-6">
               <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
                 {t("DashboardNormalUser.Loans.button2")}
+
               </button>
             </div>
           </div>
         </div>
+      </>
+      }
 
       </>
     );
@@ -300,30 +377,40 @@ export const ActLoans = () => {
         LoanName: <span>{t("DashboardNormalUser.Loans.1.tittle")}</span>,
         LoanDescription: <span>{t("DashboardNormalUser.Loans.1.desc")}</span>,
         LoanDescription2: <span>{t("DashboardNormalUser.Loans.1.desc2")}</span>,
-        LoanImage: './personal_loan.jpg'
+        LoanImage: './personal_loan.jpg', 
+        LoanImage2:'./PersonalRequire.jpg'
       },
       {
         LoanName: <span>{t("DashboardNormalUser.Loans.2.tittle")}</span>,
         LoanDescription: <span>{t("DashboardNormalUser.Loans.2.desc")}</span>,
         LoanDescription2: <span>{t("DashboardNormalUser.Loans.2.desc2")}</span>,
-        LoanImage: './business_loan.jpg'
+        LoanImage: './business_loan.jpg',
+        LoanImage2:'./RequireLoan.jpg'
       },
       {
         LoanName: <span>{t("DashboardNormalUser.Loans.3.tittle")}</span>,
         LoanDescription: <span>{t("DashboardNormalUser.Loans.3.desc")}</span>,
         LoanDescription2: <span>{t("DashboardNormalUser.Loans.3.desc2")}</span>,
-        LoanImage: './House.jpg'
+        LoanImage: './House.jpg',
+        LoanImage2:'./HousinRequire.jpg'
       },
       {
         LoanName: <span>{t("DashboardNormalUser.Loans.4.tittle")}</span>,
         LoanDescription: <span>{t("DashboardNormalUser.Loans.4.desc")}</span>,
         LoanDescription2: <span>{t("DashboardNormalUser.Loans.4.desc2")}</span>,
-        LoanImage: './CarDemantur.jpg'
+        LoanImage: './CarDemantur.jpg',
+        LoanImage2:'./AutoRequire.jpg'
+
       }
     ]
 
     return (
       <>
+      {
+        CharginIco === true?
+          <div className='flex justify-center items-center w-full h-full'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
+        :
+        <>
         <p className="text-[24px] text-[#323643] text-center p-2 mb-4">
           {t("DashboardNormalUser.Loans.tittle")}
         </p>
@@ -356,7 +443,9 @@ export const ActLoans = () => {
                                 LoanId: i,
                                 LoanName: element.LoanName,
                                 LoansDescription: element.LoanDescription,
-                                LoanDescription2: element.LoanDescription2
+                                LoanDescription2: element.LoanDescription2,
+                                LoanImage: element.LoanImage,
+                                LoanImage2: element.LoanImage2
                               })
                             }} className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
                               {t("DashboardNormalUser.Loans.button")}
@@ -371,11 +460,15 @@ export const ActLoans = () => {
             </>
             :
             <>
+            <div className='h-full w-full flex flex-col items-center justify-center'>
+              <img src={ pendingReqIcon } alt="" className='w-[200px] mb-4'/>
               <span>{t("DashboardNormalUser.Loans.desc")}</span>
-              {console.log(LoanReq)}
-            </>
+            </div>
+          </>
         }
-
+        </>
+      }
+        
       </>
     )
 

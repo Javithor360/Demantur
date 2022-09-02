@@ -85,6 +85,10 @@ export const EmailCodeVerQuery = async (PrivateConfig, Code, Email) => {
   return await axios.post('http://localhost:4000/api/dashboard/email-code-verify', { Code, Email }, { headers: PrivateConfig.headers });
 }
 
+export const CancelChangeEm = async (PrivateConfig, Code) => {
+  return await axios.post('http://localhost:4000/api/dashboard/cancel-change-email', { Code }, { headers: PrivateConfig.headers })
+}
+
 // ?? QUERYS EMPLOYEE
 
 export const getEmployeeData = async (PrivateConfig) => {

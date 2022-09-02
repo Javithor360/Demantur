@@ -23,7 +23,7 @@ const WelcomeSavingsAccount = async (req, res, next) => {
     let filterArray = query.filter(i => i.AccountOwner == AccountOwner);
     if (filterArray.length >= 3) {
       return next(
-        new ErrorResponse("Completa todos los campos antes de continuar", 400, "error")
+        new ErrorResponse("No puedes crearte una cuenta porque ya superaste el límite permitido de tres.", 400, "error")
       )
     }
 
@@ -33,19 +33,19 @@ const WelcomeSavingsAccount = async (req, res, next) => {
       );
     }
 
-    if (Reason1.length < 10 || Reason2.length < 10) {
+    if(Reason1.length < 10 || Reason2.length < 10){
       return next(
-        new ErrorResponse("Completa todos los campos antes de continuar")
+        new ErrorResponse("Detalla un poco más las razones por las que deseas abrir la cuenta")
       );
     }
 
     if (!req.files) {
       return next(
-        new ErrorResponse("Completa todos los campos antes de continuar", 400, "error")
+        new ErrorResponse("Sube las imágenes necesarias antes de continuar", 400, "error")
       );
     } else if (!req.files.Image || !req.files.Image2 || !req.files.Image3) {
       return next(
-        new ErrorResponse("Completa todos los campos antes de continuar.", 400, "error")
+        new ErrorResponse("Asegúrate de subir todas las imágenes necesarias antes de continuar.", 400, "error")
       );
     }
     const accountNumber = `21030${accNumberGen(1000, 9999)}`;
@@ -100,7 +100,7 @@ const WelcomeSavingsAccount = async (req, res, next) => {
     });
 
     await newSavingsAccount.save();
-    res.status(200).json({ sucess: true, data: newSavingsAccount });
+    res.status(200).json({sucess: true, data: newSavingsAccount});
   } catch (e) {
     console.error(e);
     return res.status(500).json({ message: e.message });

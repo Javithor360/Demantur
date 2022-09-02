@@ -152,7 +152,7 @@ export const CreateSavingAccForm = ({ isModal, setDisplay }) => {
       } else {
         SavingAccounts.push({
           activated: res.data.data.activated,
-          accountNumber: res.data.data.accoutNumber,
+          accountNumber: res.data.data.accountNumber,
           balance: res.data.data.balance.$numberDecimal,
           interest: res.data.data.interest,
           createdAt: res.data.data.createdAt

@@ -7,24 +7,22 @@ $font_family: 'Poppins', sans-serif;
 
 .acc-hero {
     background-image: url(../img/acc/acc_main_banner1.jpg);
-    background-repeat: no-repeat;
     background-size: cover;
+    background-position: center center;
     height: 35.93rem;
     width: 100%;
-    padding: 1.25rem;
-    position: relative;
+   
 
     .acc-hero-cont {
+        width: inherit;
+        height: inherit;
         position: absolute;
+        color: #ffffff;
         background-color: rgba(0, 0, 0, .5);
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
+        align-items: center;
 
         p {
             color: $color_white;
@@ -291,10 +289,11 @@ $font_family: 'Poppins', sans-serif;
 
     .corrienteButton{
         transform: translateY(-1.5rem);
+        
     }
 
     .ahorroButton{
-        transform: translateY(-2.5rem);
+        transform: translateY(-2.4rem);
     }
 }
 

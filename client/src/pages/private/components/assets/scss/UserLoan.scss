@@ -90,3 +90,20 @@
         }
     }
 }
+.border-text{
+    border-left: 3px solid $primary_dark;
+    padding-left: 10px;
+}
+
+
+.subdivisions{
+    hr{
+        border: 0;
+        width: 20%;
+        height: 2px;
+        opacity: 1;
+        background: $primary_dark;
+        margin: auto;
+    }
+}
+

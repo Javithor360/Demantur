@@ -1,9 +1,10 @@
 .baners {
     background-image: url(../img/banner/empresarios.jpg);
     background-size: cover;
+    background-position: center center;
+    height: 35.93rem;
     width: 100%;
-    height: 35rem;
-    position: relative;
+   
 
 }
 .subtitles{
@@ -12,14 +13,15 @@
     font-size: 1.8rem;}
 
 .baners-content {
-    position: absolute;
     width: inherit;
     height: inherit;
-    background-color: rgba(0, 0, 0, 0.562);
+    position: absolute;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, .5);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #ffffff;
+    align-items: center;
 }
 .title{
     font-size: 3rem;

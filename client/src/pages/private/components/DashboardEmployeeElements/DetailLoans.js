@@ -1,15 +1,11 @@
-import './assets/scss/CardEmployee.scss'
+import './assets/scss/LoansEmployee.scss'
 import { BsArrowLeft } from 'react-icons/bs'
 import { AiOutlineZoomIn, AiOutlineZoomOut, AiOutlineCompress, AiOutlineClose } from 'react-icons/ai'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { TransformComponent, TransformWrapper } from '@pronestor/react-zoom-pan-pinch'
-import Modal from '../Modal'
-import { ConfirmCardReq } from './ConfirmCardReq'
 
 
-export const DetailsCardRequest = ({ Params, setDisplayDetails }) => {
-  const [confirmData, setConfirmData] = useState({});
-
+export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
   console.log(Params)
   console.log(setDisplayDetails);
   const grid_column_styles = "mr-4 flex flex-col h-full w-full";
@@ -17,16 +13,6 @@ export const DetailsCardRequest = ({ Params, setDisplayDetails }) => {
   const table_content_styles = "h-[65%] bg-white p-2 flex justify-center items-center";
   const table_container_styles_2 = "w-[90%] h-fit flex flex-col items-center mx-auto";
   const table_content_styles_2 = "h-full bg-white p-2 flex justify-center items-center";
-
-  const [active, setActive] = useState();
-  const toggle = () => {
-    setActive(!active)
-  }
-  useEffect(() => {
-    if (active) {
-        document.body.style.overflowY = 'hidden'
-    }
-  }, [active])
 
   const dataImg = [
     {
@@ -38,8 +24,8 @@ export const DetailsCardRequest = ({ Params, setDisplayDetails }) => {
       Name: 'Fotocopia de DUI trasera'
     },
     {
-      ImgSrc: Params.NitImg,
-      Name: 'Fotocopia de NIT'
+      ImgSrc: Params.ConstancyImg ,
+      Name: 'Constancia de trabajo'
     },
     {
       ImgSrc: Params.SalaryEvidenceImg,
@@ -65,10 +51,10 @@ export const DetailsCardRequest = ({ Params, setDisplayDetails }) => {
         </div>
         <div className='mx-auto w-[90%] h-[9rem] border-cover rounded-2xl bg-[#FCFCFC] shadow-sm flex flex-row mb-5 mt-4'>
           <div className='h-full w-[60%] flex items-center justify-center'>
-            <p className='text-[20px] m-0 p-0'>Solicitud de tarjeta de crédito <span className='font-semibold'> Demantur {Params.Type}</span></p>
+            <p className='text-[20px] m-0 p-0'>Solicitud de préstamo <span className='font-semibold'> Demantur {Params.Type}</span></p>
           </div>
           <div className='h-full w-[40%] flex items-center justify-center'>
-            <img src={Params.CloudLoansImage} alt="" className='w-[11.25rem]'/>
+            <img src={Params.CloudCardImage} alt="" className='w-[11.25rem]'/>
           </div>
         </div> 
 
@@ -199,28 +185,12 @@ export const DetailsCardRequest = ({ Params, setDisplayDetails }) => {
 
         <div className='m-auto w-[60%] h-[6rem] border-cover rounded-2xl bg-[#FCFCFC] shadow-sm flex flex-row mb-5'>
           <div className='h-full w-[50%] flex items-center justify-center'>
-            <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#727C9F] text-white' onClick={() =>{
-              setConfirmData(
-                {
-                  Name: Params.Name,
-                  Dui: Params.Dui,
-                  Email: Params.Email,
-                  CelNum: Params.CelNum
-                }
-              )
-              toggle()
-            }
-            }>Aceptar</button>
+            <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#727C9F] text-white'>Aceptar</button>
           </div>
           <div className='h-full w-[50%] flex items-center justify-center'>
             <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#455FB9] text-white'>Denegar</button>
           </div>
         </div> 
-        {toggle &&
-          <Modal active={active} toggle={toggle} onRequestClose={toggle}>
-              <ConfirmCardReq props={confirmData} setActive={setActive}/>
-          </Modal>
-        }
       </div>
     </>
   )

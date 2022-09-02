@@ -168,8 +168,7 @@ const getCardRequests = async (req, res, next) => {
         let cardRequestsOrder = []
 
         for (let index = 0; index < getAllUsers.length; index++) {
-
-
+            
             if (getAllUsers[index]._id.toString() === getAllCardRequests[index]?.CardOwner.toString()) {
                 let ObjectCardRequest = {}
                 ObjectCardRequest.RequestOwner = getAllUsers[index]
@@ -187,25 +186,30 @@ const getCardRequests = async (req, res, next) => {
     }
 
 }
+
 const getLoanRequests = async (req, res, next) => {
     try {
-        const getAllLoansRequests = await LoansModels.find()
-        const getAllUsers = await NormalUser.find()
 
-        let LoansRequestsOrder = []
+        const getAllLoanRequests = await LoansModels.find()
+        const getAllUsers = await NormalUser.find()
+        const ExtraInfo = await ExtraInfoNormalUser.find()
+
+        let loanRequestsOrder = [] 
+        console.log(getAllUsers)
 
         for (let index = 0; index < getAllUsers.length; index++) {
-
-            if (getAllUsers[index]._id.toString() === getAllLoansRequests[index]?.CardOwner.toString()) {
+            console.log('=======================')
+            console.log(getAllUsers[index]?._id?.toString(), getAllLoanRequests[index]?.loan_guarantor?.toString())
+            console.log('=======================')
+            if (getAllUsers[index]?._id?.toString() == getAllLoanRequests[index]?.loan_guarantor?.toString()) {
                 let ObjectLoanRequest = {}
-                ObjectLoanRequest.RequestOwner = getAllUsers[index]
-                ObjectLoanRequest.CardRequest = getAllLoansRequests[index]
-                LoansRequestsOrder.push(ObjectLoanRequest)
-                console.log(ObjectLoanRequest)
+                ObjectLoanRequest.Request_guarantor = getAllUsers[index]
+                ObjectLoanRequest.LoanRequest = getAllLoanRequests[index]
+                ObjectLoanRequest.ExtraInfo = ExtraInfo[index] 
+                loanRequestsOrder.push(ObjectLoanRequest)
             }
         }
-
-        res.status(200).json({ data: LoansRequestsOrder });
+        res.status(200).json({ data: loanRequestsOrder });
     } catch (e) {
         console.log(e);
         res.status(500).json({ message: e.message });

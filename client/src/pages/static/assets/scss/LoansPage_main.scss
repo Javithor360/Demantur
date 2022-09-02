@@ -81,7 +81,7 @@ body{
 	padding: 0.5rem;
 	margin-top: 2rem;
 	transition: all .2s ease;
-	margin-left: 9rem;
+	margin-left: 11rem;
 	span{
 		color: $button-color;
 	}
@@ -203,7 +203,7 @@ h6 {
     display: flex;
     flex-direction: column;
     background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
-						 url(../img/all_loans/more_Info.jpg);
+						url(../img/all_loans/more_Info.jpg);
     background-position: bottom;
     align-self: center;
     background-repeat: no-repeat;

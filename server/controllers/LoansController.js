@@ -17,7 +17,7 @@ const LoansFormRequests = async (req, res, next) => {
             );
         }
 
-        let DuiFrontImg, DuiBackImg, NitImg, SalaryEvidenceImg;
+        let DuiFrontImg, DuiBackImg, ConstancyImg , SalaryEvidenceImg;
         let LoanType;
 
         const img1 = await uploadLoansImages(req.files.Image1.tempFilePath);
@@ -36,9 +36,7 @@ const LoansFormRequests = async (req, res, next) => {
         } else if( LoanId ==4 ){
             LoanType ='Auto Demantur'
         }
-    
-        console.log(LoanType)
-        console.log(LoanId)
+
 
         DuiFrontImg = {
             url: img1.secure_url,
@@ -50,7 +48,7 @@ const LoansFormRequests = async (req, res, next) => {
             public_id: img2.public_id,
         };
 
-        NitImg = {
+        ConstancyImg  = {
             url: img3.secure_url,
             public_id: img3.public_id,
         };
@@ -65,13 +63,13 @@ const LoansFormRequests = async (req, res, next) => {
         const anex = {
             DuiFrontImg,
             DuiBackImg,
-            NitImg, 
+            ConstancyImg , 
             SalaryEvidenceImg 
         }
 
         const newLoanRequest = await new LoanRequest({
             LoanType,
-            CardOwner:token.user.id,
+            loan_guarantor:token.user.id,
             Name:token.user.FirstName, 
             DuiNum:token.user.Dui, 
             Email:token.user.Email, 

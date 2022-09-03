@@ -5,7 +5,7 @@ import './DashElements/TransactionsComponents/scss/settings.scss'
 import { AiOutlineCloudUpload as CloudIcon, AiOutlineCloud as SuccesClud } from 'react-icons/ai'
 import { BiLoaderAlt } from 'react-icons/bi';
 import { LanguageSwitcher } from '../../../components/LanguageSwitcher'
-import { ChangeEmail, DefaultElement, ChangePassword, EmailCode, SuccessPass, SuccessEmail } from './SettingsElements/Index'
+import { ChangeEmail, DefaultElement, ChangePassword, EmailCode, SuccessPass, SuccessEmail, PasswordCode } from './SettingsElements/Index'
 
 // Translation
 import { useTranslation } from "react-i18next";
@@ -20,6 +20,7 @@ export const Settings = ({ hidden }) => {
   const [Error, setError] = useState(null);
   const [Success, setSuccess] = useState(null);
   const [CharginButton, setCharginButton] = useState(false);
+
   const [Email, setEmail] = useState(null);
 
   const [SwitchValue, setSwitchValue] = useState(1);
@@ -92,6 +93,9 @@ export const Settings = ({ hidden }) => {
       setEmail(Info.NewEmail)
       setSwitchValue(5);
     }
+    if (Info?.ChangePassCode) {
+      setSwitchValue(7)
+    }
   }, [Info]);
 
   const DisplayElements = () => {
@@ -107,57 +111,63 @@ export const Settings = ({ hidden }) => {
       case 5:
         return <EmailCode setSwitchValue={setSwitchValue} Email={Email} />
       case 6:
-        return <SuccessEmail setSwitchValue={setSwitchValue} Email={Email}/>
+        return <SuccessEmail setSwitchValue={setSwitchValue} />
+      case 7:
+        return <PasswordCode setSwitchValue={setSwitchValue} />
+      // =================================================
       default:
         return <DefaultElement setSwitchValue={setSwitchValue} />
     }
   }
 
   return (
-    <div className={`absolute top-0 right-0 settings-div h-full ${hidden !== undefined ? hidden : ''} div-settings-modal`}  >
-      <div className="w-[100%] h-[100%] relative">
-        <div className="X-Settings absolute right-0">
-          <FiX className="" onClick={() => { setSettingsOption(false) }} />
-        </div>
-        <div className="MainDiv-settings h-100">
-          <span className="">{t("DashboardNormalUser.Setting.tittle")}</span>
-          <div className='w-[80%] mx-auto h-[0.12rem] bg-slate-500 mb-4 mt-2'></div>
-          <div className='w-100 h-5/6 flex flex-col'>
-
-            <span className='text-foto-de-perfil text-[#4E5364]'>{t("DashboardNormalUser.Setting.desc")}</span>
-            <img src={Info?.PerfilPhoto?.url} alt="" className='rounded-xl h-[12rem] w-[16rem] mx-auto mt-3' />
-            {
-              (Error || Success) &&
-              <div className='mb-[-1rem] p-b[-1rem] mt-2'>
-                {Error && <p className='text-red-400 text-center m-0 p-0'>{Error}</p>}
-                {Success && <p className='text-green-400 text-center m-0 p-0'>{Success}</p>}
-              </div>
-            }
-
-            <form onSubmit={HandlerSubmitPhoto} className=' '>
-              <div className="input-form input-file mx-auto mt-4">
-                <input type='file' accept='image/*' id='Constancia' name='Constancia' placeholder=' ' onChange={handleChangeFile} autoComplete='off' />
-                <label htmlFor="Constancia" className='label-form'>{ImageName === '' ? <span>{t("DashboardNormalUser.Setting.desc")}</span> : ImageName}</label>
-                {ImageName === '' ? <CloudIcon className='CloudIcon' /> : <SuccesClud className='CloudIcon' />}
-              </div>
-              <button type="submit" className='boton-settings' disabled={CharginButton}>{CharginButton ? <BiLoaderAlt className='animate-spin' /> : <span className='text-base'>{t("DashboardNormalUser.Setting.button")}</span>}</button>
-            </form>
-            <div className=''>
-              <div className='w-[80%] mx-auto h-[0.12rem] bg-slate-500 mb-4 mt-2'></div>
-              <span className='text-foto-de-perfil text-[#4E5364]'>{t("DashboardNormalUser.Setting.language")}</span>
-              <LanguageSwitcher />
-            </div>
-            <div className='mt-4 h-full'>
-              <div className='w-[80%] mx-auto h-[0.16rem] bg-slate-500 mb-4 mt-2'></div>
-              <span className='text-foto-de-perfil text-[#4E5364]'>Cambiar datos</span>
-              <div className=' w-100 px-4 py-2 h-full'>
-                {DisplayElements()}
-              </div>
-            </div>
+    <>
+      <div className={`absolute top-0 left-0 w-[100%] h-[100%] bg-[#32364398] ${hidden !== undefined ? hidden : ''}`} ></div>
+      <div className={`absolute top-0 right-0 settings-div h-full ${hidden !== undefined ? hidden : ''} div-settings-modal`}  >
+        <div className="w-[100%] h-[100%] relative">
+          <div className="X-Settings absolute right-0">
+            <FiX className="" onClick={() => { setSettingsOption(false) }} />
           </div>
+          <div className="MainDiv-settings h-100">
+            <span className="">{t("DashboardNormalUser.Setting.tittle")}</span>
+            <div className='w-[80%] mx-auto h-[0.12rem] bg-slate-500 mb-4 mt-2'></div>
+            <div className='w-100 h-5/6 flex flex-col'>
 
-        </div>
+              <span className='text-foto-de-perfil text-[#4E5364]'>{t("DashboardNormalUser.Setting.desc")}</span>
+              <img src={Info?.PerfilPhoto?.url} alt="" className='rounded-xl h-[12rem] w-[16rem] mx-auto mt-3' />
+              {
+                (Error || Success) &&
+                <div className='mb-[-1rem] p-b[-1rem] mt-2'>
+                  {Error && <p className='text-red-400 text-center m-0 p-0'>{Error}</p>}
+                  {Success && <p className='text-green-400 text-center m-0 p-0'>{Success}</p>}
+                </div>
+              }
+
+              <form onSubmit={HandlerSubmitPhoto} className=' '>
+                <div className="input-form input-file mx-auto mt-4">
+                  <input type='file' accept='image/*' id='Constancia' name='Constancia' placeholder=' ' onChange={handleChangeFile} autoComplete='off' />
+                  <label htmlFor="Constancia" className='label-form'>{ImageName === '' ? <span>{t("DashboardNormalUser.Setting.desc")}</span> : ImageName}</label>
+                  {ImageName === '' ? <CloudIcon className='CloudIcon' /> : <SuccesClud className='CloudIcon' />}
+                </div>
+                <button type="submit" className='boton-settings' disabled={CharginButton}>{CharginButton ? <BiLoaderAlt className='animate-spin' /> : <span className='text-base'>{t("DashboardNormalUser.Setting.button")}</span>}</button>
+              </form>
+              <div className=''>
+                <div className='w-[80%] mx-auto h-[0.12rem] bg-slate-500 mb-4 mt-2'></div>
+                <span className='text-foto-de-perfil text-[#4E5364]'>{t("DashboardNormalUser.Setting.language")}</span>
+                <LanguageSwitcher />
+              </div>
+              <div className='mt-4 h-full'>
+                <div className='w-[80%] mx-auto h-[0.16rem] bg-slate-500 mb-4 mt-2'></div>
+                <span className='text-foto-de-perfil text-[#4E5364]'>Cambiar datos</span>
+                <div className=' w-100 px-4 py-2 h-full'>
+                  {DisplayElements()}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div >
       </div >
-    </div >
+    </>
   )
 }

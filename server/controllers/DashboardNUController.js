@@ -617,6 +617,96 @@ const CancelChangeEmail = async (req, res, next) => {
   }
 }
 
+const CancelChangePass = async (req, res, next) => {
+  try {
+    const { Code } = req.body
+    console.log(Code)
+
+    const User = await NormalUser.findOne({ ChangePassCode: Code });
+
+    User.NewPassword = undefined;
+    User.ChangePassCode = undefined;
+
+
+    User.save()
+
+    res.status(200).json({ succes: true })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const VerifyOldPass = async (req, res, next) => {
+  try {
+    const { OldPass } = req.body
+    const token = req.resetToken;
+
+    const User = await NormalUser.findOne({ _id: token.user.id }).select("+Password");
+    const isMatchPass = await User.matchPasswords(OldPass);
+
+    if (!isMatchPass) {
+      return next(new ErrorResponse("La contraseña no coincide", 401, "error"));
+    } else {
+      res.status(200).json({ success: true });
+    }
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const ChangePass = async (req, res, next) => {
+  try {
+    const { Password } = req.body
+    const token = req.resetToken;
+
+    const User = await NormalUser.findOne({ _id: token.user.id }).select("+Password");
+
+    if (!/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/.test(Password)) {
+      return next(
+        new ErrorResponse("La contraseña no es valida", 400, "error")
+      );
+    }
+
+    const isMatchPass = await User.matchPasswords(Password);
+    if (isMatchPass) {
+      return next(new ErrorResponse("La contraseña no puede ser igual a la anterior", 401, "error"));
+    } else {
+      const code = createCode();
+      User.ChangePassCode = code;
+      User.NewPassword = Password;
+      User.save()
+      res.status(200).json({ success: true });
+    }
+
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const VerifyCodePass = async (req, res, next) => {
+  try {
+    const { Code } = req.body
+    const token = req.resetToken;
+
+    const User = await NormalUser.findOne({ _id: token.user.id }).select("+Password");
+
+    if (User.ChangePassCode == Code) {
+      User.Password = User.NewPassword;
+      User.ChangePassCode = undefined;
+      User.NewPassword = undefined;
+      User.save();
+      res.status(200).json({ success: true });
+    } else {
+      return next(new ErrorResponse("El codigo es incorrecto", 401, "error"));
+    }
+
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+
+
 const getAccountsHistory = async (req, res, next) => {
   try {
     const token = req.resetToken;
@@ -683,6 +773,8 @@ module.exports = {
   ChangeEmail,
   getAccountsHistory,
   EmailCodeVer,
-  CancelChangeEmail
+  CancelChangeEmail,
+  VerifyOldPass,
+  ChangePass, VerifyCodePass, CancelChangePass
 };
 

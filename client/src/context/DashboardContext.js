@@ -1,8 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
 // import { format } from "timeago.js";
 
-import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ, getContactsWPReq, getMyLoanReqREQ, getSavingAcctsReq, UpdatePhotoReq, getNametoNavQuery, getEveryAccQuery, getAccHistory, ChangeEmailQuery, EmailCodeVerQuery, getPendingAccounts,
-  CancelChangeEm
+import {
+  creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ, getContactsWPReq, getMyLoanReqREQ, getSavingAcctsReq, UpdatePhotoReq, getNametoNavQuery, getEveryAccQuery, getAccHistory, ChangeEmailQuery, EmailCodeVerQuery, getPendingAccounts,
+  CancelChangeEm, VerifyOldPassQuery, ChangePassQuery, VerifyCodePassQuery, CancelChangePassQuery
 } from "../api/Queries";
 
 
@@ -272,11 +273,43 @@ export const DashProvider = ({ children }) => {
     }
   }
 
-  const CancelChangeEmail = async (Token) => {
+  const CancelChangeEmail = async (Token, Code) => {
     try {
-      return await CancelChangeEm(PrivateConfig(Token))
+      return await CancelChangeEm(PrivateConfig(Token), Code)
     } catch (error) {
       console.log(error)
+    }
+  }
+
+  const VerifyOldPass = async (Token, OldPass) => {
+    try {
+      return await VerifyOldPassQuery(PrivateConfig(Token), OldPass);
+    } catch (error) {
+      return error;
+    }
+  }
+
+  const ChangePass = async (Token, NewPass) => {
+    try {
+      return await ChangePassQuery(PrivateConfig(Token), NewPass);
+    } catch (error) {
+      return error
+    }
+  }
+
+  const VerifyCodePass = async (Token, Code) => {
+    try {
+      return await VerifyCodePassQuery(PrivateConfig(Token), Code)
+    } catch (error) {
+      return error
+    }
+  }
+
+  const CancelChangePass = async (Token, Code) => {
+    try {
+      return await CancelChangePassQuery(PrivateConfig(Token), Code)
+    } catch (error) {
+      return error
     }
   }
 
@@ -289,8 +322,8 @@ export const DashProvider = ({ children }) => {
       setFriendRequest, DeleteFriendReq, CurrentChat, setCurrentChat, TransactionsArr, setTransactionsArr,
       MyTransfers, setMyTransfers, HimTranfers, setHimTranfers, DoATransfer, setGlobalInfo, socket, setSocket,
       getMyCardReq, getMyLoanReq, GlobalInfoSetReq, getContacsWP, SavingAccounts, getSavingAccts, UpdatePhoto, clientBalance,
-      NPName, setNPName, setSavingAccounts, setClientBalance, getNametoNav, getEveryAcc, ChangeEmail, getAccountsHistory, EmailCodeVer, getActivatedAccountRequests, 
-      CancelChangeEmail
+      NPName, setNPName, setSavingAccounts, setClientBalance, getNametoNav, getEveryAcc, ChangeEmail, getAccountsHistory, EmailCodeVer, getActivatedAccountRequests,
+      CancelChangeEmail, VerifyOldPass, ChangePass, VerifyCodePass, CancelChangePass, setInfo
     }}>
       {children}
     </dashContext.Provider>

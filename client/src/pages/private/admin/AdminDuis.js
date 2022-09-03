@@ -40,21 +40,23 @@ export const AdminDuis = () => {
       }
       <div className='content-admin'>
       <form onSubmit={handleForm} className='flex flex-col w-[30%] justify-center m-auto'>
+        <div className='content-ad'>
         <div className='formx'>
-        <input className='inputz' type="text" id="Names" name="Names" onChange={(e) => { setNames(e.target.value) }} value={Names} />
+        <input className='inputz' placeholder='' type="text" id="Names" name="Names" onChange={(e) => { setNames(e.target.value) }} value={Names} />
         <label htmlFor="Names" className='labelz'>Nombres </label>
           </div>
         <div className='formx'>
-        <input className='inputz' type="text" id="LastNames" name="LastNames" onChange={(e) => { setLastNames(e.target.value) }} value={LastNames} />
+        <input className='inputz' placeholder='' type="text" id="LastNames" name="LastNames" onChange={(e) => { setLastNames(e.target.value) }} value={LastNames} />
         <label className='labelz' htmlFor="LastNames">Apellidos </label>
         </div>
         <div className='formx'>
-        <Cleave className='inputz' type="text" id="DuiNumber" name="DuiNumber" onChange={(e) => { setDuiNumber(e.target.value) }} value={DuiNumber} options={{ blocks: [6, 1], delimiter: "-", numericOnly: true }} />
+        <Cleave className='inputz' placeholder='' type="text" id="DuiNumber" name="DuiNumber" onChange={(e) => { setDuiNumber(e.target.value) }} value={DuiNumber} options={{ blocks: [6, 1], delimiter: "-", numericOnly: true }} />
         <label className='labelz' htmlFor="DuiNumber">Número de DUI </label>
         </div>
         <div className='formx'>
-        <input className='inputz' type="text" id="Birth" name="Birth" onChange={(e) => { setBirth(e.target.value) }} value={Birth} />
+        <input className='inputz' placeholder='' type="text" id="Birth" name="Birth" onChange={(e) => { setBirth(e.target.value) }} value={Birth} />
         <label className='labelz' htmlFor="Birth">Fecha de nacimiento </label>
+        </div>
         </div>
         <button type="submit" className='style-buttonx mt-[3rem]'>Agregar DUI</button>
       </form>

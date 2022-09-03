@@ -8,7 +8,7 @@ import { HistoryWidget, ContactsWidget } from "./HomePageWidgets/";
 import { useTranslation } from "react-i18next";
 
 export const HomePage = () => {
-  const { Info, clientBalance, socket, setClientBalance, SavingAccounts, setSavingAccounts } = useDash();
+  const { Info, setInfo, clientBalance, socket, setClientBalance, SavingAccounts, setSavingAccounts } = useDash();
   const { t } = useTranslation();
 
   const [plusMount, setPlusMount] = useState(null);
@@ -43,6 +43,10 @@ export const HomePage = () => {
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [socket]);
+
+  useEffect(() => {
+    console.log('wtf loco tiene que recargar')
+  }, [Info]);
 
   return (
     <div>

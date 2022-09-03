@@ -5,7 +5,7 @@ import no_contacts_icon from '../../assets/img/contacts-icons/contacts_icon.png'
 import { useTranslation } from "react-i18next";
 
 export const YourContacts = () => {
-    const {t}=useTranslation();
+    const { t } = useTranslation();
 
     const { Contacts, DeleteFriendReq, setContacts, setReloadStateTwo } = useDash()
 
@@ -16,7 +16,6 @@ export const YourContacts = () => {
     }
     return (
         <div className='h-[100%]'>
-            {/* <span className='mt-5 ml-5 text-[#606470] h-[100%]'>Sus contactos</span> */}
             {Contacts.length !== 0 ?
                 Contacts.map((el, i) => {
                     return (
@@ -24,7 +23,6 @@ export const YourContacts = () => {
                             <>
                                 <div className="flex">
                                     <div className="mr-7 flex items-center">
-                                        {/* foto: {el.Photo} */}
                                         <div className='profile-img mr-3'>
                                             <img src={el.Photo} alt="" className="h-full w-full" />
                                         </div>

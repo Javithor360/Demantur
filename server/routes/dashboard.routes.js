@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const AuthMiddleware = require('../middlewares/AuthMiddleware');
 
-const { testDB, getUserId, getGlobalInfo, getFriendsReq, addFriendRequest, CancelPendingFr, AcceptFriend, DeclineFriend, DeleteFriend, DoAtransfer, getMyCardReq, getMyLoanReq, getContacs, getSavAcc, UploadPhoto, getNavName, getEveryAcc, ChangeEmail, getAccountsHistory, EmailCodeVer, CancelChangeEmail } = require('../controllers/DashboardNUController');
+const { testDB, getUserId, getGlobalInfo, getFriendsReq, addFriendRequest, CancelPendingFr, AcceptFriend, DeclineFriend, DeleteFriend, DoAtransfer, getMyCardReq, getMyLoanReq, getContacs, getSavAcc, UploadPhoto, getNavName, getEveryAcc, ChangeEmail, getAccountsHistory, EmailCodeVer, CancelChangeEmail,
+  VerifyOldPass, ChangePass, VerifyCodePass, CancelChangePass, } = require('../controllers/DashboardNUController');
 
 router.route('/test-db-relation').post([AuthMiddleware], testDB);
 
@@ -18,14 +19,18 @@ router.route('/delete-friend-request').post([AuthMiddleware], DeleteFriend);
 router.route('/do-a-transfer').post([AuthMiddleware], DoAtransfer);
 router.route('/get-my-loan-request').get([AuthMiddleware], getMyLoanReq);
 router.route('/get-my-card-request').get([AuthMiddleware], getMyCardReq)
-router.route('/get-contacts-new').get([AuthMiddleware], getContacs)
-router.route('/get-saving-accounts').get([AuthMiddleware], getSavAcc)
-router.route('/upload-photo').post([AuthMiddleware], UploadPhoto)
+router.route('/get-contacts-new').get([AuthMiddleware], getContacs);
+router.route('/get-saving-accounts').get([AuthMiddleware], getSavAcc);
+router.route('/upload-photo').post([AuthMiddleware], UploadPhoto);
 router.route('/get-nav-name').get([AuthMiddleware], getNavName);
 router.route('/get-every-account').get([AuthMiddleware], getEveryAcc);
 router.route('/change-email').put([AuthMiddleware], ChangeEmail);
 router.route('/get-account-history').get([AuthMiddleware], getAccountsHistory);
-router.route('/email-code-verify').post([AuthMiddleware], EmailCodeVer)
-router.route('/cancel-change-email').post([AuthMiddleware], CancelChangeEmail)
+router.route('/email-code-verify').post([AuthMiddleware], EmailCodeVer);
+router.route('/cancel-change-email').post([AuthMiddleware], CancelChangeEmail);
+router.route('/verify-old-pass').post([AuthMiddleware], VerifyOldPass);
+router.route('/change-password').post([AuthMiddleware], ChangePass);
+router.route('/verify-pass-code').post([AuthMiddleware], VerifyCodePass);
+router.route('/cancel-change-password').post([AuthMiddleware], CancelChangePass);
 
 module.exports = router;

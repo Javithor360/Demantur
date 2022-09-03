@@ -32,6 +32,7 @@ const NormalUserSchema = new mongoose.Schema({
   },
   NewEmail: String,
   ChangeEmailCode: String,
+  NewPassword: String,
   ChangePassCode: String,
   verifyCode: String,
   resetPasswordToken: String,

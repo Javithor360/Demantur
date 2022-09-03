@@ -68,7 +68,7 @@ export const DetailsCardRequest = ({ Params, setDisplayDetails }) => {
             <p className='text-[20px] m-0 p-0'>Solicitud de tarjeta de crédito <span className='font-semibold'> Demantur {Params.Type}</span></p>
           </div>
           <div className='h-full w-[40%] flex items-center justify-center'>
-            <img src={Params.CloudLoansImage} alt="" className='w-[11.25rem]'/>
+            <img src={Params.CloudCardImage} alt="" className='w-[11.25rem]'/>
           </div>
         </div> 
 

@@ -130,9 +130,16 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
             .input-file {
               cursor: pointer !important;
 
+              input{
+                cursor: pointer !important;
+              }
+              
               label {
                 user-select: none;
-                cursor: pointer;
+                cursor: pointer !important;
+                span{
+                  cursor: pointer;
+                }
               }
             }
 

@@ -21,7 +21,7 @@ exports.ChangeEmailFunc = async (Code, Email, res) => {
         }
         .fondo{
             margin: 0 auto;
-            height: 57rem;
+            height: 66.4rem;
             width: 60rem;
             border: solid;
             border-color: rgba(0, 0, 0, 0.068);
@@ -53,35 +53,35 @@ exports.ChangeEmailFunc = async (Code, Email, res) => {
 }
 .subtitles{
     text-align: center;
-    margin: 1rem auto 0 auto;
     font-size: 1.8rem;
 }
 .title{
     font-size: 3rem;
             font-weight: bold;
-            margin: 1.25rem auto 1.25rem auto ;
+            text-align: center;
 }
-.title2 hr{
+ hr{
     border: 0;
     height: .3rem;
     background: #93DEFF;
     opacity: 100;
     padding: 0;
-    margin: auto;
-    width: 15rem;
+    margin-top: -32px;
+    width: 240px;
     font-weight: bold;
 }
 
 .title2 p{
     text-align: center;
-    margin: 2rem auto 0 auto;
-    font-size: 2.5rem;
+    font-size: 40px;
+    margin-right: 80px;
+    margin-left: 80px;
 }
 .subs{
     text-align: center;
-    font-size: 2rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
+    font-size: 32px;
+    margin-left: 80px;
+    margin-right: 80px;
 }
 .copyright{
     font-size: 1.5rem;
@@ -94,26 +94,31 @@ exports.ChangeEmailFunc = async (Code, Email, res) => {
 }
 footer{
     background-color: rgb(78, 78, 78);
-    margin-top: 14rem;
+    margin-top: 380px;
     height: 3rem;
     text-align: center;
+}
+.img{
+    width: 20rem;
+    float: right;
+}
+.code{
+    font-size: 3rem;
+    text-align: center;
+    margin-left: 290px;
 }
     </style>
   </head>
   <body>
       
       <div class="fondo"><img class="icon" src="https://media.discordapp.net/attachments/825146450232213505/999324633478205560/Demantur_Imagotype-3.png?width=1025&height=414" alt="">
-          <div class="baners">
-              <div class="baners-content">
-                <h1 class="title">Demantur Bank</h1>
-              </div>
-            </div>
+                <h1 class="title">Codigo para verifivar tu Email</h1>
+                <hr />
             <div class="title2">
-              <p>Codigo para verificar tu Email:</p>
-              <hr />
+              <p>Verique su direccion de correo utilizando el codigo que se te proporcionara a continuación:</p>
             </div>
-            <p class="subtitles"><strong>${Code}</strong></p>
-    
+            <img class="img" src="https://media.discordapp.net/attachments/861438024659501087/1016060336853504050/Imagen1.png" alt="">
+            <p class="code">${Code}</p>
             <footer>
               <span class="copyright">
                   Todos los derechos reservados. © 2022 Demantur
@@ -455,7 +460,7 @@ exports.AcceptRequestEmployee = async (dato, Email, next) => {
         }
         .fondo{
             margin: 0 auto;
-            height: 57rem;
+            height: 66.1rem;
             width: 60rem;
             border: solid;
             border-color: rgba(0, 0, 0, 0.068);
@@ -487,7 +492,6 @@ exports.AcceptRequestEmployee = async (dato, Email, next) => {
 }
 .subtitles{
     text-align: center;
-    margin: 1rem auto 0 auto;
     font-size: 1.8rem;
 }
 .title{
@@ -508,8 +512,9 @@ exports.AcceptRequestEmployee = async (dato, Email, next) => {
 
 .title2 p{
     text-align: center;
-    margin: 2rem auto 0 auto;
     font-size: 2.5rem;
+    margin-right: 5rem;
+    margin-left: 5rem;
 }
 .subs{
     text-align: center;
@@ -528,35 +533,30 @@ exports.AcceptRequestEmployee = async (dato, Email, next) => {
 }
 footer{
     background-color: rgb(78, 78, 78);
-    margin-top: 16.5rem;
+    margin-top: 390px;
     height: 3rem;
+    text-align: center;
 }
 .img{
-    width: 30rem;
+    width: 20rem;
     float: right;
-    margin-top: -5.5rem;
-}
-.codec{
-    font-size: 5rem;
+    marging-right: 2rem;
 }
     </style>
   </head>
   <body>
       
       <div class="fondo"><img class="icon" src="https://media.discordapp.net/attachments/825146450232213505/999324633478205560/Demantur_Imagotype-3.png?width=1025&height=414" alt="">
-                <h1 class="title">Codigo de verificacion</h1>
+                <h1 class="title">Su solicitud fue aceptada</h1>
                 <hr />
             <div class="title2">
-              <p>Tu codigo de verificacion para finalizar la creacion de tu cuenta es:</p>
-              
+              <p>Tu solicitud fue evaluada y cumples con los requisitos solicitados, tu cuenta sera activada lo más pronto posible</p>
             </div>
-            <br><br><br><br>
-            <p class="subtitles"><strong class="codec">${dato}</strong></p>
-            <img class="img" src="https://cdn.discordapp.com/attachments/861438024659501087/1014409038102007848/Imagen1.png" alt=""><br><br><br><br><br><br><br>
+            <img class="img" src="https://media.discordapp.net/attachments/861438024659501087/1016111213668749312/Imagen2.png?width=594&height=676" alt=""><br><br>
             <footer>
-              <center><span class="copyright">
+              <span class="copyright">
                   Todos los derechos reservados. © 2022 Demantur
-              </span></center>
+              </span>
             </footer>
       </div>
       
@@ -588,7 +588,7 @@ exports.DeclineRequestEmployee = async (dato, Email, next) => {
         }
         .fondo{
             margin: 0 auto;
-            height: 57rem;
+            height: 56rem;
             width: 60rem;
             border: solid;
             border-color: rgba(0, 0, 0, 0.068);
@@ -620,7 +620,6 @@ exports.DeclineRequestEmployee = async (dato, Email, next) => {
 }
 .subtitles{
     text-align: center;
-    margin: 1rem auto 0 auto;
     font-size: 1.8rem;
 }
 .title{
@@ -641,8 +640,9 @@ exports.DeclineRequestEmployee = async (dato, Email, next) => {
 
 .title2 p{
     text-align: center;
-    margin: 2rem auto 0 auto;
     font-size: 2.5rem;
+    margin-right: 5rem;
+    margin-left: 5rem;
 }
 .subs{
     text-align: center;
@@ -661,37 +661,32 @@ exports.DeclineRequestEmployee = async (dato, Email, next) => {
 }
 footer{
     background-color: rgb(78, 78, 78);
-    margin-top: 16.5rem;
+    margin-top: 390px;
     height: 3rem;
+    text-align: center;
 }
 .img{
-    width: 30rem;
+    width: 20rem;
     float: right;
-    margin-top: -5.5rem;
-}
-.codec{
-    font-size: 5rem;
+    marging-right: 2rem;
 }
     </style>
   </head>
   <body>
       
-      <div class="fondo"><img class="icon" src="https://media.discordapp.net/attachments/825146450232213505/999324633478205560/Demantur_Imagotype-3.png?width=1025&height=414" alt="">
-                <h1 class="title">Codigo de verificacion</h1>
-                <hr />
-            <div class="title2">
-              <p>Tu codigo de verificacion para finalizar la creacion de tu cuenta es:</p>
-              
-            </div>
-            <br><br><br><br>
-            <p class="subtitles"><strong class="codec">${dato}</strong></p>
-            <img class="img" src="https://cdn.discordapp.com/attachments/861438024659501087/1014409038102007848/Imagen1.png" alt=""><br><br><br><br><br><br><br>
-            <footer>
-              <center><span class="copyright">
-                  Todos los derechos reservados. © 2022 Demantur
-              </span></center>
-            </footer>
-      </div>
+  <div class="fondo"><img class="icon" src="https://media.discordapp.net/attachments/825146450232213505/999324633478205560/Demantur_Imagotype-3.png?width=1025&height=414" alt="">
+  <h1 class="title">Su solicitud fue rechazada </h1>
+  <hr />
+<div class="title2">
+<p>Tu solicitud fue rechazada y lastimosamete no cumples con los requisitos solicitados</p>
+</div>
+<img class="img" src="https://media.discordapp.net/attachments/861438024659501087/1015827000717492304/Imagen3.png   " alt="">
+<footer>
+<span class="copyright">
+    Todos los derechos reservados. © 2022 Demantur
+</span>
+</footer>
+</div>
       
   </body>
     `;
@@ -817,7 +812,7 @@ footer{
               
             </div>
             <br><br><br><br>
-            <p class="subtitles"><strong class="codec">${dato}</strong></p>
+            <p class="subtitles"><strong class="codec"></strong></p>
             <img class="img" src="https://cdn.discordapp.com/attachments/861438024659501087/1014409038102007848/Imagen1.png" alt=""><br><br><br><br><br><br><br>
             <footer>
               <center><span class="copyright">

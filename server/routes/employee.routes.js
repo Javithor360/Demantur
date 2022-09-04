@@ -15,9 +15,10 @@ router.route("/get-loans-requests").get(getLoanRequests);
 
 router.route('/test-emails-ernesto').get(async (req, res, next) => {
   try {
-    AcceptRequestEmployee('EL DATO QUE LE TENGAS QUE PASAR', 'EMAIL@EMAIL.com', next)
-    DeclineRequestEmployee('EL DATO QUE LE TENGAS QUE PASAR', 'EMAIL@EMAIL.com', next)
-    ContactSuccessEmail('EL DATO QUE LE TENGAS QUE PASAR', 'EMAIL@EMAIL.com', next)
+    //AcceptRequestEmployee('EL DATO QUE LE TENGAS QUE PASAR', 'luisernestomr1503@gmail.com', next)
+    DeclineRequestEmployee('EL DATO QUE LE TENGAS QUE PASAR', 'luisernestomr1503@gmail.com', next)
+    //ContactSuccessEmail('EL DATO QUE LE TENGAS QUE PASAR', 'luisernestomr1503@gmail.com', next)
+    res.status(200).json({success: true, data: 'emails enviados'})
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }

@@ -38,9 +38,48 @@ io.on('connection', (socket) => {
     }
   });
 
+  socket.on('DeleteContact', ({ HimDui, MyDui }) => {
+    const User = getOneUser(HimDui);
+    if (User !== undefined) {
+      io.to(User.socketId).emit('DeletedContact', {
+        Dui: MyDui
+      })
+    }
+  })
+
+  socket.on('AddFriendRequest', ({ element, By }) => {
+    const User = getOneUser(element.Dui);
+    if (User !== undefined) {
+      io.to(User.socketId).emit('AddedFriendReq', {
+        element: By
+      })
+    }
+  })
+
+  socket.on('AcceptFriendReq', ({ element, By }) => {
+    const User = getOneUser(element.Dui)
+    if (User !== undefined) {
+      io.to(User.socketId).emit('AcceptedFriendReq', { element: By })
+    }
+  })
+
+  socket.on('CancelFriendReq', ({ element, By }) => {
+    const User = getOneUser(element.Dui)
+    if (User !== undefined) {
+      io.to(User.socketId).emit('CanceledFriendReq', { element: By })
+    }
+  })
+
+  socket.on('DeclineFriendReq', ({ element, By }) => {
+    const User = getOneUser(element.Dui)
+    if (User !== undefined) {
+      io.to(User.socketId).emit('DeclinedFriendReq', { element: By })
+    }
+  })
+
   socket.on('disconnect', () => {
-    console.log(allOnlineUsers);
-    console.log(socket.id);
+    // console.log(allOnlineUsers);
+    // console.log(socket.id);
     removeUser(socket.id)
     io.emit('getOnlineUsers', allOnlineUsers);
   })

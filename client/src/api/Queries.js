@@ -106,6 +106,17 @@ export const CancelChangePassQuery = async (PrivateConfig, Code) => {
   return await axios.post('http://localhost:4000/api/dashboard/cancel-change-password', { Code }, { headers: PrivateConfig.headers })
 }
 
+export const PendingFrQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-pending-friend-request', { headers: PrivateConfig.headers })
+}
+
+export const FriendRequestsQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-friend-request', { headers: PrivateConfig.headers })
+}
+
+export const UsersToAddQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-users-to-add', { headers: PrivateConfig.headers })
+}
 
 // ?? QUERYS EMPLOYEE
 

@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 import {
   creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ, getContactsWPReq, getMyLoanReqREQ, getSavingAcctsReq, UpdatePhotoReq, getNametoNavQuery, getEveryAccQuery, getAccHistory, ChangeEmailQuery, EmailCodeVerQuery, getPendingAccounts,
-  CancelChangeEm, VerifyOldPassQuery, ChangePassQuery, VerifyCodePassQuery, CancelChangePassQuery
+  CancelChangeEm, VerifyOldPassQuery, ChangePassQuery, VerifyCodePassQuery, CancelChangePassQuery, PendingFrQuery, FriendRequestsQuery, UsersToAddQuery
 } from "../api/Queries";
 
 
@@ -39,10 +39,11 @@ export const DashProvider = ({ children }) => {
 
   const [socket, setSocket] = useState(null)
 
+
   useEffect(() => {
     if (GlobalInfo !== null) {
-      setPedingFriendReq(GlobalInfo.PendingFriendReq);
-      setFriendRequest(GlobalInfo.FriendRequests);
+      // setPedingFriendReq(GlobalInfo.PendingFriendReq);
+      // setFriendRequest(GlobalInfo.FriendRequests);
     }
   }, [GlobalInfo]);
 
@@ -313,6 +314,32 @@ export const DashProvider = ({ children }) => {
     }
   }
 
+  const PendingFr = async (Token) => {
+    try {
+      const res = await PendingFrQuery(PrivateConfig(Token));
+      setPedingFriendReq(res.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const getMyFriendReq = async (Token) => {
+    try {
+      const res = await FriendRequestsQuery(PrivateConfig(Token));
+      setFriendRequest(res.data.data);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getUsersToAdd = async (Token) => {
+    try {
+      return await UsersToAddQuery(PrivateConfig(Token))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <dashContext.Provider value={{
       Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
@@ -323,7 +350,7 @@ export const DashProvider = ({ children }) => {
       MyTransfers, setMyTransfers, HimTranfers, setHimTranfers, DoATransfer, setGlobalInfo, socket, setSocket,
       getMyCardReq, getMyLoanReq, GlobalInfoSetReq, getContacsWP, SavingAccounts, getSavingAccts, UpdatePhoto, clientBalance,
       NPName, setNPName, setSavingAccounts, setClientBalance, getNametoNav, getEveryAcc, ChangeEmail, getAccountsHistory, EmailCodeVer, getActivatedAccountRequests,
-      CancelChangeEmail, VerifyOldPass, ChangePass, VerifyCodePass, CancelChangePass, setInfo
+      CancelChangeEmail, VerifyOldPass, ChangePass, VerifyCodePass, CancelChangePass, setInfo, PendingFr, getMyFriendReq, getUsersToAdd
     }}>
       {children}
     </dashContext.Provider>

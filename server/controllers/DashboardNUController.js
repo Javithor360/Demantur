@@ -705,6 +705,70 @@ const VerifyCodePass = async (req, res, next) => {
   }
 }
 
+const getPedingFriendReq = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+
+    const GlobalD = await GlobalData.findOne({ DataOwner: token.user.id });
+    const NormalUsers = await NormalUser.find();
+
+    let PendingFr = GlobalD.PendingFriendReq;
+    let SendArr = []
+
+    NormalUsers.forEach(element1 => {
+      PendingFr.forEach(element2 => {
+        if (element1?.Dui == element2?.Dui) {
+          let inf = {};
+          inf.Name = element2.Name;
+          inf.Dui = element2.Dui;
+          inf.Photo = element1.PerfilPhoto.url;
+          SendArr.push(inf);
+        }
+      });
+    });
+
+    res.status(200).json({ success: true, data: SendArr });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const FriendReq = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+
+    const GlobalD = await GlobalData.findOne({ DataOwner: token.user.id });
+    const NormalUsers = await NormalUser.find();
+
+    let FriendReq = GlobalD.FriendRequests;
+    let SendArr = []
+
+    NormalUsers.forEach(element1 => {
+      FriendReq.forEach(element2 => {
+        if (element1?.Dui == element2?.Dui) {
+          let inf = {};
+          inf.Name = element2.Name;
+          inf.Dui = element2.Dui;
+          inf.Photo = element1.PerfilPhoto.url;
+          SendArr.push(inf);
+        }
+      });
+    });
+
+    res.status(200).json({ success: true, data: SendArr });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const getUsersToAdd = async (req, res, next) => {
+  try {
+    const AllUsers = await NormalUser.find()
+    res.status(200).json({ success: true, data: AllUsers });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
 
 
 const getAccountsHistory = async (req, res, next) => {
@@ -744,10 +808,8 @@ const getAccountsHistory = async (req, res, next) => {
     if (depHistory.length < 1) {
       return next(new ErrorResponse('No hay ningún dato', 400, 'error'))
     }
-    console.log(generalHistory)
     res.status(200).json({ success: true, data: generalHistory });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ success: false, error: error.message });
   }
 }
@@ -775,6 +837,6 @@ module.exports = {
   EmailCodeVer,
   CancelChangeEmail,
   VerifyOldPass,
-  ChangePass, VerifyCodePass, CancelChangePass
+  ChangePass, VerifyCodePass, CancelChangePass, getPedingFriendReq, FriendReq, getUsersToAdd
 };
 

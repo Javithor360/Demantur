@@ -44,10 +44,6 @@ export const HomePage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [socket]);
 
-  useEffect(() => {
-    console.log('wtf loco tiene que recargar')
-  }, [Info]);
-
   return (
     <div>
       <div className="flex gap-3 my-1">

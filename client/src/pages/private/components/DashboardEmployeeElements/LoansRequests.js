@@ -40,7 +40,7 @@ export const LoansRequests = () => {
               LoanRqs.map((SingReq, i) => {
                   console.log(SingReq);
                   console.log(LoanRqs);
-                  let Name = SingReq.Request_guarantor.FirstName + SingReq.Request_guarantor.LastName
+                  let Name = `${SingReq.Request_guarantor.FirstName}` +  ` ${SingReq.Request_guarantor.LastName}`
                   let Type = SingReq.LoanRequest.LoanType
                   let Dui = SingReq.Request_guarantor.Dui
                   return (
@@ -78,8 +78,8 @@ export const LoansRequests = () => {
                                 DateBirth: SingReq.ExtraInfo.DateBirth,
                                 Email: SingReq.Request_guarantor.Email,
                                 CelNum: SingReq.ExtraInfo.Number,
-                                LaboralStatus: SingReq.LoanRequest.UserLaboralStatus,
                                 UserSalary: SingReq.LoanRequest.UserSalary,
+                                UserStatus: SingReq.LoanRequest.UserStatus,
                                 WorkPlace: SingReq.ExtraInfo.WorkPlace,
                                 Type,
                                 Info: SingReq.LoanRequest,

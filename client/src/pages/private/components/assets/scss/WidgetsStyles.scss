@@ -1,0 +1,50 @@
+@use '../../../../../utilities/_colors.scss' as *;
+.scroll-home::-webkit-scrollbar{
+    display: none;
+}
+.scroll-widgets::-webkit-scrollbar{
+    display: block;
+    width: 5px;
+}
+.scroll-widgets::-webkit-scrollbar-track{
+    background: hidden;
+    margin-top: 0.625rem;
+    margin-bottom: 0.625rem;
+    margin-right: 0.625rem;
+}
+.scroll-widgets::-webkit-scrollbar-thumb{
+    background-color: $secondary_gray_200;
+    border-right: none;
+    border-left: none;
+}
+.contact-layout{
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+.separator-display{
+    display: none;
+}
+.h-separator-display{
+    display: block;
+    height: 1px;
+    width: 70%;
+    background-color: black;
+}
+@media  (min-width: 1920px) {
+    .separator-display{
+        display: block;
+    }
+    .h-separator-display{
+        display: none;
+    }
+    .contact-layout{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: fit-content;
+        margin-left: 1rem;
+    }
+}

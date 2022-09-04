@@ -48,7 +48,7 @@ export const getMyCardReqREQ = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/dashboard/get-my-card-request', { headers: PrivateConfig.headers })
 }
 
-export const getMyLoanReqREQ = async (PrivateConfig) =>{
+export const getMyLoanReqREQ = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/dashboard/get-my-loan-request', { headers: PrivateConfig.headers })
 
 }
@@ -86,6 +86,27 @@ export const EmailCodeVerQuery = async (PrivateConfig, Code, Email) => {
   return await axios.post('http://localhost:4000/api/dashboard/email-code-verify', { Code, Email }, { headers: PrivateConfig.headers });
 }
 
+export const CancelChangeEm = async (PrivateConfig, Code) => {
+  return await axios.post('http://localhost:4000/api/dashboard/cancel-change-email', { Code }, { headers: PrivateConfig.headers })
+}
+
+export const VerifyOldPassQuery = async (PrivateConfig, OldPass) => {
+  return await axios.post('http://localhost:4000/api/dashboard/verify-old-pass', { OldPass }, { headers: PrivateConfig.headers })
+}
+
+export const ChangePassQuery = async (PrivateConfig, Password) => {
+  return await axios.post('http://localhost:4000/api/dashboard/change-password', { Password }, { headers: PrivateConfig.headers })
+}
+
+export const VerifyCodePassQuery = async (PrivateConfig, Code) => {
+  return await axios.post('http://localhost:4000/api/dashboard/verify-pass-code', { Code }, { headers: PrivateConfig.headers })
+}
+
+export const CancelChangePassQuery = async (PrivateConfig, Code) => {
+  return await axios.post('http://localhost:4000/api/dashboard/cancel-change-password', { Code }, { headers: PrivateConfig.headers })
+}
+
+
 // ?? QUERYS EMPLOYEE
 
 export const getEmployeeData = async (PrivateConfig) => {
@@ -96,7 +117,7 @@ export const getCardRequest = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/employee/get-cards-requests', { headers: PrivateConfig.headers })
 }
 
-export const getLoanRequests = async (PrivateConfig)=>{
+export const getLoanRequests = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/employee/get-loans-requests', { headers: PrivateConfig.headers });
 }
 

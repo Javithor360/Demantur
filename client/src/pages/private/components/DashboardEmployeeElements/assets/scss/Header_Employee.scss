@@ -70,17 +70,8 @@
     }
 }
 
-
 .emp-hi-hover-2:hover {
     transform: rotate(55deg);
     color: $secondary_gray;
     transition: .2s;
-}
-
-.separate hr {
-    border-style: none;
-    height: 70%;
-    background-color: $secondary_gray;
-    width: 1px;
-    opacity: 100;
 }

@@ -1,3 +1,5 @@
+@use '../../../../../../utilities/_colors.scss' as *;
+
 $acua: #93DEFF;
 $black-purple: #4E5364;
 $white-gray: #707070;
@@ -10,6 +12,21 @@ $color: #c0392b;
 $color-dark: #a53125;
 $speed: "0.25s";
 $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
+
+.scroll-settings::-webkit-scrollbar{
+  display: block;
+  width: 7px;
+}
+.scroll-settings::-webkit-scrollbar-track{
+  background: hidden;
+  margin-top: 0.625rem;
+  margin-bottom: 0.625rem;
+}
+.scroll-cards::-webkit-scrollbar-thumb{
+  background-color: $secondary_gray_200;
+  border-right: none;
+  border-left: none;
+}
 
 input[type="file"] {
   display: none;
@@ -98,6 +115,7 @@ input[type="file"] {
   background-color: #4E5364;
   color: white;
   border: none;
+  border-radius: 0.25rem;
 
   &:hover {
     background-color: #323643;
@@ -107,7 +125,34 @@ input[type="file"] {
     font-size: 1rem;
   }
 }
+.boton-settings2 {
+  margin-top: 1rem;
+  width: 7rem;
+  height: 2.3rem;
+  background-color: #6a6e7b;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+
+  &:hover {
+    background-color: #575a67;
+  }
+
+  span {
+    font-size: 1rem;
+  }
+}
 
 .text-change-el {
   font-size: 1.2rem !important;
+}
+
+.dash-lang-select select{
+  border: solid 1px $primary_dark;
+  border-radius: 0.25rem;
+  width: 6.5rem;
+  outline: none;
+  cursor: pointer;
+  padding: 0.125rem 0.3125rem;
+  color: $primary_gray;
 }

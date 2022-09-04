@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { useDash } from '../../../../context/DashboardContext';
+import { useDash } from '../../../../context/DashboardContext'
 
-export const EmailCode = ({ setSwitchValue, Email }) => {
-  const { EmailCodeVer, Info, CancelChangeEmail, Option, setOption } = useDash()
+export const PasswordCode = ({ setSwitchValue }) => {
+  const { Info, CancelChangePass, VerifyCodePass } = useDash()
 
   const [Code, setCode] = useState(null);
   const [Error, setError] = useState(null);
@@ -17,14 +17,12 @@ export const EmailCode = ({ setSwitchValue, Email }) => {
   const handleForm = async (e) => {
     e.preventDefault();
     try {
-      const res = await EmailCodeVer(localStorage.getItem('authToken'), Code, Email)
+      const res = await VerifyCodePass(localStorage.getItem('authToken'), Code)
       if (res.response?.data?.error !== undefined) {
         SetTheError(res.response.data.error)
       } else {
-        setSwitchValue(6);
-        Info.Email = Email;
-        Info.ChangeEmailCode = undefined;
-        setOption(Option)
+        setSwitchValue(4);
+        Info.ChangePassCode = undefined;
       }
     } catch (error) {
       console.log(error);
@@ -33,8 +31,8 @@ export const EmailCode = ({ setSwitchValue, Email }) => {
 
   const CancelThing = async () => {
     try {
-      await CancelChangeEmail(localStorage.getItem('authToken'), Info.ChangeEmailCode);
-      Info.ChangeEmailCode = undefined;
+      await CancelChangePass(localStorage.getItem('authToken'), Info.ChangePassCode);
+      Info.ChangePassCode = undefined;
       setSwitchValue(1);
     } catch (error) {
       console.log(error)
@@ -42,10 +40,10 @@ export const EmailCode = ({ setSwitchValue, Email }) => {
   }
 
   return (
-    <form onSubmit={handleForm} className='w-100 h-fit'>
-      <span className='text-foto-de-perfil text-[#4E5364]'>Cambio de Email</span>
-      {Error && <h4 className="text-red-500 my-2 p-0 text-[1.125rem]">{Error}</h4>}
-      {!Error && <h4 className="text-green-400 text-center my-2 p-0 text-[1.125rem]">Email Enviado</h4>}
+    <form onSubmit={handleForm} className='w-100 h-100'>
+      <span className='text-foto-de-perfil text-[#4E5364]'>Cambio de Contraseña</span>
+      {Error && <h4 className="my-2 text-red-500  text-[1rem]">{Error}</h4>}
+      {!Error && <h4 className="my-2 text-green-500 text-[1rem]">Email Enviado</h4>}
       <div className="input-class w-100 mt-4">
         <input value={Code} onChange={(e) => setCode(e.target.value)} type='text' id='Nombres' name='Nombres' placeholder=' ' autoComplete='off' className='input-form' />
         <label htmlFor="Nombres" className='label-form'>Codigo</label>

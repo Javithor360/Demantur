@@ -1,31 +1,31 @@
 @use '../../../../../utilities/_colors.scss' as *;
 
-.dash-card-info{
+.dash-loan-info{
     border: 1px solid $gray_dimmed;
     box-shadow: 0px 0px 5px .5px rgba(44, 40, 40, 0.212);
     background-color: $secondary_white_200;
     min-height: 15rem;
     margin-bottom: 2rem;
 }
-.left-cards-container::-webkit-scrollbar{
+.left-loans-container::-webkit-scrollbar{
     display: block;
     width: 8px;
 }
-.left-cards-container::-webkit-scrollbar-track{
+.left-loans-container::-webkit-scrollbar-track{
     background: hidden;
     margin-top: 0.625rem;
     margin-bottom: 0.625rem;
 }
-.left-cards-container::-webkit-scrollbar-thumb{
+.left-loans-container::-webkit-scrollbar-thumb{
     background-color: $secondary_gray_200;
     border-right: none;
     border-left: none;
 }
-.dash-left-card-img{
+.dash-left-loan-img{
     width: 180px;
     margin-left: 1.25rem;
 }
-.dash-card-info .dash-card-info-content{
+.dash-loan-info .dash-loan-info-content{
     display: flex;
     flex-direction: column;
 
@@ -42,7 +42,7 @@
         }
     }
 }
-.card-tipe-tittle{
+.loan-tipe-tittle{
     hr{
         border: 0;
         opacity: 1;
@@ -50,7 +50,7 @@
         background-color: $primary_dark;
     }
 }
-.dash-user-cards-container{
+.dash-user-loan-container{
     border: 1px solid $secondary_gray_200;
 
     hr{
@@ -65,10 +65,10 @@
 }
 
 @media (min-width: 1920px){
-    .dash-card-info{
+    .dash-loan-info{
         min-height: 12rem;
     }
-    .dash-card-info .dash-card-info-content{
+    .dash-loan-info .dash-loan-info-content{
         display: flex;
         flex-direction: row;
         
@@ -85,7 +85,7 @@
 
             }
         }
-        .card-info-btn{
+        .loan-info-btn{
             margin-right: 1.5rem;
         }
     }
@@ -106,4 +106,3 @@
         margin: auto;
     }
 }
-

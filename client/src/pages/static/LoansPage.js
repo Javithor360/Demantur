@@ -25,7 +25,7 @@ export const LoansPage = () => {
       <div className="loans-banner-container">
         <div className="loans-banner-content">
           <FaHandshake className="hands-icon" />
-          <p>{t("loans_main_page.title_loans")}</p>
+          <h1>{t("loans_main_page.title_loans")}</h1>
           <p>{t("loans_main_page.subtitle_loans")}</p>
         </div>
       </div>
@@ -33,7 +33,7 @@ export const LoansPage = () => {
       <p>{t("loans_main_page.type_loans")}</p>
         <hr />
       </div>
-      <div className="mx-[10rem]">
+      <div className="Loans-main-section">
       <div className="page-section">
         <div className="container">
           <div className="row align-items-center">

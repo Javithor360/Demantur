@@ -62,12 +62,12 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
             <BsArrowLeft className="text-[2rem] text-[#323643]" />
           </button>
         </div>
-        <div className='mx-auto w-[90%] h-[9rem] border-cover rounded-2xl bg-[#FCFCFC] shadow-sm flex flex-row mb-5 mt-4'>
-          <div className='h-full w-[60%] flex items-center justify-center'>
-            <p className='text-[20px] m-0 p-0'>Solicitud de préstamo <span className='font-semibold'> Demantur {Params.Type}</span></p>
+        <div className='mx-auto w-[90%] h-[10rem] border-cover rounded-2xl bg-[#FCFCFC] shadow-sm flex flex-row mb-5 mt-4'>
+            <div className='h-full w-[70%] flex items-center justify-center'>
+              <p className='text-[20px] m-0 p-0'>Solicitud de préstamo <span className='font-semibold'> {Params.Type} Demantur </span></p>
           </div>
-          <div className='h-full w-[40%] flex items-center justify-center'>
-            <img src={Params.CloudLoansImage} alt="" className='w-[11.25rem]'/>
+          <div className='h-full w-[42%] flex items-center justify-center'>
+            <img src={Params.CloudLoansImage} alt="" className='w-[13rem] rounded-lg'/>
           </div>
         </div> 
 

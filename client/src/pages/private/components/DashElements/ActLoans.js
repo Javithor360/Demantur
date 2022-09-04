@@ -66,6 +66,7 @@ export const ActLoans = () => {
 
   const UserElementsSalary = ['$450 y $499', '$500 y $999', '$700 y $1200', <span> {t("DashboardNormalUser.Loans.form.UserElementsSalary.1")}</span> ,]
   const UserElementsLaboralStatus = [ `${t('DashboardNormalUser.Loans.form.LaboralStatus.1')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.2')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.3')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.4')}`,]
+  const Amounts = ['']
 
   useEffect(() => {
     console.log(UserElementsLaboralStatus)
@@ -75,6 +76,8 @@ export const ActLoans = () => {
   const [loan_guarantor, setloan_guarantor] = useState();
   const [UserSalary, setUserSalary] = useState('');
   const [UserStatus, setUserStatus] = useState('');
+  const [Amount, setAmount] = useState('');
+
 
   const [Image1, setImage1] = useState();
   const [ImageName1, setImageName1] = useState("");
@@ -108,6 +111,7 @@ export const ActLoans = () => {
   useEffect(() => {
     setUserSalary('')
     setUserStatus('')
+    setAmount('')
     setImageName1('')
     setImageName2('')
     setImageName3('')
@@ -184,6 +188,7 @@ export const ActLoans = () => {
         loan_guarantor: loan_guarantor,
         UserSalary,
         UserStatus,
+        Amount,
         Image1: Image1,
         Image2: Image2,
         Image3: Image3,
@@ -211,12 +216,13 @@ export const ActLoans = () => {
         setChargin(false)
         setUserSalary('')
         setUserStatus('')
+        setAmount('')
         setImageName1('')
         setImageName2('')
         setImageName3('')
         setImageName4('')
         setChangeBox(false)
-      }, 1500);
+      }, 1000);
 
       (async () => {
         try {
@@ -240,15 +246,15 @@ export const ActLoans = () => {
 
   const FormRequestLoan = () => {
     return (
-      <div className="w-full h-full bg-white rounded-xl overflow-y-auto">
+      <div className="w-full h-full bg-white rounded-xl overflow-y-auto scroll-cards">
         {Error !== '' && Error}
-        <div className="w-full h-[2rem] flex items-center justify-end">
-          <button className="bg-transparent outline-none border-none" onClick={() => {
+        <div className="w-full h-[2rem] flex items-center justify-start">
+          <button className="bg-transparent outline-none border-none mt-4 ml-5" onClick={() => {
             setChangeBox(false)
             setParametros(null)
             setError('')
           }}>
-            <BsArrowLeft className="text-[1.8rem] flex float-left text-[#323643]" />
+          <BsArrowLeft className="text-[2rem] text-[#323643]" />
           </button>
         </div>
         <div className="h-fit w-full">

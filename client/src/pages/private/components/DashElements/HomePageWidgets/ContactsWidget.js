@@ -44,24 +44,6 @@ export const ContactsWidget = () => {
                       <span className='text-xl'>{Contact.Dui}</span>
                     </div>
                   </div>
-                  <div className='flex items-center justify-center py-4' key={i}>
-                    <img src={Contact.Photo} alt="perfilphoto" className='rounded-full w-[3rem] h-[3rem]' />
-                    <div className='contact-layout'>
-                      <span className='text-xl'>{`${Contact?.Name.split(' ')[0]} ${Contact?.Name.split(' ')[2]}`}</span>
-                      <span className='separator-display text-xl mx-2'>|</span>
-                      <div className='h-separator-display my-1'></div>
-                      <span className='text-xl'>{Contact.Dui}</span>
-                    </div>
-                  </div>
-                  <div className='flex items-center justify-center py-4' key={i}>
-                    <img src={Contact.Photo} alt="perfilphoto" className='rounded-full w-[3rem] h-[3rem]' />
-                    <div className='contact-layout'>
-                      <span className='text-xl'>{`${Contact?.Name.split(' ')[0]} ${Contact?.Name.split(' ')[2]}`}</span>
-                      <span className='separator-display text-xl mx-2'>|</span>
-                      <div className='h-separator-display my-1'></div>
-                      <span className='text-xl'>{Contact.Dui}</span>
-                    </div>
-                  </div>
                   {i !== 3 && <div className='w-[100%] h-[0.10rem] bg-[#707070] my-[1rem]'></div>}
                 </>
               );

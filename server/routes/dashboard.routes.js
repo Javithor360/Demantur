@@ -13,7 +13,7 @@ router.route('/get-friend-req').get([AuthMiddleware], getFriendsReq);
 router.route('/add-friend-request').post([AuthMiddleware], addFriendRequest);
 router.route('/cancel-friend-request').post([AuthMiddleware], CancelPendingFr);
 router.route('/Accept-friend-request').post([AuthMiddleware], AcceptFriend);
-router.route('/decline-friend-request').post([AuthMiddleware], DeclineFriend);
+router.route('/decline-friend-request').post([AuthMiddleware], );
 router.route('/delete-friend-request').post([AuthMiddleware], DeleteFriend);
 router.route('/do-a-transfer').post([AuthMiddleware], DoAtransfer);
 router.route('/get-my-loan-request').get([AuthMiddleware], getMyLoanReq);

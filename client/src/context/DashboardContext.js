@@ -205,6 +205,7 @@ export const DashProvider = ({ children }) => {
     }
   }
 
+
   const getSavingAccts = async (Token) => {
     try {
       const res = await getSavingAcctsReq(PrivateConfig(Token))

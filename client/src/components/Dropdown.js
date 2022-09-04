@@ -11,7 +11,7 @@ export const Dropdown = ({ setElement, elements, Elemento }) => {
 
   return (
     <div className='dropdown'>
-      <div className="dropdown-button" onClick={e => setIsSelect(!IsSelect)}>{Elemento === '' ? <span>{t("DashboardNormalUser.Dropdown.tittle")}</span>  : Elemento} <ArrowDown /></div>
+      <div className="dropdown-button" onClick={e => setIsSelect(!IsSelect)}>{Elemento === ''? <span>{t("DashboardNormalUser.Dropdown.tittle")}</span>  : Elemento} <ArrowDown /></div>
       {IsSelect && (
         <div className="dropdown-box-content">
           {elements.map((element) => {

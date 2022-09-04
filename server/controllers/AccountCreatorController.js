@@ -27,9 +27,15 @@ const WelcomeSavingsAccount = async (req, res, next) => {
       )
     }
 
-    if (!AccountOwner || Reason1.length < 10 || Reason2.length < 10) {
+    if (!AccountOwner) {
       return next(
         new ErrorResponse("Completa todos los campos antes de continuar", 400, "error")
+      );
+    }
+
+    if(Reason1.length < 10 || Reason2.length < 10){
+      return next(
+        new ErrorResponse("Detalla un poco más las razones por las que deseas abrir la cuenta")
       );
     }
 
@@ -94,7 +100,7 @@ const WelcomeSavingsAccount = async (req, res, next) => {
     });
 
     await newSavingsAccount.save();
-    return res.send(newSavingsAccount);
+    res.status(200).json({sucess: true, data: newSavingsAccount});
   } catch (e) {
     console.error(e);
     return res.status(500).json({ message: e.message });

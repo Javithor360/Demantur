@@ -1,18 +1,31 @@
 import './assets/scss/LoansEmployee.scss'
 import { BsArrowLeft } from 'react-icons/bs'
 import { AiOutlineZoomIn, AiOutlineZoomOut, AiOutlineCompress, AiOutlineClose } from 'react-icons/ai'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import Modal from '../Modal'
 import { TransformComponent, TransformWrapper } from '@pronestor/react-zoom-pan-pinch'
+import { LoanConfirm } from './LoansConfirm'
 
 
 export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
-  console.log(Params)
-  console.log(setDisplayDetails);
+  const [confirmData, setConfirmData] = useState({});
+
+  // console.log(Params)
   const grid_column_styles = "mr-4 flex flex-col h-full w-full";
   const table_name_styles = "max-h-[35%] w-full bg-[#D6D6D6] p-2 flex justify-center items-center";
   const table_content_styles = "h-[65%] bg-white p-2 flex justify-center items-center";
   const table_container_styles_2 = "w-[90%] h-fit flex flex-col items-center mx-auto";
   const table_content_styles_2 = "h-full bg-white p-2 flex justify-center items-center";
+
+  const [active, setActive] = useState();
+  const toggle = () => {
+    setActive(!active)
+  }
+  useEffect(() => {
+    if (active) {
+        document.body.style.overflowY = 'hidden'
+    }
+  }, [active])
 
   const dataImg = [
     {
@@ -54,7 +67,7 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
             <p className='text-[20px] m-0 p-0'>Solicitud de préstamo <span className='font-semibold'> Demantur {Params.Type}</span></p>
           </div>
           <div className='h-full w-[40%] flex items-center justify-center'>
-            <img src={Params.CloudCardImage} alt="" className='w-[11.25rem]'/>
+            <img src={Params.CloudLoansImage} alt="" className='w-[11.25rem]'/>
           </div>
         </div> 
 
@@ -121,7 +134,7 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
                   <p className='m-0 p-0'>Estatus Laboral</p>
                 </div>
                 <div className={`${table_content_styles} rounded-bl-lg`}>
-                  <p className='m-0 p-0'>{Params.LaboralStatus}</p>
+                  <p className='m-0 p-0'>{Params.UserStatus}</p>
                 </div>
               </div>
               <div className={ `${grid_column_styles} border-subdivisions` }>
@@ -146,7 +159,7 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
           <p className='text-[20px] mt-3 ml-4'>Anexos</p>
           <div className='flex justify-center'>
             <div className='grid-layout_4 w-[95%] mb-5 flex'>
-              {dataImg.map((item, index)=>{
+              {dataImg.map((item, first)=>{
                 return(
                   <>
                   <div className={ `${grid_column_styles} ` }>
@@ -154,7 +167,7 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
                       <p className='m-0 p-0'>{item.Name}</p>
                     </div>
                     <div className={`${table_content_styles_2} border-subdivisions`} >
-                      <img src={item.ImgSrc} alt="" className='hover:cursor-pointer hover:brightness-110 hover:ease-in ease-in duration-200 w-[20rem] py-5'key={index} onClick={()=>getImg(item.ImgSrc)} />
+                      <img src={item.ImgSrc} alt="" className='hover:cursor-pointer hover:brightness-110 hover:ease-in ease-in duration-200 w-[20rem] py-5'key={first} onClick={()=>getImg(item.ImgSrc)} />
                     </div>
                   </div>
                   </>
@@ -185,12 +198,28 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
 
         <div className='m-auto w-[60%] h-[6rem] border-cover rounded-2xl bg-[#FCFCFC] shadow-sm flex flex-row mb-5'>
           <div className='h-full w-[50%] flex items-center justify-center'>
-            <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#727C9F] text-white'>Aceptar</button>
+            <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#727C9F] text-white' onClick={() =>{
+              setConfirmData(
+                {
+                  Name: Params.Name,
+                  Dui: Params.Dui,
+                  Email: Params.Email,
+                  CelNum: Params.CelNum
+                }
+              )
+              toggle()
+            }
+            }>Aceptar</button>
           </div>
           <div className='h-full w-[50%] flex items-center justify-center'>
-            <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#455FB9] text-white'>Denegar</button>
+            <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#455FB9] text-white' id='' >Denegar</button>
           </div>
         </div> 
+        {toggle &&
+          <Modal active={active} toggle={toggle} onRequestClose={toggle}>
+              <LoanConfirm props={confirmData} setActive={setActive}/>
+          </Modal>
+        }
       </div>
     </>
   )

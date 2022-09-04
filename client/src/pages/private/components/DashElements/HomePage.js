@@ -8,7 +8,7 @@ import { HistoryWidget, ContactsWidget } from "./HomePageWidgets/";
 import { useTranslation } from "react-i18next";
 
 export const HomePage = () => {
-  const { Info, clientBalance, socket, setClientBalance, SavingAccounts, setSavingAccounts } = useDash();
+  const { Info, setInfo, clientBalance, socket, setClientBalance, SavingAccounts, setSavingAccounts } = useDash();
   const { t } = useTranslation();
 
   const [plusMount, setPlusMount] = useState(null);
@@ -44,8 +44,12 @@ export const HomePage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [socket]);
 
+  useEffect(() => {
+    console.log('wtf loco tiene que recargar')
+  }, [Info]);
+
   return (
-    <div>
+    <div className="h-full overflow-y-auto overflow-x-hidden scroll-home">
       <div className="flex gap-3 my-1">
         <div className=" bg-white basis-[40%] rounded-[0.75rem]">
           <div className="m-[2rem] flex justify-between">
@@ -86,8 +90,8 @@ export const HomePage = () => {
             <HistoryWidget />
           </div>
         </div>
-        <div className="basis-[30%] bg-white rounded-[0.75rem]">
-          <div className="m-[2rem] h-[72%]">
+        <div className="h-[30rem] w-[30%] bg-white rounded-[0.75rem] overflow-y-auto overflow-x-hidden scroll-widgets">
+          <div className="mx-[1rem] my-[2rem]">
             <ContactsWidget />
           </div>
         </div>

@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const NumberReq = { type: Number, require: true};
-const StringReq = { type: String, require: true};
-const DateReq = { type: Date, require: true }; 
+const StringReq = { type: String, require: true}; 
 
 const LoanRequestSchema = new mongoose.Schema(
     {
@@ -16,7 +15,8 @@ const LoanRequestSchema = new mongoose.Schema(
         Address: StringReq,
         DuiNum: StringReq,
         Email: StringReq,
-        Salary: StringReq,
+        UserSalary: StringReq,
+        UserStatus: StringReq,
         Amount: NumberReq,
         Company: StringReq,
 

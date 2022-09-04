@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDash } from "../../../../context/DashboardContext";
+import '../DashElements/TransactionsComponents/scss/settings.scss'
 
 export const ChangePassword = ({ setSwitchValue }) => {
 
@@ -69,23 +70,23 @@ export const ChangePassword = ({ setSwitchValue }) => {
         HandleElement ?
           <>
             <form onSubmit={handleForm1}>
-              <div className="input-class w-100 mt-4">
-                <input value={OldPass} onChange={(e) => setOldPass(e.target.value)} type='password' id='Nombres' name='Nombres' placeholder=' ' autoComplete='off' className='input-form' />
+              <div className="input-class-3 w-100 mt-4">
+                <input value={OldPass} onChange={(e) => setOldPass(e.target.value)} type='password' id='Nombres' name='Nombres' placeholder=' ' autoComplete='off' className='input-form-3' />
                 <label htmlFor="Nombres" className='label-form'>Contraseña Actual</label>
               </div>
-              <button className={`w-[7rem] h-[2.3rem] rounded-[0.25rem] border-none text-white mt-4 ${Error ? 'bg-[#C90000]' : 'bg-[#323643]'}`} type="submit">Enviar</button>
+              <button className={`w-[7rem] h-[2.3rem] rounded-[0.25rem] border-none text-white mt-4 ${Error ? 'bg-[#C90000]' : 'bg-[#323643] hover:bg-[#3f4452]'}`} type="submit">Enviar</button>
             </form>
 
           </>
           :
           <>
             <form onSubmit={handleForm2}>
-              <div className="input-class w-100 mt-4">
-                <input value={PasswordInput} onChange={(e) => setPasswordInput(e.target.value)} type='password' id='Nombres' name='Nombres' placeholder=' ' autoComplete='off' className='input-form' />
+              <div className="input-class-3 w-100 mt-4">
+                <input value={PasswordInput} onChange={(e) => setPasswordInput(e.target.value)} type='password' id='Nombres' name='Nombres' placeholder=' ' autoComplete='off' className='input-form-3' />
                 <label htmlFor="Nombres" className='label-form'>Nueva Contraseña</label>
               </div>
-              <div className="input-class w-100 mt-4">
-                <input value={ConfPasswordInput} onChange={(e) => setConfPasswordInput(e.target.value)} type='password' id='Nombres' name='Nombres' placeholder=' ' autoComplete='off' className='input-form' />
+              <div className="input-class-3 w-100 mt-4">
+                <input value={ConfPasswordInput} onChange={(e) => setConfPasswordInput(e.target.value)} type='password' id='Nombres' name='Nombres' placeholder=' ' autoComplete='off' className='input-form-3' />
                 <label htmlFor="Nombres" className='label-form'>Confirmar Contraseña</label>
               </div>
               <button className={`w-[7rem] h-[2.3rem] rounded-[0.25rem] border-none text-white mt-4 ${Error ? 'bg-[#C90000]' : 'bg-[#323643]'}`} type="submit">Enviar</button>

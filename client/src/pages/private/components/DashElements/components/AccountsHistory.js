@@ -31,7 +31,7 @@ export const AccountsHistory = ({ setActive, historyAcc }) => {
 
     return (
 
-        <div className={`w-[90%] mx-auto h-[45rem] overflow-y-auto overflow-x-hidden`}>
+        <div className={`w-[90%] mx-auto h-[37rem] overflow-y-auto overflow-x-hidden`}>
             <p className='text-gray-500 text-center text-[28px] m-0 p-0'>Historial de la cuenta</p>
             <div className='dash_acc-nav-line w-[40%] mx-auto'></div>
             <div className='flex w-[100%] bg-[#f7f7f7] p-2 h-[3rem] rounded-sm shadow-sm justify-center mb-3 mt-3'>

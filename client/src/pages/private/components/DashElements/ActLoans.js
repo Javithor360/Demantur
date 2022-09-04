@@ -57,18 +57,27 @@ export const ActLoans = () => {
     })()
   }, []);
 
+
   setTimeout(() => {
     setCharginIco(false);
   }, 2000);
 
 
 
-  const UserElementsSalary = ['$450 y $499', '$500 y $999', '$700 y $1200', <span>$1200 {t("DashboardNormalUser.Loans.form.UserElementsSalary.1")}</span> ,]
-  const UserElementsLaboralStatus = [ <span>{t("DashboardNormalUser.Loans.form.LaboralStatus.1")}</span>, <span>{t("DashboardNormalUser.Loans.form.LaboralStatus.2")}</span>, <span>{t("DashboardNormalUser.Loans.form.LaboralStatus.3")}</span>, <span>{t("DashboardNormalUser.Loans.form.LaboralStatus.4")}</span>,]
+  const UserElementsSalary = ['$450 y $499', '$500 y $999', '$700 y $1200', <span> {t("DashboardNormalUser.Loans.form.UserElementsSalary.1")}</span> ,]
+  const UserElementsLaboralStatus = [ `${t('DashboardNormalUser.Loans.form.LaboralStatus.1')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.2')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.3')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.4')}`,]
+  const Amounts = ['']
+
+  useEffect(() => {
+    console.log(UserElementsLaboralStatus)
+   }, []);
+   
 
   const [loan_guarantor, setloan_guarantor] = useState();
   const [UserSalary, setUserSalary] = useState('');
-  const [UserLaboralStatus, setUserLaboralStatus] = useState('');
+  const [UserStatus, setUserStatus] = useState('');
+  const [Amount, setAmount] = useState('');
+
 
   const [Image1, setImage1] = useState();
   const [ImageName1, setImageName1] = useState("");
@@ -101,7 +110,8 @@ export const ActLoans = () => {
 
   useEffect(() => {
     setUserSalary('')
-    setUserLaboralStatus('')
+    setUserStatus('')
+    setAmount('')
     setImageName1('')
     setImageName2('')
     setImageName3('')
@@ -177,7 +187,8 @@ export const ActLoans = () => {
         LoanId: parametros.LoanId,
         loan_guarantor: loan_guarantor,
         UserSalary,
-        UserLaboralStatus,
+        UserStatus,
+        Amount,
         Image1: Image1,
         Image2: Image2,
         Image3: Image3,
@@ -204,18 +215,19 @@ export const ActLoans = () => {
       setTimeout(()=>{
         setChargin(false)
         setUserSalary('')
-        setUserLaboralStatus('')
+        setUserStatus('')
+        setAmount('')
         setImageName1('')
         setImageName2('')
         setImageName3('')
         setImageName4('')
         setChangeBox(false)
-      }, 1500);
+      }, 1000);
 
       (async () => {
         try {
           const resp = await getMyLoanReq(localStorage.getItem('authToken'));
-          // setLoanReq(resp.data.data);
+          setLoanReq(resp.data.data);
 
         } catch (error) {
           console.log(error)
@@ -234,15 +246,15 @@ export const ActLoans = () => {
 
   const FormRequestLoan = () => {
     return (
-      <div className="w-full h-full bg-white rounded-xl overflow-y-auto">
+      <div className="w-full h-full bg-white rounded-xl overflow-y-auto scroll-cards">
         {Error !== '' && Error}
-        <div className="w-full h-[2rem] flex items-center justify-end">
-          <button className="bg-transparent outline-none border-none" onClick={() => {
+        <div className="w-full h-[2rem] flex items-center justify-start">
+          <button className="bg-transparent outline-none border-none mt-4 ml-5" onClick={() => {
             setChangeBox(false)
             setParametros(null)
             setError('')
           }}>
-            <BsArrowLeft className="text-[1.8rem] flex float-left text-[#323643]" />
+          <BsArrowLeft className="text-[2rem] text-[#323643]" />
           </button>
         </div>
         <div className="h-fit w-full">
@@ -263,9 +275,11 @@ export const ActLoans = () => {
             </p>
           </div>
         </div>
+
         <div className="card-form-container">
           
           <form onSubmit={handleForm} className="main-card-form">
+          <span className='ml-7 mb-3 text-[15px] text-[red]'>{Error !== '' && Error}</span>
             <div className='flex flex-row w-full h-[30%] justify-start items-center px-[2rem] mb-5'>
               <div className='h-[70%] mr-5'>
                 <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Loans.form.tittle1")}</p>
@@ -276,7 +290,7 @@ export const ActLoans = () => {
               <div className='h-[70%] mr-5 '>
                 <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Loans.form.tittle2")}</p>
                 <div className='h-[2.5rem] w-[15rem]'>
-                  <Dropdown setElement={setUserLaboralStatus} elements={UserElementsLaboralStatus} Elemento={UserLaboralStatus} />
+                  <Dropdown setElement={setUserStatus} elements={UserElementsLaboralStatus}  Elemento={UserStatus} />
                 </div>
               </div>
               <div className="input-files h-[70%]">
@@ -371,7 +385,7 @@ export const ActLoans = () => {
     );
   }
 
-  const divLeft = () => {
+  const divLoans = () => {
     const LoansProperties = [
       {
         LoanName: <span>{t("DashboardNormalUser.Loans.1.tittle")}</span>,
@@ -480,7 +494,7 @@ export const ActLoans = () => {
         changeBox === false ?
           <>
             <div className="left-cards-container w-[49%] h-[100%] bg-white rounded-xl shadow-md flex flex-col items-center overflow-x-hidden overflow-y-auto py-4">
-              {divLeft()}
+              {divLoans()}
             </div>
             <div className="w-[49%] h-full bg-white rounded-xl shadow-md py-4 overflow-x-hidden overflow-y-auto">
               {userLoans()}

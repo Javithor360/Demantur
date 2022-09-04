@@ -4,6 +4,7 @@ const cors = require("cors");
 const fileUpload = require("express-fileupload");
 const MiddlewareError = require("./middlewares/ErrorMiddleware");
 
+
 // app configuraciones
 app.use(express.json());
 app.use(cors());

@@ -6,6 +6,7 @@ import Modal from '../Modal';
 import '../../assets/scss/accounts.scss';
 import { useEffect, useState } from "react";
 import { CreateSavingAccForm } from "../CreateSavingAccForm";
+import { ScrollToTop } from "../../../../components/ScrollToTop";
 
 export const Accounts = () => {
     const { Info, SavingAccounts } = useDash();
@@ -43,8 +44,8 @@ export const Accounts = () => {
         <>
             {
                 DisplayDetails === false ?
-                    <div className="w-[100%] flex justify-between h-[100%]  lg:inline-block">
-                        <div className=' rounded-[0.72rem]  p-[2rem] bg-white w-[99.8%] mx-[.11rem] h-[100%] shadow-lg'>
+                    <div className="w-[100%] h-[100%]  lg:inline-block items">
+                        <div className=' rounded-[0.72rem]  p-[2rem] bg-white w-[99.8%] mx-[.11rem] h-[100%] shadow-lg overflow-y-auto overflow-x-hidden flex flex-col'>
                             <h2 className='text-gray-500 text-center'>
                                 Cuentas
                             </h2>
@@ -76,19 +77,18 @@ export const Accounts = () => {
                                         <div>Hola xd</div>
                                 }
                             </div>
-                            <button onClick={(e) => { e.preventDefault(); setDisplayDetails(true) }} className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">Crear Cuenta</button>
-                            <div className='h-[100%] w-[100%] flex items-center'>
+                            <button onClick={(e) => { e.preventDefault(); setDisplayDetails(true) }} className="max-w-fit px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">Crear Cuenta</button>
                                 {toggle &&
                                     <Modal active={active} toggle={toggle} onRequestClose={toggle}>
                                         <AccountsHistory setActive={setActive} historyAcc={historyAcc} />
                                     </Modal>
                                 }
-                            </div>
                         </div>
                     </div>
                     :
                     <div className="w-[100%] flex justify-between h-[100%] lg:inline-block">
-                        <div className='rounded-[0.72rem]  p-[2rem] bg-white w-[99.8%] mx-[.11rem] h-[100%] shadow-lg overflow-scroll flex justify-center'>
+                        <ScrollToTop />
+                        <div className='rounded-[0.72rem] bg-white w-[100%] h-[100%] shadow-lg overflow-y-auto overflow-x-hidden flex justify-center'>
                             <CreateSavingAccForm isModal={isModal} setDisplay={setDisplayDetails} />
                         </div>
                     </div>

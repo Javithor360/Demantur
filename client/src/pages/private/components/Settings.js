@@ -111,7 +111,7 @@ export const Settings = ({ hidden }) => {
       case 5:
         return <EmailCode setSwitchValue={setSwitchValue} Email={Email} />
       case 6:
-        return <SuccessEmail setSwitchValue={setSwitchValue} />
+        return <SuccessEmail setSwitchValue={setSwitchValue}/>
       case 7:
         return <PasswordCode setSwitchValue={setSwitchValue} />
       // =================================================

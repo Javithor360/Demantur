@@ -7,6 +7,7 @@ const ExtraInfoNormalUser = require('../models/ExtraInfoNormalUser')
 const ErrorResponse = require("../utils/ErrorMessage");
 const { sendToken } = require("../helpers/Functions");
 const GlobalData = require('../models/GlobalData');
+const { default: mongoose } = require('mongoose');
 
 // @route POST api/auth/employee/login
 // @desc Iniciar sesión como empleado
@@ -198,9 +199,9 @@ const getLoanRequests = async (req, res, next) => {
         console.log(getAllUsers)
 
         for (let index = 0; index < getAllUsers.length; index++) {
-            console.log('=======================')
-            console.log(getAllUsers[index]?._id?.toString(), getAllLoanRequests[index]?.loan_guarantor?.toString())
-            console.log('=======================')
+            // console.log('=======================')
+            // console.log(getAllUsers[index]?._id?.toString(), getAllLoanRequests[index]?.loan_guarantor?.toString())
+            // console.log('=======================')
             if (getAllUsers[index]?._id?.toString() == getAllLoanRequests[index]?.loan_guarantor?.toString()) {
                 let ObjectLoanRequest = {}
                 ObjectLoanRequest.Request_guarantor = getAllUsers[index]
@@ -216,6 +217,8 @@ const getLoanRequests = async (req, res, next) => {
     }
 
 }
+
+
 
 // @route POST api/employee/get-user-data
 // @desc Obtener la información del usuario por parte del empleado

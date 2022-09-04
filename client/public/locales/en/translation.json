@@ -813,7 +813,7 @@
       }
     },
     "Savings":{
-      "title": "Savings Account",
+      "tittle": "Savings Account",
       "desc": "Have access to your money without restriction of funds 24 hours a day.",
       "details":{
         "1": "Immediate availability",
@@ -966,7 +966,7 @@
     "Contacts":{
       "tittle": "Your Contacts",
       "tittle2": "Added",
-      "tittle3": "Requests",
+      "tittle3": "Earrings",
       "tittle4": "Requests",
       "tittle5": "Add Contact",
       "desc": "No concidence",

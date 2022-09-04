@@ -53,11 +53,10 @@ export const AccountsPage = () => {
               <FaMoneyCheckAlt color="#455FB9" /> {t("AccountPage.Checking.details.1")}
             </p>
             <p className="acc-feature">
-              <FaScroll color="#455FB9" /> {t("AccountPage.Checking.details.1")}
+              <FaScroll color="#455FB9" /> {t("AccountPage.Checking.details.2")}
             </p>
             <p className="acc-feature">
-              <FaRegCreditCard color="#455FB9" /> {t("AccountPage.Checking.details.1")}
-              {t("AccountPage.Checking.details.1")}
+              <FaRegCreditCard color="#455FB9" /> {t("AccountPage.Checking.details.3")}
             </p>
             <Link to="/accounts/checking">
               <div className="acc-button corrienteButton">
@@ -79,14 +78,13 @@ export const AccountsPage = () => {
             {t("AccountPage.Savings.desc")}
             </p>
             <p className="acc-feature">
-              <FaClock color="#455FB9" /> {t("AccountPage.Checking.details.1")}
+              <FaClock color="#455FB9" /> {t("AccountPage.Savings.details.1")}
             </p>
             <p className="acc-feature">
-              <BsCreditCard2Back color="#455FB9" /> {t("AccountPage.Checking.details.2")}
-              Classic
+              <BsCreditCard2Back color="#455FB9" /> {t("AccountPage.Savings.details.2")}
             </p>
             <p className="acc-feature">
-              <BsArrowUpRightCircleFill color="#455FB9" /> {t("AccountPage.Checking.details.3")}
+              <BsArrowUpRightCircleFill color="#455FB9" /> {t("AccountPage.Savings.details.3")}
             </p>
             <Link to="/accounts/savings">
               <div className="acc-button ahorroButton">

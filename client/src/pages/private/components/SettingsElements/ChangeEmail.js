@@ -44,7 +44,7 @@ export const ChangeEmail = ({ setSwitchValue, setEmail }) => {
         <label htmlFor="Nombres" className='label-form'>Nuevo Email</label>
       </div>
       <div className="flex flex-col h-fit">
-        <button className={`boton-settings mx-auto mt-4 ${Error ? 'bg-[#C90000]' : 'bg-[#323643]'}`} type="submit">Enviar</button>
+        <button className={`w-[7rem] h-[2.3rem] rounded-[0.25rem] border-none text-white mx-auto mt-4 ${Error ? 'bg-[#C90000]' : 'bg-[#323643]'}`} type="submit">Enviar</button>
         <button className="boton-settings2 mx-auto" onClick={() => {setSwitchValue(1)}}>Regresar</button>
         {/* <span className={` w-1/2 h-10 mx-auto outline-none text-white border-none mt-4 `} type="submit">Regresar</span> */}
       </div>

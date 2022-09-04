@@ -42,17 +42,17 @@ export const EmailCode = ({ setSwitchValue, Email }) => {
   }
 
   return (
-    <form onSubmit={handleForm} className='w-100 h-100'>
-      <span>Cambio de Email</span>
-      {Error && <h4 className="my-2 text-red-500">{Error}</h4>}
-      {!Error && <h4 className="my-2 text-green-500">Email Enviado</h4>}
+    <form onSubmit={handleForm} className='w-100 h-fit'>
+      <span className='text-foto-de-perfil text-[#4E5364]'>Cambio de Email</span>
+      {Error && <h4 className="text-red-500 my-2 p-0 text-[1.125rem]">{Error}</h4>}
+      {!Error && <h4 className="text-green-400 text-center my-2 p-0 text-[1.125rem]">Email Enviado</h4>}
       <div className="input-class w-100 mt-4">
         <input value={Code} onChange={(e) => setCode(e.target.value)} type='text' id='Nombres' name='Nombres' placeholder=' ' autoComplete='off' className='input-form' />
         <label htmlFor="Nombres" className='label-form'>Codigo</label>
       </div>
-      <div className="flex flex-col h-5">
-        <button className={`w-1/2 h-10 mx-auto outline-none text-white border-none mt-4 ${Error ? 'bg-[#C90000]' : 'bg-[#323643]'}`} type="submit">Enviar</button>
-        <span className={`w-1/2 h-10 mx-auto outline-none text-white border-none mt-4 bg-[#606470]`} type="submit" onClick={() => { CancelThing() }}>Regresar</span>
+      <div className="flex flex-col h-fit">
+        <button className={`w-[7rem] h-[2.3rem] rounded-[0.25rem] border-none text-white mx-auto mt-4 ${Error ? 'bg-[#C90000]' : 'bg-[#323643]'}`} type="submit">Enviar</button>
+        <button className="boton-settings2 mx-auto" onClick={() => { CancelThing() }}>Regresar</button>
       </div>
     </form>
   )

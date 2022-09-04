@@ -30,6 +30,7 @@ export const YourFriendReq = ({ ReloadComp, setReloadComp }) => {
         AcceptFriend(localStorage.getItem('authToken'), el);
         setFriendRequest(filtArrayFriendreq(el));
         socket.emit('AcceptFriendReq', { element: el, By: { Name: `${Info.FirstName} ${Info.LastName}`, Dui: Info.Dui, Photo: Info.PerfilPhoto.url } })
+        socket.emit('AcceptedFrToPendings', { element: el, By: { Name: `${Info.FirstName} ${Info.LastName}`, Dui: Info.Dui, Photo: Info.PerfilPhoto.url } })
         Contacts.push({
             Name: el.Name,
             Dui: el.Dui,

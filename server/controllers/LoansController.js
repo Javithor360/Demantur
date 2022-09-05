@@ -9,9 +9,9 @@ const LoansFormRequests = async (req, res, next) => {
     try {
         
         const token = req.resetToken;
-        const { UserSalary, UserStatus, LoanId } = req.body;
+        const { UserSalary, UserStatus,Amountrequest, LoanId } = req.body;
 
-        if(!UserSalary || !UserStatus || !LoanId){
+        if(!UserSalary || !UserStatus || !Amountrequest || !LoanId){
             return next(
                 new ErrorResponse("Completa todos los campos para hacer la solicitud", 400, "error")
             );
@@ -106,7 +106,7 @@ const LoansFormRequests = async (req, res, next) => {
             Name:token.user.FirstName, 
             DuiNum:token.user.Dui, 
             Email:token.user.Email,
-            Amount:token.user.Amount,
+            Amountrequest,
             UserSalary, 
             UserStatus,
             CellNumber:token.user.Number, 

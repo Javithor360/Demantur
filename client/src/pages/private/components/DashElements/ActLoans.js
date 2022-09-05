@@ -66,17 +66,17 @@ export const ActLoans = () => {
 
   const UserElementsSalary = ['$450 y $499', '$500 y $999', '$700 y $1200', <span> {t("DashboardNormalUser.Loans.form.UserElementsSalary.1")}</span> ,]
   const UserElementsLaboralStatus = [ `${t('DashboardNormalUser.Loans.form.LaboralStatus.1')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.2')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.3')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.4')}`,]
-  const Amounts = ['']
+  const UserElementAmount = ['$300', '$500', '$999', '$1200', '$1500', 'Otro tipo de monto']
 
-  useEffect(() => {
-    console.log(UserElementsLaboralStatus)
-   }, []);
+  // useEffect(() => {
+  //   console.log(UserElementsLaboralStatus)
+  //  }, []);
    
 
   const [loan_guarantor, setloan_guarantor] = useState();
   const [UserSalary, setUserSalary] = useState('');
   const [UserStatus, setUserStatus] = useState('');
-  const [Amount, setAmount] = useState('');
+  const [Amountrequest, setAmountrequest] = useState('');
 
 
   const [Image1, setImage1] = useState();
@@ -111,7 +111,7 @@ export const ActLoans = () => {
   useEffect(() => {
     setUserSalary('')
     setUserStatus('')
-    setAmount('')
+    setAmountrequest('')
     setImageName1('')
     setImageName2('')
     setImageName3('')
@@ -188,7 +188,7 @@ export const ActLoans = () => {
         loan_guarantor: loan_guarantor,
         UserSalary,
         UserStatus,
-        Amount,
+        Amountrequest,
         Image1: Image1,
         Image2: Image2,
         Image3: Image3,
@@ -216,7 +216,7 @@ export const ActLoans = () => {
         setChargin(false)
         setUserSalary('')
         setUserStatus('')
-        setAmount('')
+        setAmountrequest('')
         setImageName1('')
         setImageName2('')
         setImageName3('')
@@ -291,6 +291,12 @@ export const ActLoans = () => {
                 <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Loans.form.tittle2")}</p>
                 <div className='h-[2.5rem] w-[15rem]'>
                   <Dropdown setElement={setUserStatus} elements={UserElementsLaboralStatus}  Elemento={UserStatus} />
+                </div>
+              </div>
+              <div className='h-[70%] mr-5 '>
+                <p className='text-[1.1rem] text-[#606470]'>Monto a Solicitar</p>
+                <div className='h-[2.5rem] w-[15rem]'>
+                  <Dropdown setElement={setAmountrequest} elements={UserElementAmount}  Elemento={Amountrequest} />
                 </div>
               </div>
               <div className="input-files h-[70%]">

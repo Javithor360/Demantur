@@ -33,7 +33,7 @@ export const Contacts = () => {
 
   const [UsersToAdd, setUsersToAdd] = useState(null);
 
-  const { getGlobalInfo, getUsersToFriendReq, ReloadStateTwo, setReloadStateTwo, PendingFr, getMyFriendReq, socket, Contacts, FriendRequest, setFriendRequest, PedingFriendReq, setPedingFriendReq, getUsersToAdd, setContacts
+  const { getGlobalInfo, getUsersToFriendReq, ReloadStateTwo, setReloadStateTwo, PendingFr, getMyFriendReq, socket, Contacts, FriendRequest, setFriendRequest, PedingFriendReq, setPedingFriendReq, getUsersToAdd, setContacts, Info
     , setReloadState
   } = useDash();
 
@@ -92,6 +92,11 @@ export const Contacts = () => {
     socket.on('DeletedContact', data => {
       setDeletedCstatus(data.Dui)
     })
+
+    socket.on('AccFrToPendings', data => {
+      let aux = PedingFriendReq?.filter((el) => el.Dui !== data.element.Dui)
+      setPedingFriendReq(aux);
+    })
   }, [socket]);
 
 
@@ -104,7 +109,7 @@ export const Contacts = () => {
         }
       });
       setUsersToReq(aux);
-      CanceledFrStatus(null)
+      setCanceledFrStatus(null)
     }
   }, [CanceledFrStatus]);
 
@@ -118,7 +123,7 @@ export const Contacts = () => {
         }
       });
       setUsersToReq(aux);
-      DeclinedFrStatus(null)
+      setDeclinedFrStatus(null)
     }
   }, [DeclinedFrStatus]);
 
@@ -155,8 +160,6 @@ export const Contacts = () => {
       setNombreInput('')
       Contacts.push(AcceptedFrState)
 
-      let aux = FriendRequest?.filter((el) => el.Dui !== AcceptedFrState)
-      setFriendRequest(aux);
       setReloadState(true)
       setAcceptedFrState(null)
     }
@@ -192,7 +195,7 @@ export const Contacts = () => {
         {
           UsersSearched.length !== 0 ?
             UsersSearched.map((User, index) => {
-              return <ContactsCard User={User} key={index} setUsersToReq={setUsersToReq} UsersToReq={UsersToReq} />
+              return <ContactsCard User={User} key={index} setUsersToReq={setUsersToReq} UsersToReq={UsersToReq} setNombreInput={setNombreInput} />
             })
             :
             <div className='w-100 h-[80%] flex flex-col items-center justify-center'>

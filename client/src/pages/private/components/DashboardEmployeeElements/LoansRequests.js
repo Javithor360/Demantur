@@ -80,6 +80,7 @@ export const LoansRequests = () => {
                                 CelNum: SingReq.ExtraInfo.Number,
                                 UserSalary: SingReq.LoanRequest.UserSalary,
                                 UserStatus: SingReq.LoanRequest.UserStatus,
+                                Amountrequest: SingReq.LoanRequest.Amountrequest,
                                 WorkPlace: SingReq.ExtraInfo.WorkPlace,
                                 Type,
                                 Info: SingReq.LoanRequest,

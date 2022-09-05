@@ -77,6 +77,13 @@ io.on('connection', (socket) => {
     }
   })
 
+  socket.on('AcceptedFrToPendings', ({ element, By }) => {
+    const User = getOneUser(element.Dui)
+    if (User !== undefined) {
+      io.to(User.socketId).emit('AccFrToPendings', { element: By })
+    }
+  })
+
   socket.on('disconnect', () => {
     // console.log(allOnlineUsers);
     // console.log(socket.id);

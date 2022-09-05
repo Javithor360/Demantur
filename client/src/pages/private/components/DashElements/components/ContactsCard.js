@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDash } from "../../../../../context/DashboardContext";
 
 
-export const ContactsCard = ({ User, setUsersToReq, UsersToReq }) => {
+export const ContactsCard = ({ User, setUsersToReq, UsersToReq, setNombreInput }) => {
   const { addFriendRequest, PedingFriendReq, setReloadState, socket, Info } = useDash()
   const [TextBox, setTextBox] = useState({ text: 'Agregar', state: false });
 

@@ -3,13 +3,23 @@ import no_contacts_icon from '../../assets/img/contacts-icons/contacts_icon.png'
 
 // Translation
 import { useTranslation } from "react-i18next";
+import { useEffect } from 'react';
 
 export const YourContacts = () => {
     const { t } = useTranslation();
 
-    const { Contacts, DeleteFriendReq, setContacts, setReloadStateTwo } = useDash()
+    const { Contacts, DeleteFriendReq, setContacts, setReloadStateTwo, socket, Info } = useDash()
+
+
+    useEffect(() => {
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [socket]);
 
     const DeleteFriend = (el) => {
+        socket.emit('DeleteContact', {
+            HimDui: el.Dui, MyDui: Info.Dui
+        })
         DeleteFriendReq(localStorage.getItem('authToken'), el)
         setContacts(Contacts.filter((element) => element.Dui !== el.Dui));
         setReloadStateTwo(true);

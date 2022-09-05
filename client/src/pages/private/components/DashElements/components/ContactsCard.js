@@ -3,17 +3,21 @@ import { useState } from "react";
 import { useDash } from "../../../../../context/DashboardContext";
 
 
-export const ContactsCard = ({ User, setUsersToReq, UsersToReq }) => {
-  const { addFriendRequest, PedingFriendReq, setReloadState } = useDash()
+export const ContactsCard = ({ User, setUsersToReq, UsersToReq, setNombreInput }) => {
+  const { addFriendRequest, PedingFriendReq, setReloadState, socket, Info } = useDash()
   const [TextBox, setTextBox] = useState({ text: 'Agregar', state: false });
 
   const handlerAdd = (e) => {
     addFriendRequest(localStorage.getItem('authToken'), User);
-    PedingFriendReq.push({
+    const element = {
       Name: `${User.FirstName} ${User.LastName}`,
       Dui: User.Dui,
-      Photo: 'Foto link',
-    })
+      Photo: User.PerfilPhoto.url,
+    }
+
+    PedingFriendReq.push(element)
+    socket.emit('AddFriendRequest', { element: element, By: { Name: `${Info.FirstName} ${Info.LastName}`, Dui: Info.Dui, Photo: Info.PerfilPhoto.url } });
+
     let filtarted = UsersToReq.filter((OtherUser) => OtherUser._id !== User._id)
     setUsersToReq(filtarted);
     setTextBox({ text: 'Agregado', state: true });

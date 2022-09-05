@@ -213,7 +213,17 @@ export const DetailsCardRequest = ({ Params, setDisplayDetails }) => {
             }>Aceptar</button>
           </div>
           <div className='h-full w-[50%] flex items-center justify-center'>
-            <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#455FB9] text-white'>Denegar</button>
+            <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#455FB9] text-white' onClick={()=>{
+              setConfirmData(
+                {
+                  Name: Params.Name,
+                  Dui: Params.Dui,
+                  Email: Params.Email,
+                  CelNum: Params.CelNum
+                }
+              )
+              toggle()
+            }}>Denegar</button>
           </div>
         </div> 
         {toggle &&

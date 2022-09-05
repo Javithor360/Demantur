@@ -25,7 +25,7 @@ export const ContactsCard = ({ User, setUsersToReq, UsersToReq }) => {
   }
 
   return (
-    <div className='contact-card-container bg-[#FBFBFB] rounded-md shadow-md'>
+    <div className='contact-card-container bg-[#FBFBFB] rounded-md shadow-md mb-4'>
       <div className="w-[100%] h-100 flex items-center mb-2 py-2 px-3"> {/*   */}
         <div className='profile-img mr-3'>
           <img src={User.PerfilPhoto.url} alt="" className="h-full w-full" />

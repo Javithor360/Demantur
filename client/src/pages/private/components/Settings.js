@@ -122,8 +122,8 @@ export const Settings = ({ hidden }) => {
 
   return (
     <>
-      <div className={`absolute top-0 left-0 w-[100%] h-[100%] bg-[#32364398] ${hidden !== undefined ? hidden : ''}`} ></div>
-      <div className={`absolute top-0 right-0 settings-div h-full ${hidden !== undefined ? hidden : ''} div-settings-modal overflow-y-auto overflow-x-hidden scroll-settings`}  >
+      <div className={`absolute top-0 left-0 w-[100%] h-[100%] z-[1000] bg-[#32364398] ${hidden !== undefined ? hidden : ''}`} ></div>
+      <div className={`absolute top-0 right-0 settings-div h-full z-[1000] ${hidden !== undefined ? hidden : ''} div-settings-modal overflow-y-auto overflow-x-hidden scroll-settings`}  >
         <div className="w-[100%] h-[100%] relative">
           <div className="X-Settings absolute right-0">
             <FiX className="" onClick={() => { setSettingsOption(false) }} />

@@ -273,7 +273,7 @@ export const Transactions = ({ OnlineUsers }) => {
                                 <div className='dropdown-tr'>
                                     <div className="dropdown-button-tr" onClick={e => setIsSelect(!IsSelect)}>{NumberAccount === '' ? <span>Cuenta Emisora</span> : NumberAccount} <ArrowDown /></div>
                                     {IsSelect && (
-                                        <div className={`dropdown-box-content-tr top-[-${(SavingAccounts.length * 3.3) + 3.3}rem]`}>
+                                        <div className={`dropdown-box-content-tr -top-[${(SavingAccounts.length * 3.3) + 3.3}rem]`}>
                                             <div className="dropdown-box-item-tr" onClick={e => { setNumberAccount(''); setIsSelect(false); setSaldo(null) }} >
                                                 Seleccionar
                                             </div>
@@ -302,7 +302,7 @@ export const Transactions = ({ OnlineUsers }) => {
                                 <div className='dropdown-tr'>
                                     <div className="dropdown-button-tr" onClick={e => setIsSelect2(!IsSelect2)}>{HimNumberAcc === '' ? <span>Cuenta a transferir</span> : HimNumberAcc} <ArrowDown /></div>
                                     {IsSelect2 && (
-                                        <div className={`dropdown-box-content-tr top-[-${(CurrentAccs.length * 3.3) + 3.3}rem]`}>
+                                        <div className={`dropdown-box-content-tr -top-[${(CurrentAccs.length * 3.3) + 3.3}rem]`}>
                                             <div className="dropdown-box-item-tr" onClick={e => { setHimNumberAcc(''); setIsSelect2(false) }} >
                                                 Seleccionar
                                             </div>

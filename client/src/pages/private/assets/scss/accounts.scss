@@ -5,7 +5,6 @@
     margin: auto;
     display: flex;
     justify-content: center;
-
     .dash_acc-card {
         margin: 3rem;
     }
@@ -146,4 +145,17 @@
 
 .dash_acc-nav-type-active {
     border-bottom: 2px solid $primary_dark;
+}
+
+.border-left-division{
+    border-left: 1px solid $secondary-gray-200;
+}
+.border-top-division{
+    border-top: 1px solid $secondary-gray-200;
+}
+.border-bottom-division{
+    border-bottom: 1px solid $secondary-gray-200;
+}
+.border-cover-2{
+    border: 1px solid $secondary-gray-200;
 }

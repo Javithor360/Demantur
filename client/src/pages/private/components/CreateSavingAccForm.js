@@ -147,8 +147,8 @@ export const CreateSavingAccForm = ({ isModal, setDisplay }) => {
       }, 1500)
 
       if (isModal === true) {
-        CreateElements(localStorage.getItem("authToken")) &&
-          navigate("/dashboard")
+        CreateElements(localStorage.getItem("authToken"))
+        navigate("/dashboard")
       } else {
         SavingAccounts.push({
           activated: res.data.data.activated,
@@ -329,6 +329,6 @@ export const CreateSavingAccForm = ({ isModal, setDisplay }) => {
         </form>
       </div>
     </>
-    
+
   );
 };

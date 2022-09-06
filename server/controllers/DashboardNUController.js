@@ -852,6 +852,27 @@ const getDebitCard = async (req, res, next) => {
   }
 }
 
+const PayCardDebt = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const { AccountN, Amount } = req.body
+    const Acc = await SavingsAccount.findOne({ accountNumber: AccountN })
+    let date = new Date()
+
+    if (parseFloat(Acc.balance) < parseFloat(Amount)) {
+      return next(new ErrorResponse('No tiene el monto suficiente', 400, 'error'))
+    } else {
+      await SavingsAccount.findOneAndUpdate({ accountNumber: AccountN }, { balance: (parseFloat(Acc.balance) - parseFloat(Amount)).toFixed(2) });
+      await CardsModel.findOneAndUpdate({ CardOwner: token.user.id }, { PayableAmount: 0, $push: { PaymentHistory: { RealizationDate: date, Amount: Amount, AccountNumber: AccountN } } });
+      // await CardsModel.findOneAndUpdate({ CardOwner: token.user.id }, {});
+      res.status(200).json({ success: true, data: 'Pagado correctamente' });
+    }
+
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
 module.exports = {
   testDB,
   getUserId,
@@ -875,6 +896,7 @@ module.exports = {
   EmailCodeVer,
   CancelChangeEmail,
   VerifyOldPass,
-  ChangePass, VerifyCodePass, CancelChangePass, getPedingFriendReq, FriendReq, getUsersToAdd, getMyCard, getDebitCard
+  ChangePass, VerifyCodePass, CancelChangePass, getPedingFriendReq, FriendReq, getUsersToAdd, getMyCard, getDebitCard,
+  PayCardDebt
 };
 

@@ -387,11 +387,13 @@ const AcceptCardReq = async (req, res, next) => {
             CardNumber,
             CardCCV,
             CardExpire,
-            CardAmount,
+            MaxCardAmount: CardAmount,
             PaymentDate,
             PayAmount,
             interest,
             PaymentHistory: [],
+            SpentHistory: [],
+            PayableAmount: 0.00
         })
 
         await NewCard.save();

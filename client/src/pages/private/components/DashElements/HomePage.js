@@ -27,20 +27,26 @@ export const HomePage = () => {
         <div className=" bg-white basis-[60%] rounded-[0.75rem]">
           <div className="mx-[2rem] my-[1rem]">
             <h2 className="text-gray-500 text-[1.5625rem] text-center">{t("DashboardNormalUser.Home.information")}</h2>
-            <div className="grid grid-cols-3 gap-1">
-              <div>
-                <h6 className="text-gray-400 font-[1.125rem]">{t("DashboardNormalUser.Home.name")}</h6>
-                <p className="font-[1.125rem]">
-                  {`${Info.FirstName} ${Info.LastName}`}
-                </p>
+            <div className="grid_dash_info_user">
+              <div className="w-full">
+                <div className="w-fit mx-auto">
+                  <h6 className="text-gray-400 font-[1.125rem]">{t("DashboardNormalUser.Home.name")}</h6>
+                  <p className="font-[1.125rem]">
+                    {`${Info.FirstName} ${Info.LastName}`}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h6 className="text-gray-400 font-[1.125rem]">{t("DashboardNormalUser.Home.dui")}</h6>
-                <p className="font-[1.125rem]">{`${Info.Dui}`}</p>
+              <div className="w-full">
+                <div className="w-fit mx-auto">
+                  <h6 className="text-gray-400 font-[1.125rem]">{t("DashboardNormalUser.Home.dui")}</h6>
+                  <p className="font-[1.125rem]">{`${Info.Dui}`}</p>
+                </div>
               </div>
-              <div className="ml-[-3.5rem]">
-                <h6 className="text-gray-400 ">{t("DashboardNormalUser.Home.email")}</h6>
-                <p className="font-[1.125rem]">{`${Info.Email}`}</p>
+              <div className="w-full">
+                <div className="w-fit mx-auto">
+                  <h6 className="text-gray-400 ">{t("DashboardNormalUser.Home.email")}</h6>
+                  <p className="font-[1.125rem]">{`${Info.Email}`}</p>
+                </div>
               </div>
             </div>
           </div>

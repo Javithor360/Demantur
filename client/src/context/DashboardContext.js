@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 import {
   creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ, getContactsWPReq, getMyLoanReqREQ, getSavingAcctsReq, UpdatePhotoReq, getNametoNavQuery, getEveryAccQuery, getAccHistory, ChangeEmailQuery, EmailCodeVerQuery, getPendingAccounts,
-  CancelChangeEm, VerifyOldPassQuery, ChangePassQuery, VerifyCodePassQuery, CancelChangePassQuery, PendingFrQuery, FriendRequestsQuery, UsersToAddQuery, getMyCardQuery, getMyDebitCardQuery
+  CancelChangeEm, VerifyOldPassQuery, ChangePassQuery, VerifyCodePassQuery, CancelChangePassQuery, PendingFrQuery, FriendRequestsQuery, UsersToAddQuery, getMyCardQuery, getMyDebitCardQuery, PayCCDebtQuery
 } from "../api/Queries";
 
 
@@ -362,6 +362,14 @@ export const DashProvider = ({ children }) => {
     }
   }
 
+  const PayCCDebt = async (Token, AccountN, Amount) => {
+    try {
+      return await PayCCDebtQuery(PrivateConfig(Token), AccountN, Amount)
+    } catch (error) {
+      return error
+    }
+  }
+
   return (
     <dashContext.Provider value={{
       Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
@@ -373,7 +381,7 @@ export const DashProvider = ({ children }) => {
       getMyCardReq, getMyLoanReq, GlobalInfoSetReq, getContacsWP, SavingAccounts, getSavingAccts, UpdatePhoto, clientBalance,
       NPName, setNPName, setSavingAccounts, setClientBalance, getNametoNav, getEveryAcc, ChangeEmail, getAccountsHistory, EmailCodeVer, getActivatedAccountRequests,
       CancelChangeEmail, VerifyOldPass, ChangePass, VerifyCodePass, CancelChangePass, setInfo, PendingFr, getMyFriendReq, getUsersToAdd, getMyCard,
-      CardsParametros, setCardsParametros, getMyDebitCard, ChangeBox2, setChangeBox2
+      CardsParametros, setCardsParametros, getMyDebitCard, ChangeBox2, setChangeBox2, PayCCDebt
     }}>
       {children}
     </dashContext.Provider>

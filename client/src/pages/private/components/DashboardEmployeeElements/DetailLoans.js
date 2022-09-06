@@ -12,6 +12,7 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
 
   // console.log(Params)
   const grid_column_styles = "mr-4 flex flex-col h-full w-full";
+  const grid_colum_one = "mr-4 flex inline-col h-full w-full";
   const table_name_styles = "max-h-[35%] w-full bg-[#D6D6D6] p-2 flex justify-center items-center";
   const table_content_styles = "h-[65%] bg-white p-2 flex justify-center items-center";
   const table_container_styles_2 = "w-[90%] h-fit flex flex-col items-center mx-auto";
@@ -156,6 +157,20 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
             </div>
           </div>
 
+          <p className='text-[20px] mt-3 ml-4 flex items-center content-center '>Cantidad solicitado</p>
+          <div className={ table_container_styles_2 }>
+            <div className='individual-req-grid_1 w-[50%] mb-5 rounded-lg h-[8rem] border-cover' >
+              <div className={ `${grid_column_styles}` }>
+                <div className={ `${table_name_styles} rounded-tl-lg` }>
+                  <p className='m-0 p-0 flex justify-center '>Monto solicitado</p>
+                </div>
+                <div className={`${table_content_styles} rounded-bl-lg`}>
+                  <p className='m-0 p-0 font-semibold'>{Params.Amountrequest}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <p className='text-[20px] mt-3 ml-4'>Anexos</p>
           <div className='flex justify-center'>
             <div className='grid-layout_4 w-[95%] mb-5 flex'>
@@ -205,6 +220,7 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
                   Dui: Params.Dui,
                   Email: Params.Email,
                   CelNum: Params.CelNum
+
                 }
               )
               toggle()

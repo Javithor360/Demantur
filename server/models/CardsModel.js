@@ -26,7 +26,11 @@ const CardsModelSchema = new mongoose.Schema({
   SpentHistory: [{
     RealizationDate: Date,
     Amount: Number,
-  }]
+  }],
+  PayableAmount: {
+    type: mongoose.Types.Decimal128,
+    required: true
+  }
 })
 
 module.exports = mongoose.model('CardsModel', CardsModelSchema);

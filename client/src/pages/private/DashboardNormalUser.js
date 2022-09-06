@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
 export const DashboardNormalUser = () => {
-  const { Option, SettingsOption, GeneralInfoQuery, getGlobalInfo, setSocket, socket, Info, getContacsWP, getSavingAccts, setNPName, setClientBalance, SavingAccounts, setSavingAccounts } = useDash();
+  const { Option, SettingsOption, GeneralInfoQuery, getGlobalInfo, setSocket, socket, Info, getContacsWP, getSavingAccts, setNPName, setClientBalance, SavingAccounts, setSavingAccounts, setChangeBox2 } = useDash();
 
   const [Chargin, setChargin] = useState(true);
   const [OnlineUsers, setOnlineUsers] = useState([]);
@@ -101,6 +101,11 @@ export const DashboardNormalUser = () => {
         return <h1>Home Page</h1>;
     }
   };
+
+  useEffect(() => {
+    setChangeBox2(false)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Option]);
 
   return (
     <>

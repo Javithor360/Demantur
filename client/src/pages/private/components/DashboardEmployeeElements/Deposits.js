@@ -68,35 +68,44 @@ export const Deposits = () => {
 
             {Error !== '' && Error}
 
-            <h1 className='text-center mb-[4rem]'>Efectuar depósito</h1>
+            <h1 className='text-center mb-[2rem] mt-3'>Efectuar depósito</h1>
             {
                 Success !== false && Success &&
                 <div className='text-center	w-full'>
-                    <p className='text-green-500'>TRANSACCIÓN HECHA PE</p>
+                    <p className='text-green-500'>Transaccion realizada correctamente</p>
                 </div>
             }
-            <div className='mx-[25rem] container-deposits'>
-                <form onSubmit={handleForm} className='flex flex-col'>
-                    <div className='hola-deposits'></div>
-                    <label htmlFor="AccNumber">Número de cuenta</label>
-                    <hr />
-                    <Cleave options={{numericOnly: true}} id="AccNumber" name='AccNumber' onChange={(e) => { setAccNumber(e.target.value) }} value={AccNumber} required />
+            <div className='mx-auto container-deposits border-cover-2 rounded-lg'>
+                <form onSubmit={handleForm} className='flex flex-col w-full rounded-lg h-fit'>
+                    <div className='hola-deposits rounded-tl-lg rounded-tr-lg'></div>
+                    <div className='flex flex-col w-full'>
+                        <div className='w-full mx-auto text-center h-fit mb-4 flex flex-col justify-center items-center'>
+                            <label className='mt-3 text-[1.2rem] font-semibold mb-2 text-[#323643]' htmlFor="AccNumber">Número de cuenta:</label>
+                            <hr className='separatee__1 mb-3' />
+                            <Cleave className='w-[70%] border-none outline-none px-2' options={{ numericOnly: true }} id="AccNumber" name='AccNumber' onChange={(e) => { setAccNumber(e.target.value) }} value={AccNumber} required placeholder='Escriba el número de cuenta' autoComplete='off' />
+                        </div>
+                        <div className='w-full mx-auto text-center h-fit flex flex-col justify-center items-center'>
+                            <label className='mt-3 text-[1.2rem] font-semibold mb-2 text-[#323643]' htmlFor="Amount">Monto a depositar:</label>
+                            <hr className='separatee__1 mb-3 h-[.2rem]' />
+                            <Cleave className='w-[70%] border-none outline-none px-2' options={{ numeral: true, numeralThousandsGroupStyle: 'thousand' }} id="Amount" name='Amount' onChange={(e) => {
+                                if (e.target.value !== '') {
+                                    setAmount(parseFloat(e.target.value.replace(/,/g, '')))
+                                }
+                            }} value={Amount} required placeholder='Escriba el monto a depositar' autoComplete='off' />
+                        </div>
+                    </div>
+                    <div className='min-h-[5rem] w-[100%] mt-[2rem]'>
+                        <button type="submit" className='mx-auto block my-auto btn-deposits-employee'>Realizar depósito</button>
+                    </div>
 
-                    <label htmlFor="Amount">Monto a depositar</label>
-                    <hr />
-                    <Cleave options={{numericOnly: true}} id="Amount" name='Amount' onChange={(e) => { setAmount(e.target.value) }} value={Amount} required />
-
-                    <button type="submit" className='mt-[2rem] mx-[5rem] btn-deposits-employee'>Realizar depósito</button>
                 </form>
             </div>
 
-            <div className='h-[100%] w-[100%] flex items-center'>
-                {toggle &&
-                    <Modal active={active} toggle={toggle} onRequestClose={toggle}>
-                        <ConfirmAction props={formData} setActive={setActive} setSuccess={setSuccess} />
-                    </Modal>
-                }
-            </div>
+            {toggle &&
+                <Modal active={active} toggle={toggle} onRequestClose={toggle}>
+                    <ConfirmAction props={formData} setActive={setActive} setSuccess={setSuccess} toggle={toggle} />
+                </Modal>
+            }
         </div>
     )
 }

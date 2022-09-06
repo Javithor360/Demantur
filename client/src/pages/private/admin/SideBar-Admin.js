@@ -6,7 +6,7 @@ import {
   MdOutlineLogout,
   MdRequestQuote
 } from "react-icons/md";
-import { AiOutlineTeam as Emple} from "react-icons/ai"
+import { AiOutlineTeam as Emple } from "react-icons/ai"
 import { AiOutlineBarChart as Soli } from "react-icons/ai";
 import { AiOutlineUserAdd as Ingre } from "react-icons/ai";
 import { Link } from 'react-router-dom';
@@ -51,7 +51,7 @@ export const SideBar = () => {
             <div className={DivNavLinkStyles}>
               <Ingre className={IconNavLinkStyles} />
             </div>
-            <span className={SpanNavLinkStyles}>AdminDuis</span>
+            <span className={SpanNavLinkStyles}>Agregar DUI</span>
           </div>
 
           <div
@@ -68,10 +68,10 @@ export const SideBar = () => {
             <div className={DivNavLinkStyles}>
               <Soli className={IconNavLinkStyles} />
             </div>
-            <span className={SpanNavLinkStyles}>Transacción</span>
+            <span className={SpanNavLinkStyles}>Simulador de movimientos</span>
           </div>
 
-          
+
           <div
             onClick={() => {
               setOption(3);
@@ -86,7 +86,7 @@ export const SideBar = () => {
             <div className={DivNavLinkStyles}>
               <Emple className={IconNavLinkStyles} />
             </div>
-            <span className={SpanNavLinkStyles}>AdminEmployees</span>
+            <span className={SpanNavLinkStyles}>Crear empleado</span>
           </div>
 
           <button className='style-button' onClick={() => localStorage.removeItem('secretToken')}>Cerrar sesión</button>

@@ -33,7 +33,7 @@ const WelcomeSavingsAccount = async (req, res, next) => {
       );
     }
 
-    if(Reason1.length < 10 || Reason2.length < 10){
+    if (Reason1.length < 10 || Reason2.length < 10) {
       return next(
         new ErrorResponse("Detalla un poco más las razones por las que deseas abrir la cuenta")
       );
@@ -100,7 +100,7 @@ const WelcomeSavingsAccount = async (req, res, next) => {
     });
 
     await newSavingsAccount.save();
-    res.status(200).json({sucess: true, data: newSavingsAccount});
+    res.status(200).json({ sucess: true, data: newSavingsAccount });
   } catch (e) {
     console.error(e);
     return res.status(500).json({ message: e.message });
@@ -121,6 +121,12 @@ const EmployeeAccount = async (req, res, next) => {
 
   try {
     const { FirstNames, LastNames, Dui, Email, Password } = req.body;
+    if (!FirstNames || !LastNames || !Dui || !Email || !Password) {
+      return next(
+        new ErrorResponse("Completa todos los campos antes de continuar", 400, "error")
+      )
+    }
+
     const EmployeeId = `${parseInt(new Date().getFullYear())}${employeeIdGen(1000, 9999)}`;
 
     const newEmployee = await new Employee({
@@ -133,7 +139,7 @@ const EmployeeAccount = async (req, res, next) => {
     });
 
     await newEmployee.save();
-    return res.send(newEmployee)
+    res.status(200).json({ sucess: true, data: newEmployee });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: error.message });
@@ -151,7 +157,7 @@ const AdminAccount = async (req, res) => {
 
     const newAdmin = await new Admin({ Name, Password });
     await newAdmin.save();
-    return res.send(newAdmin);
+    res.status(200).json({ sucess: true, data: newAdmin });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: error.message });

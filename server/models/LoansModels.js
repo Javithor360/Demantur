@@ -17,7 +17,7 @@ const LoanRequestSchema = new mongoose.Schema(
         Email: StringReq,
         UserSalary: StringReq,
         UserStatus: StringReq,
-        Amount: StringReq,
+        Amountrequest: StringReq,
         Company: StringReq,
 
         anex:{

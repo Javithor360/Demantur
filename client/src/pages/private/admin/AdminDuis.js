@@ -49,7 +49,7 @@ export const AdminDuis = () => {
         <input className='inputz' placeholder='' type="text" id="LastNames" name="LastNames" onChange={(e) => { setLastNames(e.target.value) }} value={LastNames} />
         <label className='labelz' htmlFor="LastNames">Apellidos </label>
         </div>
-        <div className='formx'>
+        <div className=''>
         <Cleave className='inputz' placeholder='' type="text" id="DuiNumber" name="DuiNumber" onChange={(e) => { setDuiNumber(e.target.value) }} value={DuiNumber} options={{ blocks: [6, 1], delimiter: "-", numericOnly: true }} />
         <label className='labelz' htmlFor="DuiNumber">Número de DUI </label>
         </div>

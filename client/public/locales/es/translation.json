@@ -114,6 +114,28 @@
       "subtitle3":"Siempre buscamos brindar una mano amiga para ayudarte"
     }
   },
+  "loginemple":{
+    "tittle":"Bienvenido al panel de empleado",
+    "email":"Correo",
+    "password":"Contraseña"
+  },
+  "register":{
+    "tittle":"Datos Personales",
+    "subtittle":"Necesitamos tus datos personales para poder identificarte y saber que realmente eres tú",
+    "tittle2":"Identificación",
+    "subtittle2":"Para crear una cuenta en Demantur necesitas identificarte con estos datos para poder ingresar",
+    "tittle3":"Datos Monetarios",
+    "subtittle3":"Para nuestra logística necesitamos saber tus datos monetarios para ofrecerte nuestros mejores servicios",
+    "tittle4":"Beneficiario",
+    "subtittle4":"Si en algún caso sufre algún accidente el beneficiario tendrá derecho a reclamar sus bienes.",
+    "tittle5":"Código de Confirmación",
+    "subtittle5":"Revise su Email, en el cual tendrá un código de 6 dígitos que tiene que digitar aquí para validar su cuenta."
+  },
+  "error":{
+    "tittle":"¡Algo salió mal!",
+    "subtittle":"Parece que algo ha fallado, al parecer digitaste una dirección que no existe",
+    "button":"Volver"
+  },
   "selectpage":{
     "hero":{
       "tittle": "Selección",
@@ -126,30 +148,32 @@
       "subtittle2":"Tenemos otras opciones en caso de que ya tengas una cuenta, tenemos las siguientes herramientas que podrían ayudarte",
       "tittle3":"¿Cómo registrarse?"
     },
-    "cards":{
-      "1":{
-        "tittle":"Cuenta normal",
-        "subtittle":"Si tu empresa aún no tiene una cuenta con nosotros, contrátala de forma segura, ágil y digital sin desplazarte a una oficina o a un banco.",
-        "button1":"Iniciar sesión",
-        "button2":"Registrarse"
+   
+  "cards":{
+        "1":{
+          "tittle":"Cuenta normal",
+          "subtittle":"La opcion ideal si deseas obtener o iniciar sesión como usuario, da click en la opcion que deseas ejecutar.",
+          "button1":"Iniciar sesión",
+          "button2":"Registrarse"
+        },
+        "2":{
+          "tittle":"Cuenta de empleado",
+          "subtittle":"Si eres empleado de demantur puedes iniciar sesión aqui de manera más rapida.",
+          "button1":"Iniciar sesión"
+        },
+        "3":{
+          "tittle":"Cambio de contraseña",
+          "subtittle":"Si olvida su contraseña, esta es la mejor opción para recuperar su cuenta y establecer una nueva contraseña.",
+          "button1":"Ir"
+        },
+        "4":{
+          "tittle":"Verificacion de email",
+          "subtittle":"En caso de que haya creado una cuenta pero aún no la haya verificado, aquí puede verificar su cuenta.",
+          "button1":"Ir"
+        }
       },
-      "2":{
-        "tittle":"Cuenta de negocios",
-        "subtittle":"La mejor opción en cuanto a la gestión de tu extracto bancario, todo desde la comodidad de tu hogar sin necesidad de ir a un banco",
-        "button1":"Iniciar sesión",
-        "button2":"Registrarse"
-      },
-      "3":{
-        "tittle":"Cambio de contraseña",
-        "subtittle":"Si olvida su contraseña, esta es la mejor opción para recuperar su cuenta y establecer una nueva contraseña.",
-        "button1":"Ir"
-      },
-      "4":{
-        "tittle":"Verificacion de email",
-        "subtittle":"En caso de que haya creado una cuenta pero aún no la haya verificado, aquí puede verificar su cuenta.",
-        "button1":"Ir"
-      }
-    },
+    
+  
     "info":{
       "1":{
         "first":"El primer paso será llegar al formulario con los datos solicitados, tales como:",

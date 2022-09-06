@@ -92,6 +92,11 @@
     }
 
   },
+  "error":{
+    "tittle":"Something went wrong!",
+    "subtittle":"It seems that something has gone wrong, apparently you entered an address that does not exist",
+    "button":"return"
+  },
   "Aboutpage":{
     "hero":{
       "tittle":"We are moved by a great purpose",
@@ -122,6 +127,23 @@
     "4": "Photocopy of NIT of the Company.",
     "5": "Photocopy of the Legal Representative Credential registered in the Registry of Commerce."
   },
+  "register":{
+    "tittle":"Personal information",
+    "subtittle":"We need your personal data to be able to identify you and know that it really is you",
+    "tittle2":"identification",
+    "subtittle2":"To create an account in Demantur you need to identify yourself with these data to be able to enter",
+    "tittle3":"Monetary Data",
+    "subtittle3":"For our logistics we need to know your monetary data to offer you our best services",
+    "tittle4":"Beneficiary",
+    "subtittle4":"If in any case he suffers an accident, the beneficiary will have the right to claim his assets",
+    "tittle5":"Confirmation code",
+    "subtittle5":"Check your Email, in which you will have a 6-digit code that you have to type here to validate your account."
+  },
+  "loginemple":{
+    "tittle":"Welcome to the employee panel",
+    "email":"Email",
+    "password":"Password"
+  },
   "selectpage":{
     "hero":{
       "tittle": "Selection",
@@ -134,24 +156,33 @@
       "subtittle2":"we have other options in case you already have an account, we have the following tools that could help you",
       "tittle3":"How to register?"
     },
-    "cards":{
-      "1":{
-        "tittle":"Normal account",
-        "subtittle":"If your company does not yet have an account with us, contract it in a safe, agile and digital way without going to an office or a bank.",
-        "button1":"log in",
-        "button2":"Register"
+    
+  
+    
+  "cards":{
+        "1":{
+          "tittle":"Normal account",
+          "subtittle":"The ideal option if you want to obtain or log in as a user, click on the option you want to execute.",
+          "button1":"log in",
+          "button2":"Register"
+        },
+        "2":{
+          "tittle":"Employee account",
+          "subtittle":"If you are a demantur employee you can log in here more quickly",
+          "button1":"log in"
+        },
+        "3":{
+          "tittle":"Change of password",
+          "subtittle":"If you forget your password, this is the best option to recover your account and set a new password.",
+          "button1":"Go"
+        },
+        "4":{
+          "tittle":"Email verification",
+          "subtittle":"In case you have created an account but have not verified it yet here you can verify your account.",
+          "button1":"Go"
+        }
       },
-      "3":{
-        "tittle":"Change of password",
-        "subtittle":"If you forget your password, this is the best option to recover your account and set a new password.",
-        "button1":"Go"
-      },
-      "4":{
-        "tittle":"Email verification",
-        "subtittle":"In case you have created an account but have not verified it yet here you can verify your account.",
-        "button1":"Go"
-      }
-    },
+  
     "info":{
       "1":{
         "first":"The first step will be to arrive at the form with the data requested, such as:",

@@ -11,7 +11,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { RiLoader3Fill as IconChargin } from 'react-icons/ri'
 import Cleave from 'cleave.js/react'
-import Modal from '../Modal';
+import SmallModal from '../SmallModal';
 import { ModalTransaction } from './TransactionsComponents/ModalTransaction'
 // import { io } from 'socket.io-client'
 import '../../assets/scss/DropdownTr.scss'
@@ -243,7 +243,7 @@ export const Transactions = ({ OnlineUsers }) => {
         return (
             <>
                 {toggle &&
-                    <Modal active={activeModal} toggle={toggle} onRequestClose={toggle} padtop={'p-52'}>
+                    <SmallModal active={activeModal} toggle={toggle} onRequestClose={toggle} padtop={'p-52'}>
                         <ModalTransaction Name={CurrentChat.Name}
                             Dui={CurrentChat.Dui}
                             Monto={MontoTransfer}
@@ -251,7 +251,7 @@ export const Transactions = ({ OnlineUsers }) => {
                             setModalValidate={setModalValidate}
                             toggle={toggle}
                         />
-                    </Modal>
+                    </SmallModal>
                 }
 
                 <div className='bottom-tools-bar h-[15%] w-full rounded-br-xl flex items-center'>

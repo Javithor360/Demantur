@@ -6,6 +6,7 @@ import {
 } from "react-icons/md";
 import { GoChecklist } from "react-icons/go";
 import { BsCreditCardFill } from "react-icons/bs";
+import { IoIosCash } from "react-icons/io";
 import { useDash } from "../../../context/DashboardContext";
 
 const NavLinkStyles =
@@ -114,7 +115,7 @@ export const SideBar = () => {
               }
             >
               <div className={DivNavLinkStyles}>
-                <GoChecklist className={IconNavLinkStyles} />
+                <IoIosCash className={IconNavLinkStyles} />
               </div>
               <span className={SpanNavLinkStyles}>Depósitos</span>
             </div>

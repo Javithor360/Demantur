@@ -254,7 +254,7 @@ export const ActLoans = () => {
             setParametros(null)
             setError('')
           }}>
-          <BsArrowLeft className="text-[2rem] text-[#323643]" />
+          <BsArrowLeft className="text-[2rem] text-[#323643] hover-back-arrow ease-out duration-200" />
           </button>
         </div>
         <div className="h-fit w-full">

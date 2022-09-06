@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDash } from '../../../../../context/DashboardContext'
 import { ScrollToTop } from "../../../../../components/ScrollToTop";
+import no_tranfers_recieved from '../../assets/img/accounts-icons/no_transfers_recieved.png'
 
 export const AccountsTransferReceived = ({ data }) => {
     const { Contacts, Info } = useDash();
@@ -117,22 +118,10 @@ export const AccountsTransferReceived = ({ data }) => {
                         )
                     })
                     :
-                    <div>No hay transferencias recibidas</div>
-                    // <h2>{i + 1}</h2>
-
-                    //             <h4>Datos generales: </h4>
-                    //             <p>Monto: {el.Amount}</p>
-                    //             <p>Fecha: {new Date(el.createdAt).toLocaleDateString()}</p>
-
-                    //             <h4>Datos del emisor:</h4>
-                    //             <p>Nombre: {name && name}</p>
-                    //             <p>Dui: {el.SenderDui}</p>
-                    //             <p>Cuenta: {el.AccountN}</p>
-
-                    //             <h4>Datos del receptor:</h4>
-                    //             <p>Nombre: {`${Info.FirstName} ${Info.LastName}`}</p>
-                    //             <p>Dui: {el.ReciverDui}</p>
-                    //             <p>Cuenta: {el.AccountReceiver}</p>
+                    <div className='my-auto h-full w-full bg-white rounded-xl flex flex-col items-center justify-center'>
+                        <img src={ no_tranfers_recieved } alt="" className='w-[200px] mb-3'/>
+                        <p className='text-[#606470] text-[1.2rem]'>Aún no hay historial de transferencias recibidas</p>
+                    </div>
             }
         </div>
         

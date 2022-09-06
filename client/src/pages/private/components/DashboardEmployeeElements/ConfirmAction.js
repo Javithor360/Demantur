@@ -24,42 +24,41 @@ export const ConfirmAction = ({ props, setActive, setSuccess }) => {
     }
 
     return (
-        <div className='h-full  p-[4rem] w-full'>
+        <div className='h-full p-[4rem] w-[55rem]'>
             <div className='container-confir_action'>
-                <h1 className='text-center'>Confirma tu acción</h1>
-                <p>Antes de continuar, asegúrate que los datos estén correctos y posteriormente confirma la solicitud con el botón al final.</p>
-
+                <h1 className='text-center mb-4'>Confirma tu acción</h1>
+                <p className='mb-3'>Antes de continuar, asegúrate que los datos estén correctos y posteriormente confirma la solicitud con el botón al final.</p>
+                <hr />
                 <div>
-                    <div className='mt-[3rem]'>
-                        <h4>Cliente:</h4>
-                        <p>Foto de Perfil:</p> 
-                        <div className='flex'>
-                            <img src={props.uPfp} alt="" className='h-[12rem] w-[12rem]' />
-                              
-                            <div className='ml-[3rem] flex flex-col justify-center number-account-employee'>
-                                <p>{props.uFullName}</p>
-                                <p>Número de cuenta: {props.uAcc}</p>
+                    <div className='mb-[1.5rem]'>
+                        <h4 className='mb-4 mt-4'>Cliente:</h4>
+                        <p><strong>Foto de Perfil:</strong></p> 
+                        <div className='flex flex-col justify-center'>
+                            <img src={props.uPfp} alt="" className='h-[12rem] w-[12rem]  mb-3' />
+                            <div className='flex flex-col justify-center number-account-employee'>
+                                <p><strong>Nombre: </strong>{props.uFullName}</p>
+                                <p><strong>Número de cuenta: </strong> {props.uAcc}</p>
                             </div>
                         </div>
                     </div>
-
-                    <div className='mt-[3rem] flex justify-between'>
+                    <hr />
+                    <div className='mt-[3rem] mb-[1.7rem] flex justify-between'>
                         <div className='basis-[50%]'>
-                            <h4>Transacción:</h4>
+                            <h4 className='mb-4'>Transacción:</h4>
                             <p><strong>Tipo:</strong> Depósito</p>
                             <p><strong>Monto:</strong> <span className='text-[1.5   rem]'>${props.amount}</span></p>
                             <p><strong>Fecha:</strong> {new Date().toLocaleDateString()}</p>
                         </div>
                         <div className='basis-[50%]'>
-                            <h4>Ejecutor:</h4>
-                            <p>{props.eFullName}</p>
-                            <p>{props.eId}</p>
+                            <h4 className='mb-4'>Ejecutor:</h4>
+                            <p><strong>Nombre: </strong>{props.eFullName}</p>
+                            <p><strong>ID: </strong>{props.eId}</p>
                         </div>
                     </div>
-
-                    <div className='flex justify-center'>
-                        <button onClick={handleButton} className="m-[2rem] btn-confirm">CONFIRMAR</button>
-                        <button onClick={closeButton} className='m-[2rem] btn-confirm'>CANCELAR</button>
+                    <hr />
+                    <div className='flex justify-center mt-[3rem]'>
+                        <button className='text-white rounded-lg border-none outline-none bg-[#455FB9] hover:bg-[#4f6acb] px-[1rem] py-[.5rem] mr-10' onClick={handleButton}>Confirmar</button>
+                        <button className='text-white rounded-lg border-none outline-none bg-[#1a2c6b] px-[1rem] py-[.5rem] hover:bg-[#22388a]' onClick={handleButton}>Cancelar</button>
                     </div>
                 </div>
             </div>

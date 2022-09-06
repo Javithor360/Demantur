@@ -1,5 +1,6 @@
 import { useDash } from "../../../../../context/DashboardContext";
 import { ScrollToTop } from "../../../../../components/ScrollToTop";
+import no_transfers_made from '../../assets/img/accounts-icons/no_transfers_made.png'
 
 export const AccountsTransferMade = ({ data }) => {
     const { Contacts, Info } = useDash();
@@ -118,7 +119,10 @@ export const AccountsTransferMade = ({ data }) => {
                         )
                     })
                     :
-                    <div>No hay transferencias enviadas</div>
+                    <div className='my-auto h-full w-full bg-white rounded-xl flex flex-col items-center justify-center'>
+                        <img src={ no_transfers_made } alt="" className='w-[200px] mb-3'/>
+                        <p className='text-[#606470] text-[1.2rem]'>Aún no hay historial de transferencias realizadas</p>
+                    </div>
             }
         </div>
         

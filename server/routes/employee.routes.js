@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const AuthMiddleware = require("../middlewares/AuthMiddleware");
-const { getCardRequests, getEmployeeData, getLoanRequests, getUserInfoForEmployee } = require("../controllers/EmployeeController");
+const { getCardRequests, getEmployeeData, getLoanRequests, getUserInfoForEmployee, getFullClientInfo } = require("../controllers/EmployeeController");
 const { AcceptRequestEmployee, DeclineRequestEmployee, ContactSuccessEmail } = require("../helpers/Functions");
 
 // Route -> /api/employee/
@@ -12,6 +12,8 @@ router.route("/get-user-data").post(getUserInfoForEmployee);
 
 router.route("/get-cards-requests").get(getCardRequests);
 router.route("/get-loans-requests").get(getLoanRequests);
+
+router.route("/get-client-info").get([AuthMiddleware], getFullClientInfo);
 
 router.route('/test-emails-ernesto').get(async (req, res, next) => {
   try {

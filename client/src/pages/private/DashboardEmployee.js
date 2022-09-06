@@ -3,12 +3,11 @@ import { SideBar } from "./components/SideBarEmployee";
 import { Header } from "./components/HeaderEmployee";
 import "./assets/scss/dashboarde.scss";
 import { useDash } from "../../context/DashboardContext";
-import { HomePageEmployee, LoansRequests, CardsRequests, Requests, Deposits } from "./components/DashboardEmployeeElements/IndexEmployeeDash";
+import { HomePageEmployee, LoansRequests, CardsRequests, Requests, Deposits, ClientFetch } from "./components/DashboardEmployeeElements/IndexEmployeeDash";
 import { useEmpConx } from "../../context/EmployeeContext";
 
-
 export const DashboardEmployee = () => {
-  const { Option, SettingsOption, GeneralInfoQuery} = useDash();
+  const { Option, SettingsOption, GeneralInfoQuery } = useDash();
 
   const { EmployeeInfoQuery } = useEmpConx();
 
@@ -28,13 +27,15 @@ export const DashboardEmployee = () => {
         return <Requests />
       case 5:
         return <Deposits />
+      case 6:
+        return <ClientFetch />
       default:
         return <h1>Home Page</h1>;
     }
   };
   return (
     <>
-     
+
       <div className="w-screen h-screen bg-[#396EB0] relative">
         <div className="w-full h-2/5 bg-[#F1F1F1] absolute fondo"></div>
         <div className="absolute flex items-center justify-center w-full h-full">

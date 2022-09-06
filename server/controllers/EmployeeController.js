@@ -8,6 +8,7 @@ const ErrorResponse = require("../utils/ErrorMessage");
 const { sendToken } = require("../helpers/Functions");
 const GlobalData = require('../models/GlobalData');
 const { default: mongoose } = require('mongoose');
+const { restart } = require('nodemon');
 
 // @route POST api/auth/employee/login
 // @desc Iniciar sesión como empleado
@@ -169,7 +170,7 @@ const getCardRequests = async (req, res, next) => {
         let cardRequestsOrder = []
 
         for (let index = 0; index < getAllUsers.length; index++) {
-            
+
             if (getAllUsers[index]._id.toString() === getAllCardRequests[index]?.CardOwner.toString()) {
                 let ObjectCardRequest = {}
                 ObjectCardRequest.RequestOwner = getAllUsers[index]
@@ -195,7 +196,7 @@ const getLoanRequests = async (req, res, next) => {
         const getAllUsers = await NormalUser.find()
         const ExtraInfo = await ExtraInfoNormalUser.find()
 
-        let loanRequestsOrder = [] 
+        let loanRequestsOrder = []
         console.log(getAllUsers)
 
         for (let index = 0; index < getAllUsers.length; index++) {
@@ -206,7 +207,7 @@ const getLoanRequests = async (req, res, next) => {
                 let ObjectLoanRequest = {}
                 ObjectLoanRequest.Request_guarantor = getAllUsers[index]
                 ObjectLoanRequest.LoanRequest = getAllLoanRequests[index]
-                ObjectLoanRequest.ExtraInfo = ExtraInfo[index] 
+                ObjectLoanRequest.ExtraInfo = ExtraInfo[index]
                 loanRequestsOrder.push(ObjectLoanRequest)
             }
         }
@@ -308,6 +309,50 @@ const denyAccount = async (req, res, next) => {
     }
 }
 
+const getFullClientInfo = async (req, res, next) => {
+    try {
+        const DuiNumber = req.header('DuiNumber');
+        if (!DuiNumber) {
+            return next(
+                new ErrorResponse("Ingresa el número de DUI antes de continuar", 400, "error")
+            );
+        }
+
+        const query = await NormalUser.findOne({ Dui: DuiNumber }).select('_id');
+        if (!query) {
+            return next(
+                new ErrorResponse("El número de DUI ingresado no es válido", 400, "error")
+            );
+        }
+        let allInfo = [];
+
+        const MainInfo = await NormalUser.findOne({ _id: query._id });
+        if (!MainInfo) {
+            return next(
+                new ErrorResponse("El número de DUI no fue encontrado", 400, "error")
+            )
+        }
+        allInfo.push(MainInfo);
+
+        const ExtraInfo = await ExtraInfoNormalUser.findOne({ UserOwner: query._id });
+        allInfo.push(ExtraInfo);
+
+        const SAccounts = await SavingsAccount.find();
+        allInfo.push(SAccounts.filter(s => query._id.toString() == s.AccountOwner.toString()));
+
+        const LoanInfo = await LoansModels.find();
+        allInfo.push({ LoanRequestCount: LoanInfo.filter(l => l.loan_guarantor.toString() == query._id.toString()).length > 0 ? true : false });
+
+        const CardsInfo = await CardsRequests.find();
+        allInfo.push({ CardRequestCount: CardsInfo.filter(l => l.CardOwner.toString() == query._id.toString()).length > 0 ? true : false });
+
+        res.status(200).json({ success: true, data: allInfo })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: error.message });
+    }
+}
+
 module.exports = {
     loginEmployee,
     getEmployeeData,
@@ -318,5 +363,6 @@ module.exports = {
     getUserInfoForEmployee,
     getAccountActivationRequests,
     activateAccount,
-    denyAccount
+    denyAccount,
+    getFullClientInfo
 }

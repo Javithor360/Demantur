@@ -1,5 +1,4 @@
 //scss
-
 import '../../../static/assets/scss/credit_cards/individual_cards_pages_main.scss'
 import "../assets/scss/UserCards.scss";
 
@@ -213,12 +212,12 @@ export const UserCards = () => {
         <ScrollToTop/>
         <div className="w-full h-full bg-white rounded-xl overflow-y-auto scroll-cards">
           <div className="w-full h-[2rem] flex items-center justify-start">
-            <button className="bg-transparent outline-none border-none mt-4 ml-5" onClick={() => {
+            <button className=" bg-transparent outline-none border-none mt-4 ml-5" onClick={() => {
               setChangeBox(false)
               setParametros(null)
               setError('')
             }}>
-              <BsArrowLeft className="text-[2rem] text-[#323643]" />
+              <BsArrowLeft className="text-[2rem] text-[#323643] hover-back-arrow ease-out duration-200" />
             </button>
           </div>
           <div className="h-fit w-full">

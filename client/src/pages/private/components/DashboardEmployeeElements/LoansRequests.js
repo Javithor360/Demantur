@@ -4,7 +4,7 @@ import { useEmpConx } from '../../../../context/EmployeeContext';
 import React from 'react'
 import './assets/scss/CardEmployee.scss'
 import { DetailsLoansRequest } from './DetailLoans'
-import no_cards_req from './assets/img/icons/no_cards_reqs.png'
+import no_loan_req from './assets/img/icons/no_loan_req.png'
 
 export const LoansRequests = () => {
   const { getLoanReq } = useEmpConx()
@@ -104,8 +104,8 @@ export const LoansRequests = () => {
               : 
                 <>
                   <div className='h-full w-full bg-white rounded-xl flex flex-col items-center justify-center'>
-                    <img src={ no_cards_req } alt="" className='w-[15.625rem] mb-3'/>
-                    <p className='text-[#606470] text-[1.2rem]'>No hay solicitudes pendientes</p>
+                    <img src={ no_loan_req } alt="" className='w-[15.625rem] mb-3'/>
+                    <p className='text-[#606470] text-[1.2rem]'>Cuando hayan solicitudes se mostrarán aqui</p>
                   </div>
                 </>
             }

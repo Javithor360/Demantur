@@ -3,7 +3,7 @@ import { BsArrowLeft } from 'react-icons/bs'
 import { AiOutlineZoomIn, AiOutlineZoomOut, AiOutlineCompress, AiOutlineClose } from 'react-icons/ai'
 import { useState, useEffect } from 'react'
 import { TransformComponent, TransformWrapper } from '@pronestor/react-zoom-pan-pinch'
-import Modal from '../Modal'
+import SmallModal from '../SmallModal'
 import { ConfirmCardReq } from './ConfirmCardReq'
 
 
@@ -60,7 +60,7 @@ export const DetailsCardRequest = ({ Params, setDisplayDetails }) => {
           <button className="bg-transparent outline-none border-none mt-4 ml-5" onClick={() => {
             setDisplayDetails(false)
           }}>
-            <BsArrowLeft className="text-[2rem] text-[#323643]" />
+            <BsArrowLeft className="text-[2rem] text-[#323643] hover-back-arrow ease-out duration-200" />
           </button>
         </div>
         <div className='mx-auto w-[90%] h-[9rem] border-cover rounded-2xl bg-[#FCFCFC] shadow-sm flex flex-row mb-5 mt-4'>
@@ -227,9 +227,9 @@ export const DetailsCardRequest = ({ Params, setDisplayDetails }) => {
           </div>
         </div> 
         {toggle &&
-          <Modal active={active} toggle={toggle} onRequestClose={toggle}>
+          <SmallModal active={active} toggle={toggle} onRequestClose={toggle}>
               <ConfirmCardReq props={confirmData} setActive={setActive}/>
-          </Modal>
+          </SmallModal>
         }
       </div>
     </>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDash } from '../../../../../context/DashboardContext'
 import '../../../assets/scss/accounts.scss'
+import no_deposits from '../../assets/img/accounts-icons/no_deposits.png'
 
 export const DepositsHistory = ({ accNum }) => {
 
@@ -14,7 +15,7 @@ export const DepositsHistory = ({ accNum }) => {
     })()
   }, []);
   return (
-    <div className='flex flex-col-reverse justify-between text-center w-[90%] mx-auto overflow-y-auto overflow-x-hidden'>
+    <div className='h-full flex flex-col justify-between text-center w-[90%] mx-auto overflow-y-auto overflow-x-hidden'>
       {
         accountHistory.length !== 0 ?
           accountHistory.map((el, i) => {
@@ -60,7 +61,10 @@ export const DepositsHistory = ({ accNum }) => {
             )
           })
           :
-          <div>No hay historial de depósitos aún</div>
+          <div className='my-auto h-full w-full bg-white rounded-xl flex flex-col items-center justify-center'>
+            <img src={ no_deposits } alt="" className='w-[200px] mb-3'/>
+            <p className='text-[#606470] text-[1.2rem]'>Aún no hay historial de dépositos realizados</p>
+          </div>
           //<p>{i + 1}</p>
           // <p>{new Date(el.Date).toLocaleDateString()}</p>
           // <p>${el.Amount}</p>

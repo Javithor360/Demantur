@@ -168,7 +168,7 @@ export const CreateSavingAccForm = ({ isModal, setDisplay }) => {
 
   return (
     <>
-      <div className="m-10 h-fit w-[50rem] flex flex-col items-center">
+      <div className="m-10 h-[fit] w-[50rem] flex flex-col items-center">
         <p className="text-center text-[1.6rem] text-[#606470] mb-0">
           Formulario de creación de Cuenta de Ahorro
         </p>

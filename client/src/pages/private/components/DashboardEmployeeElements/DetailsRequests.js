@@ -9,7 +9,7 @@ import axios from 'axios';
 export const DetailsRequests = ({ info, setDisplayDetails }) => {
 
     const grid_column_styles = "mr-4 flex flex-col h-full w-full";
-    const table_name_styles = "max-h-[35%] w-full bg-[#D6D6D6] p-2 flex justify-center items-center";
+    const table_name_styles = "h-[35%] w-full bg-[#D6D6D6] p-2 flex justify-center items-center";
     const table_content_styles = "h-[65%] bg-white p-2 flex justify-center items-center";
     const table_container_styles_2 = "w-[90%] h-fit flex flex-col items-center mx-auto";
     const table_content_styles_2 = "h-full bg-white p-2 flex justify-center items-center";
@@ -80,8 +80,8 @@ export const DetailsRequests = ({ info, setDisplayDetails }) => {
                     </button>
                 </div>
                 <div className='mx-auto w-[90%] h-[5rem] border-cover rounded-2xl bg-[#FCFCFC] shadow-sm flex flex-row mb-5 mt-4'>
-                    <div className='h-full flex items-center justify-center mx-2'>
-                        <p className='text-[20px] m-0 p-0'>Solicitud de activación de cuenta</p>
+                    <div className='h-full w-full flex items-center justify-center mx-2'>
+                        <p className='text-[20px] m-0 p-0 w-fit'>Solicitud de activación de cuenta</p>
                     </div>
                 </div>
                 <div className='m-auto w-[90%] h-fit border-cover rounded-2xl bg-[#FCFCFC] shadow-sm flex flex-col mb-5'>
@@ -128,10 +128,10 @@ export const DetailsRequests = ({ info, setDisplayDetails }) => {
                                 </div>
                             </div>
                             <div className={`${grid_column_styles}`}>
-                                <div className={`${table_name_styles} rounded-tl-lg`}>
+                                <div className={`${table_name_styles} border-subdivisions`}>
                                     <p className='m-0 p-0'>Número de contacto</p>
                                 </div>
-                                <div className={`${table_content_styles} rounded-br-lg`}>
+                                <div className={`${table_content_styles} border-subdivisions`}>
                                     <p className='m-0 p-0'>{info.ExtraInfo.Number}</p>
                                 </div>
                             </div>
@@ -213,10 +213,10 @@ export const DetailsRequests = ({ info, setDisplayDetails }) => {
                                 return (
                                     <>
                                         <div className={`${grid_column_styles}`} key={index}>
-                                            <div className={`${table_name_styles} border-subdivisions`}>
+                                            <div className={`${table_name_styles} border-cover-2`}>
                                                 <p className='m-0 p-0'>{item.Name}</p>
                                             </div>
-                                            <div className={`${table_content_styles_2} border-subdivisions`}>
+                                            <div className={`${table_content_styles_2} border-left-division border-right-division border-bottom-division`}>
                                                 <img src={item.ImgSrc} alt="" className='hover:cursor-pointer hover:brightness-110 hover:ease-in ease-in duration-200 w-[20rem] py-5' key={index} onClick={() => getImg(item.ImgSrc)} />
                                             </div>
                                         </div>

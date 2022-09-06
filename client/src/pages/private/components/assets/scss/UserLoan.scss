@@ -1,5 +1,8 @@
 @use '../../../../../utilities/_colors.scss' as *;
-
+.hover-back-arrow:hover{
+    transform: translateX(-.2rem);
+    transition: all .2s ease-in;
+}
 .dash-loan-info{
     border: 1px solid $gray_dimmed;
     box-shadow: 0px 0px 5px .5px rgba(44, 40, 40, 0.212);

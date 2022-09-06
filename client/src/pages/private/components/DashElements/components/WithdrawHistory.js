@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDash } from '../../../../../context/DashboardContext';
+import no_withdraw from '../../assets/img/accounts-icons/no_withdraw.png'
 
 export const WithdrawHistory = ({ accNum }) => {
     const { getAccountsHistory } = useDash();
@@ -13,7 +14,7 @@ export const WithdrawHistory = ({ accNum }) => {
     }, []);
 
     return (
-        <div className='flex flex-col-reverse justify-between text-center mx-auto'>
+        <div className='h-full flex flex-col justify-between text-center mx-auto'>
             {
                 accountHistory.length !== 0 ?
                     accountHistory.map((el, i) => {
@@ -55,7 +56,10 @@ export const WithdrawHistory = ({ accNum }) => {
                         )
                     })
                     :
-                    <div>No hay registro de retiros aún</div>
+                    <div className='my-auto h-full w-full bg-white rounded-xl flex flex-col items-center justify-center'>
+                        <img src={ no_withdraw } alt="" className='w-[200px] mb-3'/>
+                        <p className='text-[#606470] text-[1.2rem]'>Aún no hay historial de retiros realizados</p>
+                    </div>
             }
         </div>
     )

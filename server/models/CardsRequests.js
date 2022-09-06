@@ -5,6 +5,7 @@ const StringReq = { type: String, require: true };
 const CardsRequestsSchema = new mongoose.Schema(
     {
         CardType: StringReq,
+        CardId: Number,
         CardOwner: {
             type: mongoose.Types.ObjectId,
             require: true,
@@ -12,7 +13,7 @@ const CardsRequestsSchema = new mongoose.Schema(
         Name: StringReq,
         // DuiNum: StringReq,
         Email: StringReq,
-        UserSalary: StringReq, 
+        UserSalary: StringReq,
         UserLaboralStatus: StringReq,
         CellNumber: StringReq,
         Address: StringReq,

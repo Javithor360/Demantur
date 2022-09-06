@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { getCardRequest, getEmployeeData, getLoanRequests } from "../api/Queries";
+import { getCardRequest, getEmployeeData, getLoanRequests, AcceptCardReqQuery, DeclineCardReqQuery } from "../api/Queries";
 
 const employeeContext = createContext();
 
@@ -9,7 +9,7 @@ export const useEmpConx = () => {
 }
 
 export const EmployeeProvider = ({ children }) => {
-  const [Test, setTest] = useState(null);
+  // const [Test, setTest] = useState(null);
   const [Info, setInfo] = useState({});
 
   const PrivateConfig = (Token) => {
@@ -38,17 +38,33 @@ export const EmployeeProvider = ({ children }) => {
     }
   }
 
-  const getLoanReq = async ( Token ) =>{
-    try{
+  const getLoanReq = async (Token) => {
+    try {
       return await getLoanRequests(PrivateConfig(Token))
-    }catch (error){
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const AcceptCardReq = async (Token, Dui) => {
+    try {
+      return await AcceptCardReqQuery(PrivateConfig(Token), Dui)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const DeclineCardReq = async (Token, Dui) => {
+    try {
+      return await DeclineCardReqQuery(PrivateConfig(Token), Dui)
+    } catch (error) {
       console.log(error)
     }
   }
 
   return (
     <employeeContext.Provider value={{
-      getCardReq, EmployeeInfoQuery, getLoanReq, Info
+      getCardReq, EmployeeInfoQuery, getLoanReq, Info, AcceptCardReq, DeclineCardReq
     }}>
       {children}
     </employeeContext.Provider>

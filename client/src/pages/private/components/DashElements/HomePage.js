@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { IoWalletSharp } from "react-icons/io5";
 import { useDash } from "../../../../context/DashboardContext";
 import '../assets/scss/HomePage.scss'
@@ -8,41 +7,8 @@ import { HistoryWidget, ContactsWidget } from "./HomePageWidgets/";
 import { useTranslation } from "react-i18next";
 
 export const HomePage = () => {
-  const { Info, setInfo, clientBalance, socket, setClientBalance, SavingAccounts, setSavingAccounts } = useDash();
+  const { Info, clientBalance, } = useDash();
   const { t } = useTranslation();
-
-  const [plusMount, setPlusMount] = useState(null);
-  const [Elm, setElm] = useState(null);
-
-  useEffect(() => {
-    // getSavingAccts(localStorage.getItem('authToken'))
-    if (plusMount !== null) {
-      setClientBalance(prev => (parseFloat(prev) + parseFloat(plusMount)).toFixed(2));
-      setPlusMount(null)
-    }
-  }, [plusMount, setClientBalance]);
-
-  useEffect(() => {
-    if (Elm !== null) {
-      let auxAccounts = SavingAccounts;
-      auxAccounts.forEach(element => {
-        // eslint-disable-next-line eqeqeq
-        if (element.accountNumber == Elm.transfer.AccountReceiver) {
-          element.balance = (parseFloat(element.balance) + parseFloat(Elm.transfer.Amount)).toFixed(2);
-        }
-        setSavingAccounts(auxAccounts);
-      });
-    }
-  }, [Elm, SavingAccounts, setSavingAccounts]);
-
-  useEffect(() => {
-    socket?.on('getTransfer', data => {
-      // getGlobalInfo(localStorage.getItem('authToken'));
-      setPlusMount(data.transfer.Amount)
-      setElm(data)
-    })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [socket]);
 
   return (
     <div className="h-full overflow-y-auto overflow-x-hidden scroll-home">

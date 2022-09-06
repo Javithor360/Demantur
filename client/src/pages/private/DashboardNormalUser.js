@@ -8,10 +8,13 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
 export const DashboardNormalUser = () => {
-  const { Option, SettingsOption, GeneralInfoQuery, getGlobalInfo, setSocket, socket, Info, getContacsWP, getSavingAccts, setNPName } = useDash();
+  const { Option, SettingsOption, GeneralInfoQuery, getGlobalInfo, setSocket, socket, Info, getContacsWP, getSavingAccts, setNPName, setClientBalance, SavingAccounts, setSavingAccounts } = useDash();
 
   const [Chargin, setChargin] = useState(true);
   const [OnlineUsers, setOnlineUsers] = useState([]);
+
+  const [plusMount, setPlusMount] = useState(null);
+  const [Elm, setElm] = useState(null);
 
   useEffect(() => {
     GeneralInfoQuery(localStorage.getItem("authToken"));
@@ -49,6 +52,36 @@ export const DashboardNormalUser = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Info])
+
+  useEffect(() => {
+    // getSavingAccts(localStorage.getItem('authToken'))
+    if (plusMount !== null) {
+      setClientBalance(prev => (parseFloat(prev) + parseFloat(plusMount)).toFixed(2));
+      setPlusMount(null)
+    }
+  }, [plusMount, setClientBalance]);
+
+  useEffect(() => {
+    if (Elm !== null) {
+      let auxAccounts = SavingAccounts;
+      auxAccounts.forEach(element => {
+        // eslint-disable-next-line eqeqeq
+        if (element.accountNumber == Elm.transfer.AccountReceiver) {
+          element.balance = (parseFloat(element.balance) + parseFloat(Elm.transfer.Amount)).toFixed(2);
+        }
+        setSavingAccounts(auxAccounts);
+      });
+    }
+  }, [Elm, SavingAccounts, setSavingAccounts]);
+
+  useEffect(() => {
+    socket?.on('getTransfer', data => {
+      // getGlobalInfo(localStorage.getItem('authToken'));
+      setPlusMount(data.transfer.Amount)
+      setElm(data)
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [socket]);
 
   const DisplayElement = () => {
     switch (Option) {

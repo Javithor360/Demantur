@@ -8,10 +8,12 @@ const ErrorResponse = require("../utils/ErrorMessage");
 const { sendToken } = require("../helpers/Functions");
 const GlobalData = require('../models/GlobalData');
 const { default: mongoose } = require('mongoose');
+const CardsModel = require('../models/CardsModel');
 
 // @route POST api/auth/employee/login
 // @desc Iniciar sesión como empleado
 // @access private
+
 
 const loginEmployee = async (req, res, next) => {
     try {
@@ -168,17 +170,25 @@ const getCardRequests = async (req, res, next) => {
 
         let cardRequestsOrder = []
 
-        for (let index = 0; index < getAllUsers.length; index++) {
-            
-            if (getAllUsers[index]._id.toString() === getAllCardRequests[index]?.CardOwner.toString()) {
-                let ObjectCardRequest = {}
-                ObjectCardRequest.RequestOwner = getAllUsers[index]
-                ObjectCardRequest.CardRequest = getAllCardRequests[index]
-                ObjectCardRequest.ExtraInfo = ExtraInfo[index]
-                cardRequestsOrder.push(ObjectCardRequest)
-                console.log(ObjectCardRequest)
-            }
-        }
+        getAllUsers.forEach(element1 => {
+            let element3
+
+            ExtraInfo.forEach(element => {
+                if (element.UserOwner.toString() === element1._id.toString()) {
+                    element3 = element
+                }
+            });
+
+            getAllCardRequests.forEach(element2 => {
+                if (element1._id.toString() === element2.CardOwner.toString()) {
+                    let ObjectCardRequest = {}
+                    ObjectCardRequest.RequestOwner = element1
+                    ObjectCardRequest.CardRequest = element2
+                    ObjectCardRequest.ExtraInfo = element3
+                    cardRequestsOrder.push(ObjectCardRequest)
+                }
+            });
+        });
 
         res.status(200).json({ data: cardRequestsOrder });
     } catch (e) {
@@ -195,21 +205,27 @@ const getLoanRequests = async (req, res, next) => {
         const getAllUsers = await NormalUser.find()
         const ExtraInfo = await ExtraInfoNormalUser.find()
 
-        let loanRequestsOrder = [] 
-        console.log(getAllUsers)
+        let loanRequestsOrder = []
 
-        for (let index = 0; index < getAllUsers.length; index++) {
-            // console.log('=======================')
-            // console.log(getAllUsers[index]?._id?.toString(), getAllLoanRequests[index]?.loan_guarantor?.toString())
-            // console.log('=======================')
-            if (getAllUsers[index]?._id?.toString() == getAllLoanRequests[index]?.loan_guarantor?.toString()) {
-                let ObjectLoanRequest = {}
-                ObjectLoanRequest.Request_guarantor = getAllUsers[index]
-                ObjectLoanRequest.LoanRequest = getAllLoanRequests[index]
-                ObjectLoanRequest.ExtraInfo = ExtraInfo[index] 
-                loanRequestsOrder.push(ObjectLoanRequest)
-            }
-        }
+        getAllUsers.forEach(element1 => {
+            let element3
+
+            ExtraInfo.forEach(element => {
+                if (element.UserOwner.toString() === element1._id.toString()) {
+                    element3 = element
+                }
+            });
+
+            getAllLoanRequests.forEach(element2 => {
+                if (element1._id.toString() === element2.loan_guarantor.toString()) {
+                    let ObjectLoanRequest = {}
+                    ObjectLoanRequest.Request_guarantor = element1
+                    ObjectLoanRequest.LoanRequest = element2
+                    ObjectLoanRequest.ExtraInfo = element3
+                    loanRequestsOrder.push(ObjectLoanRequest)
+                }
+            });
+        });
         res.status(200).json({ data: loanRequestsOrder });
     } catch (e) {
         console.log(e);
@@ -303,8 +319,100 @@ const denyAccount = async (req, res, next) => {
         await extraData.delete();
         res.status(200).json({ success: true, data: 'Cuenta rechazada correctamente' })
     } catch (error) {
-        console.log(error);
         res.status(500).json({ message: error.message });
+    }
+}
+
+const AcceptCardReq = async (req, res, next) => {
+    try {
+        const { Dui } = req.body
+        const User = await NormalUser.findOne({ Dui: Dui });
+        const CardReq = await CardsRequests.findOne({ CardOwner: User._id })
+
+        let CardType, CardAmount, PaymentDate, PayAmount, interest, CardNumber, CardCCV, CardExpire, CloudCardImage;
+        let timeNow = new Date()
+        PaymentDate = new Date(timeNow.getFullYear(), timeNow.getMonth(), timeNow.getDay() + 30);
+        // console.log(PaymentDate.toLocaleDateString('en-GB'))
+        PayAmount = 0;
+        CardExpire = new Date(timeNow.getFullYear() + 3, timeNow.getMonth(), timeNow.getDay())
+
+        const FunctGen = (Max, Min) => {
+            let Num = Math.random() * (Max - Min);
+            Num = Num + Min;
+            Num = Math.trunc(Num);
+            return Num
+        }
+
+        let CardP1 = FunctGen(900, 100);
+        let CardP2 = FunctGen(9000, 1000);
+        let CardP3 = FunctGen(9000, 1000);
+        let CardP4 = FunctGen(9000, 1000);
+
+        CardCCV = FunctGen(900, 100);
+
+        CardNumber = `5${CardP1} ${CardP2} ${CardP3} ${CardP4}`
+
+        if (CardReq.CardId == 0) {
+            CardType = 'Classic'
+            // AQUÍ SE REALIZARÁN LAS OPERACIONES PARA DETERMINAR EL MONTO Y TODO LO MONETARIO
+            CardAmount = 800.00;
+            interest = 10;
+            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1661868613/bank_card_images/classicCard-no_borrar_rk4osh.png'
+        } else if (CardReq.CardId == 1) {
+            CardType = 'Platinum'
+            // AQUÍ SE REALIZARÁN LAS OPERACIONES PARA DETERMINAR EL MONTO Y TODO LO MONETARIO
+            CardAmount = 1500.00;
+            interest = 8;
+            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1661868613/bank_card_images/platinumCard-no_borrar_tqt0zl.png'
+        } else if (CardReq.CardId == 2) {
+            CardType = 'Gold'
+            // AQUÍ SE REALIZARÁN LAS OPERACIONES PARA DETERMINAR EL MONTO Y TODO LO MONETARIO
+            CardAmount = 3000.00;
+            interest = 6;
+            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1661868613/bank_card_images/goldCard-no_borrar_ovmjjp.png'
+        } else if (CardReq.CardId == 3) {
+            CardType = 'Black'
+            // AQUÍ SE REALIZARÁN LAS OPERACIONES PARA DETERMINAR EL MONTO Y TODO LO MONETARIO
+            CardAmount = 6000.00;
+            interest = 3;
+            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1661868613/bank_card_images/blackCard-no_borrar_egcyc0.png'
+        }
+        await CardsRequests.findOneAndDelete({ CardOwner: User._id })
+
+        const NewCard = await new CardsModel({
+            CardOwner: User._id,
+            CardId: CardReq.CardId,
+            CardImage: CloudCardImage,
+            CardType,
+            CardNumber,
+            CardCCV,
+            CardExpire,
+            CardAmount,
+            PaymentDate,
+            PayAmount,
+            interest,
+            PaymentHistory: [],
+        })
+
+        await NewCard.save();
+
+        res.status(200).json({ success: true })
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+
+    }
+}
+
+const DeclineCardReq = async (req, res, next) => {
+    try {
+        const { Dui } = req.body
+        const User = await NormalUser.findOne({ Dui: Dui });
+        await CardsRequests.findOneAndDelete({ CardOwner: User._id })
+
+        res.status(200).json({ success: true })
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+
     }
 }
 
@@ -318,5 +426,6 @@ module.exports = {
     getUserInfoForEmployee,
     getAccountActivationRequests,
     activateAccount,
-    denyAccount
+    denyAccount,
+    AcceptCardReq, DeclineCardReq
 }

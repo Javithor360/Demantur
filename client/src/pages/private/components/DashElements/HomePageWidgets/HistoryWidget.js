@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { useDash } from "../../../../../context/DashboardContext";
-import { format } from 'timeago.js'
 
 // Translation
 import { useTranslation } from "react-i18next";
@@ -9,10 +8,11 @@ import { useTranslation } from "react-i18next";
 
 export const HistoryWidget = () => {
   const { t } = useTranslation();
-  const { GlobalInfo, Contacts, getGlobalInfo } = useDash()
+  const { GlobalInfo, Contacts, getGlobalInfo, getUsersToAdd } = useDash()
 
   const [MyTransactions, setMyTransactions] = useState(null);
   const [HimTransactions, setHimTransactions] = useState(null);
+  const [UsersToFind, setUsersToFind] = useState(null);
 
   const sortArrays = (Ar) => {
     return Ar.sort((a, b) => {
@@ -29,6 +29,10 @@ export const HistoryWidget = () => {
 
   useEffect(() => {
     getGlobalInfo(localStorage.getItem('authToken'));
+    (async () => {
+      const { data } = await getUsersToAdd(localStorage.getItem('authToken'));
+      setUsersToFind(data.data);
+    })()
   }, []);
 
   useEffect(() => {
@@ -40,7 +44,15 @@ export const HistoryWidget = () => {
 
         orderByDateMT = orderByDateMT.reverse();
 
-        for (let index = 0; index < 4; index++) {
+        let IndexMax;
+
+        if (orderByDateMT.length < 4) {
+          IndexMax = orderByDateMT.length
+        } else {
+          IndexMax = 4
+        }
+
+        for (let index = 0; index < IndexMax; index++) {
           transaction1.push(orderByDateMT[index]);
         }
         setMyTransactions(transaction1);
@@ -54,8 +66,15 @@ export const HistoryWidget = () => {
         let orderByDateHT = sortArrays(GlobalInfo.TransfersHistory.Received);
 
         orderByDateHT = orderByDateHT.reverse();
+        let IndexMax;
 
-        for (let index = 0; index < 4; index++) {
+        if (orderByDateHT.length < 4) {
+          IndexMax = orderByDateHT.length
+        } else {
+          IndexMax = 4
+        }
+
+        for (let index = 0; index < IndexMax; index++) {
           transaction2.push(orderByDateHT[index]);
         }
         setHimTransactions(transaction2);
@@ -79,16 +98,17 @@ export const HistoryWidget = () => {
             {
               MyTransactions ?
                 MyTransactions.map((SingleTrans, i) => {
-                  let Name = () => {
-                    for (let index = 0; index < Contacts.length; index++) {
-                      if (SingleTrans?.ReciverDui === Contacts[index].Dui) return `${Contacts[index].Name.split(' ')[0]} ${Contacts[index].Name.split(' ')[2]}`
+                  let Name;
+                  UsersToFind?.forEach(element => {
+                    if (SingleTrans?.ReciverDui === element.Dui) {
+                      Name = `${element.FirstName.split(' ')[0]} ${element.LastName.split(' ')[0]}`
                     }
-                  }
+                  });
                   let time = new Date(SingleTrans?.createdAt)
                   return (
                     <div className={`${i !== 3 && "div-info-transfer"} bg-[#fff] w-full h-[20%] flex justify-evenly items-center`} key={i}>
-                      <span>{SingleTrans?.Amount}</span>
-                      <span>{Name()}</span>
+                      <span>$ {SingleTrans?.Amount}</span>
+                      <span>{Name}</span>
                       <span>{SingleTrans?.AccountN}</span>
                       <span>{SingleTrans && time.toLocaleDateString('en-GB')}</span>
                     </div>
@@ -115,16 +135,17 @@ export const HistoryWidget = () => {
             {
               HimTransactions ?
                 HimTransactions.map((SingleTrans, i) => {
-                  let Name = () => {
-                    for (let index = 0; index < Contacts.length; index++) {
-                      if (SingleTrans?.SenderDui === Contacts[index].Dui) return `${Contacts[index].Name.split(' ')[0]} ${Contacts[index].Name.split(' ')[2]}`
+                  let Name;
+                  UsersToFind?.forEach(element => {
+                    if (SingleTrans?.SenderDui === element.Dui) {
+                      Name = `${element.FirstName.split(' ')[0]} ${element.LastName.split(' ')[0]}`
                     }
-                  }
+                  });
                   let time = new Date(SingleTrans?.createdAt)
                   return (
                     <div className={`${i !== 3 && "div-info-transfer"} bg-[#fff] w-full h-[20%] flex justify-evenly items-center`} key={i}>
-                      <span>{SingleTrans?.Amount}</span>
-                      <span>{Name()}</span>
+                      <span>$ {SingleTrans?.Amount}</span>
+                      <span>{Name}</span>
                       <span>{SingleTrans?.AccountN}</span>
                       <span>{SingleTrans && time.toLocaleDateString('en-GB')}</span>
                     </div>

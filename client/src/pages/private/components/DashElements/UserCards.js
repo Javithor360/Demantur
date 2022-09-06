@@ -18,6 +18,7 @@ import { RiLoader3Fill as IconChargin } from 'react-icons/ri'
 
 //translate
 import { useTranslation } from "react-i18next";
+import { CardMoreInfo } from './CardMoreInfo';
 
 //img
 const DashCardsImages = require.context(
@@ -31,16 +32,23 @@ export const UserCards = () => {
   const [CardReq, setCardReq] = useState(false);
   const [CharginIco, setCharginIco] = useState(true);
   const [Chargin, setChargin] = useState(false);
+  const [MyCard, setMyCard] = useState(null);
+  const [DebitCard, setDebitCard] = useState(null);
 
   const { t } = useTranslation();
 
-  const { CardsRequestsForm, CreateElements, getMyCardReq } = useDash();
+  const { CreateElements, getMyCardReq, getMyCard, setCardsParametros, getMyDebitCard, ChangeBox2, setChangeBox2, CardsParametros } = useDash();
 
   useEffect(() => {
     (async () => {
       const resp = await getMyCardReq(localStorage.getItem('authToken'));
+      const res2 = await getMyCard(localStorage.getItem('authToken'))
+      const res3 = await getMyDebitCard(localStorage.getItem('authToken'))
       setCardReq(resp.data.data);
+      setMyCard(res2.data.data);
+      setDebitCard(res3.data.data);
     })()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   setTimeout(() => {
@@ -210,7 +218,7 @@ export const UserCards = () => {
   const FormRequestCard = () => {
     return (
       <>
-        <ScrollToTop/>
+        <ScrollToTop />
         <div className="w-full h-full bg-white rounded-xl overflow-y-auto scroll-cards">
           <div className="w-full h-[2rem] flex items-center justify-start">
             <button className="bg-transparent outline-none border-none mt-4 ml-5" onClick={() => {
@@ -317,27 +325,7 @@ export const UserCards = () => {
               <p className="text-[1.5rem] text-[#323643] text-center p-2 ">
                 {t("DashboardNormalUser.Cards.tittle2")}
               </p>
-              <div className="mb-6 ml-5 card-tipe-tittle">
-                <p className="text-[1.375rem] text-[#323643] p-0 m-0">{t("DashboardNormalUser.Cards.sub-tittle")}</p>
-                <hr className="p-0  m-0 w-[20%]" />
-              </div>
-              <div className="flex flex-col items-center w-full min-h-fit ">
-                <div className="min-h-[20rem] w-[75%] shadow-lg rounded-xl mb-5 flex flex-col justify-center items-center dash-user-cards-container">
-                  <div className="h-[10%]">
-                    <p className="text-[1.375rem] text-center">Demantur Platinum</p>
-                    <img
-                      src={DashCardsImages("./platinumCard.png")}
-                      alt=""
-                      className="w-[200px] mt-3 mb-3"
-                    />
-                  </div>
-                  <div className="mt-6">
-                    <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
-                      {t("DashboardNormalUser.Cards.button")}
-                    </button>
-                  </div>
-                </div>
-              </div>
+
               <div className="mb-6 ml-5 card-tipe-tittle">
                 <p className="text-[1.375rem] text-[#323643] p-0 m-0">{t("DashboardNormalUser.Cards.sub-tittle2")}</p>
                 <hr className="p-0  m-0 w-[20%]" />
@@ -353,10 +341,49 @@ export const UserCards = () => {
                     />
                   </div>
                   <div className="mt-6">
-                    <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
+                    <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white" onClick={() => {
+                      setChangeBox2(true);
+                      setCardsParametros(DebitCard);
+                    }}>
                       Ver detalles
                     </button>
                   </div>
+                </div>
+              </div>
+
+
+              <div className="mb-6 ml-5 card-tipe-tittle">
+                <p className="text-[1.375rem] text-[#323643] p-0 m-0">{t("DashboardNormalUser.Cards.sub-tittle")}</p>
+                <hr className="p-0  m-0 w-[20%]" />
+              </div>
+              <div className="flex flex-col items-center w-full min-h-fit ">
+                <div className="min-h-[20rem] w-[75%] shadow-lg rounded-xl mb-5 flex flex-col justify-center items-center dash-user-cards-container">
+                  {
+                    MyCard === null ?
+                      CardReq === false ?
+                        <>Solicite una tarjeta de credito</>
+                        :
+                        <>Usted Tiene una solicitud en progreso</>
+                      :
+                      <>
+                        <div className="h-[10%]">
+                          <p className="text-[1.375rem] text-center">{MyCard.CardType !== 'Black' ? `Demantur ${MyCard?.CardType}` : 'Mastercard Black'}</p>
+                          <img
+                            src={MyCard?.CardImage}
+                            alt=""
+                            className="w-[200px] mt-3 mb-3"
+                          />
+                        </div>
+                        <div className="mt-6">
+                          <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white" onClick={() => {
+                            setChangeBox2(true);
+                            setCardsParametros(MyCard);
+                          }}>
+                            {t("DashboardNormalUser.Cards.button")}
+                          </button>
+                        </div>
+                      </>
+                  }
                 </div>
               </div>
             </>
@@ -404,55 +431,62 @@ export const UserCards = () => {
                 {t("DashboardNormalUser.Cards.tittle")}
               </p>
               {
-                CardReq === false ?
-                  <>
-                    {
-                      cardProperties.map((element, i) => {
-                        return (
-                          <>
-                            <div className="dash-card-info w-[90%] rounded-xl relative flex flex-row items-center">
-                              <div className="flex items-center justify-center h-full w-fit">
-                                <img
-                                  src={DashCardsImages(`${element.cardImage}`)}
-                                  alt=""
-                                  className="dash-left-card-img"
-                                />
-                              </div>
-                              <div className="dash-card-info-content">
-                                <div className="content-text">
-                                  <p className="text-[1.375rem] text-[#606470]">{element.cardName}</p>
-                                  <p className="text-[0.875rem] text-[#606470]">
-                                    {element.cardDescription}
-                                  </p>
+                MyCard === null ?
+                  CardReq === false ?
+                    <>
+                      {
+                        cardProperties.map((element, i) => {
+                          return (
+                            <>
+                              <div className="dash-card-info w-[90%] rounded-xl relative flex flex-row items-center">
+                                <div className="flex items-center justify-center h-full w-fit">
+                                  <img
+                                    src={DashCardsImages(`${element.cardImage}`)}
+                                    alt=""
+                                    className="dash-left-card-img"
+                                  />
                                 </div>
-                                <div className="flex items-center justify-center card-info-btn">
-                                  <button onClick={() => {
-                                    setChangeBox(true)
-                                    setParametros({
-                                      cardId: i,
-                                      cardName: element.cardName,
-                                      cardDescription: element.cardDescription,
-                                      cardDescription2: element.cardDescription2,
-                                      cardImage: element.cardImage
-                                    })
-                                  }} className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
-                                    {t("DashboardNormalUser.Cards.form.button")}
-                                  </button>
+                                <div className="dash-card-info-content">
+                                  <div className="content-text">
+                                    <p className="text-[1.375rem] text-[#606470]">{element.cardName}</p>
+                                    <p className="text-[0.875rem] text-[#606470]">
+                                      {element.cardDescription}
+                                    </p>
+                                  </div>
+                                  <div className="flex items-center justify-center card-info-btn">
+                                    <button onClick={() => {
+                                      setChangeBox(true)
+                                      setParametros({
+                                        cardId: i,
+                                        cardName: element.cardName,
+                                        cardDescription: element.cardDescription,
+                                        cardDescription2: element.cardDescription2,
+                                        cardImage: element.cardImage
+                                      })
+                                    }} className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
+                                      {t("DashboardNormalUser.Cards.form.button")}
+                                    </button>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </>
-                        )
-                      })
-                    }
-                  </>
+                            </>
+                          )
+                        })
+                      }
+                    </>
+                    :
+                    <>
+                      <div className='h-full w-full flex flex-col items-center justify-center'>
+                        <img src={pendingReqIcon} alt="" className='w-[200px] mb-4' />
+                        <span>Tiene una Solicitud en progreso</span>
+                      </div>
+                    </>
                   :
                   <>
                     <div className='h-full w-full flex flex-col items-center justify-center'>
                       <img src={pendingReqIcon} alt="" className='w-[200px] mb-4' />
-                      <span>Tiene una Solicitud en progreso</span>
+                      <span>Usted ya posee tarjeta de credito</span>
                     </div>
-                    {/* {console.log(CardReq)} */}
                   </>
               }
             </>
@@ -464,19 +498,24 @@ export const UserCards = () => {
   return (
     <div className="flex flex-row justify-between w-full h-full bg-transparent">
       {
-        changeBox === false ?
-          <>
-            <ScrollToTop />
-            <div className="scroll-cards w-[49%] h-[100%] bg-white rounded-xl shadow-md flex flex-col items-center overflow-x-hidden overflow-y-auto py-4">
-              {divLeft()}
-            </div>
-            <div className="scroll-cards w-[49%] h-full bg-white rounded-xl shadow-md py-4 overflow-x-hidden overflow-y-auto">
-              {userCards()}
-            </div>
-          </>
+        ChangeBox2 === false ?
+          changeBox === false ?
+            <>
+              <ScrollToTop />
+              <div className="scroll-cards w-[49%] h-[100%] bg-white rounded-xl shadow-md flex flex-col items-center overflow-x-hidden overflow-y-auto py-4">
+                {divLeft()}
+              </div>
+              <div className="scroll-cards w-[49%] h-full bg-white rounded-xl shadow-md py-4 overflow-x-hidden overflow-y-auto">
+                {userCards()}
+              </div>
+            </>
+            :
+            <>
+              {FormRequestCard()}
+            </>
           :
-          <>  
-            {FormRequestCard()}
+          <>
+            {CardMoreInfo()}
           </>
       }
     </div>

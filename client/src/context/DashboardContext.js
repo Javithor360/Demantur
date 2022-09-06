@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 import {
   creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ, getContactsWPReq, getMyLoanReqREQ, getSavingAcctsReq, UpdatePhotoReq, getNametoNavQuery, getEveryAccQuery, getAccHistory, ChangeEmailQuery, EmailCodeVerQuery, getPendingAccounts,
-  CancelChangeEm, VerifyOldPassQuery, ChangePassQuery, VerifyCodePassQuery, CancelChangePassQuery, PendingFrQuery, FriendRequestsQuery, UsersToAddQuery
+  CancelChangeEm, VerifyOldPassQuery, ChangePassQuery, VerifyCodePassQuery, CancelChangePassQuery, PendingFrQuery, FriendRequestsQuery, UsersToAddQuery, getMyCardQuery, getMyDebitCardQuery
 } from "../api/Queries";
 
 
@@ -36,6 +36,11 @@ export const DashProvider = ({ children }) => {
   const [HimTranfers, setHimTranfers] = useState([]);
   const [SavingAccounts, setSavingAccounts] = useState([]);
   const [clientBalance, setClientBalance] = useState(0);
+  const [ChangeBox2, setChangeBox2] = useState(false);
+
+
+  const [CardsParametros, setCardsParametros] = useState(null);
+
 
   const [socket, setSocket] = useState(null)
 
@@ -341,6 +346,22 @@ export const DashProvider = ({ children }) => {
     }
   }
 
+  const getMyCard = async (Token) => {
+    try {
+      return await getMyCardQuery(PrivateConfig(Token))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getMyDebitCard = async (Token) => {
+    try {
+      return await getMyDebitCardQuery(PrivateConfig(Token))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <dashContext.Provider value={{
       Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
@@ -351,7 +372,8 @@ export const DashProvider = ({ children }) => {
       MyTransfers, setMyTransfers, HimTranfers, setHimTranfers, DoATransfer, setGlobalInfo, socket, setSocket,
       getMyCardReq, getMyLoanReq, GlobalInfoSetReq, getContacsWP, SavingAccounts, getSavingAccts, UpdatePhoto, clientBalance,
       NPName, setNPName, setSavingAccounts, setClientBalance, getNametoNav, getEveryAcc, ChangeEmail, getAccountsHistory, EmailCodeVer, getActivatedAccountRequests,
-      CancelChangeEmail, VerifyOldPass, ChangePass, VerifyCodePass, CancelChangePass, setInfo, PendingFr, getMyFriendReq, getUsersToAdd
+      CancelChangeEmail, VerifyOldPass, ChangePass, VerifyCodePass, CancelChangePass, setInfo, PendingFr, getMyFriendReq, getUsersToAdd, getMyCard,
+      CardsParametros, setCardsParametros, getMyDebitCard, ChangeBox2, setChangeBox2
     }}>
       {children}
     </dashContext.Provider>

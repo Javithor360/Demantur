@@ -1,13 +1,14 @@
 import React from 'react'
-import { useEmpConx } from '../../../../context/EmployeeContext'
+import { useEmpConx } from '../../../../context/EmployeeContext';
 
-export const ConfirmCardReq = ({ props, setActive, toggle, setChangeButtons }) => {
-  const { AcceptCardReq } = useEmpConx();
+export const CancelCardReq = ({ props, setActive, toggle, setChangeButtons }) => {
 
-  const HandleConfirm = async () => {
+  const { DeclineCardReq } = useEmpConx();
+
+  const HandleCancel = async () => {
     try {
-      await AcceptCardReq(localStorage.getItem('employeeToken'), props.Dui)
-      setChangeButtons(1)
+      await DeclineCardReq(localStorage.getItem('employeeToken'), props.Dui)
+      setChangeButtons(2)
       toggle()
     } catch (error) {
       console.log(error)
@@ -17,13 +18,13 @@ export const ConfirmCardReq = ({ props, setActive, toggle, setChangeButtons }) =
   return (
     <div>
       <h1>Confirmar Acción</h1>
-      <span>en este apartado estás confirmando la aceptación del prestamo del usuario con los siguientes datos</span>
+      <span>en este apartado estás confirmando la denegacion del prestamo del usuario con los siguientes datos</span>
       <p>{props.Name}</p>
       <p>{props.Dui}</p>
       <p>{props.Email}</p>
       <p>{props.CelNum}</p>
       <button
-        onClick={HandleConfirm}
+        onClick={HandleCancel}
         className={`h-[3rem] w-[8rem] outline-none rounded-md border-none bg-[#323643] hover:bg-[#262932] text-white mx-4`}
       >
         Confirmar

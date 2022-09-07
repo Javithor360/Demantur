@@ -40,48 +40,72 @@ export const PayCC = ({ CardsParametros }) => {
   }
 
   return (
-    <div>
+    <div className='border-cover-2 pb-5 rounded-lg'>
       {
         SpentAmount !== 0 ?
           <>
-            <h3>En este apartado puedes pagar tu deuda de tu tarjeta de credito</h3>
-            <span>Monto Gastado: {SpentAmount} </span>
-            <span>Interes: {CardsParametros.interest}</span>
-            <span>Monto a pagar: {AmountToPay} </span>
-
-            {Error && <span>{Error}</span>}
-
-            <div className='acc-select-container bg-[#D6D6D6] h-[3.9rem] w-[25rem] rounded-xl ml-5 px-2'>
-              <div className='dropdown-tr'>
-                <div className="dropdown-button-tr" onClick={e => setIsSelect(!IsSelect)}>{NumberAccount === '' ? <span>Cuenta Emisora</span> : NumberAccount} <ArrowDown /></div>
-                {IsSelect && (
-                  <div className={`dropdown-box-content-tr top-for-dropdow-${(SavingAccounts.length * 3) + 3}`}>
-                    <div className="dropdown-box-item-tr" onClick={e => { setNumberAccount(''); setIsSelect(false) }} >
-                      Seleccionar
-                    </div>
-                    {SavingAccounts.map((element, i) => {
-                      return (
-                        <div
-                          className="dropdown-box-item-tr"
-                          onClick={e => {
-                            setNumberAccount(element.accountNumber)
-                            setIsSelect(false)
-                          }}
-                          key={i}
-                        >
-                          {element.accountNumber}
-                        </div>
-                      )
-                    })}
-                  </div>
-                )}
+            <p className='text-center text-[1.2rem] mt-[1.5rem]'>En este apartado puedes pagar tu deuda de tu tarjeta de credito</p>
+            <div className='mt-5 p-2 grid grid-cols-3 w-[90%] mx-auto mb-5 bg-[#F7F7F7] shadow-sm rounded-lg border border-[#DFDFDF]'>
+              <div className='flex flex-col justify-center items-center gap-2'>
+                <span className='w-fit font-semibold text-[1rem]'>Monto Gastado:</span>
+                <span className='w-fit'>${SpentAmount}</span>
+              </div>
+              <div className='flex flex-col justify-center items-center gap-2 border-left-division'>
+                <span className='w-fit font-semibold text-[1rem]'>Interes:</span>
+                <span className='w-fit'>{CardsParametros.interest}%</span>
+              </div>
+              <div className='flex flex-col justify-center items-center gap-2 border-left-division'>
+                <span className='w-fit font-semibold text-[1rem]'>Monto a pagar:</span>
+                <span className='w-fit'>${AmountToPay}</span>
               </div>
             </div>
-            <button onClick={HandlePay}>Pagar</button>
+
+            <div className='text-center -translate-y-5'>
+              <span className='w-fit text-red-500'>
+                {Error && <span>{Error}</span>}
+              </span>
+            </div>
+
+            <div className='w-fit mx-auto flex flex-row h-fit items-center gap-5'>
+              <div className='acc-select-container bg-[#D6D6D6] h-[3.9rem] w-[20rem] rounded-xl ml-5 px-2'>
+                <div className='dropdown-CC'>
+                  <div className="dropdown-button-CC" onClick={e => setIsSelect(!IsSelect)}>{NumberAccount === '' ? <span>Cuenta Emisora</span> : NumberAccount} <ArrowDown /></div>
+                  {IsSelect && (
+                    <div className={`dropdown-box-content-CC top-for-dropdow-${(SavingAccounts.length * 3) + 3}`}>
+                      <div className="dropdown-box-item-CC" onClick={e => { setNumberAccount(''); setIsSelect(false) }} >
+                        Seleccionar
+                      </div>
+                      {SavingAccounts.map((element, i) => {
+                        return (
+                          <div
+                            className="dropdown-box-item-CC"
+                            onClick={e => {
+                              setNumberAccount(element.accountNumber)
+                              setIsSelect(false)
+                            }}
+                            key={i}
+                          >
+                            {element.accountNumber}
+                          </div>
+                        )
+                      })}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className='h-fit w-fit'>
+                <button className="py-[.5rem] px-[1rem] border-none outline-none bg-[#323643] text-white rounded-md" onClick={HandlePay}>Pagar</button>
+              </div>
+              
+            </div>
+            
           </>
           :
           <>
+          <div className='h-[20rem] flex flex-col justify-center items-center'>
             Hasta el momento no tiene deuda con la tarjeta de credito
+          </div>
+           
           </>
       }
     </div>

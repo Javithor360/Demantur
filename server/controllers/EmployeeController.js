@@ -5,7 +5,7 @@ const LoansModels = require('../models/LoansModels')
 const NormalUser = require('../models/NormalUser')
 const ExtraInfoNormalUser = require('../models/ExtraInfoNormalUser')
 const ErrorResponse = require("../utils/ErrorMessage");
-const { sendToken } = require("../helpers/Functions");
+const { sendToken, AcceptRequestEmployee, DeclineRequestEmployee } = require("../helpers/Functions");
 const GlobalData = require('../models/GlobalData');
 const { default: mongoose } = require('mongoose');
 const CardsModel = require('../models/CardsModel');
@@ -294,6 +294,9 @@ const activateAccount = async (req, res, next) => {
                 $set: { ActivedAccount: true }
             }
         )
+
+        const query = await NormalUser.findOne({ _id: AccountId }).select('Email')
+        AcceptRequestEmployee(query, next);
         res.status(200).json({ success: true, data: 'Cuenta activada correctamente' })
     } catch (error) {
         console.log(error);
@@ -309,12 +312,12 @@ const denyAccount = async (req, res, next) => {
                 new ErrorResponse("Datos incompletos", 400, "error")
             );
         }
-
+        const query = await NormalUser.findOne({ _id: AccountId }).select('Email')
         const user = await NormalUser.findOneAndDelete({ _id: AccountId });
         const otherData = await GlobalData.findOneAndDelete({ DataOwner: AccountId });
         const extraData = await ExtraInfoNormalUser.findOneAndDelete({ UserOwner: AccountId });
-        // Envío del correo (?)
-        // [...]
+
+        DeclineRequestEmployee(query, next)
         await user.delete();
         await otherData.delete();
         await extraData.delete();

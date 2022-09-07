@@ -400,7 +400,7 @@ exports.ContactEmail = async (gestionCode, name, dui, mail, cellnum, TextMessage
 }
 
 
-exports.AcceptRequestEmployee = async (dato, Email, next) => {
+exports.AcceptRequestEmployee = async (Email, next) => {
   try {
     const message = `
     <head>
@@ -475,7 +475,7 @@ footer{
                 <h1 class="title">Su solicitud fue aceptada</h1>
                 <hr />
             <div class="title2">
-              <p>Tu solicitud fue evaluada y cumples con los requisitos solicitados, tu cuenta sera activada lo más pronto posible</p>
+              <p>Tu solicitud fue evaluada y cumples con los requisitos solicitados, tu cuenta será activada lo más pronto posible</p>
             </div>
             <footer>
               <span class="copyright">
@@ -499,7 +499,7 @@ footer{
   }
 };
 
-exports.DeclineRequestEmployee = async (dato, Email, next) => {
+exports.DeclineRequestEmployee = async (Email, next) => {
   try {
     const message = `
     <head>
@@ -524,65 +524,61 @@ exports.DeclineRequestEmployee = async (dato, Email, next) => {
           margin-left: 2rem;
           margin-bottom: 2rem;
       }
-.title{
-  margin-top: 2rem;
-  font-size: 2rem;
-          font-weight: bold;
-          text-align: center;
-}
- hr{
-  border: 0;
-  height: .4rem;
-  background: #93DEFF;
-  opacity: 100;
-  padding: 0;
-  margin-top: -2.5rem;
-  width: 19rem;
-  font-weight: bold;
-}
-
-.title2 p{
-  text-align: center;
-  font-size: 1.5rem;
-}
-.subs{
-  text-align: center;
-  font-size: 1.5rem;
-  margin-left: 5rem;
-  margin-right: 5rem;
-}
-.copyright{
-  font-size: 1.5rem;
-padding: 0.625rem 0;
-  color: #ffffff;
-}
-.a{
-  text-align: center;
-  font-size: 1.5rem;
-}
-footer{
-  background-color: rgb(78, 78, 78);
-  margin-top: 10rem;
-  height: 3rem;
-  text-align: center;
-}
+      .title{
+        margin-top: 2rem;
+        font-size: 2rem;
+                font-weight: bold;
+                text-align: center;
+      }
+      hr{
+        border: 0;
+        height: .4rem;
+        background: #93DEFF;
+        opacity: 100;
+        padding: 0;
+        margin-top: -2.5rem;
+        width: 19rem;
+        font-weight: bold;
+      }
+      .title2 p{
+        text-align: center;
+        font-size: 1.5rem;
+      }
+      .subs{
+        text-align: center;
+        font-size: 1.5rem;
+        margin-left: 5rem;
+        margin-right: 5rem;
+      }
+      .copyright{
+        font-size: 1.5rem;
+      padding: 0.625rem 0;
+        color: #ffffff;
+      }
+      .a{
+        text-align: center;
+        font-size: 1.5rem;
+      }
+      footer{
+        background-color: rgb(78, 78, 78);
+        margin-top: 10rem;
+        height: 3rem;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
-      
-  <div class="fondo"><img class="icon" src="https://media.discordapp.net/attachments/825146450232213505/999324633478205560/Demantur_Imagotype-3.png?width=1025&height=414" alt="">
-  <h1 class="title">Su solicitud fue rechazada </h1>
-  <hr />
-<div class="title2">
-<p>Tu solicitud fue rechazada y lastimosamete no cumples con los requisitos solicitados</p>
-</div>
-<footer>
-<span class="copyright">
-    Todos los derechos reservados. © 2022 Demantur
-</span>
-</footer>
-</div>
-      
+    <div class="fondo">
+      <img class="icon" src="https://media.discordapp.net/attachments/825146450232213505/999324633478205560/Demantur_Imagotype-3.png?width=1025&height=414" alt="">
+      <h1 class="title">Su solicitud fue rechazada </h1>
+      <hr />
+      <div class="title2">
+        <p>Tu solicitud fue rechazada y lastimosamente no cumples con los requisitos solicitados</p>
+      </div>
+      <footer>
+        <span class="copyright">Todos los derechos reservados. © 2022 Demantur</span>
+      </footer>
+    </div>
   </body>
     `;
 

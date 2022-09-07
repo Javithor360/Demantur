@@ -1,10 +1,11 @@
+const { ContactEmail } = require("../helpers/Functions");
 const ErrorResponse = require("../utils/ErrorMessage");
 
 const usersContactForm = async (req, res, next) => {
     try {
-        
+
         const { name, dui, mail, cellnum, TextMessage } = req.body;
-        
+
         if (!name || !dui || !mail || !cellnum || !TextMessage) {
             return next(
                 new ErrorResponse("Por favor rellene todos los campos", 400, "error")
@@ -26,8 +27,8 @@ const usersContactForm = async (req, res, next) => {
         }
 
         ContactEmail(name, dui, mail, cellnum, TextMessage, res, next)
-        
-        res.status(200).json({ success: true, data: true});
+
+        res.status(200).json({ success: true, data: true });
 
     } catch (error) {
         console.error(error);

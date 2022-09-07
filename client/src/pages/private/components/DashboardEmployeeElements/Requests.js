@@ -104,7 +104,7 @@ export const Requests = () => {
                   </div>
                 </div>
                 :
-                <DetailsRequests info={params !== null && params} setDisplayDetails={setDisplayDetails} />
+                <DetailsRequests ArrInfo={Info} setInfo={setInfo} info={params !== null && params} setDisplayDetails={setDisplayDetails} />
             }
           </>
       }

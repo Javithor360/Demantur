@@ -33,7 +33,7 @@ export const Contacts = () => {
 
   const [UsersToAdd, setUsersToAdd] = useState(null);
 
-  const { getGlobalInfo, getUsersToFriendReq, ReloadStateTwo, setReloadStateTwo, PendingFr, getMyFriendReq, socket, Contacts, FriendRequest, setFriendRequest, PedingFriendReq, setPedingFriendReq, getUsersToAdd, setContacts, Info
+  const { getGlobalInfo, getUsersToFriendReq, ReloadStateTwo, setReloadStateTwo, PendingFr, getMyFriendReq, socket, Contacts, FriendRequest, setFriendRequest, PedingFriendReq, setPedingFriendReq, getUsersToAdd, setContacts
     , setReloadState
   } = useDash();
 

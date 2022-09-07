@@ -5,13 +5,16 @@ const LoansModels = require('../models/LoansModels')
 const NormalUser = require('../models/NormalUser')
 const ExtraInfoNormalUser = require('../models/ExtraInfoNormalUser')
 const ErrorResponse = require("../utils/ErrorMessage");
-const { sendToken } = require("../helpers/Functions");
+const { sendToken, AcceptRequestEmployee, DeclineRequestEmployee } = require("../helpers/Functions");
 const GlobalData = require('../models/GlobalData');
 const { default: mongoose } = require('mongoose');
+const CardsModel = require('../models/CardsModel');
+const { restart } = require('nodemon');
 
 // @route POST api/auth/employee/login
 // @desc Iniciar sesión como empleado
 // @access private
+
 
 const loginEmployee = async (req, res, next) => {
     try {
@@ -168,17 +171,25 @@ const getCardRequests = async (req, res, next) => {
 
         let cardRequestsOrder = []
 
-        for (let index = 0; index < getAllUsers.length; index++) {
-            
-            if (getAllUsers[index]._id.toString() === getAllCardRequests[index]?.CardOwner.toString()) {
-                let ObjectCardRequest = {}
-                ObjectCardRequest.RequestOwner = getAllUsers[index]
-                ObjectCardRequest.CardRequest = getAllCardRequests[index]
-                ObjectCardRequest.ExtraInfo = ExtraInfo[index]
-                cardRequestsOrder.push(ObjectCardRequest)
-                console.log(ObjectCardRequest)
-            }
-        }
+        getAllUsers.forEach(element1 => {
+            let element3
+
+            ExtraInfo.forEach(element => {
+                if (element.UserOwner.toString() === element1._id.toString()) {
+                    element3 = element
+                }
+            });
+
+            getAllCardRequests.forEach(element2 => {
+                if (element1._id.toString() === element2.CardOwner.toString()) {
+                    let ObjectCardRequest = {}
+                    ObjectCardRequest.RequestOwner = element1
+                    ObjectCardRequest.CardRequest = element2
+                    ObjectCardRequest.ExtraInfo = element3
+                    cardRequestsOrder.push(ObjectCardRequest)
+                }
+            });
+        });
 
         res.status(200).json({ data: cardRequestsOrder });
     } catch (e) {
@@ -195,21 +206,27 @@ const getLoanRequests = async (req, res, next) => {
         const getAllUsers = await NormalUser.find()
         const ExtraInfo = await ExtraInfoNormalUser.find()
 
-        let loanRequestsOrder = [] 
-        console.log(getAllUsers)
+        let loanRequestsOrder = []
 
-        for (let index = 0; index < getAllUsers.length; index++) {
-            // console.log('=======================')
-            // console.log(getAllUsers[index]?._id?.toString(), getAllLoanRequests[index]?.loan_guarantor?.toString())
-            // console.log('=======================')
-            if (getAllUsers[index]?._id?.toString() == getAllLoanRequests[index]?.loan_guarantor?.toString()) {
-                let ObjectLoanRequest = {}
-                ObjectLoanRequest.Request_guarantor = getAllUsers[index]
-                ObjectLoanRequest.LoanRequest = getAllLoanRequests[index]
-                ObjectLoanRequest.ExtraInfo = ExtraInfo[index] 
-                loanRequestsOrder.push(ObjectLoanRequest)
-            }
-        }
+        getAllUsers.forEach(element1 => {
+            let element3
+
+            ExtraInfo.forEach(element => {
+                if (element.UserOwner.toString() === element1._id.toString()) {
+                    element3 = element
+                }
+            });
+
+            getAllLoanRequests.forEach(element2 => {
+                if (element1._id.toString() === element2.loan_guarantor.toString()) {
+                    let ObjectLoanRequest = {}
+                    ObjectLoanRequest.Request_guarantor = element1
+                    ObjectLoanRequest.LoanRequest = element2
+                    ObjectLoanRequest.ExtraInfo = element3
+                    loanRequestsOrder.push(ObjectLoanRequest)
+                }
+            });
+        });
         res.status(200).json({ data: loanRequestsOrder });
     } catch (e) {
         console.log(e);
@@ -278,6 +295,9 @@ const activateAccount = async (req, res, next) => {
                 $set: { ActivedAccount: true }
             }
         )
+
+        const query = await NormalUser.findOne({ _id: AccountId }).select('Email')
+        AcceptRequestEmployee(query, next);
         res.status(200).json({ success: true, data: 'Cuenta activada correctamente' })
     } catch (error) {
         console.log(error);
@@ -293,41 +313,147 @@ const denyAccount = async (req, res, next) => {
                 new ErrorResponse("Datos incompletos", 400, "error")
             );
         }
-
+        const query = await NormalUser.findOne({ _id: AccountId }).select('Email')
         const user = await NormalUser.findOneAndDelete({ _id: AccountId });
         const otherData = await GlobalData.findOneAndDelete({ DataOwner: AccountId });
         const extraData = await ExtraInfoNormalUser.findOneAndDelete({ UserOwner: AccountId });
-        // Envío del correo (?)
-        // [...]
+
+        DeclineRequestEmployee(query, next)
         await user.delete();
         await otherData.delete();
         await extraData.delete();
         res.status(200).json({ success: true, data: 'Cuenta rechazada correctamente' })
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
+const getFullClientInfo = async (req, res, next) => {
+    try {
+        const DuiNumber = req.header('DuiNumber');
+        if (!DuiNumber) {
+            return next(
+                new ErrorResponse("Ingresa el número de DUI antes de continuar", 400, "error")
+            );
+        }
+
+        const query = await NormalUser.findOne({ Dui: DuiNumber }).select('_id');
+        if (!query) {
+            return next(
+                new ErrorResponse("El número de DUI ingresado no es válido", 400, "error")
+            );
+        }
+        let allInfo = [];
+
+        const MainInfo = await NormalUser.findOne({ _id: query._id });
+        if (!MainInfo) {
+            return next(
+                new ErrorResponse("El número de DUI no fue encontrado", 400, "error")
+            )
+        }
+        allInfo.push(MainInfo);
+
+        const ExtraInfo = await ExtraInfoNormalUser.findOne({ UserOwner: query._id });
+        allInfo.push(ExtraInfo);
+
+        const SAccounts = await SavingsAccount.find();
+        allInfo.push(SAccounts.filter(s => query._id.toString() == s.AccountOwner.toString()));
+
+        const LoanInfo = await LoansModels.find();
+        allInfo.push({ LoanRequestCount: LoanInfo.filter(l => l.loan_guarantor.toString() == query._id.toString()).length > 0 ? true : false });
+
+        const CardsInfo = await CardsRequests.find();
+        allInfo.push({ CardRequestCount: CardsInfo.filter(l => l.CardOwner.toString() == query._id.toString()).length > 0 ? true : false });
+
+        res.status(200).json({ success: true, data: allInfo })
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: error.message });
     }
 }
 
-const declineLoan = async (req, res) =>{
+const AcceptCardReq = async (req, res, next) => {
     try {
-        const { Id } = req.body;
-    if (!Id) {
-        return next(
-            new ErrorResponse("Datos incompletos", 400, "error")
-        );
-    }
-        const loan = await LoansModels.findOneAndDelete({_id: id});
+        const { Dui } = req.body
+        const User = await NormalUser.findOne({ Dui: Dui });
+        const CardReq = await CardsRequests.findOne({ CardOwner: User._id })
+        let CardType, CardAmount, PaymentDate, PayAmount, interest, CardNumber, CardCCV, CardExpire, CloudCardImage;
+        let timeNow = new Date()
+        PaymentDate = new Date(timeNow.getFullYear(), timeNow.getMonth(), timeNow.getDay() + 30);
+        // console.log(PaymentDate.toLocaleDateString('en-GB'))
+        PayAmount = 0;
+        CardExpire = new Date(timeNow.getFullYear() + 3, timeNow.getMonth(), timeNow.getDay())
+        const FunctGen = (Max, Min) => {
+            let Num = Math.random() * (Max - Min);
+            Num = Num + Min;
+            Num = Math.trunc(Num);
+            return Num
+        }
+        let CardP1 = FunctGen(900, 100);
+        let CardP2 = FunctGen(9000, 1000);
+        let CardP3 = FunctGen(9000, 1000);
+        let CardP4 = FunctGen(9000, 1000);
+        CardCCV = FunctGen(900, 100);
+        CardNumber = `5${CardP1} ${CardP2} ${CardP3} ${CardP4}`
+        if (CardReq.CardId == 0) {
+            CardType = 'Classic'
+            // AQUÍ SE REALIZARÁN LAS OPERACIONES PARA DETERMINAR EL MONTO Y TODO LO MONETARIO
+            CardAmount = 800.00;
+            interest = 10;
+            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1661868613/bank_card_images/classicCard-no_borrar_rk4osh.png'
+        } else if (CardReq.CardId == 1) {
+            CardType = 'Platinum'
+            // AQUÍ SE REALIZARÁN LAS OPERACIONES PARA DETERMINAR EL MONTO Y TODO LO MONETARIO
+            CardAmount = 1500.00;
+            interest = 8;
+            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1661868613/bank_card_images/platinumCard-no_borrar_tqt0zl.png'
+        } else if (CardReq.CardId == 2) {
+            CardType = 'Gold'
+            // AQUÍ SE REALIZARÁN LAS OPERACIONES PARA DETERMINAR EL MONTO Y TODO LO MONETARIO
+            CardAmount = 3000.00;
+            interest = 6;
+            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1661868613/bank_card_images/goldCard-no_borrar_ovmjjp.png'
+        } else if (CardReq.CardId == 3) {
+            CardType = 'Black'
+            // AQUÍ SE REALIZARÁN LAS OPERACIONES PARA DETERMINAR EL MONTO Y TODO LO MONETARIO
+            CardAmount = 6000.00;
+            interest = 3;
+            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1661868613/bank_card_images/blackCard-no_borrar_egcyc0.png'
+        }
+        await CardsRequests.findOneAndDelete({ CardOwner: User._id })
+        const NewCard = await new CardsModel({
+            CardOwner: User._id,
+            CardId: CardReq.CardId,
+            CardImage: CloudCardImage,
+            CardType,
+            CardNumber,
+            CardCCV,
+            CardExpire,
+            CardAmount,
+            MaxCardAmount: CardAmount,
+            PaymentDate,
+            PayAmount,
+            interest,
+            PaymentHistory: [],
+            SpentHistory: [],
+            PayableAmount: 0.00
+        })
 
-        await loan.delete();
-        res.status(200).json({success: true, data: "prestamo denegado"})
-
+        await NewCard.save();
+        res.status(200).json({ success: true })
     } catch (error) {
-        console.log(error)
-        res.status(500).json({ message: error.message })
+        res.status(500).json({ message: error.message });
     }
-
-
+}
+const DeclineCardReq = async (req, res, next) => {
+    try {
+        const { Dui } = req.body
+        const User = await NormalUser.findOne({ Dui: Dui });
+        await CardsRequests.findOneAndDelete({ CardOwner: User._id })
+        res.status(200).json({ success: true })
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
 }
 
 module.exports = {
@@ -341,5 +467,7 @@ module.exports = {
     getAccountActivationRequests,
     activateAccount,
     denyAccount,
-    declineLoan
+    AcceptCardReq,
+    DeclineCardReq,
+    getFullClientInfo
 }

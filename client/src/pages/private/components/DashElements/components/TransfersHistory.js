@@ -3,13 +3,11 @@ import { useDash } from '../../../../../context/DashboardContext';
 import '../../../assets/scss/accounts.scss';
 import { AccountsTransferMade } from './AccountsTransferMade';
 import { AccountsTransferReceived } from './AccountsTransferReceived';
-import { ScrollToTop } from '../../../../../components/ScrollToTop'
 
 export const TransfersHistory = ({ accNum }) => {
   const { getAccountsHistory } = useDash();
   const [transfersMade, setTransfersMade] = useState([]);
   const [transfersReceived, setTransfersReceived] = useState([]);
-  const scrollTop = () =>{   window.scrollTo({top: 0, behavior: 'smooth'});};
 
   const [BoxHandler, setBoxHandler] = useState(1);
   const renderBox = () => {
@@ -33,8 +31,8 @@ export const TransfersHistory = ({ accNum }) => {
 
 
   return (
-      <div className='flex flex-col h-[100%]'>
-        <div className='flex w-[80%] bg-[#f7f7f7] p-2 rounded-sm shadow-sm justify-center  mx-auto h-[10%]'>
+      <div className='flex flex-col transfers-content'>
+        <div className='flex w-[80%] bg-[#f7f7f7] p-2 rounded-sm shadow-sm justify-center  mx-auto transfers-header h-[10%]'>
           <div className={`dash_acc-nav-type ${BoxHandler === 1 && `dash_acc-nav-type-active`}`} onClick={() => { setBoxHandler(1) } }>
             <span>Hechas</span>
           </div>
@@ -43,7 +41,7 @@ export const TransfersHistory = ({ accNum }) => {
           </div>
         </div>
 
-        <div className='h-[90%] overflow-y-hidden'>
+        <div className='transfers-renderbox overflow-y-hidden'>
           <section className={`w-[90%] h-[100%] mx-auto`}>
               {renderBox()}
             </section>

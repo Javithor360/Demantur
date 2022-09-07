@@ -135,7 +135,7 @@ export const Settings = ({ hidden }) => {
             <div className='flex flex-col h-fit justify-center items-center mb-2'>
               <span className='text-foto-de-perfil text-[#4E5364] m-2'>{t("DashboardNormalUser.Setting.desc")}</span>
               <div className='max-h-[12rem] min-w-[80%] '> 
-                <img src={Info?.PerfilPhoto?.url} alt="" className='rounded-xl m-auto w-[100%] max-h-[100%] object-cover bg-center' />
+                <img src={Info?.PerfilPhoto?.url} alt="" className='rounded-xl m-auto w-[90%] max-h-[100%] object-cover bg-center' />
               </div>
                 {
                   (Error || Success) &&

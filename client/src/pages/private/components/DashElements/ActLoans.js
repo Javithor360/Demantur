@@ -11,7 +11,7 @@ import axios from "axios";
 import { useDash } from "../../../../context/DashboardContext";
 //icons
 import { BsArrowLeft } from 'react-icons/bs'
-import  pendingReqIcon  from '../assets/img/cards-icons/quote-request.png'
+import pendingReqIcon from '../assets/img/cards-icons/quote-request.png'
 import { RiLoader3Fill as IconChargin } from 'react-icons/ri'
 import { BiLoaderAlt } from 'react-icons/bi'
 //translate
@@ -48,9 +48,8 @@ export const ActLoans = () => {
     (async () => {
       try {
         const resp = await getMyLoanReq(localStorage.getItem('authToken'));
-      
+
         setLoanReq(resp.data.data);
-        console.log(resp)
       } catch (e) {
         console.log(e)
       }
@@ -64,14 +63,14 @@ export const ActLoans = () => {
 
 
 
-  const UserElementsSalary = ['$450 y $499', '$500 y $999', '$700 y $1200', <span> {t("DashboardNormalUser.Loans.form.UserElementsSalary.1")}</span> ,]
-  const UserElementsLaboralStatus = [ `${t('DashboardNormalUser.Loans.form.LaboralStatus.1')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.2')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.3')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.4')}`,]
+  const UserElementsSalary = ['$450 y $499', '$500 y $999', '$700 y $1200', <span> {t("DashboardNormalUser.Loans.form.UserElementsSalary.1")}</span>,]
+  const UserElementsLaboralStatus = [`${t('DashboardNormalUser.Loans.form.LaboralStatus.1')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.2')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.3')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.4')}`,]
   const UserElementAmount = ['$300', '$500', '$999', '$1200', '$1500', 'Otro tipo de monto']
 
   // useEffect(() => {
   //   console.log(UserElementsLaboralStatus)
   //  }, []);
-   
+
 
   const [loan_guarantor, setloan_guarantor] = useState();
   const [UserSalary, setUserSalary] = useState('');
@@ -211,8 +210,8 @@ export const ActLoans = () => {
 
       CreateElements(localStorage.getItem("authToken"));
 
-      
-      setTimeout(()=>{
+
+      setTimeout(() => {
         setChargin(false)
         setUserSalary('')
         setUserStatus('')
@@ -254,7 +253,7 @@ export const ActLoans = () => {
             setParametros(null)
             setError('')
           }}>
-          <BsArrowLeft className="text-[2rem] text-[#323643] hover-back-arrow ease-out duration-200" />
+            <BsArrowLeft className="text-[2rem] text-[#323643] hover-back-arrow ease-out duration-200" />
           </button>
         </div>
         <div className="h-fit w-full">
@@ -262,7 +261,7 @@ export const ActLoans = () => {
             {parametros.LoanName}
           </p>
           <div className='subdivisions'>
-            <hr className=''/>
+            <hr className='' />
           </div>
           <img
             src={OfferLoans(`${parametros.LoanImage2}`)}
@@ -277,9 +276,9 @@ export const ActLoans = () => {
         </div>
 
         <div className="card-form-container">
-          
+
           <form onSubmit={handleForm} className="main-card-form">
-          <span className='ml-7 mb-3 text-[15px] text-[red]'>{Error !== '' && Error}</span>
+            <span className='ml-7 mb-3 text-[15px] text-[red]'>{Error !== '' && Error}</span>
             <div className='flex flex-row w-full h-[30%] justify-start items-center px-[2rem] mb-5'>
               <div className='h-[70%] mr-5'>
                 <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Loans.form.tittle1")}</p>
@@ -290,13 +289,13 @@ export const ActLoans = () => {
               <div className='h-[70%] mr-5 '>
                 <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Loans.form.tittle2")}</p>
                 <div className='h-[2.5rem] w-[15rem]'>
-                  <Dropdown setElement={setUserStatus} elements={UserElementsLaboralStatus}  Elemento={UserStatus} />
+                  <Dropdown setElement={setUserStatus} elements={UserElementsLaboralStatus} Elemento={UserStatus} />
                 </div>
               </div>
               <div className='h-[70%] mr-5 '>
                 <p className='text-[1.1rem] text-[#606470]'>Monto a Solicitar</p>
                 <div className='h-[2.5rem] w-[15rem]'>
-                  <Dropdown setElement={setAmountrequest} elements={UserElementAmount}  Elemento={Amountrequest} />
+                  <Dropdown setElement={setAmountrequest} elements={UserElementAmount} Elemento={Amountrequest} />
                 </div>
               </div>
               <div className="input-files h-[70%]">
@@ -328,12 +327,12 @@ export const ActLoans = () => {
                 {
                   Chargin === true ?
                     <>
-                      <BiLoaderAlt  className="animate-spin"/>
+                      <BiLoaderAlt className="animate-spin" />
                     </>
-                  :
-                  <>
-                    <span>Solicitar</span>
-                  </>
+                    :
+                    <>
+                      <span>Solicitar</span>
+                    </>
                 }
               </button>
             </div>
@@ -343,49 +342,49 @@ export const ActLoans = () => {
     )
   }
 
-  
+
 
   const userLoans = () => {
 
     return (
       <>
 
-      {
-        CharginIco === true? 
-      <>
-        <div className='flex justify-center items-center w-full h-full'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
-      </>
-      :
-      <>
-        <p className="text-[1.5rem] text-[#323643] text-center p-2 ">
-        {t("DashboardNormalUser.Loans.tittle2")}
+        {
+          CharginIco === true ?
+            <>
+              <div className='flex justify-center items-center w-full h-full'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
+            </>
+            :
+            <>
+              <p className="text-[1.5rem] text-[#323643] text-center p-2 ">
+                {t("DashboardNormalUser.Loans.tittle2")}
 
-        </p>
-        <div className="mb-6 ml-5 card-tipe-tittle">
-          <p className="text-[1.375rem] text-[#323643] p-0 m-0">{t("DashboardNormalUser.Loans.tittle3")}</p>
-          <hr className="p-0  m-0 w-[20%]" />
-        </div>
+              </p>
+              <div className="mb-6 ml-5 card-tipe-tittle">
+                <p className="text-[1.375rem] text-[#323643] p-0 m-0">{t("DashboardNormalUser.Loans.tittle3")}</p>
+                <hr className="p-0  m-0 w-[20%]" />
+              </div>
 
-        <div className="flex flex-col items-center w-full min-h-full">
-          <div className="min-h-[20rem] w-[75%] shadow-lg rounded-xl mb-5 flex flex-col justify-center items-center dash-user-cards-container">
-            <div className="h-[10%]">
-              <p className="text-[1.375rem] text-center">Demantur House</p>
-              <img
-                src={OfferLoans("./House.jpg")}
-                alt=""
-                className="w-[200px] mt-3 mb-3"
-              />
-            </div>
-            <div className="mt-6">
-              <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
-                {t("DashboardNormalUser.Loans.button2")}
+              <div className="flex flex-col items-center w-full min-h-full">
+                <div className="min-h-[20rem] w-[75%] shadow-lg rounded-xl mb-5 flex flex-col justify-center items-center dash-user-cards-container">
+                  <div className="h-[10%]">
+                    <p className="text-[1.375rem] text-center">Demantur House</p>
+                    <img
+                      src={OfferLoans("./House.jpg")}
+                      alt=""
+                      className="w-[200px] mt-3 mb-3"
+                    />
+                  </div>
+                  <div className="mt-6">
+                    <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
+                      {t("DashboardNormalUser.Loans.button2")}
 
-              </button>
-            </div>
-          </div>
-        </div>
-      </>
-      }
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </>
+        }
 
       </>
     );
@@ -397,98 +396,98 @@ export const ActLoans = () => {
         LoanName: <span>{t("DashboardNormalUser.Loans.1.tittle")}</span>,
         LoanDescription: <span>{t("DashboardNormalUser.Loans.1.desc")}</span>,
         LoanDescription2: <span>{t("DashboardNormalUser.Loans.1.desc2")}</span>,
-        LoanImage: './personal_loan.jpg', 
-        LoanImage2:'./PersonalRequire.jpg'
+        LoanImage: './personal_loan.jpg',
+        LoanImage2: './PersonalRequire.jpg'
       },
       {
         LoanName: <span>{t("DashboardNormalUser.Loans.2.tittle")}</span>,
         LoanDescription: <span>{t("DashboardNormalUser.Loans.2.desc")}</span>,
         LoanDescription2: <span>{t("DashboardNormalUser.Loans.2.desc2")}</span>,
         LoanImage: './business_loan.jpg',
-        LoanImage2:'./RequireLoan.jpg'
+        LoanImage2: './RequireLoan.jpg'
       },
       {
         LoanName: <span>{t("DashboardNormalUser.Loans.3.tittle")}</span>,
         LoanDescription: <span>{t("DashboardNormalUser.Loans.3.desc")}</span>,
         LoanDescription2: <span>{t("DashboardNormalUser.Loans.3.desc2")}</span>,
         LoanImage: './House.jpg',
-        LoanImage2:'./HousinRequire.jpg'
+        LoanImage2: './HousinRequire.jpg'
       },
       {
         LoanName: <span>{t("DashboardNormalUser.Loans.4.tittle")}</span>,
         LoanDescription: <span>{t("DashboardNormalUser.Loans.4.desc")}</span>,
         LoanDescription2: <span>{t("DashboardNormalUser.Loans.4.desc2")}</span>,
         LoanImage: './CarDemantur.jpg',
-        LoanImage2:'./AutoRequire.jpg'
+        LoanImage2: './AutoRequire.jpg'
 
       }
     ]
 
     return (
       <>
-      {
-        CharginIco === true?
-          <div className='flex justify-center items-center w-full h-full'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
-        :
-        <>
-        <p className="text-[24px] text-[#323643] text-center p-2 mb-4">
-          {t("DashboardNormalUser.Loans.tittle")}
-        </p>
         {
-          LoanReq === false ?
-            <>
-              {
-                LoansProperties.map((element, i) => {
-                  return (
-                    <>
-                      <div className="dash-card-info w-[90%] rounded-xl relative flex flex-row items-center">
-                        <div className="flex items-center justify-center h-full w-fit">
-                          <img
-                            src={OfferLoans(`${element.LoanImage}`)}
-                            alt=""
-                            className="dash-left-card-img"
-                          />
-                        </div>
-                        <div className="dash-card-info-content">
-                          <div className="content-text">
-                            <p className="text-[1.375rem] text-[#606470]">{element.LoanName}</p>
-                            <p className="text-[0.875rem] text-[#606470]">
-                              {element.LoanDescription}
-                            </p>
-                          </div>
-                          <div className="flex items-center justify-center card-info-btn">
-                            <button onClick={() => {
-                              setChangeBox(true)
-                              setParametros({
-                                LoanId: i,
-                                LoanName: element.LoanName,
-                                LoansDescription: element.LoanDescription,
-                                LoanDescription2: element.LoanDescription2,
-                                LoanImage: element.LoanImage,
-                                LoanImage2: element.LoanImage2
-                              })
-                            }} className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
-                              {t("DashboardNormalUser.Loans.button")}
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </>
-                  )
-                })
-              }
-            </>
+          CharginIco === true ?
+            <div className='flex justify-center items-center w-full h-full'><IconChargin className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
             :
             <>
-            <div className='h-full w-full flex flex-col items-center justify-center'>
-              <img src={ pendingReqIcon } alt="" className='w-[200px] mb-4'/>
-              <span>{t("DashboardNormalUser.Loans.desc")}</span>
-            </div>
-          </>
+              <p className="text-[24px] text-[#323643] text-center p-2 mb-4">
+                {t("DashboardNormalUser.Loans.tittle")}
+              </p>
+              {
+                LoanReq === false ?
+                  <>
+                    {
+                      LoansProperties.map((element, i) => {
+                        return (
+                          <>
+                            <div className="dash-card-info w-[90%] rounded-xl relative flex flex-row items-center">
+                              <div className="flex items-center justify-center h-full w-fit">
+                                <img
+                                  src={OfferLoans(`${element.LoanImage}`)}
+                                  alt=""
+                                  className="dash-left-card-img"
+                                />
+                              </div>
+                              <div className="dash-card-info-content">
+                                <div className="content-text">
+                                  <p className="text-[1.375rem] text-[#606470]">{element.LoanName}</p>
+                                  <p className="text-[0.875rem] text-[#606470]">
+                                    {element.LoanDescription}
+                                  </p>
+                                </div>
+                                <div className="flex items-center justify-center card-info-btn">
+                                  <button onClick={() => {
+                                    setChangeBox(true)
+                                    setParametros({
+                                      LoanId: i,
+                                      LoanName: element.LoanName,
+                                      LoansDescription: element.LoanDescription,
+                                      LoanDescription2: element.LoanDescription2,
+                                      LoanImage: element.LoanImage,
+                                      LoanImage2: element.LoanImage2
+                                    })
+                                  }} className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
+                                    {t("DashboardNormalUser.Loans.button")}
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </>
+                        )
+                      })
+                    }
+                  </>
+                  :
+                  <>
+                    <div className='h-full w-full flex flex-col items-center justify-center'>
+                      <img src={pendingReqIcon} alt="" className='w-[200px] mb-4' />
+                      <span>{t("DashboardNormalUser.Loans.desc")}</span>
+                    </div>
+                  </>
+              }
+            </>
         }
-        </>
-      }
-        
+
       </>
     )
 

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const AuthMiddleware = require("../middlewares/AuthMiddleware");
 const { WelcomeSavingsAccount, EmployeeAccount, AdminAccount } = require("../controllers/AccountCreatorController");
-const { getCardRequests, activateAccount, getAccountActivationRequests, denyAccount, getLoanRequests} = require("../controllers/EmployeeController");
+const { getCardRequests, activateAccount, getAccountActivationRequests, denyAccount, getLoanRequests } = require("../controllers/EmployeeController");
 
 
 // Route -> /api/accounts/

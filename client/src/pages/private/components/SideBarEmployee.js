@@ -1,12 +1,12 @@
 //icons
-import { AiFillHome } from "react-icons/ai";
+import { AiFillHome, AiOutlineSearch } from "react-icons/ai";
 import {
   MdOutlineLogout,
   MdRequestQuote
 } from "react-icons/md";
 import { GoChecklist } from "react-icons/go";
 import { BsCreditCardFill } from "react-icons/bs";
-import { IoIosCash } from "react-icons/io";
+import { IoIosCash } from "react-icons/io"; 
 import { useDash } from "../../../context/DashboardContext";
 
 const NavLinkStyles =
@@ -106,7 +106,7 @@ export const SideBar = () => {
             <div
               onClick={() => {
                 setOption(5);
-                setOptionElement("Depositos");
+                setOptionElement("Depósitos");
               }}
               className={
                 Option === 5
@@ -118,6 +118,23 @@ export const SideBar = () => {
                 <IoIosCash className={IconNavLinkStyles} />
               </div>
               <span className={SpanNavLinkStyles}>Depósitos</span>
+            </div>
+
+            <div
+              onClick={() => {
+                setOption(6);
+                setOptionElement("Buscar cliente");
+              }}
+              className={
+                Option === 6
+                  ? `${NavLinkStyles} menu-item2 menu-item-selected2`
+                  : `${NavLinkStyles} menu-item2`
+              }
+            >
+              <div className={DivNavLinkStyles}>
+                <AiOutlineSearch className={IconNavLinkStyles} />
+              </div>
+              <span className={SpanNavLinkStyles}>Buscar cliente</span>
             </div>
 
           </div>

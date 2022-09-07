@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react"
-
+import { useTranslation } from "react-i18next";
 // creando el context
 const authContext = createContext();
 
@@ -11,22 +11,24 @@ export const useAuth = () => {
 
 // funciones del context
 export const AuthProvider = ({ children }) => {
-
+  const { t } = useTranslation();
   const configPublic = {
+    
     header: {
       "Content-Type": "application/json",
     },
   }
 
-  const pageTitle = ['Datos Personales', 'Identificación', 'Datos Monetarios', 'Beneficiario', 'Código de Confirmación']
+  const pageTitle = [`${t('register.tittle')}`, `${t("register.tittle2")}`, `${t("register.tittle3")}`, `${t("register.tittle4")}`, `${t("register.tittle5")}`]
 
   const pageInfo = [
-    'Necesitamos tus datos personales para poder identificarte y saber que realmente eres tú',
-    'Para crear una cuenta en Demantur necesitas identificarte con estos datos para poder ingresar',
-    'Para nuestra logística necesitamos saber tus datos monetarios para ofrecerte nuestros mejores servicios',
-    'Si en algún caso sufre algún accidente el beneficiario tendrá derecho a reclamar sus bienes.',
-    'Revise su Email, en el cual tendrá un código de 6 dígitos que tiene que digitar aquí para validar su cuenta.'
+    `${t('register.subtittle')}`,
+    `${t('register.subtittle2')}`,
+    `${t('register.subtittle3')}`,
+    `${t('register.subtittle4')}`,
+    `${t('register.subtittle5')}`
   ]
+
 
   const [page, setPage] = useState(1);
   const [NPName, setNPName] = useState(null);

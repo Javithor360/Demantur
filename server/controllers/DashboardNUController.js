@@ -8,6 +8,8 @@ const SavingsAccount = require('../models/SavingsAccount');
 const { uploadRegisterImage } = require("../libs/cloudinary");
 const fs = require("fs-extra");
 const { ChangeEmailFunc, createCode } = require("../helpers/Functions");
+const CardsModel = require("../models/CardsModel");
+const DebitCardModel = require("../models/DebitCardModel");
 // const SavingAccount = require("../models/SavingAccount");
 
 const testDB = async (req, res, next) => {
@@ -815,6 +817,105 @@ const getAccountsHistory = async (req, res, next) => {
   }
 }
 
+const getMyCard = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const AllCards = await CardsModel.find()
+    let MyCard = null;
+
+    AllCards.forEach(element => {
+      if (element.CardOwner.toString() == token.user.id.toString()) {
+        MyCard = element
+      }
+    })
+
+    res.status(200).json({ success: true, data: MyCard });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const getDebitCard = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const AllDebitCards = await DebitCardModel.find()
+    let MyDebitCard = null;
+
+    AllDebitCards.forEach(element => {
+      if (element.CardOwner.toString() == token.user.id.toString()) {
+        MyDebitCard = element;
+      }
+    });
+    res.status(200).json({ success: true, data: MyDebitCard });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const PayCardDebt = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const { AccountN, Amount } = req.body
+    const Acc = await SavingsAccount.findOne({ accountNumber: AccountN })
+    let date = new Date()
+
+    if (parseFloat(Acc.balance) < parseFloat(Amount)) {
+      return next(new ErrorResponse('No tiene el monto suficiente', 400, 'error'))
+    } else {
+      await SavingsAccount.findOneAndUpdate({ accountNumber: AccountN }, { balance: (parseFloat(Acc.balance) - parseFloat(Amount)).toFixed(2) });
+      await CardsModel.findOneAndUpdate({ CardOwner: token.user.id }, { PayableAmount: 0, $push: { PaymentHistory: { RealizationDate: date, Amount: Amount, AccountNumber: AccountN } } });
+      // await CardsModel.findOneAndUpdate({ CardOwner: token.user.id }, {});
+      res.status(200).json({ success: true, data: 'Pagado correctamente' });
+    }
+
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const CreateDebitCard = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const { NumberAcc } = req.body;
+
+    // VALIDACION DE CUENTA ACTIVADA HACE FALTAAAAAAAAAAAAAAAAAAAAAAAAA
+
+    let CardNumber, CardCCV, CardExpire;
+    let timeNow = new Date()
+    CardExpire = new Date(timeNow.getFullYear() + 3, timeNow.getMonth(), timeNow.getDay())
+
+    const FunctGen = (Max, Min) => {
+      let Num = Math.random() * (Max - Min);
+      Num = Num + Min;
+      Num = Math.trunc(Num);
+      return Num
+    }
+
+    let CardP1 = FunctGen(900, 100);
+    let CardP2 = FunctGen(9000, 1000);
+    let CardP3 = FunctGen(9000, 1000);
+    let CardP4 = FunctGen(9000, 1000);
+
+    CardCCV = FunctGen(900, 100);
+    CardNumber = `5${CardP1} ${CardP2} ${CardP3} ${CardP4}`
+
+    const newDebitCard = await new DebitCardModel({
+      CardOwner: token.user.id,
+      CardNumber,
+      CardCCV,
+      CardExpire,
+      NumberAcountOf: NumberAcc,
+      SpentHistory: []
+    })
+
+    newDebitCard.save()
+
+    res.status(200).json({ success: true })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
 module.exports = {
   testDB,
   getUserId,
@@ -838,6 +939,7 @@ module.exports = {
   EmailCodeVer,
   CancelChangeEmail,
   VerifyOldPass,
-  ChangePass, VerifyCodePass, CancelChangePass, getPedingFriendReq, FriendReq, getUsersToAdd
+  ChangePass, VerifyCodePass, CancelChangePass, getPedingFriendReq, FriendReq, getUsersToAdd, getMyCard, getDebitCard,
+  PayCardDebt, CreateDebitCard
 };
 

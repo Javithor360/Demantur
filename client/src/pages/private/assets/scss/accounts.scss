@@ -129,6 +129,50 @@
 }
 
 // Modal css
+.modal-history{
+    width: 50rem;
+    height: 38rem;
+}
+.modal-history-header{
+    height: 25%;
+    width: 90%;
+}
+.modal-history-content{
+    height: 85%;
+    width: 90%;
+}
+.transfers-content{
+    height: 90%;
+}
+.transfers-header{
+    height: 10%;
+}
+.transfers-renderbox{
+    height: 90%;
+}
+@media (min-width: 1920px){
+    .modal-history{
+        width: 50rem;
+        height: 50rem;
+    }
+    .modal-history-header{
+        height: 15%;
+        width: 90%;
+    }
+    .modal-history-content{
+        height: 90%;
+        width: 90%;
+    }
+    .transfers-content{
+        height: 100%;
+    }
+    .transfers-header{
+        height: 8%;
+    }
+    .transfers-render-box{
+        height: 92%;
+    }
+}
 .dash_acc-nav-line {
     background-color: $primary_gray;
     height: 0.0938rem;

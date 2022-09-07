@@ -873,6 +873,49 @@ const PayCardDebt = async (req, res, next) => {
   }
 }
 
+const CreateDebitCard = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const { NumberAcc } = req.body;
+
+    // VALIDACION DE CUENTA ACTIVADA HACE FALTAAAAAAAAAAAAAAAAAAAAAAAAA
+
+    let CardNumber, CardCCV, CardExpire;
+    let timeNow = new Date()
+    CardExpire = new Date(timeNow.getFullYear() + 3, timeNow.getMonth(), timeNow.getDay())
+
+    const FunctGen = (Max, Min) => {
+      let Num = Math.random() * (Max - Min);
+      Num = Num + Min;
+      Num = Math.trunc(Num);
+      return Num
+    }
+
+    let CardP1 = FunctGen(900, 100);
+    let CardP2 = FunctGen(9000, 1000);
+    let CardP3 = FunctGen(9000, 1000);
+    let CardP4 = FunctGen(9000, 1000);
+
+    CardCCV = FunctGen(900, 100);
+    CardNumber = `5${CardP1} ${CardP2} ${CardP3} ${CardP4}`
+
+    const newDebitCard = await new DebitCardModel({
+      CardOwner: token.user.id,
+      CardNumber,
+      CardCCV,
+      CardExpire,
+      NumberAcountOf: NumberAcc,
+      SpentHistory: []
+    })
+
+    newDebitCard.save()
+
+    res.status(200).json({ success: true })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
 module.exports = {
   testDB,
   getUserId,
@@ -897,6 +940,6 @@ module.exports = {
   CancelChangeEmail,
   VerifyOldPass,
   ChangePass, VerifyCodePass, CancelChangePass, getPedingFriendReq, FriendReq, getUsersToAdd, getMyCard, getDebitCard,
-  PayCardDebt
+  PayCardDebt, CreateDebitCard
 };
 

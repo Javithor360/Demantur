@@ -11,6 +11,10 @@ const DebitCardsModelSchema = new mongoose.Schema({
   CardCCV: Number,
   CardExpire: Date,
   NumberAcountOf: StringReq,
+  SpentHistory: [{
+    RealizationDate: Date,
+    Amount: Number,
+  }],
 })
 
 module.exports = mongoose.model('DebitCardsModel', DebitCardsModelSchema);

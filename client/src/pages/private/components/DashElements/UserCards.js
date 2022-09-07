@@ -37,7 +37,7 @@ export const UserCards = () => {
 
   const { t } = useTranslation();
 
-  const { CreateElements, getMyCardReq, getMyCard, setCardsParametros, getMyDebitCard, ChangeBox2, setChangeBox2, CardsParametros } = useDash();
+  const { CreateElements, getMyCardReq, getMyCard, setCardsParametros, getMyDebitCard, ChangeBox2, setChangeBox2 } = useDash();
 
   useEffect(() => {
     (async () => {
@@ -344,6 +344,7 @@ export const UserCards = () => {
                     <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white" onClick={() => {
                       setChangeBox2(true);
                       setCardsParametros(DebitCard);
+                      console.log(DebitCard);
                     }}>
                       Ver detalles
                     </button>

@@ -1,11 +1,12 @@
 import React from 'react'
 import '../../assets/scss/UserCards.scss'
+import no_pay_history_CC from '../../assets/img/cards-icons/no_pay_history_CC.png'
 
 export const PaymentHCC = ({ CardsParametros }) => {
 
   // CardsParametros.PaymentHistory
   return (
-    <div className='h-[25rem] overflow-y-auto scroll-cards border-cover-2 pb-5 rounded-lg'>
+    <div className='h-[25rem] overflow-y-auto scroll-cards border-cover-2 rounded-lg'>
       {/* <p className='text-center text-[1.2rem] mt-4'>Historial de pagos</p> */}
       {
         CardsParametros.PaymentHistory.length !== 0 ?
@@ -16,7 +17,7 @@ export const PaymentHCC = ({ CardsParametros }) => {
                   let time = new Date(el.RealizationDate)
                   return (
                     <>
-                      <div className='mt-5 p-3 grid grid-cols-3 w-[90%] mx-auto bg-[#F7F7F7] shadow-sm rounded-lg border border-[#DFDFDF]'>
+                      <div className='mt-4 mb-2 p-3 grid grid-cols-3 w-[90%] mx-auto bg-[#F7F7F7] shadow-sm rounded-lg border border-[#DFDFDF]'>
                         <div className='flex flex-col justify-center items-center gap-2'>
                           <span className='w-fit font-semibold text-[1rem] text-[#606470]'>Monto:</span>
                           <span className='w-fit'>${el.Amount}</span>
@@ -41,7 +42,8 @@ export const PaymentHCC = ({ CardsParametros }) => {
           :
           <>
             <div className='h-full flex flex-col justify-center items-center'>
-              No tiene ningun pago realizado
+              <img src={ no_pay_history_CC } alt="" className='w-[6.25rem] mb-3' />
+              <p className="text-[#606470] text-[1.2rem]">No tiene ningun pago realizado</p>
             </div>
           </>
       }

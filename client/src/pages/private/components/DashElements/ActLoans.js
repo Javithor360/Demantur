@@ -35,9 +35,9 @@ export const ActLoans = () => {
   const [CharginIco, setCharginIco] = useState(true);
   const [Chargin, setChargin] = useState(false);
 
-  const handleClick = event => {
-    event.currentTarget.disabled = true;
-  };
+  // const handleClick = event => {
+  //   event.currentTarget.disabled = true;
+  // };
 
   const { t } = useTranslation();
 

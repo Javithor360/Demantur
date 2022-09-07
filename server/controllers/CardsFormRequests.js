@@ -123,6 +123,7 @@ const CardsFormRequests = async (req, res, next) => {
         console.error(error);
         return res.status(500).json({ success: false, error: error.message });
     }
+    
 };
 
 module.exports = { CardsFormRequests };

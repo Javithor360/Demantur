@@ -25,7 +25,7 @@ const LoanRequestSchema = new mongoose.Schema(
             DuiFrontImg: Object,
             SalaryEvidenceImg: Object,
             DuiBackImg: Object,
-            CloudLoansImage: StringReq
+            CloudLoanImage: StringReq
             
         }
     }, 

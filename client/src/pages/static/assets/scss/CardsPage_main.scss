@@ -440,15 +440,19 @@ body{
 
 @media (max-width: 588px){
     .cards-flexbox .individual-card-container .card-information .card-image img{
-        width: 9.5rem;
+        width: 8.5rem;
         transform: translateX(-5.5rem);
     }
 
     .cards-flexbox .individual-card-container .card-information .card-tittle p:nth-of-type(1){
         font-size: .75rem;
         margin-right: 2rem;
+        margin-bottom: 0;
     }
 
+    .cards-flexbox .individual-card-container .card-information .card-tittle p:nth-of-type(2){
+        font-size: 0.6rem;
+    }
     .card-tittle .mastercard{
         margin-right: 2rem;
     }
@@ -461,24 +465,28 @@ body{
         transform: translateX(-2rem);
     }
 
-    .classicCard{
-        transform: translateY(.2rem);
+    .card-button{
+        margin-left: 1.5rem;
     }
 
-    .platinumCard{
+    .classicCard{
         transform: translateY(.5rem);
     }
 
+    .platinumCard{
+        transform: translateY(1rem);
+    }
+
     .goldCard{
-        transform: translateY(1.5rem);
+        transform: translateY(2rem);
     }
 
     .blackCard{
-        transform: translateY(1.5rem );
+        transform: translateY(2rem );
     }
 
     .debitCard{
-        transform: translateY(-1.2rem);
+        transform: translateY(.5rem);
     }
 }
 
@@ -540,3 +548,48 @@ body{
 }
 
 
+
+@media(max-width:485px){
+    .cards-flexbox .individual-card-container .card-information .card-image img{
+        width: 6.55rem;
+        transform: translateX(-4.2rem);
+    }
+
+    .card-details{
+        margin-left: 2rem;
+        width: 12rem;
+    }
+
+    .card-tittle{
+        margin-left: -3.5rem;
+    }
+
+    .card-tittle p:nth-child(2){
+        margin-top: -1rem;
+    }
+
+    .classicCard{
+        transform: translateY(2rem);
+    }
+
+    .platinumCard{
+        transform: translateY(3rem);
+    }
+
+    .goldCard{
+        transform: translateY(4rem);
+    }
+
+    .blackCard{
+        transform: translateY(5rem);
+    }
+
+    .debitCard{
+        transform: translateY(.8rem);
+    }
+
+    .card-button{
+        font-size: 0.6rem;
+        margin-left: 1rem;
+    }
+}

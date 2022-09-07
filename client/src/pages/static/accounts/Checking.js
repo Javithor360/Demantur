@@ -64,6 +64,9 @@ export const CheckingAccount = () => {
 
           {Tabs("CheckingAccount")}
         </div>
+        <div className="space-responsive">
+          <br/><br/><br/>
+        </div>
       </section>
       <Footer />
     </>

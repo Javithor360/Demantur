@@ -17,8 +17,9 @@ router.route("/get-cards-requests").get(getCardRequests);
 router.route("/get-loans-requests").get(getLoanRequests)
 
 router.route("/get-account-requests").get([AuthMiddleware], getAccountActivationRequests);
-router.route('/activate-account').post([AuthMiddleware], activateAccount)
-router.route('/decline-account').delete(denyAccount)
+router.route('/activate-account').post([AuthMiddleware], activateAccount);
+router.route('/decline-account').delete(denyAccount);
+
 
 
 module.exports = router;

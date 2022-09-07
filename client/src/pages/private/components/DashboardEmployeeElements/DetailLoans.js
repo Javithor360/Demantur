@@ -2,9 +2,9 @@ import './assets/scss/LoansEmployee.scss'
 import { BsArrowLeft } from 'react-icons/bs'
 import { AiOutlineZoomIn, AiOutlineZoomOut, AiOutlineCompress, AiOutlineClose } from 'react-icons/ai'
 import { useState, useEffect } from 'react'
-import Modal from '../Modal'
 import { TransformComponent, TransformWrapper } from '@pronestor/react-zoom-pan-pinch'
 import { LoanConfirm } from './LoansConfirm'
+import SmallModal from '../SmallModal'
 
 
 export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
@@ -24,7 +24,7 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
   }
   useEffect(() => {
     if (active) {
-        document.body.style.overflowY = 'hidden'
+      document.body.style.overflowY = 'hidden'
     }
   }, [active])
 
@@ -38,7 +38,7 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
       Name: 'Fotocopia de DUI trasera'
     },
     {
-      ImgSrc: Params.ConstancyImg ,
+      ImgSrc: Params.ConstancyImg,
       Name: 'Constancia de trabajo'
     },
     {
@@ -64,104 +64,104 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
           </button>
         </div>
         <div className='mx-auto w-[90%] h-[10rem] border-cover rounded-2xl bg-[#FCFCFC] shadow-sm flex flex-row mb-5 mt-4'>
-            <div className='h-full w-[70%] flex items-center justify-center'>
-              <p className='text-[20px] m-0 p-0'>Solicitud de préstamo <span className='font-semibold'> {Params.Type} Demantur </span></p>
+          <div className='h-full w-[70%] flex items-center justify-center'>
+            <p className='text-[20px] m-0 p-0'>Solicitud de préstamo <span className='font-semibold'> {Params.Type} Demantur </span></p>
           </div>
           <div className='h-full w-[42%] flex items-center justify-center'>
-            <img src={Params.CloudLoansImage} alt="" className='w-[13rem] rounded-lg'/>
+            <img src={Params.CloudLoansImage} alt="" className='w-[13rem] rounded-lg' />
           </div>
-        </div> 
+        </div>
 
         <div className='m-auto w-[90%] h-fit border-cover rounded-2xl bg-[#FCFCFC] shadow-sm flex flex-col mb-5'>
           <p className='text-[20px] m-auto my-0 text-center font-semibold mt-4'>Informacion del Usuario Solicitante</p>
           <p className='text-[20px] mt-3 ml-4'>Datos Personales</p>
-          <div className={ table_container_styles_2 }>
+          <div className={table_container_styles_2}>
             <div className='individual-req-grid_2 w-[95%] mb-5 rounded-lg h-[8rem] border-cover' >
-              <div className={ `${grid_column_styles} border-subdivisions ` }>
-                <div className={ `${table_name_styles} rounded-tl-lg` }>
+              <div className={`${grid_column_styles} border-subdivisions `}>
+                <div className={`${table_name_styles} rounded-tl-lg`}>
                   <p className='m-0 p-0'>Nombre</p>
                 </div>
                 <div className={`${table_content_styles} rounded-bl-lg`}>
                   <p className='m-0 p-0'>{Params.Name}</p>
                 </div>
               </div>
-              <div className={ `${grid_column_styles} border-subdivisions ` }>
-                  <div className={ `${table_name_styles}` }>
-                    <p className='m-0 p-0'>DUI</p>
-                  </div>
-                  <div className={`${table_content_styles}`}>
-                    <p className='m-0 p-0'>{Params.Dui}</p>
-                  </div>
+              <div className={`${grid_column_styles} border-subdivisions `}>
+                <div className={`${table_name_styles}`}>
+                  <p className='m-0 p-0'>DUI</p>
+                </div>
+                <div className={`${table_content_styles}`}>
+                  <p className='m-0 p-0'>{Params.Dui}</p>
+                </div>
               </div>
-              <div className={ `${grid_column_styles}` }>
-                  <div className={ `${table_name_styles} rounded-tr-lg` }>
-                    <p className='m-0 p-0'>Fecha de Nacimiento</p>
-                  </div>
-                  <div className={`${table_content_styles} rounded-br-lg`}>
-                    <p className='m-0 p-0'>{Params.DateBirth}</p>
-                  </div>
+              <div className={`${grid_column_styles}`}>
+                <div className={`${table_name_styles} rounded-tr-lg`}>
+                  <p className='m-0 p-0'>Fecha de Nacimiento</p>
+                </div>
+                <div className={`${table_content_styles} rounded-br-lg`}>
+                  <p className='m-0 p-0'>{Params.DateBirth}</p>
+                </div>
               </div>
             </div>
           </div>
 
           <p className='text-[20px] mt-3 ml-4'>Información de contacto</p>
-          <div className={ table_container_styles_2 }>
+          <div className={table_container_styles_2}>
             <div className='individual-req-grid_3 w-[95%] mb-5 rounded-lg h-[8rem] border-cover' >
-              <div className={ `${grid_column_styles} border-subdivisions ` }>
-                <div className={ `${table_name_styles} rounded-tl-lg` }>
+              <div className={`${grid_column_styles} border-subdivisions `}>
+                <div className={`${table_name_styles} rounded-tl-lg`}>
                   <p className='m-0 p-0'>Correo Electronico</p>
                 </div>
                 <div className={`${table_content_styles} rounded-bl-lg`}>
                   <p className='m-0 p-0'>{Params.Email}</p>
                 </div>
               </div>
-              <div className={ `${grid_column_styles}` }>
-                  <div className={ `${table_name_styles} rounded-tr-lg` }>
-                    <p className='m-0 p-0'>Número de contacto</p>
-                  </div>
-                  <div className={`${table_content_styles} rounded-br-lg`}>
-                    <p className='m-0 p-0'>{Params.CelNum}</p>
-                  </div>
+              <div className={`${grid_column_styles}`}>
+                <div className={`${table_name_styles} rounded-tr-lg`}>
+                  <p className='m-0 p-0'>Número de contacto</p>
+                </div>
+                <div className={`${table_content_styles} rounded-br-lg`}>
+                  <p className='m-0 p-0'>{Params.CelNum}</p>
+                </div>
               </div>
             </div>
           </div>
 
 
           <p className='text-[20px] mt-3 ml-4'>Información Laboral</p>
-          <div className={ table_container_styles_2 }>
+          <div className={table_container_styles_2}>
             <div className='individual-req-grid_4 w-[95%] mb-5 rounded-lg h-[8rem] border-cover' >
-              <div className={ `${grid_column_styles} border-subdivisions ` }>
-                <div className={ `${table_name_styles} rounded-tl-lg` }>
+              <div className={`${grid_column_styles} border-subdivisions `}>
+                <div className={`${table_name_styles} rounded-tl-lg`}>
                   <p className='m-0 p-0'>Estatus Laboral</p>
                 </div>
                 <div className={`${table_content_styles} rounded-bl-lg`}>
                   <p className='m-0 p-0'>{Params.UserStatus}</p>
                 </div>
               </div>
-              <div className={ `${grid_column_styles} border-subdivisions` }>
-                  <div className={ `${table_name_styles}` }>
-                    <p className='m-0 p-0'>Lugar de Trabajo</p>
-                  </div>
-                  <div className={`${table_content_styles}`}>
-                    <p className='m-0 p-0'>{Params.WorkPlace}</p>
-                  </div>
+              <div className={`${grid_column_styles} border-subdivisions`}>
+                <div className={`${table_name_styles}`}>
+                  <p className='m-0 p-0'>Lugar de Trabajo</p>
+                </div>
+                <div className={`${table_content_styles}`}>
+                  <p className='m-0 p-0'>{Params.WorkPlace}</p>
+                </div>
               </div>
-              <div className={ `${grid_column_styles}` }>
-                  <div className={ `${table_name_styles} rounded-tr-lg` }>
-                    <p className='m-0 p-0'>Rango Salarial</p>
-                  </div>
-                  <div className={`${table_content_styles} rounded-br-lg`}>
-                    <p className='m-0 p-0'>Entre {Params.UserSalary}</p>
-                  </div>
+              <div className={`${grid_column_styles}`}>
+                <div className={`${table_name_styles} rounded-tr-lg`}>
+                  <p className='m-0 p-0'>Rango Salarial</p>
+                </div>
+                <div className={`${table_content_styles} rounded-br-lg`}>
+                  <p className='m-0 p-0'>Entre {Params.UserSalary}</p>
+                </div>
               </div>
             </div>
           </div>
 
           <p className='text-[20px] mt-3 ml-4 flex items-center content-center '>Cantidad solicitado</p>
-          <div className={ table_container_styles_2 }>
+          <div className={table_container_styles_2}>
             <div className='individual-req-grid_1 w-[50%] mb-5 rounded-lg h-[8rem] border-cover' >
-              <div className={ `${grid_column_styles}` }>
-                <div className={ `${table_name_styles} rounded-tl-lg` }>
+              <div className={`${grid_column_styles}`}>
+                <div className={`${table_name_styles} rounded-tl-lg`}>
                   <p className='m-0 p-0 flex justify-center '>Monto solicitado</p>
                 </div>
                 <div className={`${table_content_styles} rounded-bl-lg`}>
@@ -174,46 +174,46 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
           <p className='text-[20px] mt-3 ml-4'>Anexos</p>
           <div className='flex justify-center'>
             <div className='grid-layout_4 w-[95%] mb-5 flex'>
-              {dataImg.map((item, first)=>{
-                return(
+              {dataImg.map((item, first) => {
+                return (
                   <>
-                  <div className={ `${grid_column_styles} ` }>
-                    <div className={ `${table_name_styles} border-subdivisions` }>
-                      <p className='m-0 p-0'>{item.Name}</p>
+                    <div className={`${grid_column_styles} `}>
+                      <div className={`${table_name_styles} border-subdivisions`}>
+                        <p className='m-0 p-0'>{item.Name}</p>
+                      </div>
+                      <div className={`${table_content_styles_2} border-subdivisions`} >
+                        <img src={item.ImgSrc} alt="" className='hover:cursor-pointer hover:brightness-110 hover:ease-in ease-in duration-200 w-[20rem] py-5' key={first} onClick={() => getImg(item.ImgSrc)} />
+                      </div>
                     </div>
-                    <div className={`${table_content_styles_2} border-subdivisions`} >
-                      <img src={item.ImgSrc} alt="" className='hover:cursor-pointer hover:brightness-110 hover:ease-in ease-in duration-200 w-[20rem] py-5'key={first} onClick={()=>getImg(item.ImgSrc)} />
-                    </div>
-                  </div>
                   </>
                 )
               })}
             </div>
           </div>
           {/* ImageModal */}
-          <div className={ImageModal? "Image-modal open" : "Image modal"}>
-            <TransformWrapper defaultScale={1} defaultPositionX={100} defaultPositionY={200}centerZoomedOut={true} limitToBounds={true}>
-              {({ zoomIn, zoomOut, resetTransform, ...rest}) => (
+          <div className={ImageModal ? "Image-modal open" : "Image modal"}>
+            <TransformWrapper defaultScale={1} defaultPositionX={100} defaultPositionY={200} centerZoomedOut={true} limitToBounds={true}>
+              {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
                 <>
                   <div className='my-2'>
-                    <button className='border-none outline-none bg-transparent' onClick={() => zoomIn()}><AiOutlineZoomIn className='text-[white] text-[2rem]'/></button>
-                    <button className='border-none outline-none bg-transparent mx-4' onClick={() => zoomOut()}><AiOutlineZoomOut className='text-[white] text-[2rem]'/></button>
-                    <button className='border-none outline-none bg-transparent' onClick={() => resetTransform()}><AiOutlineCompress className='text-[white] text-[2rem]'/></button>
+                    <button className='border-none outline-none bg-transparent' onClick={() => zoomIn()}><AiOutlineZoomIn className='text-[white] text-[2rem]' /></button>
+                    <button className='border-none outline-none bg-transparent mx-4' onClick={() => zoomOut()}><AiOutlineZoomOut className='text-[white] text-[2rem]' /></button>
+                    <button className='border-none outline-none bg-transparent' onClick={() => resetTransform()}><AiOutlineCompress className='text-[white] text-[2rem]' /></button>
                   </div>
-                    <TransformComponent limitToBounds={true}centerZoomedOut={true} centerZoomedIn={true}>
-                        <img src={tempImgSrc} alt=""/>
-                    </TransformComponent>
+                  <TransformComponent limitToBounds={true} centerZoomedOut={true} centerZoomedIn={true}>
+                    <img src={tempImgSrc} alt="" />
+                  </TransformComponent>
                 </>
               )}
             </TransformWrapper>
-            <button className='text-white absolute top-0 right-0 border-none outline-none bg-transparent m-2' onClick={()=>setImageModal(false)}><AiOutlineClose className='text-[white] text-[2rem]'/></button>
+            <button className='text-white absolute top-0 right-0 border-none outline-none bg-transparent m-2' onClick={() => setImageModal(false)}><AiOutlineClose className='text-[white] text-[2rem]' /></button>
           </div>
           {/* ImageModal */}
         </div>
 
         <div className='m-auto w-[60%] h-[6rem] border-cover rounded-2xl bg-[#FCFCFC] shadow-sm flex flex-row mb-5'>
           <div className='h-full w-[50%] flex items-center justify-center'>
-            <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#727C9F] text-white' onClick={() =>{
+            <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#727C9F] text-white' onClick={() => {
               setConfirmData(
                 {
                   Name: Params.Name,
@@ -230,11 +230,11 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
           <div className='h-full w-[50%] flex items-center justify-center'>
             <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#455FB9] text-white' id='' >Denegar</button>
           </div>
-        </div> 
+        </div>
         {toggle &&
-          <Modal active={active} toggle={toggle} onRequestClose={toggle}>
-              <LoanConfirm props={confirmData} setActive={setActive}/>
-          </Modal>
+          <SmallModal active={active} toggle={toggle} onRequestClose={toggle}>
+            <LoanConfirm props={confirmData} setActive={setActive} />
+          </SmallModal>
         }
       </div>
     </>

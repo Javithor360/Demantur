@@ -85,7 +85,7 @@ export const HistoryWidget = () => {
   return (
     <>
       <h2 className="text-gray-500 text-[1.5625rem] text-center">{t("DashboardNormalUser.Home.transfers.tittle")}</h2>
-      <div className="w-100  flex h-[20rem]">
+      <div className="w-100  flex h-[18rem]">
         <div className="text-center w-1/2 m-2">
           <span className=" text-[#34B1E7] text-2xl">{t("DashboardNormalUser.Home.transfers.tittle2")}</span>
           <div className="box-in-transfer w-100 h-[90%] mt-2 border-2 rounded">

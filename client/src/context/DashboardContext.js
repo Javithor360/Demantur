@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { createContext, useContext, useEffect, useState } from "react";
 // import { format } from "timeago.js";
 
@@ -38,19 +39,10 @@ export const DashProvider = ({ children }) => {
   const [clientBalance, setClientBalance] = useState(0);
   const [ChangeBox2, setChangeBox2] = useState(false);
 
-
+  const [DebitCard, setDebitCard] = useState(null);
   const [CardsParametros, setCardsParametros] = useState(null);
 
-
-  const [socket, setSocket] = useState(null)
-
-
-  useEffect(() => {
-    if (GlobalInfo !== null) {
-      // setPedingFriendReq(GlobalInfo.PendingFriendReq);
-      // setFriendRequest(GlobalInfo.FriendRequests);
-    }
-  }, [GlobalInfo]);
+  const [socket, setSocket] = useState(null);
 
   useEffect(() => {
     if (SavingAccounts.length !== 0) {
@@ -389,7 +381,7 @@ export const DashProvider = ({ children }) => {
       getMyCardReq, getMyLoanReq, GlobalInfoSetReq, getContacsWP, SavingAccounts, getSavingAccts, UpdatePhoto, clientBalance,
       NPName, setNPName, setSavingAccounts, setClientBalance, getNametoNav, getEveryAcc, ChangeEmail, getAccountsHistory, EmailCodeVer, getActivatedAccountRequests,
       CancelChangeEmail, VerifyOldPass, ChangePass, VerifyCodePass, CancelChangePass, setInfo, PendingFr, getMyFriendReq, getUsersToAdd, getMyCard,
-      CardsParametros, setCardsParametros, getMyDebitCard, ChangeBox2, setChangeBox2, PayCCDebt, CreateDebitCard
+      CardsParametros, setCardsParametros, getMyDebitCard, ChangeBox2, setChangeBox2, PayCCDebt, CreateDebitCard, DebitCard, setDebitCard,
     }}>
       {children}
     </dashContext.Provider>

@@ -910,7 +910,7 @@ const CreateDebitCard = async (req, res, next) => {
 
     newDebitCard.save()
 
-    res.status(200).json({ success: true })
+    res.status(200).json({ success: true, data: newDebitCard })
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }

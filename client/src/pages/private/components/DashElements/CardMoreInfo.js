@@ -6,7 +6,7 @@ import { PaymentHCC, PayCC, HistorySpentCC, LoadingComp } from "./MoreInfoElemen
 import { IoMdArrowDropdown as ArrowDown } from 'react-icons/io'
 
 export const CardMoreInfo = () => {
-  const { CardsParametros, setChangeBox2, SavingAccounts, CreateDebitCard } = useDash()
+  const { CardsParametros, setChangeBox2, SavingAccounts, CreateDebitCard, setDebitCard } = useDash()
   const [ChangeElements, setChangeElements] = useState(1);
 
   const [IsSelect, setIsSelect] = useState(false);
@@ -35,10 +35,11 @@ export const CardMoreInfo = () => {
     } else {
       try {
         const res = await CreateDebitCard(localStorage.getItem('authToken'), NumberAccount)
-        console.log(res);
+        console.log(res.data)
+        setDebitCard(res.data.data);
         setError(null);
         setSuccess('Proceso Exitoso')
-        setTimeout(() => { setChangeBox2(1) }, 2000)
+        setTimeout(() => { setChangeBox2(false) }, 2000)
       } catch (error) {
         console.log(error)
       }

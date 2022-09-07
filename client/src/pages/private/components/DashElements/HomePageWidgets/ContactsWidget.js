@@ -8,7 +8,7 @@ import { RiContactsFill } from 'react-icons/ri'
 import { useTranslation } from "react-i18next";
 
 export const ContactsWidget = () => {
-  const {t}=useTranslation();
+  const { t } = useTranslation();
   const { Contacts } = useDash()
 
   const [FourContacts, setFourContacts] = useState(null);
@@ -35,7 +35,7 @@ export const ContactsWidget = () => {
             FourContacts.map((Contact, i) => {
               return (
                 <>
-                  <div className='w-full flex items-center justify-center py-4' key={i}>
+                  <div className='w-full flex items-center justify-center pt-2 pb-3' key={i}>
                     <img src={Contact.Photo} alt="perfilphoto" className='rounded-full w-[3rem] h-[3rem]' />
                     <div className='contact-layout'>
                       <span className='text-xl'>{`${Contact?.Name.split(' ')[0]} ${Contact?.Name.split(' ')[2]}`}</span>
@@ -44,7 +44,7 @@ export const ContactsWidget = () => {
                       <span className='text-xl'>{Contact.Dui}</span>
                     </div>
                   </div>
-                  {i !== 3 && <div className='w-[100%] h-[0.10rem] bg-[#707070] my-[1rem]'></div>}
+                  {i !== 3 && <div className='w-[100%] h-[0.10rem] bg-[#707070] my-[0.25rem]'></div>}
                 </>
               );
             })

@@ -5,10 +5,30 @@ import { HistoryWidget, ContactsWidget } from "./HomePageWidgets/";
 
 // Translation
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
+
+const ImageDebitCard = 'https://res.cloudinary.com/demantur/image/upload/v1662508234/bank_card_images/debitCard_rt6xxj.png'
 
 export const HomePage = () => {
-  const { Info, clientBalance, } = useDash();
+  const { Info, clientBalance, getMyDebitCard, getMyCard } = useDash();
   const { t } = useTranslation();
+
+  const [DebitCardHP, setDebitCardHP] = useState(null);
+  const [CreditCardHP, setCreditCardHP] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await getMyDebitCard(localStorage.getItem('authToken'))
+        const res2 = await getMyCard(localStorage.getItem('authToken'))
+        setDebitCardHP(res.data.data);
+        setCreditCardHP(res2.data.data);
+      } catch (error) {
+        console.log(error)
+      }
+    })()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="h-full overflow-y-auto overflow-x-hidden scroll-home">
@@ -58,7 +78,7 @@ export const HomePage = () => {
             <HistoryWidget />
           </div>
         </div>
-        <div className="h-[30rem] w-[30%] bg-white rounded-[0.75rem] overflow-y-auto overflow-x-hidden scroll-widgets">
+        <div className="h-[25rem] w-[30%] bg-white rounded-[0.75rem] overflow-y-auto overflow-x-hidden scroll-widgets">
           <div className="mx-[1rem] my-[2rem]">
             <ContactsWidget />
           </div>
@@ -66,18 +86,35 @@ export const HomePage = () => {
       </div>
 
       <div className="flex gap-3 my-1">
-        <div className="basis-[65%] bg-white rounded-[0.75rem]">
-          <div className="m-[2rem] flex justify-between">
-            <div>
-              <h2 className="text-gray-500 text-[1.5625rem]">{t("DashboardNormalUser.Home.cards")}</h2>
-            </div>
+        <div className="basis-[60%] rounded-[0.75rem] flex h-[15rem]">
+          <div className="w-1/2 ">
+            {
+              DebitCardHP != null ?
+                <>
+                  <img src={ImageDebitCard} alt="Tarjeta" className="w-[90%] h-[100%]" />
+                </>
+                :
+                <div className="bg-white w-[90%] h-[100%]">
+                  Todavia No tiene Tarjeta de debito
+                </div>
+            }
           </div>
+          <div className="w-1/2  ">
+            {
+              CreditCardHP != null ?
+                <>
+                  <img src={CreditCardHP.CardImage} alt="Tarjeta" className="w-[90%] h-[100%] " />
+                </>
+                :
+                <div className="bg-white w-[90%] h-[100%]">
+                  Todavia No tiene Tarjeta de Credito
+                </div>
+            }
+          </div>
+
         </div>
-        <div className="basis-[35%] bg-white rounded-[0.75rem]">
+        <div className="basis-[40%] bg-white rounded-[0.75rem]">
           <div className="m-[2rem] flex justify-between">
-            <div>
-              <h2 className="text-gray-500 text-[1.5625rem]">{t("DashboardNormalUser.Home.loan")}</h2>
-            </div>
           </div>
         </div>
       </div>

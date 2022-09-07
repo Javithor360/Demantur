@@ -20,7 +20,7 @@ export const DashboardNormalUser = () => {
     GeneralInfoQuery(localStorage.getItem("authToken"));
     getContacsWP(localStorage.getItem("authToken"))
     getGlobalInfo(localStorage.getItem('authToken'));
-    getSavingAccts(localStorage.getItem('authToken'))
+    getSavingAccts(localStorage.getItem('authToken'));
     setSocket(io('ws://localhost:5000'));
     document.body.style.overflowY = "hidden";
     setTimeout(() => {

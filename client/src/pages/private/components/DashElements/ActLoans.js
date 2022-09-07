@@ -65,7 +65,7 @@ export const ActLoans = () => {
 
   const UserElementsSalary = ['$450 y $499', '$500 y $999', '$700 y $1200', <span> {t("DashboardNormalUser.Loans.form.UserElementsSalary.1")}</span>,]
   const UserElementsLaboralStatus = [`${t('DashboardNormalUser.Loans.form.LaboralStatus.1')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.2')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.3')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.4')}`,]
-  const UserElementAmount = ['$300', '$500', '$999', '$1200', '$1500', 'Otro tipo de monto']
+  const UserElementAmount = ['$300', '$500', '$999', '$1200', '$1500']
 
   // useEffect(() => {
   //   console.log(UserElementsLaboralStatus)

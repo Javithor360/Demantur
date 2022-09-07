@@ -33,11 +33,11 @@ export const UserCards = () => {
   const [CharginIco, setCharginIco] = useState(true);
   const [Chargin, setChargin] = useState(false);
   const [MyCard, setMyCard] = useState(null);
-  const [DebitCard, setDebitCard] = useState(null);
+
 
   const { t } = useTranslation();
 
-  const { CreateElements, getMyCardReq, getMyCard, setCardsParametros, getMyDebitCard, ChangeBox2, setChangeBox2 } = useDash();
+  const { CreateElements, getMyCardReq, getMyCard, setCardsParametros, getMyDebitCard, ChangeBox2, setChangeBox2, DebitCard, setDebitCard } = useDash();
 
   useEffect(() => {
     (async () => {

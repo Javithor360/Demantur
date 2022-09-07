@@ -225,40 +225,62 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails, setLoanRqs, Loa
         </div>
 
         <div className='m-auto w-[60%] h-[6rem] border-cover rounded-2xl bg-[#FCFCFC] shadow-sm flex flex-row mb-5'>
-          <div className='h-full w-[50%] flex items-center justify-center'>
-            <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#727C9F] text-white' onClick={() => {
-              setLoanDenyData({})
-              setLoanConfirmData(
-                {
-                  Name: Params.Name,
-                  Dui: Params.Dui,
-                  Email: Params.Email,
-                  CelNum: Params.CelNum,
-                  Amountrequest: Params.Amountrequest
+          {
+            ChangeButtons === 0 ?
+              <>
+                <div className='h-full w-[50%] flex items-center justify-center'>
+                  <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#727C9F] text-white' onClick={() => {
+                    setLoanDenyData({})
+                    setLoanConfirmData(
+                      {
+                        Name: Params.Name,
+                        Dui: Params.Dui,
+                        Email: Params.Email,
+                        CelNum: Params.CelNum,
+                        Amountrequest: Params.Amountrequest
 
-                }
-              )
-              toggle()
-            }
-            }>Aceptar</button>
-          </div>
-          <div className='h-full w-[50%] flex items-center justify-center'>
-            <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#727C9F] text-white' onClick={() => {
-              setLoanConfirmData({})
-              setLoanDenyData(
-                {
-                  Name: Params.Name,
-                  Dui: Params.Dui,
-                  Email: Params.Email,
-                  CelNum: Params.CelNum,
-                  Amountrequest: Params.Amountrequest
+                      }
+                    )
+                    toggle()
+                  }
+                  }>Aceptar</button>
+                </div>
+                <div className='h-full w-[50%] flex items-center justify-center'>
+                  <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#455FB9] text-white' onClick={() => {
+                    setLoanConfirmData({})
+                    setLoanDenyData(
+                      {
+                        Name: Params.Name,
+                        Dui: Params.Dui,
+                        Email: Params.Email,
+                        CelNum: Params.CelNum,
+                        Amountrequest: Params.Amountrequest
 
+                      }
+                    )
+                    toggle()
+                  }
+                  }>Denegar</button>
+                </div>
+              </>
+              :
+              <>
+                {
+                  ChangeButtons === 1 ?
+                    <>
+                      <div className='h-full w-[100%] flex items-center justify-center text-center'>
+                        <span className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#45b985] text-white w-[60%]'>Aceptada</span>
+                      </div>
+                    </>
+                    :
+                    <>
+                      <div className='h-full w-[100%] flex items-center justify-center text-center'>
+                        <span className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#b94545] text-white w-[60%]'>Denegada</span>
+                      </div>
+                    </>
                 }
-              )
-              toggle()
-            }
-            }>Denegar</button>
-          </div>
+              </>
+          }
         </div>
         {toggle &&
           <SmallModal active={active} toggle={toggle} onRequestClose={toggle}>
@@ -274,3 +296,5 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails, setLoanRqs, Loa
     </>
   )
 }
+
+

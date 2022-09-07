@@ -1,15 +1,14 @@
 const Employee = require('../models/Employee');
 const SavingsAccount = require('../models/SavingsAccount');
 const CardsRequests = require('../models/CardsRequests')
-const LoansModels = require('../models/LoansModels')
+const LoanRequest = require('../models/LoansRequestModels')
 const NormalUser = require('../models/NormalUser')
 const ExtraInfoNormalUser = require('../models/ExtraInfoNormalUser')
 const ErrorResponse = require("../utils/ErrorMessage");
 const { sendToken, AcceptRequestEmployee, DeclineRequestEmployee } = require("../helpers/Functions");
 const GlobalData = require('../models/GlobalData');
-const { default: mongoose } = require('mongoose');
 const CardsModel = require('../models/CardsModel');
-const { restart } = require('nodemon');
+const AcpLoanModel = require('../models/AcpLoanModel');
 
 // @route POST api/auth/employee/login
 // @desc Iniciar sesión como empleado
@@ -202,7 +201,7 @@ const getCardRequests = async (req, res, next) => {
 const getLoanRequests = async (req, res, next) => {
     try {
 
-        const getAllLoanRequests = await LoansModels.find()
+        const getAllLoanRequests = await LoanRequest.find()
         const getAllUsers = await NormalUser.find()
         const ExtraInfo = await ExtraInfoNormalUser.find()
 
@@ -359,7 +358,7 @@ const getFullClientInfo = async (req, res, next) => {
         const SAccounts = await SavingsAccount.find();
         allInfo.push(SAccounts.filter(s => query._id.toString() == s.AccountOwner.toString()));
 
-        const LoanInfo = await LoansModels.find();
+        const LoanInfo = await LoanRequest.find();
         allInfo.push({ LoanRequestCount: LoanInfo.filter(l => l.loan_guarantor.toString() == query._id.toString()).length > 0 ? true : false });
 
         const CardsInfo = await CardsRequests.find();
@@ -371,11 +370,57 @@ const getFullClientInfo = async (req, res, next) => {
         res.status(500).json({ message: error.message });
     }
 }
-const declineLoan = async (req, res, next)=>{
+const declineLoan = async (req, res, next) => {
     try {
         const { Dui } = req.body
         const User = await NormalUser.findOne({ Dui: Dui });
-        await LoansModels.findOneAndDelete({ loan_guarantor: User._id })
+        await LoanRequest.findOneAndDelete({ loan_guarantor: User._id })
+        res.status(200).json({ success: true })
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
+const AcceptLoanReq = async (req, res, next) => {
+    try {
+        const { Dui } = req.body
+        const User = await NormalUser.findOne({ Dui: Dui });
+        const loanReq = await LoanRequest.findOne({ CardOwner: User._id })
+
+        let remainder = loanReq.Amountrequest.replace('$', '');
+        remainder = parseFloat(remainder)
+
+        let TimeNow = new Date()
+
+        let debtorId = User._id
+        let details = {
+            loan_type: loanReq.LoanType,
+            // no estoy seguro del interes
+            interest: 5,
+        }
+        let pay_history = {
+            loan_date: TimeNow,
+            loan_due: new Date(TimeNow.getFullYear() + 6, TimeNow.getMonth(), TimeNow.getDay()),
+            loan_next_payment: new Date(TimeNow.getFullYear(), TimeNow.getMonth(), TimeNow.getDay() + 30),
+            payment_history: []
+        }
+
+        let amounts = {
+            initial_amount: remainder,
+            remainder: remainder,
+        }
+
+        await LoanRequest.findOneAndDelete({ loan_guarantor: User._id })
+
+        const newLoan = await new AcpLoanModel({
+            debtorId,
+            details,
+            pay_history,
+            amounts,
+        })
+
+        newLoan.save()
+
         res.status(200).json({ success: true })
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -480,5 +525,6 @@ module.exports = {
     AcceptCardReq,
     DeclineCardReq,
     declineLoan,
-    getFullClientInfo
+    getFullClientInfo,
+    AcceptLoanReq
 }

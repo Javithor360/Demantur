@@ -3,7 +3,7 @@ const ErrorResponse = require("../utils/ErrorMessage");
 const GlobalData = require("../models/GlobalData");
 const Settings = require("../models/Settings");
 const CardsRequests = require("../models/CardsRequests");
-const LoansModels = require('../models/LoansModels')
+const LoanRequest = require('../models/LoansRequestModels')
 const SavingsAccount = require('../models/SavingsAccount');
 const { uploadRegisterImage } = require("../libs/cloudinary");
 const fs = require("fs-extra");
@@ -442,7 +442,7 @@ const getMyLoanReq = async (req, res, next) => {
     const token = req.resetToken;
 
 
-    const isHadLoanReq = await LoansModels.findOne({ loan_guarantor: token.user.id })
+    const isHadLoanReq = await LoanRequest.findOne({ loan_guarantor: token.user.id })
     if (isHadLoanReq) {
       exportss = isHadLoanReq
     } else {

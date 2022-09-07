@@ -1,4 +1,5 @@
 import axios from "axios";
+import { AiFillExclamationCircle } from "react-icons/ai";
 
 export const getInfo = async (PrivateConfig) => {
   return await axios.get("http://localhost:4000/api/dashboard/get-info", { headers: PrivateConfig.headers });
@@ -153,8 +154,8 @@ export const getPendingAccounts = async (PrivateConfig) => {
 
 }
 
-export const declineLoanRequest = async (PrivateConfig, Dui)=>{
-  return await axios.get('http://localhost:4000/api/employee/decline-loan-request', { Dui }, { headers: PrivateConfig.headers })
+export const declineLoanRequestQuery = async (PrivateConfig, Dui) => {
+  return await axios.post('http://localhost:4000/api/employee/decline-loan-request', { Dui }, { headers: PrivateConfig.headers })
 }
 
 export const AcceptCardReqQuery = async (PrivateConfig, Dui) => {
@@ -163,4 +164,8 @@ export const AcceptCardReqQuery = async (PrivateConfig, Dui) => {
 
 export const DeclineCardReqQuery = async (PrivateConfig, Dui) => {
   return await axios.post('http://localhost:4000/api/employee/decline-card-request', { Dui }, { headers: PrivateConfig.headers })
+}
+
+export const AcceptLoanReqQuery = async (PrivateConfig, Dui) => {
+  return await axios.post('http://localhost:4000/api/employee/accept-loan-request', { Dui }, { headers: PrivateConfig.headers })
 }

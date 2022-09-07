@@ -1,49 +1,49 @@
-const LoanRequest = require("../models/LoansModels");
+const LoanRequest = require("../models/LoansRequestModels");
 const DuiModel = require("../models/DuiModel");
 const ErrorResponse = require("../utils/ErrorMessage");
-const { uploadLoansImages  } = require("../libs/cloudinary");
+const { uploadLoansImages } = require("../libs/cloudinary");
 const fs = require("fs-extra");
 
 
 const LoansFormRequests = async (req, res, next) => {
     try {
-        
-        const token = req.resetToken;
-        const { UserSalary, UserStatus,Amountrequest, LoanId } = req.body;
 
-        if(!UserSalary || !UserStatus || !Amountrequest || !LoanId){
+        const token = req.resetToken;
+        const { UserSalary, UserStatus, Amountrequest, LoanId } = req.body;
+
+        if (!UserSalary || !UserStatus || !Amountrequest || !LoanId) {
             return next(
                 new ErrorResponse("Completa todos los campos para hacer la solicitud", 400, "error")
             );
         }
 
-        let DuiFrontImg, DuiBackImg, ConstancyImg , SalaryEvidenceImg;
+        let DuiFrontImg, DuiBackImg, ConstancyImg, SalaryEvidenceImg;
         if (req.files?.Image1) {
             DuiFrontImg = req.files.Image1;
         } else {
             return next(
-              new ErrorResponse("Por favor suba su fotocopia de DUI (Frontal)", 400, "error")
+                new ErrorResponse("Por favor suba su fotocopia de DUI (Frontal)", 400, "error")
             );
         }
         if (req.files?.Image2) {
             DuiBackImg = req.files.Image2;
         } else {
             return next(
-              new ErrorResponse("Por favor suba su fotocopia de DUI (Trasera)", 400, "error")
+                new ErrorResponse("Por favor suba su fotocopia de DUI (Trasera)", 400, "error")
             );
         }
         if (req.files?.Image3) {
             ConstancyImg = req.files.Image3;
         } else {
             return next(
-              new ErrorResponse("Por favor suba su fotocopia del NIT", 400, "error")
+                new ErrorResponse("Por favor suba su fotocopia del NIT", 400, "error")
             );
         }
         if (req.files?.Image4) {
             SalaryEvidenceImg = req.files.Image4;
         } else {
             return next(
-              new ErrorResponse("Por favor suba su constancia de salario", 400, "error")
+                new ErrorResponse("Por favor suba su constancia de salario", 400, "error")
             );
         }
 
@@ -53,20 +53,19 @@ const LoansFormRequests = async (req, res, next) => {
         const img2 = await uploadLoansImages(req.files.Image2.tempFilePath);
         const img3 = await uploadLoansImages(req.files.Image3.tempFilePath);
         const img4 = await uploadLoansImages(req.files.Image4.tempFilePath);
-        
-        if (LoanId == 0){
+
+        if (LoanId == 0) {
             LoanType = 'Pesonal'
-            CloudLoanImage='https://res.cloudinary.com/demantur/image/upload/v1662324435/bank_loans_images_employee/Personal_loan_employee_dont_touch.jpg'
-        } else  if (LoanId == 2){
-        }else if (LoanId == 1){
+            CloudLoanImage = 'https://res.cloudinary.com/demantur/image/upload/v1662324435/bank_loans_images_employee/Personal_loan_employee_dont_touch.jpg'
+        } else if (LoanId == 1) {
             LoanType = 'Business'
-            CloudLoanImage='https://res.cloudinary.com/demantur/image/upload/v1662324649/bank_loans_images_employee/Business_loan_employee_Dont_Touch.jpg'
-        } else  if (LoanId == 2){
+            CloudLoanImage = 'https://res.cloudinary.com/demantur/image/upload/v1662324649/bank_loans_images_employee/Business_loan_employee_Dont_Touch.jpg'
+        } else if (LoanId == 2) {
             LoanType = 'House'
-            CloudLoanImage='https://res.cloudinary.com/demantur/image/upload/v1662324539/bank_loans_images_employee/Housin_Demanture_employee_Dont_Touch.jpg'
-        } else if (LoanId == 3){
+            CloudLoanImage = 'https://res.cloudinary.com/demantur/image/upload/v1662324539/bank_loans_images_employee/Housin_Demanture_employee_Dont_Touch.jpg'
+        } else if (LoanId == 3) {
             LoanType = 'Auto '
-            CloudLoanImage='https://res.cloudinary.com/demantur/image/upload/v1662324591/bank_loans_images_employee/Auto_Demantur_employee_Dont_Touch.jpg'
+            CloudLoanImage = 'https://res.cloudinary.com/demantur/image/upload/v1662324591/bank_loans_images_employee/Auto_Demantur_employee_Dont_Touch.jpg'
         }
 
 
@@ -80,11 +79,11 @@ const LoansFormRequests = async (req, res, next) => {
             public_id: img2.public_id,
         };
 
-        ConstancyImg  = {
+        ConstancyImg = {
             url: img3.secure_url,
             public_id: img3.public_id,
         };
-      
+
         SalaryEvidenceImg = {
             url: img4.secure_url,
             public_id: img4.public_id,
@@ -95,22 +94,22 @@ const LoansFormRequests = async (req, res, next) => {
         const anex = {
             DuiFrontImg,
             DuiBackImg,
-            ConstancyImg , 
+            ConstancyImg,
             SalaryEvidenceImg,
             CloudLoanImage
-            
+
         }
 
         const newLoanRequest = await new LoanRequest({
             LoanType,
-            loan_guarantor:token.user.id,
-            Name:token.user.FirstName, 
-            DuiNum:token.user.Dui, 
-            Email:token.user.Email,
+            loan_guarantor: token.user.id,
+            Name: token.user.FirstName,
+            DuiNum: token.user.Dui,
+            Email: token.user.Email,
             Amountrequest,
-            UserSalary, 
+            UserSalary,
             UserStatus,
-            CellNumber:token.user.Number, 
+            CellNumber: token.user.Number,
             anex,
         });
 

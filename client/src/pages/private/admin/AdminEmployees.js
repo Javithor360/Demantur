@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-
+import "../assets/scss/AdminEmploye.scss"
 export const AdminEmployees = () => {
   const [Names, setNames] = useState('');
   const [LastNames, setLastNames] = useState('');
@@ -55,16 +55,26 @@ export const AdminEmployees = () => {
       }
       <div className='flex justify-center'>
         <form onSubmit={handleForm} className="flex justify-center flex-col w-[30%]">
-          <label htmlFor="Names">Nombres</label>
-          <input type="text" name="Names" id="Names" onChange={(e) => { setNames(e.target.value) }} value={Names} />
-          <label htmlFor="Names">Apellidos</label>
-          <input type="text" name="LastNames" id="LastNames" onChange={(e) => { setLastNames(e.target.value) }} value={LastNames} />
-          <label htmlFor="Names">Número de DUI</label>
-          <input type="text" name="DuiNumber" id="DuiNumber" onChange={(e) => { setDuiNumber(e.target.value) }} value={DuiNumber} />
-          <label htmlFor="Names">Correo electrónico</label>
-          <input type="text" name="Email" id="Email" onChange={(e) => { setEmail(e.target.value) }} value={Email} />
-          <label htmlFor="Names">Contraseña</label>
-          <input type="text" name="Password" id="Password" onChange={(e) => { setPassword(e.target.value) }} value={Password} />
+          <div className='formv'>
+          <input className='inputv' type="text" name="Names" id="Names" onChange={(e) => { setNames(e.target.value) }} value={Names} />
+          <label className='labelv' htmlFor="Names">Nombres</label>
+          </div>
+          <div className='formv'>
+          <input className='inputv' type="text" name="LastNames" id="LastNames" onChange={(e) => { setLastNames(e.target.value) }} value={LastNames} />
+          <label className='labelv' htmlFor="Names">Apellidos</label>
+          </div>
+          <div className='formv'>
+          <input className='inputv' type="text" name="DuiNumber" id="DuiNumber" onChange={(e) => { setDuiNumber(e.target.value) }} value={DuiNumber} />
+          <label className='labelv' htmlFor="Names">Número de DUI</label>
+          </div>
+          <div className='formv'>
+          <input className='inputv' type="text" name="Email" id="Email" onChange={(e) => { setEmail(e.target.value) }} value={Email} />
+          <label className='labelv' htmlFor="Names">Correo electrónico</label>
+          </div>
+          <div className='formv'>
+          <input className='inputv' type="text" name="Password" id="Password" onChange={(e) => { setPassword(e.target.value) }} value={Password} />
+          <label className='labelv' htmlFor="Names">Contraseña</label>
+          </div>
 
           <button type="submit" className='my-[2rem] w-[40%]'>Crear empleado</button>
         </form>

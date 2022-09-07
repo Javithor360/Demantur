@@ -4,7 +4,7 @@ import { GiReceiveMoney } from 'react-icons/gi'
 import { FaUserClock } from 'react-icons/fa'
 import { BsCreditCard2BackFill } from 'react-icons/bs'
 import { useDash } from "../../../../context/DashboardContext";
-import { useEffect, useState } from 'react';
+import { useEffect, useState} from 'react';
 
 export const HomePageEmployee = () => {
   const { Option, setOption, setOptionElement } = useDash();
@@ -20,20 +20,16 @@ export const HomePageEmployee = () => {
     if (Object.keys(Info).length !== 0) {
       let Name = Info.FirstNames.split(' ');
       let LastName = Info.LastNames.split(' '),
-        fullName = ``;
+          fullName = ``;
 
       for (let i = 0; i < Name.length; i++) {
         fullName += `${Capitalize(Name[i])} `;
       }
 
       for (let i = 0; i < LastName.length; i++) {
-        if (i === LastName.length) {
-          fullName += `${Capitalize(LastName[i])}`;
-        } else {
-          fullName += `${Capitalize(LastName[i])} `;
-        }
+        fullName += `${Capitalize(LastName[i])} `;
       }
-      setEmployeeName(`${fullName}`);
+      setEmployeeName(`${fullName.trim()}`);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Info])

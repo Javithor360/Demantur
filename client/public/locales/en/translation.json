@@ -9,6 +9,7 @@
     "help": "Help",
     "access": "Access"
   },
+
   "main_footer": {
     "terms": "Terms and Conditions",
     "policy": "Privacy Policy",
@@ -37,144 +38,157 @@
       }
     }
   },
-  "login":{
-    "register":{
-      "tittle":"Sign up for online banking",
-      "tittle2":"Personal information",
-      "subtittle":"We need your personal data to be able to identify you and know that it really is you",
-      "names":"Names",
-      "lastname":"Lastnames",
-      "date":"birthday date",
-      "address":"Address"
+  
+  "login": {
+    "register": {
+      "tittle": "Sign up in the online banking",
+      "tittle2": "Personal information",
+      "subtittle": "We need your personal data to be able to identify you and know that it really is you",
+      "names": "Names",
+      "lastname": "Last names",
+      "date": "Birthday date",
+      "address": "Address"
     },
 
-    "contentreg":{
-      "tittle":"Other options",
-      "subtitle":"What do you need to do?",
-      "subtitle2":"Log in",
-      "subtitle3":"Change Password",
-      "subtitle4":"Verify email"
-    },
-    "sidebar":{
-      "date":"personal information",
-      "identification":"identification",
-      "money":"monetary data",
-      "beneficiary":"beneficiary"
-    },
-    "buttons":{
-      "previous":"PREVIOUS"
+    "contentreg": {
+      "tittle": "Other options",
+      "subtitle": "What do you need to do?",
+      "subtitle2": "Log in",
+      "subtitle3": "Change Password",
+      "subtitle4": "Verify email"
     },
 
-    "identification":{
-      "number":"Number",
-      "password":"Password",
-      "password2":"Confirm Passwo...",
-      "code":"Code"
+    "sidebar": {
+      "date": "Personal information",
+      "identification": "Identification",
+      "money": "Monetary data",
+      "beneficiary": "Beneficiary"
     },
-    "logins":{
-      "tittle":"Login to online banking",
-      "tittle2":"Login",
-      "subtittle":"In this section you can access with your previously created account",
-      "forgot":"Forgot your password?",
-      "register":"Register"
-    },
-    "password":{
-      "tittle":"Lost password",
-      "forgtott":"If you do not remember your password, you can change it in this section",
-      "send":"Send email"
-    },
-    "verify":{
-      "tittle":"Verify Email",
-      "tittle2":"Vefication",
-      "subtittle":"Here you can verify your email to finalize your registration",
-      "very":"Verify"
 
+    "buttons": {
+      "previous": "PREVIOUS"
+    },
+
+    "identification": {
+      "number": "Number",
+      "password": "Password",
+      "password2": "Confirm password",
+      "code": "Code"
+    },
+
+    "logins": {
+      "tittle": "Login to online banking",
+      "tittle2": "Login",
+      "subtittle": "In this section you can access with your previously created account",
+      "forgot": "Forgot your password?",
+      "register": "Register",
+      "very": "Verify"
+    },
+
+    "password": {
+      "tittle": "Lost password",
+      "forgtott": "If you do not remember your password, you can change it in this section",
+      "send": "Send email"
+    },
+
+    "verify": {
+      "tittle": "Verify Email",
+      "tittle2": "Vefication",
+      "subtittle": "Here you can verify your email to finalize your registration",
+      "very": "Verify"
     }
-
   },
+
   "error":{
     "tittle":"Something went wrong!",
     "subtittle":"It seems that something has gone wrong, apparently you entered an address that does not exist",
-    "button":"return"
+    "button":"Return"
   },
-  "Aboutpage":{
-    "hero":{
-      "tittle":"We are moved by a great purpose",
-      "subtitle":"Contributing to the construction of a better country has led us to develop a sustainable operating system and to create development programs such as financial education or advice on sustainability."
+
+  "Aboutpage": {
+    "hero": {
+      "tittle": "We are moved by a great purpose",
+      "subtitle": "Contributing to the construction of a better country has led us to develop a sustainable operating system and to create development programs such as financial education or advice on sustainability."
     },
-    "body":{
-      "tittle":"Our history",
-      "subtitle":"Dematur was founded on March 20, 2022 with the purpose of being able to provide its customers with an online banking service in order to optimize people's valuable time through a friendly and dynamic interface for carrying out procedures. , expanding our services with brief guides so that you can learn to use online banking without having knowledge of one, thus managing to break the digital divide that exists worldwide. The purpose with which Demantur was founded is so that you can have a safe place where you can deposit your money, guarantee the security of your assets and offer you help in case you need to carry out any procedure quickly and safely from the comfort of your home. of your home or wherever you are, managing to promote economic knowledge today.",
-      "tittle2":"Our impact",
-      "subtitle2":"We have set out to break the digital divide that affects most of the world's population, ensuring that everyone has access to a service without having to be an expert in economics, for this an interface has been proposed that has informative guides in a free so you can know what is necessary for the functionality of online banking."
+
+    "body": {
+      "tittle": "Our history",
+      "subtitle": "Dematur was founded on March 20, 2022 with the purpose of being able to provide its customers with an online banking service in order to optimize people's valuable time through a friendly and dynamic interface for carrying out procedures. Expanding our services with brief guides so that you can learn to use online banking without having knowledge of one, thus managing to break the digital divide that exists worldwide. The purpose with which Demantur was founded is so that you can have a safe place where you can deposit your money, guarantee the security of your assets and offer you help in case you need to carry out any procedure quickly and safely from the comfort of your home or wherever you are, managing to promote economic knowledge today.",
+      "tittle2": "Our impact",
+      "subtitle2": "We have set out to break the digital divide that affects most of the world's population, ensuring that everyone has access to a service without having to be an expert in economics, for this an interface has been proposed that has informative guides in a free so you can know what is necessary for the functionality of online banking."
     },
-    "valor":{
-      "tittle":"Our values",
-      "valor":"Responsibility",
-      "subtitle":"We are punctual in everything you may need.",
-      "valor2":"Respect",
-      "subtitle2":"We value your integrity as a person and human being",
-      "valor3":"Closeness",
-      "subtitle3":"We always seek to provide a friendly hand to help you"
+
+    "valor": {
+      "tittle": "Our values",
+      "valor": "Responsibility",
+      "subtitle": "We are punctual in everything you may need",
+      "valor2": "Respect",
+      "subtitle2": "We value your integrity as a person and human being",
+      "valor3": "Closeness",
+      "subtitle3": "We always seek to provide a friendly hand to help you"
     }
   },
 
   "bannertab": {
     "tittle": "Requirements",
-    "1": "Photocopy of DUI and NIT of the Legal Representative of the Company; in the case of a foreign person, valid passport and resident card.",
+    "1": "Photocopy of DUI and NIT of the legal representative of the company; in the case of a foreign person, valid passport and resident card.",
     "2": "Photocopy of the Deed of Incorporation registered in the Registry of Commerce.",
     "3": "Photocopy of the Certification of the Point of Record, when approval of the Board of Directors is required for the opening or contracting.",
     "4": "Photocopy of NIT of the Company.",
     "5": "Photocopy of the Legal Representative Credential registered in the Registry of Commerce."
   },
+
   "register":{
     "tittle":"Personal information",
     "subtittle":"We need your personal data to be able to identify you and know that it really is you",
-    "tittle2":"identification",
-    "subtittle2":"To create an account in Demantur you need to identify yourself with these data to be able to enter",
-    "tittle3":"Monetary Data",
-    "subtittle3":"For our logistics we need to know your monetary data to offer you our best services",
-    "tittle4":"Beneficiary",
+    "tittle2": "Identification",
+    "subtittle2": "To create an account in Demantur you need to identify yourself with these data to be able to enter",
+    "tittle3": "Monetary Data",
+    "subtittle3": "For our logistics we need to know your monetary data to offer you our best services",
+    "tittle4": "Beneficiary",
     "subtittle4":"If in any case he suffers an accident, the beneficiary will have the right to claim his assets",
-    "tittle5":"Confirmation code",
-    "subtittle5":"Check your Email, in which you will have a 6-digit code that you have to type here to validate your account."
+    "tittle5": "Confirmation code",
+    "subtittle5": "Check your Email, in which you will have a 6-digit code that you have to type here to validate your account."
   },
-  "loginemple":{
+
+  "loginemple": {
     "tittle":"Welcome to the employee panel",
     "email":"Email",
     "password":"Password"
   },
-  "selectpage":{
-    "hero":{
+
+  "selectpage": {
+    "hero": {
       "tittle": "Selection",
-      "subtitle":"Welcome to the Options Selection interface."
+      "subtitle":"Welcome to the options selection interface."
     },
-    "body":{
+
+    "body": {
       "tittle": "Welcome again",
       "subtittle": "Welcome to the user selection interface, select the option you want to go to",
-      "tittle2":"Other options",
-      "subtittle2":"we have other options in case you already have an account, we have the following tools that could help you",
-      "tittle3":"How to register?"
+      "tittle2": "Other options",
+      "subtittle2": "We have other options in case you already have an account, we have the following tools that could help you",
+      "tittle3": "How to register?"
     },
-    
-  
-    
-  "cards":{
-        "1":{
-          "tittle":"Normal account",
-          "subtittle":"The ideal option if you want to obtain or log in as a user, click on the option you want to execute.",
-          "button1":"log in",
-          "button2":"Register"
+
+  "cards": {
+        "1": {
+          "tittle": "Normal account",
+          "subtittle": "The ideal option if you want to obtain or log in as a user, click on the option you want to execute.",
+          "button1": "Log in",
+          "button2": "Register"
         },
+
         "2":{
-          "tittle":"Employee account",
-          "subtittle":"If you are a demantur employee you can log in here more quickly",
-          "button1":"log in"
+          "tittle": "Employee account",
+          "subtittle": "If you are a Demantur employee you can log in here more quickly",
+          "button1": "Log in"
         },
-        "3":{
-          "tittle":"Change of password",
-          "subtittle":"If you forget your password, this is the best option to recover your account and set a new password.",
-          "button1":"Go"
+
+        "3": {
+          "tittle": "Password changing",
+          "subtittle": "If you forget your password, this is the best option to recover your account and set a new password.",
+          "button1": "Go"
         },
         "4":{
           "tittle":"Email verification",

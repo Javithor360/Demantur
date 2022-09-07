@@ -99,7 +99,7 @@ export const LoansRequests = () => {
                                     ConstancyImg: SingReq.LoanRequest.anex.ConstancyImg.url,
                                     SalaryEvidenceImg: SingReq.LoanRequest.anex.SalaryEvidenceImg.url,
                                     PerfilPhoto: SingReq.Request_guarantor.PerfilPhoto.url,
-                                    CloudLoansImage: SingReq.LoanRequest.anex.CloudLoansImage
+                                    CloudLoanImage: SingReq.LoanRequest.anex.CloudLoanImage
                                     
                                   })
                                   setDisplayDetails(true);
@@ -123,7 +123,7 @@ export const LoansRequests = () => {
               :
               <>
               
-                <DetailsLoansRequest Params={Params !== null && Params} setDisplayDetails={setDisplayDetails} />
+                <DetailsLoansRequest Params={Params !== null && Params} setDisplayDetails={setDisplayDetails} setLoanRqs={setLoanRqs} />
               </>
           }
         </>

@@ -164,6 +164,61 @@
     
 }
 
+@media(max-width:1390px){
+    .about-history-text{
+        transform: translateX(-3rem);
+    }
+
+    .about-history-img{
+        transform: translateX(-2rem);
+    }
+}
+
+
+@media(max-width:1265px){
+    .about-history-text{
+        transform: translateX(-4rem);
+    }
+
+    .about-history-img{
+        transform: translateX(-3rem);
+    }
+}
+
+@media(max-width:1090px){
+    .about-impact-text{
+        transform: translateX(-2rem);
+    }
+}
+
+@media(max-width:1060px){
+    .about-history-text{
+        transform: translateX(-4rem);
+    }
+
+    .about-history-container .about-history-text p{
+        font-size: .95rem;
+    } 
+
+    .about-history-container .about-history-text h2{
+        font-size: 3rem;
+    }
+
+    .about-history-container .about-history-text hr{
+        width: 30rem;
+    }
+}
+
+@media(max-width:995px){
+    .about-history-text{
+        transform: translateX(-2rem);
+    }
+
+    .about-impact-text{
+        transform: translateX(-4rem);
+    }
+}
+
 @media(max-width:915px){
     .about-valors-grid{
         margin: auto;
@@ -175,4 +230,82 @@
             width: 50%;
         }
     }
+}
+
+@media(max-width:895px){
+
+    .about-history-text{
+        margin-top: 3rem;
+        transform: translateX(-1.5rem);
+    }
+
+    .about-history-container .about-history-text hr{
+        width: 25rem;
+    }
+    .about-history-container .about-history-text h2{
+        font-size: 2rem;
+    }
+
+    .about-history-container .about-history-text p{
+        font-size: .8rem;
+    } 
+
+    .about-impact-text{
+        font-size: 0.85rem;
+        width: 25rem!important;
+        transform: translateX(-5rem);
+    }
+}
+
+@media(max-width:790px){
+    .about-history-text{
+        transform: translateX(-5rem)!important;
+    } 
+
+    .about-history-img{
+        transform: translateX(-7rem)!important;
+        width: 20rem!important;
+    }
+
+    .about-history-container .about-history-text hr{
+        width: 20rem;
+    }
+    
+    .about-history-container .about-history-text p{
+        font-size: .75rem;
+    } 
+
+    .about-hero-cont h2{
+        font-size: 2rem !important;;
+    }
+
+    .about-hero-cont p{
+        font-size: 0.8  rem !important;;
+    }
+}
+
+@media(max-width:680px){
+    .about-history-text{
+        transform: translateX(-6rem)!important;
+    } 
+
+    .about-history-img{
+        transform: translateX(-8rem)!important;
+        width: 20rem!important;
+    }
+
+    .about-impact-text{
+       
+        transform: translateX(-7rem);
+    }
+}
+
+@media(max-wdith:530px){
+    .about-history-text{
+        transform: translateX(-6.5rem)!important;
+    } 
+
+    .about-history-container .about-history-text p{
+        font-size: .4rem !important;
+    } 
 }

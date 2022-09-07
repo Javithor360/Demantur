@@ -126,3 +126,39 @@
 //     }
 // }
 
+@media(max-width: 860px){
+
+    .information-tabs-flex{
+        flex-direction: column!important ;
+        height: 100% !important;
+    }
+
+    .tab-bg-image{
+        img{
+            
+            width: 100%!important;
+            height: 20rem!important;
+            
+        }
+    }
+
+    .tab-images-container{
+        width: 100% !important;
+    }
+
+    .tab-content{
+        width: 100% !important;
+        transform: translateY(-4rem);
+        margin-bottom: -10rem;
+    }
+
+    .credit-card-tittle{
+        margin-top: 8rem;
+    }
+
+    .individual-text{
+        margin-left: -1.5rem;
+        padding: 0!important;
+        transform: translateY(-1rem);
+    } 
+}

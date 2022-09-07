@@ -11,6 +11,8 @@ import { useTranslation } from "react-i18next";
 
 //images
 const CreditCardsImages = require.context('../assets/img/credit_cards', true)
+const Images = require.context('../assets/img/credit_cards/debito',true)
+
 
 export const DebitCard = () => {
   const {t}=useTranslation();
@@ -41,20 +43,24 @@ export const DebitCard = () => {
           </p>
           <div className="debit-benefits-container">
             <div className="debit-benefit">
-              <div className="debit-benefit-image-1"></div>
+              <div className="debit-benefit-image-1">
+                <img src={Images('./benefit_1.jpg')}/>
+              </div>
               <div className="debit-benefit-content">
                 <div>
-                  <p>{t("DebitCard.benefit.1.tittle")}</p>
+                  <p className="debit-benefit-content1">{t("DebitCard.benefit.1.tittle")}</p>
                   <hr />
                   <p>{t("DebitCard.benefit.1.desc")}</p>
                 </div>
               </div>
             </div>
             <div className="debit-benefit">
-              <div className="debit-benefit-image-2"></div>
+              <div className="debit-benefit-image-2">
+                <img src={Images('./benefit_2.jpg')}/>
+              </div>
               <div className="debit-benefit-content">
                 <div>
-                  <p>{t("DebitCard.benefit.2.tittle")}</p>
+                  <p className="debit-benefit-content2">{t("DebitCard.benefit.2.tittle")}</p>
                   <hr />
                   <p>{t("DebitCard.benefit.2.desc")}</p>
                 </div>
@@ -62,10 +68,12 @@ export const DebitCard = () => {
             </div>
 
             <div className="debit-benefit">
-              <div className="debit-benefit-image-3"></div>
+              <div className="debit-benefit-image-3">
+                <img src={Images('./benefit_3.jpg')}/>
+              </div>
               <div className="debit-benefit-content">
                 <div>
-                  <p>{t("DebitCard.benefit.3.tittle")}</p>
+                  <p className="debit-benefit-content3">{t("DebitCard.benefit.3.tittle")}</p>
                   <hr />
                   <p>{t("DebitCard.benefit.3.desc")}</p>
                 </div>

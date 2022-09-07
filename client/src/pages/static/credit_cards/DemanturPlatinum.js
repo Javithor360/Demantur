@@ -66,17 +66,20 @@ export const DemanturPlatinum = () => {
               <p>
                 {t("PlatinumPage.benefit.3.desc")} 
               </p>
-            </div>
-          </div>
-          <div className="card-benefits_grid_row__2">
+            </div>   
+            <div className="vl">
+              <hr />
+            </div>      
+          </div>             
+          <div className="card-benefits_grid_row__2"> 
             <div className="hl"><hr /></div>
             <div></div>
             <div className="hl"><hr /></div>
             <div></div>
             <div className="hl"><hr /></div>
           </div>
-          <div className="card-benefits_grid_row">
-            <div className="grid_item mgt_1">
+          <div className="card-benefits_grid_row">           
+              <div className="grid_item mgt_1">
                 <img src={CreditCardsImages('./icons/fee_payment_icon.png')} alt=""></img>
                 <p>{t("PlatinumPage.benefit.4.tittle")}</p>
                 <p>

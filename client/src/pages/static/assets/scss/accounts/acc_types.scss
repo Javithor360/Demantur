@@ -144,6 +144,12 @@
     }
 }
 
+@media(min-width: 861px){
+    .space-responsive{
+        display: none;
+    }
+}
+
 @media(max-width: 520px){
     .accT_hero .accT_hero-cont h1{
         font-size: 2.5rem;

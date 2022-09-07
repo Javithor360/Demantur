@@ -3,6 +3,7 @@ import Cleave from 'cleave.js/react';
 import React, { useState } from 'react'
 import { ScrollToTop } from '../../../../components/ScrollToTop';
 import { DetailedClientInfo } from './DetailedClientInfo';
+import "../assets/scss/Search.scss"
 
 export const ClientFetch = () => {
     const [Client, setClient] = useState('');
@@ -30,13 +31,15 @@ export const ClientFetch = () => {
                 DisplayDetails === false ?
                     <div className='cards-employee flex flex-col px-5 py-5 overflow-x-hidden overflow-y-auto'>
                         <h1 className='text-center'>Buscar información de cliente</h1>
-                        {Error !== '' && Error}
+                        <div className='content-search'>
+                        {Error !== '' && <h5 className='err'>{Error}</h5>}
                         <form onSubmit={handleForm}>
-                            <label htmlFor="Client">Número de DUI</label>
-                            <Cleave placeholder='' type="text" id="Client" name="Client" onChange={(e) => { setClient(e.target.value) }} value={Client} options={{ blocks: [6, 1], delimiter: "-", numericOnly: true }} />
+                            <label className='search' htmlFor="Client">Número de DUI</label>
+                            <Cleave className='search-input' placeholder='' type="text" id="Client" name="Client" onChange={(e) => { setClient(e.target.value) }} value={Client} options={{ blocks: [6, 1], delimiter: "-", numericOnly: true }} />
 
-                            <button type="submit">Obtener datos</button>
+                            <button className='buttonk' type="submit">Obtener datos</button>
                         </form>
+                        </div>
                     </div>
                     :
                     <div className="w-[100%] flex justify-between h-[100%] lg:inline-block">

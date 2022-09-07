@@ -243,6 +243,7 @@ const getUserInfoForEmployee = async (req, res, next) => {
     }
 }
 
+
 const getAccountActivationRequests = async (req, res, next) => {
     try {
         let arrayFilter,
@@ -308,6 +309,27 @@ const denyAccount = async (req, res, next) => {
     }
 }
 
+const declineLoan = async (req, res) =>{
+    try {
+        const { Id } = req.body;
+    if (!Id) {
+        return next(
+            new ErrorResponse("Datos incompletos", 400, "error")
+        );
+    }
+        const loan = await LoansModels.findOneAndDelete({_id: id});
+
+        await loan.delete();
+        res.status(200).json({success: true, data: "prestamo denegado"})
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ message: error.message })
+    }
+
+
+}
+
 module.exports = {
     loginEmployee,
     getEmployeeData,
@@ -318,5 +340,6 @@ module.exports = {
     getUserInfoForEmployee,
     getAccountActivationRequests,
     activateAccount,
-    denyAccount
+    denyAccount,
+    declineLoan
 }

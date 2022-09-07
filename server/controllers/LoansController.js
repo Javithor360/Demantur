@@ -97,7 +97,8 @@ const LoansFormRequests = async (req, res, next) => {
             DuiBackImg,
             ConstancyImg , 
             SalaryEvidenceImg,
-            CloudLoansImage
+            CloudLoansImage,
+            
         }
 
         const newLoanRequest = await new LoanRequest({

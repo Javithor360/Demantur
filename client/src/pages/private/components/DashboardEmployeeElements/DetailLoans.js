@@ -5,14 +5,15 @@ import { useState, useEffect } from 'react'
 import Modal from '../Modal'
 import { TransformComponent, TransformWrapper } from '@pronestor/react-zoom-pan-pinch'
 import { LoanConfirm } from './LoansConfirm'
+import axios from 'axios';
+
 
 
 export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
-  const [confirmData, setConfirmData] = useState({});
+  const [LoanConfirmData, setLoanConfirmData] = useState({});
 
   // console.log(Params)
   const grid_column_styles = "mr-4 flex flex-col h-full w-full";
-  const grid_colum_one = "mr-4 flex inline-col h-full w-full";
   const table_name_styles = "max-h-[35%] w-full bg-[#D6D6D6] p-2 flex justify-center items-center";
   const table_content_styles = "h-[65%] bg-white p-2 flex justify-center items-center";
   const table_container_styles_2 = "w-[90%] h-fit flex flex-col items-center mx-auto";
@@ -47,11 +48,31 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
     },
   ]
 
+
+
   const [ImageModal, setImageModal] = useState(false)
   const [tempImgSrc, setTempImgSrc] = useState('')
   const getImg = (ImgSrc) => {
     setTempImgSrc(ImgSrc);
     setImageModal(true);
+  }
+  const handleDecline = async (e) =>{
+    e.preventDefault();
+
+    try {
+      await axios.delete('http://localhost:4000/api/accounts/decline-loan', {
+        headers:{
+          "Content-Type": "application/json",
+          "x-auth-token": localStorage.getItem('employeeToken')
+        },
+        data :{
+          id: Params.LoanRqs._id
+        }
+      });
+      setDisplayDetails(false);
+    } catch (error) {
+      console.log(error)
+    }
   }
   return (
     <>
@@ -214,12 +235,13 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
         <div className='m-auto w-[60%] h-[6rem] border-cover rounded-2xl bg-[#FCFCFC] shadow-sm flex flex-row mb-5'>
           <div className='h-full w-[50%] flex items-center justify-center'>
             <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#727C9F] text-white' onClick={() =>{
-              setConfirmData(
+              setLoanConfirmData(
                 {
                   Name: Params.Name,
                   Dui: Params.Dui,
                   Email: Params.Email,
-                  CelNum: Params.CelNum
+                  CelNum: Params.CelNum,
+                  Amountrequest:Params.Amountrequest
 
                 }
               )
@@ -228,12 +250,12 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
             }>Aceptar</button>
           </div>
           <div className='h-full w-[50%] flex items-center justify-center'>
-            <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#455FB9] text-white' id='' >Denegar</button>
+          <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#455FB9] text-white' onClick={handleDecline}>Denegar</button>
           </div>
         </div> 
         {toggle &&
           <Modal active={active} toggle={toggle} onRequestClose={toggle}>
-              <LoanConfirm props={confirmData} setActive={setActive}/>
+              <LoanConfirm props={LoanConfirmData} setActive={setActive}/>
           </Modal>
         }
       </div>

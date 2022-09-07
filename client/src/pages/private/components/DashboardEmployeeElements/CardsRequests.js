@@ -14,7 +14,7 @@ export const CardsRequests = () => {
   const [Params, setParams] = useState(null);
   const grid_column_styles = "mr-4 flex flex-col h-full w-full";
   const table_name_styles = "h-[35%] w-full bg-[#D6D6D6] p-2 flex justify-center items-center";
-  const table_content_styles = "h-[65%] bg-white p-2 flex justify-center items-center";
+  const table_content_styles = "h-[65%] bg-white p-2 fex justify-center items-center";
 
   const [CharginIco, setCharginIco] = useState(true);
 
@@ -46,13 +46,12 @@ export const CardsRequests = () => {
                 {
                   CardRqs.length !== 0 ?
                     CardRqs.map((SingReq, i) => {
-                      console.log(SingReq);
-                      console.log(CardRqs);
                       let Name = `${SingReq.RequestOwner.FirstName} ` + `${SingReq.RequestOwner.LastName}`
                       let Type = SingReq.CardRequest.CardType
                       let Dui = SingReq.RequestOwner.Dui
                       return (
                         <>
+                          <h1>Solicitudes de Tarjetas</h1>
                           <div className='individual-req w-[95%] mb-5 rounded-lg h-[8rem] border-cover' key={i}>
                             <div className={`${grid_column_styles} border-subdivisions `}>
                               <div className={`${table_name_styles} rounded-tl-lg`}>
@@ -118,8 +117,7 @@ export const CardsRequests = () => {
               </div>
               :
               <>
-
-                <DetailsCardRequest Params={Params !== null && Params} setDisplayDetails={setDisplayDetails} />
+                <DetailsCardRequest Params={Params !== null && Params} setDisplayDetails={setDisplayDetails} setCardRqs={setCardRqs} CardRqs={CardRqs} />
               </>
           }
         </>

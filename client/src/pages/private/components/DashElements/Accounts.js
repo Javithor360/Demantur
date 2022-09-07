@@ -47,7 +47,7 @@ export const Accounts = () => {
 
     return (
         <>
-            {
+            {       
                 CharginIco === true ? 
                 <>
                     <div className='flex justify-center items-center w-full h-full bg-white rounded-xl'><RiLoader3Fill className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
@@ -111,7 +111,7 @@ export const Accounts = () => {
                             </div>
                     }
                 </>
-            }
+            }        
         </>
     );
 };

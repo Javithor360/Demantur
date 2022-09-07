@@ -1,27 +1,19 @@
 import axios from 'axios';
-import React from 'react'
 import './assets/scss/DepositsEmployee.scss'
 
-export const ConfirmAction = ({ props, setActive, setSuccess }) => {
+export const ConfirmAction = ({ props, setActive, setSuccess, toggle }) => {
+
     const handleButton = async () => {
         try {
             setActive(false);
 
-            const res = await axios.post('http://localhost:4000/api/requests/deposit', { AccountNumber: props.uAcc, Amount: props.amount, Accountable: props.eDbId });
+            const res = await axios.post('http://localhost:4000/api/requests/deposit', { AccountNumber: props.uAcc, Amount: parseFloat(props.amount).toFixed(2), Accountable: props.eDbId });
             setSuccess(true);
             console.log(res);
         } catch (error) {
             console.error(error);
         }
     };
-
-    const closeButton = () => {
-        try {
-            setActive(false);
-        } catch (error) {
-            console.error(error)
-        }
-    }
 
     return (
         <div className='h-full p-[4rem] w-[55rem]'>
@@ -32,7 +24,7 @@ export const ConfirmAction = ({ props, setActive, setSuccess }) => {
                 <div>
                     <div className='mb-[1.5rem]'>
                         <h4 className='mb-4 mt-4'>Cliente:</h4>
-                        <p><strong>Foto de Perfil:</strong></p> 
+                        <p><strong>Foto de Perfil:</strong></p>
                         <div className='flex flex-col justify-center'>
                             <img src={props.uPfp} alt="" className='h-[12rem] w-[12rem]  mb-3' />
                             <div className='flex flex-col justify-center number-account-employee'>
@@ -58,7 +50,7 @@ export const ConfirmAction = ({ props, setActive, setSuccess }) => {
                     <hr />
                     <div className='flex justify-center mt-[3rem]'>
                         <button className='text-white rounded-lg border-none outline-none bg-[#455FB9] hover:bg-[#4f6acb] px-[1rem] py-[.5rem] mr-10' onClick={handleButton}>Confirmar</button>
-                        <button className='text-white rounded-lg border-none outline-none bg-[#1a2c6b] px-[1rem] py-[.5rem] hover:bg-[#22388a]' onClick={handleButton}>Cancelar</button>
+                        <button className='text-white rounded-lg border-none outline-none bg-[#1a2c6b] px-[1rem] py-[.5rem] hover:bg-[#22388a]' onClick={() => { toggle() }}>Cancelar</button>
                     </div>
                 </div>
             </div>

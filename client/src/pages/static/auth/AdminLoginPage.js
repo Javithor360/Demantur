@@ -32,19 +32,21 @@ export const AdminLoginPage = () => {
 
     return (
         <>
-            {Error !== '' && Error}
             <h1 className='titu'>Bienvenido al panel de administrador</h1><br/><br/><br/>
             <div className='banert'></div>
             <div className='formt'>
             <form onSubmit={handleForm}>
                 <h2 className='subtitlet'>Inicio de sesión</h2>
+                {Error !== '' && <h5 className='err'>{Error}</h5>}
                 <div className='request'>
-                <label className='label' htmlFor="Username">Nombre de usuario</label><br/>
-                <input className='input' type="text" id="Username" name='Username' onChange={(e) => { setName(e.target.value) }} value={Name} />
-                <br />
-                <label className='label' htmlFor="Email">Contraseña</label><br/>
-                <input className='input' type="password" id="Password" name='Password' onChange={(e) => { setPassword(e.target.value) }} value={Password} />
-                <br />
+                <div className='formc'>
+                <input className='inputs' type="text" id="Username" name='Username' onChange={(e) => { setName(e.target.value) }} value={Name} />
+                <label className='labels' htmlFor="Username">Nombre de usuario</label>
+                </div>
+                <div className='formc'>
+                <input className='inputs' type="password" id="Password" name='Password' onChange={(e) => { setPassword(e.target.value) }} value={Password} />
+                <label className='labels' htmlFor="Email">Contraseña</label>
+                </div>
                 </div>
                 <button type='submit' className='style-buttont'>Iniciar sesión</button>
             </form>

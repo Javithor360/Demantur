@@ -26,10 +26,9 @@ export const LoansRequests = () => {
     (async () => {
       try {
         const resp = await getLoanReq(localStorage.getItem('secretToken'));
-        console.log(resp)
-      if (resp.data.data) {
-        setLoanRqs(resp.data.data);
-      }
+        if (resp.data.data) {
+          setLoanRqs(resp.data.data);
+        }
       } catch (error) {
         console.log(error)
       }

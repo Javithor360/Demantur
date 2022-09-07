@@ -4,7 +4,9 @@ import React, { useState } from 'react';
 import { FooterAuth } from '../../../components'
 import { useAuth } from '../../../context/AuthContext';
 import "../assets/scss/employeelogin.scss";
+import { useTranslation } from "react-i18next";
 export const EmployeeLoginPage = () => {
+    const { t } = useTranslation();
     let navigate = useNavigate();
     const { configPublic } = useAuth();
 
@@ -31,22 +33,26 @@ export const EmployeeLoginPage = () => {
 
   return (
     <>
-    {Error !== '' && Error}
-    <h1 className='titlex'>Bienvenido al panel de empleado</h1>
+    <h1 className='titlex'>{t("loginemple.tittle")}</h1>
     <div className='banerts'></div>
     <div className='content-formt'>
     <form onSubmit={handleForm}>
         <div className='form-info'>
-       <div className='request'>
-       <label className='labelt' htmlFor="Email">Correo</label> <br />
-        <input className='inputs' type="text" id="Email" name='Nombres' onChange={(e) => {setEmail(e.target.value)}} value={Email} />
-        <br />
-        <label className='labelt' htmlFor="Email">Contraseña</label> <br />
-        <input className='inputs' type="password" id="Password" name='Password' onChange={(e) => {setPassword(e.target.value)}} value={Password} />
-        <br />  
-       </div>
-        <button className='buttonx' type='submit'>Enviar</button>
+            <h1 className='ti'>{t("login.logins.tittle2")}</h1>
+            {Error !== '' && <h5 className='err'>{Error}</h5>}
+       <div className='requestd'>
+        <div className='formc'>
+        <input className='inputs' placeholder='' type="text" id="Email" name='Nombres' onChange={(e) => {setEmail(e.target.value)}} value={Email} />
+        <label className='labelt' htmlFor="Email">{t("loginemple.email")}</label>
         </div>
+        <div className='formc'>
+        <input className='inputs' placeholder='' type="password" id="Password" name='Password' onChange={(e) => {setPassword(e.target.value)}} value={Password} />
+        <label className='labelt' htmlFor="Email">{t("loginemple.password")}</label>
+        </div>
+        </div> 
+       </div>
+        <button className='buttonx' type='submit'>{t("login.logins.tittle2")}</button>
+        
     </form>
     </div>
     <FooterAuth />

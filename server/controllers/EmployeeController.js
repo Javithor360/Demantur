@@ -5,10 +5,11 @@ const LoansModels = require('../models/LoansModels')
 const NormalUser = require('../models/NormalUser')
 const ExtraInfoNormalUser = require('../models/ExtraInfoNormalUser')
 const ErrorResponse = require("../utils/ErrorMessage");
-const { sendToken } = require("../helpers/Functions");
+const { sendToken, AcceptRequestEmployee, DeclineRequestEmployee } = require("../helpers/Functions");
 const GlobalData = require('../models/GlobalData');
 const { default: mongoose } = require('mongoose');
 const CardsModel = require('../models/CardsModel');
+const { restart } = require('nodemon');
 
 // @route POST api/auth/employee/login
 // @desc Iniciar sesión como empleado
@@ -293,6 +294,9 @@ const activateAccount = async (req, res, next) => {
                 $set: { ActivedAccount: true }
             }
         )
+
+        const query = await NormalUser.findOne({ _id: AccountId }).select('Email')
+        AcceptRequestEmployee(query, next);
         res.status(200).json({ success: true, data: 'Cuenta activada correctamente' })
     } catch (error) {
         console.log(error);
@@ -308,12 +312,12 @@ const denyAccount = async (req, res, next) => {
                 new ErrorResponse("Datos incompletos", 400, "error")
             );
         }
-
+        const query = await NormalUser.findOne({ _id: AccountId }).select('Email')
         const user = await NormalUser.findOneAndDelete({ _id: AccountId });
         const otherData = await GlobalData.findOneAndDelete({ DataOwner: AccountId });
         const extraData = await ExtraInfoNormalUser.findOneAndDelete({ UserOwner: AccountId });
-        // Envío del correo (?)
-        // [...]
+
+        DeclineRequestEmployee(query, next)
         await user.delete();
         await otherData.delete();
         await extraData.delete();
@@ -323,35 +327,73 @@ const denyAccount = async (req, res, next) => {
     }
 }
 
+const getFullClientInfo = async (req, res, next) => {
+    try {
+        const DuiNumber = req.header('DuiNumber');
+        if (!DuiNumber) {
+            return next(
+                new ErrorResponse("Ingresa el número de DUI antes de continuar", 400, "error")
+            );
+        }
+
+        const query = await NormalUser.findOne({ Dui: DuiNumber }).select('_id');
+        if (!query) {
+            return next(
+                new ErrorResponse("El número de DUI ingresado no es válido", 400, "error")
+            );
+        }
+        let allInfo = [];
+
+        const MainInfo = await NormalUser.findOne({ _id: query._id });
+        if (!MainInfo) {
+            return next(
+                new ErrorResponse("El número de DUI no fue encontrado", 400, "error")
+            )
+        }
+        allInfo.push(MainInfo);
+
+        const ExtraInfo = await ExtraInfoNormalUser.findOne({ UserOwner: query._id });
+        allInfo.push(ExtraInfo);
+
+        const SAccounts = await SavingsAccount.find();
+        allInfo.push(SAccounts.filter(s => query._id.toString() == s.AccountOwner.toString()));
+
+        const LoanInfo = await LoansModels.find();
+        allInfo.push({ LoanRequestCount: LoanInfo.filter(l => l.loan_guarantor.toString() == query._id.toString()).length > 0 ? true : false });
+
+        const CardsInfo = await CardsRequests.find();
+        allInfo.push({ CardRequestCount: CardsInfo.filter(l => l.CardOwner.toString() == query._id.toString()).length > 0 ? true : false });
+
+        res.status(200).json({ success: true, data: allInfo })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: error.message });
+    }
+}
+
 const AcceptCardReq = async (req, res, next) => {
     try {
         const { Dui } = req.body
         const User = await NormalUser.findOne({ Dui: Dui });
         const CardReq = await CardsRequests.findOne({ CardOwner: User._id })
-
         let CardType, CardAmount, PaymentDate, PayAmount, interest, CardNumber, CardCCV, CardExpire, CloudCardImage;
         let timeNow = new Date()
         PaymentDate = new Date(timeNow.getFullYear(), timeNow.getMonth(), timeNow.getDay() + 30);
         // console.log(PaymentDate.toLocaleDateString('en-GB'))
         PayAmount = 0;
         CardExpire = new Date(timeNow.getFullYear() + 3, timeNow.getMonth(), timeNow.getDay())
-
         const FunctGen = (Max, Min) => {
             let Num = Math.random() * (Max - Min);
             Num = Num + Min;
             Num = Math.trunc(Num);
             return Num
         }
-
         let CardP1 = FunctGen(900, 100);
         let CardP2 = FunctGen(9000, 1000);
         let CardP3 = FunctGen(9000, 1000);
         let CardP4 = FunctGen(9000, 1000);
-
         CardCCV = FunctGen(900, 100);
-
         CardNumber = `5${CardP1} ${CardP2} ${CardP3} ${CardP4}`
-
         if (CardReq.CardId == 0) {
             CardType = 'Classic'
             // AQUÍ SE REALIZARÁN LAS OPERACIONES PARA DETERMINAR EL MONTO Y TODO LO MONETARIO
@@ -378,7 +420,6 @@ const AcceptCardReq = async (req, res, next) => {
             CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1661868613/bank_card_images/blackCard-no_borrar_egcyc0.png'
         }
         await CardsRequests.findOneAndDelete({ CardOwner: User._id })
-
         const NewCard = await new CardsModel({
             CardOwner: User._id,
             CardId: CardReq.CardId,
@@ -387,6 +428,7 @@ const AcceptCardReq = async (req, res, next) => {
             CardNumber,
             CardCCV,
             CardExpire,
+            CardAmount,
             MaxCardAmount: CardAmount,
             PaymentDate,
             PayAmount,
@@ -397,24 +439,19 @@ const AcceptCardReq = async (req, res, next) => {
         })
 
         await NewCard.save();
-
         res.status(200).json({ success: true })
     } catch (error) {
         res.status(500).json({ message: error.message });
-
     }
 }
-
 const DeclineCardReq = async (req, res, next) => {
     try {
         const { Dui } = req.body
         const User = await NormalUser.findOne({ Dui: Dui });
         await CardsRequests.findOneAndDelete({ CardOwner: User._id })
-
         res.status(200).json({ success: true })
     } catch (error) {
         res.status(500).json({ message: error.message });
-
     }
 }
 
@@ -429,5 +466,7 @@ module.exports = {
     getAccountActivationRequests,
     activateAccount,
     denyAccount,
-    AcceptCardReq, DeclineCardReq
+    AcceptCardReq,
+    DeclineCardReq,
+    getFullClientInfo
 }

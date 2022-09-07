@@ -1,30 +1,24 @@
 import React from 'react'
 import "./assets/scss/error404.scss";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 const ErrorImagen = require.context('./assets/img/error', true)
+export const Error404 = () => { 
+// export const ...
+const img = [ErrorImagen("./chica1.png"), ErrorImagen("./chica2.png"), ErrorImagen("./chica3.png")];
 
-
-export const Error404 = () => {
+  const { t } = useTranslation();
   return (
-    /*function generator() {
-      for (let index = 0; index < 10; index++) {
-        var x= Math.floor((Math.ramdom()*6)+1);
-        console.log(x);
-        document.getElementById('divImage').innerHTML=`
-        <img src="./assets/img/error/chica${x}.jpg" style="whidth:300px;>
-        `
-      }
-      
-    },*/
     <div className='error'>
-        <h1>¡Algo salió mal!</h1>
+        <h1>{t("error.tittle")}</h1>
         <div className='error-text'>
-        <p className='p'>Parece que algo ha fallado, al parecer digitaste una dirección que no existe</p>
-        <Link to="/index"><button className='botonx'>Volver</button></Link>
+        <p className='p'>{t("error.subtittle")}</p>
+        <Link to="/index"><button className='botonx'>{t("error.button")}</button></Link>
         
         </div>
-        <img src={ErrorImagen('./chica1.png')} alt='' />
+        <img src={`${img[Math.floor(Math.random() * img.length)]}`}></img>
     </div>
+
     
   )
 

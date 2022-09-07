@@ -3,3 +3,7 @@
 .tborder{
     border-top: 1px solid $secondary_gray_200;
 }
+.shadow-custom{
+    box-shadow: 0px 0px 8px 2px rgba(105, 105, 105, 0.261);
+    border: 1px solid $secondary_gray_300;
+}

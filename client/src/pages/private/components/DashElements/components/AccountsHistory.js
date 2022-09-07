@@ -32,8 +32,8 @@ export const AccountsHistory = ({ setActive, historyAcc }) => {
 
     return (
 
-        <div className={`w-[50rem] mx-auto h-[37rem] flex flex-col`}>
-            <div className='h-[25%] mb-2'>
+        <div className={`modal-history mx-auto flex flex-col`}>
+            <div className='modal-history-header mx-auto mb-2'>
                 <p className='text-gray-500 text-center text-[28px] mt-3 mb-0 p-0'>Historial de la cuenta</p>
                 <div className='dash_acc-nav-line w-[40%] mx-auto'></div>
                 <div className='flex w-[90%] bg-[#f7f7f7] p-2 rounded-sm shadow-sm justify-center mb-3 mt-3 mx-auto'>
@@ -49,7 +49,7 @@ export const AccountsHistory = ({ setActive, historyAcc }) => {
                 </div>
             </div>
             <ScrollToTop />
-            <section className='h-[85%] w-[90%] mb-5 mx-auto overflow-y-auto overflow-x-hidden'>
+            <section className='modal-history-content mb-5 mx-auto overflow-y-auto overflow-x-hidden'>
                 {renderBox()}
             </section>
         </div>

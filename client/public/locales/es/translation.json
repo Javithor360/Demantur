@@ -9,6 +9,7 @@
     "help": "Ayuda",
     "access": "Acceder"
   },
+
   "main_footer": {
     "terms": "Términos y condiciones",
     "policy": "Política de privacidad",
@@ -18,138 +19,185 @@
     "access": "Acceder",
     "copyright": "Todos los derechos reservados. © 2022 Demantur"
   },
+
   "bussinesPage":{
     "hero":{
-      "tittle":"Registro",
-      "desc":"Bienvenido a la guia donde aprenderas todo lo que debes saber para poder registrarte"
+      "tittle": "Registro",
+      "desc": "Bienvenido a la guia donde aprenderás todo lo que debes saber para poder registrarte"
     },
     "body":{
-      "tittle":"¿que es una cuenta empresarial?",
-      "text":"Contrato entre una empresa en nuestro banco, mediante el cual el titular deposita una cantidad de dinero y el banco adquiere un compromiso de custodiarlo, con este servicio buscamos brindarle una forma más rápida y dinámica de administrar su dinero.",
+      "tittle": "¿que es una cuenta empresarial?",
+      "text": "Contrato entre una empresa en nuestro banco, mediante el cual el titular deposita una cantidad de dinero y el banco adquiere un compromiso de custodiarlo, con este servicio buscamos brindarle una forma más rápida y dinámica de administrar su dinero.",
       "subtittle": "¿Cuales son los beneficios?"
     },
     "benefits":{
       "content":{
-        "1":"Un lugar seguro para guardar tu dinero",
-        "2":"pago de nomimas",
-        "3":"posibilidad de tener una chequera"
+        "1": "Un lugar seguro para guardar tu dinero",
+        "2": "Pago de nomimas",
+        "3": "Posibilidad de tener una chequera"
       }
     }
-
   },
+
   "login":{
-    "register":{
-      "tittle":"Regístrate en la banca en línea",
-      "tittle2":"Datos Personales",
-      "subtittle":"Necesitamos tus datos personales para poder identificarte y saber que realmente eres tú",
-      "names":"Nombres",
-      "lastname":"Apellidos",
-      "date":"Fecha de cumpleaños",
-      "address":"Dirección"
+    "register": {
+      "tittle": "Regístrate en la banca en línea",
+      "tittle2": "Datos personales",
+      "subtittle": "Necesitamos tus datos personales para poder identificarte y saber que realmente eres tú",
+      "names": "Nombres",
+      "lastname": "Apellidos",
+      "date": "Fecha de nacimiento",
+      "address": "Dirección"
     },
 
     "contentreg":{
-      "tittle":"Otras Opciones",
-      "subtitle":"Otras Opciones?",
-      "subtitle2":"Iniciar Sesioon",
-      "subtitle3":"Cambiar Contraseña",
-      "subtitle4":"Verificar email"
+      "tittle": "Otras opciones",
+      "subtitle": "¿Necesitas algo extra?",
+      "subtitle2": "Iniciar sesión",
+      "subtitle3": "Cambiar contraseña",
+      "subtitle4": "Verificar correo electrónico"
     },
 
-    "sidebar":{
-      "date":"Datos personales",
-      "identification":"Identificacion",
-      "money":"Datos Monetarios",
-      "beneficiary":"Beneficiario"
+    "sidebar": {
+      "date": "Datos personales",
+      "identification": "Identificación",
+      "money": "Datos monetarios",
+      "beneficiary": "Beneficiario"
     },
+
     "buttons":{
-      "previous":"ANTERIOR"
+      "previous": "ANTERIOR"
     },
 
-    "identification":{
-      "number":"Numero",
-      "password":"Contraseña",
-      "password2":"Confirmar contras...",
-      "code":"Codigo"
+    "identification": {
+      "number": "Número telefónico",
+      "password": "Contraseña",
+      "password2": "Confirmar contraseña",
+      "code": "Código"
     },
-    "logins":{
-      "tittle":"Inicia Sesión en la banca en línea",
-      "tittle2":"Iniciar sesión",
-      "subtittle":"En este apartado puede acceder con su cuenta previamente creada",
-      "forgot":"¿Olvidó su contraseña?",
-      "register":"Registrarse",
-      "very":"Verify"
-    },
-    "password":{
-      "tittle":"Contraseña perdida",
-      "forgtott":"Si no recuerda su contraseña, puede cambiarla en este apartado",
-      "send":"Enviar correo"
-    },
-    "verify":{
-      "tittle":"Verificar correo electrónico",
-      "tittle2":"Veficación",
-      "subtittle":"Aquí puede verificar su correo electrónico para finalizar su registro",
-      "very":"Verificar"
 
+    "logins": {
+      "tittle": "Inicia sesión en la banca en línea",
+      "tittle2": "Iniciar sesión",
+      "subtittle": "En este apartado puede acceder con su cuenta previamente creada",
+      "forgot": "¿Olvidó su contraseña?",
+      "register": "Registrarse",
+      "very": "Verificar"
+    },
+
+    "password": {
+      "tittle": "Contraseña perdida",
+      "forgtott": "Si no recuerda su contraseña, puede cambiarla en este apartado",
+      "send": "Enviar correo"
+    },
+
+    "verify": {
+      "tittle": "Verificar correo electrónico",
+      "tittle2": "Veficación",
+      "subtittle": "Aquí puede verificar su correo electrónico para finalizar su registro",
+      "very": "Verificar"
     }
   },
-  "Aboutpage":{
-    "hero":{
-      "tittle":"Nos mueve un gran propósito",
-      "subtitle":"Contribuir a la construcción de un mejor país nos ha llevado a desarrollar un sistema operativo sostenible y a crear programas de desarrollo como educación financiera o asesoramiento en sostenibilidad.."
+
+  "error":{
+    "tittle":"¡Algo salió mal!",
+    "subtittle":"Parece que algo ha fallado, al parecer digitaste una dirección que no existe",
+    "button":"Volver"
+  },
+
+  "Aboutpage": {
+    "hero": {
+      "tittle": "Nos mueve un gran propósito",
+      "subtitle": "Contribuir a la construcción de un mejor país nos ha llevado a desarrollar un sistema operativo sostenible y a crear programas de desarrollo como educación financiera o asesoramiento en sostenibilidad.."
     },
-    "body":{
-      "tittle":"Nuesta historia",
-      "subtitle":"Dematur fue fundada el 20 de marzo de 2022 con el propósito de poder brindar a sus clientes un servicio de banca en línea con el fin de optimizar el valioso tiempo de las personas a través de una interfaz amigable y dinámica para la realización de trámites. , ampliando nuestros servicios con breves guías para que puedas aprender a utilizar la banca online sin tener conocimientos de una, logrando así romper la brecha digital que existe a nivel mundial. El propósito con el que se fundó Demantur es para que puedas contar con un lugar seguro donde depositar tu dinero, garantizar la seguridad de tus bienes y brindarte ayuda en caso de que necesites realizar algún trámite de forma rápida y segura desde la comodidad de tu hogar. de tu casa o donde estés, logrando promover el conocimiento económico en la actualidad.",
-      "tittle2":"Nuestro impacto",
-      "subtitle2":"Nos hemos propuesto romper la brecha digital que afecta a la mayor parte de la población mundial, logrando que todos tengan acceso a un servicio sin necesidad de ser un experto en economía, para ello se ha propuesto una interfaz que cuenta con guías informativas de forma gratuita para que puede saber lo que es necesario para la funcionalidad de la banca en línea."
+
+    "body": {
+      "tittle": "Nuesta historia",
+      "subtitle": "Dematur fue fundado el 20 de marzo de 2022 con el propósito de poder brindar a sus clientes un servicio de banca en línea con el fin de optimizar el valioso tiempo de las personas a través de una interfaz amigable y dinámica para la realización de trámites, ampliando nuestros servicios con breves guías para que puedas aprender a utilizar la banca en línea sin tener conocimientos de una, logrando así romper la brecha digital que existe a nivel mundial. El propósito con el que se fundó Demantur es para que puedas contar con un lugar seguro donde depositar tu dinero, garantizar la seguridad de tus bienes y brindarte ayuda en caso de que necesites realizar algún trámite de forma rápida y segura desde la comodidad de tu hogar o donde estés, logrando promover el conocimiento económico en la actualidad.",
+      "tittle2": "Nuestro impacto",
+      "subtitle2": "Nos hemos propuesto romper la brecha digital que afecta a la mayor parte de la población mundial, logrando que todos tengan acceso a un servicio sin necesidad de ser un experto en economía, para ello se ha propuesto una interfaz que cuenta con guías informativas de forma gratuita para que puedas saber lo que es necesario para la funcionalidad de la banca en línea."
     },
-    "valor":{
-      "tittle":"Nuestros valores",
-      "valor":"Responsabilidad",
-      "subtitle":"Somos puntuales en todo lo que puedas necesitar.",
-      "valor2":"Respeto",
-      "subtitle2":"Valoramos tu integridad como persona y ser humano",
-      "valor3":"Cercania",
-      "subtitle3":"Siempre buscamos brindar una mano amiga para ayudarte"
+
+    "valor": {
+      "tittle": "Nuestros valores",
+      "valor": "Responsabilidad",
+      "subtitle": "Somos puntuales en todo lo que puedas necesitar",
+      "valor2": "Respeto",
+      "subtitle2": "Valoramos tu integridad como persona y ser humano",
+      "valor3": "Cercania",
+      "subtitle3": "Siempre buscamos brindar una mano amiga para ayudarte"
     }
   },
-  "selectpage":{
-    "hero":{
+
+  "bannertab": {
+    "tittle": "Requisitos",
+    "1": "Fotocopia de DUI y NIT del representante legal de la empresa; en el caso de persona extranjera, pasaporte vigente y tarjeta de residente.",
+    "2": "Fotocopia de la Escritura de Constitución inscrita en el Registro de Comercio.",
+    "3": "Fotocopia de la Certificación del Punto de Registro, cuando se requiera aprobación de la Junta Directiva para la apertura o contratación.",
+    "4": "Fotocopia del NIT de la Empresa.",
+    "5": "Fotocopia de la Credencial de Representante Legal inscrita en el Registro de Comercio."
+  },
+
+  "register": {
+    "tittle": "Datos personales",
+    "subtittle": "Necesitamos tus datos personales para poder identificarte y saber que realmente eres tú",
+    "tittle2": "Identificación",
+    "subtittle2": "Para crear una cuenta en Demantur necesitas identificarte con estos datos para poder ingresar",
+    "tittle3": "Datos Monetarios",
+    "subtittle3": "Para nuestra logística necesitamos saber tus datos monetarios para ofrecerte nuestros mejores servicios",
+    "tittle4": "Beneficiario",
+    "subtittle4": "Si en algún caso sufre algún accidente el beneficiario tendrá derecho a reclamar sus bienes.",
+    "tittle5": "Código de Confirmación",
+    "subtittle5": "Revise su correo electrónico, en el cual tendrá un código de 6 dígitos que tiene que digitar aquí para validar su cuenta."
+  },
+
+  "loginemple": {
+    "tittle":"Bienvenido al panel de empleado",
+    "email":"Correo",
+    "password":"Contraseña"
+  },
+
+  "selectpage": {
+    "hero": {
       "tittle": "Selección",
-      "subtitle":"Bienvenido a la interfaz de Seleccion de opciones"
+      "subtitle":"Bienvenido a la interfaz de seleccion de opciones"
     },
-    "body":{
+
+    "body": {
       "tittle": "Bienvenido de nuevo",
       "subtittle": "Bienvenido a la interfaz de selección de usuario, seleccione la opcion a la cual desea ir",
-      "tittle2":"Otras opciones",
-      "subtittle2":"Tenemos otras opciones en caso de que ya tengas una cuenta, tenemos las siguientes herramientas que podrían ayudarte",
+      "tittle2": "Otras opciones",
+      "subtittle2": "Tenemos otras opciones en caso de que ya tengas una cuenta, tenemos las siguientes herramientas que podrían ayudarte",
       "tittle3":"¿Cómo registrarse?"
     },
-    "cards":{
-      "1":{
-        "tittle":"Cuenta normal",
-        "subtittle":"Si tu empresa aún no tiene una cuenta con nosotros, contrátala de forma segura, ágil y digital sin desplazarte a una oficina o a un banco.",
-        "button1":"Iniciar sesión",
-        "button2":"Registrarse"
+
+  "cards": {
+        "1": {
+          "tittle": "Cuenta normal",
+          "subtittle": "La opcion ideal si deseas obtener o iniciar sesión como usuario, da clic en la opcion que deseas ejecutar.",
+          "button1": "Iniciar sesión",
+          "button2": "Registrarse"
+        },
+
+        "2": {
+          "tittle": "Cuenta de empleado",
+          "subtittle":"Si eres empleado de demantur puedes iniciar sesión aqui de manera más rapida.",
+          "button1": "Iniciar sesión"
+        },
+
+        "3": {
+          "tittle": "Cambio de contraseña",
+          "subtittle": "Si olvida su contraseña, esta es la mejor opción para recuperar su cuenta y establecer una nueva contraseña.",
+          "button1": "Ir"
+        },
+        "4":{
+          "tittle":"Verificacion de email",
+          "subtittle":"En caso de que haya creado una cuenta pero aún no la haya verificado, aquí puede verificar su cuenta.",
+          "button1":"Ir"
+        }
       },
-      "2":{
-        "tittle":"Cuenta de negocios",
-        "subtittle":"La mejor opción en cuanto a la gestión de tu extracto bancario, todo desde la comodidad de tu hogar sin necesidad de ir a un banco",
-        "button1":"Iniciar sesión",
-        "button2":"Registrarse"
-      },
-      "3":{
-        "tittle":"Cambio de contraseña",
-        "subtittle":"Si olvida su contraseña, esta es la mejor opción para recuperar su cuenta y establecer una nueva contraseña.",
-        "button1":"Ir"
-      },
-      "4":{
-        "tittle":"Verificacion de email",
-        "subtittle":"En caso de que haya creado una cuenta pero aún no la haya verificado, aquí puede verificar su cuenta.",
-        "button1":"Ir"
-      }
-    },
+    
+  
     "info":{
       "1":{
         "first":"El primer paso será llegar al formulario con los datos solicitados, tales como:",
@@ -194,17 +242,7 @@
       }
     }
   },
-
-  "bannertab":{
-    "tittle":"requisitos",
-    "1":"Fotocopia de DUI y NIT del Representante Legal de la Empresa; en el caso de persona extranjera, pasaporte vigente y tarjeta de residente.",
-    "2":"Fotocopia de la Escritura de Constitución inscrita en el Registro de Comercio.",
-    "3":"Fotocopia de la Certificación del Punto de Registro, cuando se requiera aprobación de la Junta Directiva para la apertura o contratación.",
-    "4":"Fotocopia del NIT de la Empresa.",
-    "5":"Fotocopia de la Credencial de Representante Legal inscrita en el Registro de Comercio."
-  },
   
-
   "index": {
     "slider": {
       "title": "Banca en línea",

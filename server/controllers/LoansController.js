@@ -56,17 +56,17 @@ const LoansFormRequests = async (req, res, next) => {
         
         if (LoanId == 0){
             LoanType = 'Pesonal'
-            CloudLoansImage='https://res.cloudinary.com/demantur/image/upload/v1662324435/bank_loans_images_employee/Personal_loan_employee_dont_touch.jpg'
+            CloudLoanImage='https://res.cloudinary.com/demantur/image/upload/v1662324435/bank_loans_images_employee/Personal_loan_employee_dont_touch.jpg'
         } else  if (LoanId == 2){
         }else if (LoanId == 1){
             LoanType = 'Business'
-            CloudLoansImage='https://res.cloudinary.com/demantur/image/upload/v1662324649/bank_loans_images_employee/Business_loan_employee_Dont_Touch.jpg'
+            CloudLoanImage='https://res.cloudinary.com/demantur/image/upload/v1662324649/bank_loans_images_employee/Business_loan_employee_Dont_Touch.jpg'
         } else  if (LoanId == 2){
-            LoanType = 'Housing'
-            CloudLoansImage='https://res.cloudinary.com/demantur/image/upload/v1662324539/bank_loans_images_employee/Housin_Demanture_employee_Dont_Touch.jpg'
+            LoanType = 'House'
+            CloudLoanImage='https://res.cloudinary.com/demantur/image/upload/v1662324539/bank_loans_images_employee/Housin_Demanture_employee_Dont_Touch.jpg'
         } else if (LoanId == 3){
             LoanType = 'Auto '
-            CloudLoansImage='https://res.cloudinary.com/demantur/image/upload/v1662324591/bank_loans_images_employee/Auto_Demantur_employee_Dont_Touch.jpg'
+            CloudLoanImage='https://res.cloudinary.com/demantur/image/upload/v1662324591/bank_loans_images_employee/Auto_Demantur_employee_Dont_Touch.jpg'
         }
 
 
@@ -97,7 +97,7 @@ const LoansFormRequests = async (req, res, next) => {
             DuiBackImg,
             ConstancyImg , 
             SalaryEvidenceImg,
-            CloudLoansImage,
+            CloudLoanImage
             
         }
 

@@ -371,6 +371,16 @@ const getFullClientInfo = async (req, res, next) => {
         res.status(500).json({ message: error.message });
     }
 }
+const declineLoan = async (req, res, next)=>{
+    try {
+        const { Dui } = req.body
+        const User = await NormalUser.findOne({ Dui: Dui });
+        await LoansModels.findOneAndDelete({ loan_guarantor: User._id })
+        res.status(200).json({ success: true })
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
 
 const AcceptCardReq = async (req, res, next) => {
     try {
@@ -469,5 +479,6 @@ module.exports = {
     denyAccount,
     AcceptCardReq,
     DeclineCardReq,
+    declineLoan,
     getFullClientInfo
 }

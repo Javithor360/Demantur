@@ -12,7 +12,7 @@ router.route("/get-user-data").post(getUserInfoForEmployee);
 
 router.route("/get-cards-requests").get(getCardRequests);
 router.route("/get-loans-requests").get(getLoanRequests);
-router.route('/decline-loan').delete(declineLoan);
+
 
 
 router.route("/get-client-info").get([AuthMiddleware], getFullClientInfo);
@@ -27,6 +27,10 @@ router.route('/test-emails-ernesto').get(async (req, res, next) => {
     res.status(500).json({ success: false, error: error.message });
   }
 })
+
+//Aceptar o Rechazar prestamos
+
+router.route('/decline-loan-request').post([AuthMiddleware], declineLoan)
 
 router.route('/accept-card-request').post([AuthMiddleware], AcceptCardReq)
 router.route('/decline-card-request').post([AuthMiddleware], DeclineCardReq)

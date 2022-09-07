@@ -2,15 +2,18 @@ import './assets/scss/LoansEmployee.scss'
 import { BsArrowLeft } from 'react-icons/bs'
 import { AiOutlineZoomIn, AiOutlineZoomOut, AiOutlineCompress, AiOutlineClose } from 'react-icons/ai'
 import { useState, useEffect } from 'react'
-import Modal from '../Modal'
+import SmallModal from '../SmallModal'
 import { TransformComponent, TransformWrapper } from '@pronestor/react-zoom-pan-pinch'
 import { LoanConfirm } from './LoansConfirm'
-import axios from 'axios';
+import { DenyLoan } from './DenyLoan'
 
 
 
-export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
+
+export const DetailsLoansRequest = ({ Params, setDisplayDetails, setLoanRqs, LoanRqs }) => {
   const [LoanConfirmData, setLoanConfirmData] = useState({});
+  const [LoanDenyData, setLoanDenyData] = useState({});
+  const [ChangeButtons, setChangeButtons] = useState(0);
 
   // console.log(Params)
   const grid_column_styles = "mr-4 flex flex-col h-full w-full";
@@ -23,6 +26,13 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
   const toggle = () => {
     setActive(!active)
   }
+  useEffect(() => {
+    if (ChangeButtons !== 0) {
+      console.log(LoanRqs);
+      setLoanRqs(prev => prev.filter(el => el.Request_guarantor.Dui !== Params.Dui))
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ChangeButtons]);
   useEffect(() => {
     if (active) {
         document.body.style.overflowY = 'hidden'
@@ -56,24 +66,6 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
     setTempImgSrc(ImgSrc);
     setImageModal(true);
   }
-  const handleDecline = async (e) =>{
-    e.preventDefault();
-
-    try {
-      await axios.delete('http://localhost:4000/api/accounts/decline-loan', {
-        headers:{
-          "Content-Type": "application/json",
-          "x-auth-token": localStorage.getItem('employeeToken')
-        },
-        data :{
-          id: Params.LoanRqs._id
-        }
-      });
-      setDisplayDetails(false);
-    } catch (error) {
-      console.log(error)
-    }
-  }
   return (
     <>
       <div className='cards-employee overflow-x-hidden overflow-y-auto'>
@@ -89,7 +81,7 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
               <p className='text-[20px] m-0 p-0'>Solicitud de préstamo <span className='font-semibold'> {Params.Type} Demantur </span></p>
           </div>
           <div className='h-full w-[42%] flex items-center justify-center'>
-            <img src={Params.CloudLoansImage} alt="" className='w-[13rem] rounded-lg'/>
+            <img src={Params.CloudLoanImage} alt="" className='w-[13rem] rounded-lg'/>
           </div>
         </div> 
 
@@ -235,6 +227,7 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
         <div className='m-auto w-[60%] h-[6rem] border-cover rounded-2xl bg-[#FCFCFC] shadow-sm flex flex-row mb-5'>
           <div className='h-full w-[50%] flex items-center justify-center'>
             <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#727C9F] text-white' onClick={() =>{
+              setLoanDenyData({})
               setLoanConfirmData(
                 {
                   Name: Params.Name,
@@ -250,13 +243,32 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails }) => {
             }>Aceptar</button>
           </div>
           <div className='h-full w-[50%] flex items-center justify-center'>
-          <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#455FB9] text-white' onClick={handleDecline}>Denegar</button>
+          <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#727C9F] text-white' onClick={() =>{
+              setLoanConfirmData({})
+              setLoanDenyData(
+                {
+                  Name: Params.Name,
+                  Dui: Params.Dui,
+                  Email: Params.Email,
+                  CelNum: Params.CelNum,
+                  Amountrequest:Params.Amountrequest
+
+                }
+              )
+              toggle()
+            }
+            }>Denegar</button>
           </div>
         </div> 
         {toggle &&
-          <Modal active={active} toggle={toggle} onRequestClose={toggle}>
-              <LoanConfirm props={LoanConfirmData} setActive={setActive}/>
-          </Modal>
+          <SmallModal active={active} toggle={toggle} onRequestClose={toggle}>
+            {
+              LoanConfirmData.Dui ?
+                <LoanConfirm props={LoanConfirmData} setActive={setActive} toggle={toggle} setChangeButtons={setChangeButtons} />
+                :
+                <DenyLoan props={LoanDenyData} setActive={setActive} toggle={toggle} setChangeButtons={setChangeButtons} />
+            }
+          </SmallModal>
         }
       </div>
     </>

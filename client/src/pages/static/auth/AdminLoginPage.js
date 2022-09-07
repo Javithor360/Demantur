@@ -31,28 +31,33 @@ export const AdminLoginPage = () => {
     }
 
     return (
-        <>
-            <h1 className='titu'>Bienvenido al panel de administrador</h1><br/><br/><br/>
-            <div className='banert'></div>
-            <div className='formt'>
-            <form onSubmit={handleForm}>
-                <h2 className='subtitlet'>Inicio de sesión</h2>
-                {Error !== '' && <h5 className='err'>{Error}</h5>}
-                <div className='request'>
-                <div className='formc'>
-                <input className='inputs' type="text" id="Username" name='Username' onChange={(e) => { setName(e.target.value) }} value={Name} />
-                <label className='labels' htmlFor="Username">Nombre de usuario</label>
+
+        <div className='h-[100vh] flex flex-col justify-between relative'>
+            <div className='w-full h-full flex flex-row'>
+                <div className='min-w-[70%] h-full flex flex-col items-center'>
+                    <h1 className='titu'>Bienvenido al panel de administrador</h1>
+                    <div className='formt flex justify-center'>
+                        <form className="mt-4" onSubmit={handleForm}>
+                            <h2 className='subtitlet'>Inicio de sesión</h2>
+                            {Error !== '' && <h5 className='err'>{Error}</h5>}
+                            <div className='request flex flex-col justify-center items-center'>
+                                <div className='formc'>
+                                    <input className='inputs' type="text" id="Username" name='Username' onChange={(e) => { setName(e.target.value) }} value={Name} />
+                                    <label className='labels' htmlFor="Username">Nombre de usuario</label>
+                                </div>
+                                <div className='formc'>
+                                    <input className='inputs' type="password" id="Password" name='Password' onChange={(e) => { setPassword(e.target.value) }} value={Password} />
+                                    <label className='labels' htmlFor="Email">Contraseña</label>
+                                </div>
+                            </div>
+                            <button type='submit' className='style-buttont mx-auto block'>Iniciar sesión</button>
+                        </form>
+                    </div>
                 </div>
-                <div className='formc'>
-                <input className='inputs' type="password" id="Password" name='Password' onChange={(e) => { setPassword(e.target.value) }} value={Password} />
-                <label className='labels' htmlFor="Email">Contraseña</label>
-                </div>
-                </div>
-                <button type='submit' className='style-buttont'>Iniciar sesión</button>
-            </form>
+                <div className='w-[30%] banert'></div>
             </div>
-            <FooterAuth />
-        </>
+            <FooterAuth className="absolute bottom-0" />
+        </div>
 
     )
 }

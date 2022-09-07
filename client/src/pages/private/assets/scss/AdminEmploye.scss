@@ -1,10 +1,40 @@
-.banerts{
-    background-image: url(./../img/banert3.jpg);
+.formv{
+    margin-top: 1.8rem;
+    width: 300px;
+    height: 50px;
+    position: relative;
+  }
+  .formv label{
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    font-size: 18px;
+    color: black;
+    transform-origin: 0 0;
+    transition: top .3s;
+    pointer-events: none;
+  }
+
+.inputv{
     width: 100%;
-  background-size: cover;
-  background-position: center center;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.103);
+    border-radius: 10px;
+    outline: none;
+    padding: 0 10px;
+    font-size: 20px;
 }
-.content-formt{
+.formv input:focus ~ label,
+.formv input:valid ~ label{
+     top: -15px;
+     background-color: #ffffff;
+   } 
+   .err{
+    text-align: center  ;
+    color: red  ;
+   }
+   .content-formt{
     height: 30rem;
     width: 50rem;
     float: right;
@@ -19,47 +49,9 @@
   margin-left: 15rem;
   margin-top: 2rem;
 }
-.ti{
-  text-align: center;
-  margin-top: 2rem;
-}
-.formc{
-    margin-top: 1.8rem;
-    width: 300px;
-    height: 50px;
-    position: relative;
-  }
-  .formc label{
-    position: absolute;
-    top: 10px;
-    left: 8px;
-    font-size: 18px;
-    color: black;
-    transform-origin: 0 0;
-    transition: top .3s;
-    pointer-events: none;
-  }
 
-.inputs{
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: 2px solid rgba(0, 0, 0, 0.103);
-    border-radius: 10px;
-    outline: none;
-    padding: 0 10px;
-    font-size: 20px;
-}
-.formc input:focus ~ label,
-.formc input:valid ~ label{
-     top: -15px;
-     background-color: #ffffff;
-   } 
-   .err{
-    text-align: center  ;
-    color: red  ;
-   }
-.buttonx{
+// Mati estuvo aquí
+.buttonv{
     background-color: #7c85a1;
     color: #ffffff;
     border-radius: 0.3rem;
@@ -69,12 +61,6 @@
     margin-left: 18rem;
     margin-top: 5rem;
 }
-.buttonx:hover{
+.buttonv:hover{
     transform: scale(1.01);
 }
-.titlex{
-    text-align: right;
-    margin-top: 2rem;
-    margin-right: 19rem;
-}
-

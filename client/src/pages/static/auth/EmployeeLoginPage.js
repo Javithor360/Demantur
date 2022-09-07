@@ -33,29 +33,32 @@ export const EmployeeLoginPage = () => {
 
   return (
     <>
-    <h1 className='titlex'>{t("loginemple.tittle")}</h1>
-    <div className='banerts'></div>
-    <div className='content-formt'>
-    <form onSubmit={handleForm}>
-        <div className='form-info'>
-            <h1 className='ti'>{t("login.logins.tittle2")}</h1>
-            {Error !== '' && <h5 className='err'>{Error}</h5>}
-       <div className='requestd'>
-        <div className='formc'>
-        <input className='inputs' placeholder='' type="text" id="Email" name='Nombres' onChange={(e) => {setEmail(e.target.value)}} value={Email} />
-        <label className='labelt' htmlFor="Email">{t("loginemple.email")}</label>
+   <div className='h-[100vh] flex flex-col justify-between relative'>
+            <div className='w-full h-full flex flex-row'>
+                <div className='min-w-[70%] h-full flex flex-col items-center'>
+                    <h1 className='titu'>Bienvenido al panel de empleado</h1>
+                    <div className='formt flex justify-center'>
+                        <form className="mt-4" onSubmit={handleForm}>
+                            <h2 className='subtitlet'>Inicio de sesión</h2>
+                            {Error !== '' && <h5 className='err'>{Error}</h5>}
+                            <div className='request flex flex-col justify-center items-center'>
+                                <div className='formc'>
+                                <input className='inputs' placeholder='' type="text" id="Email" name='Nombres' onChange={(e) => {setEmail(e.target.value)}} value={Email} />
+                                <label className='labelt' htmlFor="Email">{t("loginemple.email")}</label>
+                                </div>
+                                <div className='formc'>
+                                <input className='inputs' placeholder='' type="password" id="Password" name='Password' onChange={(e) => {setPassword(e.target.value)}} value={Password} />
+                                <label className='labelt' htmlFor="Email">{t("loginemple.password")}</label>
+                                </div>
+                            </div>
+                            <button type='submit' className='style-buttont mx-auto block'>Iniciar sesión</button>
+                        </form>
+                    </div>
+                </div>
+                <div className='w-[30%] banerts'></div>
+            </div>
+            <FooterAuth className="absolute bottom-0" />
         </div>
-        <div className='formc'>
-        <input className='inputs' placeholder='' type="password" id="Password" name='Password' onChange={(e) => {setPassword(e.target.value)}} value={Password} />
-        <label className='labelt' htmlFor="Email">{t("loginemple.password")}</label>
-        </div>
-        </div> 
-       </div>
-        <button className='buttonx' type='submit'>{t("login.logins.tittle2")}</button>
-        
-    </form>
-    </div>
-    <FooterAuth />
     </>
 
   )

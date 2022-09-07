@@ -1,13 +1,14 @@
 import React from 'react'
-import { useEmpConx } from '../../../../context/EmployeeContext'
+import { useEmpConx } from '../../../../context/EmployeeContext';
 
-export const ConfirmCardReq = ({ props, setActive, toggle, setChangeButtons }) => {
-  const { AcceptCardReq } = useEmpConx();
+export const CancelCardReq = ({ props, setActive, toggle, setChangeButtons }) => {
 
-  const HandleConfirm = async () => {
+  const { DeclineCardReq } = useEmpConx();
+
+  const HandleCancel = async () => {
     try {
-      await AcceptCardReq(localStorage.getItem('employeeToken'), props.Dui)
-      setChangeButtons(1)
+      await DeclineCardReq(localStorage.getItem('employeeToken'), props.Dui)
+      setChangeButtons(2)
       toggle()
     } catch (error) {
       console.log(error)
@@ -17,7 +18,7 @@ export const ConfirmCardReq = ({ props, setActive, toggle, setChangeButtons }) =
   return (
     <div className='h-[30rem] w-[50rem]'>
       <div className='w-[100%] text-center mt-3'>
-        <p className='text-[2rem]'>Confirma tu acción - Aceptar</p>
+        <p className='text-[2rem]'>Confirma tu acción - Denegar</p>
         <div className='w-[80%] mx-auto'>
           <p className=' text-center'>Antes de continuar verifica bien los datos del cliente para confirmar o denegar la solicitud, ya que esta acción no se puede deshacer</p>
         </div>
@@ -47,7 +48,7 @@ export const ConfirmCardReq = ({ props, setActive, toggle, setChangeButtons }) =
         </div>
       </div>
       <div className='w-[80%] mx-auto mt-5 flex flex-row justify-center items-center'>
-        <button className='text-white rounded-lg border-none outline-none bg-[#455FB9] hover:bg-[#4f6acb] px-[1rem] py-[.5rem] mr-5' onClick={HandleConfirm}>Confirmar</button>
+        <button className='text-white rounded-lg border-none outline-none bg-[#455FB9] hover:bg-[#4f6acb] px-[1rem] py-[.5rem] mr-5' onClick={HandleCancel}>Confirmar</button>
         <button className='text-white rounded-lg border-none outline-none bg-[#1a2c6b] px-[1rem] py-[.5rem] hover:bg-[#22388a]' onClick={() => toggle()}>Cancelar</button>
       </div>
     </div>

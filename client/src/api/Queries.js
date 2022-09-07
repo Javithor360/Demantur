@@ -118,6 +118,18 @@ export const UsersToAddQuery = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/dashboard/get-users-to-add', { headers: PrivateConfig.headers })
 }
 
+export const getMyCardQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-my-card', { headers: PrivateConfig.headers })
+}
+
+export const getMyDebitCardQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-debit-card', { headers: PrivateConfig.headers })
+}
+
+export const PayCCDebtQuery = async (PrivateConfig, AccountN, Amount) => {
+  return await axios.post('http://localhost:4000/api/dashboard/pay-card-debt', { AccountN, Amount }, { headers: PrivateConfig.headers })
+}
+
 // ?? QUERYS EMPLOYEE
 
 export const getEmployeeData = async (PrivateConfig) => {
@@ -135,4 +147,12 @@ export const getLoanRequests = async (PrivateConfig) => {
 export const getPendingAccounts = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/accounts/get-account-requests', { headers: PrivateConfig.headers });
 
+}
+
+export const AcceptCardReqQuery = async (PrivateConfig, Dui) => {
+  return await axios.post('http://localhost:4000/api/employee/accept-card-request', { Dui }, { headers: PrivateConfig.headers })
+}
+
+export const DeclineCardReqQuery = async (PrivateConfig, Dui) => {
+  return await axios.post('http://localhost:4000/api/employee/decline-card-request', { Dui }, { headers: PrivateConfig.headers })
 }

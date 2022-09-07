@@ -156,40 +156,21 @@ exports.FoPaEmail = async (resetToken, isNormalUser, next, res) => {
         }
         .fondo{
             margin: 0 auto;
-            height: 70rem;
-            width: 60rem;
+            height: 40rem;
+            width: 50rem;
             border: solid;
             border-color: rgba(0, 0, 0, 0.068);
-            border-radius: 1.5rem;
+            background-color: white;
         }
         .icon{
-            width: 15rem;
+            width: 9rem;
             margin-top: 2rem;
             margin-left: 2rem;
             margin-bottom: 2rem;
         }
-    .baners {
-    background-image: url(https://img.freepik.com/foto-gratis/casarse-finanzas-hogar-pareja-asiatica-revisando-sus-cuentas-bancarias-usando-computadora-portatil-calculadora-sala-estarpareja-asiatica-sentada-sofa-computadora-portatil-emocion-estresante-casa_609648-8.jpg?w=1380&t=st=1658290429~exp=1658291029~hmac=45c5a63d80e66cce23df79b437c8383f6a2cdaf09e517e16f66c0749be13656f);
-    background-size: cover;
-    width: 100%;
-    height: 22rem;
-    position: relative;
-  
-  }
-  
-  .baners-content {
-    position: absolute;
-    width: inherit;
-    height: inherit;
-    background-color: rgba(0, 0, 0, 0.342);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #ffffff;
-  }
   .title{
     margin-top: 2rem;
-    font-size: 3rem;
+    font-size: 2rem;
             font-weight: bold;
             text-align: center;
   }
@@ -210,7 +191,7 @@ exports.FoPaEmail = async (resetToken, isNormalUser, next, res) => {
   }
   .subs{
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-left: 5rem;
     margin-right: 5rem;
   }
@@ -221,21 +202,13 @@ exports.FoPaEmail = async (resetToken, isNormalUser, next, res) => {
   }
   .a{
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   footer{
     background-color: rgb(78, 78, 78);
-    margin-top: 32rem;
+    margin-top: 10rem;
     height: 3rem;
     text-align: center;
-  }
-  .img{
-    margin-top: -2rem;
-    margin-right: -5rem;
-    width: 60rem;
-    float: right;
-    margin-bottom: -5rem;
-    
   }
     </style>
   </head>
@@ -246,7 +219,6 @@ exports.FoPaEmail = async (resetToken, isNormalUser, next, res) => {
                 <hr /><br>
             <p class="subs">tienes una solicitud para cambiar tu contraseña por favor ingrese a este link para cambiar su contraseña:</p>
             <a href="${resetUrl}"><p class="a">${resetUrl}</p></a>
-            <img class="img" src="https://media.discordapp.net/attachments/861438024659501087/1014584092253224960/Imagen2.png?width=724&height=424" alt="">
             <footer>
               <span class="copyright">
                   Todos los derechos reservados. © 2022 Demantur
@@ -317,25 +289,6 @@ exports.VeCoEmail = async (verifyCode, isNormalUser, next) => {
             margin-left: 2rem;
             margin-bottom: 2rem;
         }
-    .baners {
-    background-image: url(https://cdn.discordapp.com/attachments/861438024659501087/1004499581272334356/personas-que-esperan-obtener-dinero-cajero-automatico-personas-retiran-dinero-concepto-cajero-automatico_1150-13566.webp);
-    background-size: cover;
-    width: 100%;
-    height: 22rem;
-    position: relative;
-
-}
-
-.baners-content {
-    position: absolute;
-    width: inherit;
-    height: inherit;
-    background-color: rgba(0, 0, 0, 0.342);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #ffffff;
-}
 .subtitles{
     text-align: center;
     margin: 1rem auto 0 auto;
@@ -459,88 +412,60 @@ exports.AcceptRequestEmployee = async (dato, Email, next) => {
             font-family: 'Poppins', sans-serif;
         }
         .fondo{
-            margin: 0 auto;
-            height: 66.1rem;
-            width: 60rem;
-            border: solid;
-            border-color: rgba(0, 0, 0, 0.068);
-        }
-        .icon{
-            width: 15rem;
-            margin-top: 2rem;
-            margin-left: 2rem;
-            margin-bottom: 2rem;
-        }
-    .baners {
-    background-image: url(https://cdn.discordapp.com/attachments/861438024659501087/1004499581272334356/personas-que-esperan-obtener-dinero-cajero-automatico-personas-retiran-dinero-concepto-cajero-automatico_1150-13566.webp);
-    background-size: cover;
-    width: 100%;
-    height: 22rem;
-    position: relative;
-
-}
-
-.baners-content {
-    position: absolute;
-    width: inherit;
-    height: inherit;
-    background-color: rgba(0, 0, 0, 0.342);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #ffffff;
-}
-.subtitles{
-    text-align: center;
-    font-size: 1.8rem;
-}
+          margin: 0 auto;
+          height: 33rem;
+          width: 40rem;
+          border: solid;
+          border-color: rgba(0, 0, 0, 0.068);
+          background-color: white;
+      }
+      .icon{
+          width: 9rem;
+          margin-top: 2rem;
+          margin-left: 2rem;
+          margin-bottom: 2rem;
+      }
 .title{
-    font-size: 3rem;
-            font-weight: bold;
-            text-align: center;
+  margin-top: 2rem;
+  font-size: 2rem;
+          font-weight: bold;
+          text-align: center;
 }
  hr{
-    border: 0;
-    height: .3rem;
-    background: #93DEFF;
-    opacity: 100;
-    padding: 0;
-    margin-top: -2rem   ;
-    width: 15rem;
-    font-weight: bold;
+  border: 0;
+  height: .4rem;
+  background: #93DEFF;
+  opacity: 100;
+  padding: 0;
+  margin-top: -2.5rem;
+  width: 19rem;
+  font-weight: bold;
 }
 
 .title2 p{
-    text-align: center;
-    font-size: 2.5rem;
-    margin-right: 5rem;
-    margin-left: 5rem;
+  text-align: center;
+  font-size: 1.5rem;
 }
 .subs{
-    text-align: center;
-    font-size: 2rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 .copyright{
-    font-size: 1.5rem;
-  padding: 0.625rem 0;
-    color: #ffffff;
+  font-size: 1.5rem;
+padding: 0.625rem 0;
+  color: #ffffff;
 }
 .a{
-    text-align: center;
-    font-size: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
 }
 footer{
-    background-color: rgb(78, 78, 78);
-    margin-top: 390px;
-    height: 3rem;
-    text-align: center;
-}
-.img{
-    width: 20rem;
-    float: right;
-    marging-right: 2rem;
+  background-color: rgb(78, 78, 78);
+  margin-top: 10rem;
+  height: 3rem;
+  text-align: center;
 }
     </style>
   </head>
@@ -552,7 +477,6 @@ footer{
             <div class="title2">
               <p>Tu solicitud fue evaluada y cumples con los requisitos solicitados, tu cuenta sera activada lo más pronto posible</p>
             </div>
-            <img class="img" src="https://media.discordapp.net/attachments/861438024659501087/1016111213668749312/Imagen2.png?width=594&height=676" alt=""><br><br>
             <footer>
               <span class="copyright">
                   Todos los derechos reservados. © 2022 Demantur
@@ -565,7 +489,7 @@ footer{
 
     await sendEmail({
       to: Email,
-      subject: "Codigo de verificacion de Email",
+      subject: "Su solicitud fue aceptada",
       text: message,
     });
 
@@ -587,88 +511,60 @@ exports.DeclineRequestEmployee = async (dato, Email, next) => {
             font-family: 'Poppins', sans-serif;
         }
         .fondo{
-            margin: 0 auto;
-            height: 56rem;
-            width: 60rem;
-            border: solid;
-            border-color: rgba(0, 0, 0, 0.068);
-        }
-        .icon{
-            width: 15rem;
-            margin-top: 2rem;
-            margin-left: 2rem;
-            margin-bottom: 2rem;
-        }
-    .baners {
-    background-image: url(https://cdn.discordapp.com/attachments/861438024659501087/1004499581272334356/personas-que-esperan-obtener-dinero-cajero-automatico-personas-retiran-dinero-concepto-cajero-automatico_1150-13566.webp);
-    background-size: cover;
-    width: 100%;
-    height: 22rem;
-    position: relative;
-
-}
-
-.baners-content {
-    position: absolute;
-    width: inherit;
-    height: inherit;
-    background-color: rgba(0, 0, 0, 0.342);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #ffffff;
-}
-.subtitles{
-    text-align: center;
-    font-size: 1.8rem;
-}
+          margin: 0 auto;
+          height: 33rem;
+          width: 40rem;
+          border: solid;
+          border-color: rgba(0, 0, 0, 0.068);
+          background-color: white;
+      }
+      .icon{
+          width: 9rem;
+          margin-top: 2rem;
+          margin-left: 2rem;
+          margin-bottom: 2rem;
+      }
 .title{
-    font-size: 3rem;
-            font-weight: bold;
-            text-align: center;
+  margin-top: 2rem;
+  font-size: 2rem;
+          font-weight: bold;
+          text-align: center;
 }
  hr{
-    border: 0;
-    height: .3rem;
-    background: #93DEFF;
-    opacity: 100;
-    padding: 0;
-    margin-top: -2rem   ;
-    width: 15rem;
-    font-weight: bold;
+  border: 0;
+  height: .4rem;
+  background: #93DEFF;
+  opacity: 100;
+  padding: 0;
+  margin-top: -2.5rem;
+  width: 19rem;
+  font-weight: bold;
 }
 
 .title2 p{
-    text-align: center;
-    font-size: 2.5rem;
-    margin-right: 5rem;
-    margin-left: 5rem;
+  text-align: center;
+  font-size: 1.5rem;
 }
 .subs{
-    text-align: center;
-    font-size: 2rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 .copyright{
-    font-size: 1.5rem;
-  padding: 0.625rem 0;
-    color: #ffffff;
+  font-size: 1.5rem;
+padding: 0.625rem 0;
+  color: #ffffff;
 }
 .a{
-    text-align: center;
-    font-size: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
 }
 footer{
-    background-color: rgb(78, 78, 78);
-    margin-top: 390px;
-    height: 3rem;
-    text-align: center;
-}
-.img{
-    width: 20rem;
-    float: right;
-    marging-right: 2rem;
+  background-color: rgb(78, 78, 78);
+  margin-top: 10rem;
+  height: 3rem;
+  text-align: center;
 }
     </style>
   </head>
@@ -680,7 +576,6 @@ footer{
 <div class="title2">
 <p>Tu solicitud fue rechazada y lastimosamete no cumples con los requisitos solicitados</p>
 </div>
-<img class="img" src="https://media.discordapp.net/attachments/861438024659501087/1015827000717492304/Imagen3.png   " alt="">
 <footer>
 <span class="copyright">
     Todos los derechos reservados. © 2022 Demantur
@@ -693,7 +588,7 @@ footer{
 
     await sendEmail({
       to: Email,
-      subject: "Codigo de verificacion de Email",
+      subject: "Su solicitud fue denegada",
       text: message,
     });
 
@@ -715,118 +610,84 @@ exports.ContactSuccessEmail = async (dato, Email, next) => {
             font-family: 'Poppins', sans-serif;
         }
         .fondo{
-            margin: 0 auto;
-            height: 57rem;
-            width: 60rem;
-            border: solid;
-            border-color: rgba(0, 0, 0, 0.068);
-        }
-        .icon{
-            width: 15rem;
-            margin-top: 2rem;
-            margin-left: 2rem;
-            margin-bottom: 2rem;
-        }
-    .baners {
-    background-image: url(https://cdn.discordapp.com/attachments/861438024659501087/1004499581272334356/personas-que-esperan-obtener-dinero-cajero-automatico-personas-retiran-dinero-concepto-cajero-automatico_1150-13566.webp);
-    background-size: cover;
-    width: 100%;
-    height: 22rem;
-    position: relative;
-
-}
-
-.baners-content {
-    position: absolute;
-    width: inherit;
-    height: inherit;
-    background-color: rgba(0, 0, 0, 0.342);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #ffffff;
-}
-.subtitles{
-    text-align: center;
-    margin: 1rem auto 0 auto;
-    font-size: 1.8rem;
-}
+          margin: 0 auto;
+          height: 33rem;
+          width: 40rem;
+          border: solid;
+          border-color: rgba(0, 0, 0, 0.068);
+          background-color: white;
+      }
+      .icon{
+          width: 9rem;
+          margin-top: 2rem;
+          margin-left: 2rem;
+          margin-bottom: 2rem;
+      }
 .title{
-    font-size: 3rem;
-            font-weight: bold;
-            text-align: center;
+  margin-top: 2rem;
+  font-size: 2rem;
+          font-weight: bold;
+          text-align: center;
 }
  hr{
-    border: 0;
-    height: .3rem;
-    background: #93DEFF;
-    opacity: 100;
-    padding: 0;
-    margin-top: -2rem   ;
-    width: 15rem;
-    font-weight: bold;
+  border: 0;
+  height: .4rem;
+  background: #93DEFF;
+  opacity: 100;
+  padding: 0;
+  margin-top: -2.5rem;
+  width: 19rem;
+  font-weight: bold;
 }
 
 .title2 p{
-    text-align: center;
-    margin: 2rem auto 0 auto;
-    font-size: 2.5rem;
+  text-align: center;
+  font-size: 1.5rem;
 }
 .subs{
-    text-align: center;
-    font-size: 2rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 .copyright{
-    font-size: 1.5rem;
-  padding: 0.625rem 0;
-    color: #ffffff;
+  font-size: 1.5rem;
+padding: 0.625rem 0;
+  color: #ffffff;
 }
 .a{
-    text-align: center;
-    font-size: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
 }
 footer{
-    background-color: rgb(78, 78, 78);
-    margin-top: 16.5rem;
-    height: 3rem;
-}
-.img{
-    width: 30rem;
-    float: right;
-    margin-top: -5.5rem;
-}
-.codec{
-    font-size: 5rem;
+  background-color: rgb(78, 78, 78);
+  margin-top: 8rem;
+  height: 3rem;
+  text-align: center;
 }
     </style>
   </head>
   <body>
       
-      <div class="fondo"><img class="icon" src="https://media.discordapp.net/attachments/825146450232213505/999324633478205560/Demantur_Imagotype-3.png?width=1025&height=414" alt="">
-                <h1 class="title">Codigo de verificacion</h1>
-                <hr />
-            <div class="title2">
-              <p>Tu codigo de verificacion para finalizar la creacion de tu cuenta es:</p>
-              
-            </div>
-            <br><br><br><br>
-            <p class="subtitles"><strong class="codec"></strong></p>
-            <img class="img" src="https://cdn.discordapp.com/attachments/861438024659501087/1014409038102007848/Imagen1.png" alt=""><br><br><br><br><br><br><br>
-            <footer>
-              <center><span class="copyright">
-                  Todos los derechos reservados. © 2022 Demantur
-              </span></center>
-            </footer>
-      </div>
+  <div class="fondo"><img class="icon" src="https://media.discordapp.net/attachments/825146450232213505/999324633478205560/Demantur_Imagotype-3.png?width=1025&height=414" alt="">
+  <h1 class="title">Recibimos tu solicitud</h1>
+  <hr />
+<div class="title2">
+<p>Gracias por comunicarte con nosotros, un encargado de soporte se pondrá en contacto contigo lo más pronto posible</p>
+</div>
+<footer>
+<span class="copyright">
+    Todos los derechos reservados. © 2022 Demantur
+</span>
+</footer>
+</div>
       
   </body>
     `;
 
     await sendEmail({
       to: Email,
-      subject: "Codigo de verificacion de Email",
+      subject: "Soporte demantur",
       text: message,
     });
 

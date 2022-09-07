@@ -9,6 +9,7 @@ import { BsFillCursorFill as Select } from "react-icons/bs";
 import { FaUserAlt as User } from "react-icons/fa";
 import { FaCheck as Check } from "react-icons/fa";
 import { FaRedo as Reset } from "react-icons/fa";
+import { FaUserTie as Emple} from "react-icons/fa"
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 const FotoRegister = require.context("./assets/img/register", true);
@@ -55,7 +56,25 @@ export const SelectAccountPage = () => {
              
             </div>
           </div>
+          <div className="card">
+            <div className="title2">  
+            <Emple className="iconst" />
+            <p className="subtitle">{t("selectpage.cards.2.tittle")}</p>
+            <hr />
+          </div>
+            <p> {t("selectpage.cards.2.subtittle")}
+          </p>
+            <div className="boton-position">
+            <div className="flex">
+            <Link to="/auth/employee/login"><button class="custom-btn btn-15">{t("selectpage.cards.1.button1")}</button></Link>
+            </div>
+          </div>
+            <div className="boton">
+             
+            </div>
+          </div>
         </div>
+      
         <div className="title2">
         <p>{t("selectpage.body.tittle2")}</p>
         <hr />
@@ -63,7 +82,7 @@ export const SelectAccountPage = () => {
       <p className="info">
         <br />
         {t("selectpage.body.subtittle2")}
-      </p>
+      </p> 
       <br/>
       <div className="cards-container">
           <div className="card">

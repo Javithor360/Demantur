@@ -8,11 +8,13 @@ const ErrorResponse = require("../utils/ErrorMessage");
 const { sendToken } = require("../helpers/Functions");
 const GlobalData = require('../models/GlobalData');
 const { default: mongoose } = require('mongoose');
+const CardsModel = require('../models/CardsModel');
 const { restart } = require('nodemon');
 
 // @route POST api/auth/employee/login
 // @desc Iniciar sesión como empleado
 // @access private
+
 
 const loginEmployee = async (req, res, next) => {
     try {
@@ -169,17 +171,25 @@ const getCardRequests = async (req, res, next) => {
 
         let cardRequestsOrder = []
 
-        for (let index = 0; index < getAllUsers.length; index++) {
+        getAllUsers.forEach(element1 => {
+            let element3
 
-            if (getAllUsers[index]._id.toString() === getAllCardRequests[index]?.CardOwner.toString()) {
-                let ObjectCardRequest = {}
-                ObjectCardRequest.RequestOwner = getAllUsers[index]
-                ObjectCardRequest.CardRequest = getAllCardRequests[index]
-                ObjectCardRequest.ExtraInfo = ExtraInfo[index]
-                cardRequestsOrder.push(ObjectCardRequest)
-                console.log(ObjectCardRequest)
-            }
-        }
+            ExtraInfo.forEach(element => {
+                if (element.UserOwner.toString() === element1._id.toString()) {
+                    element3 = element
+                }
+            });
+
+            getAllCardRequests.forEach(element2 => {
+                if (element1._id.toString() === element2.CardOwner.toString()) {
+                    let ObjectCardRequest = {}
+                    ObjectCardRequest.RequestOwner = element1
+                    ObjectCardRequest.CardRequest = element2
+                    ObjectCardRequest.ExtraInfo = element3
+                    cardRequestsOrder.push(ObjectCardRequest)
+                }
+            });
+        });
 
         res.status(200).json({ data: cardRequestsOrder });
     } catch (e) {
@@ -197,20 +207,26 @@ const getLoanRequests = async (req, res, next) => {
         const ExtraInfo = await ExtraInfoNormalUser.find()
 
         let loanRequestsOrder = []
-        console.log(getAllUsers)
 
-        for (let index = 0; index < getAllUsers.length; index++) {
-            // console.log('=======================')
-            // console.log(getAllUsers[index]?._id?.toString(), getAllLoanRequests[index]?.loan_guarantor?.toString())
-            // console.log('=======================')
-            if (getAllUsers[index]?._id?.toString() == getAllLoanRequests[index]?.loan_guarantor?.toString()) {
-                let ObjectLoanRequest = {}
-                ObjectLoanRequest.Request_guarantor = getAllUsers[index]
-                ObjectLoanRequest.LoanRequest = getAllLoanRequests[index]
-                ObjectLoanRequest.ExtraInfo = ExtraInfo[index]
-                loanRequestsOrder.push(ObjectLoanRequest)
-            }
-        }
+        getAllUsers.forEach(element1 => {
+            let element3
+
+            ExtraInfo.forEach(element => {
+                if (element.UserOwner.toString() === element1._id.toString()) {
+                    element3 = element
+                }
+            });
+
+            getAllLoanRequests.forEach(element2 => {
+                if (element1._id.toString() === element2.loan_guarantor.toString()) {
+                    let ObjectLoanRequest = {}
+                    ObjectLoanRequest.Request_guarantor = element1
+                    ObjectLoanRequest.LoanRequest = element2
+                    ObjectLoanRequest.ExtraInfo = element3
+                    loanRequestsOrder.push(ObjectLoanRequest)
+                }
+            });
+        });
         res.status(200).json({ data: loanRequestsOrder });
     } catch (e) {
         console.log(e);
@@ -304,7 +320,6 @@ const denyAccount = async (req, res, next) => {
         await extraData.delete();
         res.status(200).json({ success: true, data: 'Cuenta rechazada correctamente' })
     } catch (error) {
-        console.log(error);
         res.status(500).json({ message: error.message });
     }
 }
@@ -364,5 +379,6 @@ module.exports = {
     getAccountActivationRequests,
     activateAccount,
     denyAccount,
+    AcceptCardReq, DeclineCardReq,
     getFullClientInfo
 }

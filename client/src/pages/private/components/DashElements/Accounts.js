@@ -2,11 +2,11 @@ import { BsPiggyBank } from "react-icons/bs";
 import { useDash } from "../../../../context/DashboardContext";
 import { BsArrowLeft } from 'react-icons/bs';
 import { AccountsHistory } from './components/AccountsHistory';
-import Modal from '../Modal';
 import '../../assets/scss/accounts.scss';
 import { useEffect, useState } from "react";
 import { CreateSavingAccForm } from "../CreateSavingAccForm";
 import { ScrollToTop } from "../../../../components/ScrollToTop";
+import SmallModal from "../SmallModal";
 
 export const Accounts = () => {
     const { Info, SavingAccounts } = useDash();
@@ -84,9 +84,9 @@ export const Accounts = () => {
                                 <button onClick={(e) => { e.preventDefault(); setDisplayDetails(true) }} className="max-w-fit px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">Crear Cuenta</button>
                             }
                             {toggle &&
-                                <Modal active={active} toggle={toggle} onRequestClose={toggle}>
+                                <SmallModal active={active} toggle={toggle} onRequestClose={toggle}>
                                     <AccountsHistory setActive={setActive} historyAcc={historyAcc} />
-                                </Modal>
+                                </SmallModal>
                             }
                         </div>
                     </div>

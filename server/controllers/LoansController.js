@@ -102,6 +102,7 @@ const LoansFormRequests = async (req, res, next) => {
 
         const newLoanRequest = await new LoanRequest({
             LoanType,
+            LoanId: LoanId,
             loan_guarantor: token.user.id,
             Name: token.user.FirstName,
             DuiNum: token.user.Dui,

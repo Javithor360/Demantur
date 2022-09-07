@@ -414,6 +414,7 @@ const AcceptLoanReq = async (req, res, next) => {
 
         const newLoan = await new AcpLoanModel({
             debtorId,
+            LoanId: loanReq.LoanId,
             details,
             pay_history,
             amounts,

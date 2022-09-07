@@ -379,15 +379,15 @@ footer{
   }
 };
 
-exports.ContactEmail = async (gestionCode, name, dui, mail, cellnum, TextMessage) => {
+exports.ContactEmail = async (name, dui, mail, cellnum, TextMessage, res, next) => {
   try {
+    console.log(TextMessage)
     const message = `
       <p><b>Nombre del cliente:</b> ${name}</p>
       <p><b>Número de DUI:</b>: ${dui}</p>
       <p><b>Correo Electrónico de Contacto:</b>: ${mail}</p>
       <p><b>Número de contacto</b>: ${cellnum}</p>
       <p><b>Mensaje:</b>: ${TextMessage}</p>
-      <p><b>Número de gestión:</b>: ${gestionCode}</p>
     `
     await sendEmail({
       to: process.env.EMAIL_FROM,

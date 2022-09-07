@@ -4,17 +4,33 @@ import { GiReceiveMoney } from 'react-icons/gi'
 import { FaUserClock } from 'react-icons/fa'
 import { BsCreditCard2BackFill } from 'react-icons/bs'
 import { useDash } from "../../../../context/DashboardContext";
+import { useEffect, useState} from 'react';
 
 export const HomePageEmployee = () => {
   const { Option, setOption, setOptionElement } = useDash();
   const { Info } = useEmpConx();
+
+  const [EmployeeName, setEmployeeName] = useState('');
+
+  const Capitalize = (word) => {
+    return word[0].toUpperCase() + word.slice(1);
+  }
+
+  useEffect(() => {
+    if (Object.keys(Info).length !== 0) {
+      let Name = Info.FirstNames.split(' ');
+      let LastName = Info.LastNames.split(' ');
+      setEmployeeName(`${Capitalize(Name[0])} ${Capitalize(LastName[0])}`);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Info])
 
   return (
     <div className="h-full overflow-y-auto overflow-x-hidden scroll-home">
       <div className="flex gap-3 my-1 mb-4">
         <div className=" bg-white basis-[100%] rounded-[0.75rem] shadow-custom mx-2 mt-1">
           <div className='h-[5rem] table mb-0 w-fit mx-auto'>
-            <p className='text-[1.8rem] table-cell align-middle m-0 mb-0'>¡Bienvenido de nuevo {`${Info.FirstNames} ${Info.LastNames}`}!</p>
+            <p className='text-[1.8rem] table-cell align-middle m-0 mb-0'>¡Bienvenido de nuevo {EmployeeName}!</p>
           </div>
         </div>
       </div>
@@ -31,7 +47,7 @@ export const HomePageEmployee = () => {
               <div className='w-[60%] flex justify-start items-center'>
                 <p className='w-[10%] m-0 text-[4rem] text-[#606470]'>5</p>
                 <div className='w-[80%]'>
-                  <button className='text-white rounded-lg border-none outline-none bg-[#455FB9] hover:bg-[#4f6acb] px-[1rem] py-[.5rem] mr-5' onClick={() => {setOption(2); setOptionElement("Préstamos");}}>Más detalles</button>
+                  <button className='text-white rounded-lg border-none outline-none bg-[#455FB9] hover:bg-[#4f6acb] px-[1rem] py-[.5rem] mr-5' onClick={() => { setOption(2); setOptionElement("Préstamos"); }}>Más detalles</button>
                 </div>
               </div>
             </div>
@@ -47,7 +63,7 @@ export const HomePageEmployee = () => {
               <div className='w-[60%] flex justify-start items-center'>
                 <p className='w-[10%] mb-0 text-[4rem] text-[#606470]'>10</p>
                 <div className='w-[80%]'>
-                  <button className='text-white rounded-lg border-none outline-none bg-[#455FB9] hover:bg-[#4f6acb] px-[1rem] py-[.5rem] mr-5' onClick={() => {setOption(3); setOptionElement("Tarjetas");}}>Más detalles</button>
+                  <button className='text-white rounded-lg border-none outline-none bg-[#455FB9] hover:bg-[#4f6acb] px-[1rem] py-[.5rem] mr-5' onClick={() => { setOption(3); setOptionElement("Tarjetas"); }}>Más detalles</button>
                 </div>
               </div>
             </div>
@@ -65,10 +81,10 @@ export const HomePageEmployee = () => {
               <div className='w-[60%] flex justify-start items-center'>
                 <p className='w-[10%] mb-0 text-[4rem] text-[#606470]'>8</p>
                 <div className='w-[80%]'>
-                <button className='text-white rounded-lg border-none outline-none bg-[#455FB9] hover:bg-[#4f6acb] px-[1rem] py-[.5rem] mr-5' onClick={() => {setOption(4); setOptionElement("Solicitudes");}}>Más detalles</button>
+                  <button className='text-white rounded-lg border-none outline-none bg-[#455FB9] hover:bg-[#4f6acb] px-[1rem] py-[.5rem] mr-5' onClick={() => { setOption(4); setOptionElement("Solicitudes"); }}>Más detalles</button>
                 </div>
               </div>
-              
+
             </div>
           </div>
           <div className="basis-[50%] bg-white rounded-[0.75rem] text-center overflow-y-auto flex flex-col shadow-custom mr-2">

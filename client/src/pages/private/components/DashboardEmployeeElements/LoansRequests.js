@@ -50,8 +50,6 @@ export const LoansRequests = () => {
                 { 
                   LoanRqs.length !== 0 ?
                   LoanRqs.map((SingReq, i) => {
-                      console.log(SingReq);
-                      console.log(LoanRqs);
                       let Name = `${SingReq.Request_guarantor.FirstName}` +  ` ${SingReq.Request_guarantor.LastName}`
                       let Type = SingReq.LoanRequest.LoanType
                       let Dui = SingReq.Request_guarantor.Dui

@@ -10,6 +10,7 @@ const fs = require("fs-extra");
 const { ChangeEmailFunc, createCode } = require("../helpers/Functions");
 const CardsModel = require("../models/CardsModel");
 const DebitCardModel = require("../models/DebitCardModel");
+const AcpLoanModel = require("../models/AcpLoanModel");
 // const SavingAccount = require("../models/SavingAccount");
 
 const testDB = async (req, res, next) => {
@@ -916,6 +917,17 @@ const CreateDebitCard = async (req, res, next) => {
   }
 }
 
+
+const getMyCredit = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const MyLoan = await AcpLoanModel.findOne({ debtorId: token.user.id });
+    res.status(200).json({ success: true, data: MyLoan })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
 module.exports = {
   testDB,
   getUserId,
@@ -940,6 +952,6 @@ module.exports = {
   CancelChangeEmail,
   VerifyOldPass,
   ChangePass, VerifyCodePass, CancelChangePass, getPedingFriendReq, FriendReq, getUsersToAdd, getMyCard, getDebitCard,
-  PayCardDebt, CreateDebitCard
+  PayCardDebt, CreateDebitCard, getMyCredit
 };
 

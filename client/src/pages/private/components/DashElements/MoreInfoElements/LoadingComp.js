@@ -17,7 +17,10 @@ export const LoadingComp = ({ children }) => {
     <>
       {
         Chargin ?
-          <VscLoading className="animate-spin" />
+          <div className="w-full flex justify-center">
+            <VscLoading className="animate-spin text-[2rem]" />
+          </div>
+          
           :
           <>
             {children}

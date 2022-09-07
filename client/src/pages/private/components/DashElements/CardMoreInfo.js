@@ -4,6 +4,7 @@ import { useDash } from "../../../../context/DashboardContext"
 import { BsArrowLeft } from 'react-icons/bs'
 import { PaymentHCC, PayCC, HistorySpentCC, LoadingComp } from "./MoreInfoElements";
 import { IoMdArrowDropdown as ArrowDown } from 'react-icons/io'
+import '../assets/scss/UserCards.scss'
 
 export const CardMoreInfo = () => {
   const { CardsParametros, setChangeBox2, SavingAccounts, CreateDebitCard } = useDash()
@@ -58,7 +59,7 @@ export const CardMoreInfo = () => {
   return (
     <>
       <ScrollToTop />
-      <div className="w-full h-full bg-white rounded-xl overflow-y-auto scroll-cards">
+      <div className="w-full h-full bg-white rounded-xl overflow-y-hidden scroll-cards">
         <div className="w-full h-[2rem] flex items-center justify-start">
           <button className="bg-transparent outline-none border-none mt-4 ml-5" onClick={() => {
             setChangeBox2(false)
@@ -72,13 +73,13 @@ export const CardMoreInfo = () => {
             <>
               <h1 className="text-center">Tarjeta de Debito</h1>
               <div className="w-100 h-[83%]  flex items-center justify-start">
-                <div className="w-[40%] pl-10 flex items-center justify-center ">
+                <div className="w-[35%] pl-10 flex items-center justify-center relative">
+                  <div className="h-[95%] w-[1.5px] bg-[#989398] right-0 absolute"></div>
                   <div className="w-100 h-[90%]  flex flex-col text-center ">
-                    <img src={ImageDebitCard} alt="tarjeta" className="w-[100%] h-[50%]" />
+                    <img src={ImageDebitCard} alt="tarjeta" className="w-[100%] h-[50%] mx-auto" />
                   </div>
                 </div>
-                <div className="w-[60%] pl-10 h-100 relative p-5">
-                  <div className="h-[90%] w-1 bg-black left-10 absolute"></div>
+                <div className="w-[65%] pl-10 h-100 relative p-5">
                   <div className="pl-10 py-3 ">
                     <h4 className="text-center">¿Tarjeta de Debito?</h4>
                     <p className="text-justify">Con la tarjeta de Débito Clásica de Demantur obtienes el control de gastos que necesitas, podrás pagar en los diferentes servicios y comercios sin necesidad de cargar efectivo, pero además, también podrás acceder por medio de los cajeros automáticos al efectivo si es que lo necesitas. Por otro lado, no dudes en tener siempre los beneficios especiales que te ofrece Demantur, te invitamos a seguir viendo los demás detalles a continuación.</p>
@@ -130,37 +131,58 @@ export const CardMoreInfo = () => {
                 CardsParametros.CardType != null ?
                   // tarjeta de credito
                   <>
-                    <h1 className="text-center">Tarjeta de Credito</h1>
-                    <div className="w-100 h-[85%]  mt-4 flex items-start justify-start">
-                      <div className="w-[40%] p-5 flex items-center justify-center">
-                        <div className="w-100 h-[80%]  flex flex-col text-center mt-10">
-                          <h2 className="mb-6">Tarjeta {CardsParametros.CardType !== 'Black' ? `Demantur ${CardsParametros?.CardType}` : 'Mastercard Black'}</h2>
-                          <img src={CardsParametros.CardImage} alt="tarjeta" className="w-[100%] h-[80%]" />
-                        </div>
+                    
+                    <div className="w-100 h-[90%] mt-4 flex-col items-start justify-start">
+                      <div className="h-[10%] table mb-0">
+                        <p className="text-[2.6rem] table-cell text-center text-[#323643] align-middle">Tarjeta de Credito</p>
                       </div>
-                      <div className="w-[60%] h-100 relative">
-                        <div className="h-[80%] w-1 bg-black left-0 absolute"></div>
-                        <div className="w-100 h-100  p-5">
-                          <div className="flex">
-                            <div className="flex flex-col">
-                              <span>Número: {CardsParametros.CardNumber} </span>
-                              <span>Vencimiento: {CardExpire}</span>
-                            </div>
-                            <div className="flex flex-col">
-                              <span>CCV: {CardsParametros.CardCCV}</span>
-                              <span>Monto Maximo: {CardsParametros.MaxCardAmount}</span>
-                            </div>
+                      <div className="h-[90%] w-full flex flex-row ">
+                        <div className="w-[35%] p-5 flex items-center justify-center relative">
+                          <div className="h-[95%] w-[1.5px] bg-[#989398] right-0 absolute"></div>
+                          <div className="w-100 h-[80%] flex flex-col text-center">
+                            <h3 className="mb-6">Tarjeta {CardsParametros.CardType !== 'Black' ? `Demantur ${CardsParametros?.CardType}` : 'Mastercard Black'}</h3>
+                            <img src={CardsParametros.CardImage} alt="tarjeta" className="w-[85%] mx-auto block" />
                           </div>
+                        </div>
+                        <div className="w-[65%] h-[95%] relative overflow-y-auto pt-5">
+                          <div className="w-full h-full p-5 bg">
+                            <div className="w-[100%] bg-[#F7F7F7] border-cover-2 rounded-xl py-3 shadow-md mb-5">
+                              <h4 className="text-center mb-3 text-[#6C757D]">Datos Generales</h4>
+                              <div className="grid grid-cols-2 justify-center w-[80%] mx-auto">
+                                <div className=" w-full">
+                                  <div className="flex flex-col gap-3 w-fit mx-auto">
+                                    <span><strong className="text-[#323643]">Número:</strong> {CardsParametros.CardNumber} </span>
+                                    <span><strong className="text-[#323643]">Vencimiento:</strong> {CardExpire}</span>
+                                  </div>
+                                </div>
+                                <div className=" w-full">
+                                  <div className="flex flex-col gap-3 w-fit mx-auto">
+                                    <span><strong className="text-[#323643]">CCV:</strong> {CardsParametros.CardCCV} </span>
+                                    <span><strong className="text-[#323643]" >Monto Maximo:</strong> ${CardsParametros.MaxCardAmount}</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            
 
-                          <div className="bg-red-400 w-100 h-[40%]">
-                            <div className="flex w-100 h-[20%]">
-                              <span className={`w-[33.3%] cursor-pointer ${ChangeElements === 1 && 'text-blue-400'}`} onClick={() => { setChangeElements(1) }}>Pagar Tarjeta</span>
-                              <span className={`w-[33.3%] cursor-pointer ${ChangeElements === 2 && 'text-blue-400'}`} onClick={() => { setChangeElements(2) }}>Historial de Pagos</span>
-                              <span className={`w-[33.3%] cursor-pointer ${ChangeElements === 3 && 'text-blue-400'}`} onClick={() => { setChangeElements(3) }}>Historial de Gastos</span>
+                            <div className="w-full h-[35rem] mb-5 rounded-xl">
+                              <div className="border-cover-2 flex flex-row items-center justify-center text-center w-100 h-[10%] w-full bg-[#f7f7f7] rounded-lg shadow-sm">
+                                <div className="w-[33.3%]">
+                                  <span className={`w-fit mx-auto cursor-pointer pb-1 ${ChangeElements === 1 && 'border-act'}`} onClick={() => { setChangeElements(1) }}>Pagar Tarjeta</span>
+                                </div>
+                                <div className="w-[33.3%]">
+                                  <span className={`w-fit mx-auto cursor-pointer pb-1 ${ChangeElements === 2 && 'border-act'}`} onClick={() => { setChangeElements(2) }}>Historial de Pagos</span>
+                                </div>
+                                <div className="w-[33.3%]">
+                                  <span className={`w-fit mx-auto cursor-pointer pb-1 ${ChangeElements === 3 && 'border-act'}`} onClick={() => { setChangeElements(3) }}>Historial de Gastos</span>
+                                </div>
+                                
+                              </div>
+                              <div className="h-fit pb-5 rounded-lg mt-5 w-[95%] mx-auto">
+                                {RenderEl()}
+                              </div>
                             </div>
-                            <div>
-                              {RenderEl()}
-                            </div>
+
                           </div>
                         </div>
                       </div>

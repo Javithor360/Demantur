@@ -11,21 +11,24 @@ import { useEffect, useState } from "react";
 const ImageDebitCard = 'https://res.cloudinary.com/demantur/image/upload/v1662595386/bank_card_images/debitoClasica_h4vrfu.png'
 
 export const HomePage = () => {
-  const { Info, clientBalance, getMyDebitCard, getMyCard } = useDash();
+  const { Info, clientBalance, getMyDebitCard, getMyCard, getMyLoan } = useDash();
   const { t } = useTranslation();
 
   const [DebitCardHP, setDebitCardHP] = useState(null);
   const [CreditCardHP, setCreditCardHP] = useState(null);
+  const [MyLoan, setMyLoan] = useState(null);
 
   useEffect(() => {
     (async () => {
       try {
-        const res = await getMyDebitCard(localStorage.getItem('authToken'))
-        const res2 = await getMyCard(localStorage.getItem('authToken'))
+        const res = await getMyDebitCard(localStorage.getItem('authToken'));
+        const res2 = await getMyCard(localStorage.getItem('authToken'));
+        const res3 = await getMyLoan(localStorage.getItem('authToken'));
         setDebitCardHP(res.data.data);
         setCreditCardHP(res2.data.data);
+        setMyLoan(res3.data.data)
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     })()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -97,7 +100,7 @@ export const HomePage = () => {
                 :
                 <div className="bg-white w-[100%] h-[75%] flex flex-col justify-center items-center text-center text-2xl">
                   <p className="w-[95%]">Todavía no tiene tarjeta de débito</p>
-                  <BsFillCreditCardFill className="text-[2.1rem]"/>
+                  <BsFillCreditCardFill className="text-[2.1rem]" />
                 </div>
             }
           </div>
@@ -110,7 +113,7 @@ export const HomePage = () => {
                 :
                 <div className="bg-white w-[100%] h-[75%] flex flex-col justify-center items-center text-center text-2xl border-left-cards-div">
                   <p className="w-[95%]">Todavía no tiene tarjeta de crédito</p>
-                  <BsFillCreditCardFill className="text-[2.1rem]"/>
+                  <BsFillCreditCardFill className="text-[2.1rem]" />
                 </div>
             }
           </div>
@@ -118,6 +121,19 @@ export const HomePage = () => {
         </div>
         <div className="basis-[40%] bg-white rounded-[0.75rem]">
           <div className="m-[2rem] flex justify-between">
+            {
+              MyLoan != null ?
+                <>
+                  <h4>Prestamo Activo</h4>
+                  <span>Prestamo Demantur: {MyLoan.details.loan_type}</span>
+                  <span>Cuota Mensual: {MyLoan.MonthlyFee}</span>
+                  <span>Monto Restante: {MyLoan.amounts.remainder}</span>
+                </>
+                :
+                <>
+                  No posees ningún prestamo activo
+                </>
+            }
           </div>
         </div>
       </div>

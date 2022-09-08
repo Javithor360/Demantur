@@ -57,6 +57,8 @@ import { ScrollToTop } from "./components/";
 // Translator
 import "./libs/i18n";
 import { CarLoan } from "./pages/static/loans/CarLoan";
+import { OutAuthValEmployee } from "./routers/OutAuthValEmployee";
+import { OutAuthValAdmin } from "./routers/OutAuthValAdmin";
 
 const App = () => {
   return (
@@ -144,7 +146,9 @@ const App = () => {
               />
 
               <Route path="/auth/employee/login" element={
-                <EmployeeLoginPage />
+                <OutAuthValAdmin>
+                  <EmployeeLoginPage />
+                </OutAuthValAdmin>
               } />
 
               <Route path="/auth/admin/login" element={<AdminLoginPage />} />
@@ -154,7 +158,7 @@ const App = () => {
               <Route path="/loans/BusinessLoan" element={<BusinessLoan />} />
               <Route path="/Loans/PersonalLoan" element={<PersonalLoan />} />
               <Route path="/Loans/HouseLoan" element={<HouseLoan />} />
-              <Route path="/Loans/CarLoan" element={<CarLoan/>} />
+              <Route path="/Loans/CarLoan" element={<CarLoan />} />
 
               {/* test dashboard */}
               <Route path="/admin/home" element={

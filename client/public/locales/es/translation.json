@@ -9,6 +9,7 @@
     "help": "Ayuda",
     "access": "Acceder"
   },
+
   "main_footer": {
     "terms": "Términos y condiciones",
     "policy": "Política de privacidad",
@@ -18,6 +19,7 @@
     "access": "Acceder",
     "copyright": "Todos los derechos reservados. © 2022 Demantur"
   },
+
   "imagen":{
     "foto":"https://media.discordapp.net/attachments/861438024659501087/1017279459704971334/unknown.png",
     "foto2":"https://media.discordapp.net/attachments/861438024659501087/1017248426863374447/unknown.png",
@@ -25,16 +27,19 @@
     "foto4":"https://media.discordapp.net/attachments/861438024659501087/1017249812439105536/unknown.png",
     "foto5":"https://media.discordapp.net/attachments/861438024659501087/1017285369978425434/paso5.png"
   },
+
   "bussinesPage": {
     "hero": {
       "tittle": "Registro",
       "desc": "Bienvenido a la guia donde aprenderás todo lo que debes saber para poder registrarte"
     },
+
     "body": {
       "tittle": "¿que es una cuenta empresarial?",
       "text": "Contrato entre una empresa en nuestro banco, mediante el cual el titular deposita una cantidad de dinero y el banco adquiere un compromiso de custodiarlo, con este servicio buscamos brindarle una forma más rápida y dinámica de administrar su dinero.",
       "subtittle": "¿Cuales son los beneficios?"
     },
+
     "benefits": {
       "content": {
         "1": "Un lugar seguro para guardar tu dinero",
@@ -43,6 +48,7 @@
       }
     }
   },
+
   "login": {
     "register": {
       "tittle": "Regístrate en la banca en línea",
@@ -53,6 +59,7 @@
       "date": "Fecha de nacimiento",
       "address": "Dirección"
     },
+
     "contentreg": {
       "tittle": "Otras opciones",
       "subtitle": "¿Necesitas algo extra?",
@@ -60,21 +67,25 @@
       "subtitle3": "Cambiar contraseña",
       "subtitle4": "Verificar Email"
     },
+
     "sidebar": {
       "date": "Datos personales",
       "identification": "Identificación",
       "money": "Datos monetarios",
       "beneficiary": "Beneficiario"
     },
+
     "buttons": {
       "previous": "ANTERIOR"
     },
+
     "identification": {
       "number": "Número telefónico",
       "password": "Contraseña",
       "password2": "Confirmar contraseña",
       "code": "Código"
     },
+
     "logins": {
       "tittle": "Inicia sesión en la banca en línea",
       "tittle2": "Iniciar sesión",
@@ -83,11 +94,13 @@
       "register": "Registrarse",
       "very": "Verificar"
     },
+
     "password": {
       "tittle": "Contraseña perdida",
       "forgtott": "Si no recuerda su contraseña, puede cambiarla en este apartado",
       "send": "Enviar correo"
     },
+
     "verify": {
       "tittle": "Verificar correo electrónico",
       "tittle2": "Veficación",
@@ -95,32 +108,37 @@
       "very": "Verificar"
     }
   },
+
   "error": {
     "tittle": "¡Algo salió mal!",
     "subtittle": "Parece que algo ha fallado, al parecer digitaste una dirección que no existe",
     "button": "Volver"
   },
+
   "Aboutpage": {
     "hero": {
       "tittle": "Nos mueve un gran propósito",
       "subtitle": "Contribuir a la construcción de un mejor país nos ha llevado a desarrollar un sistema operativo sostenible y a crear programas de desarrollo como educación financiera o asesoramiento en sostenibilidad.."
     },
+
     "body": {
       "tittle": "Nuesta historia",
       "subtitle": "Dematur fue fundado el 20 de marzo de 2022 con el propósito de poder brindar a sus clientes un servicio de banca en línea con el fin de optimizar el valioso tiempo de las personas a través de una interfaz amigable y dinámica para la realización de trámites, ampliando nuestros servicios con breves guías para que puedas aprender a utilizar la banca en línea sin tener conocimientos de una, logrando así romper la brecha digital que existe a nivel mundial. El propósito con el que se fundó Demantur es para que puedas contar con un lugar seguro donde depositar tu dinero, garantizar la seguridad de tus bienes y brindarte ayuda en caso de que necesites realizar algún trámite de forma rápida y segura desde la comodidad de tu hogar o donde estés, logrando promover el conocimiento económico en la actualidad.",
       "tittle2": "Nuestro impacto",
       "subtitle2": "Nos hemos propuesto romper la brecha digital que afecta a la mayor parte de la población mundial, logrando que todos tengan acceso a un servicio sin necesidad de ser un experto en economía, para ello se ha propuesto una interfaz que cuenta con guías informativas de forma gratuita para que puedas saber lo que es necesario para la funcionalidad de la banca en línea."
     },
+
     "valor": {
       "tittle": "Nuestros valores",
       "valor": "Responsabilidad",
       "subtitle": "Somos puntuales en todo lo que puedas necesitar",
       "valor2": "Respeto",
       "subtitle2": "Valoramos tu integridad como persona y ser humano",
-      "valor3": "Cercania",
+      "valor3": "Cercanía",
       "subtitle3": "Siempre buscamos brindar una mano amiga para ayudarte"
     }
   },
+
   "bannertab": {
     "tittle": "Requisitos",
     "1": "Fotocopia de DUI y NIT del representante legal de la empresa; en el caso de persona extranjera, pasaporte vigente y tarjeta de residente.",
@@ -129,6 +147,7 @@
     "4": "Fotocopia del NIT de la Empresa.",
     "5": "Fotocopia de la Credencial de Representante Legal inscrita en el Registro de Comercio."
   },
+
   "register": {
     "tittle": "Datos personales",
     "subtittle": "Necesitamos tus datos personales para poder identificarte y saber que realmente eres tú",
@@ -141,16 +160,19 @@
     "tittle5": "Código de Confirmación",
     "subtittle5": "Revise su correo electrónico, en el cual tendrá un código de 6 dígitos que tiene que digitar aquí para validar su cuenta."
   },
+
   "loginemple": {
     "tittle": "Bienvenido al panel de empleado",
     "email": "Correo",
     "password": "Contraseña"
   },
+
   "selectpage": {
     "hero": {
       "tittle": "Selección",
       "subtitle": "Bienvenido a la interfaz de seleccion de opciones"
     },
+
     "body": {
       "tittle": "Bienvenido de nuevo",
       "subtittle": "Bienvenido a la interfaz de selección de usuario, seleccione la opcion a la cual desea ir",
@@ -158,6 +180,7 @@
       "subtittle2": "Tenemos otras opciones en caso de que ya tengas una cuenta, tenemos las siguientes herramientas que podrían ayudarte",
       "tittle3": "¿Cómo registrarse?"
     },
+
     "cards": {
       "1": {
         "tittle": "Cuenta normal",
@@ -165,41 +188,47 @@
         "button1": "Iniciar sesión",
         "button2": "Registrarse"
       },
+
       "2": {
         "tittle": "Cuenta de empleado",
         "subtittle": "Si eres empleado de demantur puedes iniciar sesión aqui de manera más rapida.",
         "button1": "Iniciar sesión"
       },
+
       "3": {
         "tittle": "Cambio de contraseña",
         "subtittle": "Si olvida su contraseña, esta es la mejor opción para recuperar su cuenta y establecer una nueva contraseña.",
         "button1": "Ir"
       },
+
       "4": {
-        "tittle": "Verificacion de email",
+        "tittle": "Verificacion de correo electrónico",
         "subtittle": "En caso de que haya creado una cuenta pero aún no la haya verificado, aquí puede verificar su cuenta.",
         "button1": "Ir"
       }
     },
+    
     "info": {
-      "1": {
-        "first": "El primer paso será llegar al formulario con los datos solicitados, tales como:",
+      "1":{
+        "first": "El primer paso será llenar el formulario con los datos solicitados, tales como:",
         "1": "Nombres",
         "2": "Apellidos",
-        "3": "Fecha de cumpkeaños",
-        "4": "Direccion",
+        "3": "Fecha de cumpleaños",
+        "4": "Dirección",
         "note": "Nota",
         "info": "Asegúrate de que la información esté en mayúsculas y que la dirección sea lo más detallada posible"
       },
+
       "2": {
         "first": "Luego deberás ingresar la información que se solicita a continuación:",
         "1": "DUI",
-        "2": "Correo electronico",
+        "2": "Correo electrónico",
         "3": "Establecer una contraseña",
         "4": "Confirmar contraseña",
         "note": "Nota",
-        "info": "Asegúrate de que la información sea correcta y esté bien escrita."
+        "info": "Asegúrate de que la información sea correcta y esté bien escrita"
       },
+
       "3": {
         "first": "En el siguiente paso, se le pedirá información sobre sus datos monetarios. Con el fin de brindarle un mejor servicio, los datos solicitados son los siguientes:",
         "1": "Estatus social",
@@ -209,70 +238,83 @@
         "note": "Nota",
         "info": "Procura que la copia sea lo más clara posible y rellena los datos correctamente"
       },
-      "4": {
-        "first": "Por medidas de seguridad se le pedirá que ingrese los datos de un beneficiario por si le pasa algo, en el cual se le solicitarán los siguientes datos:",
-        "1": "Nombres",
-        "2": "Apellidos",
-        "3": "DUI",
-        "4": "Número de teléfono",
-        "note": "Nota",
-        "info": "Asegúrese de que los datos de su beneficiario sean correctos"
+      
+      "4":{
+        "first":"Por medidas de seguridad se le pedirá que ingrese los datos de un beneficiario por si le pasa algo, en el cual se le solicitarán los siguientes datos:",
+        "1":"Nombres",
+        "2":"Apellidos",
+        "3":"DUI",
+        "4":"Número de teléfono",
+        "note":"Nota",
+        "info":"Asegúrese de que los datos de su beneficiario sean correctos"
       },
-      "5": {
-        "first": "Como último paso deberás ingresar un código de verificación que te será proporcionado al correo electrónico que ingresaste en el formulario para verificar tu cuenta",
-        "note": "Nota",
-        "info": "Este paso es fundamental de seguir ya que nos ayudará a activar tu cuenta"
+      
+      "5":{
+        "first":"Como último paso deberás ingresar un código de verificación que te será proporcionado al correo electrónico que ingresaste en el formulario para verificar tu cuenta",
+        "note":"Nota",
+        "info":"Este paso es fundamental de seguir ya que nos ayudará a activar tu cuenta"
       }
     }
   },
+
   "index": {
     "slider": {
       "title": "Banca en línea",
       "desc": "Simplificamos la forma de administrar cuentas abre tu cuenta y disfruta de muchos beneficios"
     },
+
     "read_more": "Ver más",
     "read_more2": "Conoce más",
     "financial_solutions": "Soluciones financieras en un solo lugar",
+
     "cards_grid": {
       "1": {
         "title": "Tarjetas",
         "desc": "Con nuestras tarjetas recibes los beneficios adaptados a tus necesidades"
       },
+
       "2": {
         "title": "Solicitud de prestamos",
         "desc": "Obtén tu préstamo fácil, seguro y rápido, para que puedas cumplir tus metas"
       },
+
       "3": {
         "title": "Cuentas bancarias",
         "desc": "Elige la mejor cuenta que se adapte a tus necesidades con los mejores beneficios"
       }
     },
+
     "dual_banner": {
       "1": {
         "title": "Ahorrar te trae muchas oportunidades a futuro",
         "desc": "Abre tu cuenta de ahorros y disfruta de muchos beneficios ganas intereses sobre tus ahorros, controla tu dinero y ten acceso a el en todo momento."
       },
+      
       "2": {
         "title": "Te ayudamos a cumplir tus sueños",
         "desc": "Conoce nuestros préstamos y elige el mejor para cumplir tus metas, con tramites sencillos y rápidos, además de una tasa de intereses justa"
       }
     },
+
     "help_center": {
       "main_title": "Facilitamos nuestros servicios",
       "title": "Centro de Ayuda",
-      "desc": "¿Tienes dudas sobre como realizar ciertos procesos en nuestro banco?, visita nuestro centro de ayuda, ahí encontraras preguntas frecuentes que seguramente te servirán para solventar tu duda."
+      "desc": "¿Tienes dudas sobre como realizar ciertos procesos en nuestro banco? Visita nuestro centro de ayuda, ahí encontrarás preguntas frecuentes que seguramente te servirán para solventar tu duda."
     },
+
     "business_info": {
       "main_title": "Servicios para empresas",
       "title": "Cuentas profesionales para tu empresa",
       "desc": "Aumenta el potencial de tu empresa y hazla crecer con nuestros servicios financieros que brindan facilidad al administrar las finanzas de tu negocio"
     },
+
     "about_extended": {
       "main_title": "Quiénes somos",
       "title": "Personas como tú",
       "desc": "Somos una empresa comprometida con lo que hace, descubre más sobre nosotros y como hacemos para brindarte un servicio de calidad"
     }
   },
+
   "loans_main_page": {
     "title_loans": "Préstamos",
     "subtitle_loans": "Encuentra una solución para financiar tus futuros proyectos",
@@ -298,9 +340,10 @@
       "contact_us": "Contactanos"
     }
   },
+
   "loans_pages": {
     "personal_loan_page": {
-      "title": "Creditos Personales",
+      "title": "Créditos Personales",
       "subtitle": "Para alcanzar tus metas, realizar tus proyectos o para lo que necesites.",
       "what's_it": "Crédito Personal",
       "personal_info": "Un crédito personal es la operación en la que una entidad financiera entrega una cantidad monetaria específicamente a un cliente, quien deberá devolver los prestado en un tiempo pactado más los intereses generados.",
@@ -328,11 +371,12 @@
           "commission": "Aplica comisión de 0.5% sobre el monto del crédito si el plazo es de 10 años. Cero comisión si el plazo es de 9 años o menos"
         }
       },
+
       "forms": {
         "title": "¿Estas decidido?",
         "subtitle": "Solicita tu préstamos",
         "name": "Nombre completo",
-        "id_dui": "Número de Dui",
+        "id_dui": "Número de DUI",
         "contact": "Número de contacto",
         "address": "Dirección",
         "email": "Correo Electrónico",
@@ -340,22 +384,24 @@
         "salary": "Rango Salarial",
         "company": "Nombre de la empresa donde trabaja",
         "op1": "Fotocopia de DUI (revés y derecho)",
-        "op2": "constancia de trabajo",
+        "op2": "Constancia de trabajo",
         "op3": "Adjunta tu constancia de salario",
         "op4": "Entre",
-        "button": "Subir Archivo",
-        "button2": "Enviar"
+        "op5": "Mayor que",
+        "button":"Subir Archivo",
+        "button2":"Enviar"
       }
     },
+
     "business_loan_page": {
       "title": "Creditos Empresariales",
       "subtitle": "Dale un nuevo potencial a tu empresa/emprendimiento",
       "what's_it": "Crédito Empresarial",
       "business_info": "Te apoyamos con créditos a mediano y largo plazo para la adquisición del equipo que sea de interés para la gestión de negocios de tu empresa.",
-      "business_info2": "Para que <b>tu compañía</b> pueda mantenerse competitiva, rentable y crecer de manera sostenida, es fundamental contar con los activos que sean necesarios, desde maquinaria hasta el inmueble en el que se desarrollan las operaciones cotidianas.",
+      "business_info2": "Para que tu compañía pueda mantenerse competitiva, rentable y crecer de manera sostenida, es fundamental contar con los activos que sean necesarios, desde maquinaria hasta el inmueble en el que se desarrollan las operaciones cotidianas.",
       "benefits": "Beneficios",
       "benefitsb_banner": "Atención y asesoría personalizada",
-      "benefitsb_banner2": "Obtén un acesoramiento para poder administar mejor nuestro financiamiento",
+      "benefitsb_banner2": "Obtén un asesoramiento para poder administar mejor nuestro financiamiento",
       "business_tab": {
         "1": {
           "requeriments": "Requerimietos",
@@ -366,6 +412,7 @@
           "flow": "Flujo de caja proyectado a un año de forma mensual",
           "rent": "Declaraciones de renta de los últimos dos años"
         },
+
         "2": {
           "commissions": "Comisiones",
           "study": "Comisión de estudio",
@@ -374,24 +421,26 @@
         }
       }
     },
+
     "housing_page": {
       "title": "Crédito de Vivienda",
       "subtitle": "Te ofrecemos un crédito hecho a tu medida para tu nuevo hogar",
       "what's_it": "Vivienda Demantur",
-      "housing_info": "Este tipó de préstamo se hace a largo plazo y que estará respaldado por el inmueble que se compra. Este préstamos pueden estar financiados a un plazo determinado y a una tasa de interés que dependerá y la cantidad que solicites para obtener lo que necesitas.",
-      "housing_info2": " Es importante que tengas claro que el hecho de que sea el inmueble la garantía del préstamo, eso no quiere decir nos quedaremos con tu casa o que no vas a poder usarla hasta que termines de pagar la deuda.",
+      "housing_info": "Este tipo de préstamo se hace a largo plazo y que estará respaldado por el inmueble que se compra. Este préstamos puede estar financiado a un plazo determinado y a una tasa de interés que dependerá y la cantidad que solicites para obtener lo que necesitas.",
+      "housing_info2": "Es importante que tengas claro que el hecho de que sea el inmueble la garantía del préstamo, eso no quiere decir nos quedaremos con tu casa o que no vas a poder usarla hasta que termines de pagar la deuda.",
       "benefits": "Beneficios",
       "benefits_bannerh": "Hasta 90% de financiamiento",
       "benefits_bannerh2": "Te financiamos hasta un valor del 90% del valúo.",
       "housing_tab": {
         "1": {
-          "requeriments": "Requerimietos",
+          "requeriments": "Requerimientos",
           "income": "Ingresos mayores a US$700",
           "stability": "Estabilidad laboral mínima de 1 año.",
           "ages": "Edades entre 24 y 60 años.",
           "record": "Buen manejo de récord crediticio.",
-          "constancy": " Constancia laboral o boleta de pago si es asalariado."
+          "constancy": "Constancia laboral o boleta de pago si es asalariado."
         },
+
         "2": {
           "conditions": "Condiciones",
           "term": "Plazo máximo:",
@@ -405,36 +454,41 @@
         }
       }
     },
+
     "Demantur_car": {
       "title": "Auto Demantur",
       "subtitle": "Cambia tu estilo de vida con nuestro crédito decreciente para la adquisición de un nuevo vehículo",
       "what's_it": "Automovil Demantur",
       "car_info": "Te ofrecemos la opción de que adquirir un vehículo con la figura de arrendamiento con opción de compra, lo cual te permitirá adquirir al final del plazo la propiedad del vehículo.",
-      "car_info2": " Tienes financiamiento en vehículo nuevo de hasta el 90% según cotización con cuota de seguro del vehículo incluido.",
+      "car_info2": "Tienes financiamiento en vehículo nuevo de hasta el 90% según cotización con cuota de seguro del vehículo incluido.",
       "benefits": "Beneficios",
       "benefits_bannerc": "Trámite rápido y ágil",
       "benefits_bannerc2": "Te escuchamos, entendemos tu necesidad y te ofrecemos el plan más apto para tu proyecto."
     }
   },
+
   "help_page": {
     "help": {
-      "help_tittle": "¿Cómo podemos ayudarte?",
+      "help_tittle":"¿Cómo podemos ayudarte?",
       "help_desc": "A continuación, te presentamos algunas de las preguntas frecuentes que realizan nuestros usuarios.",
       "help_search": "Tambien puedes realizar una búsqueda rápida sobre tu duda a consultar"
     },
+
     "accordion": {
       "1": {
-        "tittle": "¿Cuáles son los requisitos para abrir una cuenta bancaria?",
+        "tittle":"¿Cuáles son los requisitos para abrir una cuenta bancaria?",
         "desc": "Para Abrir una cuenta bancaria necesitas cumplir con los siguientes requisitos:",
         "sub_desc1": "Presentar tu DUI",
         "sub_desc2": "Si eres extranjero debes presentar tu pasaporte",
         "sub_desc3": "Monto mínimo de $25",
         "sub_desc4": "Ser mayor de edad"
       },
+
       "2": {
         "tittle": "Tarjeta robada o extraviada",
         "desc": "Si usted fue víctima de robo de su tarjeta de crédito o débito, le aconsejamos reportar inmediatamente, a través de nuestra página contacto llenar todos los datos que se le pide, además digite el n°de su tarjeta para resolver el problema lo más pronto posible."
       },
+
       "3": {
         "tittle": "Consejos para realizar transacciones seguras en línea",
         "desc": "A continuación te presentamos unos consejos que te pueden ayudar cuando realices transacciones en línea:",
@@ -443,31 +497,34 @@
         "sub_desc3": "Nunca ingreses información personal a los sitios que son inseguros.",
         "sub_desc4": "Utilizar antivirus para detectar y bloquear amenazas, para evitar que las vulnerabilidades de diseño no sean aprovechadas por algún código malicioso."
       },
+
       "4": {
         "tittle": "Consejos sobre seguridad financiera",
-        "desc": "Te dejamos algunos consejos para mejorar tus finanzas y evitar gastos innecesarios:",
+        "desc": "Te dejamos algunos consejos para mejorar tus finanzas y evitar gastos innecesarios.",
         "sub_tittle1": "Define metas financieras:",
         "sub_tittle2": "Haz una lista con todos tus gastos:",
         "sub_tittle3": "Plantéate cómo reducir:",
         "sub_tittle4": "No te endeudes para cubrir otras deudas:",
-        "sub_tittle5": "Compra sólo lo necesario:",
+        "sub_tittle5":"Compra sólo lo necesario:",
         "sub_tittle6": "Ahorra:",
         "sub_desc1": "El primer paso para dar un buen manejo a tu dinero es saber qué es lo que quieres lograr con él.",
         "sub_desc2": "Hacer una lista de todos tus gastos es los más importantes, te ayuda a darte cuenta en qué estás gastando tu dinero y cuánto estás gastando.",
         "sub_desc3": "Por ejemplo, renta, luz, agua, etc. Gastar menos en los gastos fijos es posible, pues sólo debes hacerte consciente del uso que les das e identificar si puedes ahorrar un poco en ellos.",
         "sub_desc4": "Si ya tienes deudas, adquirir nuevas para pagar las viejas no es lo ideal. Existen métodos de refinanciación, pero deben ser las últimas opciones, además de tener en cuenta sus implicaciones.",
         "sub_desc5": "Para evitar gastar de más y salirse del presupuesto lo recomendado es comprar solo lo necesario y planificar las compras.",
-        "sub_desc6": "Probablemente uno de los consejos más importantes. Para que puedas alcanzar tus metas, debes contar con el respaldo de un buen ahorro que te permita disfrutar en el futuro."
+        "sub_desc6": "Probablemente uno de los consejos más importantes. Para que puedas alcanzar tus metas, debes contar con el respaldo de un buen ahorro que te permita disfrutar en el futuro." 
       },
+
       "5": {
-        "tittle": "¿Cómo puede ver mi estado de cuenta?",
-        "desc": "¿Necesitas ver tu estado de cuenta?, a continuación, te explicamos de un manera fácil y sencilla como poder visualizarlo:",
+        "tittle": "¿Cómo puedo ver mi estado de cuenta?",
+        "desc": "¿Necesitas ver tu estado de cuenta? A continuación, te explicamos de un manera fácil y sencilla como poder visualizarlo:",
         "sub_desc1": "Como primer paso debes dirigirte a nuestra barra de navegación, y ubicarte donde dice Acceder.",
         "sub_desc2": "Luego deberás iniciar sesión con tu correo electrónico y contraseña.",
-        "sub_desc3": "Una vez iniciado sesión debes dirigirte al apartado de Cuentas.",
-        "sub_desc4": "Ya estando ahi tienes que dar click en Estado de cuenta digital.",
+        "sub_desc3": "Una vez iniciada la sesión debes dirigirte al apartado de Cuentas.",
+        "sub_desc4": "Ya estando ahí, tienes que dar clic en Estado de cuenta digital.",
         "sub_desc5": "Ahora ya podrás ver tu estado de cuenta y todas tus transacciones realizadas."
       },
+
       "6": {
         "tittle": "¿Cuáles son los requisitos para adquirir una cuenta de ahorro?",
         "desc": "Los requisitos para poder abrir una cuenta de ahorro son:",
@@ -475,6 +532,7 @@
         "sub_desc2": "Presentar su DUI, en caso de ser extranjero deberá presentar carné de residente ó pasaporte con información actualizada, vigente y en buen estado.",
         "sub_desc3": "Prentar su NIT"
       },
+
       "7": {
         "tittle": "¿Cómo solicitar una tarjeta crédito o débito?",
         "desc": "Para poder solicitar un tarjeta de credito o débito a continuación te explicamos como hacerlo:",
@@ -484,20 +542,23 @@
         "sub_desc4": "Luego de haber elegido la tarjeta debera llenar un formulario para poder solicitar dicha tarjeta.",
         "sub_desc5": "Luego de haber llenado el formulario y haberlo enviado, nos comunicaremos con usted para notificarle si su tarjeta fue aceptada o denegada."
       },
+
       "8": {
         "tittle": "¿Cómo abrir una cuenta de ahorro para un menor de edad?",
         "desc": "Un menor de edad entre 16 y 18 años, puede abrir una cuenta de ahorro particular como titular con un monto mínimo de $25.00, además debera presentar su carnet de minoridad en buen estado."
       },
+
       "9": {
-        "tittle": "¿Cuáles son los requisitos para un prestamo personal?",
+        "tittle": "¿Cuáles son los requisitos para un préstamo personal?",
         "desc": "Para poder solicitar un presentamo personal deberás cumplir con los siguientes requisitos:",
         "sub_desc1": "Ser mayor de 21 años y menor de 70 años.",
         "sub_desc2": "Presentar DUI y NIT.",
         "sub_desc3": "Comprobantes de constancia de ingresos.",
         "sub_desc4": "Contar con un margen de al menos $300."
       },
+
       "10": {
-        "tittle": "¿Cuáles son los requisitos para un prestamo empresarial?",
+        "tittle": "¿Cuáles son los requisitos para un préstamo empresarial?",
         "desc": "Para poder solicitar un presentamo personal deberás cumplir con los siguientes requisitos:",
         "sub_desc1": "Ser una empresa formal o persona física con actividad empresarial.",
         "sub_desc2": "Contar con antecedentes favorables en el buró de crédito.",
@@ -505,35 +566,40 @@
         "sub_desc4": "Comprobar la suficiente generación de flujos para hacer frente al financiamiento.",
         "sub_desc5": "Presentar toda la documentación solicitada por el banco."
       },
-      "11": {
+
+      "11":{
         "tittle": "¿Puede otra persona depositar en una cuenta, sin ser el titular de la misma?",
         "desc": "Sí, otra persona que no es titular de la cuenta puede depositar en la misma al presentar su DUI y el número de la cuenta a la que desea realizar el depósito."
       },
-      "12": {
+
+      "12":{
         "tittle": "¿Puede un extranjero optar por un crédito personal?",
         "desc": "Si, pueden realizarlo aquellos que cuenten con residencia permanente en el país. Para lo cual deben presentar pasaporte vigente, carnet de residente permanente, NIT, recibos de colectores y comprobar ingresos en el país."
       }
     }
   },
+  
   "cards_page": {
     "tittle": "Tarjetas",
     "sub-tittle": "Encuentra la mejor solución que se adapte a tus necesidades",
-    "tittle2": "Tarjetas de Crédito",
-    "tittle3": "Tarjetas de Débito",
+    "tittle2": "Tarjetas de crédito",
+    "tittle3": "Tarjetas de débito",
     "tittle4": "Débito Clásica",
     "button": "Más detalles",
     "1": {
-      "desc1": "Recibe 500 puntos de bienvenida acumulables",
+      "desc1":"Recibe 500 puntos de bienvenida acumulables",
       "desc2": "Obten cuotas de hasta 36 meses",
       "desc3": "Descuentos en comercios seleccionados",
       "desc4": "Tasa de interes inicial de hasta un 48%"
     },
+
     "2": {
       "desc1": "Recibe 5,000 puntos de bienvenida acumulables",
       "desc2": "Gana 1 punto por cada dolar gastado en compras",
       "desc3": "Cuotas con una tasa de interés del 32%",
       "desc4": "Descuentos y beneficios especiales en comercios seleccionados"
     },
+
     "3": {
       "desc1": "Recibe 10,000 puntos de bienvenida acumulables",
       "desc2": "Gana 1 punto por cada dolar gastado en compras",
@@ -541,6 +607,7 @@
       "desc4": "Cobertura de hasta 100,000 dólares",
       "desc5": "Canjea tus puntos por viajes aéreos"
     },
+
     "4": {
       "desc1": "Recibe 80,000 puntos de bienvenida acumulables",
       "desc2": "Gana 2 puntos por cada dolar gastado en compras",
@@ -548,6 +615,7 @@
       "desc4": "Extrafinanciamiento y cobertura de hasta $230,000",
       "desc5": "Canjea tus puntos por viajes aéreos"
     },
+
     "5": {
       "desc1": "Obtén puntos por tus compras",
       "desc2": "Retira efectivo cuando quieras",
@@ -555,45 +623,52 @@
       "desc4": "Utiliza los kioskos para pagar tus recibos"
     }
   },
-  "CardsPage-Form": {
-    "tittle": "¿Ya te has decidido?",
-    "desc": "Solicita tu tarjeta ahora",
-    "name": "Nombre completo",
-    "dui": "Número de DUI",
-    "account": "Número de cuenta a la que vinculará la tarjeta",
-    "contact": "Número de contacto",
-    "email": "Correo Electrónico",
-    "address": "Dirección",
-    "address2": "Dirección de entrega de la tarjeta",
-    "option": "Rango Salarial",
-    "button": "Seleccionar Archivo",
-    "button2": "Solicitar",
-    "desc1": "Fotocopia de DUI (revés y derecho)",
-    "desc2": "Fotocopia de NIT",
-    "desc3": "Adjunta tu constancia de salario",
-    "desc4": "Entre",
-    "desc5": "Mayor a ",
-    "desc6": "Posición laboral"
+
+  "CardsPage-Form":{
+      "tittle": "¿Ya te has decidido?",
+      "desc": "Solicita tu tarjeta ahora",
+      "name": "Nombre completo",
+      "dui": "Número de DUI",
+      "account": "Número de cuenta a la que vinculará la tarjeta",
+      "contact": "Número de contacto",
+      "email": "Correo Electrónico",
+      "address": "Dirección",
+      "address2": "Dirección de entrega de la tarjeta",
+      "option": "Rango Salarial",
+      "button": "Seleccionar Archivo",
+      "button2": "Solicitar",
+      "desc1": "Fotocopia de DUI (revés y derecho)",
+      "desc2": "Fotocopia de NIT",
+      "desc3": "Adjunta tu constancia de salario",
+      "desc4": "Entre",
+      "desc5": "Mayor a",
+      "desc6": "Posición laboral"
   },
+
   "ClassicPage": {
-    "sub-tittle": "Todo lo que necesitas a tu alcance",
+    "sub-tittle":"Todo lo que necesitas a tu alcance",
     "desc": "La tarjeta de crédito Demantur Classic te brinda los beneficios necesarios para tu día a día, con ella dispones de un medio de pago seguro para usarlo en comercios, compras en línea, etc. Además, dispones de retiro inmediato de efectivo en cajeros nacionales, encuentra información más detallada a continuación.",
+
     "benefit": {
       "tittle": "Disfruta de los mejores beneficios que te ofrece esta tarjeta",
+
       "1": {
         "tittle": "Puntos Acumulables",
         "desc": "Recibe 500 puntos por tu primera compra, luego acumula 1 punto cada 5 dólares que gastes"
       },
+
       "2": {
         "tittle": "Pagos en cuotas",
         "desc": "Paga en cuotas de hasta 36 meses según tus posibilidades con una tasa de interés fija"
       },
+
       "3": {
         "tittle": "Retiro de efectivo",
         "desc": "Retira efectivo con tu tarjeta cuando lo necesites en todos nuestros cajeros a nivel nacional"
       }
     },
-    "requirements": {
+
+    "requirements":{
       "tittle": "Requesitos",
       "1": "Estabilidad laboral",
       "2": "Ingresos mínimos de $400 mensuales",
@@ -601,50 +676,61 @@
       "4": "Fotocopia de DUI y NIT (revés y derecho)",
       "5": "Constancia de ingresos vigente firmada por la empresa, copia de boletas de pago o constancia de AFP de los últimos 6 meses"
     },
+
     "conditions": {
       "tittle": "Condiciones",
-      "1": "Los 500 puntos de bienvenida se otorgarán despues de gastar un mínimo $30 con la tarjeta",
-      "2": "El límite de puntos acumulables es de 20,000",
-      "3": "El plazo de financiamiento no debe ser mayor a 60 meses",
-      "4": "Las tasas de interés se establecerán de acuerdo a la cantidad del finaciamiento, pero no serán menores a un 15%",
-      "5": "Cuota de cargo del 4% del límite de la tarjeta ($7,500)"
+        "1": "Los 500 puntos de bienvenida se otorgarán despues de gastar un mínimo $30 con la tarjeta",
+        "2": "El límite de puntos acumulables es de 20,000",
+        "3": "El plazo de financiamiento no debe ser mayor a 60 meses",
+        "4": "Las tasas de interés se establecerán de acuerdo a la cantidad del finaciamiento, pero no serán menores a un 15%",
+        "5": "Cuota de cargo del 4% del límite de la tarjeta ($7,500)"
     },
+
     "benefit-banner": {
-      "tittle": "Beneficios Especiales",
+      "tittle": "Beneficios especiales",
       "sub-tittle": "Descuentos en Comercios Seleccionados",
       "desc": "Obtén muchas ofertas y promociones en productos al pagar con tu tarjeta de crédito"
     }
   },
+
   "PlatinumPage": {
-    "sub-tittle": "Llega lejos, donde apuntan tus sueños",
-    "desc": "¿Estás en busca de una tarjeta que te permita disfrutar de grandes beneficios en cualquier lugar y en todo momento?, pues si es así, La tarjeta Demantur Platinum es para ti, obtén numerosos beneficios que se adaptan a tus necesidades con una gran flexibilidad. Puedes viajar, comprar lo que quieras y tener la seguridad que necesitas por cada una de tus compras, revisa muchos más beneficios a continuación.",
+    "sub-tittle":"Llega lejos, donde apuntan tus sueños",
+    "desc": "¿Estás en busca de una tarjeta que te permita disfrutar de grandes beneficios en cualquier lugar y en todo momento?, pues si es así, la tarjeta Demantur Platinum es para ti, obtén numerosos beneficios que se adaptan a tus necesidades con una gran flexibilidad. Puedes viajar, comprar lo que quieras y tener la seguridad que necesitas por cada una de tus compras, revisa muchos más beneficios a continuación.",
+
     "benefit": {
       "tittle": "Disfruta de los mejores beneficios que te ofrece esta tarjeta",
+
       "1": {
         "tittle": "Puntos Acumulables",
         "desc": "Recibe 5,000 puntos de bienvenida después de usar por primera vez tu tarjeta sin importar el monto."
       },
+
       "2": {
         "tittle": "Gana puntos",
         "desc": "Acumula puntos por cada dolár que gastes, 1 dolár equivale a 1 punto más acumulado."
       },
+
       "3": {
-        "tittle": "Canjea por efectivo",
+        "tittle":"Canjea por efectivo",
         "desc": "Puedes canjear por efectivo tus puntos en cualquier momento."
       },
+
       "4": {
         "tittle": "Pagos en cuotas",
         "desc": "Obtén cuotas de hasta 48 meses sin intereses, puedes elegir el plazo que más te convenga."
       },
+      
       "5": {
         "tittle": "Seguro de compras",
         "desc": "Obtén un reembolso en caso de que el artículo esté dañado, ya sea para cambiarlo o repararlo."
       },
+
       "6": {
         "tittle": "Precios Especiales",
         "desc": "Disfruta de precios especiales en productos de tiendas seleccionadas al pagar con tu tarjeta."
       }
     },
+
     "requirements": {
       "tittle": "Requesitos",
       "1": "Estabilidad laboral",
@@ -653,141 +739,171 @@
       "4": "Fotocopia de DUI y NIT (revés y derecho)",
       "5": "Constancia de ingresos vigente firmada por la empresa copia de boletas de pago o constancia de AFP de los últimos 6 meses"
     },
-    "conditions": {
+
+    "conditions":{
       "tittle": "Condiciones",
-      "1": "El límite de puntos acumulables es de 100,000",
-      "2": "El reembolso que te ofrece el seguro de compras será igual al monto que originalmente el producto tiene",
-      "3": "Las cuotas sin intereses estarán sujetas a las condiciones del lugar donde obtengas tu crédito, y en ocasiones no estarán disponibles",
-      "4": "Para utilizar tus puntos por viajes no deberás tener ningún pago atrasado en los últimos 6 meses",
-      "5": "La cantidad máxima de efectivo que puedes canjear por tus puntos es de $7,500"
+        "1": "El límite de puntos acumulables es de 100,000",
+        "2": "El reembolso que te ofrece el seguro de compras será igual al monto que originalmente el producto tiene",
+        "3": "Las cuotas sin intereses estarán sujetas a las condiciones del lugar donde obtengas tu crédito, y en ocasiones no estarán disponibles",
+        "4": "Para utilizar tus puntos por viajes no deberás tener ningún pago atrasado en los últimos 6 meses",
+        "5": "La cantidad máxima de efectivo que puedes canjear por tus puntos es de $7,500"
     },
-    "benefit-banner": {
+    
+    "benefit-banner":{
       "tittle": "Beneficios Especiales",
       "sub-tittle": "Utiliza tus puntos para viajar",
       "desc": "Puedes canjear tus puntos acumulados por boletos aéreos a destinos seleccionados"
     }
   },
+
   "GoldPage": {
-    "sub-tittle": "Vive al máximo, no te limites y cumple tus objetivos",
+    "sub-tittle":"Vive al máximo, no te limites y cumple tus objetivos",
     "desc": "Obtén muchas más posibilidades, beneficios superiores y un mayor nivel de compra y efectivo con la tarjeta Demantur Gold, con ella siempre tendrás ese respaldo de calidad y una mayor seguridad, confianza y ese respaldo que mereces. La Demantur Gold está pensada para aquellas personas como tú, que siempre buscan esa exigencia y buen nivel en una tarjeta de crédito, descubre más beneficios a continuación.",
+
     "benefit": {
       "tittle": "Disfruta de los mejores beneficios que te ofrece esta tarjeta",
+
       "1": {
         "tittle": "Seguro de compras",
         "desc": "Recibe un reembolso de protección contra daños, robos o accidentes por cada producto que compres con la tarjeta."
       },
+
       "2": {
         "tittle": "Gana puntos",
         "desc": "Obtén 10,000 puntos acumulables de bienvenida después de usar tu tarjeta por primera vez sin importar el monto que gastes."
       },
+
       "3": {
-        "tittle": "Canjea por viajes",
+        "tittle":"Canjea por viajes",
         "desc": "Puedes canjear tus puntos acumulados por boletos aéreos a destinos seleccionados y disfruta de explorar el mundo."
       },
+
       "4": {
         "tittle": "Garantia Extendida",
         "desc": "Recibe una protección adicional que extenderá el tiempo de garantía hasta un año más adicional a la garantía que ofrece el fabricante."
       },
+
       "5": {
         "tittle": "Tasas de interés bajas",
         "desc": "Tus cuotas tendrán un tasa de interés del 8%, e incluso puede bajar según tu historial crediticio o el plazo."
       },
+
       "6": {
         "tittle": "Cobertura máxima",
         "desc": "Dispondrás de una cobertura de efectivo hasta de $50,000 en retiro inmediato para que lo puedas usar."
       }
     },
+
     "requirements": {
       "tittle": "Requesitos",
       "1": "Ingresos minimos mensuales de $2,800",
       "2": "Estabilidad laboral comprobable; 12 meses de experiencia con tarjeta",
-      "3": "SSolicitud llena, ya sea físico o formulario web",
+      "3": "Solicitud llena, ya sea físico o formulario web",
       "4": "Fotocopia de DUI y NIT (revés y derecho)",
       "5": "Constancia de ingresos vigente firmada por la empresa copia de boletas de pago o constancia de AFP de los últimos 6 meses"
     },
+
     "conditions": {
       "tittle": "Condiciones",
-      "1": "El límite de puntos acumulables es de 600,000",
-      "2": "La protección de compra le reembolsará los gastos para que el artículo cubierto sea reparado o compensará el valor original del artículo",
-      "3": "El artículo cubierto por la garantía deberá tener una garantía original del fabricante mínima de 3 meses hasta tres años",
-      "4": "La cobertura máxima de efectivo podrá solicitarse siempre y cuando no tengas más de 2 pagos atrasados con tu tarjeta"
+        "1": "El límite de puntos acumulables es de 600,000",
+        "2": "La protección de compra le reembolsará los gastos para que el artículo cubierto sea reparado o compensará el valor original del artículo",
+        "3": "El artículo cubierto por la garantía deberá tener una garantía original del fabricante mínima de 3 meses hasta tres años",
+        "4": "La cobertura máxima de efectivo podrá solicitarse siempre y cuando no tengas más de 2 pagos atrasados con tu tarjeta"
     },
+
     "benefit-banner": {
       "tittle": "Beneficios Especiales",
       "sub-tittle": "Desembolso de efectivo de emergencia",
       "desc": "Este beneficio te ayudará a obtener efectivo en caso de que tu tarjeta se pierda o la roben"
     }
   },
+
   "BlackCard": {
-    "sub-tittle": "Disfruta el mundo como solo tú lo mereces",
+    "sub-tittle":"Disfruta el mundo como solo tú lo mereces",
     "desc": "Cuando hablamos de la tarjeta Mastercard Black estamos concientes que es algo superior, obtén ese prestigio, reconocimiento, exclusividad y obviamente unos maravillosos beneficios que solo esta tarjeta es capaz de darte, vive un mundo lleno de posibilidades y sueños, viajes, extrafinanciameitos, protecciones, asistencias, salas VIP, entre otras muchas cosas con las que disfrutar de la vida al máximo, revisa a continuacion más información.",
+
     "benefit": {
       "tittle": "Disfruta de los mejores beneficios que te ofrece esta tarjeta",
+
       "1": {
         "tittle": "Extrafinanciamiento",
         "desc": "Puedes obtener esa línea extra de financiamiento a tu tarjeta de crédito y disponer de efectivo de una forma rapida y sencilla."
       },
+
       "2": {
         "tittle": "Asistencia de Viajes",
         "desc": "Proporcionamos ayuda de viaje cuando estés fuera, puedes obtener información acerca del destino, emergencias, identificaciones, etc."
       },
+
       "3": {
-        "tittle": "Canjea por viajes",
+        "tittle":"Canjea por viajes",
         "desc": "Puedes canjear tus puntos acumulados por boletos aéreos a destinos seleccionados y disfruta de explorar el mundo."
       },
+
       "4": {
         "tittle": "Garantia Extendida",
         "desc": "Recibe una protección adicional que extenderá el tiempo de garantía hasta un año más adicional a la garantía que ofrece el fabricante."
       },
+
       "5": {
         "tittle": "Gana puntos",
         "desc": "Obtén 80,000 puntos acumulables de bienvenida después de usar tu tarjeta por primera vez sin importar el monto que gastes."
       },
+
       "6": {
         "tittle": "Seguro de compras",
         "desc": "Recibe un reembolso de protección contra daños, robos o accidentes por cada producto que compres con la tarjeta."
       }
     },
+
     "requirements": {
       "tittle": "Requesitos",
       "1": "Ingresos minimos mensuales de $4,800",
       "2": "Estabilidad laboral comprobable; 12 meses de experiencia con tarjeta",
-      "3": "SSolicitud llena, ya sea físico o formulario web",
+      "3": "Solicitud llena, ya sea físico o formulario web",
       "4": "Fotocopia de DUI y NIT (revés y derecho)",
       "5": "Constancia de ingresos vigente firmada por la empresa copia de boletas de pago o constancia de AFP de los últimos 6 meses"
     },
+
     "conditions": {
       "tittle": "Condiciones",
-      "1": "El límite de puntos acumulables es de 1 000,000,000",
-      "2": "La protección de equipaje le reembolsará hasta $3000 por equipaje perdido definitivamente y hasta $600 por demoras de más de 4 horas",
-      "3": "El artículo cubierto por la garantía deberá tener una garantía original y en este caso el tiempo brindado se duplicará pagando un beneficio de hasta US$2,500 por ocurrencia y un total anual de US$5,000",
-      "4": "El banco ofrece el extrafianciamiento para esta tarjeta, pero la oferta puede variar dependiendo el historial crediticio, además el plazo se aplica dependiendo de lo anteriormente dicho"
+        "1": "El límite de puntos acumulables es de 1,000,000,000",
+        "2": "La protección de equipaje le reembolsará hasta $3000 por equipaje perdido definitivamente y hasta $600 por demoras de más de 4 horas",
+        "3": "El artículo cubierto por la garantía deberá tener una garantía original y en este caso el tiempo brindado se duplicará pagando un beneficio de hasta US$2,500 por ocurrencia y un total anual de US$5,000",
+        "4": "El banco ofrece el extrafianciamiento para esta tarjeta, pero la oferta puede variar dependiendo el historial crediticio, además el plazo se aplica dependiendo de lo anteriormente dicho"
     },
+
     "benefit-banner": {
       "tittle": "Beneficios Especiales",
       "sub-tittle": "Protección de equipaje en el aeropuerto",
       "desc": "Este beneficio te reembolsará en dado caso pierdas tu equipaje registrado para viajar"
     }
   },
+
   "DebitCard": {
     "tittle": "Débito Clásica",
-    "sub-tittle": "Mantén el control de tu dinero y ahorra",
+    "sub-tittle":"Mantén el control de tu dinero y ahorra",
     "desc": "Con la tarjeta de Débito Clásica de Demantur obtienes el control de gastos que necesitas, podrás pagar en los diferentes servicios y comercios sin necesidad de cargar efectivo, pero además, también podrás acceder por medio de los cajeros automáticos al efectivo si es que lo necesitas. Por otro lado, no dudes en tener siempre los beneficios especiales que te ofrece Demantur, te invitamos a seguir viendo los demás detalles a continuación.",
+
     "benefit": {
       "tittle": "Disfruta de los mejores beneficios que te ofrece esta tarjeta",
+
       "1": {
-        "tittle": "Paga fácil y rapido",
+        "tittle": "Paga fácil y rápido",
         "desc": "La tarjeta Débito Clásica te brinda esa facilidad de pagar siempre aunque no lleves efectivo contigo, es más práctico si prefieres cargar siempre la tarjeta en vez de grandes cantidades de efectivo"
       },
+
       "2": {
         "tittle": "Seguridad y control",
         "desc": "Al no cargar efectivo tienes la seguridad de no perderlo, y si en caso extravíes la tarjeta, puedes cancelarla y evitar la pérdida de los fondos que tienes almacenados en ella"
       },
+
       "3": {
-        "tittle": "Ahorro y eficiencia",
+        "tittle":"Ahorro y eficiencia",
         "desc": "Al hacer uso de tus propios fondos no debes pagar intereses ni cuotas mes a mes y en ningún momento acumulas deuda con ella, ahorras más y mantén la eficiencia de tu dinero en todo momento cuando la uses"
       }
     },
+
     "requirements": {
       "tittle": "Requesitos",
       "1": "Estabilidad laboral",
@@ -795,41 +911,48 @@
       "3": "Solicitud llena, ya sea físico o formulario web",
       "4": "Fotocopia de DUI y NIT (revés y derecho)"
     },
+
     "conditions": {
       "tittle": "Condiciones",
-      "1": "Para contar con el servicio de alerta de compra con tu tarjeta deberás contratarlo posteriormente con un cargo extra una única vez",
-      "2": "El costo de reposisión de tarjeta en caso de robo o extravío es de $4.85 + IVA",
-      "3": "La comisión por retiro de efectivo en cajeros a partir de la sexta transacción es de $0.65 + IVA",
-      "4": "La comisión por retiro de efectivo en cajeros de otra red local es de $2.65 + IVA por transacción"
+        "1": "Para contar con el servicio de alerta de compra con tu tarjeta deberás contratarlo posteriormente con un cargo extra una única vez",
+        "2": "El costo de reposisión de tarjeta en caso de robo o extravío es de $4.85 + IVA",
+        "3": "La comisión por retiro de efectivo en cajeros a partir de la sexta transacción es de $0.65 + IVA",
+        "4": "La comisión por retiro de efectivo en cajeros de otra red local es de $2.65 + IVA por transacción"
     },
+
     "benefit-banner": {
       "tittle": "Beneficios Especiales",
       "sub-tittle": "Obtén puntos por cada una de tus compras",
       "desc": "Obtén 1 punto por cada $2.00 que gastes con tu tarjeta de débito"
     }
   },
+
   "ContactPage": {
     "banner": {
       "tittle": "¿Quieres comunicarte con nosotros?",
       "desc": "Deja tu duda, comentario o sugerencia, estamos dispuestos a ayudarte"
     },
+
     "tittle": "Escríbenos",
-    "desc": "Recibiremos tu consulta, comentario etc., lo evaluaremos y posteriormente lo resolveremos, luego te notificaremos mediante teléfono o correo electrónico brindándote la solución. Si en dado caso no estas satisfecho con la respuesta puedes volver a contactarte con nosotros brindándonos tu numero de gestión que se te dio anteriormente en la notificación para poder seguir con tu caso en particular.",
+    "desc": "Recibiremos tu consulta, comentario etc., lo evaluaremos y posteriormente lo resolveremos, luego te notificaremos mediante teléfono o correo electrónico brindándote la solución. Si en dado caso no estar satisfecho con la respuesta puedes volver a contactarte con nosotros brindándonos tu número de gestión que se te dio anteriormente en la notificación para poder seguir con tu caso en particular.",
+
     "form": {
       "name": "Nombre completo",
-      "dui": "Número de DUI",
-      "contact": "Número de contacto",
-      "email": "Correo Electrónico",
+      "dui":"Número de DUI",
+      "contact":"Número de contacto",
+      "email":"Correo electrónico",
       "management": "Número de gestión (Si tienes)",
-      "desc": "¿En que te podemos ayudar?",
+      "desc": "¿En qué te podemos ayudar?",
       "button": "Enviar"
     }
   },
+
   "AccountPage": {
     "tittle": "Cuentas",
     "desc": "Conoce nuestra gama de posibilidades",
     "types": "Tipos de Cuentas",
     "button": "Más información",
+
     "Checking": {
       "tittle": "Cuenta Corriente",
       "desc": "Disfruta de la liquidez inmediata con tu tarjeta de débito o chequera.",
@@ -839,6 +962,7 @@
         "3": "Tarjeta de débito internacional"
       }
     },
+
     "Savings": {
       "tittle": "Cuenta de Ahorros",
       "desc": "Dispone de tu dinero sin restricción de fondos las 24 horas del día.",
@@ -849,14 +973,17 @@
       }
     }
   },
-  "CheckingPage": {
+
+  "CheckingPage":{
     "tittle": "Cuenta Corriente",
     "subtittle": "Disfruta de diversos beneficios",
+
     "benefit": {
       "1": "Solicita tu chequera en Línea",
       "2": "Estado de cuenta digital",
-      "3": "Tarjeta de Débito internacional"
+      "3": "Tarjeta de débito internacional"
     },
+
     "requirements": {
       "tittle": "Requisitos y condiciones",
       "subtittle": "Requisitos",
@@ -866,15 +993,18 @@
       "button": "Solicitar"
     }
   },
+
   "SavingPage": {
     "tittle": "Cuenta de Ahorros",
     "subtittle": "Disfruta de diversos beneficios",
     "button": "Solicitar",
+
     "benefit": {
       "1": "Disponibilidad inmediata",
       "2": "Tarjeta de débito Demantur",
       "3": "Controla tus movimientos 24/7"
     },
+
     "requirements": {
       "tittle": "Requisitos y condiciones",
       "subtittle": "Requirements",
@@ -882,6 +1012,7 @@
       "2": "DUI, carné de residente ó pasaporte con información actualizada, vigente y en buen estado",
       "3": "NIT"
     },
+
     "conditions": {
       "tittle": "Condiciones",
       "1": "Aplica para persona natural",
@@ -889,6 +1020,7 @@
       "3": "Tasa de interés de acuerdo a tabla publicada el 1 de cada mes"
     }
   },
+
   "DashboardNormalUser": {
     "SideBar": {
       "1": "Inicio",
@@ -899,15 +1031,18 @@
       "6": "Tarjetas",
       "7": "Cerrar Sesion"
     },
+
     "Dropdown": {
       "tittle": "Seleccionar"
     },
+
     "Setting": {
       "tittle": "Configuraciones",
       "desc": "Foto de perfil",
       "button": "Cambiar",
       "language": "Idioma"
     },
+
     "Home": {
       "balance": "Saldo Neto:",
       "information": "Datos Personales",
@@ -917,6 +1052,7 @@
       "cards": "Tarjetas",
       "loan": "Préstamo",
       "transfers2": "No hay ninguna transferencia",
+
       "transfers": {
         "tittle": "Últimas Transferencias",
         "tittle2": "Hechas",
@@ -927,18 +1063,21 @@
         "account": "Número de cuenta",
         "date": "Fecha"
       },
+
       "contact": {
         "tittle": "Lista de contactos",
         "desc": "No hay más contactos",
         "desc2": "No tienes contactos"
       }
     },
+
     "Transfers": {
       "tittle": "Contactos",
       "desc": "Seleccione un contacto para transferir",
       "desc2": "No hay transferencias realizadas",
       "desc3": "No tiene contactos agregados",
       "input": "Buscar...",
+
       "form": {
         "balance": "Saldo:",
         "option": "Selecionar Cuenta...",
@@ -946,42 +1085,50 @@
         "placeholder": "Ingresar Monto..."
       }
     },
+
     "Loans": {
-      "tittle": "Solicita tu Credito",
-      "tittle2": "Tus Créditos activos",
-      "tittle3": "Préstamo",
-      "desc": "Tiene una Solicitud en progreso",
+      "tittle": "Solicita tu crédito",
+      "tittle2": "Tus créditos activos",
+      "tittle3": "Préstamos",
+      "desc": "Tiene una solicitud en progreso",
       "button": "Solicitar",
       "button2": "Ver detalles",
+
       "1": {
         "tittle": "Crédito Personal",
         "desc": "Disfruta tu nueva vida con las mejores condiciones. Facilitamos los trámites para que realices tu proyectos con nuestro Crédito Personal.",
         "desc2": "Damos solución a tus necesidades financieras. Créditos Personales preferenciales para empleados. Somos los únicos que no te cobramos comisión."
       },
+
       "2": {
-        "tittle": "Credito Empresa",
+        "tittle": "Crédito Empresa",
         "desc": "Si trabajas en tu propio negocio, te lo facilitamos con condiciones especiales para que consolides tus deudas o realices tus nuevos proyectos.",
         "desc2": "Especiales para que consolides tus deudas o realices tus nuevos proyectos o mejores las condiciones de tu empresa o emprendimiento."
       },
+
       "3": {
         "tittle": "Vivienda Demantur",
         "desc": "Aprovecha condiciones preferenciales para solicitar los creditos que necesites para poder realizar la compra de tu vivienda nueva o usada.",
         "desc2": "Te ofrecemos un crédito hecho a tu medida para la construcción de tu casa o la compra de esta. Consigue la casa que deseas gracias a nuestro crédito decreciente a largo plazo garantizado a través de una hipoteca."
       },
+
       "4": {
         "tittle": "Auto Demantur",
         "desc": "Cambia tu estilo de vida con nuestro crédito decreciente para la adquisición de vehículo nuevo o usado.",
         "desc2": "Te escuchamos, entendemos tu necesidad y te ofrecemos el plan más apto para tu proyecto."
       },
+
       "form": {
         "tittle1": "Rango Salarial",
         "tittle2": "Estatus Laboral",
         "tittle3": "Fotocopia de DUI (Frontal)",
         "tittle4": "Fotocopia de DUI (Trasera)",
         "tittle5": "Constancia de salario",
+
         "UserElementsSalary": {
           "1": "en adelante"
         },
+
         "LaboralStatus": {
           "1": "Asalariado",
           "2": "Desempleado",
@@ -990,6 +1137,7 @@
         }
       }
     },
+
     "Contacts": {
       "tittle": "Tus Contactos",
       "tittle2": "Añadidos",
@@ -998,26 +1146,30 @@
       "tittle5": "Agregar Contacto",
       "desc": "No hay concidiencias",
       "search": "Nombre Completo",
+
       "YourContacts": {
         "name": "Nombre",
         "dui": "DUI",
         "button": "Eliminar",
-        "desc": "No tiene contactos agregados"
+        "desc": "No tienes contactos agregados"
       },
+
       "Pending": {
         "name": "Nombre:",
         "dui": "DUI:",
         "button": "Cancelar",
-        "desc": "No tiene solicitudes hechas pendientes"
+        "desc": "No tienes solicitudes hechas pendientes"
       },
+
       "YourFriendReq": {
         "name": "Nombre:",
         "dui": "DUI:",
         "button1": "Aceptar",
         "button2": "Cancelar",
-        "desc": "No tiene solicitudes pendientes"
+        "desc": "No tienes solicitudes pendientes"
       }
     },
+
     "Cards": {
       "tittle": "Solicita tu tarjeta de crédito",
       "tittle2": "Tus tarjetas",
@@ -1025,22 +1177,27 @@
       "sub-tittle2": "Débito",
       "desc": "Tiene una Solicitud en progreso",
       "button": "Ver detalles",
+
       "1": {
         "desc": "Beneficios necesarios para tu día a día, con ella dispones de un medio de pago seguro para usarlo en comercios, compras en línea, etc.",
         "desc2": "La tarjeta de crédito Demantur Classic te brinda los beneficios necesarios para tu día a día, con ella dispones de un medio de pago seguro para usarlo en comercios, compras en línea, etc. Además, dispones de retiro inmediato de efectivo en cajeros nacionales, encuentra información más detallada en nuestro sitio web"
       },
+
       "2": {
         "desc": "Obtén numerosos beneficios que se adaptan a tus necesidades con una gran flexibilidad y comodidad.",
         "desc2": "¿Estás en busca de una tarjeta que te permita disfrutar de grandes beneficios en cualquier lugar y en todo momento?, pues si es así, La tarjeta Demantur Platinum es para ti, obtén numerosos beneficios que se adaptan a tus necesidades con una gran flexibilidad. Puedes viajar, comprar lo que quieras y tener la seguridad que necesitas por cada una de tus compras, revisa muchos más beneficios en nuestro sitio web."
       },
+
       "3": {
         "desc": "Obtén ese respaldo que te mereces con una gran cantidad de posibilidades y beneficios superiores en cualquier momento.",
         "desc2": "Obtén muchas más posibilidades, beneficios superiores y un mayor nivel de compra y efectivo con la tarjeta Demantur Gold, con ella siempre tendrás ese respaldo de calidad y una mayor seguridad, confianza y ese respaldo que mereces. La Demantur Gold está pensada para aquellas personas como tú, que siempre buscan esa exigencia y buen nivel en una tarjeta de crédito"
       },
+
       "4": {
         "desc": "Disfruta de un mundo sin limites y lleno de lo que te mereces, obten beneficios, prestigio y reconocimiento con una gran capacidad.",
         "desc2": "Cuando hablamos de la tarjeta Mastercard Black estamos concientes que es algo superior, obtén ese prestigio, reconocimiento, exclusividad y obviamente unos maravillosos beneficios que solo esta tarjeta es capaz de darte, vive un mundo lleno de posibilidades y sueños, viajes, extrafinanciameitos, protecciones, asistencias, salas VIP, entre otras muchas cosas con las que disfrutar de la vida al máximo."
       },
+
       "form": {
         "tittle1": "Rango Salarial",
         "tittle2": "Estatus Laboral",
@@ -1048,9 +1205,11 @@
         "tittle4": "Fotocopia de DUI (Trasera)",
         "tittle5": "Constancia de salario",
         "button": "Solicitar",
+
         "UserElementsSalary": {
           "1": "en adelante"
         },
+        
         "LaboralStatus": {
           "1": "Asalariado",
           "2": "Desempleado",

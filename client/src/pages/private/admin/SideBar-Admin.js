@@ -9,7 +9,7 @@ import {
 import { AiOutlineTeam as Emple } from "react-icons/ai"
 import { AiOutlineBarChart as Soli } from "react-icons/ai";
 import { AiOutlineUserAdd as Ingre } from "react-icons/ai";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "../assets/scss/dashboardadmin.scss";
 
 const NavLinkStyles =
@@ -24,6 +24,7 @@ const Logo = require.context("../assets/img/logo", true);
 export const SideBar = () => {
 
   const { Option, setOption, setOptionElement } = useDash();
+  const navigate = useNavigate()
 
   return (
     <>
@@ -89,7 +90,7 @@ export const SideBar = () => {
             <span className={SpanNavLinkStyles}>Crear empleado</span>
           </div>
 
-          <button className='style-button' onClick={() => localStorage.removeItem('secretToken')}>Cerrar sesión</button>
+          <button className='style-button' onClick={() => { localStorage.removeItem('secretToken'); navigate('/index') }}>Cerrar sesión</button>
 
         </div>
 

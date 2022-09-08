@@ -4,7 +4,7 @@ import { useDash } from '../../../../../context/DashboardContext';
 import { IoMdArrowDropdown as ArrowDown } from 'react-icons/io'
 import no_debt_CC from '../../assets/img/cards-icons/no_debt_CC.png'
 
-export const PayCC = ({ CardsParametros }) => {
+export const PayCC = ({ CardsParametros, setChangeElements }) => {
 
   const { SavingAccounts, PayCCDebt } = useDash()
 
@@ -15,8 +15,10 @@ export const PayCC = ({ CardsParametros }) => {
   const [Error, setError] = useState(null);
 
   useEffect(() => {
-    SetSpentAmount(parseFloat(CardsParametros.PayableAmount.$numberDecimal));
-    setAmountToPay(((SpentAmount) + (SpentAmount * (CardsParametros.interest / 100))).toFixed(2))
+    if (SpentAmount != 0) {
+      SetSpentAmount(parseFloat(CardsParametros.PayableAmount.$numberDecimal));
+      setAmountToPay(((SpentAmount) + (SpentAmount * (CardsParametros.interest / 100))).toFixed(2))
+    }
   }, [SpentAmount]);
 
   const HandlePay = async () => {
@@ -30,7 +32,9 @@ export const PayCC = ({ CardsParametros }) => {
         console.log(AmountToPay)
         const res = await PayCCDebt(localStorage.getItem('authToken'), NumberAccount, AmountToPay)
         if (res?.data?.data) {
-          CardsParametros.SpentAmount = 0;
+          SetSpentAmount(0)
+          CardsParametros.PayableAmount.$numberDecimal = 0;
+          // setChangeElements(0)
         } else {
           setError(res.response.data.error)
         }
@@ -97,16 +101,16 @@ export const PayCC = ({ CardsParametros }) => {
               <div className='h-fit w-fit'>
                 <button className="py-[.5rem] px-[1rem] border-none outline-none bg-[#323643] text-white rounded-md" onClick={HandlePay}>Pagar</button>
               </div>
-              
+
             </div>
-            
+
           </>
           :
           <>
-          <div className='h-[20rem] flex flex-col justify-center items-center'>
-            <img src={ no_debt_CC } alt="" className='w-[6.25rem] mb-3' />
-            <p className="text-[#606470] text-[1.2rem]">No tiene ninguna deuda con la tarjeta de credito</p>
-          </div>
+            <div className='h-[20rem] flex flex-col justify-center items-center'>
+              <img src={no_debt_CC} alt="" className='w-[6.25rem] mb-3' />
+              <p className="text-[#606470] text-[1.2rem]">No tiene ninguna deuda con la tarjeta de credito</p>
+            </div>
           </>
       }
     </div>

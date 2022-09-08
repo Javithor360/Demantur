@@ -36,12 +36,12 @@ export const PayLoan = ({ MyLoan }) => {
   }
 
   return (
-    <div>
+    <div className='w-[70%] mx-auto py-5 border-cover rounded-lg'>
       <p className='text-center text-[1.3rem] text-[#606470] font-semibold'>Pagar Préstamo</p>
       <div className='flex flex-col'>
         <span className='text-center'>Recuerda pagar mensualmente el préstamo que tienes activo</span>
       </div>
-      <div className='mt-5 p-2 grid grid-cols-3 w-[65%] mx-auto mb-5 bg-[#F7F7F7] shadow-sm rounded-lg border border-[#DFDFDF]'>
+      <div className='mt-5 p-2 grid grid-cols-3 w-[90%] mx-auto mb-5 bg-[#F7F7F7] shadow-sm rounded-lg border border-[#DFDFDF]'>
         <div className='flex flex-col justify-center items-center gap-2'>
           <span className='w-fit font-semibold text-[1rem]'>Cuota Mensual:</span>
           <span className='w-fit'>${MyLoan.MonthlyFee}</span>
@@ -89,8 +89,6 @@ export const PayLoan = ({ MyLoan }) => {
           <button className="py-[.5rem] px-[1rem] border-none outline-none bg-[#323643] text-white rounded-md" onClick={HandlePay}>Pagar</button>
         </div>
       </div>
-      
-      
     </div>
   )
 }

@@ -3,7 +3,7 @@ import no_pay_history_CC from '../../assets/img/cards-icons/no_pay_history_CC.pn
 
 export const PaymentHLoan = ({ MyLoan }) => {
   return (
-    <div className='h-[25rem] overflow-y-auto scroll-cards border-cover-2 rounded-lg'>
+    <div className='h-[25rem] w-[70%] mx-auto py-4 border-cover overflow-y-auto scroll-cards rounded-lg'>
       {/* <p className='text-center text-[1.2rem] mt-4'>Historial de pagos</p> */}
       {
         MyLoan.pay_history.payment_history.length !== 0 ?

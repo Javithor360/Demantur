@@ -3,6 +3,7 @@ import { useDash } from "../../../../context/DashboardContext";
 import '../assets/scss/HomePage.scss'
 import { HistoryWidget, ContactsWidget } from "./HomePageWidgets/";
 import { BsFillCreditCardFill } from 'react-icons/bs'
+import { FaMoneyBill } from 'react-icons/fa'
 
 // Translation
 import { useTranslation } from "react-i18next";
@@ -120,18 +121,48 @@ export const HomePage = () => {
 
         </div>
         <div className="basis-[40%] bg-white rounded-[0.75rem]">
+          <h4 className="text-center mt-3">Prestamo Activo</h4>
           <div className="m-[2rem] flex justify-between">
             {
               MyLoan != null ?
                 <>
-                  <h4>Prestamo Activo</h4>
-                  <span>Prestamo Demantur: {MyLoan.details.loan_type}</span>
-                  <span>Cuota Mensual: {MyLoan.MonthlyFee}</span>
-                  <span>Monto Restante: {MyLoan.amounts.remainder}</span>
+                
+                <div className="w-[90%] h-[90%] mx-auto border-last rounded-md">
+                  <div className="flex flex-row justify-center w-full border-last-bottom">
+                    <div className="w-[40%] table mb-0 bg-[#f3f3f3] rounded-tl-md border-last-right">
+                      <span className="table-cell align-middle max-w-fit text-center py-2">Tipo:</span>
+                    </div>
+                    <div className="w-[60%] table mb-0">
+                      <span className="table-cell align-middle max-w-fit text-center">Demantur  {MyLoan.details.loan_type}</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-row justify-center w-full border-last-bottom">
+                    <div className="w-[40%] table mb-0 bg-[#f3f3f3] border-last-right">
+                      <span className="table-cell align-middle max-w-fit text-center py-2">Cuota Mensual:</span>
+                    </div>
+                    <div className="w-[60%] table mb-0">
+                      <span className="table-cell align-middle max-w-fit text-center">${MyLoan.MonthlyFee}</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-row justify-center w-full">
+                    <div className="w-[40%] table mb-0 bg-[#f3f3f3] rounded-bl-md border-last-right">
+                      <span className="table-cell align-middle max-w-fit text-center py-2">Monto Restante:</span>
+                    </div>
+                    <div className="w-[60%] table mb-0">
+                      <span className="table-cell align-middle max-w-fit text-center">${MyLoan.amounts.remainder}</span>
+                    </div>
+                  </div>
+                </div>
+                  
+                  
                 </>
                 :
                 <>
-                  No posees ningún prestamo activo
+                <div className="h-full w-full flex flex-col justify-center items-center">
+                  <p className="text-xl">No posees ningún prestamo activo</p>
+                  <FaMoneyBill className="text-[2.5rem]"/>
+                </div>
+                  
                 </>
             }
           </div>

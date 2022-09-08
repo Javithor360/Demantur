@@ -39,7 +39,7 @@ export const ActLoansMoreInf = ({ setChangeBox2, setMyLoan, MyLoan, LoanImage })
       <ScrollToTop />
       <div className="w-full h-full bg-white rounded-xl overflow-y-auto scroll-cards">
         <div className="w-full h-[2rem] flex items-center justify-start">
-          <button className="bg-transparent outline-none border-none mt-4 ml-5" onClick={() => {
+          <button className="bg-transparent outline-none border-none mt-4 ml-5 hover-back-arrow ease-out duration-200" onClick={() => {
             setChangeBox2(false)
           }}>
             <BsArrowLeft className="text-[2rem] text-[#323643]" />
@@ -67,12 +67,12 @@ export const ActLoansMoreInf = ({ setChangeBox2, setMyLoan, MyLoan, LoanImage })
           </div>
 
           <div className="min-h-[30rem]">
-            <div className="border-cover-2 flex flex-row items-center justify-center text-center h-[10%] w-[50%] mx-auto bg-[#f7f7f7] rounded-lg shadow-sm">
+            <div className="border-cover-2 flex flex-row items-center justify-center text-center h-[15%] w-[50%] mx-auto mt-4 bg-[#f7f7f7] rounded-lg shadow-sm">
               <div className="w-[50%]">
-                <span className={`w-fit mx-auto cursor-pointer pb-1 ${ChangeElements === 1 && 'border-act'}`} onClick={() => { setChangeElements(1) }}>Pagar</span>
+                <span className={`w-fit mx-auto cursor-pointer pb-1 ${ChangeElements === 1 && 'border-act'}`} onClick={() => { setChangeElements(1) }}>Pagar préstamo</span>
               </div>
               <div className="w-[50%]">
-                <span className={`w-fit mx-auto cursor-pointer pb-1 ${ChangeElements === 2 && 'border-act'}`} onClick={() => { setChangeElements(2) }}>Historial</span>
+                <span className={`w-fit mx-auto cursor-pointer pb-1 ${ChangeElements === 2 && 'border-act'}`} onClick={() => { setChangeElements(2) }}>Historial de pagos</span>
               </div>
             </div>
             <div className="h-fit pb-5 rounded-lg mt-5 w-[95%] mx-auto">

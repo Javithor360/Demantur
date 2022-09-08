@@ -538,7 +538,7 @@ export const ActLoans = () => {
                   <>
                     <div className='h-full w-full flex flex-col items-center justify-center'>
                       <img src={pendingReqIcon} alt="" className='w-[200px] mb-4' />
-                      <span>usted ya tiene un credito activo</span>
+                      <span>Usted ya tiene un credito activo</span>
                     </div>
                   </>
               }

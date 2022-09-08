@@ -1,3 +1,5 @@
+@use '../../../../../utilities/_colors.scss' as *;
+
 .box-in-transfer {
   border: 1px solid #707070a7;
 }
@@ -11,4 +13,8 @@
   grid-template-columns: 40% 20% 40%;
   gap: 1px;
   justify-content: center;
+}
+
+.border-left-cards-div{
+  border-left: 1px solid $secondary_gray_200;
 }

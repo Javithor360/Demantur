@@ -285,10 +285,10 @@ export const ActLoans = () => {
           <img
             src={OfferLoans(`${parametros.LoanImage2}`)}
             alt=""
-            className="w-[25.5rem] h-[15rem] rounded-lg  mx-auto block mt-4 mb-4 shadow-lg"
+            className="w-[25.5rem] h-[15rem] rounded-lg  mx-auto block mt-4 mb-5 shadow-lg"
           />
-          <div className="min-h-fit w-full px-2 border-emerald-300 border-l-2">
-            <p className="card-description text-[1rem] mx-auto mb-4">
+          <div className="min-h-fit w-[100%] px-2 border-emerald-300 border-l-2">
+            <p className="w-[80%] border-text text-[1rem] mx-auto mb-4">
               {parametros.LoanDescription2}
             </p>
           </div>

@@ -38,15 +38,15 @@ export const Requests = () => {
             {
               DisplayDetails === false ?
                 <div className='request-employee-container w-[100%] mx-auto h-full overflow-y-auto overflow-x-hidden'>
-                  <div className='flex flex-col justify-between text-center h-full'>
-                    <p className="text-gray-500 text-center text-[28px] m-0 p-0">Solicitudes de activación de cuenta</p>
+                  <div className='flex flex-col text-center h-full'>
+                    <p className="text-gray-500 text-center text-[28px] m-0 mb-5 p-0">Solicitudes de activación de cuenta</p>
                     {
                       Info.MainInfo.length !== 0 ?
                         Info.MainInfo.map((el, i) => {
                           let Name = `${el.FirstName} ${el.LastName}`
                           return (
                             <>
-                              <div className='flex flex-col w-[100%] h-[12rem] border-cover-2 rounded-lg mb-5'>
+                              <div className='flex flex-col w-[100%] min-h-[12rem] border-cover-2 rounded-lg mb-5'>
                                 <div className='flex flex-row h-[65%] w-full'>
                                   <div className='w-[40%] h-full'>
                                     <div className='bg-[#D6D6D6] h-[25%] table mb-0 rounded-tl-lg'>
@@ -97,8 +97,8 @@ export const Requests = () => {
                         })
                         :
                         <div className='h-full w-full flex flex-col justify-center items-center'>
-                          <img src={no_reqs} alt="" className='w-[280px]' />
-                          <p>No hay solicitudes de cuentas pendientes</p>
+                          <img src={no_reqs} alt="" className='w-[280px] mb-3' />
+                          <p className='text-gray-500'>No hay solicitudes de cuentas pendientes</p>
                         </div>
                     }
                   </div>

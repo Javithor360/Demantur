@@ -2,7 +2,9 @@
 //scss
 import '../../../static/assets/scss/credit_cards/individual_cards_pages_main.scss'
 import "../assets/scss/UserCards.scss";
-
+//img
+import list from '../assets/img/cards-icons/list.png'
+import one_req from '../assets/img/cards-icons/one_req.png'
 //components
 import { ScrollToTop } from '../../../../components/ScrollToTop';
 import { Dropdown } from '../../../../components/Dropdown';
@@ -239,7 +241,7 @@ export const UserCards = () => {
             </div>
 
             <img
-              src={DashCardsImages(`${parametros.cardImage}`)}
+              src={`${parametros.cardImage}`}
               alt=""
               className="w-[220px] mx-auto block mt-5 mb-5 shadow-lg"
             />
@@ -336,7 +338,7 @@ export const UserCards = () => {
                   <div className="h-[10%]">
                     <p className="text-[1.375rem] text-center">Débito Clásica</p>
                     <img
-                      src={DashCardsImages("./debitCard.png")}
+                      src="https://res.cloudinary.com/demantur/image/upload/v1662595386/bank_card_images/debitoClasica_h4vrfu.png"
                       alt=""
                       className="w-[200px] mt-3 mb-3"
                     />
@@ -363,9 +365,19 @@ export const UserCards = () => {
                   {
                     MyCard === null ?
                       CardReq === false ?
-                        <>Solicite una tarjeta de credito</>
+                        <>
+                          <div className='h-full w-full flex flex-col items-center justify-center'>
+                            <img src={list} alt="" className='w-[85px] mb-3'/>
+                            <p>Solicite una tarjeta de crédito</p>
+                          </div>
+                        </>
                         :
-                        <>Usted Tiene una solicitud en progreso</>
+                        <>
+                        <div className='h-full w-full flex flex-col items-center justify-center'>
+                          <img src={one_req} alt="" className='w-[85px] mb-3'/>
+                          <p>Usted Tiene una solicitud en progreso</p>
+                        </div>
+                        </>
                       :
                       <>
                         <div className="h-[10%]">
@@ -400,25 +412,25 @@ export const UserCards = () => {
         cardName: 'Demantur Classic',
         cardDescription: <span>{t("DashboardNormalUser.Cards.1.desc")}</span>,
         cardDescription2: <span>{t("DashboardNormalUser.Cards.1.desc2")}</span>,
-        cardImage: './classicCard.png'
+        cardImage: 'https://res.cloudinary.com/demantur/image/upload/v1662595386/bank_card_images/classicCard_vzoynz.png'
       },
       {
         cardName: 'Demantur Platinum',
         cardDescription: <span>{t("DashboardNormalUser.Cards.2.desc")}</span>,
         cardDescription2: <span>{t("DashboardNormalUser.Cards.2.desc2")}</span>,
-        cardImage: './platinumCard.png'
+        cardImage: 'https://res.cloudinary.com/demantur/image/upload/v1662595386/bank_card_images/platinumCard_d5faxv.png'
       },
       {
         cardName: 'Demantur Gold',
         cardDescription: <span>{t("DashboardNormalUser.Cards.3.desc")}</span>,
         cardDescription2: <span>{t("DashboardNormalUser.Cards.3.desc2")}</span>,
-        cardImage: './goldCard.png'
+        cardImage: 'https://res.cloudinary.com/demantur/image/upload/v1662595524/bank_card_images/goldCard_cdw2mv.png'
       },
       {
         cardName: 'Mastercard Black',
         cardDescription: <span>{t("DashboardNormalUser.Cards.4.desc")}</span>,
         cardDescription2: <span>{t("DashboardNormalUser.Cards.4.desc2")}</span>,
-        cardImage: './blackCard.png'
+        cardImage: 'https://res.cloudinary.com/demantur/image/upload/v1662595386/bank_card_images/blackCard_dwbb3f.png'
       }
     ]
 
@@ -443,7 +455,7 @@ export const UserCards = () => {
                               <div className="dash-card-info w-[90%] rounded-xl relative flex flex-row items-center">
                                 <div className="flex items-center justify-center h-full w-fit">
                                   <img
-                                    src={DashCardsImages(`${element.cardImage}`)}
+                                    src={`${element.cardImage}`}
                                     alt=""
                                     className="dash-left-card-img"
                                   />
@@ -479,7 +491,7 @@ export const UserCards = () => {
                     :
                     <>
                       <div className='h-full w-full flex flex-col items-center justify-center'>
-                        <img src={pendingReqIcon} alt="" className='w-[200px] mb-4' />
+                        <img src={list} alt="" className='w-[200px] mb-4' />
                         <span>Tiene una Solicitud en progreso</span>
                       </div>
                     </>

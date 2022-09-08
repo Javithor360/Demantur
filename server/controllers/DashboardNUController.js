@@ -947,6 +947,7 @@ const PayLoan = async (req, res, next) => {
       MyLoan.pay_history.payment_history.push({ AccountN: accountNumber, Amount: MyLoan.MonthlyFee, Date: timeNow })
       MyLoan.amounts.remainder = MyLoan.amounts.remainder - MyLoan.MonthlyFee;
 
+      MyLoan.save()
       res.status(200).json({ success: true })
     }
 

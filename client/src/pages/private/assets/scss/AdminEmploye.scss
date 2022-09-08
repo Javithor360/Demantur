@@ -14,15 +14,25 @@
     transition: top .3s;
     pointer-events: none;
   }
+  .content-createad{
+    margin: auto;
+
+  }
+  .content-create{
+    border: solid rgba(128, 128, 128, 0.103);
+    width: 40rem;
+    display: flex;
+    border-radius: 0.5rem;
+    box-shadow: 1px 3px 18px  #888888;
+  }
 
 .inputv{
-    width: 100%;
+    width: 20rem;
     height: 100%;
     background: transparent;
     border: 2px solid rgba(0, 0, 0, 0.103);
     border-radius: 10px;
     outline: none;
-    padding: 0 10px;
     font-size: 20px;
 }
 .formv input:focus ~ label,
@@ -58,8 +68,8 @@
     height: 2.6rem;
     width: 10rem;
     border: none;
-    margin-left: 18rem;
-    margin-top: 5rem;
+    margin-top: 2rem;
+    margin-left: 4rem;
 }
 .buttonv:hover{
     transform: scale(1.01);

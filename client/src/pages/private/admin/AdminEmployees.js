@@ -54,6 +54,8 @@ export const AdminEmployees = () => {
         <h6 className='text-red-500 flex justify-center mb-[2rem]'>{Error}</h6>
       }
       <div className='flex justify-center'>
+        <div className='content-create'>
+        <div className='content-createad'>
         <form onSubmit={handleForm} className="flex justify-center flex-col w-[30%]">
           <div className='formv'>
           <input className='inputv' type="text" name="Names" id="Names" onChange={(e) => { setNames(e.target.value) }} value={Names} />
@@ -76,8 +78,10 @@ export const AdminEmployees = () => {
           <label className='labelv' htmlFor="Names">Contraseña</label>
           </div>
 
-          <button type="submit" className='my-[2rem] w-[40%]'>Crear empleado</button>
+          <button type="submit" className='my-[2rem] w-[40%] buttonv'>Crear empleado</button>
         </form>
+        </div>
+        </div>
       </div>
     </div>
   )

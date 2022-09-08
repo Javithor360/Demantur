@@ -163,3 +163,14 @@
   .top-for-dropdow-12 {
     top: -13.5rem
   }
+  .dropdown-layout-create{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  @media (min-width: 1920px) {
+    .dropdown-layout-create{
+        display: flex;
+        flex-direction: row;
+      }
+  }

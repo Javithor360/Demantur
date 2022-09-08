@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
+import { TransformComponent, TransformWrapper } from '@pronestor/react-zoom-pan-pinch'
+import { AiOutlineZoomIn, AiOutlineZoomOut, AiOutlineCompress, AiOutlineClose } from 'react-icons/ai'
 
 export const DetailedClientInfo = ({ c, setDisplay }) => {
 
     console.log(c);
 
     const grid_column_styles = "mr-4 flex flex-col h-full w-full";
-    const table_name_styles = "h-[35%] w-full bg-[#D6D6D6] p-2 flex justify-center items-center";
+    const table_name_styles = "max-h-[35%] w-full bg-[#D6D6D6] p-2 flex justify-center items-center";
     const table_content_styles = "h-[65%] bg-white p-2 flex justify-center items-center";
     const table_container_styles_2 = "w-[90%] h-fit flex flex-col items-center mx-auto";
-    const table_content_styles_2 = "h-full bg-white p-2 flex justify-center items-center";
+    const table_content_styles_2 = "h-[100%] bg-white p-2 flex justify-center items-center";
 
     const dataImg = [
         {
@@ -36,7 +38,7 @@ export const DetailedClientInfo = ({ c, setDisplay }) => {
                     <button className="bg-transparent outline-none border-none mt-4 ml-5" onClick={() => {
                         setDisplay(false)
                     }}>
-                        <BsArrowLeft className="text-[2rem] text-[#323643]" />
+                        <BsArrowLeft className="text-[2rem] text-[#323643] hover-back-arrow ease-out duration-200" />
                     </button>
                 </div>
                 <div className='mx-auto w-[90%] h-[5rem] border-cover rounded-2xl bg-[#FCFCFC] shadow-sm flex flex-row mb-5 mt-4'>
@@ -184,7 +186,7 @@ export const DetailedClientInfo = ({ c, setDisplay }) => {
                                             </div>
 
                                             <div className={`${grid_column_styles} border-subdivisions `}>
-                                                <div className={`${table_name_styles} rounded-tl-lg`}>
+                                                <div className={`${table_name_styles}`}>
                                                     <p className='m-0 p-0'>N° cuenta</p>
                                                 </div>
                                                 <div className={`${table_content_styles} rounded-bl-lg`}>
@@ -193,7 +195,7 @@ export const DetailedClientInfo = ({ c, setDisplay }) => {
                                             </div>
 
                                             <div className={`${grid_column_styles} border-subdivisions `}>
-                                                <div className={`${table_name_styles} rounded-tl-lg`}>
+                                                <div className={`${table_name_styles}`}>
                                                     <p className='m-0 p-0'>Saldo</p>
                                                 </div>
                                                 <div className={`${table_content_styles} rounded-bl-lg`}>
@@ -202,7 +204,7 @@ export const DetailedClientInfo = ({ c, setDisplay }) => {
                                             </div>
 
                                             <div className={`${grid_column_styles} border-subdivisions `}>
-                                                <div className={`${table_name_styles} rounded-tl-lg`}>
+                                                <div className={`${table_name_styles}`}>
                                                     <p className='m-0 p-0'>Intereses</p>
                                                 </div>
                                                 <div className={`${table_content_styles} rounded-bl-lg`}>
@@ -210,11 +212,11 @@ export const DetailedClientInfo = ({ c, setDisplay }) => {
                                                 </div>
                                             </div>
 
-                                            <div className={`${grid_column_styles} border-subdivisions `}>
-                                                <div className={`${table_name_styles} rounded-tl-lg`}>
+                                            <div className={`${grid_column_styles}`}>
+                                                <div className={`${table_name_styles} rounded-tr-lg`}>
                                                     <p className='m-0 p-0'>Fecha de creación</p>
                                                 </div>
-                                                <div className={`${table_content_styles} rounded-bl-lg`}>
+                                                <div className={`${table_content_styles} rounded-br-lg`}>
                                                     <p className='m-0 p-0'>{new Date(el.createdAt).toLocaleDateString()}</p>
                                                 </div>
                                             </div>
@@ -237,11 +239,11 @@ export const DetailedClientInfo = ({ c, setDisplay }) => {
                                     <p className='m-0 p-0'>{c[3].LoanRequestCount === true ? "Con préstamo" : "Sin préstamo"}</p>
                                 </div>
                             </div>
-                            <div className={`${grid_column_styles} border-subdivisions `}>
-                                <div className={`${table_name_styles}`}>
+                            <div className={`${grid_column_styles}`}>
+                                <div className={`${table_name_styles} rounded-tr-lg`}>
                                     <p className='m-0 p-0'>Tarjetas</p>
                                 </div>
-                                <div className={`${table_content_styles}`}>
+                                <div className={`${table_content_styles} rounded-br-lg`}>
                                     <p className='m-0 p-0'>{c[4].CardRequestCount === true ? "Con tarjeta" : "Sin tarjeta"}</p>
                                 </div>
                             </div>
@@ -266,6 +268,23 @@ export const DetailedClientInfo = ({ c, setDisplay }) => {
                                 )
                             })}
                         </div>
+                    </div>
+                    <div className={ImageModal ? "Image-modal open" : "Image modal"}>
+                        <TransformWrapper defaultScale={1} defaultPositionX={100} defaultPositionY={200} centerZoomedOut={true} limitToBounds={true}>
+                        {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
+                            <>
+                            <div className='my-2'>
+                                <button className='border-none outline-none bg-transparent' onClick={() => zoomIn()}><AiOutlineZoomIn className='text-[white] text-[2rem]' /></button>
+                                <button className='border-none outline-none bg-transparent mx-4' onClick={() => zoomOut()}><AiOutlineZoomOut className='text-[white] text-[2rem]' /></button>
+                                <button className='border-none outline-none bg-transparent' onClick={() => resetTransform()}><AiOutlineCompress className='text-[white] text-[2rem]' /></button>
+                            </div>
+                            <TransformComponent limitToBounds={true} centerZoomedOut={true} centerZoomedIn={true}>
+                                <img src={tempImgSrc} alt="" />
+                            </TransformComponent>
+                            </>
+                        )}
+                        </TransformWrapper>
+                        <button className='text-white absolute top-0 right-0 border-none outline-none bg-transparent m-2' onClick={() => setImageModal(false)}><AiOutlineClose className='text-[white] text-[2rem]' /></button>
                     </div>
                 </div>
             </div>

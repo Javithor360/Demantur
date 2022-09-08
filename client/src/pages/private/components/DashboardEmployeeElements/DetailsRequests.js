@@ -268,13 +268,13 @@ export const DetailsRequests = ({ Info, setInfo, info, setDisplayDetails }) => {
                             {
                                 ChangeButtons === 1 ?
                                     <>
-                                        <div className='h-full w-[100%] flex items-center justify-center text-center'>
+                                        <div className='h-fit mb-4 w-[100%] flex items-center justify-center text-center'>
                                             <span className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#45b985] text-white w-[60%]'>Aceptada</span>
                                         </div>
                                     </>
                                     :
                                     <>
-                                        <div className='h-full w-[100%] flex items-center justify-center text-center'>
+                                        <div className='h-fit mb-4 w-[100%] flex items-center justify-center text-center'>
                                             <span className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#b94545] text-white w-[60%]'>Denegada</span>
                                         </div>
                                     </>

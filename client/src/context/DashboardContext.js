@@ -4,7 +4,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 import {
   creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ, getContactsWPReq, getMyLoanReqREQ, getSavingAcctsReq, UpdatePhotoReq, getNametoNavQuery, getEveryAccQuery, getAccHistory, ChangeEmailQuery, EmailCodeVerQuery, getPendingAccounts,
-  CancelChangeEm, VerifyOldPassQuery, ChangePassQuery, VerifyCodePassQuery, CancelChangePassQuery, PendingFrQuery, FriendRequestsQuery, UsersToAddQuery, getMyCardQuery, getMyDebitCardQuery, PayCCDebtQuery, CreateDebitCardQuery
+  CancelChangeEm, VerifyOldPassQuery, ChangePassQuery, VerifyCodePassQuery, CancelChangePassQuery, PendingFrQuery, FriendRequestsQuery, UsersToAddQuery, getMyCardQuery, getMyDebitCardQuery, PayCCDebtQuery, CreateDebitCardQuery, getMyLoanReqQuery, PayLoanQuery
 } from "../api/Queries";
 
 
@@ -38,6 +38,9 @@ export const DashProvider = ({ children }) => {
   const [SavingAccounts, setSavingAccounts] = useState([]);
   const [clientBalance, setClientBalance] = useState(0);
   const [ChangeBox2, setChangeBox2] = useState(false);
+
+  const [SimpleLoan, setSimpleLoan] = useState(null);
+  const [LoanParametro, setLoanParametro] = useState(null);
 
   const [DebitCard, setDebitCard] = useState(null);
   const [CardsParametros, setCardsParametros] = useState(null);
@@ -370,6 +373,22 @@ export const DashProvider = ({ children }) => {
     }
   }
 
+  const getMyLoan = async (Token) => {
+    try {
+      return await getMyLoanReqQuery(PrivateConfig(Token))
+    } catch (error) {
+      return error
+    }
+  }
+
+  const PayLoan = async (Token, accountNumber) => {
+    try {
+      return await PayLoanQuery(PrivateConfig(Token), accountNumber)
+    } catch (error) {
+      return error
+    }
+  }
+
   return (
     <dashContext.Provider value={{
       Option, setOption, OptionElement, setOptionElement, SettingsOption, setSettingsOption,
@@ -381,7 +400,7 @@ export const DashProvider = ({ children }) => {
       getMyCardReq, getMyLoanReq, GlobalInfoSetReq, getContacsWP, SavingAccounts, getSavingAccts, UpdatePhoto, clientBalance,
       NPName, setNPName, setSavingAccounts, setClientBalance, getNametoNav, getEveryAcc, ChangeEmail, getAccountsHistory, EmailCodeVer, getActivatedAccountRequests,
       CancelChangeEmail, VerifyOldPass, ChangePass, VerifyCodePass, CancelChangePass, setInfo, PendingFr, getMyFriendReq, getUsersToAdd, getMyCard,
-      CardsParametros, setCardsParametros, getMyDebitCard, ChangeBox2, setChangeBox2, PayCCDebt, CreateDebitCard, DebitCard, setDebitCard,
+      CardsParametros, setCardsParametros, getMyDebitCard, ChangeBox2, setChangeBox2, PayCCDebt, CreateDebitCard, DebitCard, setDebitCard, getMyLoan, PayLoan
     }}>
       {children}
     </dashContext.Provider>

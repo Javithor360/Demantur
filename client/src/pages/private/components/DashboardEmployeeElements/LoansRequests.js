@@ -47,6 +47,7 @@ export const LoansRequests = () => {
           {
             DisplayDetails === false ?
               <div className='cards-employee flex flex-col px-5 py-5 overflow-x-hidden overflow-y-auto'>
+                <p className="text-gray-500 text-center text-[28px] m-0 mb-4 p-0">Solicitudes de préstamos</p>
                 { 
                   LoanRqs.length !== 0 ?
                   LoanRqs.map((SingReq, i) => {
@@ -55,7 +56,7 @@ export const LoansRequests = () => {
                       let Dui = SingReq.Request_guarantor.Dui
                       return (
                         <>
-                            <div className='individual-req w-[95%] mb-5 rounded-lg h-[8rem] border-cover' key={i}>
+                            <div className='individual-req w-[95%] mb-5 rounded-lg min-h-[8rem] border-cover' key={i}>
                               <div className={ `${grid_column_styles} border-subdivisions ` }>
                                 <div className={ `${table_name_styles} rounded-tl-lg` }>
                                   <p className='m-0 p-0'>Nombre</p>
@@ -64,21 +65,21 @@ export const LoansRequests = () => {
                                   <p className='m-0 p-0'>{Name}</p>
                                 </div>
                               </div>
-                              <div className={ `${grid_column_styles} border-subdivisions ` }>
-                                  <div className={ `${table_name_styles}` }>
-                                    <p className='m-0 p-0'>DUI</p>
-                                  </div>
-                                  <div className={`${table_content_styles}`}>
-                                    <p className='m-0 p-0'>{Dui}</p>
-                                  </div>
+                              <div className={`${grid_column_styles} border-subdivisions `}>
+                                <div className={`${table_name_styles}`}>
+                                  <p className='m-0 p-0'>DUI</p>
+                                </div>
+                                <div className={`${table_content_styles}`}>
+                                  <p className='m-0 p-0'>{Dui}</p>
+                                </div>
                               </div>
-                              <div className={ `${grid_column_styles} border-subdivisions ` }>
-                                  <div className={ `${table_name_styles}` }>
-                                    <p className='m-0 p-0'>Tipo de préstamo</p>
-                                  </div>
-                                  <div className={`${table_content_styles}`}>
-                                    <p className='m-0 p-0'>Demantur {Type}</p>
-                                  </div>
+                              <div className={`${grid_column_styles} border-subdivisions `}>
+                                <div className={`${table_name_styles}`}>
+                                  <p className='m-0 p-0'>Tipo de préstamo</p>
+                                </div>
+                                <div className={`${table_content_styles}`}>
+                                  <p className='m-0 p-0'>Demantur {Type}</p>
+                                </div>
                               </div>
                               <div className='flex flex-col items-center justify-center h-full'>
                                 <button className='my-auto block outline-none border-none px-2 py-2 rounded bg-[#455FB9] text-white' onClick={() => {
@@ -89,7 +90,7 @@ export const LoansRequests = () => {
                                     Email: SingReq.Request_guarantor.Email,
                                     CelNum: SingReq.ExtraInfo.Number,
                                     UserSalary: SingReq.LoanRequest.UserSalary,
-                                    UserStatus: SingReq.LoanRequest.UserStatus,
+                                    LoanTime: SingReq.LoanRequest.LoanTime,
                                     Amountrequest: SingReq.LoanRequest.Amountrequest,
                                     WorkPlace: SingReq.ExtraInfo.WorkPlace,
                                     Type,
@@ -100,7 +101,7 @@ export const LoansRequests = () => {
                                     SalaryEvidenceImg: SingReq.LoanRequest.anex.SalaryEvidenceImg.url,
                                     PerfilPhoto: SingReq.Request_guarantor.PerfilPhoto.url,
                                     CloudLoanImage: SingReq.LoanRequest.anex.CloudLoanImage
-                                    
+
                                   })
                                   setDisplayDetails(true);
                                 }}>Más detalles</button>
@@ -115,7 +116,7 @@ export const LoansRequests = () => {
                     <>
                       <div className='h-full w-full bg-white rounded-xl flex flex-col items-center justify-center'>
                         <img src={ no_loan_req } alt="" className='w-[15.625rem] mb-3'/>
-                        <p className='text-[#606470] text-[1.2rem]'>Cuando hayan solicitudes se mostrarán aqui</p>
+                        <p className='text-[#606470]'>Cuando hayan solicitudes se mostrarán aqui</p>
                       </div>
                     </>
                 }
@@ -129,5 +130,5 @@ export const LoansRequests = () => {
         </>
       }
     </>
-  ) 
+  )
 }

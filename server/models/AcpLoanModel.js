@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const NumberReq = { type: Number, require: true };
-const StringReq = { type: String, require: true };
+const StringReq = { type: String, require: true, trim: true };
 const DateReq = { type: Date, require: true };
 
 const AcpLoanSchema = new mongoose.Schema({
@@ -9,6 +9,8 @@ const AcpLoanSchema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     require: true,
   },
+  LoanId: Number,
+  MonthlyFee: Number, // cuota mensual
   details: {
     loan_type: StringReq, // Tipo de préstamo del objeto
     interest: NumberReq, // % de interés del préstamo

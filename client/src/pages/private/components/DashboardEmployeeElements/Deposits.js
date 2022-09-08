@@ -77,21 +77,21 @@ export const Deposits = () => {
             }
             <div className='mx-auto container-deposits border-cover-2 rounded-lg'>
                 <form onSubmit={handleForm} className='flex flex-col w-full rounded-lg h-fit'>
-                    <div className='hola-deposits rounded-tl-lg rounded-tr-lg'></div>
+                    {/* <div className='hola-deposits rounded-tl-lg rounded-tr-lg'></div> */}
                     <div className='flex flex-col w-full'>
                         <div className='w-full mx-auto text-center h-fit mb-4 flex flex-col justify-center items-center'>
-                            <label className='mt-3 text-[1.2rem] font-semibold mb-2 text-[#323643]' htmlFor="AccNumber">Número de cuenta:</label>
-                            <hr className='separatee__1 mb-3' />
-                            <Cleave className='w-[70%] border-none outline-none px-2' options={{ numericOnly: true }} id="AccNumber" name='AccNumber' onChange={(e) => { setAccNumber(e.target.value) }} value={AccNumber} required placeholder='Escriba el número de cuenta' autoComplete='off' />
+                            <label className='mt-[1.9rem] text-[1.2rem] font-semibold mb-2 text-[#323643]' htmlFor="AccNumber">Número de cuenta:</label>
+                            {/* <hr className='separatee__1 mb-3' /> */}
+                            <Cleave className='w-[70%] border-none outline-none px-2' options={{ numericOnly: true }} id="AccNumber" name='AccNumber' onChange={(e) => { setAccNumber(e.target.value) }} value={AccNumber} required autoComplete='off' />
                         </div>
                         <div className='w-full mx-auto text-center h-fit flex flex-col justify-center items-center'>
                             <label className='mt-3 text-[1.2rem] font-semibold mb-2 text-[#323643]' htmlFor="Amount">Monto a depositar:</label>
-                            <hr className='separatee__1 mb-3 h-[.2rem]' />
+                            {/* <hr className='separatee__1 mb-3 h-[.2rem]' /> */}
                             <Cleave className='w-[70%] border-none outline-none px-2' options={{ numeral: true, numeralThousandsGroupStyle: 'thousand' }} id="Amount" name='Amount' onChange={(e) => {
                                 if (e.target.value !== '') {
                                     setAmount(parseFloat(e.target.value.replace(/,/g, '')))
                                 }
-                            }} value={Amount} required placeholder='Escriba el monto a depositar' autoComplete='off' />
+                            }} value={Amount} required autoComplete='off' />
                         </div>
                     </div>
                     <div className='min-h-[5rem] w-[100%] mt-[2rem]'>

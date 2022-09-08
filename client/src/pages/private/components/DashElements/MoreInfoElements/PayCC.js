@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDash } from '../../../../../context/DashboardContext';
 import { IoMdArrowDropdown as ArrowDown } from 'react-icons/io'
+import no_debt_CC from '../../assets/img/cards-icons/no_debt_CC.png'
 
 export const PayCC = ({ CardsParametros }) => {
 
@@ -40,7 +41,7 @@ export const PayCC = ({ CardsParametros }) => {
   }
 
   return (
-    <div className='border-cover-2 pb-5 rounded-lg'>
+    <div className='border-cover-2 rounded-lg'>
       {
         SpentAmount !== 0 ?
           <>
@@ -66,7 +67,7 @@ export const PayCC = ({ CardsParametros }) => {
               </span>
             </div>
 
-            <div className='w-fit mx-auto flex flex-row h-fit items-center gap-5'>
+            <div className='w-fit mx-auto flex flex-row h-fit items-center gap-5 mb-4'>
               <div className='acc-select-container bg-[#D6D6D6] h-[3.9rem] w-[20rem] rounded-xl ml-5 px-2'>
                 <div className='dropdown-CC'>
                   <div className="dropdown-button-CC" onClick={e => setIsSelect(!IsSelect)}>{NumberAccount === '' ? <span>Cuenta Emisora</span> : NumberAccount} <ArrowDown /></div>
@@ -103,9 +104,9 @@ export const PayCC = ({ CardsParametros }) => {
           :
           <>
           <div className='h-[20rem] flex flex-col justify-center items-center'>
-            Hasta el momento no tiene deuda con la tarjeta de credito
+            <img src={ no_debt_CC } alt="" className='w-[6.25rem] mb-3' />
+            <p className="text-[#606470] text-[1.2rem]">No tiene ninguna deuda con la tarjeta de credito</p>
           </div>
-           
           </>
       }
     </div>

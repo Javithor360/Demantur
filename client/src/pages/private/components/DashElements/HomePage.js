@@ -2,12 +2,13 @@ import { IoWalletSharp } from "react-icons/io5";
 import { useDash } from "../../../../context/DashboardContext";
 import '../assets/scss/HomePage.scss'
 import { HistoryWidget, ContactsWidget } from "./HomePageWidgets/";
+import { BsFillCreditCardFill } from 'react-icons/bs'
 
 // Translation
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 
-const ImageDebitCard = 'https://res.cloudinary.com/demantur/image/upload/v1662508234/bank_card_images/debitCard_rt6xxj.png'
+const ImageDebitCard = 'https://res.cloudinary.com/demantur/image/upload/v1662595386/bank_card_images/debitoClasica_h4vrfu.png'
 
 export const HomePage = () => {
   const { Info, clientBalance, getMyDebitCard, getMyCard } = useDash();
@@ -86,28 +87,30 @@ export const HomePage = () => {
       </div>
 
       <div className="flex gap-3 my-1">
-        <div className="basis-[60%] rounded-[0.75rem] flex h-[15rem]">
-          <div className="w-1/2 ">
+        <div className="basis-[60%] gap-3 rounded-[0.75rem] flex h-[15rem] bg-white">
+          <div className="w-[50%] h-full flex items-center justify-center">
             {
               DebitCardHP != null ?
                 <>
-                  <img src={ImageDebitCard} alt="Tarjeta" className="w-[90%] h-[100%]" />
+                  <img src={ImageDebitCard} alt="Tarjeta" className="w-[77%] h-auto" />
                 </>
                 :
-                <div className="bg-white w-[90%] h-[100%]">
-                  Todavia No tiene Tarjeta de debito
+                <div className="bg-white w-[100%] h-[75%] flex flex-col justify-center items-center text-center text-2xl">
+                  <p className="w-[95%]">Todavía no tiene tarjeta de débito</p>
+                  <BsFillCreditCardFill className="text-[2.1rem]"/>
                 </div>
             }
           </div>
-          <div className="w-1/2  ">
+          <div className="w-1/2 h-full flex items-center justify-center">
             {
               CreditCardHP != null ?
                 <>
-                  <img src={CreditCardHP.CardImage} alt="Tarjeta" className="w-[90%] h-[100%] " />
+                  <img src={CreditCardHP.CardImage} alt="Tarjeta" className="w-[77%]" />
                 </>
                 :
-                <div className="bg-white w-[90%] h-[100%]">
-                  Todavia No tiene Tarjeta de Credito
+                <div className="bg-white w-[100%] h-[75%] flex flex-col justify-center items-center text-center text-2xl border-left-cards-div">
+                  <p className="w-[95%]">Todavía no tiene tarjeta de crédito</p>
+                  <BsFillCreditCardFill className="text-[2.1rem]"/>
                 </div>
             }
           </div>

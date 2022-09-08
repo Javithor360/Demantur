@@ -20,16 +20,26 @@
     "copyright": "All rights reserved. © 2022 Demantur"
   },
 
+  "imagen":{
+    "foto":"https://media.discordapp.net/attachments/861438024659501087/1017247575801348167/unknown.png",
+    "foto2":"https://media.discordapp.net/attachments/861438024659501087/1017248644367405056/unknown.png",
+    "foto3":"https://media.discordapp.net/attachments/861438024659501087/1017249151521652796/unknown.png",
+    "foto4":"https://media.discordapp.net/attachments/861438024659501087/1017250187183407225/unknown.png",
+    "foto5":"https://media.discordapp.net/attachments/861438024659501087/1017285369978425434/paso5.png"
+  },
+
   "bussinesPage": {
     "hero": {
       "tittle": "Register",
       "desc": "Welcome to the guide where you will learn everything you need to know to be able to register"
     },
+
     "body": {
       "tittle": "What is a business account?",
       "text": "A contract between a company and our bank, by means of which the holder deposits an amount of money and the bank acquires a commitment to safeguard it, with this service we seek to provide a faster and more dynamic way to manage your money",
       "subtittle": "What are the benefits?"
     },
+
     "benefits": {
       "content": {
         "1": "A safe place to keep your money",
@@ -256,6 +266,7 @@
     "read_more": "Read more",
     "read_more2": "See more",
     "financial_solutions": "Financial solutions in just one place",
+
     "cards_grid": {
       "1": {
         "title": "Cards",
@@ -1198,7 +1209,7 @@
         "UserElementsSalary":{
           "1": "onwards"
         },
-        
+
         "LaboralStatus":{
           "1": "Employed",
           "2": "Unemployed",
@@ -1209,4 +1220,3 @@
     }
   }
 }
-

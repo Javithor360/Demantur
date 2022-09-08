@@ -385,18 +385,27 @@ const AcceptLoanReq = async (req, res, next) => {
     try {
         const { Dui } = req.body
         const User = await NormalUser.findOne({ Dui: Dui });
-        const loanReq = await LoanRequest.findOne({ CardOwner: User._id })
+        const loanReq = await LoanRequest.findOne({ loan_guarantor: User._id })
 
         let remainder = loanReq.Amountrequest.replace('$', '');
         remainder = parseFloat(remainder)
 
+        let Years = loanReq.LoanTime * 12
+        const functToGetFee = () => {
+            return (remainder / ((1 - (Math.pow(1 + 0.0125, -Years))) / 0.0125))
+        }
+        let MothlyFeee = functToGetFee()
+
         let TimeNow = new Date()
+        
+
+
 
         let debtorId = User._id
         let details = {
             loan_type: loanReq.LoanType,
-            // no estoy seguro del interes
-            interest: 5,
+            // Interes dependiendo del monto y el plazo a pagar se considera
+            interest: 10,
         }
         let pay_history = {
             loan_date: TimeNow,
@@ -411,9 +420,11 @@ const AcceptLoanReq = async (req, res, next) => {
         }
 
         await LoanRequest.findOneAndDelete({ loan_guarantor: User._id })
-
+        await SavingsAccount.findOneAndUpdate({ accountNumber: loanReq.AccountNumber }, { $inc: { balance: parseFloat(remainder).toFixed(2) } })
         const newLoan = await new AcpLoanModel({
             debtorId,
+            LoanId: loanReq.LoanId,
+            MonthlyFee: parseFloat(MothlyFeee).toFixed(2),
             details,
             pay_history,
             amounts,
@@ -455,25 +466,25 @@ const AcceptCardReq = async (req, res, next) => {
             // AQUÍ SE REALIZARÁN LAS OPERACIONES PARA DETERMINAR EL MONTO Y TODO LO MONETARIO
             CardAmount = 800.00;
             interest = 10;
-            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1661868613/bank_card_images/classicCard-no_borrar_rk4osh.png'
+            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1662595386/bank_card_images/classicCard_vzoynz.png'
         } else if (CardReq.CardId == 1) {
             CardType = 'Platinum'
             // AQUÍ SE REALIZARÁN LAS OPERACIONES PARA DETERMINAR EL MONTO Y TODO LO MONETARIO
             CardAmount = 1500.00;
             interest = 8;
-            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1661868613/bank_card_images/platinumCard-no_borrar_tqt0zl.png'
+            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1662595386/bank_card_images/platinumCard_d5faxv.png'
         } else if (CardReq.CardId == 2) {
             CardType = 'Gold'
             // AQUÍ SE REALIZARÁN LAS OPERACIONES PARA DETERMINAR EL MONTO Y TODO LO MONETARIO
             CardAmount = 3000.00;
             interest = 6;
-            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1661868613/bank_card_images/goldCard-no_borrar_ovmjjp.png'
+            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1662595524/bank_card_images/goldCard_cdw2mv.png'
         } else if (CardReq.CardId == 3) {
             CardType = 'Black'
             // AQUÍ SE REALIZARÁN LAS OPERACIONES PARA DETERMINAR EL MONTO Y TODO LO MONETARIO
             CardAmount = 6000.00;
             interest = 3;
-            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1661868613/bank_card_images/blackCard-no_borrar_egcyc0.png'
+            CloudCardImage = 'https://res.cloudinary.com/demantur/image/upload/v1662595386/bank_card_images/blackCard_dwbb3f.png'
         }
         await CardsRequests.findOneAndDelete({ CardOwner: User._id })
         const NewCard = await new CardsModel({

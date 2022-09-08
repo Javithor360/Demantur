@@ -20,18 +20,28 @@
     "copyright": "Todos los derechos reservados. © 2022 Demantur"
   },
 
-  "bussinesPage":{
-    "hero":{
+  "imagen":{
+    "foto":"https://media.discordapp.net/attachments/861438024659501087/1017279459704971334/unknown.png",
+    "foto2":"https://media.discordapp.net/attachments/861438024659501087/1017248426863374447/unknown.png",
+    "foto3":"https://media.discordapp.net/attachments/861438024659501087/1017249660101984316/unknown.png",
+    "foto4":"https://media.discordapp.net/attachments/861438024659501087/1017249812439105536/unknown.png",
+    "foto5":"https://media.discordapp.net/attachments/861438024659501087/1017285369978425434/paso5.png"
+  },
+
+  "bussinesPage": {
+    "hero": {
       "tittle": "Registro",
       "desc": "Bienvenido a la guia donde aprenderás todo lo que debes saber para poder registrarte"
     },
-    "body":{
+
+    "body": {
       "tittle": "¿que es una cuenta empresarial?",
       "text": "Contrato entre una empresa en nuestro banco, mediante el cual el titular deposita una cantidad de dinero y el banco adquiere un compromiso de custodiarlo, con este servicio buscamos brindarle una forma más rápida y dinámica de administrar su dinero.",
       "subtittle": "¿Cuales son los beneficios?"
     },
-    "benefits":{
-      "content":{
+
+    "benefits": {
+      "content": {
         "1": "Un lugar seguro para guardar tu dinero",
         "2": "Pago de nomimas",
         "3": "Posibilidad de tener una chequera"
@@ -39,7 +49,7 @@
     }
   },
 
-  "login":{
+  "login": {
     "register": {
       "tittle": "Regístrate en la banca en línea",
       "tittle2": "Datos personales",
@@ -50,7 +60,7 @@
       "address": "Dirección"
     },
 
-    "contentreg":{
+    "contentreg": {
       "tittle": "Otras opciones",
       "subtitle": "¿Necesitas algo extra?",
       "subtitle2": "Iniciar sesión",
@@ -65,7 +75,7 @@
       "beneficiary": "Beneficiario"
     },
 
-    "buttons":{
+    "buttons": {
       "previous": "ANTERIOR"
     },
 
@@ -99,10 +109,10 @@
     }
   },
 
-  "error":{
-    "tittle":"¡Algo salió mal!",
-    "subtittle":"Parece que algo ha fallado, al parecer digitaste una dirección que no existe",
-    "button":"Volver"
+  "error": {
+    "tittle": "¡Algo salió mal!",
+    "subtittle": "Parece que algo ha fallado, al parecer digitaste una dirección que no existe",
+    "button": "Volver"
   },
 
   "Aboutpage": {
@@ -124,7 +134,7 @@
       "subtitle": "Somos puntuales en todo lo que puedas necesitar",
       "valor2": "Respeto",
       "subtitle2": "Valoramos tu integridad como persona y ser humano",
-      "valor3": "Cercania",
+      "valor3": "Cercanía",
       "subtitle3": "Siempre buscamos brindar una mano amiga para ayudarte"
     }
   },
@@ -152,15 +162,15 @@
   },
 
   "loginemple": {
-    "tittle":"Bienvenido al panel de empleado",
-    "email":"Correo",
-    "password":"Contraseña"
+    "tittle": "Bienvenido al panel de empleado",
+    "email": "Correo",
+    "password": "Contraseña"
   },
 
   "selectpage": {
     "hero": {
       "tittle": "Selección",
-      "subtitle":"Bienvenido a la interfaz de seleccion de opciones"
+      "subtitle": "Bienvenido a la interfaz de seleccion de opciones"
     },
 
     "body": {
@@ -168,35 +178,35 @@
       "subtittle": "Bienvenido a la interfaz de selección de usuario, seleccione la opcion a la cual desea ir",
       "tittle2": "Otras opciones",
       "subtittle2": "Tenemos otras opciones en caso de que ya tengas una cuenta, tenemos las siguientes herramientas que podrían ayudarte",
-      "tittle3":"¿Cómo registrarse?"
+      "tittle3": "¿Cómo registrarse?"
     },
 
-  "cards": {
-        "1": {
-          "tittle": "Cuenta normal",
-          "subtittle": "La opcion ideal si deseas obtener o iniciar sesión como usuario, da clic en la opcion que deseas ejecutar.",
-          "button1": "Iniciar sesión",
-          "button2": "Registrarse"
-        },
-
-        "2": {
-          "tittle": "Cuenta de empleado",
-          "subtittle": "Si eres empleado de demantur puedes iniciar sesión aqui de manera más rapida.",
-          "button1": "Iniciar sesión"
-        },
-
-        "3": {
-          "tittle": "Cambio de contraseña",
-          "subtittle": "Si olvida su contraseña, esta es la mejor opción para recuperar su cuenta y establecer una nueva contraseña.",
-          "button1": "Ir"
-        },
-
-        "4": {
-          "tittle": "Verificacion de correo electrónico",
-          "subtittle": "En caso de que haya creado una cuenta pero aún no la haya verificado, aquí puede verificar su cuenta.",
-          "button1": "Ir"
-        }
+    "cards": {
+      "1": {
+        "tittle": "Cuenta normal",
+        "subtittle": "La opcion ideal si deseas obtener o iniciar sesión como usuario, da clic en la opcion que deseas ejecutar.",
+        "button1": "Iniciar sesión",
+        "button2": "Registrarse"
       },
+
+      "2": {
+        "tittle": "Cuenta de empleado",
+        "subtittle": "Si eres empleado de demantur puedes iniciar sesión aqui de manera más rapida.",
+        "button1": "Iniciar sesión"
+      },
+
+      "3": {
+        "tittle": "Cambio de contraseña",
+        "subtittle": "Si olvida su contraseña, esta es la mejor opción para recuperar su cuenta y establecer una nueva contraseña.",
+        "button1": "Ir"
+      },
+
+      "4": {
+        "tittle": "Verificacion de correo electrónico",
+        "subtittle": "En caso de que haya creado una cuenta pero aún no la haya verificado, aquí puede verificar su cuenta.",
+        "button1": "Ir"
+      }
+    },
     
     "info": {
       "1":{
@@ -228,25 +238,25 @@
         "note": "Nota",
         "info": "Procura que la copia sea lo más clara posible y rellena los datos correctamente"
       },
-
-      "4": {
+      
+      "4":{
         "first":"Por medidas de seguridad se le pedirá que ingrese los datos de un beneficiario por si le pasa algo, en el cual se le solicitarán los siguientes datos:",
-        "1": "Nombres",
-        "2": "Apellidos",
-        "3": "DUI",
-        "4": "Número de teléfono",
-        "note": "Nota",
-        "info": "Asegúrese de que los datos de su beneficiario sean correctos"
+        "1":"Nombres",
+        "2":"Apellidos",
+        "3":"DUI",
+        "4":"Número de teléfono",
+        "note":"Nota",
+        "info":"Asegúrese de que los datos de su beneficiario sean correctos"
       },
-
-      "5": {
-        "first": "Como último paso deberás ingresar un código de verificación que te será proporcionado al correo electrónico que ingresaste en el formulario para verificar tu cuenta",
-        "note": "Nota",
-        "info": "Este paso es fundamental de seguir ya que nos ayudará a activar tu cuenta"
+      
+      "5":{
+        "first":"Como último paso deberás ingresar un código de verificación que te será proporcionado al correo electrónico que ingresaste en el formulario para verificar tu cuenta",
+        "note":"Nota",
+        "info":"Este paso es fundamental de seguir ya que nos ayudará a activar tu cuenta"
       }
     }
   },
-  
+
   "index": {
     "slider": {
       "title": "Banca en línea",
@@ -256,6 +266,7 @@
     "read_more": "Ver más",
     "read_more2": "Conoce más",
     "financial_solutions": "Soluciones financieras en un solo lugar",
+
     "cards_grid": {
       "1": {
         "title": "Tarjetas",
@@ -320,9 +331,9 @@
     "what's_home_demantur": "¿Qué es la ",
     "what's_home_demantur2": "vivienda Demantur?",
     "info_home_demantur": "Aprovecha condiciones preferenciales para solicitar los creditos que necesites para poder realizar la compra de tu vivienda nueva o usada en El Salvador.",
-    "what's_car_Demantur":"¿Qué es",
+    "what's_car_Demantur": "¿Qué es",
     "what's_car_Demantur2": "Car Demantur?",
-    "info_car_demantur":"Nuestro Préstamo está orientado a financiar la compra de vehículo nuevo o usado. (No aplica vehículos comerciales; Camiones, Buses, Microbuses)",
+    "info_car_demantur": "Nuestro Préstamo está orientado a financiar la compra de vehículo nuevo o usado. (No aplica vehículos comerciales; Camiones, Buses, Microbuses)",
     "Doubts": "¿Tienes alguna duda?",
     "loans_buttons": {
       "more_info": "Más información",
@@ -365,7 +376,7 @@
         "title": "¿Estas decidido?",
         "subtitle": "Solicita tu préstamos",
         "name": "Nombre completo",
-        "id_dui": "Número de Dui",
+        "id_dui": "Número de DUI",
         "contact": "Número de contacto",
         "address": "Dirección",
         "email": "Correo Electrónico",
@@ -919,7 +930,7 @@
   "ContactPage": {
     "banner": {
       "tittle": "¿Quieres comunicarte con nosotros?",
-      "desc":"Deja tu duda, comentario o sugerencia, estamos dispuestos a ayudarte"
+      "desc": "Deja tu duda, comentario o sugerencia, estamos dispuestos a ayudarte"
     },
 
     "tittle": "Escríbenos",
@@ -929,7 +940,7 @@
       "name": "Nombre completo",
       "dui":"Número de DUI",
       "contact":"Número de contacto",
-      "email":"Correo clectrónico",
+      "email":"Correo electrónico",
       "management": "Número de gestión (Si tienes)",
       "desc": "¿En qué te podemos ayudar?",
       "button": "Enviar"
@@ -1050,7 +1061,7 @@
         "beneficiary1": "Beneficiario",
         "beneficiary2": "Benefactor",
         "account": "Número de cuenta",
-        "date": "Fecha"    
+        "date": "Fecha"
       },
 
       "contact": {
@@ -1100,31 +1111,31 @@
         "desc": "Aprovecha condiciones preferenciales para solicitar los creditos que necesites para poder realizar la compra de tu vivienda nueva o usada.",
         "desc2": "Te ofrecemos un crédito hecho a tu medida para la construcción de tu casa o la compra de esta. Consigue la casa que deseas gracias a nuestro crédito decreciente a largo plazo garantizado a través de una hipoteca."
       },
-      
+
       "4": {
         "tittle": "Auto Demantur",
         "desc": "Cambia tu estilo de vida con nuestro crédito decreciente para la adquisición de vehículo nuevo o usado.",
         "desc2": "Te escuchamos, entendemos tu necesidad y te ofrecemos el plan más apto para tu proyecto."
       },
 
-      "form":{
+      "form": {
         "tittle1": "Rango Salarial",
         "tittle2": "Estatus Laboral",
         "tittle3": "Fotocopia de DUI (Frontal)",
         "tittle4": "Fotocopia de DUI (Trasera)",
         "tittle5": "Constancia de salario",
 
-        "UserElementsSalary":{
+        "UserElementsSalary": {
           "1": "en adelante"
         },
 
-        "LaboralStatus":{
+        "LaboralStatus": {
           "1": "Asalariado",
           "2": "Desempleado",
           "3": "Estudiante",
           "4": "Emprendedor"
         }
-      } 
+      }
     },
 
     "Contacts": {
@@ -1195,17 +1206,17 @@
         "tittle5": "Constancia de salario",
         "button": "Solicitar",
 
-        "UserElementsSalary":{
+        "UserElementsSalary": {
           "1": "en adelante"
         },
-
-        "LaboralStatus":{
+        
+        "LaboralStatus": {
           "1": "Asalariado",
           "2": "Desempleado",
           "3": "Estudiante",
           "4": "Emprendedor"
         }
-      } 
+      }
     }
   }
 }

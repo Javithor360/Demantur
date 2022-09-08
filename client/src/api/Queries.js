@@ -122,6 +122,9 @@ export const UsersToAddQuery = async (PrivateConfig) => {
 export const getMyCardQuery = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/dashboard/get-my-card', { headers: PrivateConfig.headers })
 }
+export const getMyLoanQuery = async (PrivateConfig) =>{
+  return await axios.get('')
+}
 
 export const getMyDebitCardQuery = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/dashboard/get-debit-card', { headers: PrivateConfig.headers })

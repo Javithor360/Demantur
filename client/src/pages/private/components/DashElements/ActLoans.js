@@ -34,6 +34,7 @@ export const ActLoans = () => {
   const [Error, setError] = useState('');
   const [CharginIco, setCharginIco] = useState(true);
   const [Chargin, setChargin] = useState(false);
+  const [MyLoan, setMyLoan] = useState(null);
 
   // const handleClick = event => {
   //   event.currentTarget.disabled = true;
@@ -42,13 +43,12 @@ export const ActLoans = () => {
   const { t } = useTranslation();
 
 
-  const { LoansRequestsForm, CreateElements, getMyLoanReq } = useDash();
+  const { LoansRequestsForm, CreateElements, getMyLoanReq, setChangeBox2, SimpleLoan, setSimpleLoan, LoanParametro } = useDash();
 
   useEffect(() => {
     (async () => {
       try {
         const resp = await getMyLoanReq(localStorage.getItem('authToken'));
-
         setLoanReq(resp.data.data);
       } catch (e) {
         console.log(e)
@@ -371,16 +371,21 @@ export const ActLoans = () => {
                   <div className="h-[10%]">
                     <p className="text-[1.375rem] text-center">Demantur House</p>
                     <img
-                      src={OfferLoans("./House.jpg")}
+                      src={MyLoan?.LoanImage}
                       alt=""
                       className="w-[200px] mt-3 mb-3"
                     />
                   </div>
                   <div className="mt-6">
-                    <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white">
-                      {t("DashboardNormalUser.Loans.button2")}
-
+                  <div className="mt-6">
+                    <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white" onClick={() => {
+                      setChangeBox2(true);
+                      LoanParametro(SimpleLoan);
+                      console.log(SimpleLoan);
+                    }}>
+                      Ver detalles
                     </button>
+                  </div>
                   </div>
                 </div>
               </div>

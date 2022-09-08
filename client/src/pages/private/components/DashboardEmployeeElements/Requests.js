@@ -26,6 +26,11 @@ export const Requests = () => {
     })()
   }, [])
 
+
+  useEffect(() => {
+    console.log(Info);
+  }, [Info]);
+
   return (
     <>
       {

@@ -146,12 +146,16 @@ const App = () => {
               />
 
               <Route path="/auth/employee/login" element={
-                <OutAuthValAdmin>
+                <OutAuthValEmployee>
                   <EmployeeLoginPage />
-                </OutAuthValAdmin>
+                </OutAuthValEmployee>
               } />
 
-              <Route path="/auth/admin/login" element={<AdminLoginPage />} />
+              <Route path="/auth/admin/login" element={
+                <OutAuthValAdmin>
+                  <AdminLoginPage />
+                </OutAuthValAdmin>
+              } />
 
               {/*Rutas de "/loans"*/}
               <Route path="/loans" element={<LoansPage />} />

@@ -7,7 +7,7 @@ export const LoanConfirm = ({ props, setActive, setChangeButtons, toggle }) => {
 
   const HandleAccept = async () => {
     try {
-      await AcceptLoanReq(localStorage.getItem('authToken'), props.Dui)
+      await AcceptLoanReq(localStorage.getItem('employeeToken'), props.Dui)
       setChangeButtons(1)
       toggle()
     } catch (error) {

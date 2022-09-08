@@ -7,7 +7,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useDash } from '../../../../context/DashboardContext';
 
-export const DetailsRequests = ({ Info, setInfo, info, setDisplayDetails }) => {
+export const DetailsRequests = ({ ArrInfo, setInfo, info, setDisplayDetails }) => {
 
     const { Option, setOption, setOptionElement } = useDash();
 
@@ -35,6 +35,15 @@ export const DetailsRequests = ({ Info, setInfo, info, setDisplayDetails }) => {
 
     const handleAccept = async (e) => {
         e.preventDefault();
+        let InfoToUpdate = {}
+        let MainInfoArr = ArrInfo.MainInfo.filter((el) => el._id !== info.MainInfo._id)
+        let ExtraInfoArr = ArrInfo.ExtraInfo.filter(el => el._id !== info.ExtraInfo._id)
+
+        InfoToUpdate.MainInfo = MainInfoArr;
+        InfoToUpdate.ExtraInfo = ExtraInfoArr
+
+        setInfo(InfoToUpdate)
+        setChangeButtons(1)
         try {
             await axios.post('http://localhost:4000/api/accounts/activate-account',
                 {
@@ -46,7 +55,7 @@ export const DetailsRequests = ({ Info, setInfo, info, setDisplayDetails }) => {
                         "x-auth-token": localStorage.getItem('employeeToken')
                     }
                 });
-            setOption(2);
+
             setOptionElement("Home Page");
         } catch (error) {
             console.error(error);
@@ -55,6 +64,16 @@ export const DetailsRequests = ({ Info, setInfo, info, setDisplayDetails }) => {
 
     const handleDenny = async (e) => {
         e.preventDefault();
+        let InfoToUpdate = {}
+        let MainInfoArr = ArrInfo.MainInfo.filter((el) => el._id !== info.MainInfo._id)
+        let ExtraInfoArr = ArrInfo.ExtraInfo.filter(el => el._id !== info.ExtraInfo._id)
+
+        InfoToUpdate.MainInfo = MainInfoArr;
+        InfoToUpdate.ExtraInfo = ExtraInfoArr;
+
+        setInfo(InfoToUpdate);
+        setChangeButtons(2);
+
         try {
             await axios.delete('http://localhost:4000/api/accounts/decline-account',
                 {
@@ -66,7 +85,6 @@ export const DetailsRequests = ({ Info, setInfo, info, setDisplayDetails }) => {
                         AccountId: info.MainInfo._id
                     }
                 });
-            setOption(2);
             setOptionElement("Home Page");
         } catch (error) {
             console.error(error);

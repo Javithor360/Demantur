@@ -9,6 +9,7 @@ const { sendToken, AcceptRequestEmployee, DeclineRequestEmployee } = require("..
 const GlobalData = require('../models/GlobalData');
 const CardsModel = require('../models/CardsModel');
 const AcpLoanModel = require('../models/AcpLoanModel');
+const LoansRequestModels = require('../models/LoansRequestModels');
 
 // @route POST api/auth/employee/login
 // @desc Iniciar sesión como empleado
@@ -104,7 +105,8 @@ const makeDeposit = async (req, res, next) => {
             return next(
                 new ErrorResponse("Ocurrió un error al depositar el monto establecido", 400, "error")
             );
-        } else if ((Client.balance + Amount) >= 50 && Client.activated === false) {
+        }
+        if ((parseFloat(Client.balance) + parseFloat(Amount)) >= 50 && Client.activated === false) {
             await SavingsAccount.findOneAndUpdate(
                 { accountNumber: AccountNumber },
                 { $set: { activated: true } }
@@ -276,6 +278,26 @@ const getAccountActivationRequests = async (req, res, next) => {
         res.status(200).json({ success: true, data: info })
     } catch (error) {
         console.log(error);
+        res.status(500).json({ message: error.message });
+    }
+}
+
+const EmployeeWidgets = async (req, res, next) => {
+    try {
+        const loan = await LoansRequestModels.find();
+        const cards = await CardsRequests.find();
+        const queryAcc = await NormalUser.find();
+        let accounts = queryAcc.filter(i => i.ActivedAccount === false).length;
+
+        const data = {
+            loanCount: loan.length,
+            cardsCount: cards.length,
+            accountsCount: accounts,
+        }
+
+        res.status(200).json({ success: true, data: data })
+    } catch (error) {
+        console.error(error)
         res.status(500).json({ message: error.message });
     }
 }
@@ -536,5 +558,6 @@ module.exports = {
     DeclineCardReq,
     declineLoan,
     getFullClientInfo,
-    AcceptLoanReq
+    AcceptLoanReq,
+    EmployeeWidgets
 }

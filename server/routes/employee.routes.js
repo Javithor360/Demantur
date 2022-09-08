@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const AuthMiddleware = require("../middlewares/AuthMiddleware");
-const { getCardRequests, getEmployeeData, getLoanRequests, getUserInfoForEmployee, AcceptCardReq, DeclineCardReq, getFullClientInfo, declineLoan, AcceptLoanReq } = require("../controllers/EmployeeController");
+const { getCardRequests, getEmployeeData, getLoanRequests, getUserInfoForEmployee, AcceptCardReq, DeclineCardReq, getFullClientInfo, declineLoan, AcceptLoanReq, EmployeeWidgets } = require("../controllers/EmployeeController");
 const { AcceptRequestEmployee, DeclineRequestEmployee, ContactSuccessEmail } = require("../helpers/Functions");
 
 // Route -> /api/employee/
@@ -9,6 +9,7 @@ const { AcceptRequestEmployee, DeclineRequestEmployee, ContactSuccessEmail } = r
 // Solicitar los datos del empleado
 router.route("/get-data").get([AuthMiddleware], getEmployeeData);
 router.route("/get-user-data").post(getUserInfoForEmployee);
+router.route("/get-widgets").get(EmployeeWidgets);
 
 router.route("/get-cards-requests").get(getCardRequests);
 router.route("/get-loans-requests").get(getLoanRequests);

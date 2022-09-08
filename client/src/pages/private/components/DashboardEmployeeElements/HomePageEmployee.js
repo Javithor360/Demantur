@@ -4,23 +4,36 @@ import { GiReceiveMoney } from 'react-icons/gi'
 import { FaUserClock } from 'react-icons/fa'
 import { BsCreditCard2BackFill } from 'react-icons/bs'
 import { useDash } from "../../../../context/DashboardContext";
-import { useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 export const HomePageEmployee = () => {
   const { Option, setOption, setOptionElement } = useDash();
-  const { Info } = useEmpConx();
+  const { Info, getEmployeeWidgets } = useEmpConx([]);
 
   const [EmployeeName, setEmployeeName] = useState('');
+  const [Widgets, setWidgets] = useState('');
 
   const Capitalize = (word) => {
     return word[0].toUpperCase() + word.slice(1);
   }
 
   useEffect(() => {
+    (async () => {
+      try {
+        const res = await getEmployeeWidgets(localStorage.getItem('employeeToken'));
+        setWidgets(res.data.data);
+        console.log(res.data.data)
+      } catch (error) {
+        console.log(error);
+      }
+    })()
+  }, [])
+
+  useEffect(() => {
     if (Object.keys(Info).length !== 0) {
       let Name = Info.FirstNames.split(' ');
       let LastName = Info.LastNames.split(' '),
-          fullName = ``;
+        fullName = ``;
 
       for (let i = 0; i < Name.length; i++) {
         fullName += `${Capitalize(Name[i])} `;
@@ -54,7 +67,7 @@ export const HomePageEmployee = () => {
                 </div>
               </div>
               <div className='w-[60%] flex justify-start items-center'>
-                <p className='w-[10%] m-0 text-[4rem] text-[#606470]'>5</p>
+                <p className='w-[10%] m-0 text-[4rem] text-[#606470]'>{Widgets.loanCount}</p>
                 <div className='w-[80%]'>
                   <button className='text-white rounded-lg border-none outline-none bg-[#455FB9] hover:bg-[#4f6acb] px-[1rem] py-[.5rem] mr-5' onClick={() => { setOption(2); setOptionElement("Préstamos"); }}>Más detalles</button>
                 </div>
@@ -70,7 +83,7 @@ export const HomePageEmployee = () => {
                 </div>
               </div>
               <div className='w-[60%] flex justify-start items-center'>
-                <p className='w-[10%] mb-0 text-[4rem] text-[#606470]'>10</p>
+                <p className='w-[10%] mb-0 text-[4rem] text-[#606470]'>{Widgets.cardsCount}</p>
                 <div className='w-[80%]'>
                   <button className='text-white rounded-lg border-none outline-none bg-[#455FB9] hover:bg-[#4f6acb] px-[1rem] py-[.5rem] mr-5' onClick={() => { setOption(3); setOptionElement("Tarjetas"); }}>Más detalles</button>
                 </div>
@@ -88,7 +101,7 @@ export const HomePageEmployee = () => {
                 </div>
               </div>
               <div className='w-[60%] flex justify-start items-center'>
-                <p className='w-[10%] mb-0 text-[4rem] text-[#606470]'>8</p>
+                <p className='w-[10%] mb-0 text-[4rem] text-[#606470]'>{Widgets.accountsCount}</p>
                 <div className='w-[80%]'>
                   <button className='text-white rounded-lg border-none outline-none bg-[#455FB9] hover:bg-[#4f6acb] px-[1rem] py-[.5rem] mr-5' onClick={() => { setOption(4); setOptionElement("Solicitudes"); }}>Más detalles</button>
                 </div>

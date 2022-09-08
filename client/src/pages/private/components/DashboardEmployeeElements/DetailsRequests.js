@@ -5,11 +5,11 @@ import { TransformComponent, TransformWrapper } from '@pronestor/react-zoom-pan-
 import { useState } from 'react';
 
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useDash } from '../../../../context/DashboardContext';
 
 export const DetailsRequests = ({ Info, setInfo, info, setDisplayDetails }) => {
 
-    const navigate = useNavigate();
+    const { Option, setOption, setOptionElement } = useDash();
 
     const [ChangeButtons, setChangeButtons] = useState(0);
 
@@ -46,7 +46,8 @@ export const DetailsRequests = ({ Info, setInfo, info, setDisplayDetails }) => {
                         "x-auth-token": localStorage.getItem('employeeToken')
                     }
                 });
-            setDisplayDetails(false);
+            setOption(2);
+            setOptionElement("Home Page");
         } catch (error) {
             console.error(error);
         }
@@ -65,7 +66,8 @@ export const DetailsRequests = ({ Info, setInfo, info, setDisplayDetails }) => {
                         AccountId: info.MainInfo._id
                     }
                 });
-            setDisplayDetails(false);
+            setOption(2);
+            setOptionElement("Home Page");
         } catch (error) {
             console.error(error);
         }

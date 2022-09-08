@@ -122,7 +122,7 @@ export const UsersToAddQuery = async (PrivateConfig) => {
 export const getMyCardQuery = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/dashboard/get-my-card', { headers: PrivateConfig.headers })
 }
-export const getMyLoanQuery = async (PrivateConfig) =>{
+export const getMyLoanQuery = async (PrivateConfig) => {
   return await axios.get('')
 }
 
@@ -140,6 +140,10 @@ export const CreateDebitCardQuery = async (PrivateConfig, NumberAcc) => {
 
 export const getMyLoanReqQuery = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/dashboard/get-my-credit', { headers: PrivateConfig.headers });
+}
+
+export const PayLoanQuery = async (PrivateConfig, accountNumber) => {
+  return await axios.post('http://localhost:4000/api/dashboard/pay-loan', { accountNumber }, { headers: PrivateConfig.headers })
 }
 
 // ?? QUERYS EMPLOYEE

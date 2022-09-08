@@ -3,6 +3,7 @@ import { ScrollToTop } from "../../../../components/ScrollToTop"
 import { useDash } from "../../../../context/DashboardContext"
 import { BsArrowLeft } from 'react-icons/bs'
 import '../assets/scss/UserCards.scss'
+import { LoadingComp, PayLoan, PaymentHLoan } from "./MoreInfoElements";
 
 const OfferLoans = require.context(
   "../../../static/assets/img/all_loans",
@@ -13,6 +14,7 @@ export const ActLoansMoreInf = ({ setChangeBox2, setMyLoan, MyLoan, LoanImage })
   // const { CardsParametros, SavingAccounts, CreateDebitCard, setDebitCard } = useDash()
 
   const [ExpDate, setExpDate] = useState(null);
+  const [ChangeElements, setChangeElements] = useState(1);
 
   useEffect(() => {
     let NewDate = new Date(MyLoan.pay_history.loan_date)
@@ -20,6 +22,17 @@ export const ActLoansMoreInf = ({ setChangeBox2, setMyLoan, MyLoan, LoanImage })
     setExpDate(NewDate)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const RenderEl = () => {
+    switch (ChangeElements) {
+      case 1:
+        return <LoadingComp><PayLoan MyLoan={MyLoan} /></LoadingComp>
+      case 2:
+        return <LoadingComp><PaymentHLoan MyLoan={MyLoan} /></LoadingComp>
+      default:
+        return <LoadingComp><PayLoan MyLoan={MyLoan} /></LoadingComp>
+    }
+  }
 
   return (
     <>
@@ -48,6 +61,13 @@ export const ActLoansMoreInf = ({ setChangeBox2, setMyLoan, MyLoan, LoanImage })
             </div>
           </div>
 
+          <div className="">
+            <div className="bg-red-400 flex">
+              <span onClick={() => setChangeElements(1)}>Pagar</span>
+              <span onClick={() => setChangeElements(2)}>Historial</span>
+            </div>
+            {RenderEl()}
+          </div>
         </div>
       </div>
     </>

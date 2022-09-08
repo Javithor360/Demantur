@@ -10,6 +10,7 @@ const AcpLoanSchema = new mongoose.Schema({
     require: true,
   },
   LoanId: Number,
+  MonthlyFee: Number, // cuota mensual
   details: {
     loan_type: StringReq, // Tipo de préstamo del objeto
     interest: NumberReq, // % de interés del préstamo

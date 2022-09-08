@@ -65,21 +65,21 @@ export const LoansRequests = () => {
                                   <p className='m-0 p-0'>{Name}</p>
                                 </div>
                               </div>
-                              <div className={ `${grid_column_styles} border-subdivisions ` }>
-                                  <div className={ `${table_name_styles}` }>
-                                    <p className='m-0 p-0'>DUI</p>
-                                  </div>
-                                  <div className={`${table_content_styles}`}>
-                                    <p className='m-0 p-0'>{Dui}</p>
-                                  </div>
+                              <div className={`${grid_column_styles} border-subdivisions `}>
+                                <div className={`${table_name_styles}`}>
+                                  <p className='m-0 p-0'>DUI</p>
+                                </div>
+                                <div className={`${table_content_styles}`}>
+                                  <p className='m-0 p-0'>{Dui}</p>
+                                </div>
                               </div>
-                              <div className={ `${grid_column_styles} border-subdivisions ` }>
-                                  <div className={ `${table_name_styles}` }>
-                                    <p className='m-0 p-0'>Tipo de préstamo</p>
-                                  </div>
-                                  <div className={`${table_content_styles}`}>
-                                    <p className='m-0 p-0'>Demantur {Type}</p>
-                                  </div>
+                              <div className={`${grid_column_styles} border-subdivisions `}>
+                                <div className={`${table_name_styles}`}>
+                                  <p className='m-0 p-0'>Tipo de préstamo</p>
+                                </div>
+                                <div className={`${table_content_styles}`}>
+                                  <p className='m-0 p-0'>Demantur {Type}</p>
+                                </div>
                               </div>
                               <div className='flex flex-col items-center justify-center h-full'>
                                 <button className='my-auto block outline-none border-none px-2 py-2 rounded bg-[#455FB9] text-white' onClick={() => {
@@ -90,7 +90,7 @@ export const LoansRequests = () => {
                                     Email: SingReq.Request_guarantor.Email,
                                     CelNum: SingReq.ExtraInfo.Number,
                                     UserSalary: SingReq.LoanRequest.UserSalary,
-                                    UserStatus: SingReq.LoanRequest.UserStatus,
+                                    LoanTime: SingReq.LoanRequest.LoanTime,
                                     Amountrequest: SingReq.LoanRequest.Amountrequest,
                                     WorkPlace: SingReq.ExtraInfo.WorkPlace,
                                     Type,
@@ -101,7 +101,7 @@ export const LoansRequests = () => {
                                     SalaryEvidenceImg: SingReq.LoanRequest.anex.SalaryEvidenceImg.url,
                                     PerfilPhoto: SingReq.Request_guarantor.PerfilPhoto.url,
                                     CloudLoanImage: SingReq.LoanRequest.anex.CloudLoanImage
-                                    
+
                                   })
                                   setDisplayDetails(true);
                                 }}>Más detalles</button>
@@ -130,5 +130,5 @@ export const LoansRequests = () => {
         </>
       }
     </>
-  ) 
+  )
 }

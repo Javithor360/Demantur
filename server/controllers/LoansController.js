@@ -9,13 +9,15 @@ const LoansFormRequests = async (req, res, next) => {
     try {
 
         const token = req.resetToken;
-        const { UserSalary, UserStatus, Amountrequest, LoanId } = req.body;
+        const { UserSalary, TimeLoan, Amountrequest, LoanId, AccountN } = req.body;
 
-        if (!UserSalary || !UserStatus || !Amountrequest || !LoanId) {
+        if (!UserSalary || !TimeLoan || !Amountrequest || !LoanId || !AccountN) {
             return next(
                 new ErrorResponse("Completa todos los campos para hacer la solicitud", 400, "error")
             );
         }
+        let TimeLoan2 = parseInt(TimeLoan.split(' ')[0])
+        console.log(TimeLoan2);
 
         let DuiFrontImg, DuiBackImg, ConstancyImg, SalaryEvidenceImg;
         if (req.files?.Image1) {
@@ -104,12 +106,13 @@ const LoansFormRequests = async (req, res, next) => {
             LoanType,
             LoanId: LoanId,
             loan_guarantor: token.user.id,
+            AccountNumber: AccountN,
             Name: token.user.FirstName,
             DuiNum: token.user.Dui,
             Email: token.user.Email,
             Amountrequest,
             UserSalary,
-            UserStatus,
+            LoanTime: TimeLoan2,
             CellNumber: token.user.Number,
             anex,
         });

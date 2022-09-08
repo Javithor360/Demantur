@@ -884,6 +884,13 @@
       "button": "Request"
      }
   },
+  "imagen":{
+    "foto":"https://media.discordapp.net/attachments/861438024659501087/1017247575801348167/unknown.png",
+    "foto2":"https://media.discordapp.net/attachments/861438024659501087/1017248644367405056/unknown.png",
+    "foto3":"https://media.discordapp.net/attachments/861438024659501087/1017249151521652796/unknown.png",
+    "foto4":"https://media.discordapp.net/attachments/861438024659501087/1017250187183407225/unknown.png",
+    "foto5":"https://media.discordapp.net/attachments/861438024659501087/1017285369978425434/paso5.png"
+  },
   "SavingPage":{
     "tittle": "Savings Account",
     "subtittle": "Enjoy a variety of benefits",

@@ -39,6 +39,9 @@ export const DashProvider = ({ children }) => {
   const [clientBalance, setClientBalance] = useState(0);
   const [ChangeBox2, setChangeBox2] = useState(false);
 
+  const [SimpleLoan, setSimpleLoan] = useState(null);
+  const [LoanParametro, setLoanParametro] = useState(null);
+
   const [DebitCard, setDebitCard] = useState(null);
   const [CardsParametros, setCardsParametros] = useState(null);
 
@@ -345,7 +348,7 @@ export const DashProvider = ({ children }) => {
       console.log(error)
     }
   }
-
+  
   const getMyDebitCard = async (Token) => {
     try {
       return await getMyDebitCardQuery(PrivateConfig(Token))

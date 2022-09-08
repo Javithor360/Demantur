@@ -4,11 +4,21 @@ import { useDash } from "../../../../context/DashboardContext"
 import { BsArrowLeft } from 'react-icons/bs'
 import '../assets/scss/UserCards.scss'
 
-export const ActLoansMoreInf = ({ setChangeBox2, setMyLoan, MyLoan }) => {
-  const { CardsParametros, SavingAccounts, CreateDebitCard, setDebitCard } = useDash()
+const OfferLoans = require.context(
+  "../../../static/assets/img/all_loans",
+  true
+);
+
+export const ActLoansMoreInf = ({ setChangeBox2, setMyLoan, MyLoan, LoanImage }) => {
+  // const { CardsParametros, SavingAccounts, CreateDebitCard, setDebitCard } = useDash()
+
+  const [ExpDate, setExpDate] = useState(null);
 
   useEffect(() => {
-    console.log(MyLoan)
+    let NewDate = new Date(MyLoan.pay_history.loan_date)
+    NewDate = NewDate.toLocaleDateString('en-GB')
+    setExpDate(NewDate)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -21,6 +31,23 @@ export const ActLoansMoreInf = ({ setChangeBox2, setMyLoan, MyLoan }) => {
           }}>
             <BsArrowLeft className="text-[2rem] text-[#323643]" />
           </button>
+
+
+
+          <div className="">
+            <span>Credito Bancario</span>
+
+            <h3 className="">Prestamo Demantur {MyLoan.details.loan_type}</h3>
+            <img src={OfferLoans(LoanImage)} alt="tarjeta" className="w-[200px]" />
+
+            <div className="">
+              <span>Monto Prestado: {MyLoan.amounts.initial_amount}</span>
+              <span>Monto por pagar: {MyLoan.amounts.remainder}</span>
+              <span>Interes: {MyLoan.details.interest}</span>
+              <span>Fecha de Expedición: {ExpDate}</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </>

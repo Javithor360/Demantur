@@ -18,8 +18,7 @@ import { BiLoaderAlt } from 'react-icons/bi'
 //translate
 import { useTranslation } from "react-i18next";
 import { ActLoansMoreInf } from './ActLoansMoreInf';
-
-
+import { IoMdArrowDropdown as ArrowDown } from 'react-icons/io'
 
 
 //img
@@ -39,6 +38,7 @@ export const ActLoans = () => {
   const [Chargin, setChargin] = useState(false);
   const [MyLoan, setMyLoan] = useState(null);
   const [LoanImage, setLoanImage] = useState(null);
+  const [NumberAccount, setNumberAccount] = useState('');
 
   // const handleClick = event => {
   //   event.currentTarget.disabled = true;
@@ -47,7 +47,7 @@ export const ActLoans = () => {
   const { t } = useTranslation();
 
 
-  const { CreateElements, getMyLoanReq, getMyLoan } = useDash();
+  const { CreateElements, getMyLoanReq, getMyLoan, SavingAccounts } = useDash();
 
   useEffect(() => {
     (async () => {
@@ -60,6 +60,7 @@ export const ActLoans = () => {
         console.log(e)
       }
     })()
+    console.log(SavingAccounts);
   }, []);
 
 
@@ -70,15 +71,15 @@ export const ActLoans = () => {
 
 
   const UserElementsSalary = ['$450 y $499', '$500 y $999', '$700 y $1200', <span> {t("DashboardNormalUser.Loans.form.UserElementsSalary.1")}</span>,]
-  const UserElementsLaboralStatus = [`${t('DashboardNormalUser.Loans.form.LaboralStatus.1')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.2')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.3')}`, `${t('DashboardNormalUser.Loans.form.LaboralStatus.4')}`,]
+  const UserTimeLoan = [`1 año`, `2 años`, `3 años`, `4 años`, '5 años']
   const UserElementAmount = ['$300', '$500', '$999', '$1200', '$1500', 'Otro tipo de monto',]
   const BusinessElementAmount = ['$1000', '$1400', '$1600', '$1800', '$2000', 'Otro tipo de monto']
-
+  const MyAccounts = SavingAccounts.map((el) => { return el.accountNumber })
 
 
   const [loan_guarantor, setloan_guarantor] = useState();
   const [UserSalary, setUserSalary] = useState('');
-  const [UserStatus, setUserStatus] = useState('');
+  const [TimeLoan, setTimeLoan] = useState('');
   const [Amountrequest, setAmountrequest] = useState('');
 
 
@@ -113,7 +114,7 @@ export const ActLoans = () => {
 
   useEffect(() => {
     setUserSalary('')
-    setUserStatus('')
+    setTimeLoan('')
     setAmountrequest('')
     setImageName1('')
     setImageName2('')
@@ -205,8 +206,9 @@ export const ActLoans = () => {
         LoanId: parametros.LoanId,
         loan_guarantor: loan_guarantor,
         UserSalary,
-        UserStatus,
+        TimeLoan,
         Amountrequest,
+        AccountN: NumberAccount,
         Image1: Image1,
         Image2: Image2,
         Image3: Image3,
@@ -220,7 +222,6 @@ export const ActLoans = () => {
       for (let key in LoanRequestsFormData) {
         LoansRequestsForm.append(key, LoanRequestsFormData[key]);
       }
-      console.log(LoansRequestsForm)
       await axios.post(
         "http://localhost:4000/api/Loans/loan-requests",
         LoansRequestsForm,
@@ -233,7 +234,7 @@ export const ActLoans = () => {
       setTimeout(() => {
         setChargin(false)
         setUserSalary('')
-        setUserStatus('')
+        setTimeLoan('')
         setAmountrequest('')
         setImageName1('')
         setImageName2('')
@@ -306,24 +307,32 @@ export const ActLoans = () => {
                 </div>
               </div>
               <div className='h-[70%] mr-5 '>
-                <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Loans.form.tittle2")}</p>
+                <p className='text-[1.1rem] text-[#606470]'>plazo</p>
                 <div className='h-[2.5rem] w-[15rem]'>
-                  <Dropdown setElement={setUserStatus} elements={UserElementsLaboralStatus} Elemento={UserStatus} />
+                  <Dropdown setElement={setTimeLoan} elements={UserTimeLoan} Elemento={TimeLoan} />
                 </div>
               </div>
+
               <div className='h-[70%] mr-5 '>
                 <p className='text-[1.1rem] text-[#606470]'>Monto a Solicitar</p>
                 <div className='h-[2.5rem] w-[15rem]'>
                   <Dropdown setElement={setAmountrequest} elements={UserElementAmount} Elemento={Amountrequest} />
                 </div>
               </div>
+
+              <div className='h-[70%] mr-5 '>
+                <p className='text-[1.1rem] text-[#606470]'>Cuenta propia</p>
+                <div className='h-[2.5rem] w-[15rem]'>
+                  <Dropdown setElement={setNumberAccount} elements={MyAccounts} Elemento={NumberAccount} />
+                </div>
+              </div>
+            </div>
+            <div className="form-row-2">
               <div className="input-files h-[70%]">
                 <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Loans.form.tittle3")}</p>
                 <input type='file' accept='image/*' id='Constancia1' name='Constancia1' placeholder=' ' onChange={handleChangeFile1} autoComplete='off' />
                 <label htmlFor="Constancia1" className=''>{ImageName1 === '' ? <span>{t("CardsPage-Form.button")}</span> : ImageName1}</label>
               </div>
-            </div>
-            <div className="form-row-2">
               <div className="input-files mr-7">
                 <p className='text-[1.1rem] text-[#606470]'>{t("DashboardNormalUser.Loans.form.tittle4")}</p>
                 <input type='file' accept='image/*' id='Constancia2' name='Constancia2' placeholder=' ' onChange={handleChangeFile2} autoComplete='off' />
@@ -377,44 +386,45 @@ export const ActLoans = () => {
             <>
               {
                 MyLoan != null ?
-                  LoanReq === false ?
+                  LoanReq === false &&
+                  <>
                     <>
-                      <>
-                        <p className="text-[1.5rem] text-[#323643] text-center p-2 ">
-                          {t("DashboardNormalUser.Loans.tittle2")}
+                      <p className="text-[1.5rem] text-[#323643] text-center p-2 ">
+                        {t("DashboardNormalUser.Loans.tittle2")}
 
-                        </p>
-                        <div className="mb-6 ml-5 card-tipe-tittle">
-                          <p className="text-[1.375rem] text-[#323643] p-0 m-0">{t("DashboardNormalUser.Loans.tittle3")}</p>
-                          <hr className="p-0  m-0 w-[20%]" />
-                        </div>
+                      </p>
+                      <div className="mb-6 ml-5 card-tipe-tittle">
+                        <p className="text-[1.375rem] text-[#323643] p-0 m-0">{t("DashboardNormalUser.Loans.tittle3")}</p>
+                        <hr className="p-0  m-0 w-[20%]" />
+                      </div>
 
-                        <div className="flex flex-col items-center w-full h-fit">
-                          <div className="min-h-[30rem] w-[75%] shadow-lg rounded-xl mb-5 flex flex-col justify-center items-center dash-user-cards-container">
-                            <div className="h-[10%]">
-                              <p className="text-[1.375rem] text-center">Demantur {MyLoan.details.loan_type}</p>
-                              <img
-                                src={OfferLoans(LoanImage)}
-                                alt=""
-                                className="w-[200px] mt-3 mb-3"
-                              />
-                            </div>
-                            <div className="mt-6">
-                              <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white" onClick={() => { setChangeBox2(true) }}>
-                                {t("DashboardNormalUser.Loans.button2")}
-                              </button>
-                            </div>
+                      <div className="flex flex-col items-center w-full h-fit">
+                        <div className="min-h-[30rem] w-[75%] shadow-lg rounded-xl mb-5 flex flex-col justify-center items-center dash-user-cards-container">
+                          <div className="h-[10%]">
+                            <p className="text-[1.375rem] text-center">Demantur {MyLoan.details.loan_type}</p>
+                            <img
+                              src={OfferLoans(LoanImage)}
+                              alt=""
+                              className="w-[200px] mt-3 mb-3"
+                            />
+                          </div>
+                          <div className="mt-6">
+                            <button className="px-3 py-2 outline-none border-none rounded-md bg-[#323643] text-white" onClick={() => { setChangeBox2(true) }}>
+                              {t("DashboardNormalUser.Loans.button2")}
+                            </button>
                           </div>
                         </div>
-                      </>
+                      </div>
                     </>
-                    :
-                    <>
-                      Tiene Una solicitud en curso
-                    </>
+                  </>
                   :
                   <>
-                    Solicite un prestamo
+                    {
+                      LoanReq === false ?
+                        <>Solicite un prestamo</>
+                        :
+                        <> Tiene Una solicitud en curso</>
+                    }
                   </>
               }
             </>
@@ -560,7 +570,7 @@ export const ActLoans = () => {
             </>
           :
           <>
-            <ActLoansMoreInf setChangeBox2={setChangeBox2} setMyLoan={setMyLoan} MyLoan={MyLoan} />
+            <ActLoansMoreInf setChangeBox2={setChangeBox2} setMyLoan={setMyLoan} MyLoan={MyLoan} LoanImage={LoanImage} />
           </>
       }
     </div>

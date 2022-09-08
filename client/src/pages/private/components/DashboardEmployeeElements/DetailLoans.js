@@ -140,15 +140,15 @@ export const DetailsLoansRequest = ({ Params, setDisplayDetails, setLoanRqs, Loa
           </div>
 
 
-          <p className='text-[20px] mt-3 ml-4'>Información Laboral</p>
+          <p className='text-[20px] mt-3 ml-4'>Información Tecnica</p>
           <div className={table_container_styles_2}>
             <div className='individual-req-grid_4 w-[95%] mb-5 rounded-lg h-[8rem] border-cover' >
               <div className={`${grid_column_styles} border-subdivisions `}>
                 <div className={`${table_name_styles} rounded-tl-lg`}>
-                  <p className='m-0 p-0'>Estatus Laboral</p>
+                  <p className='m-0 p-0'>Plazo a pagar</p>
                 </div>
                 <div className={`${table_content_styles} rounded-bl-lg`}>
-                  <p className='m-0 p-0'>{Params.UserStatus}</p>
+                  <p className='m-0 p-0'>{Params.LoanTime} año/s</p>
                 </div>
               </div>
               <div className={`${grid_column_styles} border-subdivisions`}>

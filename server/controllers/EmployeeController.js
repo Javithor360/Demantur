@@ -312,15 +312,14 @@ const denyAccount = async (req, res, next) => {
                 new ErrorResponse("Datos incompletos", 400, "error")
             );
         }
-        const query = await NormalUser.findOne({ _id: AccountId }).select('Email')
-        const user = await NormalUser.findOneAndDelete({ _id: AccountId });
-        const otherData = await GlobalData.findOneAndDelete({ DataOwner: AccountId });
-        const extraData = await ExtraInfoNormalUser.findOneAndDelete({ UserOwner: AccountId });
+
+        const query = await NormalUser.findOne({ _id: AccountId }).select('Email');
 
         DeclineRequestEmployee(query, next)
-        await user.delete();
-        await otherData.delete();
-        await extraData.delete();
+        await GlobalData.findOneAndDelete({ DataOwner: AccountId });
+        await ExtraInfoNormalUser.findOneAndDelete({ UserOwner: AccountId });
+        await NormalUser.findOneAndDelete({ _id: AccountId });
+
         res.status(200).json({ success: true, data: 'Cuenta rechazada correctamente' })
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -397,7 +396,7 @@ const AcceptLoanReq = async (req, res, next) => {
         let MothlyFeee = functToGetFee()
 
         let TimeNow = new Date()
-        
+
 
 
 

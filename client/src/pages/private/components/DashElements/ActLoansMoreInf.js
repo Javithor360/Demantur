@@ -37,7 +37,7 @@ export const ActLoansMoreInf = ({ setChangeBox2, setMyLoan, MyLoan, LoanImage })
   return (
     <>
       <ScrollToTop />
-      <div className="w-full h-full bg-white rounded-xl overflow-y-hidden scroll-cards">
+      <div className="w-full h-full bg-white rounded-xl overflow-y-auto scroll-cards">
         <div className="w-full h-[2rem] flex items-center justify-start">
           <button className="bg-transparent outline-none border-none mt-4 ml-5" onClick={() => {
             setChangeBox2(false)
@@ -66,12 +66,18 @@ export const ActLoansMoreInf = ({ setChangeBox2, setMyLoan, MyLoan, LoanImage })
             </div>
           </div>
 
-          <div className="">
-            <div className="bg-red-400 flex">
-              <span onClick={() => setChangeElements(1)}>Pagar</span>
-              <span onClick={() => setChangeElements(2)}>Historial</span>
+          <div className="min-h-[30rem]">
+            <div className="border-cover-2 flex flex-row items-center justify-center text-center h-[10%] w-[50%] mx-auto bg-[#f7f7f7] rounded-lg shadow-sm">
+              <div className="w-[50%]">
+                <span className={`w-fit mx-auto cursor-pointer pb-1 ${ChangeElements === 1 && 'border-act'}`} onClick={() => { setChangeElements(1) }}>Pagar</span>
+              </div>
+              <div className="w-[50%]">
+                <span className={`w-fit mx-auto cursor-pointer pb-1 ${ChangeElements === 2 && 'border-act'}`} onClick={() => { setChangeElements(2) }}>Historial</span>
+              </div>
             </div>
-            {RenderEl()}
+            <div className="h-fit pb-5 rounded-lg mt-5 w-[95%] mx-auto">
+              {RenderEl()}
+            </div>
           </div>
         </div>
       </div>

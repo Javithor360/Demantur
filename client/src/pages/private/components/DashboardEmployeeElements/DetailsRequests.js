@@ -6,7 +6,9 @@ import { useState } from 'react';
 
 import axios from 'axios';
 
-export const DetailsRequests = ({ info, setDisplayDetails }) => {
+export const DetailsRequests = ({ Info, setInfo, info, setDisplayDetails }) => {
+
+    const [ChangeButtons, setChangeButtons] = useState(0)
 
     const grid_column_styles = "mr-4 flex flex-col h-full w-full";
     const table_name_styles = "h-[35%] w-full bg-[#D6D6D6] p-2 flex justify-center items-center";
@@ -30,6 +32,8 @@ export const DetailsRequests = ({ info, setDisplayDetails }) => {
 
     const handleAccept = async (e) => {
         e.preventDefault();
+        setChangeButtons(1)
+        setInfo(Info.filter((el) => el.MainInfo.Dui !== info.MainInfo.Dui))
         try {
 
             await axios.post('http://localhost:4000/api/accounts/activate-account',
@@ -43,7 +47,8 @@ export const DetailsRequests = ({ info, setDisplayDetails }) => {
                     }
                 });
 
-            setDisplayDetails(false);
+            // setDisplayDetails(false);
+
         } catch (error) {
             console.error(error);
         }
@@ -51,7 +56,8 @@ export const DetailsRequests = ({ info, setDisplayDetails }) => {
 
     const handleDenny = async (e) => {
         e.preventDefault();
-
+        setChangeButtons(2)
+        setInfo(Info.filter((el) => el.MainInfo.Dui !== info.MainInfo.Dui))
         try {
             await axios.delete('http://localhost:4000/api/accounts/decline-account',
                 {
@@ -245,14 +251,36 @@ export const DetailsRequests = ({ info, setDisplayDetails }) => {
                     <button className='text-white absolute top-0 right-0 border-none outline-none bg-transparent m-2' onClick={() => setImageModal(false)}><AiOutlineClose className='text-[white] text-[2rem]' /></button>
                 </div>
 
-                <div className='m-auto w-[60%] h-[6rem] border-cover rounded-2xl bg-[#FCFCFC] shadow-sm flex flex-row mb-5'>
-                    <div className='h-full w-[50%] flex items-center justify-center'>
-                        <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#727C9F] text-white' onClick={handleAccept}>Aceptar</button>
-                    </div>
-                    <div className='h-full w-[50%] flex items-center justify-center'>
-                        <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#455FB9] text-white' onClick={handleDenny}>Denegar</button>
-                    </div>
-                </div>
+                {
+                    ChangeButtons === 0 ?
+                        <>
+                            <div className='m-auto w-[60%] h-[6rem] border-cover rounded-2xl bg-[#FCFCFC] shadow-sm flex flex-row mb-5'>
+                                <div className='h-full w-[50%] flex items-center justify-center'>
+                                    <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#727C9F] text-white' onClick={handleAccept}>Aceptar</button>
+                                </div>
+                                <div className='h-full w-[50%] flex items-center justify-center'>
+                                    <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#455FB9] text-white' onClick={handleDenny}>Denegar</button>
+                                </div>
+                            </div>
+                        </>
+                        :
+                        <>
+                            {
+                                ChangeButtons === 1 ?
+                                    <>
+                                        <div className='h-full w-[100%] flex items-center justify-center text-center'>
+                                            <span className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#45b985] text-white w-[60%]'>Aceptada</span>
+                                        </div>
+                                    </>
+                                    :
+                                    <>
+                                        <div className='h-full w-[100%] flex items-center justify-center text-center'>
+                                            <span className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#b94545] text-white w-[60%]'>Denegada</span>
+                                        </div>
+                                    </>
+                            }
+                        </>
+                }
             </div>
         </>
     )

@@ -210,7 +210,7 @@ export const DetailsCardRequest = ({ Params, setDisplayDetails, setCardRqs, Card
         <div className='m-auto w-[60%] h-[6rem] border-cover rounded-2xl bg-[#FCFCFC] shadow-sm flex flex-row mb-5'>
           {
             ChangeButtons === 0 ?
-              <>
+              <>  
                 <div className='h-full w-[50%] flex items-center justify-center'>
                   <button className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#727C9F] text-white' onClick={() => {
                     setCancelData({})

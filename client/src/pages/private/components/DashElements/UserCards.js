@@ -14,6 +14,7 @@ import { useDash } from "../../../../context/DashboardContext";
 import { BsArrowLeft } from 'react-icons/bs'
 import { BiLoaderAlt } from 'react-icons/bi'
 import pendingReqIcon from '../assets/img/cards-icons/quote-request.png'
+import card_check from '../assets/img/cards-icons/card_check.png'
 import { RiLoader3Fill as IconChargin } from 'react-icons/ri'
 
 //translate
@@ -485,7 +486,7 @@ export const UserCards = () => {
                   :
                   <>
                     <div className='h-full w-full flex flex-col items-center justify-center'>
-                      <img src={pendingReqIcon} alt="" className='w-[200px] mb-4' />
+                      <img src={card_check} alt="" className='w-[200px] mb-4' />
                       <span>Usted ya posee tarjeta de credito</span>
                     </div>
                   </>

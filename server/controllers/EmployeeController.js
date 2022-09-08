@@ -388,9 +388,14 @@ const AcceptLoanReq = async (req, res, next) => {
         const loanReq = await LoanRequest.findOne({ loan_guarantor: User._id })
 
         let remainder = loanReq.Amountrequest.replace('$', '');
-        remainder = parseFloat(remainder) 
-        
-        
+        remainder = parseFloat(remainder)
+
+        let Years = loanReq.LoanTime * 12
+        const functToGetFee = () => {
+            return (remainder / ((1 - (Math.pow(1 + 0.0125, -Years))) / 0.0125))
+        }
+        let MothlyFeee = functToGetFee()
+
         let TimeNow = new Date()
         
 
@@ -415,9 +420,11 @@ const AcceptLoanReq = async (req, res, next) => {
         }
 
         await LoanRequest.findOneAndDelete({ loan_guarantor: User._id })
-
+        await SavingsAccount.findOneAndUpdate({ accountNumber: loanReq.AccountNumber }, { $inc: { balance: parseFloat(remainder).toFixed(2) } })
         const newLoan = await new AcpLoanModel({
             debtorId,
+            LoanId: loanReq.LoanId,
+            MonthlyFee: parseFloat(MothlyFeee).toFixed(2),
             details,
             pay_history,
             amounts,

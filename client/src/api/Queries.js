@@ -138,6 +138,10 @@ export const CreateDebitCardQuery = async (PrivateConfig, NumberAcc) => {
   return await axios.post('http://localhost:4000/api/dashboard/create-debit-card', { NumberAcc }, { headers: PrivateConfig.headers })
 }
 
+export const getMyLoanReqQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-my-credit', { headers: PrivateConfig.headers });
+}
+
 // ?? QUERYS EMPLOYEE
 
 export const getEmployeeData = async (PrivateConfig) => {

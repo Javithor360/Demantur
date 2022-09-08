@@ -385,7 +385,7 @@ const AcceptLoanReq = async (req, res, next) => {
     try {
         const { Dui } = req.body
         const User = await NormalUser.findOne({ Dui: Dui });
-        const loanReq = await LoanRequest.findOne({ CardOwner: User._id })
+        const loanReq = await LoanRequest.findOne({ loan_guarantor: User._id })
 
         let remainder = loanReq.Amountrequest.replace('$', '');
         remainder = parseFloat(remainder)
@@ -397,12 +397,15 @@ const AcceptLoanReq = async (req, res, next) => {
         let MothlyFeee = functToGetFee()
 
         let TimeNow = new Date()
+        
+
+
 
         let debtorId = User._id
         let details = {
             loan_type: loanReq.LoanType,
-            // no estoy seguro del interes
-            interest: 5,
+            // Interes dependiendo del monto y el plazo a pagar se considera
+            interest: 10,
         }
         let pay_history = {
             loan_date: TimeNow,

@@ -18,6 +18,13 @@
     "access": "Acceder",
     "copyright": "Todos los derechos reservados. © 2022 Demantur"
   },
+  "imagen":{
+    "foto":"https://media.discordapp.net/attachments/861438024659501087/1017279459704971334/unknown.png",
+    "foto2":"https://media.discordapp.net/attachments/861438024659501087/1017248426863374447/unknown.png",
+    "foto3":"https://media.discordapp.net/attachments/861438024659501087/1017249660101984316/unknown.png",
+    "foto4":"https://media.discordapp.net/attachments/861438024659501087/1017249812439105536/unknown.png",
+    "foto5":"https://media.discordapp.net/attachments/861438024659501087/1017285369978425434/paso5.png"
+  },
   "bussinesPage": {
     "hero": {
       "tittle": "Registro",

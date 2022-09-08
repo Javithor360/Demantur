@@ -8,7 +8,10 @@ import { Dropdown } from '../../../../components/Dropdown';
 //hooks
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+//img
+import list from '../assets/img/cards-icons/list.png'
+import one_req from '../assets/img/cards-icons/one_req.png'
+import loan_a from '../assets/img/cards-icons/loan_a.png'
 import { useDash } from "../../../../context/DashboardContext";
 //icons
 import { BsArrowLeft } from 'react-icons/bs'
@@ -421,9 +424,15 @@ export const ActLoans = () => {
                   <>
                     {
                       LoanReq === false ?
-                        <>Solicite un prestamo</>
+                        <div className='h-full w-full flex flex-col items-center justify-center'>
+                          <img src={list} alt="" className='w-[85px] mb-3'/>
+                          <p>Solicite un prestamo</p>
+                        </div>
                         :
-                        <> Tiene Una solicitud en curso</>
+                        <div className='h-full w-full flex flex-col items-center justify-center'>
+                          <img src={one_req} alt="" className='w-[200px] mb-3'/>
+                          <p>Tiene Una solicitud en curso</p>
+                        </div>
                     }
                   </>
               }
@@ -530,14 +539,14 @@ export const ActLoans = () => {
                     :
                     <>
                       <div className='h-full w-full flex flex-col items-center justify-center'>
-                        <img src={pendingReqIcon} alt="" className='w-[200px] mb-4' />
-                        <span>{t("DashboardNormalUser.Loans.desc")}</span>
+                        <img src={list} alt="" className='w-[200px] mb-4' />
+                        <span>Espere la confirmación de su solicitud</span>
                       </div>
                     </>
                   :
                   <>
                     <div className='h-full w-full flex flex-col items-center justify-center'>
-                      <img src={pendingReqIcon} alt="" className='w-[200px] mb-4' />
+                      <img src={loan_a} alt="" className='w-[200px] mb-4' />
                       <span>Usted ya tiene un credito activo</span>
                     </div>
                   </>

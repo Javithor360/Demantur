@@ -5,10 +5,13 @@ import { TransformComponent, TransformWrapper } from '@pronestor/react-zoom-pan-
 import { useState } from 'react';
 
 import axios from 'axios';
+import { useDash } from '../../../../context/DashboardContext';
 
 export const DetailsRequests = ({ Info, setInfo, info, setDisplayDetails }) => {
 
-    const [ChangeButtons, setChangeButtons] = useState(0)
+    const { Option, setOption, setOptionElement } = useDash();
+
+    const [ChangeButtons, setChangeButtons] = useState(0);
 
     const grid_column_styles = "mr-4 flex flex-col h-full w-full";
     const table_name_styles = "h-[35%] w-full bg-[#D6D6D6] p-2 flex justify-center items-center";
@@ -32,10 +35,7 @@ export const DetailsRequests = ({ Info, setInfo, info, setDisplayDetails }) => {
 
     const handleAccept = async (e) => {
         e.preventDefault();
-        setChangeButtons(1)
-        setInfo(Info.filter((el) => el.MainInfo.Dui !== info.MainInfo.Dui))
         try {
-
             await axios.post('http://localhost:4000/api/accounts/activate-account',
                 {
                     AccountId: info.MainInfo._id
@@ -46,9 +46,8 @@ export const DetailsRequests = ({ Info, setInfo, info, setDisplayDetails }) => {
                         "x-auth-token": localStorage.getItem('employeeToken')
                     }
                 });
-
-            // setDisplayDetails(false);
-
+            setOption(2);
+            setOptionElement("Home Page");
         } catch (error) {
             console.error(error);
         }
@@ -56,8 +55,6 @@ export const DetailsRequests = ({ Info, setInfo, info, setDisplayDetails }) => {
 
     const handleDenny = async (e) => {
         e.preventDefault();
-        setChangeButtons(2)
-        setInfo(Info.filter((el) => el.MainInfo.Dui !== info.MainInfo.Dui))
         try {
             await axios.delete('http://localhost:4000/api/accounts/decline-account',
                 {
@@ -69,7 +66,8 @@ export const DetailsRequests = ({ Info, setInfo, info, setDisplayDetails }) => {
                         AccountId: info.MainInfo._id
                     }
                 });
-            setDisplayDetails(false);
+            setOption(2);
+            setOptionElement("Home Page");
         } catch (error) {
             console.error(error);
         }
@@ -268,13 +266,13 @@ export const DetailsRequests = ({ Info, setInfo, info, setDisplayDetails }) => {
                             {
                                 ChangeButtons === 1 ?
                                     <>
-                                        <div className='h-full w-[100%] flex items-center justify-center text-center'>
+                                        <div className='h-fit mb-4 w-[100%] flex items-center justify-center text-center'>
                                             <span className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#45b985] text-white w-[60%]'>Aceptada</span>
                                         </div>
                                     </>
                                     :
                                     <>
-                                        <div className='h-full w-[100%] flex items-center justify-center text-center'>
+                                        <div className='h-fit mb-4 w-[100%] flex items-center justify-center text-center'>
                                             <span className='my-auto block outline-none border-none px-5 py-3 rounded bg-[#b94545] text-white w-[60%]'>Denegada</span>
                                         </div>
                                     </>

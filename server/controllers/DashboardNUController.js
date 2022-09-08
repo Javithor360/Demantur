@@ -865,7 +865,6 @@ const PayCardDebt = async (req, res, next) => {
     } else {
       await SavingsAccount.findOneAndUpdate({ accountNumber: AccountN }, { balance: (parseFloat(Acc.balance) - parseFloat(Amount)).toFixed(2) });
       await CardsModel.findOneAndUpdate({ CardOwner: token.user.id }, { PayableAmount: 0, $push: { PaymentHistory: { RealizationDate: date, Amount: Amount, AccountNumber: AccountN } } });
-      // await CardsModel.findOneAndUpdate({ CardOwner: token.user.id }, {});
       res.status(200).json({ success: true, data: 'Pagado correctamente' });
     }
 
@@ -928,6 +927,36 @@ const getMyCredit = async (req, res, next) => {
   }
 }
 
+const PayLoan = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const { accountNumber } = req.body
+
+    const MyLoan = await AcpLoanModel.findOne({ debtorId: token.user.id })
+    const Acc = await SavingsAccount.findOne({ accountNumber: accountNumber });
+
+    if (MyLoan.MonthlyFee > Acc.balance) {
+      return next(new ErrorResponse('El Monto no es suficiente para pagar', 400, 'error'))
+    } else {
+      await SavingsAccount.findOneAndUpdate({ accountNumber: accountNumber }, { $inc: { balance: -MyLoan.MonthlyFee } });
+
+      let timeNow = new Date()
+      let NewPaymentDate = new Date(timeNow.getFullYear(), timeNow.getMonth(), timeNow.getDay() + 30);
+
+      MyLoan.pay_history.loan_next_payment = NewPaymentDate;
+      MyLoan.pay_history.payment_history.push({ AccountN: accountNumber, Amount: MyLoan.MonthlyFee, Date: timeNow })
+      MyLoan.amounts.remainder = MyLoan.amounts.remainder - MyLoan.MonthlyFee;
+
+      MyLoan.save()
+      res.status(200).json({ success: true })
+    }
+
+
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
 module.exports = {
   testDB,
   getUserId,
@@ -952,6 +981,6 @@ module.exports = {
   CancelChangeEmail,
   VerifyOldPass,
   ChangePass, VerifyCodePass, CancelChangePass, getPedingFriendReq, FriendReq, getUsersToAdd, getMyCard, getDebitCard,
-  PayCardDebt, CreateDebitCard, getMyCredit
+  PayCardDebt, CreateDebitCard, getMyCredit, PayLoan
 };
 

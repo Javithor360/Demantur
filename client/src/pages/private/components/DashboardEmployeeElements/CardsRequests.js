@@ -14,7 +14,7 @@ export const CardsRequests = () => {
   const [Params, setParams] = useState(null);
   const grid_column_styles = "mr-4 flex flex-col h-full w-full";
   const table_name_styles = "h-[35%] w-full bg-[#D6D6D6] p-2 flex justify-center items-center";
-  const table_content_styles = "h-[65%] bg-white p-2 fex justify-center items-center";
+  const table_content_styles = "h-[65%] bg-white p-2 flex justify-center items-center";
 
   const [CharginIco, setCharginIco] = useState(true);
 
@@ -43,6 +43,7 @@ export const CardsRequests = () => {
           {
             DisplayDetails === false ?
               <div className='cards-employee flex flex-col px-5 py-5 overflow-x-hidden overflow-y-auto'>
+                <p className="text-gray-500 text-center text-[28px] m-0 mb-4 p-0">Solicitudes de tarjetas</p>
                 {
                   CardRqs.length !== 0 ?
                     CardRqs.map((SingReq, i) => {
@@ -51,8 +52,7 @@ export const CardsRequests = () => {
                       let Dui = SingReq.RequestOwner.Dui
                       return (
                         <>
-                          <h1>Solicitudes de Tarjetas</h1>
-                          <div className='individual-req w-[95%] mb-5 rounded-lg h-[8rem] border-cover' key={i}>
+                          <div className='individual-req w-[95%] mb-5 rounded-lg min-h-[8rem] border-cover' key={i}>
                             <div className={`${grid_column_styles} border-subdivisions `}>
                               <div className={`${table_name_styles} rounded-tl-lg`}>
                                 <p className='m-0 p-0'>Nombre</p>
@@ -110,7 +110,7 @@ export const CardsRequests = () => {
                     <>
                       <div className='h-full w-full bg-white rounded-xl flex flex-col items-center justify-center'>
                         <img src={no_cards_req} alt="" className='w-[15.625rem] mb-3' />
-                        <p className='text-[#606470] text-[1.2rem]'>Cuando hayan solicitudes se mostrarán aqui</p>
+                        <p className='text-[#606470]'>Cuando hayan solicitudes se mostrarán aqui</p>
                       </div>
                     </>
                 }

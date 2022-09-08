@@ -54,7 +54,7 @@ export const AdminDuis = () => {
         <label className='labelz' htmlFor="DuiNumber">Número de DUI </label>
         </div>
         <div className='formx'>
-        <input className='inputz' placeholder='' type="text" id="Birth" name="Birth" onChange={(e) => { setBirth(e.target.value) }} value={Birth} />
+        <Cleave id='date' name='date' placeholder=' ' options={{ date: true, timePattern: ['Y', 'm', 'd'] }} onChange={(e) => { setBirth(e.target.value) }} value={Birth} autoComplete='off' className='input-form' />
         <label className='labelz' htmlFor="Birth">Fecha de nacimiento </label>
         </div>
         </div>

@@ -20,16 +20,26 @@
     "copyright": "All rights reserved. © 2022 Demantur"
   },
 
+  "imagen":{
+    "foto":"https://media.discordapp.net/attachments/861438024659501087/1017247575801348167/unknown.png",
+    "foto2":"https://media.discordapp.net/attachments/861438024659501087/1017248644367405056/unknown.png",
+    "foto3":"https://media.discordapp.net/attachments/861438024659501087/1017249151521652796/unknown.png",
+    "foto4":"https://media.discordapp.net/attachments/861438024659501087/1017250187183407225/unknown.png",
+    "foto5":"https://media.discordapp.net/attachments/861438024659501087/1017285369978425434/paso5.png"
+  },
+
   "bussinesPage": {
     "hero": {
       "tittle": "Register",
       "desc": "Welcome to the guide where you will learn everything you need to know to be able to register"
     },
+
     "body": {
       "tittle": "What is a business account?",
       "text": "A contract between a company and our bank, by means of which the holder deposits an amount of money and the bank acquires a commitment to safeguard it, with this service we seek to provide a faster and more dynamic way to manage your money",
       "subtittle": "What are the benefits?"
     },
+
     "benefits": {
       "content": {
         "1": "A safe place to keep your money",
@@ -190,105 +200,121 @@
           "subtittle": "If you forget your password, this is the best option to recover your account and set a new password.",
           "button1": "Go"
         },
-        "4":{
-          "tittle":"Email verification",
+        
+        "4": {
+          "tittle": "Email verification",
           "subtittle":"In case you have created an account but have not verified it yet here you can verify your account.",
-          "button1":"Go"
+          "button1": "Go"
         }
       },
   
-    "info":{
-      "1":{
-        "first":"The first step will be to arrive at the form with the data requested, such as:",
-        "1":"Names",
-        "2":"Lastnames",
-        "3":"Date of Birth",
-        "4":"direction",
-        "note":"note",
-        "info":"Make sure the information is in capital letters and the address is as detailed as possible"
+    "info": {
+      "1": {
+        "first": "The first step it is to fill up the form with the data requested, such as:",
+        "1": "Names",
+        "2": "Last names",
+        "3": "Birthday",
+        "4": "Direction",
+        "note": "Note",
+        "info": "Make sure the information is in capital letters and the address is as detailed as possible"
       },
-      "2":{
-        "first":"Then you must enter the information requested below:",
-        "1":"DUI",
-        "2":"Email",
-        "3":"set a password",
-        "4":"Confirm your password",
-        "note":"note",
-        "info":"Make sure the information is correct and well written"
+
+      "2": {
+        "first": "Then you must enter the information requested below:",
+        "1": "DUI",
+        "2": "Email",
+        "3": "Set a password",
+        "4": "Confirm your password",
+        "note": "Note",
+        "info": "Make sure the information is correct and well written"
       },
-      "3":{
-        "first":"In the next step, you will be asked for information about your monetary data. In order to provide you with a better service, the requested data is as follows:",
-        "1":"Social status",
-        "2":"Salary range",
-        "3":"Workplace",
-        "4":"Copy of employment certificate",
-        "note":"note",
+
+      "3": {
+        "first": "In the next step, you will be asked for information about your monetary data. In order to provide you with a better service, the requested data is as follows:",
+        "1": "Social status",
+        "2": "Salary range",
+        "3": "Workplace",
+        "4": "Copy of employment certificate",
+        "note": "Note",
         "info":"Make sure the copy is as clear as possible and fill in the data correctly"
       },
-      "4":{
-        "first":"For security measures, you will be asked to enter the data of a beneficiary in case something happens to you, in which the following data will be requested:",
-        "1":"Names",
-        "2":"Lastnames",
-        "3":"DUI",
-        "4":"Phone number",
-        "note":"note",
-        "info":"Make sure your beneficiary details are correct"
+
+      "4": {
+        "first": "For security measures, you will be asked to enter the data of a beneficiary in case something happens to you, in which the following data will be requested:",
+        "1": "Names",
+        "2": "Last names",
+        "3": "DUI",
+        "4": "Phone number",
+        "note": "Note",
+        "info": "Make sure your beneficiary details are correct"
       },
-      "5":{
-        "first":"As a last step you must enter a verification code that will be provided to the email you entered in the form to verify your account",
-        "note":"note",
-        "info":"This step is essential to follow as it will help us to activate your account"
+
+      "5": {
+        "first": "As a last step you must enter a verification code that will be provided to the email you entered in the form to verify your account",
+        "note": "Note",
+        "info": "This step is essential to follow as it will help us to activate your account"
       }
     }
   },
+
   "index": {
     "slider": {
       "title": "Online Banking",
       "desc": "We simplify the way of administrating your accounts, open an account and enjoy its benefits"
     },
+
     "read_more": "Read more",
     "read_more2": "See more",
     "financial_solutions": "Financial solutions in just one place",
+
     "cards_grid": {
       "1": {
         "title": "Cards",
         "desc": "With our cards you get the bests benefits tailored to your needs"
       },
+
       "2": {
         "title": "Loan requests",
         "desc": "Get your loan fast, safe and easy so that you can reach your goals"
       },
+
       "3": {
         "title": "Banking accounts",
         "desc": "Choose the best account that suits your needs with the best benefits"
       }
     },
+
     "dual_banner": {
       "1": {
         "title": "Saving brings many future opportunities",
         "desc": "Open your savings account and enjoys many benefits, earn interest on your savings, manage your money easily and get access in any moment"
       },
+
       "2": {
         "title": "We help you to reach your dreams",
         "desc": "Find out our loans and choose the most convenient to reach your goals, with fast & easy transactions, in addition to a fair interest rate"
       }
     },
+
     "help_center": {
       "main_title": "We provide our services",
       "title": "Help Center",
       "desc": "Need help? Check out our magic help center, there you will find frequently asked questions that might fix your doubt."
     },
+
     "business_info": {
       "main_title": "Register",
       "title": "Sign up the easy way",
       "desc": "Don't know how to create an account?, don't worry visit our quick guide and you will see that it is easier than you expected."
     },
+
     "about_extended": {
-      "main_title": "Who are we?",
+      "main_title": "Who are we",
       "title": "People like you",
       "desc": "We are a compromised enterprise on what it does, learn more about us and how we provide quality service"
     }
   },
+
   "loans_main_page": {
     "title_loans": "Loans",
     "subtitle_loans": "Find a solution to finance your future projects",
@@ -314,6 +340,7 @@
       "contact_us": "Contact us"
     }
   },
+
   "loans_pages": {
     "personal_loan_page": {
       "title": "Personal Credits",
@@ -344,26 +371,28 @@
           "commission": "A commission of 0.5% applies to the amount of the credit if the term is 10 years. Zero commission if the term is 9 years or less."
         }
       },
-      "forms":{
+
+      "forms": {
         "title": "Are you decided?",
-        "subtitle":"Request your loans",
-        "name":"Full name",
-        "id_dui":"Dui number",
-        "contact":"Contact number",
-        "address":"Address",
-        "email":"Email",
-        "Amount":"Amount to request",
+        "subtitle": "Request your loans",
+        "name": "Full name",
+        "id_dui": "Dui number",
+        "contact": "Contact number",
+        "address": "Address",
+        "email": "Email",
+        "Amount": "Amount to request",
         "salary": "Salary range",
         "company": "Name of the company where you work",
         "op1": "Photocopy of DUI (reverse and right)",
-        "op2": "proof of work",
+        "op2": "Proof of work",
         "op3": "Attach your proof of salary",
         "op4": "Among",
         "op5": "Greater than",
-        "button":"Subir Archivo",
-        "button2":"submit"
-    }
+        "button": "Upload file",
+        "button2": "Submit"
+      }
     },
+
     "business_loan_page": {
       "title": "Business Credits",
       "subtitle": "Give new potential to your company/venture.",
@@ -383,23 +412,25 @@
           "flow": "Projected cash flow for one year on a monthly basis",
           "rent": "Income tax returns for the last two years"
         },
+        
         "2": {
           "commissions": "Commissions",
-          "study": "study commission",
+          "study": "Study commission",
           "management": "Administration fee",
           "discovery": "Current account overdraft fee"
         }
       }
     },
+
     "housing_page": {
       "title": "Housing Credit",
       "subtitle": "We offer you a loan tailored to your needs for your new home",
       "what's_it": "Housing Demantur",
-      "housing_info": "This type of loan is made in the long term and will be backed by the property that is purchased. These loans can be financed for a certain term and at an interest rate that will depend on the amount you request to obtain what you need.",
-      "housing_info2": " It is important that you are clear that the fact that the property is the guarantee of the loan, that does not mean that we will keep your house or that you will not be able to use it until you finish paying the debt.",
+      "housing_info": "This type of loan is made in the long term and will be backed by the property that is purchased. This loan can be financed for a certain term and at an interest rate that will depend on the amount you request to obtain what you need.",
+      "housing_info2": "It is important that you are clear that the fact that the property is the guarantee of the loan, that does not mean that we will keep your house or that you will not be able to use it until you finish paying the debt.",
       "benefits": "Benefits",
       "benefits_bannerh": "Up to 90% financing",
-      "benefits_bannerh2": "Te financiamos hasta un valor del 90% del valúo.",
+      "benefits_bannerh2": "We finance you up to a value of 90% of the value.",
       "housing_tab": {
         "1": {
           "requeriments": "Requeriments",
@@ -407,8 +438,9 @@
           "stability": "Minimum job stability of 1 year.",
           "ages": "Ages between 24 and 60 years.",
           "record": "Good management of credit record.",
-          "constancy": " Work certificate or pay slip if you are salaried."
+          "constancy": "Work certificate or pay slip if you are salaried."
         },
+        
         "2": {
           "conditions": "Conditions",
           "term": "Deadline:",
@@ -416,31 +448,34 @@
           "warranty": "Mortgage:",
           "value": "Minimum value from US$50,000 to US$350,000 established by experts authorized by the SSF.",
           "insurance": "Insurance:",
-          "bills": "Consultar tarifas preferenciales de gastos según el destino del crédito.",
-          "commission": "commissions",
+          "bills": "Consult preferential rates of expenses according to the destination of the credit.",
+          "commission": "Commissions",
           "amount": "Life insurance according to credit amount and construction damage insurance."
         }
       }
     },
-    "Demantur_car":{
+
+    "Demantur_car": {
       "title": "Car Credit",
       "subtitle": "Change your lifestyle with our decreasing credit for the purchase of a new or used vehicle",
       "what's_it": "Car Demantur",
       "car_info": "We offer you the option of acquiring a vehicle with the figure of lease with purchase option, which will allow you to acquire ownership of the vehicle at the end of the term..",
-      "car_info2": " You have financing in a new vehicle of up to 90% according to the quote with the vehicle insurance fee included.",
+      "car_info2": "You have financing in a new vehicle of up to 90% according to the quote with the vehicle insurance fee included.",
       "benefits": "Benefits",
       "benefits_bannerc": "Fast and agile process",
       "benefits_bannerc2": "We listen to you, we understand your needs and we offer you the most suitable plan for your project."
     }
   },
-  "help_page":{
-    "help":{
+
+  "help_page": {
+    "help": {
       "help_tittle": "How can we help you?",
       "help_desc": "Here are some of the questions frequently asked by our users.",
       "help_search": "You can also perform a quick search on your question to be consulted"
     },
-    "accordion":{
-      "1":{
+
+    "accordion": {
+      "1": {
         "tittle": "What are the requirements to open a bank account?",
         "desc": "To open a bank account you need to meet the following requirements:",
         "sub_desc1": "Present your DUI",
@@ -448,11 +483,13 @@
         "sub_desc3": "Minimum amount of $25",
         "sub_desc4": "Be of legal age"
       },
-      "2":{
-        "tittle":"Stolen or lost card",
+
+      "2": {
+        "tittle": "Stolen or lost card",
         "desc": "If you were a victim of credit or debit card theft, we advise you to report it immediately, through our contact page, fill in all the information requested and enter your card number in order to solve the problem as soon as possible."
       },
-      "3":{
+
+      "3": {
         "tittle": "Tips for secure online transactions",
         "desc": "Here are a few tips that can help you when making online transactions:",
         "sub_desc1": "You should verify that the site you are visiting is secure.",
@@ -460,15 +497,16 @@
         "Sub_desc3": "Never enter personal information to sites that are insecure.",
         "sub_desc4": "Use antivirus to detect and block threats, to prevent design vulnerabilities from being exploited by malicious code."
       },
-      "4":{
+
+      "4": {
         "tittle": "Financial security tips",
         "desc": "Here are some tips to improve your finances and avoid unnecessary expenses.",
-        "sub_tittle1":"Define financial goals:",
+        "sub_tittle1": "Define financial goals:",
         "sub_tittle2": "Make a list of all your expenses:",
         "sub_tittle3": "Think about how to reduce:",
         "sub_tittle4": "Don't go into debt to cover other debts:",
         "sub_tittle5":"Buy only what is necessary:",
-        "sub_tittle6": "Save:",
+        "sub_tittle6": "Save money:",
         "sub_desc1": "The first step to manage your money well is to know what you want to achieve with it.",
         "sub_desc2": "Making a list of all your expenses is the most important, it helps you realize what you are spending your money on and how much you are spending.",
         "sub_desc3": "For example, rent, electricity, water, etc. Spending less on fixed expenses is possible, you just have to be aware of how you use them and identify if you can save a little on them.",
@@ -476,23 +514,26 @@
         "sub_desc5": "To avoid overspending and going over budget, it is recommended to buy only what is necessary and to plan your purchases.",
         "sub_desc6": "Probably one of the most important tips. In order to achieve your goals, you must have the support of a good savings that will allow you to enjoy in the future." 
       },
-      "5":{
-        "tittle": "How can you view my account statement?",
-        "desc": "If you need to view your account statement?, here is a simple and easy way to do it:",
-        "sub_desc1": "As a first step you must go to our navigation bar, and go to where it says Sign In.",
+
+      "5": {
+        "tittle": "How can I view my account statement?",
+        "desc": "If you need to view your account statement? Here is a simple and easy way to do it:",
+        "sub_desc1": "As a first step you must go to the navigation bar, and go to where it says Sign In.",
         "sub_desc2": "Then you must log in with your email and password.",
         "sub_desc3": "Once logged in you must go to the Accounts section.",
         "sub_desc4": "Once you are there, click on Digital Account Status.",
         "sub_desc5": "Now you will be able to see your account statement and all your transactions."
       },
-      "6":{
+
+      "6": {
         "tittle": "What are the requirements to acquire a savings account?",
         "desc": "The requirements to open a savings account are:",
         "sub_desc1": "Minimum opening from US$25.00.",
         "sub_desc2": "Present your DUI, in case you are a foreigner you must present your resident card or passport with updated information, current and in good condition.",
         "sub_desc3": "Present your NIT."
       },
-      "7":{
+
+      "7": {
         "tittle": "How to apply for a credit or debit card?",
         "desc": "In order to apply for a credit or debit card, here's how to do it:",
         "sub_desc1": "As a first step you must go to our navigation bar, and go to the Cards page.",
@@ -501,19 +542,22 @@
         "sub_desc4": "After you have chosen the card, you must fill out a form to apply for the card.",
         "sub_desc5": "After you have filled out the form and submitted it, we will contact you to notify you if your card was accepted or denied."
       },
-      "8":{
+
+      "8": {
         "tittle": "How to open a savings account for a young minor?",
         "desc": "A minor between 16 and 18 years of age can open a private savings account as account holder with a minimum amount of $25.00, and must present a valid minor's identification card."
       },
-      "9":{
-       "tittle": "What are the requirements for a personal loan?",
-       "desc": "In order to apply for a personal loan you must meet the following requirements:",
-       "sub_desc1": "Be over 21 years old and under 70 years old.",
-       "sub_desc2": "Present DUI and NIT.",
-       "sub_desc3": "Proof of income.",
-       "sub_desc4": "Have a margin of at least $300."
+
+      "9": {
+        "tittle": "What are the requirements for a personal loan?",
+        "desc": "In order to apply for a personal loan you must meet the following requirements:",
+        "sub_desc1": "Be over 21 years old and under 70 years old.",
+        "sub_desc2": "Present DUI and NIT.",
+        "sub_desc3": "Proof of income.",
+        "sub_desc4": "Have a margin of at least $300."
       },
-      "10":{
+
+      "10": {
         "tittle": "What are the requirements for a business loan?",
         "desc": "In order to apply for a personal loan you must meet the following requirements:",
         "sub_desc1": "Be a formal company or individual with business activity.",
@@ -522,49 +566,56 @@
         "sub_desc4": "Prove sufficient cash flow generation to meet the financing.",
         "sub_desc5": "Present all the documentation requested by the bank."
       },
+
       "11":{
         "tittle": "Can another person deposit into an account, without being the account holder?",
         "desc": "Yes, another person who is not the account holder can deposit into the account by presenting their DUI and the account number to which they wish to make the deposit."
       },
+
       "12":{
         "tittle": "Can a foreigner apply for a personal loan?",
         "desc": "Yes, those who have permanent residence in the country can apply for a personal loan. For which they must present a valid passport, permanent resident card, NIT, receipts of collectors and prove income in the country."
       }
     }
   },
-  "cards_page":{
+
+  "cards_page": {
     "tittle": "Cards",
     "sub-tittle": "Find the best solution to fit your needs",
-    "tittle2":"Credit Cards",
-    "tittle3":"Debit Cards",
+    "tittle2":"Credit cards",
+    "tittle3":"Debit cards",
     "tittle4": "Classic Debit",
     "button": "More info",
-    "1":{
+    "1": {
       "desc1":"Receive 500 accumulative welcome points",
       "desc2": "Get installments of up to 36 months",
       "desc3": "Discounts at selected stores",
       "desc4": "Up to 48% initial interest rate"
     },
-    "2":{
-      "desc1":"Receive 5,000 accumulative welcome points",
+
+    "2": {
+      "desc1": "Receive 5,000 accumulative welcome points",
       "desc2": "Earn 1 point for every dollar spent on purchases",
       "desc3": "Installments with an interest rate of 32%",
       "desc4": "Special discounts and benefits at selected stores"
     },
-    "3":{
-      "desc1":"Receive 10,000 accumulative welcome points",
+
+    "3": {
+      "desc1": "Receive 10,000 accumulative welcome points",
       "desc2": "Earn 1 point for every dollar spent on purchases",
       "desc3": "Installments with an interest rate as low as 26%",
       "desc4": "Coverage up to $100,000",
       "desc5": "Redeem points for air travel"
     },
-    "4":{
+
+    "4": {
       "desc1": "Receive 80,000 accumulative welcome points",
       "desc2": "Earn 2 points for every dollar spent on purchases",
       "desc3": "Installments with an interest rate as low as 12%",
       "desc4": "Extra-financing and coverage up to $230,000",
       "desc5": "Redeem your points for air travel"
     },
+
     "5":{
       "desc1": "Earn points for your purchases",
       "desc2": "Withdraw cash whenever you want",
@@ -572,6 +623,7 @@
       "desc4": "Use the kiosks to pay your receipts"
     }
   },
+
   "CardsPage-Form":{    
     "tittle": "¿Have you made up your mind?",
     "desc": "Apply for your card now",
@@ -592,85 +644,102 @@
     "desc5": "Greater than",
     "desc6": "Enter your job title"
   },
-  "ClassicPage":{
+
+  "ClassicPage": {
     "sub-tittle":"Everything you need at your fingertips",
     "desc": "The Demantur Classic credit card provides you with the necessary benefits for your day to day life, with it you have a secure payment method to use in stores, online purchases, etc. In addition, you have immediate cash withdrawal at national ATMs, find more detailed information below.",
-    "benefit":{
+
+    "benefit": {
       "tittle": "Enjoy the best benefits offered by this card",
-      "1":{
+
+      "1": {
         "tittle": "Accumulative Points",
         "desc": "Receive 500 points for your first purchase, then accumulate 1 point for every $5 you spend"
       },
-      "2":{
+
+      "2": {
         "tittle":"Installment payments",
         "desc": "Pay in installments of up to 36 months according to your possibilities with a fixed interest rate."
       },
-      "3":{
+
+      "3": {
         "tittle": "Cash Withdrawal",
         "desc": "Withdraw cash with your card whenever you need it at all our ATMs nationwide"
       }
     },
+
     "requirements":{
-      "tittle":"Requirements",
-      "1":"Job stability",
-      "2":"Minimum income of $400 per month",
-      "3":"Completed application, either physical or web form",
+      "tittle": "Requirements",
+      "1": "Job stability",
+      "2": "Minimum income of $400 per month",
+      "3": "Completed application, either physical or web form",
       "4": "Photocopy of DUI and NIT (front and back)",
       "5": "Proof of current income signed by the company, copy of pay stubs or AFP proof of the last 6 months"
     },
-    "conditions":{
+
+    "conditions": {
       "tittle": "Conditions",
-      "1":"The 500 welcome points will be awarded after spending a minimum of $30 with the card",
-      "2":"The limit of accumulable points is 20,000",
-      "3":"The financing term must not exceed 60 months",
+      "1": "The 500 welcome points will be awarded after spending a minimum of $30 with the card",
+      "2": "The limit of accumulable points is 20,000",
+      "3": "The financing term must not exceed 60 months",
       "4": "Interest rates will be set according to the amount of the financing, but will not be less than 15%",
       "5": "Charge-off fee of 4% of the card limit ($7,500)"
     },
-    "benefit-banner":{
-        "tittle": "Special Benefits",
+
+    "benefit-banner": {
+        "tittle": "Special benefits",
         "sub-tittle": "Discounts at Selected Merchants",
         "desc": "Get many offers and promotions on products when you pay with your credit card"
     }
-
   },
-  "PlatinumPage":{
+
+  "PlatinumPage": {
     "sub-tittle":"Reach far, where your dreams point",
     "desc": "Are you looking for a card that allows you to enjoy great benefits anywhere and anytime? If so, the Demantur Platinum card is for you, get numerous benefits that adapt to your needs with great flexibility. You can travel, buy whatever you want and have the security you need for each of your purchases, check out many more benefits below",
-    "benefit":{
+
+    "benefit": {
       "tittle": "Enjoy the best benefits offered by this card",
-      "1":{
+
+      "1": {
         "tittle": "Accruable Points",
         "desc": "Receive 5,000 welcome points after using your card for the first time, regardless of the amount."
       },
-      "2":{
+
+      "2": {
         "tittle":"Earn points",
         "desc": "Accumulate points for every dollar you spend, 1 dollar equals 1 more point accumulated."
       },
+
       "3":{
         "tittle": "Redeem for cash",
         "desc": "You can redeem for cash your points at any time."
       },
-      "4":{
+
+      "4": {
         "tittle": "Installment payments",
         "desc": "Get interest-free installments up to 48 months, you can choose the term that suits you best."
       },
-      "5":{
+
+      "5": {
         "tittle": "Purchase insurance",
         "desc": "Get a refund in case the item is damaged, either for exchange or repair."
       },
-      "6":{
+
+      "6": {
         "tittle": "Special Pricing",
         "desc": "Enjoy special prices on products from selected stores when paying with your card."
       }
     },
-    "requirements":{
-      "tittle":"Requirements",
-      "1":"Minimum income of $1,000 per month",
-      "2":"Job stability; 6 months with card experience or 12 months without card experience.",
-      "3":"Completed application, either physical or web form",
+
+    "requirements": {
+      "tittle": "Requirements",
+      "1": "Minimum income of $1,000 per month",
+      "2": "Job stability; 6 months with card experience or 12 months without card experience.",
+      "3": "Completed application, either physical or web form",
       "4": "Photocopy of DUI and NIT (front and back)",
       "5": "Proof of current income signed by the company, copy of pay stubs or AFP proof of the last 6 months"
     },
+
     "conditions":{
       "tittle": "Conditions",
       "1":"The limit of accumulable points is 100,000.",
@@ -679,184 +748,221 @@
       "4": "To use your travel points you must not have any overdue payments in the last 6 months",
       "5": "The maximum amount of cash you can redeem for your points is $7,500."
     },
+
     "benefit-banner":{
       "tittle": "Special Benefits",
       "sub-tittle": "Use your points to travel",
       "desc": "You can redeem your accumulated points for airline tickets to selected destinations"
     }
   },
-  "GoldPage":{
+
+  "GoldPage": {
     "sub-tittle":"Live to the fullest, do not limit yourself and achieve your goals",
     "desc": "Get many more possibilities, superior benefits and a higher level of purchase and cash with the Demantur Gold card, with it you will always have that quality support and greater security, confidence and that support you deserve. The Demantur Gold is designed for those people like you, who are always looking for that exigency and good level in a credit card, discover more benefits below.",
-    "benefit":{
+
+    "benefit": {
       "tittle": "Enjoy the best benefits offered by this card",
-      "1":{
+
+      "1": {
         "tittle": "Purchase insurance",
         "desc": "Receive a reimbursement for protection against damage, theft or accidents for each product you buy with the card."
       },
-      "2":{
+
+      "2": {
         "tittle":"Earn points",
         "desc": "Earn 10,000 cumulative welcome points after using your card for the first time regardless of the amount you spend."
       },
-      "3":{
+
+      "3": {
         "tittle": "Redeem for travel",
         "desc": "You can redeem your accumulated points for airline tickets to selected destinations and enjoy exploring the world."
       },
-      "4":{
+
+      "4": {
         "tittle": "Extended Warranty",
         "desc": "Receive additional protection that will extend the warranty time up to one year beyond the manufacturer's warranty."
       },
-      "5":{
+
+      "5": {
         "tittle": "Low interest rates",
         "desc": "Your installments will have an interest rate of 8%, and can even go down depending on your credit history or the term."
       },
-      "6":{
+
+      "6": {
         "tittle": "Maximum Coverage",
         "desc": "You will have cash coverage of up to $50,000 in immediate withdrawal for your use."
       }
     },
-    "requirements":{
-      "tittle":"Requirements",
-      "1":"Minimum monthly income of $2,800",
-      "2":"Verifiable job stability; 12 months of card-carrying experience",
-      "3":"Completed application, either physical or web form",
+
+    "requirements": {
+      "tittle": "Requirements",
+      "1": "Minimum monthly income of $2,800",
+      "2": "Verifiable job stability; 12 months of card-carrying experience",
+      "3": "Completed application, either physical or web form",
       "4": "Photocopy of DUI and NIT (front and back)",
       "5": "Proof of current income signed by the company, copy of pay stubs or AFP proof of the last 6 months"
     },
-    "conditions":{
+
+    "conditions": {
       "tittle": "Conditions",
-      "1":"The limit of accumulable points is 600,000",
-      "2":"Purchase protection will reimburse you for expenses to have the covered item repaired or compensate you for the original value of the item",
-      "3":"The item covered by the warranty must have a minimum original manufacturer's warranty of 3 months up to three years",
+      "1": "The limit of accumulable points is 600,000",
+      "2": "Purchase protection will reimburse you for expenses to have the covered item repaired or compensate you for the original value of the item",
+      "3": "The item covered by the warranty must have a minimum original manufacturer's warranty of 3 months up to three years",
       "4": "Maximum cash coverage may be requested as long as you are no more than 2 payments past due on your card"
     },
+
     "benefit-banner":{
       "tittle": "Special Benefits",
       "sub-tittle": "Emergency Cash Disbursement",
       "desc": "This benefit will help you obtain cash in case your card is lost or stolen"
     }
   },
-  "BlackCard":{
+
+  "BlackCard": {
     "sub-tittle":"Enjoy the world as only you deserve it",
     "desc": "When we talk about the Mastercard Black card we are aware that it is something superior, get that prestige, recognition, exclusivity and obviously wonderful benefits that only this card is able to give you, live a world full of possibilities and dreams, travel, extrafinanciameitos, protections, assistance, VIP lounges, among many other things with which to enjoy life to the fullest, check below for more information.",
-    "benefit":{
+
+    "benefit": {
       "tittle": "Enjoy the best benefits offered by this card",
-      "1":{
+
+      "1": {
         "tittle": "Lounge Access",
         "desc": "Enjoy access to Lounge Key lounges and get tailored offers at restaurants, spas and stores in the airports."
       },
-      "2":{
+
+      "2": {
         "tittle":"Extra financing",
         "desc": "You can get that extra line of financing to your credit card and have cash available in a quick and easy way.  "
       },
-      "3":{
+
+      "3": {
         "tittle": "Travel Assistance",
         "desc": "We provide travel assistance when you are away, you can get information about the destination, emergencies, identifications, etc."
       },
-      "4":{
+
+      "4": {
         "tittle": "Extended Warranty",
         "desc": "Receive additional protection that will extend the warranty time up to one year beyond the manufacturer's warranty."
       },
-      "5":{
+
+      "5": {
         "tittle": "Earn points",
         "desc": "Earn 80,000 cumulative welcome points after using your card for the first time regardless of the amount you spend."
       },
-      "6":{
+
+      "6": {
         "tittle": "Purchase insurance",
         "desc": "Receive a reimbursement for protection against damage, theft or accidents for each product you buy with the card."
       }
     },
-    "requirements":{
-      "tittle":"Minimum monthly income of $4,800",
-      "1":"Minimum monthly income of $2,800",
-      "2":"Verifiable job stability; 12 months of card-carrying experience.",
-      "3":"Completed application, either physical or web form",
+
+    "requirements": {
+      "tittle": "Requirements",
+      "1": "Minimum monthly income of $4,800",
+      "2": "Verifiable job stability; 12 months of card-carrying experience.",
+      "3": "Completed application, either physical or web form",
       "4": "Photocopy of DUI and NIT (front and back)",
       "5": "Proof of current income signed by the company, copy of pay stubs or AFP proof of the last 6 months"
     },
-    "conditions":{
+
+    "conditions": {
       "tittle": "Conditions",
-      "1":"The limit of accumulable points is 1 000,000,000",
-      "2":"Baggage protection will reimburse you up to $3000 for permanently lost baggage and up to $600 for delays of more than 4 hours",
-      "3":"The item covered by the warranty must have an original warranty and in this case the time provided will be doubled by paying a benefit of up to $2,500 per occurrence and an annual total of $5,000",
+      "1": "The limit of accumulable points is 1 000 000 000",
+      "2": "Baggage protection will reimburse you up to $3000 for permanently lost baggage and up to $600 for delays of more than 4 hours",
+      "3": "The item covered by the warranty must have an original warranty and in this case the time provided will be doubled by paying a benefit of up to $2,500 per occurrence and an annual total of $5,000",
       "4": "The bank offers the extra financing for this card, but the offer may vary depending on the credit history, also the term is applied depending on the above mentioned"
     },
-    "benefit-banner":{
+
+    "benefit-banner": {
       "tittle": "Special Benefits",
       "sub-tittle": "Airport Baggage Protection",
       "desc": "This benefit will reimburse you in case you lose your checked baggage"
     }
   },
-  "DebitCard":{
+
+  "DebitCard": {
     "tittle": "Classic Debit",
     "sub-tittle":"Keep control of your money and save",
     "desc": "With the Demantur Classic Debit card you get the expense control you need, you will be able to pay in the different services and businesses without having to carry cash, but you will also be able to access cash through ATMs if you need it. On the other hand, do not hesitate to always have the special benefits that Demantur offers you, we invite you to continue to see the other details below.",
-    "benefit":{
+
+    "benefit": {
       "tittle": "Enjoy the best benefits offered by this card",
-      "1":{
+
+      "1": {
         "tittle": "Pay fast and easy",
         "desc": "The Classic Debit card gives you the ease of always paying even if you don't have cash with you, it's more practical if you prefer to always load your card instead of carrying large amounts of cash"
       },
-      "2":{
+
+      "2": {
         "tittle":"Security and control",
         "desc": "By not loading cash you have the security of not losing it, and if you lose the card, you can cancel it and avoid the loss of the funds stored on it"
       },
-      "3":{
+
+      "3": {
         "tittle": "Savings and efficiency",
         "desc": "By making use of your own funds you do not have to pay interest or fees month to month and at no time accumulate debt with it, save more and maintain the efficiency of your money at all times when you use it"
       }
     },
-    "requirements":{
-      "tittle":"Requirements",
-      "1":"Job stability",
-      "2":"Minimum income of $400 per month",
-      "3":"Completed application, either physical or web form",
+
+    "requirements": {
+      "tittle": "Requirements",
+      "1": "Job stability",
+      "2": "Minimum income of $400 per month",
+      "3": "Completed application, either physical or web form",
       "4": "Photocopy of DUI and NIT (right and back)"
     },
-    "conditions":{
+
+    "conditions": {
       "tittle": "Conditions",
       "1":"To have the purchase alert service with your card you will have to contract it at a later date for a one-time extra charge",
       "2":"The cost of card reissue in case of theft or loss is $4.85 + VAT.",
       "3":"The fee for cash withdrawals at ATMs from the sixth transaction onwards is $0.65 + VAT",
       "4": "The fee for cash withdrawals at ATMs in another local network is $2.65 + VAT per transaction"
     },
-    "benefit-banner":{
+
+    "benefit-banner": {
       "tittle": "Special Benefits",
       "sub-tittle": "Earn points for each of your purchases",
       "desc": "Get 1 point for every $2.00 you spend with your debit card"
     }
   },
-  "ContactPage":{
-   "banner":{
-     "tittle": "Do you want to contact us?",
-     "desc":"Leave your question, comment or suggestion, we are ready to help you"
-   },
-   "tittle": "Write to us at",
-   "desc": "We will receive your query, comment etc., we will evaluate it and then we will solve it, then we will notify you by phone or email giving you the solution. If in any case you are not satisfied with the answer you can contact us again giving us your management number that was given to you previously in the notification in order to continue with your particular case.",
-   "form":{
-     "name": "Full name",
-     "dui":"Number of DUI",
-     "contact":"Contact Number",
-     "email":"Email Address",
-     "management": "Management number (if available)",
-     "desc": "How can we help you?",
-     "button": "Send"
-   }
+
+  "ContactPage": {
+    "banner": {
+      "tittle": "Do you want to contact us?",
+      "desc":"Leave your question, comment or suggestion, we are ready to help you"
+    },
+
+    "tittle": "Write to us",
+    "desc": "We will receive your query, comment etc., we will evaluate it and then we will solve it, then we will notify you by phone or email giving you the solution. If in any case you are not satisfied with the answer you can contact us again giving us your management number that was given to you previously in the notification in order to continue with your particular case.",
+
+    "form": {
+      "name": "Full name",
+      "dui":"Number of DUI",
+      "contact":"Contact Number",
+      "email":"Email Address",
+      "management": "Management number (if you have)",
+      "desc": "How can we help you?",
+      "button": "Send"
+    }
   },
-  "AccountPage":{
+
+  "AccountPage": {
     "tittle": "Accounts",
     "desc": "See our range of possibilities",
     "types": "Account types",
     "button": "Learn More",
-    "Checking":{
+
+    "Checking": {
       "tittle": "Checking Account",
       "desc": "Enjoy immediate liquidity with your debit card or checkbook.",
-      "details":{
+      "details": {
         "1": "Request your checkbook online",
         "2": "Digital Account Statement",
         "3": "International Debit Card"
       }
     },
+
     "Savings":{
       "tittle": "Savings Account",
       "desc": "Have access to your money without restriction of funds 24 hours a day.",
@@ -867,55 +973,56 @@
       }
     }
   },
-  "CheckingPage":{
+
+  "CheckingPage": {
     "tittle": "Checking Account",
     "subtittle": "Enjoy a variety of benefits",
-     "benefit":{
+
+    "benefit": {
       "1": "Order your checkbook online",
-      "2": "Digital Account Statement",
+      "2": "Digital account statement",
       "3": "International Debit Card"
-     },
-     "requirements":{
+    },
+
+    "requirements":{
       "tittle": "Requirements and conditions",
       "subtittle": "Requirements",
       "1": "NIT in good condition.",
       "2": "DUI, resident card or passport with updated information, current and in good condition.",
       "3": "Minimum opening from $200.",
       "button": "Request"
-     }
+    }
   },
-  "imagen":{
-    "foto":"https://media.discordapp.net/attachments/861438024659501087/1017247575801348167/unknown.png",
-    "foto2":"https://media.discordapp.net/attachments/861438024659501087/1017248644367405056/unknown.png",
-    "foto3":"https://media.discordapp.net/attachments/861438024659501087/1017249151521652796/unknown.png",
-    "foto4":"https://media.discordapp.net/attachments/861438024659501087/1017250187183407225/unknown.png",
-    "foto5":"https://media.discordapp.net/attachments/861438024659501087/1017285369978425434/paso5.png"
-  },
-  "SavingPage":{
+
+  "SavingPage": {
     "tittle": "Savings Account",
     "subtittle": "Enjoy a variety of benefits",
     "button": "Request",
-    "benefit":{
+
+    "benefit": {
       "1": "Immediate availability",
       "2": "Demantur debit card",
       "3": "Control your movements 24/7"
-     },
-     "requirements":{
+    },
+
+    "requirements": {
       "tittle": "Requirements and conditions",
       "subtittle": "Requirements",
       "1": "Minimum opening from US$25.00",
       "2": "DUI, resident card or passport with updated information, current and in good condition",
       "3": "NIT"
-     },
-     "conditions":{
+    },
+
+    "conditions": {
       "tittle": "Conditions",
       "1": "Applies to natural person",
       "2": "Minimum opening amount: $25.00",
       "3": "Interest rate according to table published on the 1st of each month."
-     }
+    }
   },
-  "DashboardNormalUser":{
-    "SideBar":{
+
+  "DashboardNormalUser": {
+    "SideBar": {
       "1": "Home",
       "2": "Accounts",
       "3": "Transfers",
@@ -924,16 +1031,19 @@
       "6": "Cards",
       "7": "Log Out"
     },
+
     "Dropdown":{
       "tittle": "Select"
     },
+
     "Setting":{
       "tittle": "Settings",
       "desc": "Profile Picture",
       "button": "Change",
       "language": "Language"
     },
-    "Home":{
+
+    "Home": {
       "balance": "Net Balance:",
       "information": "Personal Information",
       "name": "Name:",
@@ -941,7 +1051,8 @@
       "email": "Email:",
       "cards": "Cards",
       "loan": "Loan",
-      "transfers2": "There is no transfer",
+      "transfers2": "There is no transfer history yet",
+
       "transfers": {
         "tittle": "Latest Transfers",
         "tittle2": "Made",
@@ -952,62 +1063,73 @@
         "account": "Account number",
         "date": "Date"
       },
+
       "contact": {
         "tittle": "Contact List",
         "desc": "No further contacts",
         "desc2": "You have no contacts"
       }
     },
-    "Transfers":{
+
+    "Transfers": {
       "tittle": "Contacts",
       "desc": "Select a contact to transfer",
       "desc2": "No transfers have been made",
       "desc3": "You have no contacts added",
       "input": "Search...",
-      "form":{
+
+      "form": {
         "balance": "Balance",
         "option": "Select Account...",
         "button": "Transfer",
         "placeholder": "Enter Amount..."      
       }
     },
-    "Loans":{
-      "tittle": "Apply for your Credit",
-      "tittle2": "Your Active Credits",
+
+    "Loans": {
+      "tittle": "Apply for your credit",
+      "tittle2": "Your active credits",
       "tittle3": "Loans",
-      "desc": "You have an Application in progress",
+      "desc": "You have an application in progress",
       "button": "Request",
       "button2": "View details",
-      "1":{
+
+      "1": {
         "tittle": "Personal Credit",
         "desc": "Enjoy your new life with the best conditions. We facilitate the procedures for you to carry out your projects with our Personal Credit.",
         "desc2": "We provide solutions to your financial needs. Preferential Personal Loans for employees. We are the only ones that do not charge you commission."
       },
-      "2":{
-        "tittle": "Credito Empresa",
+
+      "2": {
+        "tittle": "Business Credit",
         "desc": "If you work in your own business, we provide it with special conditions for you to consolidate your debts or carry out your new projects.",
         "desc2": "Special for you to consolidate your debts or carry out your new projects or improve the conditions of your company or enterprise."
       },
-      "3":{
+
+      "3": {
         "tittle": "Demantur Housing",
         "desc": "Take advantage of preferential conditions to apply for the loans you need to be able to purchase your new or used home.",
         "desc2": "We offer you a tailor-made credit for the construction or purchase of your home. Get the house you want thanks to our long term declining credit secured by a mortgage."
       },
-      "4":{
+
+      "4": {
         "tittle": "Auto Demantur",
         "desc": "Change your lifestyle with our decreasing credit for the purchase of new or used vehicle.",
         "desc2": "We listen to you, we understand your needs and we offer you the most suitable plan for your project."
       },
-      "form":{
+
+      "form": {
         "tittle1": "Salary Range",
         "tittle2": "Employment Status",
         "tittle3": "Photocopy of DUI (Front)",
         "tittle4": "Photocopy of DUI (Rear)",
         "tittle5": "Proof of salary",
-        "UserElementsSalary":{
+        
+        "UserElementsSalary": {
           "1": "onwards"
         },
-        "LaboralStatus":{
+
+        "LaboralStatus": {
           "1": "Employed",
           "2": "Unemployed",
           "3": "Student",
@@ -1015,27 +1137,31 @@
         }
       }
     },
-    "Contacts":{
+
+    "Contacts": {
       "tittle": "Your Contacts",
       "tittle2": "Added",
-      "tittle3": "Earrings",
+      "tittle3": "Pending",
       "tittle4": "Requests",
       "tittle5": "Add Contact",
       "desc": "No concidence",
       "search": "Full Name",
-      "YourContacts":{
+
+      "YourContacts": {
         "name": "Name:",
         "dui": "DUI:",
         "button": "Delete",
         "desc": "You have no contacts added"
       },
-      "Pending":{
+
+      "Pending": {
         "name": "Name:",
         "dui": "DUI:",
         "button": "Cancel",
         "desc": "No pending requests made"
       },
-      "YourFriendReq":{
+
+      "YourFriendReq": {
         "name": "Name:",
         "dui": "DUI:",
         "button1": "Accept",
@@ -1043,40 +1169,47 @@
         "desc": "No pending requests"
       }
     },
-    "Cards":{
+
+    "Cards": {
       "tittle": "Apply for your credit card",
       "tittle2": "Your cards",
       "sub-tittle": "Credit",
       "sub-tittle2": "Debit",
-      "desc": "You have an Application in progress",  
+      "desc": "You have an application in progress",  
       "button": "View details",
-      "1":{
+
+      "1": {
         "desc": "Necessary benefits for your daily life, with it you have a secure payment method to use in stores, online shopping, etc.",
         "desc2": "The Demantur Classic credit card provides you with the necessary benefits for your day to day life, with it you have a secure payment method to use in stores, online purchases, etc. In addition, you have immediate cash withdrawal at national ATMs, find more detailed information on our website."
       },
-      "2":{
+
+      "2": {
         "desc": "Obtain numerous benefits that adapt to your needs with great flexibility and comfort.",
         "desc2": "Are you looking for a card that allows you to enjoy great benefits anywhere and anytime? If so, the Demantur Platinum card is for you, get numerous benefits that adapt to your needs with great flexibility. You can travel, buy whatever you want and have the security you need for each of your purchases, check out many more benefits on our website."
       },
-      "3":{
+
+      "3": {
         "desc": "Get that backing you deserve with a lot of possibilities and superior benefits at any time.",
         "desc2": "Get many more possibilities, superior benefits and a higher level of purchase and cash with the Demantur Gold card, with it you will always have that quality backing and greater security, confidence and that backing you deserve. Demantur Gold is designed for those people like you, who are always looking for that exigency and good level in a credit card."
       },
-      "4":{
+
+      "4": {
         "desc": "Enjoy a world without limits and full of what you deserve, get benefits, prestige and recognition with a great capacity.",
         "desc2": "When we talk about the Mastercard Black card we are aware that it is something superior, get that prestige, recognition, exclusivity and obviously some wonderful benefits that only this card is able to give you, live a world full of possibilities and dreams, travel, extrafinanciameitos, protections, assistance, VIP lounges, among many other things with which to enjoy life to the fullest."
-      }
-      ,
-      "form":{
+      },
+
+      "form": {
         "tittle1": "Salary Range",
         "tittle2": "Employment Status",
         "tittle3": "Photocopy of DUI (Front)",
         "tittle4": "Photocopy of DUI (Rear)",
         "tittle5": "Proof of salary",
         "button": "Request",
+
         "UserElementsSalary":{
           "1": "onwards"
         },
+
         "LaboralStatus":{
           "1": "Employed",
           "2": "Unemployed",
@@ -1087,4 +1220,3 @@
     }
   }
 }
-

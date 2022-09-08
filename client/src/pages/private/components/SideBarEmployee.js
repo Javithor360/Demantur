@@ -6,8 +6,9 @@ import {
 } from "react-icons/md";
 import { GoChecklist } from "react-icons/go";
 import { BsCreditCardFill } from "react-icons/bs";
-import { IoIosCash } from "react-icons/io"; 
+import { IoIosCash } from "react-icons/io";
 import { useDash } from "../../../context/DashboardContext";
+import { useNavigate } from "react-router-dom";
 
 const NavLinkStyles =
   "menu-item2 mb-2 h-14 flex flex-row w-full rounded items-center";
@@ -21,6 +22,7 @@ const SideBarImages = require.context("./assets/img/", true);
 
 export const SideBar = () => {
   const { Option, setOption, setOptionElement } = useDash();
+  const navigate = useNavigate()
 
   return (
     <>
@@ -141,7 +143,7 @@ export const SideBar = () => {
         </div>
 
         <div className="flex justify-center w-full pb-4">
-          <button className="logout-button2 flex items-center justify-center rounded w-[85%]" onClick={() => localStorage.removeItem('employeeToken')}>
+          <button className="logout-button2 flex items-center justify-center rounded w-[85%]" onClick={() => { localStorage.removeItem('employeeToken'); navigate('/index') }}>
             <div className="flex items-center mr-2 logout-icon">
               <MdOutlineLogout />
             </div>

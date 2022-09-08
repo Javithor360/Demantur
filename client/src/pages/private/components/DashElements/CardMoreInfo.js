@@ -21,7 +21,7 @@ export const CardMoreInfo = () => {
   const RenderEl = () => {
     switch (ChangeElements) {
       case 1:
-        return <LoadingComp><PayCC CardsParametros={CardsParametros} /></LoadingComp>
+        return <LoadingComp><PayCC CardsParametros={CardsParametros} setChangeElements={setChangeElements} /></LoadingComp>
       case 2:
         return <LoadingComp><PaymentHCC CardsParametros={CardsParametros} /></LoadingComp>
       case 3:
@@ -56,7 +56,7 @@ export const CardMoreInfo = () => {
     }
   }, [CardsParametros]);
 
-  const ImageDebitCard = 'https://res.cloudinary.com/demantur/image/upload/v1662508234/bank_card_images/debitCard_rt6xxj.png'
+  const ImageDebitCard = 'https://res.cloudinary.com/demantur/image/upload/v1662595386/bank_card_images/debitoClasica_h4vrfu.png'
 
   return (
     <>
@@ -133,7 +133,7 @@ export const CardMoreInfo = () => {
                 CardsParametros.CardType != null ?
                   // tarjeta de credito
                   <>
-                    
+
                     <div className="w-100 h-[90%] mt-4 flex-col items-start justify-start">
                       <div className="h-[10%] table mb-0">
                         <p className="text-[2.6rem] table-cell text-center text-[#323643] align-middle">Tarjeta de credito</p>
@@ -165,7 +165,7 @@ export const CardMoreInfo = () => {
                                 </div>
                               </div>
                             </div>
-                            
+
 
                             <div className="w-full h-[35rem] mb-5 rounded-xl">
                               <div className="border-cover-2 flex flex-row items-center justify-center text-center w-100 h-[10%] w-full bg-[#f7f7f7] rounded-lg shadow-sm">
@@ -178,7 +178,7 @@ export const CardMoreInfo = () => {
                                 <div className="w-[33.3%]">
                                   <span className={`w-fit mx-auto cursor-pointer pb-1 ${ChangeElements === 3 && 'border-act'}`} onClick={() => { setChangeElements(3) }}>Historial de Gastos</span>
                                 </div>
-                                
+
                               </div>
                               <div className="h-fit pb-5 rounded-lg mt-5 w-[95%] mx-auto">
                                 {RenderEl()}
@@ -201,8 +201,8 @@ export const CardMoreInfo = () => {
                         <div className="w-[35%] p-5 flex items-center justify-center relative">
                           <div className="h-[80%] w-[1.5px] bg-[#989398] right-0 absolute"></div>
                           <div className="w-full h-[80%] flex flex-col text-center items-center">
-                              <h3 className="mb-6">Tarjeta de débito clásica</h3>
-                              <img src={ImageDebitCard} alt="tarjeta" className="w-[85%] mx-auto block" />
+                            <h3 className="mb-6">Tarjeta de débito clásica</h3>
+                            <img src={ImageDebitCard} alt="tarjeta" className="w-[85%] mx-auto block" />
                           </div>
                         </div>
                         <div className="w-[65%] h-[90%] relative overflow-y-auto mb-5">
@@ -228,8 +228,8 @@ export const CardMoreInfo = () => {
                               <p className="text-center text-[1.3rem] text-[#6C757D] font-semibold">Historial de gastos</p>
                               <div className="h-[25rem] overflow-y-auto scroll-cards border-cover-2 rounded-lg">
                                 {
-                                CardsParametros.SpentHistory.length !== 0 ?
-                                <>
+                                  CardsParametros.SpentHistory.length !== 0 ?
+                                    <>
                                       {
                                         CardsParametros.SpentHistory.map((el) => {
                                           let time = new Date(el.RealizationDate)
@@ -251,14 +251,14 @@ export const CardMoreInfo = () => {
                                     :
                                     <>
                                       <div className='h-full flex flex-col justify-center items-center'>
-                                        <img src={ no_history_CC } alt="" className='w-[6.25rem] mb-3' />
+                                        <img src={no_history_CC} alt="" className='w-[6.25rem] mb-3' />
                                         <p className="text-[#606470] text-[1.2rem]">Aun no tiene ningun gasto realizado</p>
                                       </div>
                                     </>
                                 }
                               </div>
                             </div>
-                            
+
                           </div>
                         </div>
                       </div>

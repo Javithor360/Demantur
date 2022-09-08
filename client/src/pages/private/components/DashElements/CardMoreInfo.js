@@ -56,7 +56,7 @@ export const CardMoreInfo = () => {
     }
   }, [CardsParametros]);
 
-  const ImageDebitCard = 'https://res.cloudinary.com/demantur/image/upload/v1662508234/bank_card_images/debitCard_rt6xxj.png'
+  const ImageDebitCard = 'https://res.cloudinary.com/demantur/image/upload/v1662595386/bank_card_images/debitoClasica_h4vrfu.png'
 
   return (
     <>

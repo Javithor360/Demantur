@@ -155,7 +155,7 @@
 }
 .individual-req-grid_6{
     display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-columns: 22% 18% 20% 18% 22%;
 }
 .grid-layout_4{
     display: grid;
@@ -198,7 +198,9 @@
 img-req-hover:hover{
     cursor: pointer;
 }
-
+.border-cover__4{
+    border: 1px solid #DFDFDF;
+}
 @media (min-width: 1920px) {
     .Image-modal img{
         width: 57.5rem;

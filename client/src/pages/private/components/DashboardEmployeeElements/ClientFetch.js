@@ -32,13 +32,17 @@ export const ClientFetch = () => {
                     <div className='cards-employee flex flex-col px-5 py-5 overflow-x-hidden overflow-y-auto'>
                         <h1 className='text-center'>Buscar información de cliente</h1>
                         <div className='content-search'>
-                        {Error !== '' && <h5 className='err'>{Error}</h5>}
-                        <form onSubmit={handleForm}>
-                            <label className='search' htmlFor="Client">Número de DUI</label>
-                            <Cleave className='search-input' placeholder='' type="text" id="Client" name="Client" onChange={(e) => { setClient(e.target.value) }} value={Client} options={{ blocks: [6, 1], delimiter: "-", numericOnly: true }} />
+                            {Error !== '' && <h5 className='err'>{Error}</h5>}
+                            <form onSubmit={handleForm} className="w-full flex flex-row items-center">
+                                <div className='flex flex-row w-[100%]'>
+                                    <label className='search w-[45%]' htmlFor="Client">Número de DUI</label>
+                                    <Cleave className='search-input w-[60%]' placeholder='' type="text" id="Client" name="Client" onChange={(e) => { setClient(e.target.value) }} value={Client} options={{ blocks: [6, 1], delimiter: "-", numericOnly: true }} />
+                                </div>
+                                <div className='w-[30%]'>
+                                    <button className='buttonk' type="submit">Obtener datos</button>
+                                </div>
 
-                            <button className='buttonk' type="submit">Obtener datos</button>
-                        </form>
+                            </form>
                         </div>
                     </div>
                     :

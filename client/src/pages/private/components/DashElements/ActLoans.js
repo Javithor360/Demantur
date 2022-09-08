@@ -72,8 +72,10 @@ export const ActLoans = () => {
 
   const UserElementsSalary = ['$450 y $499', '$500 y $999', '$700 y $1200', <span> {t("DashboardNormalUser.Loans.form.UserElementsSalary.1")}</span>,]
   const UserTimeLoan = [`1 año`, `2 años`, `3 años`, `4 años`, '5 años']
-  const UserElementAmount = ['$300', '$500', '$999', '$1200', '$1500', 'Otro tipo de monto',]
-  const BusinessElementAmount = ['$1000', '$1400', '$1600', '$1800', '$2000', 'Otro tipo de monto']
+  const UserElementAmount = ['$400', '$600', '$999', '$1300', '$1500', 'Otro tipo de monto',]
+  const BusinessElementAmount = ['$2000', '$2300', '$2600', '$2900', '$3200', 'Otro tipo de monto',]
+  const HouseLoanAmount =  ['$2000', '$2200', '$2600', '$2800', '$3000', 'Otro tipo de monto',]
+  const CarLoanAmount =  ['$1400', '$1800', '$2200', '$2400', '$2600', 'Otro tipo de monto',]
   const MyAccounts = SavingAccounts.map((el) => { return el.accountNumber })
 
 
@@ -316,7 +318,19 @@ export const ActLoans = () => {
               <div className='h-[70%] mr-5 '>
                 <p className='text-[1.1rem] text-[#606470]'>Monto a Solicitar</p>
                 <div className='h-[2.5rem] w-[15rem]'>
-                  <Dropdown setElement={setAmountrequest} elements={UserElementAmount} Elemento={Amountrequest} />
+                  {
+                    parametros.LoanId === 0 ?
+                    <Dropdown setElement={setAmountrequest} elements={UserElementAmount} Elemento={Amountrequest} />
+                    :
+                    parametros.LoanId === 1 ?
+                    <Dropdown setElement={setAmountrequest} elements={BusinessElementAmount} Elemento={Amountrequest} />
+                    : 
+                    parametros.LoanId === 2 ?
+                    <Dropdown setElement={setAmountrequest} elements={HouseLoanAmount} Elemento={Amountrequest} />
+                    :
+                    <Dropdown setElement={setAmountrequest} elements={CarLoanAmount} Elemento={Amountrequest} />
+                    }
+
                 </div>
               </div>
 
@@ -441,33 +455,30 @@ export const ActLoans = () => {
         LoanDescription: <span>{t("DashboardNormalUser.Loans.1.desc")}</span>,
         LoanDescription2: <span>{t("DashboardNormalUser.Loans.1.desc2")}</span>,
         LoanImage: './personal_loan.jpg',
-        LoanImage2: './PersonalRequire.jpg',
-        LoanId: 1
+        LoanImage2: './PersonalRequire.jpg'
+
       },
       {
         LoanName: <span>{t("DashboardNormalUser.Loans.2.tittle")}</span>,
         LoanDescription: <span>{t("DashboardNormalUser.Loans.2.desc")}</span>,
         LoanDescription2: <span>{t("DashboardNormalUser.Loans.2.desc2")}</span>,
         LoanImage: './business_loan.jpg',
-        LoanImage2: './RequireLoan.jpg',
-        LoanId: 2
+        LoanImage2: './RequireLoan.jpg'
+
       },
       {
         LoanName: <span>{t("DashboardNormalUser.Loans.3.tittle")}</span>,
         LoanDescription: <span>{t("DashboardNormalUser.Loans.3.desc")}</span>,
         LoanDescription2: <span>{t("DashboardNormalUser.Loans.3.desc2")}</span>,
         LoanImage: './House.jpg',
-        LoanImage2: './HousinRequire.jpg',
-        LoanId: 3
+        LoanImage2: './HousinRequire.jpg'
       },
       {
         LoanName: <span>{t("DashboardNormalUser.Loans.4.tittle")}</span>,
         LoanDescription: <span>{t("DashboardNormalUser.Loans.4.desc")}</span>,
         LoanDescription2: <span>{t("DashboardNormalUser.Loans.4.desc2")}</span>,
         LoanImage: './CarDemantur.jpg',
-        LoanImage2: './AutoRequire.jpg',
-        LoanId: 4
-
+        LoanImage2: './AutoRequire.jpg'
       }
     ]
 

@@ -8,11 +8,14 @@ import { useEmpConx } from "../../context/EmployeeContext";
 
 export const DashboardEmployee = () => {
   const { Option, SettingsOption, GeneralInfoQuery } = useDash();
-
+  const [Chargin, setChargin] = useState(true);
   const { EmployeeInfoQuery } = useEmpConx();
 
   useEffect(() => {
     EmployeeInfoQuery(localStorage.getItem("employeeToken"));
+    setTimeout(() => {
+      setChargin(false);
+    }, 1500);
   }, []);
 
   const DisplayElementEmployee = () => {
@@ -37,7 +40,11 @@ export const DashboardEmployee = () => {
   };
   return (
     <>
-
+      {Chargin === true && (
+        <div className="container-texts">
+          <span className="loader2"></span>
+        </div>
+      )}
       <div className="w-screen h-screen bg-[#396EB0] relative">
         <div className="w-full h-2/5 bg-[#F1F1F1] absolute fondo"></div>
         <div className="absolute flex items-center justify-center w-full h-full">

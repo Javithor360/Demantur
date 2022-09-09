@@ -5,6 +5,8 @@ import { FooterAuth } from '../../../components'
 import { useAuth } from '../../../context/AuthContext';
 import "../assets/scss/employeelogin.scss";
 import { useTranslation } from "react-i18next";
+import { VscLoading } from 'react-icons/vsc'
+
 export const EmployeeLoginPage = () => {
     const { t } = useTranslation();
     let navigate = useNavigate();
@@ -12,22 +14,25 @@ export const EmployeeLoginPage = () => {
 
     const [Email, setEmail] = useState('');
     const [Password, setPassword] = useState('');
-
+    const [Chargin, setChargin] = useState(false);
     const [Error, setError] = useState('');
 
     const handleForm = async(e) => {
         e.preventDefault();
         try {
+            setChargin(true);     
             const data = await axios.post('http://localhost:4000/api/auth/employee/login', { Email, Password }, configPublic);
             if(data) {
                 localStorage.setItem('employeeToken', data.data.token)
                 setTimeout(() => {
+                    setChargin(true);
                     navigate('/employee/home');
                 }, 3000)
             }
             console.log(data);
         } catch (error) {
             setError(error.response.data.error);
+            setChargin(false);
         }
     }
 
@@ -51,7 +56,18 @@ export const EmployeeLoginPage = () => {
                                 <label className='labelt' htmlFor="Email">{t("loginemple.password")}</label>
                                 </div>
                             </div>
-                            <button type='submit' className='style-buttont mx-auto block'>Iniciar sesión</button>
+                            <button type='submit' className='style-buttont mx-auto block' disabled={Chargin}>
+                            {
+                                Chargin === true ?
+                                <>
+                                    <VscLoading className="animate-spin" />
+                                </>
+                                :
+                                <>
+                                    <span>Inicia Sesión</span>
+                                </>
+                            }
+                            </button>
                         </form>
                     </div>
                 </div>

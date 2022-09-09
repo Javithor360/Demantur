@@ -5,7 +5,7 @@ import {
   MdRequestQuote
 } from "react-icons/md";
 import { GoChecklist } from "react-icons/go";
-import { BsCreditCardFill } from "react-icons/bs";
+import { BsCreditCardFill, BsCreditCard2BackFill } from "react-icons/bs";
 import { IoIosCash } from "react-icons/io";
 import { useDash } from "../../../context/DashboardContext";
 import { useNavigate } from "react-router-dom";
@@ -151,7 +151,7 @@ export const SideBar = () => {
               }
             >
               <div className={DivNavLinkStyles}>
-                <AiOutlineSearch className={IconNavLinkStyles} />
+                <BsCreditCard2BackFill className={IconNavLinkStyles} />
               </div>
               <span className={SpanNavLinkStyles}>Acciones Tarjeta</span>
             </div>

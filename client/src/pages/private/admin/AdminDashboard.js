@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { SideBar } from './SideBar-Admin';
 import { useDash } from "../../../context/DashboardContext";
 
@@ -10,8 +10,12 @@ const Logo = require.context("../assets/img/logo", true);
 export const AdminDashboard = () => {
 
   const { Option, SettingsOption, GeneralInfoQuery} = useDash();
+  const [Chargin, setChargin] = useState(true);
 
-
+  setTimeout(() => {
+    setChargin(false);
+  }, 1500);
+  
   const DisplayElementEmployee = () => {
     switch (Option) {
       case 1:
@@ -26,7 +30,11 @@ export const AdminDashboard = () => {
   };
   return (
     <>
-      
+      {Chargin === true && (
+        <div className="container-texts">
+          <span className="loader3"></span>
+        </div>
+      )}
       <div className="w-screen h-screen bg-[#F1F1F1] relative">
         <div className="w-full h-2/5 bg-[#7c85a1] absolute fondo"></div>
         <div className="absolute flex items-center justify-center w-full h-full">

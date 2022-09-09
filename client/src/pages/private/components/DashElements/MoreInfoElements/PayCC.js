@@ -3,11 +3,12 @@ import React, { useEffect, useState } from 'react'
 import { useDash } from '../../../../../context/DashboardContext';
 import { IoMdArrowDropdown as ArrowDown } from 'react-icons/io'
 import no_debt_CC from '../../assets/img/cards-icons/no_debt_CC.png'
+import { VscLoading } from 'react-icons/vsc'
 
 export const PayCC = ({ CardsParametros, setChangeElements }) => {
 
   const { SavingAccounts, PayCCDebt } = useDash()
-
+  const [Chargin, setChargin] = useState(false);
   const [SpentAmount, SetSpentAmount] = useState(null);
   const [IsSelect, setIsSelect] = useState(false);
   const [NumberAccount, setNumberAccount] = useState('');
@@ -21,6 +22,10 @@ export const PayCC = ({ CardsParametros, setChangeElements }) => {
     }
   }, [SpentAmount]);
 
+  setTimeout(() => {
+    setChargin(false)
+  }, 2000);
+  
   const HandlePay = async () => {
     if (NumberAccount === '') {
       setError('Por favor seleccione su cuenta')
@@ -29,6 +34,7 @@ export const PayCC = ({ CardsParametros, setChangeElements }) => {
       }, 1500)
     } else {
       try {
+        setChargin(true)
         console.log(AmountToPay)
         const res = await PayCCDebt(localStorage.getItem('authToken'), NumberAccount, AmountToPay)
         if (res?.data?.data) {
@@ -99,11 +105,20 @@ export const PayCC = ({ CardsParametros, setChangeElements }) => {
                 </div>
               </div>
               <div className='h-fit w-fit'>
-                <button className="py-[.5rem] px-[1rem] border-none outline-none bg-[#323643] text-white rounded-md" onClick={HandlePay}>Pagar</button>
+                <button className="py-[.5rem] px-[1rem] border-none outline-none bg-[#323643] text-white rounded-md" onClick={HandlePay}>
+                  {
+                    Chargin === true ?
+                      <>
+                        <VscLoading className="animate-spin" />
+                      </>
+                      :
+                      <>
+                        <span>Pagar</span>
+                      </>
+                  }
+                </button>
               </div>
-
             </div>
-
           </>
           :
           <>

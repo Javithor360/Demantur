@@ -43,20 +43,24 @@ export const Deposits = () => {
 
         try {
 
-            const res = await axios.post('http://localhost:4000/api/employee/get-user-data', { AccountNumber: AccNumber });
-            setFormData(
-                {
-                    uFullName: `${res.data.data.FirstName} ${res.data.data.LastName}`,
-                    uPfp: res.data.data.PerfilPhoto.url,
-                    uAcc: AccNumber,
-                    eId: Info.EmployeeId,
-                    eDbId: Info._id,
-                    eFullName: `${Info.FirstNames} ${Info.LastNames}`,
-                    client: res.data.data._id,
-                    amount: Amount,
-                }
-            );
-            toggle();
+            if (Amount != 0) {
+                const res = await axios.post('http://localhost:4000/api/employee/get-user-data', { AccountNumber: AccNumber });
+                setFormData(
+                    {
+                        uFullName: `${res.data.data.FirstName} ${res.data.data.LastName}`,
+                        uPfp: res.data.data.PerfilPhoto.url,
+                        uAcc: AccNumber,
+                        eId: Info.EmployeeId,
+                        eDbId: Info._id,
+                        eFullName: `${Info.FirstNames} ${Info.LastNames}`,
+                        client: res.data.data._id,
+                        amount: Amount,
+                    }
+                );
+                toggle();
+            } else {
+                setError('la cantidad no es valida')
+            }
         } catch (error) {
             console.error(error);
             setError(error.response.data.error);
@@ -93,8 +97,12 @@ export const Deposits = () => {
                             <label className='mt-3 text-[1.2rem] font-semibold mb-2 text-[#323643]' htmlFor="Amount">Monto a depositar:</label>
                             {/* <hr className='separatee__1 mb-3 h-[.2rem]' /> */}
                             <Cleave className='w-[70%] border-none outline-none px-2' options={{ numeral: true, numeralThousandsGroupStyle: 'thousand' }} id="Amount" name='Amount' onChange={(e) => {
-                                if (e.target.value !== '') {
-                                    setAmount(parseFloat(e.target.value.replace(/,/g, '')))
+                                if (e.target.value !== '' && !e.target.value.includes('-')) {
+                                    if (e.target.value.includes(',')) {
+                                        setAmount(parseFloat(e.target.value))
+                                    } else {
+                                        setAmount(parseFloat(e.target.value.replace(/,/g, '')))
+                                    }
                                 }
                             }} value={Amount} autoComplete='off' />
                         </div>

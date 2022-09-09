@@ -562,23 +562,25 @@ const SimulateCard = async (req, res, next) => {
         const DebitCard = await DebitCardModel.findOne({ CardNumber: CardNumber })
 
         if (CreditCard) {
-            console.log('happens 1');
+
             if (Gasto > CreditCard.MaxCardAmount) {
                 return next(
                     new ErrorResponse("El monto excede el balance.", 400, "error")
                 )
-            }
-            let dateNow = new Date()
+            } else {
+                let dateNow = new Date()
 
-            CreditCard.MaxCardAmount = CreditCard.MaxCardAmount - Gasto
-            CreditCard.PayableAmount = CreditCard.PayableAmount + Gasto
-            CreditCard.SpentHistory.push({ RealizationDate: dateNow, Amount: Gasto })
-            CreditCard.save()
-            res.status(200).json({ success: true })
+                CreditCard.MaxCardAmount = CreditCard.MaxCardAmount - Gasto
+                CreditCard.PayableAmount = (parseFloat(CreditCard.PayableAmount) + parseFloat(Gasto))
+                CreditCard.SpentHistory.push({ RealizationDate: dateNow, Amount: Gasto })
+                CreditCard.save()
+                res.status(200).json({ success: true })
+            }
+
 
         } else if (DebitCard) {
             const Cuenta = await SavingsAccount.findOne({ accountNumber: DebitCard.NumberAcountOf })
-            const bc = parseFloat(Cuenta.balance.$numberDecimal).toFixed(2)
+            let bc = parseFloat(Cuenta.balance)
             if (Gasto > bc) {
                 return next(
                     new ErrorResponse("El monto excede el balance de la cuenta", 400, "error")

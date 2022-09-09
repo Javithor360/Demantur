@@ -145,7 +145,7 @@ export const SideBar = () => {
                 setOptionElement("Acciones Tarjetas");
               }}
               className={
-                Option === 6
+                Option === 7
                   ? `${NavLinkStyles} menu-item2 menu-item-selected2`
                   : `${NavLinkStyles} menu-item2`
               }

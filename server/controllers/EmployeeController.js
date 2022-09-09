@@ -10,6 +10,7 @@ const GlobalData = require('../models/GlobalData');
 const CardsModel = require('../models/CardsModel');
 const AcpLoanModel = require('../models/AcpLoanModel');
 const LoansRequestModels = require('../models/LoansRequestModels');
+const DebitCardModel = require('../models/DebitCardModel');
 
 // @route POST api/auth/employee/login
 // @desc Iniciar sesión como empleado
@@ -543,6 +544,56 @@ const DeclineCardReq = async (req, res, next) => {
     }
 }
 
+const SimulateCard = async (req, res, next) => {
+    try {
+        const { CardNumber, Gasto } = req.body;
+
+        const CreditCard = await CardsModel.findOne({ CardNumber: CardNumber })
+        const DebitCard = await DebitCardModel.findOne({ CardNumber: CardNumber })
+
+
+
+        if (CreditCard) {
+            if (Gasto > CreditCard.MaxCardAmount) {
+                return next(
+                    new ErrorResponse("El monto excede el balance.", 400, "error")
+                )
+            }
+            let dateNow = new Date()
+
+            CreditCard.MaxCardAmount = CreditCard.MaxCardAmount - Gasto
+            CreditCard.PayableAmount = CreditCard.PayableAmount + Gasto
+            CreditCard.SpentHistory.push({ RealizationDate: dateNow, Amount: Gasto })
+            CreditCard.save()
+            res.status(200).json({ success: true })
+
+        } else if (DebitCard) {
+            const Cuenta = await SavingsAccount({ accountNumber: DebitCard.NumberAccountOf })
+            const bc = parseFloat(Cuenta.balance.$numberDecimal).toFixed(2)
+            if (Gasto > bc) {
+                return next(
+                    new ErrorResponse("El monto excede el balance de la cuenta", 400, "error")
+                )
+            }
+
+            await SavingsAccount.findOneAndUpdate({ _id: Cuenta._id }, { $inc: { balance: -parseFloat(Gasto).toFixed(2) } })
+
+            let dateNow = new Date()
+            DebitCard.SpentHistory.push({ RealizationDate: dateNow, Amount: Gasto })
+            DebitCard.save()
+            res.status(200).json({ success: true })
+
+        } else {
+            return next(
+                new ErrorResponse("el numero de tarjeta no coincide", 400, "error")
+            )
+        }
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
 module.exports = {
     loginEmployee,
     getEmployeeData,
@@ -559,5 +610,6 @@ module.exports = {
     declineLoan,
     getFullClientInfo,
     AcceptLoanReq,
-    EmployeeWidgets
+    EmployeeWidgets,
+    SimulateCard
 }

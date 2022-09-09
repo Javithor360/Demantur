@@ -54,7 +54,7 @@ export const ActLoansMoreInf = ({ setChangeBox2, setMyLoan, MyLoan, LoanImage })
               <div className=" w-full">
                 <div className="flex flex-col gap-3 w-fit mx-auto">
                   <span><strong className="text-[#323643]">Monto Prestado: </strong>${MyLoan.amounts.initial_amount}</span>
-                  <span><strong className="text-[#323643]">Monto por pagar: </strong>${MyLoan.amounts.remainder}</span>
+                  <span><strong className="text-[#323643]">Monto por pagar: </strong>${MyLoan.amounts.remainder.toFixed(2)}</span>
                 </div>
               </div>
               <div className=" w-full">

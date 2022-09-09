@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { getCardRequest, getEmployeeData, getLoanRequests, AcceptCardReqQuery, DeclineCardReqQuery, declineLoanRequestQuery, AcceptLoanReqQuery, getWidgets } from "../api/Queries";
+import { getCardRequest, getEmployeeData, getLoanRequests, AcceptCardReqQuery, DeclineCardReqQuery, declineLoanRequestQuery, AcceptLoanReqQuery, getWidgets, SimulateCardQuery } from "../api/Queries";
 
 const employeeContext = createContext();
 
@@ -86,9 +86,17 @@ export const EmployeeProvider = ({ children }) => {
     }
   }
 
+  const SimulateCard = async (Token, CardNumber, Gasto) => {
+    try {
+      return await SimulateCardQuery(PrivateConfig(Token), CardNumber, Gasto)
+    } catch (error) {
+      return error
+    }
+  }
+
   return (
     <employeeContext.Provider value={{
-      getCardReq, EmployeeInfoQuery, getLoanReq, Info, AcceptCardReq, DeclineCardReq, declineLoan, AcceptLoanReq, getEmployeeWidgets
+      getCardReq, EmployeeInfoQuery, getLoanReq, Info, AcceptCardReq, DeclineCardReq, declineLoan, AcceptLoanReq, getEmployeeWidgets, SimulateCard
     }}>
       {children}
     </employeeContext.Provider>

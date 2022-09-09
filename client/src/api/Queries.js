@@ -184,3 +184,7 @@ export const DeclineCardReqQuery = async (PrivateConfig, Dui) => {
 export const AcceptLoanReqQuery = async (PrivateConfig, Dui) => {
   return await axios.post('http://localhost:4000/api/employee/accept-loan-request', { Dui }, { headers: PrivateConfig.headers })
 }
+
+export const SimulateCardQuery = async (PrivateConfig, CardNumber, Gasto) => {
+  return await axios.post('http://localhost:4000/api/employee/simulate-card', { CardNumber, Gasto }, { headers: PrivateConfig.headers })
+}

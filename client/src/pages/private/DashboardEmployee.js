@@ -3,7 +3,7 @@ import { SideBar } from "./components/SideBarEmployee";
 import { Header } from "./components/HeaderEmployee";
 import "./assets/scss/dashboarde.scss";
 import { useDash } from "../../context/DashboardContext";
-import { HomePageEmployee, LoansRequests, CardsRequests, Requests, Deposits, ClientFetch } from "./components/DashboardEmployeeElements/IndexEmployeeDash";
+import { HomePageEmployee, LoansRequests, CardsRequests, Requests, Deposits, ClientFetch, SimulationCard } from "./components/DashboardEmployeeElements/IndexEmployeeDash";
 import { useEmpConx } from "../../context/EmployeeContext";
 
 export const DashboardEmployee = () => {
@@ -29,6 +29,8 @@ export const DashboardEmployee = () => {
         return <Deposits />
       case 6:
         return <ClientFetch />
+      case 7:
+        return <SimulationCard />
       default:
         return <h1>Home Page</h1>;
     }

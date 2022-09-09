@@ -253,7 +253,17 @@ const getUserInfoForEmployee = async (req, res, next) => {
         }
 
         const ClientRelation = await SavingsAccount.findOne({ accountNumber: AccountNumber }).select('AccountOwner');
-        const Client = await NormalUser.findOne({ _id: ClientRelation.AccountOwner }).select('FirstName LastName PerfilPhoto')
+        if (!ClientRelation) {
+            return next(
+                new ErrorResponse("Este número de cuenta no existe", 400, "error")
+            );
+        }
+        const Client = await NormalUser.findOne({ _id: ClientRelation.AccountOwner }).select('FirstName LastName PerfilPhoto');
+        if (!Client) {
+            return next(
+                new ErrorResponse("El cliente no existe", 400, "error")
+            );
+        }
 
         res.status(200).json({ success: true, data: Client });
     } catch (e) {

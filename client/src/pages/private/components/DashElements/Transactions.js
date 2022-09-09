@@ -228,7 +228,7 @@ export const Transactions = ({ OnlineUsers }) => {
         if (MontoTransfer && typeof MontoTransfer === 'string') {
             Monto = parseFloat(MontoTransfer.replace(/,/g, ''))
         }
-        if (!MontoTransfer || !NumberAccount || Monto === 0 || Saldo === null) {
+        if (!MontoTransfer || !NumberAccount || Monto === 0 || Saldo === null || Monto < 0) {
             setFormError(true);
         } else if (NumberAccount === 'Selecionar Cuenta...' || HimNumberAcc === '' || Monto > parseFloat(Saldo)) {
             setFormError(true);

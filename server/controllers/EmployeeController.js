@@ -379,7 +379,7 @@ const getFullClientInfo = async (req, res, next) => {
         const MainInfo = await NormalUser.findOne({ _id: query._id });
         if (!MainInfo) {
             return next(
-                new ErrorResponse("El número de DUI no fue encontrado", 400, "error")
+                new ErrorResponse("El número de DUI no está registrado", 400, "error")
             )
         }
         allInfo.push(MainInfo);

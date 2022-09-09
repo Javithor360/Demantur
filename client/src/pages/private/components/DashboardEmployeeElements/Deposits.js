@@ -42,7 +42,6 @@ export const Deposits = () => {
         e.preventDefault();
 
         try {
-            toggle();
 
             const res = await axios.post('http://localhost:4000/api/employee/get-user-data', { AccountNumber: AccNumber });
             setFormData(
@@ -57,6 +56,7 @@ export const Deposits = () => {
                     amount: Amount,
                 }
             );
+            toggle();
         } catch (error) {
             console.error(error);
             setError(error.response.data.error);
@@ -66,9 +66,14 @@ export const Deposits = () => {
     return (
         <div className='h-full w-full bg-white rounded-xl p-3 overflow-hidden'>
 
-            {Error !== '' && Error}
 
             <h1 className='text-center mb-[2rem] mt-3'>Efectuar depósito</h1>
+            {
+                Error !== '' && Error &&
+                <div className='text-center	w-full'>
+                    <p className='text-red-500'>{Error}</p>
+                </div>
+            }
             {
                 Success !== false && Success &&
                 <div className='text-center	w-full'>
@@ -82,7 +87,7 @@ export const Deposits = () => {
                         <div className='w-full mx-auto text-center h-fit mb-4 flex flex-col justify-center items-center'>
                             <label className='mt-[1.9rem] text-[1.2rem] font-semibold mb-2 text-[#323643]' htmlFor="AccNumber">Número de cuenta:</label>
                             {/* <hr className='separatee__1 mb-3' /> */}
-                            <Cleave className='w-[70%] border-none outline-none px-2' options={{ numericOnly: true }} id="AccNumber" name='AccNumber' onChange={(e) => { setAccNumber(e.target.value) }} value={AccNumber} required autoComplete='off' />
+                            <Cleave className='w-[70%] border-none outline-none px-2' options={{ numericOnly: true }} id="AccNumber" name='AccNumber' onChange={(e) => { setAccNumber(e.target.value) }} value={AccNumber} autoComplete='off' />
                         </div>
                         <div className='w-full mx-auto text-center h-fit flex flex-col justify-center items-center'>
                             <label className='mt-3 text-[1.2rem] font-semibold mb-2 text-[#323643]' htmlFor="Amount">Monto a depositar:</label>
@@ -91,7 +96,7 @@ export const Deposits = () => {
                                 if (e.target.value !== '') {
                                     setAmount(parseFloat(e.target.value.replace(/,/g, '')))
                                 }
-                            }} value={Amount} required autoComplete='off' />
+                            }} value={Amount} autoComplete='off' />
                         </div>
                     </div>
                     <div className='min-h-[5rem] w-[100%] mt-[2rem]'>

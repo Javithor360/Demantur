@@ -113,7 +113,7 @@ export const HomePageEmployee = () => {
 
             <p className='h-[10%] text-[1.6rem] mt-3 text-[#6C757D]'>Ultimos depositos realizados</p>
 
-            <div className='w-[70%] h-[90%] mt-2 mb-3 rounded mx-auto border-cover-2 rounded-t-lg'>
+            {/* <div className='w-[70%] h-[90%] mt-2 mb-3 rounded mx-auto border-cover-2 rounded-t-lg'>
               <div className="bg-[#F3F3F3] w-full h-[20%] flex justify-evenly items-center">
                 <span className='w-1/2'>Monto</span>
                 <span className='w-1/2'>Número de cuenta</span>
@@ -134,7 +134,7 @@ export const HomePageEmployee = () => {
                 <span className='w-1/2'>$ 200</span>
                 <span className='w-1/2'>1232443</span>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

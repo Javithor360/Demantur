@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../../../context/AuthContext';
 import { FooterAuth } from '../../../components'
 import "../assets/scss/formsadmin.scss";
+import { VscLoading } from 'react-icons/vsc'
 
 export const AdminLoginPage = () => {
     let navigate = useNavigate();
@@ -11,16 +12,18 @@ export const AdminLoginPage = () => {
 
     const [Name, setName] = useState('');
     const [Password, setPassword] = useState('');
-
+    const [Chargin, setChargin] = useState(false);
     const [Error, setError] = useState('');
 
     const handleForm = async (e) => {
         e.preventDefault();
         try {
+            setChargin(true); 
             const data = await axios.post('http://localhost:4000/api/auth/admin/login', { Name, Password }, configPublic);
             if (data) {
                 localStorage.setItem('secretToken', data.data.token)
                 setTimeout(() => {
+                    setChargin(true);
                     navigate('/admin/home');
                 }, 3000)
             }
@@ -50,7 +53,18 @@ export const AdminLoginPage = () => {
                                     <label className='labels' htmlFor="Email">Contraseña</label>
                                 </div>
                             </div>
-                            <button type='submit' className='style-buttont mx-auto block'>Iniciar sesión</button>
+                            <button type='submit' className='style-buttont mx-auto block' disabled={Chargin}>
+                            {
+                                Chargin === true ?
+                                <>
+                                    <VscLoading className="animate-spin" />
+                                </>
+                                :
+                                <>
+                                    <span>Inicia Sesión</span>
+                                </>
+                            }
+                            </button>
                         </form>
                     </div>
                 </div>

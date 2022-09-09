@@ -5,7 +5,7 @@ import {
   MdRequestQuote
 } from "react-icons/md";
 import { GoChecklist } from "react-icons/go";
-import { BsCreditCardFill } from "react-icons/bs";
+import { BsCreditCardFill, BsCreditCard2BackFill } from "react-icons/bs";
 import { IoIosCash } from "react-icons/io";
 import { useDash } from "../../../context/DashboardContext";
 import { useNavigate } from "react-router-dom";
@@ -137,6 +137,23 @@ export const SideBar = () => {
                 <AiOutlineSearch className={IconNavLinkStyles} />
               </div>
               <span className={SpanNavLinkStyles}>Buscar cliente</span>
+            </div>
+
+            <div
+              onClick={() => {
+                setOption(7);
+                setOptionElement("Acciones Tarjetas");
+              }}
+              className={
+                Option === 6
+                  ? `${NavLinkStyles} menu-item2 menu-item-selected2`
+                  : `${NavLinkStyles} menu-item2`
+              }
+            >
+              <div className={DivNavLinkStyles}>
+                <BsCreditCard2BackFill className={IconNavLinkStyles} />
+              </div>
+              <span className={SpanNavLinkStyles}>Acciones Tarjeta</span>
             </div>
 
           </div>

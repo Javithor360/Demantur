@@ -935,7 +935,7 @@ const PayLoan = async (req, res, next) => {
     const MyLoan = await AcpLoanModel.findOne({ debtorId: token.user.id })
     const Acc = await SavingsAccount.findOne({ accountNumber: accountNumber });
 
-    if (MyLoan.MonthlyFee > Acc.balance) {
+    if (MyLoan.MonthlyFee > Acc.balance && MyLoan.amounts.remainder != 0) {
       return next(new ErrorResponse('El Monto no es suficiente para pagar', 400, 'error'))
     } else {
       await SavingsAccount.findOneAndUpdate({ accountNumber: accountNumber }, { $inc: { balance: -MyLoan.MonthlyFee } });

@@ -31,13 +31,13 @@ export const Header = () => {
       </div>
       <div className="header-icons-grid w-4/5 h-100 justify-end items-center">
         <div className="mx-2 text-2xl">
-          <div to="/" className="header-icon hi-hover-1 flex items-center justify-center relative">
-            {/* <span className="h-2 w-2 rounded-full bg-red-500 punto-notificacion top-0.5 right-0.5"></span> */}
+          {/* <div to="/" className="header-icon hi-hover-1 flex items-center justify-center relative">
+            <span className="h-2 w-2 rounded-full bg-red-500 punto-notificacion top-0.5 right-0.5"></span>
             <FaBell />
-          </div>
+          </div> */}
         </div>
         <div className="separate h-100 flex items-center justify-center">
-          <hr />
+          {/* <hr /> */}
         </div>
         <div className="mx-2 text-2xl" onClick={() => { setSettingsOption(true) }}>
           <div to="/" className="header-icon hi-hover-2 text-2xl flex items-center justify-center">

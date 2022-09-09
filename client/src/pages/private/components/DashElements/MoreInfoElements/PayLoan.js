@@ -4,11 +4,12 @@ import { IoMdArrowDropdown as ArrowDown } from 'react-icons/io'
 
 export const PayLoan = ({ MyLoan }) => {
 
-  const { PayLoan, SavingAccounts } = useDash()
+  const { PayLoan, SavingAccounts, setClientBalance } = useDash()
 
   const [IsSelect, setIsSelect] = useState(false);
   const [NumberAccount, setNumberAccount] = useState('');
   const [Error, setError] = useState(null);
+  const [Success, setSuccess] = useState(null);
 
   const HandlePay = async () => {
     if (NumberAccount === '') {
@@ -19,11 +20,18 @@ export const PayLoan = ({ MyLoan }) => {
     } else {
       try {
         const res = await PayLoan(localStorage.getItem('authToken'), NumberAccount)
-        if (res?.data?.data) {
+        if (res?.data) {
+          let time = new Date()
+
+          MyLoan.amounts.remainder = MyLoan.amounts.remainder - MyLoan.MonthlyFee
+          MyLoan.pay_history.payment_history.push({ Amount: MyLoan.MonthlyFee, AccountN: NumberAccount, Date: time })
+          setSuccess('Pagado Correctamente');
+          setTimeout(() => {
+            setClientBalance(prev => (prev - MyLoan.MonthlyFee).toFixed(2))
+          }, 2000)
         } else {
-          // setError(res.response.data.error)
+          setError(res.response.data.error)
         }
-        console.log(res)
       } catch (error) {
         console.log(error);
       }
@@ -48,7 +56,7 @@ export const PayLoan = ({ MyLoan }) => {
         </div>
         <div className='flex flex-col justify-center items-center gap-2 border-left-division'>
           <span className='w-fit font-semibold text-[1rem]'>Monto Restante:</span>
-          <span className='w-fit'>${MyLoan.amounts.remainder}</span>
+          <span className='w-fit'>${MyLoan.amounts.remainder.toFixed(2)}</span>
         </div>
         <div className='flex flex-col justify-center items-center gap-2 border-left-division'>
           <span className='w-fit font-semibold text-[1rem]'>Fecha de pago máxima:</span>
@@ -57,6 +65,7 @@ export const PayLoan = ({ MyLoan }) => {
       </div>
       <div className='w-fit mx-auto -translate-y-5'>
         {Error && <span className='text-center text-red-500'>{Error}</span>}
+        {Success && <span className='text-center text-green-600'>{Success}</span>}
       </div>
       <div className='flex flex-row w-fit gap-5 mx-auto'>
         <div className='acc-select-container flex flex-row bg-[#D6D6D6] h-[3.9rem] w-[20rem] rounded-xl ml-5 px-2'>

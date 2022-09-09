@@ -149,7 +149,7 @@ export const HomePage = () => {
                         <span className="table-cell align-middle max-w-fit text-center py-2">Monto Restante:</span>
                       </div>
                       <div className="w-[60%] table mb-0">
-                        <span className="table-cell align-middle max-w-fit text-center">${MyLoan.amounts.remainder}</span>
+                        <span className="table-cell align-middle max-w-fit text-center">${MyLoan.amounts.remainder.toFixed(2)}</span>
                       </div>
                     </div>
                   </div>

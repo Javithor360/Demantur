@@ -139,6 +139,23 @@ export const SideBar = () => {
               <span className={SpanNavLinkStyles}>Buscar cliente</span>
             </div>
 
+            <div
+              onClick={() => {
+                setOption(7);
+                setOptionElement("Acciones Tarjetas");
+              }}
+              className={
+                Option === 6
+                  ? `${NavLinkStyles} menu-item2 menu-item-selected2`
+                  : `${NavLinkStyles} menu-item2`
+              }
+            >
+              <div className={DivNavLinkStyles}>
+                <AiOutlineSearch className={IconNavLinkStyles} />
+              </div>
+              <span className={SpanNavLinkStyles}>Acciones Tarjeta</span>
+            </div>
+
           </div>
         </div>
 

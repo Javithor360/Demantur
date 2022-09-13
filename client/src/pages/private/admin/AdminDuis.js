@@ -62,5 +62,6 @@ export const AdminDuis = () => {
       </form>
       </div>
     </div>
+    
   )
 }

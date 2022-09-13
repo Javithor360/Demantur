@@ -77,8 +77,8 @@ export const ActLoans = () => {
   const UserTimeLoan = [`1 año`, `2 años`, `3 años`, `4 años`, '5 años']
   const UserElementAmount = ['$400', '$600', '$999', '$1300', '$1500', 'Otro tipo de monto',]
   const BusinessElementAmount = ['$2000', '$2300', '$2600', '$2900', '$3200', 'Otro tipo de monto',]
-  const HouseLoanAmount =  ['$2000', '$2200', '$2600', '$2800', '$3000', 'Otro tipo de monto',]
-  const CarLoanAmount =  ['$1400', '$1800', '$2200', '$2400', '$2600', 'Otro tipo de monto',]
+  const HouseLoanAmount = ['$2000', '$2200', '$2600', '$2800', '$3000', 'Otro tipo de monto',]
+  const CarTypeRequest = ['Toyota', 'Mazda', 'Nissan', 'Chevrolet', 'Honda', 'Hyundai',]
   const MyAccounts = SavingAccounts.map((el) => { return el.accountNumber })
 
 
@@ -319,20 +319,39 @@ export const ActLoans = () => {
               </div>
 
               <div className='h-[70%] mr-5 '>
-                <p className='text-[1.1rem] text-[#606470]'>Monto a Solicitar</p>
                 <div className='h-[2.5rem] w-[15rem]'>
                   {
                     parametros.LoanId === 0 ?
-                    <Dropdown setElement={setAmountrequest} elements={UserElementAmount} Elemento={Amountrequest} />
-                    :
-                    parametros.LoanId === 1 ?
-                    <Dropdown setElement={setAmountrequest} elements={BusinessElementAmount} Elemento={Amountrequest} />
-                    : 
-                    parametros.LoanId === 2 ?
-                    <Dropdown setElement={setAmountrequest} elements={HouseLoanAmount} Elemento={Amountrequest} />
-                    :
-                    <Dropdown setElement={setAmountrequest} elements={CarLoanAmount} Elemento={Amountrequest} />
-                    }
+                      <div className='h-[70%] mr-5'>
+                        <p className='tex-[1.1rem] text-[#606470]'> Monto a Solicitar</p>
+                        <div className='h-[2.5rem] w-[15rem]'>
+                          <Dropdown setElement={setAmountrequest} elements={UserElementAmount} Elemento={Amountrequest} />
+                        </div>
+                      </div>
+                      :
+                      parametros.LoanId === 1 ?
+                        <div className='h-[70%] mr-5'>
+                          <p className='tex-[1.1rem] text-[#606470]'>Monto a Solicitar</p>
+                          <div className='h-[2.5rem] w-[15rem]'>
+                            <Dropdown setElement={setAmountrequest} elements={BusinessElementAmount} Elemento={Amountrequest} />
+                          </div>
+                        </div>
+                        :
+                        parametros.LoanId === 2 ?
+                          <div className='h-[70%] mr-5'>
+                            <p className='tex-[1.1rem] text-[#606470]'>Monto a Solicitar</p>
+                            <div className='h-[2.5rem] w-[15rem]'>
+                              <Dropdown setElement={setAmountrequest} elements={HouseLoanAmount} Elemento={Amountrequest} />
+                            </div>
+                          </div>
+                          :
+                          <div className='h-[70%] mr-5'>
+                            <p className='tex-[1.1rem] text-[#606470]'> Modelo de vehiculo</p>
+                            <div className='h-[2.5rem] w-[15rem]'>
+                              <Dropdown setElement={setAmountrequest} elements={CarTypeRequest} Elemento={Amountrequest} />
+                            </div>
+                          </div>
+                  }
 
                 </div>
               </div>
@@ -439,12 +458,12 @@ export const ActLoans = () => {
                     {
                       LoanReq === false ?
                         <div className='h-full w-full flex flex-col items-center justify-center'>
-                          <img src={list} alt="" className='w-[85px] mb-3'/>
+                          <img src={list} alt="" className='w-[85px] mb-3' />
                           <p>Solicite un prestamo</p>
                         </div>
                         :
                         <div className='h-full w-full flex flex-col items-center justify-center'>
-                          <img src={one_req} alt="" className='w-[200px] mb-3'/>
+                          <img src={one_req} alt="" className='w-[200px] mb-3' />
                           <p>Tiene Una solicitud en curso</p>
                         </div>
                     }

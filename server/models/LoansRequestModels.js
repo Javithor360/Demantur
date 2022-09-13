@@ -1,34 +1,37 @@
 const mongoose = require("mongoose");
-
-const NumberReq = { type: Number, require: true};
-const StringReq = { type: String, require: true};
-const DateReq = { type: Date, require: true }; 
+const NumberReq = { type: Number, require: true };
+const StringReq = { type: String, require: true };
 
 const LoanRequestSchema = new mongoose.Schema(
     {
         LoanType: StringReq,
+        LoanId: Number,
         loan_guarantor: {
-        type: mongoose.Types.ObjectId,
-        require: true,
+            type: mongoose.Types.ObjectId,
+            require: true,
         },
         Loantype: StringReq,
+        AccountNumber: String,
         Name: StringReq,
         CellNumber: StringReq,
         Address: StringReq,
         DuiNum: StringReq,
         Email: StringReq,
-        Salary: StringReq,
-        Amount: NumberReq,
+        UserSalary: StringReq,
+        LoanTime: Number,
+        Amountrequest: StringReq,
         Company: StringReq,
 
-        anex:{
+        anex: {
             ConstancyImg: Object,
             DuiFrontImg: Object,
             SalaryEvidenceImg: Object,
             DuiBackImg: Object,
+            CloudLoanImage: StringReq
         }
-    }, 
-    { timestamps: true}
+    },
+    { timestamps: true }
 );
+
 
 module.exports = mongoose.model("LoanRequest", LoanRequestSchema);

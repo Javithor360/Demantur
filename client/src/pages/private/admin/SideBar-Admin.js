@@ -6,10 +6,10 @@ import {
   MdOutlineLogout,
   MdRequestQuote
 } from "react-icons/md";
-
+import { AiOutlineTeam as Emple } from "react-icons/ai"
 import { AiOutlineBarChart as Soli } from "react-icons/ai";
 import { AiOutlineUserAdd as Ingre } from "react-icons/ai";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "../assets/scss/dashboardadmin.scss";
 
 const NavLinkStyles =
@@ -24,6 +24,7 @@ const Logo = require.context("../assets/img/logo", true);
 export const SideBar = () => {
 
   const { Option, setOption, setOptionElement } = useDash();
+  const navigate = useNavigate()
 
   return (
     <>
@@ -51,7 +52,7 @@ export const SideBar = () => {
             <div className={DivNavLinkStyles}>
               <Ingre className={IconNavLinkStyles} />
             </div>
-            <span className={SpanNavLinkStyles}>AdminDuis</span>
+            <span className={SpanNavLinkStyles}>Agregar DUI</span>
           </div>
 
           <div
@@ -68,10 +69,28 @@ export const SideBar = () => {
             <div className={DivNavLinkStyles}>
               <Soli className={IconNavLinkStyles} />
             </div>
-            <span className={SpanNavLinkStyles}>Transacción</span>
+            <span className={SpanNavLinkStyles}>Simulador de movimientos</span>
           </div>
 
-          <button className='style-button' onClick={() => localStorage.removeItem('secretToken')}>Cerrar sesión</button>
+
+          <div
+            onClick={() => {
+              setOption(3);
+              setOptionElement("AdminEmployees");
+            }}
+            className={
+              Option === 3
+                ? `${NavLinkStyles} menu-item3 menu-item-selected3`
+                : `${NavLinkStyles} menu-item3`
+            }
+          >
+            <div className={DivNavLinkStyles}>
+              <Emple className={IconNavLinkStyles} />
+            </div>
+            <span className={SpanNavLinkStyles}>Crear empleado</span>
+          </div>
+
+          <button className='style-button' onClick={() => { localStorage.removeItem('secretToken'); navigate('/index') }}>Cerrar sesión</button>
 
         </div>
 

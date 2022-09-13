@@ -3,6 +3,7 @@ const Employee = require("../models/Employee");
 const Admin = require("../models/Admin");
 const { uploadRegisterImage } = require("../libs/cloudinary");
 const fs = require("fs-extra");
+const ErrorResponse = require("../utils/ErrorMessage");
 
 // @route POST api/accounts/create/first-savings
 // @desc Crear primera cuenta de ahorros obligatoria
@@ -17,6 +18,36 @@ const WelcomeSavingsAccount = async (req, res, next) => {
 
   try {
     const { AccountOwner, Reason1, Reason2 } = req.body;
+
+    const query = await SavingAccount.find();
+    let filterArray = query.filter(i => i.AccountOwner == AccountOwner);
+    if (filterArray.length >= 3) {
+      return next(
+        new ErrorResponse("No puedes crearte una cuenta porque ya superaste el límite permitido de tres.", 400, "error")
+      )
+    }
+
+    if (!AccountOwner) {
+      return next(
+        new ErrorResponse("Completa todos los campos antes de continuar", 400, "error")
+      );
+    }
+
+    if (Reason1.length < 10 || Reason2.length < 10) {
+      return next(
+        new ErrorResponse("Detalla un poco más las razones por las que deseas abrir la cuenta")
+      );
+    }
+
+    if (!req.files) {
+      return next(
+        new ErrorResponse("Sube las imágenes necesarias antes de continuar", 400, "error")
+      );
+    } else if (!req.files.Image || !req.files.Image2 || !req.files.Image3) {
+      return next(
+        new ErrorResponse("Asegúrate de subir todas las imágenes necesarias antes de continuar.", 400, "error")
+      );
+    }
     const accountNumber = `21030${accNumberGen(1000, 9999)}`;
     const balance = 0;
     const interest = 0;
@@ -69,7 +100,7 @@ const WelcomeSavingsAccount = async (req, res, next) => {
     });
 
     await newSavingsAccount.save();
-    return res.send(newSavingsAccount);
+    res.status(200).json({ sucess: true, data: newSavingsAccount });
   } catch (e) {
     console.error(e);
     return res.status(500).json({ message: e.message });
@@ -90,19 +121,25 @@ const EmployeeAccount = async (req, res, next) => {
 
   try {
     const { FirstNames, LastNames, Dui, Email, Password } = req.body;
+    if (!FirstNames || !LastNames || !Dui || !Email || !Password) {
+      return next(
+        new ErrorResponse("Completa todos los campos antes de continuar", 400, "error")
+      )
+    }
+
     const EmployeeId = `${parseInt(new Date().getFullYear())}${employeeIdGen(1000, 9999)}`;
 
     const newEmployee = await new Employee({
-      FirstNames, 
-      LastNames, 
+      FirstNames,
+      LastNames,
       Dui,
-      Email, 
-      Password, 
+      Email,
+      Password,
       EmployeeId
     });
 
     await newEmployee.save();
-    return res.send(newEmployee)
+    res.status(200).json({ sucess: true, data: newEmployee });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: error.message });
@@ -114,13 +151,13 @@ const EmployeeAccount = async (req, res, next) => {
 // @desc Crear nuevo admin
 // @access private
 
-const AdminAccount = async(req, res) => {
+const AdminAccount = async (req, res) => {
   try {
     const { Name, Password } = req.body;
 
     const newAdmin = await new Admin({ Name, Password });
     await newAdmin.save();
-    return res.send(newAdmin);
+    res.status(200).json({ sucess: true, data: newAdmin });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: error.message });

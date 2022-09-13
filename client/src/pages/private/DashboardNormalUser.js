@@ -8,16 +8,19 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
 export const DashboardNormalUser = () => {
-  const { Option, SettingsOption, GeneralInfoQuery, getGlobalInfo, setSocket, socket, Info, getContacsWP, getSavingAccts, setNPName } = useDash();
+  const { Option, SettingsOption, GeneralInfoQuery, getGlobalInfo, setSocket, socket, Info, getContacsWP, getSavingAccts, setNPName, setClientBalance, SavingAccounts, setSavingAccounts, setChangeBox2 } = useDash();
 
   const [Chargin, setChargin] = useState(true);
   const [OnlineUsers, setOnlineUsers] = useState([]);
+
+  const [plusMount, setPlusMount] = useState(null);
+  const [Elm, setElm] = useState(null);
 
   useEffect(() => {
     GeneralInfoQuery(localStorage.getItem("authToken"));
     getContacsWP(localStorage.getItem("authToken"))
     getGlobalInfo(localStorage.getItem('authToken'));
-    getSavingAccts(localStorage.getItem('authToken'))
+    getSavingAccts(localStorage.getItem('authToken'));
     setSocket(io('ws://localhost:5000'));
     document.body.style.overflowY = "hidden";
     setTimeout(() => {
@@ -50,6 +53,36 @@ export const DashboardNormalUser = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Info])
 
+  useEffect(() => {
+    // getSavingAccts(localStorage.getItem('authToken'))
+    if (plusMount !== null) {
+      setClientBalance(prev => (parseFloat(prev) + parseFloat(plusMount)).toFixed(2));
+      setPlusMount(null)
+    }
+  }, [plusMount, setClientBalance]);
+
+  useEffect(() => {
+    if (Elm !== null) {
+      let auxAccounts = SavingAccounts;
+      auxAccounts.forEach(element => {
+        // eslint-disable-next-line eqeqeq
+        if (element.accountNumber == Elm.transfer.AccountReceiver) {
+          element.balance = (parseFloat(element.balance) + parseFloat(Elm.transfer.Amount)).toFixed(2);
+        }
+        setSavingAccounts(auxAccounts);
+      });
+    }
+  }, [Elm, SavingAccounts, setSavingAccounts]);
+
+  useEffect(() => {
+    socket?.on('getTransfer', data => {
+      // getGlobalInfo(localStorage.getItem('authToken'));
+      setPlusMount(data.transfer.Amount)
+      setElm(data)
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [socket]);
+
   const DisplayElement = () => {
     switch (Option) {
       case 1:
@@ -68,6 +101,11 @@ export const DashboardNormalUser = () => {
         return <h1>Home Page</h1>;
     }
   };
+
+  useEffect(() => {
+    setChangeBox2(false)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Option]);
 
   return (
     <>

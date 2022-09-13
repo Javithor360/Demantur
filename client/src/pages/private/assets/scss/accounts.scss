@@ -5,22 +5,26 @@
     margin: auto;
     display: flex;
     justify-content: center;
-
     .dash_acc-card {
         margin: 3rem;
     }
 
     .dash_acc-setter {
         position: relative;
-        width: 300px;
+        width: 21.75rem;
         background: #fff;
-        box-shadow: 0 10px 7px -5px rgba(#000, .4);
+        box-shadow: 0px 0px 10px 5px rgba(105, 105, 105, 0.313);
+        -webkit-box-shadow: 0px 0px 10px 5px rgba(105, 105, 105, 0.313);
+        -moz-box-shadow: 0px 0px 10px 5px rgba(105, 105, 105, 0.313);
+        border-radius: 10px;
     }
 
     header {
         position: relative;
         width: 100%;
         height: 60px;
+        border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
 
         &::before,
         &::after {
@@ -31,6 +35,8 @@
             left: 0;
             right: 0;
             background: inherit;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
 
         &::before {
@@ -44,6 +50,8 @@
             -ms-transform-origin: 100% 100%;
             -o-transform-origin: 100% 100%;
             transform-origin: 100% 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
 
         &::after {
@@ -57,6 +65,8 @@
             -ms-transform-origin: 0 100%;
             -o-transform-origin: 0 100%;
             transform-origin: 0 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
 
         .dash_acc-icon-cont {
@@ -90,7 +100,7 @@
     }
 
     .savings {
-        background-color: #9afe55;
+        background-color: #93DEFF;
     }
 
     h3 {
@@ -119,6 +129,50 @@
 }
 
 // Modal css
+.modal-history{
+    width: 50rem;
+    height: 38rem;
+}
+.modal-history-header{
+    height: 25%;
+    width: 90%;
+}
+.modal-history-content{
+    height: 85%;
+    width: 90%;
+}
+.transfers-content{
+    height: 90%;
+}
+.transfers-header{
+    height: 10%;
+}
+.transfers-renderbox{
+    height: 90%;
+}
+@media (min-width: 1920px){
+    .modal-history{
+        width: 50rem;
+        height: 50rem;
+    }
+    .modal-history-header{
+        height: 15%;
+        width: 90%;
+    }
+    .modal-history-content{
+        height: 90%;
+        width: 90%;
+    }
+    .transfers-content{
+        height: 100%;
+    }
+    .transfers-header{
+        height: 8%;
+    }
+    .transfers-render-box{
+        height: 92%;
+    }
+}
 .dash_acc-nav-line {
     background-color: $primary_gray;
     height: 0.0938rem;
@@ -135,4 +189,17 @@
 
 .dash_acc-nav-type-active {
     border-bottom: 2px solid $primary_dark;
+}
+
+.border-left-division{
+    border-left: 1px solid $secondary-gray-200;
+}
+.border-top-division{
+    border-top: 1px solid $secondary-gray-200;
+}
+.border-bottom-division{
+    border-bottom: 1px solid $secondary-gray-200;
+}
+.border-cover-2{
+    border: 1px solid $secondary-gray-200;
 }

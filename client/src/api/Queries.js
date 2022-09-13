@@ -1,4 +1,5 @@
 import axios from "axios";
+import { AiFillExclamationCircle } from "react-icons/ai";
 
 export const getInfo = async (PrivateConfig) => {
   return await axios.get("http://localhost:4000/api/dashboard/get-info", { headers: PrivateConfig.headers });
@@ -49,7 +50,8 @@ export const getMyCardReqREQ = async (PrivateConfig) => {
 }
 
 export const getMyLoanReqREQ = async (PrivateConfig) => {
-  return await axios.get('http://localhost:4000/api/dashboard/get-Loans-requests', { headers: PrivateConfig.headers })
+  return await axios.get('http://localhost:4000/api/dashboard/get-my-loan-request', { headers: PrivateConfig.headers })
+
 }
 
 export const getContactsWPReq = async (PrivateConfig) => {
@@ -81,10 +83,77 @@ export const getAccHistory = async (Token, accNum) => {
   return await axios.get('http://localhost:4000/api/dashboard/get-account-history', { headers: { "Content-Type": "application/json", "x-auth-token": Token, "AccountNumber": accNum } });
 }
 
+export const EmailCodeVerQuery = async (PrivateConfig, Code, Email) => {
+  return await axios.post('http://localhost:4000/api/dashboard/email-code-verify', { Code, Email }, { headers: PrivateConfig.headers });
+}
+
+export const CancelChangeEm = async (PrivateConfig, Code) => {
+  return await axios.post('http://localhost:4000/api/dashboard/cancel-change-email', { Code }, { headers: PrivateConfig.headers })
+}
+
+export const VerifyOldPassQuery = async (PrivateConfig, OldPass) => {
+  return await axios.post('http://localhost:4000/api/dashboard/verify-old-pass', { OldPass }, { headers: PrivateConfig.headers })
+}
+
+export const ChangePassQuery = async (PrivateConfig, Password) => {
+  return await axios.post('http://localhost:4000/api/dashboard/change-password', { Password }, { headers: PrivateConfig.headers })
+}
+
+export const VerifyCodePassQuery = async (PrivateConfig, Code) => {
+  return await axios.post('http://localhost:4000/api/dashboard/verify-pass-code', { Code }, { headers: PrivateConfig.headers })
+}
+
+export const CancelChangePassQuery = async (PrivateConfig, Code) => {
+  return await axios.post('http://localhost:4000/api/dashboard/cancel-change-password', { Code }, { headers: PrivateConfig.headers })
+}
+
+export const PendingFrQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-pending-friend-request', { headers: PrivateConfig.headers })
+}
+
+export const FriendRequestsQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-friend-request', { headers: PrivateConfig.headers })
+}
+
+export const UsersToAddQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-users-to-add', { headers: PrivateConfig.headers })
+}
+
+export const getMyCardQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-my-card', { headers: PrivateConfig.headers })
+}
+export const getMyLoanQuery = async (PrivateConfig) => {
+  return await axios.get('')
+}
+
+export const getMyDebitCardQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-debit-card', { headers: PrivateConfig.headers })
+}
+
+export const PayCCDebtQuery = async (PrivateConfig, AccountN, Amount) => {
+  return await axios.post('http://localhost:4000/api/dashboard/pay-card-debt', { AccountN, Amount }, { headers: PrivateConfig.headers })
+}
+
+export const CreateDebitCardQuery = async (PrivateConfig, NumberAcc) => {
+  return await axios.post('http://localhost:4000/api/dashboard/create-debit-card', { NumberAcc }, { headers: PrivateConfig.headers })
+}
+
+export const getMyLoanReqQuery = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/dashboard/get-my-credit', { headers: PrivateConfig.headers });
+}
+
+export const PayLoanQuery = async (PrivateConfig, accountNumber) => {
+  return await axios.post('http://localhost:4000/api/dashboard/pay-loan', { accountNumber }, { headers: PrivateConfig.headers })
+}
+
 // ?? QUERYS EMPLOYEE
 
 export const getEmployeeData = async (PrivateConfig) => {
   return await axios.get('http://localhost:4000/api/employee/get-data', { headers: PrivateConfig.headers });
+}
+
+export const getWidgets = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/employee/get-widgets', { headers: PrivateConfig.headers })
 }
 
 export const getCardRequest = async (PrivateConfig) => {
@@ -92,6 +161,30 @@ export const getCardRequest = async (PrivateConfig) => {
 }
 
 export const getLoanRequests = async (PrivateConfig) => {
-  return await axios.get('http://localhost:4000/api/employee//get-Loans-requests', { headers: PrivateConfig.headers });
+  return await axios.get('http://localhost:4000/api/employee/get-loans-requests', { headers: PrivateConfig.headers });
 }
 
+export const getPendingAccounts = async (PrivateConfig) => {
+  return await axios.get('http://localhost:4000/api/accounts/get-account-requests', { headers: PrivateConfig.headers });
+
+}
+
+export const declineLoanRequestQuery = async (PrivateConfig, Dui) => {
+  return await axios.post('http://localhost:4000/api/employee/decline-loan-request', { Dui }, { headers: PrivateConfig.headers })
+}
+
+export const AcceptCardReqQuery = async (PrivateConfig, Dui) => {
+  return await axios.post('http://localhost:4000/api/employee/accept-card-request', { Dui }, { headers: PrivateConfig.headers })
+}
+
+export const DeclineCardReqQuery = async (PrivateConfig, Dui) => {
+  return await axios.post('http://localhost:4000/api/employee/decline-card-request', { Dui }, { headers: PrivateConfig.headers })
+}
+
+export const AcceptLoanReqQuery = async (PrivateConfig, Dui) => {
+  return await axios.post('http://localhost:4000/api/employee/accept-loan-request', { Dui }, { headers: PrivateConfig.headers })
+}
+
+export const SimulateCardQuery = async (PrivateConfig, CardNumber, Gasto) => {
+  return await axios.post('http://localhost:4000/api/employee/simulate-card', { CardNumber, Gasto }, { headers: PrivateConfig.headers })
+}

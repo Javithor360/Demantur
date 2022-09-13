@@ -78,10 +78,10 @@ body{
 .Btn-contac{
 	background-color: #455FB9;
 	display: inline-block;
-	padding: 0.5rem;
+	padding: 0.8rem;
 	margin-top: 2rem;
 	transition: all .2s ease;
-	margin-left: 9rem;
+	margin-left: 11rem;
 	span{
 		color: $button-color;
 	}
@@ -155,7 +155,7 @@ h6 {
 .about-img {
 	position: relative;
 	margin: 0.9rem auto;
-	width: auto;
+	width: 100%;
 	max-width: 31.25rem;
 	border-radius: 0.75rem;
 	overflow: hidden;
@@ -168,7 +168,7 @@ h6 {
 .about-img2{
 	position: relative;
 	margin: 0.8rem auto;
-	width: auto;
+	width: 100%;
 	max-width: 32.25rem;
 	border-radius: 0.75rem;
 	overflow: hidden;
@@ -203,7 +203,7 @@ h6 {
     display: flex;
     flex-direction: column;
     background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
-						 url(../img/all_loans/more_Info.jpg);
+						url(../img/all_loans/more_Info.jpg);
     background-position: bottom;
     align-self: center;
     background-repeat: no-repeat;
@@ -213,3 +213,112 @@ h6 {
     justify-content: center;
 }
 
+@media (max-width: 1295px){
+	.page-section {
+		position: relative;
+		display: block;
+		padding: 5rem 0;
+	}
+	.page-section2 {
+		position: relative;
+		display: block;
+		padding: 2rem 0;
+	}
+}
+
+@media(max-width: 1250px){
+	.Loans-main-section{
+		margin-bottom: 30%;
+	}
+}
+
+@media (max-width: 465px){
+	.about-img .about-img2 .about-img3{
+		width: 100%;
+		margin: 12rem auto;
+
+	}
+	.loans-type-tittle p {
+		font-size: .7rem;
+	}
+
+	.Btn-contac{
+			font-size: 1.2rem;
+			margin-left: 5rem;
+			
+	}
+
+	.Btn-info{
+		transition: all .5s ease;
+		margin-left: 8.5rem;
+		margin-top: 1.5rem;
+		
+	}
+
+	.loans-type-tittle p {
+		font-size: 1.5rem;
+	}
+
+
+}
+
+@media(max-width: 412px)
+{
+	.Btn-info{
+		transition: all .5s ease;
+		margin-left: 2.3rem;
+		margin-top: .8rem;
+		
+	}
+	p{
+		text-align: justify;
+		word-spacing: .1rem;
+		align-items: center;
+	}
+}
+
+@media(max-width: 430px)
+{
+	.Btn-info{
+		transition: all .5s ease;
+		margin-left: 2.5rem;
+		margin-top: .8rem;
+		
+	}
+	p{
+		text-align: justify;
+		word-spacing: .1rem;
+		align-items: center;
+	}
+}
+
+@media(max-width: 452px)
+{
+	.Btn-info{
+		transition: all .5s ease;
+		margin-left: 2.6rem;
+		margin-top: .8rem;
+		
+	}
+	p{
+		text-align: justify;
+		word-spacing: .1rem;
+		align-items: center;
+	}
+}
+@media(max-width: 1295px){
+	.Loans-main-section{
+		margin-bottom: 3rem;
+		margin-left: 4.5rem;
+		margin-right: 4.5rem;
+	}
+}
+
+
+@media (max-width: 1080px) {
+	.Loans-main-section{
+		margin-bottom: 3rem;
+		margin-left: 4.5rem;
+		margin-right: 4.5rem;
+	}
+}

@@ -63,20 +63,19 @@
     }
 
     .accT_benefits-container {
-        .accT_benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+        .accT_benefits-grid {   
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            margin: 3rem 6rem 4rem;
+            margin: 3rem 1rem 4rem 1rem;
 
             .accT_benefits-card-cont {
-                
                 text-align: center;
                 overflow: hidden;
-                height: 100%;
+                
                 padding: 2rem;
                 border-radius: 0.3125rem;
-                margin: 0 1rem 0 1rem;
+                margin-right: 1rem;
                 box-shadow: 0 0 0.3125rem 0 rgba(0, 0, 0, 0.315);
 
                 .accT_benefits-icon {
@@ -87,6 +86,7 @@
                 .accT_benefits-title {
                     color: #455FB9;
                     font-size: 1.375rem;
+                    text-align:center;
                 }
 
                 .accT_benefits-desc {
@@ -99,5 +99,59 @@
 
     .marg {
         margin-bottom: 2rem;
+    }
+}
+
+@media(max-width:1280px){
+    .accT-1{
+        height: 15.8rem;
+    }
+
+    .accT-2{
+        height: 15.8rem;
+    }
+}
+
+@media (max-width:1115px){
+
+    .accT-1{
+        height: 17rem;
+    }
+
+    .accT-2{
+        height: 17rem;
+        border-top: 2rem;
+
+        .accT_benefits-icon{
+            margin-top: .5rem;
+        }
+    }
+}
+
+@media (max-width:890px) {
+    .accT_benefits-grid{
+        margin: auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .accT_benefits-card-cont{
+        height: 30%;
+        width: 50%;
+        margin-bottom: 1rem;
+      
+    }
+}
+
+@media(min-width: 861px){
+    .space-responsive{
+        display: none;
+    }
+}
+
+@media(max-width: 520px){
+    .accT_hero .accT_hero-cont h1{
+        font-size: 2.5rem;
     }
 }

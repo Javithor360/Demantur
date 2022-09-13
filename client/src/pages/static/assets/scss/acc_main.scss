@@ -7,24 +7,22 @@ $font_family: 'Poppins', sans-serif;
 
 .acc-hero {
     background-image: url(../img/acc/acc_main_banner1.jpg);
-    background-repeat: no-repeat;
     background-size: cover;
+    background-position: center center;
     height: 35.93rem;
     width: 100%;
-    padding: 1.25rem;
-    position: relative;
+   
 
     .acc-hero-cont {
+        width: inherit;
+        height: inherit;
         position: absolute;
+        color: #ffffff;
         background-color: rgba(0, 0, 0, .5);
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
+        align-items: center;
 
         p {
             color: $color_white;
@@ -110,9 +108,7 @@ $font_family: 'Poppins', sans-serif;
                 filter: brightness(150%);
                 transition: all .2s ease;
             }
-            .corrienteButton{
-                transform: translateY(-1.5rem);
-            }
+            
         }
 
         .acc-img {
@@ -136,6 +132,12 @@ $font_family: 'Poppins', sans-serif;
     }
 }
 
+@media(max-width:1929px){
+    .corrienteButton{
+        transform: translateY(-1.5rem);
+    }
+}
+
 @media (max-width:1150px){
 
     
@@ -144,7 +146,7 @@ $font_family: 'Poppins', sans-serif;
     }
 
     .corrienteButton{
-        transform: translateY(-1.3rem);
+        transform: translateY(-1.4rem);
     }
 
     .ahorroButton{
@@ -162,7 +164,7 @@ $font_family: 'Poppins', sans-serif;
     }
 
     .post-hero-container  .acc-container .acc-details .acc-desc{
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .post-hero-container  .acc-container .acc-details .acc-feature{
@@ -176,7 +178,11 @@ $font_family: 'Poppins', sans-serif;
     }
 
     .corrienteButton{
-        transform: translateY(-2.5rem);
+        transform: translateY(-1.8rem);
+    }
+
+    .ahorroButton{
+        transform: translateY(-1.5rem);
     }
 }
 
@@ -291,10 +297,11 @@ $font_family: 'Poppins', sans-serif;
 
     .corrienteButton{
         transform: translateY(-1.5rem);
+        
     }
 
     .ahorroButton{
-        transform: translateY(-2.5rem);
+        transform: translateY(-2.4rem);
     }
 }
 
@@ -329,12 +336,18 @@ $font_family: 'Poppins', sans-serif;
 
     .corrienteButton{
         margin-left: -.5rem;
-        transform: translateY(-1.7rem);
+        transform: translateY(-2.5rem);
     }
 
     .ahorroButton{
         margin-left: -.5rem;
         transform: translateY(-1.7rem);
+    }
+}
+
+@media (max-width:480px){
+    .acc-hero .acc-hero-cont p{
+        font-size: 1.2rem;
     }
 }
 
@@ -355,21 +368,22 @@ $font_family: 'Poppins', sans-serif;
     }
 
     .post-hero-container  .acc-container .acc-details .acc-feature{
-        font-size: 0.5rem;
+        font-size: 0.6rem;
         padding-left: 0.2rem;
+        margin-left: -0.4rem;
     }
 
     .post-hero-container  .acc-container .acc-details .acc-button span{
-        font-size: 0.55rem;
+        font-size: 0.6rem;
     }
 
     .corrienteButton{
         margin-left: -.5rem;
-        transform: translateY(-0.9rem);
+        transform: translateY(-2rem);
     }
 
     .ahorroButton{
         margin-left: -.5rem;
-        transform: translateY(-.8rem);
+        transform: translateY(-2rem);
     }
 }

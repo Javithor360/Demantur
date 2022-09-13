@@ -1,21 +1,26 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import { useEffect } from 'react'
-import { useState } from 'react'
 import { useDash } from '../../../../../context/DashboardContext'
 import requests_icon from '../../assets/img/contacts-icons/contacts-request-icon.png'
 
 // Translation
 import { useTranslation } from "react-i18next";
 
-export const YourFriendReq = () => {
-    const {t}=useTranslation();
+export const YourFriendReq = ({ ReloadComp, setReloadComp }) => {
+    const { t } = useTranslation();
 
-    const { FriendRequest, AcceptFriend, DeclineFriend, setFriendRequest, setReloadState, Contacts, setReloadStateTwo } = useDash()
-    const [ReloadComp, setReloadComp] = useState(false);
+    const { FriendRequest, AcceptFriend, DeclineFriend, setFriendRequest, setReloadState, Contacts, setReloadStateTwo, socket, PendingFr, getMyFriendReq, Info, } = useDash()
+
+    useEffect(() => {
+        PendingFr(localStorage.getItem('authToken'));
+        getMyFriendReq(localStorage.getItem('authToken'));
+    }, []);
 
     useEffect(() => {
         setReloadComp(false)
-    }, [ReloadComp])
+    }, [ReloadComp, FriendRequest])
+
 
     const filtArrayFriendreq = (el) => {
         return FriendRequest.filter((SingleReq) => el.Dui !== SingleReq.Dui)
@@ -24,6 +29,8 @@ export const YourFriendReq = () => {
     const FriendToAccept = (el) => {
         AcceptFriend(localStorage.getItem('authToken'), el);
         setFriendRequest(filtArrayFriendreq(el));
+        socket.emit('AcceptFriendReq', { element: el, By: { Name: `${Info.FirstName} ${Info.LastName}`, Dui: Info.Dui, Photo: Info.PerfilPhoto.url } })
+        socket.emit('AcceptedFrToPendings', { element: el, By: { Name: `${Info.FirstName} ${Info.LastName}`, Dui: Info.Dui, Photo: Info.PerfilPhoto.url } })
         Contacts.push({
             Name: el.Name,
             Dui: el.Dui,
@@ -36,6 +43,7 @@ export const YourFriendReq = () => {
 
     const FriendToDecline = (el) => {
         DeclineFriend(localStorage.getItem('authToken'), el);
+        socket.emit('DeclineFriendReq', { element: el, By: { Name: `${Info.FirstName} ${Info.LastName}`, Dui: Info.Dui, Photo: Info.PerfilPhoto.url } })
         setFriendRequest(filtArrayFriendreq(el));
         setReloadComp(true);
         setReloadStateTwo(true);
@@ -46,11 +54,6 @@ export const YourFriendReq = () => {
                 FriendRequest.length !== 0 ?
                     FriendRequest.map((el, i) => {
                         return (
-                            // <div key={i}>
-                            //     nombre: {el.Name}, Dui: {el.Dui}, foto: {el.Photo}
-                            //     <button onClick={() => { FriendToAccept(el) }}>Aceptar</button>
-                            //     <button onClick={() => { FriendToDecline(el) }}>Rechazar</button>
-                            // </div>
                             <div key={i} className="bg-[#FBFBFB] w-[90%] flex justify-between mt-4 ml-5 p-3 border border-[#707070] rounded-md">
                                 <>
                                     <div className="flex">

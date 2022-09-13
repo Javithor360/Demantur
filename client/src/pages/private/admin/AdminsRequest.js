@@ -1,6 +1,7 @@
 import axios from 'axios';
 import e from 'cors';
 import React, { useEffect, useState } from 'react'
+import "../assets/scss/AdminRequest.scss"
 
 export const AdminsRequest = () => {
   const [type, setType] = useState(0);
@@ -25,13 +26,21 @@ export const AdminsRequest = () => {
       case 1:
         return (
           <>
-            <label htmlFor="Amount">Cantidad a retirar:</label>
-            <input type="number" name="Amount" id="Amount" onChange={(e) => { setAmount(e.target.value) }} value={Amount} required />
+            <div className='content-trasac'>
+            <div className='content-tras'>
+            <div className='formy'>
+            <input className='inputy' placeholder='' type="number" name="Amount" id="Amount" onChange={(e) => { setAmount(e.target.value) }} value={Amount} required />
+            <label className='labely' htmlFor="Amount">Cantidad a retirar:</label>
+            </div>
 
-            <label htmlFor="AccNum">Número de cuenta:</label>
-            <input type="number" name="AccNum" id="AccNum" onChange={(e) => { setAccNum(e.target.value) }} value={accNum} required />
+            <div className='formy'>
+            <input className='inputy' placeholder='' type="number" name="AccNum" id="AccNum" onChange={(e) => { setAccNum(e.target.value) }} value={accNum} required />
+            <label className='labely' htmlFor="AccNum">Número de cuenta:</label>
+            </div>
+            </div>
 
-            <button type="submit" className='mt-[3rem]'>Simular retiro</button>
+            <button type="submit" className='style-buttony mt-[3rem]'>Simular retiro</button>
+            </div>
           </>
         )
       default:
@@ -58,7 +67,7 @@ export const AdminsRequest = () => {
 
       {Error !== '' && Error}
 
-      <h1>Simulador de movimientos bancarios</h1>
+      <h1 className='tittlex'>Simulador de movimientos bancarios</h1>
       {
         Success !== false && Success &&
         <div className='text-center	w-full'>
@@ -66,9 +75,9 @@ export const AdminsRequest = () => {
         </div>
       }
       <form onSubmit={handleForm} className='flex flex-col w-[30%] justify-center m-auto'>
-        <label>
+        <label className='type-tittle'>
           Tipo:
-          <select value={type} onChange={(e) => setType(e.target.value)}>
+          <select className='selectd' value={type} onChange={(e) => setType(e.target.value)}>
             <option value={0}>Selecciona una opción</option>
             <option value={1}>Retiro de efectivo</option>
           </select>

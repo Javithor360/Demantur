@@ -1,13 +1,8 @@
 .banerts{
     background-image: url(./../img/banert3.jpg);
-    background-size: cover;
-     display: inline-block;
-      width: 20%; 
-      height: auto;   
-      float: left; 
-      text-align: center; 
-      margin-top: -7.5rem;
-      padding: 440px 250px;
+    width: 100%;
+  background-size: cover;
+  background-position: center center;
 }
 .content-formt{
     height: 30rem;
@@ -20,22 +15,50 @@
     padding: 10px;
     box-shadow: 1px 3px 18px  #888888;
 }
-.labelt{
-    margin-left: -6rem;
-    font-size: 1.3rem;
+.requestd{
+  margin-left: 15rem;
+  margin-top: 2rem;
 }
+.ti{
+  text-align: center;
+  margin-top: 2rem;
+}
+.formc{
+    margin-top: 1.8rem;
+    width: 300px;
+    height: 50px;
+    position: relative;
+  }
+  .formc label{
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    font-size: 18px;
+    color: black;
+    transform-origin: 0 0;
+    transition: top .3s;
+    pointer-events: none;
+  }
 
 .inputs{
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    margin-bottom: 4rem;
-    margin-left: -6rem;
-    width: 30rem;
-}
-.inputs:focus{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.103);
+    border-radius: 10px;
     outline: none;
+    padding: 0 10px;
+    font-size: 20px;
 }
+.formc input:focus ~ label,
+.formc input:valid ~ label{
+     top: -15px;
+     background-color: #ffffff;
+   } 
+   .err{
+    text-align: center  ;
+    color: red  ;
+   }
 .buttonx{
     background-color: #7c85a1;
     color: #ffffff;
@@ -44,7 +67,7 @@
     width: 10rem;
     border: none;
     margin-left: 18rem;
-    margin-top: 2rem;
+    margin-top: 5rem;
 }
 .buttonx:hover{
     transform: scale(1.01);

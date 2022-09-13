@@ -4,6 +4,7 @@ const cors = require("cors");
 const fileUpload = require("express-fileupload");
 const MiddlewareError = require("./middlewares/ErrorMiddleware");
 
+
 // app configuraciones
 app.use(express.json());
 app.use(cors());
@@ -23,6 +24,7 @@ app.use("/api/accounts/", require("./routes/accounts.routes"));
 app.use("/api/requests/", require("./routes/requests.routes"));
 app.use("/api/employee/", require("./routes/employee.routes"));
 app.use('/api/Loans/', require('./routes/Loans.routes'));
+app.use('/api/contact/', require('./routes/contact.routes'));
 
 // Error Middleware
 app.use(MiddlewareError);

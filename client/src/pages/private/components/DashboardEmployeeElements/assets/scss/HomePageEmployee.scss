@@ -1,12 +1,9 @@
-.homepage-employee-container{
-    width: 100%;
-    height: 100%;
-    border-radius: 0.75rem;
-    padding: 2rem;
-    background-color: #fff;
+@use '../../../../../../utilities/_colors.scss' as *;
 
-    p{
-        font-size: 3rem;
-        text-align: center;
-    }
+.tborder{
+    border-top: 1px solid $secondary_gray_200;
+}
+.shadow-custom{
+    box-shadow: 0px 0px 8px 2px rgba(105, 105, 105, 0.261);
+    border: 1px solid $secondary_gray_300;
 }

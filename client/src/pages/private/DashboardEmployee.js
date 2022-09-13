@@ -3,17 +3,19 @@ import { SideBar } from "./components/SideBarEmployee";
 import { Header } from "./components/HeaderEmployee";
 import "./assets/scss/dashboarde.scss";
 import { useDash } from "../../context/DashboardContext";
-import { HomePageEmployee, LoansRequests, CardsRequests, Requests, Deposits } from "./components/DashboardEmployeeElements/IndexEmployeeDash";
+import { HomePageEmployee, LoansRequests, CardsRequests, Requests, Deposits, ClientFetch, SimulationCard } from "./components/DashboardEmployeeElements/IndexEmployeeDash";
 import { useEmpConx } from "../../context/EmployeeContext";
 
-
 export const DashboardEmployee = () => {
-  const { Option, SettingsOption, GeneralInfoQuery} = useDash();
-
+  const { Option, SettingsOption, GeneralInfoQuery } = useDash();
+  const [Chargin, setChargin] = useState(true);
   const { EmployeeInfoQuery } = useEmpConx();
 
   useEffect(() => {
     EmployeeInfoQuery(localStorage.getItem("employeeToken"));
+    setTimeout(() => {
+      setChargin(false);
+    }, 1500);
   }, []);
 
   const DisplayElementEmployee = () => {
@@ -28,29 +30,40 @@ export const DashboardEmployee = () => {
         return <Requests />
       case 5:
         return <Deposits />
+      case 6:
+        return <ClientFetch />
+      case 7:
+        return <SimulationCard />
       default:
         return <h1>Home Page</h1>;
     }
   };
   return (
     <>
-     
-      <div className="w-screen h-screen bg-[#F1F1F1] relative">
-        <div className="w-full h-2/5 bg-[#396EB0] absolute fondo"></div>
+      {Chargin === true && (
+        <div className="container-texts">
+          <span className="loader2"></span>
+        </div>
+      )}
+      <div className="w-screen h-screen bg-[#396EB0] relative">
+        <div className="w-full h-2/5 bg-[#F1F1F1] absolute fondo"></div>
         <div className="absolute flex items-center justify-center w-full h-full">
-          <div className="w-[98%] h-[95%] flex">
-            <SideBar />
-            <div className="h-[95%] w-[80%]  mx-auto">
-              <Header />
-              <div className="pl-4 Display-dash-div">
-                <div className="h-100">
-                  <div className="flex flex-col justify-between py-3 w-100 h-100">
-                    {DisplayElementEmployee()}
+          <div className="w-[100%] h-[100%] flex">
+            <div>
+              <SideBar />
+            </div>
+            <div className="h-full w-full flex items-center">
+              <div className="h-[95%] w-[98%]">
+                <Header />
+                <div className="pl-4 h-[95%]">
+                  <div className="h-full">
+                    <div className="flex flex-col py-3 w-full h-full">
+                      {DisplayElementEmployee()}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
       </div>

@@ -3,20 +3,29 @@ import no_contacts_icon from '../../assets/img/contacts-icons/contacts_icon.png'
 
 // Translation
 import { useTranslation } from "react-i18next";
+import { useEffect } from 'react';
 
 export const YourContacts = () => {
-    const {t}=useTranslation();
+    const { t } = useTranslation();
 
-    const { Contacts, DeleteFriendReq, setContacts, setReloadStateTwo } = useDash()
+    const { Contacts, DeleteFriendReq, setContacts, setReloadStateTwo, socket, Info } = useDash()
+
+
+    useEffect(() => {
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [socket]);
 
     const DeleteFriend = (el) => {
+        socket.emit('DeleteContact', {
+            HimDui: el.Dui, MyDui: Info.Dui
+        })
         DeleteFriendReq(localStorage.getItem('authToken'), el)
         setContacts(Contacts.filter((element) => element.Dui !== el.Dui));
         setReloadStateTwo(true);
     }
     return (
         <div className='h-[100%]'>
-            {/* <span className='mt-5 ml-5 text-[#606470] h-[100%]'>Sus contactos</span> */}
             {Contacts.length !== 0 ?
                 Contacts.map((el, i) => {
                     return (
@@ -24,7 +33,6 @@ export const YourContacts = () => {
                             <>
                                 <div className="flex">
                                     <div className="mr-7 flex items-center">
-                                        {/* foto: {el.Photo} */}
                                         <div className='profile-img mr-3'>
                                             <img src={el.Photo} alt="" className="h-full w-full" />
                                         </div>

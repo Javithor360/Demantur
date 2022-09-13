@@ -1,92 +1,118 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './assets/scss/RequestEmployee.scss'
-import {BsXCircle} from "react-icons/bs";
-
+import { useDash } from '../../../../context/DashboardContext';
+import { useEffect } from 'react';
+import { DetailsRequests } from './DetailsRequests';
+import no_reqs from './assets/img/icons/no_reqs.png'
+import { RiLoader3Fill } from 'react-icons/ri'
 
 export const Requests = () => {
+  const { getActivatedAccountRequests } = useDash();
+  const [Info, setInfo] = useState([]);
+  const [params, setParams] = useState(null);
+
+  const [DisplayDetails, setDisplayDetails] = useState(false);
+
+  const [CharginIco, setCharginIco] = useState(true);
+
+  setTimeout(() => {
+    setCharginIco(false);
+  }, 2500);
+
+  useEffect(() => {
+    (async () => {
+      const res = await getActivatedAccountRequests(localStorage.getItem('employeeToken'));
+      setInfo({ MainInfo: res.data.data[0], ExtraInfo: res.data.data[1] });
+    })()
+  }, [])
+
+
+  useEffect(() => {
+    console.log(Info);
+  }, [Info]);
+
   return (
-    <div className='request-employee-container '>
-        <div className='request-container'>
-          <div className='tittle-request'>
-            <p>Solicitudes pendientes:</p>
-          </div>
-          <div className='request-card'>
-            <p>Solicitudes n°120</p>
-            {/* <button className='button-request'>Más Info</button> */}
-            <div className=''>
-              <input type="checkbox" id="btn-modal" ></input>
-              <label for="btn-modal" class="button-request">Más Info</label>
-              <div class="modal">
-                <div class="contenedor-button-request-employee">
-                  <header>Información del cliente</header>
-                  <label for="btn-modal"><BsXCircle /></label>
-                  <div class="contenido-request-modal">
-                    <p>Nombre: ALbúm</p>
-                    <p>Apellido: Albino</p>
-                    <p>DUI: 123456-7</p>
-                    <p>Edad: 100 años</p>
-                    <p>Telefono: 7826-8920</p>
-                    <p>Email: albim@gmail.com </p> 
-                    <div className='contenido-button'>
-                      <button className='btn-1-request'>Aceptar</button>
-                      <button>Denegar</button>
-                    </div> 
+    <>
+      {
+        CharginIco === true ?
+          <>
+            <div className='flex justify-center items-center w-full h-full bg-white rounded-lg'><RiLoader3Fill className='loading-icon animate-spin-custom h-[8rem] w-[8rem]' /></div>
+          </>
+          :
+          <>
+            {
+              DisplayDetails === false ?
+                <div className='request-employee-container w-[100%] mx-auto h-full overflow-y-auto overflow-x-hidden'>
+                  <div className='flex flex-col text-center h-full'>
+                    <p className="text-gray-500 text-center text-[28px] m-0 mb-5 p-0">Solicitudes de activación de cuenta</p>
+                    {
+                      Info.MainInfo.length !== 0 ?
+                        Info.MainInfo.map((el, i) => {
+                          let Name = `${el.FirstName} ${el.LastName}`
+                          return (
+                            <>
+                              <div className='flex flex-col w-[100%] min-h-[12rem] border-cover-2 rounded-lg mb-5'>
+                                <div className='flex flex-row h-[65%] w-full'>
+                                  <div className='w-[40%] h-full'>
+                                    <div className='bg-[#D6D6D6] h-[25%] table mb-0 rounded-tl-lg'>
+                                      <span className='table-cell align-middle'>Nombre</span>
+                                    </div>
+                                    <div className='h-[75%] table mb-0'>
+                                      <span className='table-cell align-middle'>{Name}</span>
+                                    </div>
+                                  </div>
+                                  <div className='w-[12%] h-full'>
+                                    <div className='bg-[#D6D6D6] h-[25%] table mb-0 border-left-division'>
+                                      <span className='table-cell align-middle'>Dui</span>
+                                    </div>
+                                    <div className='h-[75%] table mb-0 border-left-division'>
+                                      <span className='table-cell align-middle'>{el.Dui}</span>
+                                    </div>
+                                  </div>
+                                  <div className='w-[35%] h-full'>
+                                    <div className='bg-[#D6D6D6] h-[25%] table mb-0 border-left-division'>
+                                      <span className='table-cell align-middle'>Correo electrónico</span>
+                                    </div>
+                                    <div className='h-[75%] table mb-0 border-left-division'>
+                                      <span className='table-cell align-middle'>{el.Email}</span>
+                                    </div>
+                                  </div>
+                                  <div className='w-[13%] h-full'>
+                                    <div className='bg-[#D6D6D6] h-[25%] table mb-0 rounded-tr-lg border-left-division'>
+                                      <span className='table-cell align-middle'>Creada el:</span>
+                                    </div>
+                                    <div className='h-[75%] table mb-0 border-left-division'>
+                                      <span className='table-cell align-middle'>{new Date(el.createdAt).toLocaleDateString()}</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className='h-[35%] w-full flex items-center border-top-division'>
+                                  <button className='my-auto mx-auto block outline-none border-none px-2 py-2 rounded bg-[#455FB9] text-white' onClick={(e) => {
+                                    e.preventDefault();
+                                    setDisplayDetails(true);
+                                    setParams({
+                                      MainInfo: Info.MainInfo[i],
+                                      ExtraInfo: Info.ExtraInfo[i]
+                                    })
+                                  }}>Más detalles</button>
+                                </div>
+                              </div>
+                            </>
+                          )
+                        })
+                        :
+                        <div className='h-full w-full flex flex-col justify-center items-center'>
+                          <img src={no_reqs} alt="" className='w-[280px] mb-3' />
+                          <p className='text-gray-500'>No hay solicitudes de cuentas pendientes</p>
+                        </div>
+                    }
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div className='request-card'>
-            <p>Solicitudes n°121</p>
-            <div className=''>
-              <input type="checkbox" id="btn-modal-2" ></input>
-              <label for="btn-modal-2" class="button-request">Más Info</label>
-              <div class="modal">
-                <div class="contenedor-button-request-employee">
-                  <header>Información del cliente</header>
-                  <label for="btn-modal-2"><BsXCircle /></label>
-                  <div class="contenido-request-modal">
-                    <p>Nombre: ALbúm</p>
-                    <p>Apellido: Albino</p>
-                    <p>DUI: 123456-7</p>
-                    <p>Edad: 100 años</p>
-                    <p>Telefono: 7826-8920</p>
-                    <p>Email: albim@gmail.com </p> 
-                    <div className='contenido-button'>
-                      <button className='btn-1-request'>Aceptar</button>
-                      <button>Denegar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='request-card'>
-            <p>Solicitudes n°122</p>
-            <div className=''>
-              <input type="checkbox" id="btn-modal-3" ></input>
-              <label for="btn-modal-3" class="button-request">Más Info</label>
-              <div class="modal">
-                <div class="contenedor-button-request-employee">
-                  <header>Información del cliente</header>
-                  <label for="btn-modal-3"><BsXCircle /></label>
-                  <div class="contenido-request-modal">
-                    <p>Nombre: ALbúm</p>
-                    <p>Apellido: Albino</p>
-                    <p>DUI: 123456-7</p>
-                    <p>Edad: 100 años</p>
-                    <p>Telefono: 7826-8920</p>
-                    <p>Email: albim@gmail.com </p> 
-                    <div className='contenido-button'>
-                      <button className='btn-1-request'>Aceptar</button>
-                      <button>Denegar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
+                :
+                <DetailsRequests ArrInfo={Info} setInfo={setInfo} info={params !== null && params} setDisplayDetails={setDisplayDetails} />
+            }
+          </>
+      }
+    </>
   )
 }

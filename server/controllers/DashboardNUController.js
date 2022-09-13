@@ -3,11 +3,14 @@ const ErrorResponse = require("../utils/ErrorMessage");
 const GlobalData = require("../models/GlobalData");
 const Settings = require("../models/Settings");
 const CardsRequests = require("../models/CardsRequests");
-const LoansModels = require('../models/LoansModels')
+const LoanRequest = require('../models/LoansRequestModels')
 const SavingsAccount = require('../models/SavingsAccount');
 const { uploadRegisterImage } = require("../libs/cloudinary");
 const fs = require("fs-extra");
 const { ChangeEmailFunc, createCode } = require("../helpers/Functions");
+const CardsModel = require("../models/CardsModel");
+const DebitCardModel = require("../models/DebitCardModel");
+const AcpLoanModel = require("../models/AcpLoanModel");
 // const SavingAccount = require("../models/SavingAccount");
 
 const testDB = async (req, res, next) => {
@@ -440,7 +443,7 @@ const getMyLoanReq = async (req, res, next) => {
     const token = req.resetToken;
 
 
-    const isHadLoanReq = await LoansModels.findOne({ loan_guarantor: token.user.id })
+    const isHadLoanReq = await LoanRequest.findOne({ loan_guarantor: token.user.id })
     if (isHadLoanReq) {
       exportss = isHadLoanReq
     } else {
@@ -452,6 +455,7 @@ const getMyLoanReq = async (req, res, next) => {
     res.status(500).json({ success: false, error: error.message });
   }
 }
+
 
 const getSavAcc = async (req, res, next) => {
   try {
@@ -514,17 +518,17 @@ const getEveryAcc = async (req, res, next) => {
 
     let AccountsWithUsers = [];
 
-    AllAccounts.forEach((element, i) => {
-      if (element.AccountOwner.toString() === AllUsers[i]._id.toString()) {
-        let datos = { Dui: null, accountNumber: null };
-        datos.Dui = AllUsers[i].Dui;
-        datos.accountNumber = element.accountNumber;
+    AllAccounts.forEach((element1, i) => {
+      AllUsers.forEach(element2 => {
+        if (element1?.AccountOwner?.toString() === element2._id?.toString()) {
+          let datos = { Dui: null, accountNumber: null };
+          datos.Dui = element2.Dui;
+          datos.accountNumber = element1.accountNumber;
 
-        AccountsWithUsers.push(datos);
-      }
+          AccountsWithUsers.push(datos);
+        }
+      });
     });
-
-    console.log(AccountsWithUsers);
 
     res.status(200).json({ success: true, data: AccountsWithUsers })
   } catch (error) {
@@ -558,14 +562,218 @@ const ChangeEmail = async (req, res, next) => {
     } else {
       const code = createCode();
       User.ChangeEmailCode = code;
+      User.NewEmail = Email;
       await User.save()
       ChangeEmailFunc(code, Email, res);
-      res.status(200).json({ success: true, data: 'Email Enviado Correctamente' })
+      res.status(200).json({ success: true, data: { code, Email } })
     }
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
 }
+
+const EmailCodeVer = async (req, res, next) => {
+  try {
+    const { Code, Email } = req.body
+    const getAllUsers = await NormalUser.find()
+    let UserWithCode = null;
+
+    getAllUsers.forEach(async (element) => {
+      if (element.ChangeEmailCode === Code) {
+        UserWithCode = element
+      }
+    });
+
+    if (UserWithCode !== null) {
+      if (UserWithCode.ChangeEmailCode === Code) {
+        UserWithCode.Email = Email;
+        UserWithCode.ChangeEmailCode = undefined;
+        UserWithCode.NewEmail = undefined;
+        await UserWithCode.save()
+        res.status(200).json({ success: true });
+      }
+    } else {
+      return next(new ErrorResponse("El codigo es invalido", 400, "error"))
+    }
+
+
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const CancelChangeEmail = async (req, res, next) => {
+  try {
+    const { Code } = req.body
+    console.log(Code)
+
+    const User = await NormalUser.findOne({ ChangeEmailCode: Code });
+
+    User.NewEmail = undefined;
+    User.ChangeEmailCode = undefined;
+
+
+    User.save()
+
+    res.status(200).json({ succes: true })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const CancelChangePass = async (req, res, next) => {
+  try {
+    const { Code } = req.body
+    console.log(Code)
+
+    const User = await NormalUser.findOne({ ChangePassCode: Code });
+
+    User.NewPassword = undefined;
+    User.ChangePassCode = undefined;
+
+
+    User.save()
+
+    res.status(200).json({ succes: true })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const VerifyOldPass = async (req, res, next) => {
+  try {
+    const { OldPass } = req.body
+    const token = req.resetToken;
+
+    const User = await NormalUser.findOne({ _id: token.user.id }).select("+Password");
+    const isMatchPass = await User.matchPasswords(OldPass);
+
+    if (!isMatchPass) {
+      return next(new ErrorResponse("La contraseña no coincide", 401, "error"));
+    } else {
+      res.status(200).json({ success: true });
+    }
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const ChangePass = async (req, res, next) => {
+  try {
+    const { Password } = req.body
+    const token = req.resetToken;
+
+    const User = await NormalUser.findOne({ _id: token.user.id }).select("+Password");
+
+    if (!/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/.test(Password)) {
+      return next(
+        new ErrorResponse("La contraseña no es valida", 400, "error")
+      );
+    }
+
+    const isMatchPass = await User.matchPasswords(Password);
+    if (isMatchPass) {
+      return next(new ErrorResponse("La contraseña no puede ser igual a la anterior", 401, "error"));
+    } else {
+      const code = createCode();
+      User.ChangePassCode = code;
+      User.NewPassword = Password;
+      User.save()
+      res.status(200).json({ success: true });
+    }
+
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const VerifyCodePass = async (req, res, next) => {
+  try {
+    const { Code } = req.body
+    const token = req.resetToken;
+
+    const User = await NormalUser.findOne({ _id: token.user.id }).select("+Password");
+
+    if (User.ChangePassCode == Code) {
+      User.Password = User.NewPassword;
+      User.ChangePassCode = undefined;
+      User.NewPassword = undefined;
+      User.save();
+      res.status(200).json({ success: true });
+    } else {
+      return next(new ErrorResponse("El codigo es incorrecto", 401, "error"));
+    }
+
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const getPedingFriendReq = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+
+    const GlobalD = await GlobalData.findOne({ DataOwner: token.user.id });
+    const NormalUsers = await NormalUser.find();
+
+    let PendingFr = GlobalD.PendingFriendReq;
+    let SendArr = []
+
+    NormalUsers.forEach(element1 => {
+      PendingFr.forEach(element2 => {
+        if (element1?.Dui == element2?.Dui) {
+          let inf = {};
+          inf.Name = element2.Name;
+          inf.Dui = element2.Dui;
+          inf.Photo = element1.PerfilPhoto.url;
+          SendArr.push(inf);
+        }
+      });
+    });
+
+    res.status(200).json({ success: true, data: SendArr });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const FriendReq = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+
+    const GlobalD = await GlobalData.findOne({ DataOwner: token.user.id });
+    const NormalUsers = await NormalUser.find();
+
+    let FriendReq = GlobalD.FriendRequests;
+    let SendArr = []
+
+    NormalUsers.forEach(element1 => {
+      FriendReq.forEach(element2 => {
+        if (element1?.Dui == element2?.Dui) {
+          let inf = {};
+          inf.Name = element2.Name;
+          inf.Dui = element2.Dui;
+          inf.Photo = element1.PerfilPhoto.url;
+          SendArr.push(inf);
+        }
+      });
+    });
+
+    res.status(200).json({ success: true, data: SendArr });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const getUsersToAdd = async (req, res, next) => {
+  try {
+    const AllUsers = await NormalUser.find()
+    res.status(200).json({ success: true, data: AllUsers });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
 
 const getAccountsHistory = async (req, res, next) => {
   try {
@@ -578,6 +786,8 @@ const getAccountsHistory = async (req, res, next) => {
     let filterArray,
       depHistory = [],
       withHistory = [],
+      transferMadeHistory = [],
+      transferReceivedHistory = [],
       generalHistory = [];
 
     const DepQuery = await GlobalData.findOne({ DataOwner: token.user.id });
@@ -591,14 +801,158 @@ const getAccountsHistory = async (req, res, next) => {
     filterArray = DepQuery.withdrawHistory.filter(i => i.Account == AccountNumber);
     withHistory.push({ Withdraws: filterArray });
 
-    generalHistory.push(depHistory, withHistory);
+    filterArray = DepQuery.TransfersHistory.Made.filter(el => el.AccountN == AccountNumber);
+    transferMadeHistory.push({ TransferMade: filterArray });
+
+    filterArray = DepQuery.TransfersHistory.Received.filter(el => el.AccountReceiver == AccountNumber);
+    transferReceivedHistory.push({ TransferReceived: filterArray });
+
+    generalHistory.push(depHistory, withHistory, transferMadeHistory, transferReceivedHistory);
 
     if (depHistory.length < 1) {
       return next(new ErrorResponse('No hay ningún dato', 400, 'error'))
     }
     res.status(200).json({ success: true, data: generalHistory });
   } catch (error) {
-    console.error(error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const getMyCard = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const AllCards = await CardsModel.find()
+    let MyCard = null;
+
+    AllCards.forEach(element => {
+      if (element.CardOwner.toString() == token.user.id.toString()) {
+        MyCard = element
+      }
+    })
+
+    res.status(200).json({ success: true, data: MyCard });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const getDebitCard = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const AllDebitCards = await DebitCardModel.find()
+    let MyDebitCard = null;
+
+    AllDebitCards.forEach(element => {
+      if (element.CardOwner.toString() == token.user.id.toString()) {
+        MyDebitCard = element;
+      }
+    });
+    res.status(200).json({ success: true, data: MyDebitCard });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const PayCardDebt = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const { AccountN, Amount } = req.body
+    const Acc = await SavingsAccount.findOne({ accountNumber: AccountN })
+    let date = new Date()
+
+    if (parseFloat(Acc.balance) < parseFloat(Amount)) {
+      return next(new ErrorResponse('No tiene el monto suficiente', 400, 'error'))
+    } else {
+      await SavingsAccount.findOneAndUpdate({ accountNumber: AccountN }, { balance: (parseFloat(Acc.balance) - parseFloat(Amount)).toFixed(2) });
+      await CardsModel.findOneAndUpdate({ CardOwner: token.user.id }, { PayableAmount: 0, $push: { PaymentHistory: { RealizationDate: date, Amount: Amount, AccountNumber: AccountN } } });
+      res.status(200).json({ success: true, data: 'Pagado correctamente' });
+    }
+
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const CreateDebitCard = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const { NumberAcc } = req.body;
+
+    // VALIDACION DE CUENTA ACTIVADA HACE FALTAAAAAAAAAAAAAAAAAAAAAAAAA
+
+    let CardNumber, CardCCV, CardExpire;
+    let timeNow = new Date()
+    CardExpire = new Date(timeNow.getFullYear() + 3, timeNow.getMonth(), timeNow.getDay())
+
+    const FunctGen = (Max, Min) => {
+      let Num = Math.random() * (Max - Min);
+      Num = Num + Min;
+      Num = Math.trunc(Num);
+      return Num
+    }
+
+    let CardP1 = FunctGen(900, 100);
+    let CardP2 = FunctGen(9000, 1000);
+    let CardP3 = FunctGen(9000, 1000);
+    let CardP4 = FunctGen(9000, 1000);
+
+    CardCCV = FunctGen(900, 100);
+    CardNumber = `5${CardP1} ${CardP2} ${CardP3} ${CardP4}`
+
+    const newDebitCard = await new DebitCardModel({
+      CardOwner: token.user.id,
+      CardNumber,
+      CardCCV,
+      CardExpire,
+      NumberAcountOf: NumberAcc,
+      SpentHistory: []
+    })
+
+    newDebitCard.save()
+
+    res.status(200).json({ success: true, data: newDebitCard })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+
+const getMyCredit = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const MyLoan = await AcpLoanModel.findOne({ debtorId: token.user.id });
+    res.status(200).json({ success: true, data: MyLoan })
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+}
+
+const PayLoan = async (req, res, next) => {
+  try {
+    const token = req.resetToken;
+    const { accountNumber } = req.body
+
+    const MyLoan = await AcpLoanModel.findOne({ debtorId: token.user.id })
+    const Acc = await SavingsAccount.findOne({ accountNumber: accountNumber });
+
+    if (MyLoan.MonthlyFee > Acc.balance && MyLoan.amounts.remainder != 0) {
+      return next(new ErrorResponse('El Monto no es suficiente para pagar', 400, 'error'))
+    } else {
+      await SavingsAccount.findOneAndUpdate({ accountNumber: accountNumber }, { $inc: { balance: -MyLoan.MonthlyFee } });
+
+      let timeNow = new Date()
+      let NewPaymentDate = new Date(timeNow.getFullYear(), timeNow.getMonth(), timeNow.getDay() + 30);
+
+      MyLoan.pay_history.loan_next_payment = NewPaymentDate;
+      MyLoan.pay_history.payment_history.push({ AccountN: accountNumber, Amount: MyLoan.MonthlyFee, Date: timeNow })
+      MyLoan.amounts.remainder = MyLoan.amounts.remainder - MyLoan.MonthlyFee;
+
+      MyLoan.save()
+      res.status(200).json({ success: true })
+    }
+
+
+  } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
 }
@@ -622,6 +976,11 @@ module.exports = {
   getNavName,
   getEveryAcc,
   ChangeEmail,
-  getAccountsHistory
+  getAccountsHistory,
+  EmailCodeVer,
+  CancelChangeEmail,
+  VerifyOldPass,
+  ChangePass, VerifyCodePass, CancelChangePass, getPedingFriendReq, FriendReq, getUsersToAdd, getMyCard, getDebitCard,
+  PayCardDebt, CreateDebitCard, getMyCredit, PayLoan
 };
 

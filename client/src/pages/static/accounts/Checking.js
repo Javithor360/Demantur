@@ -25,7 +25,7 @@ export const CheckingAccount = () => {
           <hr />
 
           <div className="accT_benefits-grid">
-            <div className="accT_benefits-card-cont">
+            <div className="accT_benefits-card-cont accT-1">
               <FaMoneyCheckAlt className="accT_benefits-icon" />
               <p className="accT_benefits-title">
               {t("CheckingPage.benefit.1")}
@@ -36,7 +36,7 @@ export const CheckingAccount = () => {
               </p>
             </div>
 
-            <div className="accT_benefits-card-cont">
+            <div className="accT_benefits-card-cont accT-2">
               <FaFileInvoice className="accT_benefits-icon" />
               <p className="accT_benefits-title">{t("CheckingPage.benefit.2")}</p>
               <p className="accT_benefits-desc">
@@ -45,7 +45,7 @@ export const CheckingAccount = () => {
               </p>
             </div>
 
-            <div className="accT_benefits-card-cont">
+            <div className="accT_benefits-card-cont accT-3">
               <FaCreditCard className="accT_benefits-icon" />
               <p className="accT_benefits-title">
               {t("CheckingPage.benefit.3")}
@@ -63,6 +63,9 @@ export const CheckingAccount = () => {
           <hr className="marg" />
 
           {Tabs("CheckingAccount")}
+        </div>
+        <div className="space-responsive">
+          <br/><br/><br/>
         </div>
       </section>
       <Footer />

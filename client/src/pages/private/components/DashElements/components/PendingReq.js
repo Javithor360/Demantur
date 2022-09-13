@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react"
 import { useDash } from "../../../../../context/DashboardContext"
 import pending_icon from '../../assets/img/contacts-icons/contacts-pending-icon.png'
@@ -7,15 +8,20 @@ import '../../assets/scss/Contacts_main.scss'
 import { useTranslation } from "react-i18next";
 
 export const PendingReq = () => {
-    const {t}=useTranslation();
+    const { t } = useTranslation();
 
-    const { PedingFriendReq, ReloadState, setReloadState, cancelFriendReq, setPedingFriendReq, setReloadStateTwo } = useDash()
+    const { PedingFriendReq, ReloadState, setReloadState, cancelFriendReq, setPedingFriendReq, setReloadStateTwo, PendingFr, getMyFriendReq, socket, Info } = useDash()
     useEffect(() => {
         setReloadState(false)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [ReloadState])
+    }, [ReloadState, PedingFriendReq])
+
+    useEffect(() => {
+        PendingFr(localStorage.getItem('authToken'));
+        getMyFriendReq(localStorage.getItem('authToken'));
+    }, []);
 
     const CancelFriendReq = (el) => {
+        socket.emit('CancelFriendReq', { element: el, By: { Name: `${Info.FirstName} ${Info.LastName}`, Dui: Info.Dui, Photo: Info.PerfilPhoto.url } })
         cancelFriendReq(localStorage.getItem('authToken'), el)
         setPedingFriendReq(PedingFriendReq.filter((SingleReq) => SingleReq.Dui !== el.Dui));
         setReloadState(false);
@@ -26,13 +32,11 @@ export const PendingReq = () => {
             {
                 PedingFriendReq.length !== 0 ?
                     PedingFriendReq.map((el, i) => {
-                        console.log(el)
                         return (
                             <div key={i} className="bg-[#FBFBFB] w-[90%] flex justify-between mt-4 ml-5 p-3 border border-[#707070] rounded-md">
                                 <>
                                     <div className="flex">
                                         <div className="mr-7 flex items-center">
-                                            {/* foto: {el.Photo} */}
                                             <div className='profile-img mr-3'>
                                                 <img src={el.Photo} alt="" className="h-full w-full" />
                                             </div>

@@ -66,6 +66,9 @@ export const BlackCard = () => {
                   {t("BlackCard.benefit.3.desc")}
                 </p>
             </div>
+            <div className="vl">
+              <hr />
+            </div>  
           </div>
           <div className="card-benefits_grid_row__2">
             <div className="hl"><hr /></div>

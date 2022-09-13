@@ -1,7 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { createContext, useContext, useEffect, useState } from "react";
 // import { format } from "timeago.js";
 
-import { creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ, getContactsWPReq, getMyLoanReqREQ, getSavingAcctsReq, UpdatePhotoReq, getNametoNavQuery, getEveryAccQuery, getAccHistory, ChangeEmailQuery } from "../api/Queries";
+import {
+  creatElements, getInfo, getGlobalInfoQuery, getUsersToFRQuery, addFriendReq, cancelFrReq, AcceptFriendReq, DeclineFriendReq, DeleteFriendRequest, DoATransferQuery, getMyCardReqREQ, getContactsWPReq, getMyLoanReqREQ, getSavingAcctsReq, UpdatePhotoReq, getNametoNavQuery, getEveryAccQuery, getAccHistory, ChangeEmailQuery, EmailCodeVerQuery, getPendingAccounts,
+  CancelChangeEm, VerifyOldPassQuery, ChangePassQuery, VerifyCodePassQuery, CancelChangePassQuery, PendingFrQuery, FriendRequestsQuery, UsersToAddQuery, getMyCardQuery, getMyDebitCardQuery, PayCCDebtQuery, CreateDebitCardQuery, getMyLoanReqQuery, PayLoanQuery
+} from "../api/Queries";
 
 
 const dashContext = createContext();
@@ -33,15 +37,15 @@ export const DashProvider = ({ children }) => {
   const [HimTranfers, setHimTranfers] = useState([]);
   const [SavingAccounts, setSavingAccounts] = useState([]);
   const [clientBalance, setClientBalance] = useState(0);
+  const [ChangeBox2, setChangeBox2] = useState(false);
 
-  const [socket, setSocket] = useState(null)
+  const [SimpleLoan, setSimpleLoan] = useState(null);
+  const [LoanParametro, setLoanParametro] = useState(null);
 
-  useEffect(() => {
-    if (GlobalInfo !== null) {
-      setPedingFriendReq(GlobalInfo.PendingFriendReq);
-      setFriendRequest(GlobalInfo.FriendRequests);
-    }
-  }, [GlobalInfo]);
+  const [DebitCard, setDebitCard] = useState(null);
+  const [CardsParametros, setCardsParametros] = useState(null);
+
+  const [socket, setSocket] = useState(null);
 
   useEffect(() => {
     if (SavingAccounts.length !== 0) {
@@ -81,14 +85,6 @@ export const DashProvider = ({ children }) => {
     }
   };
   const LoansRequestsForm = async (token) => {
-    try {
-      return await getInfo(PrivateConfig(token));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const PersonalLoanForm = async (token) => {
     try {
       return await getInfo(PrivateConfig(token));
     } catch (error) {
@@ -213,6 +209,7 @@ export const DashProvider = ({ children }) => {
     }
   }
 
+
   const getSavingAccts = async (Token) => {
     try {
       const res = await getSavingAcctsReq(PrivateConfig(Token))
@@ -253,11 +250,142 @@ export const DashProvider = ({ children }) => {
       return error;
     }
   }
+
+  const EmailCodeVer = async (Token, Code, Email) => {
+    try {
+      return await EmailCodeVerQuery(PrivateConfig(Token), Code, Email)
+    } catch (error) {
+      return error;
+    }
+  }
+
   const getAccountsHistory = async (Token, accNum) => {
     try {
       return await getAccHistory(Token, accNum);
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  const getActivatedAccountRequests = async (Token) => {
+    try {
+      return await getPendingAccounts(PrivateConfig(Token));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const CancelChangeEmail = async (Token, Code) => {
+    try {
+      return await CancelChangeEm(PrivateConfig(Token), Code)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const VerifyOldPass = async (Token, OldPass) => {
+    try {
+      return await VerifyOldPassQuery(PrivateConfig(Token), OldPass);
+    } catch (error) {
+      return error;
+    }
+  }
+
+  const ChangePass = async (Token, NewPass) => {
+    try {
+      return await ChangePassQuery(PrivateConfig(Token), NewPass);
+    } catch (error) {
+      return error
+    }
+  }
+
+  const VerifyCodePass = async (Token, Code) => {
+    try {
+      return await VerifyCodePassQuery(PrivateConfig(Token), Code)
+    } catch (error) {
+      return error
+    }
+  }
+
+  const CancelChangePass = async (Token, Code) => {
+    try {
+      return await CancelChangePassQuery(PrivateConfig(Token), Code)
+    } catch (error) {
+      return error
+    }
+  }
+
+  const PendingFr = async (Token) => {
+    try {
+      const res = await PendingFrQuery(PrivateConfig(Token));
+      setPedingFriendReq(res.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const getMyFriendReq = async (Token) => {
+    try {
+      const res = await FriendRequestsQuery(PrivateConfig(Token));
+      setFriendRequest(res.data.data);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getUsersToAdd = async (Token) => {
+    try {
+      return await UsersToAddQuery(PrivateConfig(Token))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getMyCard = async (Token) => {
+    try {
+      return await getMyCardQuery(PrivateConfig(Token))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getMyDebitCard = async (Token) => {
+    try {
+      return await getMyDebitCardQuery(PrivateConfig(Token))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const PayCCDebt = async (Token, AccountN, Amount) => {
+    try {
+      return await PayCCDebtQuery(PrivateConfig(Token), AccountN, Amount)
+    } catch (error) {
+      return error
+    }
+  }
+
+  const CreateDebitCard = async (Token, NumberAcc) => {
+    try {
+      return await CreateDebitCardQuery(PrivateConfig(Token), NumberAcc);
+    } catch (error) {
+      return error
+    }
+  }
+
+  const getMyLoan = async (Token) => {
+    try {
+      return await getMyLoanReqQuery(PrivateConfig(Token))
+    } catch (error) {
+      return error
+    }
+  }
+
+  const PayLoan = async (Token, accountNumber) => {
+    try {
+      return await PayLoanQuery(PrivateConfig(Token), accountNumber)
+    } catch (error) {
+      return error
     }
   }
 
@@ -270,7 +398,9 @@ export const DashProvider = ({ children }) => {
       setFriendRequest, DeleteFriendReq, CurrentChat, setCurrentChat, TransactionsArr, setTransactionsArr,
       MyTransfers, setMyTransfers, HimTranfers, setHimTranfers, DoATransfer, setGlobalInfo, socket, setSocket,
       getMyCardReq, getMyLoanReq, GlobalInfoSetReq, getContacsWP, SavingAccounts, getSavingAccts, UpdatePhoto, clientBalance,
-      NPName, setNPName, setSavingAccounts, setClientBalance, getNametoNav, getEveryAcc, ChangeEmail, getAccountsHistory
+      NPName, setNPName, setSavingAccounts, setClientBalance, getNametoNav, getEveryAcc, ChangeEmail, getAccountsHistory, EmailCodeVer, getActivatedAccountRequests,
+      CancelChangeEmail, VerifyOldPass, ChangePass, VerifyCodePass, CancelChangePass, setInfo, PendingFr, getMyFriendReq, getUsersToAdd, getMyCard,
+      CardsParametros, setCardsParametros, getMyDebitCard, ChangeBox2, setChangeBox2, PayCCDebt, CreateDebitCard, DebitCard, setDebitCard, getMyLoan, PayLoan
     }}>
       {children}
     </dashContext.Provider>

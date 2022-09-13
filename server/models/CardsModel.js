@@ -9,17 +9,28 @@ const CardsModelSchema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     require: true,
   },
+  CardId: Number,
+  CardImage: StringReq,
   CardType: StringReq,
-  CardAmount: NumberReq,
-  PaymentDate: DateReq,
+  CardNumber: StringReq,
+  CardCCV: Number,
+  CardExpire: Date,
+  MaxCardAmount: Number,
   PayAmount: NumberReq,
   interest: NumberReq,
   PaymentHistory: [{
-    RealizationDate: DateReq,
-    Amount: NumberReq,
-    AccountNumber: NumberReq,
-  }]
-
+    RealizationDate: Date,
+    Amount: Number,
+    AccountNumber: Number,
+  }],
+  SpentHistory: [{
+    RealizationDate: Date,
+    Amount: Number,
+  }],
+  PayableAmount: {
+    type: mongoose.Types.Decimal128,
+    required: true
+  }
 })
 
 module.exports = mongoose.model('CardsModel', CardsModelSchema);

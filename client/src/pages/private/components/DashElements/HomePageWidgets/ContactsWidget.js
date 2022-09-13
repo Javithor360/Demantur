@@ -1,5 +1,6 @@
 import { useEffect, useState, useTransition } from 'react'
 import { useDash } from '../../../../../context/DashboardContext'
+import '../../assets/scss/WidgetsStyles.scss'
 
 import { RiContactsFill } from 'react-icons/ri'
 
@@ -7,7 +8,7 @@ import { RiContactsFill } from 'react-icons/ri'
 import { useTranslation } from "react-i18next";
 
 export const ContactsWidget = () => {
-  const {t}=useTranslation();
+  const { t } = useTranslation();
   const { Contacts } = useDash()
 
   const [FourContacts, setFourContacts] = useState(null);
@@ -28,20 +29,22 @@ export const ContactsWidget = () => {
   return (
     <>
       <h2 className="text-gray-500 text-[1.5625rem] text-center">{t("DashboardNormalUser.Home.contact.tittle")}</h2>
-      <div className='w-100 h-100'>
+      <div className='w-full max-h-[100%] overflow-y-auto overflow-x-hidden'>
         {
           FourContacts ?
             FourContacts.map((Contact, i) => {
-
               return (
                 <>
-                  <div className='flex items-center justify-evenly' key={i}>
+                  <div className='w-full flex items-center justify-center pt-2 pb-3' key={i}>
                     <img src={Contact.Photo} alt="perfilphoto" className='rounded-full w-[3rem] h-[3rem]' />
-                    <span className='text-xl'>{`${Contact?.Name.split(' ')[0]} ${Contact?.Name.split(' ')[2]}`}</span>
-                    <span className='text-xl mx-[-1rem]'>|</span>
-                    <span className='text-xl'>{Contact.Dui}</span>
+                    <div className='contact-layout'>
+                      <span className='text-xl'>{`${Contact?.Name.split(' ')[0]} ${Contact?.Name.split(' ')[2]}`}</span>
+                      <span className='separator-display text-xl mx-2'>|</span>
+                      <div className='h-separator-display my-1'></div>
+                      <span className='text-xl'>{Contact.Dui}</span>
+                    </div>
                   </div>
-                  {i !== 3 && <div className='w-[100%] h-[0.10rem] bg-[#707070] my-[1rem]'></div>}
+                  {i !== 3 && <div className='w-[100%] h-[0.10rem] bg-[#707070] my-[0.25rem]'></div>}
                 </>
               );
             })
@@ -54,7 +57,7 @@ export const ContactsWidget = () => {
         {
           Contacts?.length < 3 && Contacts?.length !== 0 &&
           <div className={`mt-[${Contacts?.length === 1 ? '4' : '2'}em] flex flex-col justify-center items-center`}>
-            <span className='text-2xl'>{t("DashboardNormalUser.Home.contact.desc")}</span>
+            <span className='text-2xl text-center'>{t("DashboardNormalUser.Home.contact.desc")}</span>
             <RiContactsFill className='w-[2rem] h-[4rem]' />
           </div>
         }

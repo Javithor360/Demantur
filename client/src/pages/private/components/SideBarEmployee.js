@@ -1,12 +1,14 @@
 //icons
-import { AiFillHome } from "react-icons/ai";
+import { AiFillHome, AiOutlineSearch } from "react-icons/ai";
 import {
   MdOutlineLogout,
   MdRequestQuote
 } from "react-icons/md";
 import { GoChecklist } from "react-icons/go";
-import { BsCreditCardFill } from "react-icons/bs";
+import { BsCreditCardFill, BsCreditCard2BackFill } from "react-icons/bs";
+import { IoIosCash } from "react-icons/io";
 import { useDash } from "../../../context/DashboardContext";
+import { useNavigate } from "react-router-dom";
 
 const NavLinkStyles =
   "menu-item2 mb-2 h-14 flex flex-row w-full rounded items-center";
@@ -20,10 +22,11 @@ const SideBarImages = require.context("./assets/img/", true);
 
 export const SideBar = () => {
   const { Option, setOption, setOptionElement } = useDash();
+  const navigate = useNavigate()
 
   return (
     <>
-      <div className="flex items-center justify-between w-64 h-full p-2 bg-white rounded-md shadow-lg side-bar-container flex-column">
+      <div className="flex items-center justify-between w-64 h-full p-2 bg-white shadow-lg side-bar-container flex-column">
         <div className="w-full side-bar-content-container">
           <div className="w-full side-bar-logo content-column-1">
             <img
@@ -105,7 +108,7 @@ export const SideBar = () => {
             <div
               onClick={() => {
                 setOption(5);
-                setOptionElement("Depositos");
+                setOptionElement("Depósitos");
               }}
               className={
                 Option === 5
@@ -114,16 +117,50 @@ export const SideBar = () => {
               }
             >
               <div className={DivNavLinkStyles}>
-                <GoChecklist className={IconNavLinkStyles} />
+                <IoIosCash className={IconNavLinkStyles} />
               </div>
               <span className={SpanNavLinkStyles}>Depósitos</span>
+            </div>
+
+            <div
+              onClick={() => {
+                setOption(6);
+                setOptionElement("Buscar cliente");
+              }}
+              className={
+                Option === 6
+                  ? `${NavLinkStyles} menu-item2 menu-item-selected2`
+                  : `${NavLinkStyles} menu-item2`
+              }
+            >
+              <div className={DivNavLinkStyles}>
+                <AiOutlineSearch className={IconNavLinkStyles} />
+              </div>
+              <span className={SpanNavLinkStyles}>Buscar cliente</span>
+            </div>
+
+            <div
+              onClick={() => {
+                setOption(7);
+                setOptionElement("Acciones Tarjetas");
+              }}
+              className={
+                Option === 7
+                  ? `${NavLinkStyles} menu-item2 menu-item-selected2`
+                  : `${NavLinkStyles} menu-item2`
+              }
+            >
+              <div className={DivNavLinkStyles}>
+                <BsCreditCard2BackFill className={IconNavLinkStyles} />
+              </div>
+              <span className={SpanNavLinkStyles}>Acciones Tarjeta</span>
             </div>
 
           </div>
         </div>
 
         <div className="flex justify-center w-full pb-4">
-          <button className="logout-button2 flex items-center justify-center rounded w-[85%]" onClick={() => localStorage.removeItem('employeeToken')}>
+          <button className="logout-button2 flex items-center justify-center rounded w-[85%]" onClick={() => { localStorage.removeItem('employeeToken'); navigate('/index') }}>
             <div className="flex items-center mr-2 logout-icon">
               <MdOutlineLogout />
             </div>

@@ -4,6 +4,7 @@ import { useEmpConx } from '../../../../context/EmployeeContext';
 import { ConfirmAction } from './ConfirmAction';
 import Modal from '../Modal';
 import './assets/scss/DepositsEmployee.scss'
+import Cleave from 'cleave.js/react';
 
 export const Deposits = () => {
 
@@ -41,21 +42,25 @@ export const Deposits = () => {
         e.preventDefault();
 
         try {
-            toggle();
 
-            const res = await axios.post('http://localhost:4000/api/employee/get-user-data', { AccountNumber: AccNumber });
-            setFormData(
-                {
-                    uFullName: `${res.data.data.FirstName} ${res.data.data.LastName}`,
-                    uPfp: res.data.data.PerfilPhoto.url,
-                    uAcc: AccNumber,
-                    eId: Info.EmployeeId,
-                    eDbId: Info._id,
-                    eFullName: `${Info.FirstNames} ${Info.LastNames}`,
-                    client: res.data.data._id,
-                    amount: Amount,
-                }
-            );
+            if (Amount != 0) {
+                const res = await axios.post('http://localhost:4000/api/employee/get-user-data', { AccountNumber: AccNumber });
+                setFormData(
+                    {
+                        uFullName: `${res.data.data.FirstName} ${res.data.data.LastName}`,
+                        uPfp: res.data.data.PerfilPhoto.url,
+                        uAcc: AccNumber,
+                        eId: Info.EmployeeId,
+                        eDbId: Info._id,
+                        eFullName: `${Info.FirstNames} ${Info.LastNames}`,
+                        client: res.data.data._id,
+                        amount: Amount,
+                    }
+                );
+                toggle();
+            } else {
+                setError('la cantidad no es valida')
+            }
         } catch (error) {
             console.error(error);
             setError(error.response.data.error);
@@ -65,37 +70,55 @@ export const Deposits = () => {
     return (
         <div className='h-full w-full bg-white rounded-xl p-3 overflow-hidden'>
 
-            {Error !== '' && Error}
 
-            <h1 className='text-center mb-[4rem]'>Efectuar depósito</h1>
+            <h1 className='text-center mb-[2rem] mt-3'>Efectuar depósito</h1>
+            {
+                Error !== '' && Error &&
+                <div className='text-center	w-full'>
+                    <p className='text-red-500'>{Error}</p>
+                </div>
+            }
             {
                 Success !== false && Success &&
                 <div className='text-center	w-full'>
-                    <p className='text-green-500'>TRANSACCIÓN HECHA PE</p>
+                    <p className='text-green-500'>Transaccion realizada correctamente</p>
                 </div>
             }
-            <div className='mx-[25rem] container-deposits'>
-                <form onSubmit={handleForm} className='flex flex-col'>
-                    <div className='hola-deposits'></div>
-                    <label htmlFor="AccNumber">Número de cuenta</label>
-                    <hr />
-                    <input type="number" id="AccNumber" name='AccNumber' onChange={(e) => { setAccNumber(e.target.value) }} value={AccNumber} required />
+            <div className='mx-auto container-deposits border-cover-2 rounded-lg'>
+                <form onSubmit={handleForm} className='flex flex-col w-full rounded-lg h-fit'>
+                    {/* <div className='hola-deposits rounded-tl-lg rounded-tr-lg'></div> */}
+                    <div className='flex flex-col w-full'>
+                        <div className='w-full mx-auto text-center h-fit mb-4 flex flex-col justify-center items-center'>
+                            <label className='mt-[1.9rem] text-[1.2rem] font-semibold mb-2 text-[#323643]' htmlFor="AccNumber">Número de cuenta:</label>
+                            {/* <hr className='separatee__1 mb-3' /> */}
+                            <Cleave className='w-[70%] border-none outline-none px-2' options={{ numericOnly: true }} id="AccNumber" name='AccNumber' onChange={(e) => { setAccNumber(e.target.value) }} value={AccNumber} autoComplete='off' />
+                        </div>
+                        <div className='w-full mx-auto text-center h-fit flex flex-col justify-center items-center'>
+                            <label className='mt-3 text-[1.2rem] font-semibold mb-2 text-[#323643]' htmlFor="Amount">Monto a depositar:</label>
+                            {/* <hr className='separatee__1 mb-3 h-[.2rem]' /> */}
+                            <Cleave className='w-[70%] border-none outline-none px-2' options={{ numeral: true, numeralThousandsGroupStyle: 'thousand' }} id="Amount" name='Amount' onChange={(e) => {
+                                if (e.target.value !== '' && !e.target.value.includes('-')) {
+                                    if (e.target.value.includes(',')) {
+                                        setAmount(parseFloat(e.target.value))
+                                    } else {
+                                        setAmount(parseFloat(e.target.value.replace(/,/g, '')))
+                                    }
+                                }
+                            }} value={Amount} autoComplete='off' />
+                        </div>
+                    </div>
+                    <div className='min-h-[5rem] w-[100%] mt-[2rem]'>
+                        <button type="submit" className='mx-auto block my-auto btn-deposits-employee'>Realizar depósito</button>
+                    </div>
 
-                    <label htmlFor="Amount">Monto a depositar</label>
-                    <hr />
-                    <input type="number" id="Amount" name='Amount' onChange={(e) => { setAmount(e.target.value) }} value={Amount} required />
-
-                    <button type="submit" className='mt-[2rem] mx-[5rem] btn-deposits-employee'>Realizar depósito</button>
                 </form>
             </div>
 
-            <div className='h-[100%] w-[100%] flex items-center'>
-                {toggle &&
-                    <Modal active={active} toggle={toggle} onRequestClose={toggle}>
-                        <ConfirmAction props={formData} setActive={setActive} setSuccess={setSuccess} />
-                    </Modal>
-                }
-            </div>
+            {toggle &&
+                <Modal active={active} toggle={toggle} onRequestClose={toggle}>
+                    <ConfirmAction props={formData} setActive={setActive} setSuccess={setSuccess} toggle={toggle} />
+                </Modal>
+            }
         </div>
     )
 }

@@ -2,7 +2,6 @@ import { Navbar, Footer } from "../../components";
 import "./assets/scss/HelpAccount.scss"
 import { AiOutlineSafety as Empre } from "react-icons/ai";
 import { useTranslation } from "react-i18next";
-const FotoRegister = require.context("./assets/img/register", true);
 export const InfoEmpre = () => {
   const { t } = useTranslation();
   return (
@@ -23,7 +22,7 @@ export const InfoEmpre = () => {
       <p className="">
         <ol>
         <div className="img-register">
-        <img src={FotoRegister("./paso1.png")} alt=""/>
+        <img src={t("imagen.foto")} alt=""/>
         </div>
           <div className="content-info">
             <br/><br/><br/>
@@ -40,7 +39,7 @@ export const InfoEmpre = () => {
           </li>
           </div>
           <div className="img-register">
-        <img src={FotoRegister("./paso2.png")} alt=""/>
+        <img src={t("imagen.foto2")} alt=""/>
         </div>
           <div className="content-info">
           <br/><br/><br/>
@@ -57,7 +56,7 @@ export const InfoEmpre = () => {
           </li>
           </div>
           <div className="img-register">
-        <img src={FotoRegister("./paso3.png")} alt=""/>
+        <img src={t("imagen.foto3")} alt=""/>
         </div>
           <div className="content-info">
           <br/><br/><br/>
@@ -74,7 +73,7 @@ export const InfoEmpre = () => {
           </li>
           </div>
           <div className="img-register">
-        <img src={FotoRegister("./paso4.png")} alt=""/>
+        <img src={t("imagen.foto4")} alt=""/>
         </div>
           <div className="content-info">
           <br/><br/><br/>
@@ -91,7 +90,7 @@ export const InfoEmpre = () => {
           </li>
           </div>
           <div className="img-register">
-        <img src={FotoRegister("./paso5.png")} alt=""/>
+        <img src={t("imagen.foto5")} alt=""/>
         </div>
           <div className="content-info">
           <br/><br/><br/>
